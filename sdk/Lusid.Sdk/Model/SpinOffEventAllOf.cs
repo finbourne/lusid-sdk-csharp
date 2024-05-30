@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// CashDividendEventAllOf
+    /// SpinOffEventAllOf
     /// </summary>
-    [DataContract(Name = "CashDividendEvent_allOf")]
-    public partial class CashDividendEventAllOf : IEquatable<CashDividendEventAllOf>, IValidatableObject
+    [DataContract(Name = "SpinOffEvent_allOf")]
+    public partial class SpinOffEventAllOf : IEquatable<SpinOffEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent
@@ -207,68 +207,107 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CashDividendEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="SpinOffEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CashDividendEventAllOf() { }
+        protected SpinOffEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CashDividendEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="SpinOffEventAllOf" /> class.
         /// </summary>
-        /// <param name="paymentDate">The date the company begins distributing the dividend. (required).</param>
-        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party. (required).</param>
-        /// <param name="cashElections">Possible elections for this event, each keyed with a unique identifier. (required).</param>
-        /// <param name="announcementDate">Date on which the dividend is announced by the company..</param>
-        /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
+        /// <param name="announcementDate">Optional.  The date the spin-off is announced..</param>
+        /// <param name="exDate">The first date on which the holder of record has entitled ownership of the new shares. (required).</param>
+        /// <param name="recordDate">Optional.  Date you have to be the holder of record in order to receive the additional shares..</param>
+        /// <param name="paymentDate">Date on which the distribution of shares takes place. (required).</param>
+        /// <param name="newInstrument">newInstrument (required).</param>
+        /// <param name="unitsRatio">unitsRatio (required).</param>
+        /// <param name="costFactor">Optional. The fraction of cost that is transferred from the existing shares to the new shares..</param>
+        /// <param name="fractionalUnitsCashPrice">Optional. Used in calculating cash-in-lieu of fractional shares..</param>
+        /// <param name="fractionalUnitsCashCurrency">Optional. Used in calculating cash-in-lieu of fractional shares..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent (required).</param>
-        public CashDividendEventAllOf(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset? recordDate = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public SpinOffEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), UnitsRatio unitsRatio = default(UnitsRatio), decimal? costFactor = default(decimal?), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            this.PaymentDate = paymentDate;
             this.ExDate = exDate;
-            // to ensure "cashElections" is required (not null)
-            if (cashElections == null)
+            this.PaymentDate = paymentDate;
+            // to ensure "newInstrument" is required (not null)
+            if (newInstrument == null)
             {
-                throw new ArgumentNullException("cashElections is a required property for CashDividendEventAllOf and cannot be null");
+                throw new ArgumentNullException("newInstrument is a required property for SpinOffEventAllOf and cannot be null");
             }
-            this.CashElections = cashElections;
+            this.NewInstrument = newInstrument;
+            // to ensure "unitsRatio" is required (not null)
+            if (unitsRatio == null)
+            {
+                throw new ArgumentNullException("unitsRatio is a required property for SpinOffEventAllOf and cannot be null");
+            }
+            this.UnitsRatio = unitsRatio;
             this.InstrumentEventType = instrumentEventType;
             this.AnnouncementDate = announcementDate;
             this.RecordDate = recordDate;
+            this.CostFactor = costFactor;
+            this.FractionalUnitsCashPrice = fractionalUnitsCashPrice;
+            this.FractionalUnitsCashCurrency = fractionalUnitsCashCurrency;
         }
 
         /// <summary>
-        /// The date the company begins distributing the dividend.
+        /// Optional.  The date the spin-off is announced.
         /// </summary>
-        /// <value>The date the company begins distributing the dividend.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset PaymentDate { get; set; }
-
-        /// <summary>
-        /// The first business day on which the dividend is not owed to the buying party.
-        /// </summary>
-        /// <value>The first business day on which the dividend is not owed to the buying party.</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset ExDate { get; set; }
-
-        /// <summary>
-        /// Possible elections for this event, each keyed with a unique identifier.
-        /// </summary>
-        /// <value>Possible elections for this event, each keyed with a unique identifier.</value>
-        [DataMember(Name = "cashElections", IsRequired = true, EmitDefaultValue = true)]
-        public List<CashElection> CashElections { get; set; }
-
-        /// <summary>
-        /// Date on which the dividend is announced by the company.
-        /// </summary>
-        /// <value>Date on which the dividend is announced by the company.</value>
+        /// <value>Optional.  The date the spin-off is announced.</value>
         [DataMember(Name = "announcementDate", EmitDefaultValue = true)]
         public DateTimeOffset? AnnouncementDate { get; set; }
 
         /// <summary>
-        /// Date you have to be the holder of record in order to participate in the tender.
+        /// The first date on which the holder of record has entitled ownership of the new shares.
         /// </summary>
-        /// <value>Date you have to be the holder of record in order to participate in the tender.</value>
+        /// <value>The first date on which the holder of record has entitled ownership of the new shares.</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExDate { get; set; }
+
+        /// <summary>
+        /// Optional.  Date you have to be the holder of record in order to receive the additional shares.
+        /// </summary>
+        /// <value>Optional.  Date you have to be the holder of record in order to receive the additional shares.</value>
         [DataMember(Name = "recordDate", EmitDefaultValue = true)]
         public DateTimeOffset? RecordDate { get; set; }
+
+        /// <summary>
+        /// Date on which the distribution of shares takes place.
+        /// </summary>
+        /// <value>Date on which the distribution of shares takes place.</value>
+        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset PaymentDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NewInstrument
+        /// </summary>
+        [DataMember(Name = "newInstrument", IsRequired = true, EmitDefaultValue = true)]
+        public NewInstrument NewInstrument { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UnitsRatio
+        /// </summary>
+        [DataMember(Name = "unitsRatio", IsRequired = true, EmitDefaultValue = true)]
+        public UnitsRatio UnitsRatio { get; set; }
+
+        /// <summary>
+        /// Optional. The fraction of cost that is transferred from the existing shares to the new shares.
+        /// </summary>
+        /// <value>Optional. The fraction of cost that is transferred from the existing shares to the new shares.</value>
+        [DataMember(Name = "costFactor", EmitDefaultValue = true)]
+        public decimal? CostFactor { get; set; }
+
+        /// <summary>
+        /// Optional. Used in calculating cash-in-lieu of fractional shares.
+        /// </summary>
+        /// <value>Optional. Used in calculating cash-in-lieu of fractional shares.</value>
+        [DataMember(Name = "fractionalUnitsCashPrice", EmitDefaultValue = true)]
+        public decimal? FractionalUnitsCashPrice { get; set; }
+
+        /// <summary>
+        /// Optional. Used in calculating cash-in-lieu of fractional shares.
+        /// </summary>
+        /// <value>Optional. Used in calculating cash-in-lieu of fractional shares.</value>
+        [DataMember(Name = "fractionalUnitsCashCurrency", EmitDefaultValue = true)]
+        public string FractionalUnitsCashCurrency { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -277,12 +316,16 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CashDividendEventAllOf {\n");
-            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
-            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
-            sb.Append("  CashElections: ").Append(CashElections).Append("\n");
+            sb.Append("class SpinOffEventAllOf {\n");
             sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
+            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  NewInstrument: ").Append(NewInstrument).Append("\n");
+            sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
+            sb.Append("  CostFactor: ").Append(CostFactor).Append("\n");
+            sb.Append("  FractionalUnitsCashPrice: ").Append(FractionalUnitsCashPrice).Append("\n");
+            sb.Append("  FractionalUnitsCashCurrency: ").Append(FractionalUnitsCashCurrency).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -304,15 +347,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CashDividendEventAllOf);
+            return this.Equals(input as SpinOffEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if CashDividendEventAllOf instances are equal
+        /// Returns true if SpinOffEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of CashDividendEventAllOf to be compared</param>
+        /// <param name="input">Instance of SpinOffEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CashDividendEventAllOf input)
+        public bool Equals(SpinOffEventAllOf input)
         {
             if (input == null)
             {
@@ -320,9 +363,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.PaymentDate == input.PaymentDate ||
-                    (this.PaymentDate != null &&
-                    this.PaymentDate.Equals(input.PaymentDate))
+                    this.AnnouncementDate == input.AnnouncementDate ||
+                    (this.AnnouncementDate != null &&
+                    this.AnnouncementDate.Equals(input.AnnouncementDate))
                 ) && 
                 (
                     this.ExDate == input.ExDate ||
@@ -330,20 +373,39 @@ namespace Lusid.Sdk.Model
                     this.ExDate.Equals(input.ExDate))
                 ) && 
                 (
-                    this.CashElections == input.CashElections ||
-                    this.CashElections != null &&
-                    input.CashElections != null &&
-                    this.CashElections.SequenceEqual(input.CashElections)
-                ) && 
-                (
-                    this.AnnouncementDate == input.AnnouncementDate ||
-                    (this.AnnouncementDate != null &&
-                    this.AnnouncementDate.Equals(input.AnnouncementDate))
-                ) && 
-                (
                     this.RecordDate == input.RecordDate ||
                     (this.RecordDate != null &&
                     this.RecordDate.Equals(input.RecordDate))
+                ) && 
+                (
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
+                ) && 
+                (
+                    this.NewInstrument == input.NewInstrument ||
+                    (this.NewInstrument != null &&
+                    this.NewInstrument.Equals(input.NewInstrument))
+                ) && 
+                (
+                    this.UnitsRatio == input.UnitsRatio ||
+                    (this.UnitsRatio != null &&
+                    this.UnitsRatio.Equals(input.UnitsRatio))
+                ) && 
+                (
+                    this.CostFactor == input.CostFactor ||
+                    (this.CostFactor != null &&
+                    this.CostFactor.Equals(input.CostFactor))
+                ) && 
+                (
+                    this.FractionalUnitsCashPrice == input.FractionalUnitsCashPrice ||
+                    (this.FractionalUnitsCashPrice != null &&
+                    this.FractionalUnitsCashPrice.Equals(input.FractionalUnitsCashPrice))
+                ) && 
+                (
+                    this.FractionalUnitsCashCurrency == input.FractionalUnitsCashCurrency ||
+                    (this.FractionalUnitsCashCurrency != null &&
+                    this.FractionalUnitsCashCurrency.Equals(input.FractionalUnitsCashCurrency))
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -360,25 +422,41 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PaymentDate != null)
+                if (this.AnnouncementDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
                 }
                 if (this.ExDate != null)
                 {
                     hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
                 }
-                if (this.CashElections != null)
-                {
-                    hashCode = (hashCode * 59) + this.CashElections.GetHashCode();
-                }
-                if (this.AnnouncementDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
-                }
                 if (this.RecordDate != null)
                 {
                     hashCode = (hashCode * 59) + this.RecordDate.GetHashCode();
+                }
+                if (this.PaymentDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                }
+                if (this.NewInstrument != null)
+                {
+                    hashCode = (hashCode * 59) + this.NewInstrument.GetHashCode();
+                }
+                if (this.UnitsRatio != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnitsRatio.GetHashCode();
+                }
+                if (this.CostFactor != null)
+                {
+                    hashCode = (hashCode * 59) + this.CostFactor.GetHashCode();
+                }
+                if (this.FractionalUnitsCashPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.FractionalUnitsCashPrice.GetHashCode();
+                }
+                if (this.FractionalUnitsCashCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.FractionalUnitsCashCurrency.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;

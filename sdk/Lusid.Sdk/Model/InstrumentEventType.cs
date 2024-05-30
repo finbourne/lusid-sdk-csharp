@@ -183,7 +183,13 @@ namespace Lusid.Sdk.Model
         /// Enum CapitalDistributionEvent for value: CapitalDistributionEvent
         /// </summary>
         [EnumMember(Value = "CapitalDistributionEvent")]
-        CapitalDistributionEvent = 26
+        CapitalDistributionEvent = 26,
+
+        /// <summary>
+        /// Enum SpinOffEvent for value: SpinOffEvent
+        /// </summary>
+        [EnumMember(Value = "SpinOffEvent")]
+        SpinOffEvent = 27
 
     }
 
