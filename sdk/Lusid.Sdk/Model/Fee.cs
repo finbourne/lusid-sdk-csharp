@@ -56,8 +56,9 @@ namespace Lusid.Sdk.Model
         /// <param name="anchorDate">anchorDate.</param>
         /// <param name="properties">The Fee properties. These will be from the &#39;Fee&#39; domain..</param>
         /// <param name="version">version.</param>
+        /// <param name="portfolioId">portfolioId.</param>
         /// <param name="links">links.</param>
-        public Fee(string href = default(string), string feeCode = default(string), ResourceId feeType = default(ResourceId), string name = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), decimal? monthlyAccrual = default(decimal?), decimal? dailyAccrual = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Fee(string href = default(string), string feeCode = default(string), ResourceId feeType = default(ResourceId), string name = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), decimal? monthlyAccrual = default(decimal?), decimal? dailyAccrual = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), ResourceId portfolioId = default(ResourceId), List<Link> links = default(List<Link>))
         {
             // to ensure "feeType" is required (not null)
             if (feeType == null)
@@ -109,6 +110,7 @@ namespace Lusid.Sdk.Model
             this.AnchorDate = anchorDate;
             this.Properties = properties;
             this._Version = version;
+            this.PortfolioId = portfolioId;
             this.Links = links;
         }
 
@@ -250,6 +252,12 @@ namespace Lusid.Sdk.Model
         public ModelVersion _Version { get; set; }
 
         /// <summary>
+        /// Gets or Sets PortfolioId
+        /// </summary>
+        [DataMember(Name = "portfolioId", EmitDefaultValue = false)]
+        public ResourceId PortfolioId { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -283,6 +291,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AnchorDate: ").Append(AnchorDate).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -421,6 +430,11 @@ namespace Lusid.Sdk.Model
                     this._Version.Equals(input._Version))
                 ) && 
                 (
+                    this.PortfolioId == input.PortfolioId ||
+                    (this.PortfolioId != null &&
+                    this.PortfolioId.Equals(input.PortfolioId))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -516,6 +530,10 @@ namespace Lusid.Sdk.Model
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                }
+                if (this.PortfolioId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
                 }
                 if (this.Links != null)
                 {

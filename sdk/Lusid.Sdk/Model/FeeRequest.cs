@@ -51,7 +51,8 @@ namespace Lusid.Sdk.Model
         /// <param name="endDate">The end date of the Fee..</param>
         /// <param name="anchorDate">anchorDate.</param>
         /// <param name="properties">The Fee properties. These will be from the &#39;Fee&#39; domain..</param>
-        public FeeRequest(ResourceId feeType = default(ResourceId), string name = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset? endDate = default(DateTimeOffset?), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        /// <param name="portfolioId">portfolioId.</param>
+        public FeeRequest(ResourceId feeType = default(ResourceId), string name = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset? endDate = default(DateTimeOffset?), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ResourceId portfolioId = default(ResourceId))
         {
             // to ensure "feeType" is required (not null)
             if (feeType == null)
@@ -98,6 +99,7 @@ namespace Lusid.Sdk.Model
             this.EndDate = endDate;
             this.AnchorDate = anchorDate;
             this.Properties = properties;
+            this.PortfolioId = portfolioId;
         }
 
         /// <summary>
@@ -204,6 +206,12 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
+        /// Gets or Sets PortfolioId
+        /// </summary>
+        [DataMember(Name = "portfolioId", EmitDefaultValue = false)]
+        public ResourceId PortfolioId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -226,6 +234,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  AnchorDate: ").Append(AnchorDate).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -336,6 +345,11 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.PortfolioId == input.PortfolioId ||
+                    (this.PortfolioId != null &&
+                    this.PortfolioId.Equals(input.PortfolioId))
                 );
         }
 
@@ -407,6 +421,10 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this.PortfolioId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
                 }
                 return hashCode;
             }

@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **EndDate** | **DateTimeOffset?** | The end date of the Fee. | [optional] 
 **AnchorDate** | [**DayMonth**](DayMonth.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The Fee properties. These will be from the &#39;Fee&#39; domain. | [optional] 
+**PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
