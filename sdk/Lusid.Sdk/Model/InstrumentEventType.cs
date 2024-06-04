@@ -189,7 +189,13 @@ namespace Lusid.Sdk.Model
         /// Enum SpinOffEvent for value: SpinOffEvent
         /// </summary>
         [EnumMember(Value = "SpinOffEvent")]
-        SpinOffEvent = 27
+        SpinOffEvent = 27,
+
+        /// <summary>
+        /// Enum MergerEvent for value: MergerEvent
+        /// </summary>
+        [EnumMember(Value = "MergerEvent")]
+        MergerEvent = 28
 
     }
 
