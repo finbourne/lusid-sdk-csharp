@@ -71,10 +71,16 @@ namespace Lusid.Sdk.Model
         FxLinkedNotionalSchedule = 7,
 
         /// <summary>
+        /// Enum BondConversionSchedule for value: BondConversionSchedule
+        /// </summary>
+        [EnumMember(Value = "BondConversionSchedule")]
+        BondConversionSchedule = 8,
+
+        /// <summary>
         /// Enum Invalid for value: Invalid
         /// </summary>
         [EnumMember(Value = "Invalid")]
-        Invalid = 8
+        Invalid = 9
 
     }
 

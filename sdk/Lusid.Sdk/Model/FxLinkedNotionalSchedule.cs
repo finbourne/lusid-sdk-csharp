@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="varyingNotionalCurrency">The currency of the varying notional amount. (required).</param>
         /// <param name="varyingNotionalFixingDates">varyingNotionalFixingDates (required).</param>
         /// <param name="varyingNotionalInterimExchangePaymentDates">varyingNotionalInterimExchangePaymentDates.</param>
-        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid (required) (default to &quot;FxLinkedNotionalSchedule&quot;).</param>
+        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid (required) (default to &quot;FxLinkedNotionalSchedule&quot;).</param>
         public FxLinkedNotionalSchedule(FxConventions fxConventions = default(FxConventions), string varyingNotionalCurrency = default(string), RelativeDateOffset varyingNotionalFixingDates = default(RelativeDateOffset), RelativeDateOffset varyingNotionalInterimExchangePaymentDates = default(RelativeDateOffset), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             // to ensure "fxConventions" is required (not null)

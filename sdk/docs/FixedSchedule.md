@@ -5,7 +5,7 @@ Schedule for fixed coupon payments
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScheduleType** | **string** | The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid | 
+**ScheduleType** | **string** | The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid | 
 **StartDate** | **DateTimeOffset** | Date to start generate from | 
 **MaturityDate** | **DateTimeOffset** | Date to generate to | 
 **FlowConventions** | [**FlowConventions**](FlowConventions.md) |  | [optional] 

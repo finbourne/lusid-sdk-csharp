@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class FloatScheduleAllOf : IEquatable<FloatScheduleAllOf>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid
+        /// The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid
         /// </summary>
-        /// <value>The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid</value>
+        /// <value>The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ScheduleTypeEnum
         {
@@ -78,18 +78,24 @@ namespace Lusid.Sdk.Model
             FxLinkedNotionalSchedule = 7,
 
             /// <summary>
+            /// Enum BondConversionSchedule for value: BondConversionSchedule
+            /// </summary>
+            [EnumMember(Value = "BondConversionSchedule")]
+            BondConversionSchedule = 8,
+
+            /// <summary>
             /// Enum Invalid for value: Invalid
             /// </summary>
             [EnumMember(Value = "Invalid")]
-            Invalid = 8
+            Invalid = 9
 
         }
 
 
         /// <summary>
-        /// The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid
+        /// The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid
         /// </summary>
-        /// <value>The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid</value>
+        /// <value>The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid</value>
         [DataMember(Name = "scheduleType", IsRequired = true, EmitDefaultValue = true)]
         public ScheduleTypeEnum ScheduleType { get; set; }
         /// <summary>
@@ -114,7 +120,7 @@ namespace Lusid.Sdk.Model
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
         /// <param name="compounding">compounding.</param>
         /// <param name="resetConvention">Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears]..</param>
-        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid (required).</param>
+        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid (required).</param>
         public FloatScheduleAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), FlowConventionName indexConventionName = default(FlowConventionName), IndexConvention indexConventions = default(IndexConvention), decimal notional = default(decimal), string paymentCurrency = default(string), decimal spread = default(decimal), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), Compounding compounding = default(Compounding), string resetConvention = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum))
         {
             // to ensure "paymentCurrency" is required (not null)

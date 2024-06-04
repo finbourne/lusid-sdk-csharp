@@ -5,7 +5,7 @@ Schedule to define fx conversion of cashflows on complex bonds. If an fx schedul
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScheduleType** | **string** | The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid | 
+**ScheduleType** | **string** | The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid | 
 **FlowConventions** | [**FlowConventions**](FlowConventions.md) |  | [optional] 
 **FxConversionTypes** | **List&lt;string&gt;** | List of flags to indicate if coupon payments, principal payments or both are converted | [optional] 
 **Rate** | **decimal** | FxRate used to convert payments. Assumed to be in units of the ToCurrency so conversion is paymentAmount x fxRate | [optional] 
