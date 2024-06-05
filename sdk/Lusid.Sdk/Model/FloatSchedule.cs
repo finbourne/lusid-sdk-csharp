@@ -52,8 +52,9 @@ namespace Lusid.Sdk.Model
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
         /// <param name="compounding">compounding.</param>
         /// <param name="resetConvention">Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears]..</param>
+        /// <param name="useAnnualisedDirectRates">Flag indicating whether to use daily updated annualised interest  rates for calculating the accrued interest. Defaults to false..</param>
         /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid (required) (default to &quot;FloatSchedule&quot;).</param>
-        public FloatSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), FlowConventionName indexConventionName = default(FlowConventionName), IndexConvention indexConventions = default(IndexConvention), decimal notional = default(decimal), string paymentCurrency = default(string), decimal spread = default(decimal), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), Compounding compounding = default(Compounding), string resetConvention = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
+        public FloatSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), FlowConventionName indexConventionName = default(FlowConventionName), IndexConvention indexConventions = default(IndexConvention), decimal notional = default(decimal), string paymentCurrency = default(string), decimal spread = default(decimal), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), Compounding compounding = default(Compounding), string resetConvention = default(string), bool useAnnualisedDirectRates = default(bool), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             // to ensure "paymentCurrency" is required (not null)
             if (paymentCurrency == null)
@@ -74,6 +75,7 @@ namespace Lusid.Sdk.Model
             this.ExDividendConfiguration = exDividendConfiguration;
             this.Compounding = compounding;
             this.ResetConvention = resetConvention;
+            this.UseAnnualisedDirectRates = useAnnualisedDirectRates;
         }
 
         /// <summary>
@@ -169,6 +171,13 @@ namespace Lusid.Sdk.Model
         public string ResetConvention { get; set; }
 
         /// <summary>
+        /// Flag indicating whether to use daily updated annualised interest  rates for calculating the accrued interest. Defaults to false.
+        /// </summary>
+        /// <value>Flag indicating whether to use daily updated annualised interest  rates for calculating the accrued interest. Defaults to false.</value>
+        [DataMember(Name = "useAnnualisedDirectRates", EmitDefaultValue = true)]
+        public bool UseAnnualisedDirectRates { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -191,6 +200,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ExDividendConfiguration: ").Append(ExDividendConfiguration).Append("\n");
             sb.Append("  Compounding: ").Append(Compounding).Append("\n");
             sb.Append("  ResetConvention: ").Append(ResetConvention).Append("\n");
+            sb.Append("  UseAnnualisedDirectRates: ").Append(UseAnnualisedDirectRates).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -293,6 +303,10 @@ namespace Lusid.Sdk.Model
                     this.ResetConvention == input.ResetConvention ||
                     (this.ResetConvention != null &&
                     this.ResetConvention.Equals(input.ResetConvention))
+                ) && base.Equals(input) && 
+                (
+                    this.UseAnnualisedDirectRates == input.UseAnnualisedDirectRates ||
+                    this.UseAnnualisedDirectRates.Equals(input.UseAnnualisedDirectRates)
                 );
         }
 
@@ -355,6 +369,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ResetConvention.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.UseAnnualisedDirectRates.GetHashCode();
                 return hashCode;
             }
         }

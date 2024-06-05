@@ -43,10 +43,10 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentType">instrumentType (required).</param>
         /// <param name="instrumentEventType">instrumentEventType (required).</param>
         /// <param name="instrumentEventId">instrumentEventId (required).</param>
-        /// <param name="generatedEvent">generatedEvent (required).</param>
-        /// <param name="loadedEvent">loadedEvent (required).</param>
+        /// <param name="generatedEvent">generatedEvent.</param>
+        /// <param name="loadedEvent">loadedEvent.</param>
         /// <param name="appliedInstrumentEventInstructionId">appliedInstrumentEventInstructionId (required).</param>
-        /// <param name="transactions">transactions (required).</param>
+        /// <param name="transactions">transactions.</param>
         public ApplicableInstrumentEvent(ResourceId portfolioId = default(ResourceId), long holdingId = default(long), string lusidInstrumentId = default(string), string instrumentScope = default(string), string instrumentType = default(string), string instrumentEventType = default(string), string instrumentEventId = default(string), InstrumentEventHolder generatedEvent = default(InstrumentEventHolder), InstrumentEventHolder loadedEvent = default(InstrumentEventHolder), string appliedInstrumentEventInstructionId = default(string), List<Transaction> transactions = default(List<Transaction>))
         {
             // to ensure "portfolioId" is required (not null)
@@ -86,29 +86,14 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instrumentEventId is a required property for ApplicableInstrumentEvent and cannot be null");
             }
             this.InstrumentEventId = instrumentEventId;
-            // to ensure "generatedEvent" is required (not null)
-            if (generatedEvent == null)
-            {
-                throw new ArgumentNullException("generatedEvent is a required property for ApplicableInstrumentEvent and cannot be null");
-            }
-            this.GeneratedEvent = generatedEvent;
-            // to ensure "loadedEvent" is required (not null)
-            if (loadedEvent == null)
-            {
-                throw new ArgumentNullException("loadedEvent is a required property for ApplicableInstrumentEvent and cannot be null");
-            }
-            this.LoadedEvent = loadedEvent;
             // to ensure "appliedInstrumentEventInstructionId" is required (not null)
             if (appliedInstrumentEventInstructionId == null)
             {
                 throw new ArgumentNullException("appliedInstrumentEventInstructionId is a required property for ApplicableInstrumentEvent and cannot be null");
             }
             this.AppliedInstrumentEventInstructionId = appliedInstrumentEventInstructionId;
-            // to ensure "transactions" is required (not null)
-            if (transactions == null)
-            {
-                throw new ArgumentNullException("transactions is a required property for ApplicableInstrumentEvent and cannot be null");
-            }
+            this.GeneratedEvent = generatedEvent;
+            this.LoadedEvent = loadedEvent;
             this.Transactions = transactions;
         }
 
@@ -157,13 +142,13 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets GeneratedEvent
         /// </summary>
-        [DataMember(Name = "generatedEvent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "generatedEvent", EmitDefaultValue = false)]
         public InstrumentEventHolder GeneratedEvent { get; set; }
 
         /// <summary>
         /// Gets or Sets LoadedEvent
         /// </summary>
-        [DataMember(Name = "loadedEvent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "loadedEvent", EmitDefaultValue = false)]
         public InstrumentEventHolder LoadedEvent { get; set; }
 
         /// <summary>
@@ -175,7 +160,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Transactions
         /// </summary>
-        [DataMember(Name = "transactions", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "transactions", EmitDefaultValue = true)]
         public List<Transaction> Transactions { get; set; }
 
         /// <summary>
