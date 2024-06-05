@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state.</param>
+        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ValuationPointDataResponse</returns>
         ValuationPointDataResponse AcceptEstimatePoint(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0);
@@ -52,7 +52,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state.</param>
+        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ValuationPointDataResponse</returns>
         ApiResponse<ValuationPointDataResponse> AcceptEstimatePointWithHttpInfo(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0);
@@ -511,7 +511,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state.</param>
+        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ValuationPointDataResponse</returns>
@@ -526,7 +526,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state.</param>
+        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ValuationPointDataResponse)</returns>
@@ -1121,7 +1121,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state.</param>
+        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ValuationPointDataResponse</returns>
         public ValuationPointDataResponse AcceptEstimatePoint(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0)
@@ -1136,7 +1136,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state.</param>
+        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ValuationPointDataResponse</returns>
         public Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> AcceptEstimatePointWithHttpInfo(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0)
@@ -1231,7 +1231,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state.</param>
+        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ValuationPointDataResponse</returns>
@@ -1247,7 +1247,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state.</param>
+        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ValuationPointDataResponse)</returns>

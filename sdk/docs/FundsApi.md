@@ -51,7 +51,7 @@ namespace Example
             var apiInstance = new FundsApi(config);
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
-            var valuationPointDataRequest = new ValuationPointDataRequest(); // ValuationPointDataRequest | The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state.
+            var valuationPointDataRequest = new ValuationPointDataRequest(); // ValuationPointDataRequest | The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.
 
             try
             {
@@ -96,7 +96,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
-| **valuationPointDataRequest** | [**ValuationPointDataRequest**](ValuationPointDataRequest.md) | The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Final state. |  |
+| **valuationPointDataRequest** | [**ValuationPointDataRequest**](ValuationPointDataRequest.md) | The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state. |  |
 
 ### Return type
 
