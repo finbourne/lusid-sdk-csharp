@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**EffectiveAt** | **DateTimeOffset** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **CalculationBase** | **decimal** |  | [optional] 
 **Amount** | **decimal** |  | [optional] 

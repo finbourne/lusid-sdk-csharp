@@ -31,17 +31,25 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FeeAccrual" /> class.
         /// </summary>
+        /// <param name="effectiveAt">effectiveAt.</param>
         /// <param name="name">name.</param>
         /// <param name="calculationBase">calculationBase.</param>
         /// <param name="amount">amount.</param>
         /// <param name="previousAccrual">previousAccrual.</param>
-        public FeeAccrual(string name = default(string), decimal calculationBase = default(decimal), decimal amount = default(decimal), decimal previousAccrual = default(decimal))
+        public FeeAccrual(DateTimeOffset effectiveAt = default(DateTimeOffset), string name = default(string), decimal calculationBase = default(decimal), decimal amount = default(decimal), decimal previousAccrual = default(decimal))
         {
+            this.EffectiveAt = effectiveAt;
             this.Name = name;
             this.CalculationBase = calculationBase;
             this.Amount = amount;
             this.PreviousAccrual = previousAccrual;
         }
+
+        /// <summary>
+        /// Gets or Sets EffectiveAt
+        /// </summary>
+        [DataMember(Name = "effectiveAt", EmitDefaultValue = false)]
+        public DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -89,6 +97,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class FeeAccrual {\n");
+            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  CalculationBase: ").Append(CalculationBase).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
@@ -130,6 +139,11 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.EffectiveAt == input.EffectiveAt ||
+                    (this.EffectiveAt != null &&
+                    this.EffectiveAt.Equals(input.EffectiveAt))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -161,6 +175,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.EffectiveAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
+                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();

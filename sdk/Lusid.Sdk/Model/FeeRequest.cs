@@ -40,11 +40,11 @@ namespace Lusid.Sdk.Model
         /// <param name="name">The name of the Fee. (required).</param>
         /// <param name="description">A description for the Fee..</param>
         /// <param name="origin">The origin or source of the Fee accrual..</param>
-        /// <param name="calculationBase">The calculation base for the Fee that is calculated using a percentage..</param>
+        /// <param name="calculationBase">The calculation base for the Fee that is calculated using a percentage. (TotalAnnualAccrualAmount and CalculationBase cannot both be present).</param>
         /// <param name="accrualCurrency">The accrual currency. (required).</param>
         /// <param name="treatment">The accrual period of the Fee; &#39;Monthly&#39; or &#39;Daily&#39;. (required).</param>
-        /// <param name="totalAnnualAccrualAmount">The total accrued amount for the Fee..</param>
-        /// <param name="feeRatePercentage">The fee rate percentage..</param>
+        /// <param name="totalAnnualAccrualAmount">The total annual accrued amount for the Fee. (TotalAnnualAccrualAmount and CalculationBase cannot both be present).</param>
+        /// <param name="feeRatePercentage">The fee rate percentage. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount).</param>
         /// <param name="payableFrequency">The payable frequency for the Fee; &#39;Annually&#39;, &#39;Quarterly&#39; or &#39;Monthly&#39;. (required).</param>
         /// <param name="businessDayConvention">The business day convention to use for Fee calculations on weekends. (required).</param>
         /// <param name="startDate">The start date of the Fee. (required).</param>
@@ -130,9 +130,9 @@ namespace Lusid.Sdk.Model
         public string Origin { get; set; }
 
         /// <summary>
-        /// The calculation base for the Fee that is calculated using a percentage.
+        /// The calculation base for the Fee that is calculated using a percentage. (TotalAnnualAccrualAmount and CalculationBase cannot both be present)
         /// </summary>
-        /// <value>The calculation base for the Fee that is calculated using a percentage.</value>
+        /// <value>The calculation base for the Fee that is calculated using a percentage. (TotalAnnualAccrualAmount and CalculationBase cannot both be present)</value>
         [DataMember(Name = "calculationBase", EmitDefaultValue = true)]
         public string CalculationBase { get; set; }
 
@@ -151,16 +151,16 @@ namespace Lusid.Sdk.Model
         public string Treatment { get; set; }
 
         /// <summary>
-        /// The total accrued amount for the Fee.
+        /// The total annual accrued amount for the Fee. (TotalAnnualAccrualAmount and CalculationBase cannot both be present)
         /// </summary>
-        /// <value>The total accrued amount for the Fee.</value>
+        /// <value>The total annual accrued amount for the Fee. (TotalAnnualAccrualAmount and CalculationBase cannot both be present)</value>
         [DataMember(Name = "totalAnnualAccrualAmount", EmitDefaultValue = true)]
         public decimal? TotalAnnualAccrualAmount { get; set; }
 
         /// <summary>
-        /// The fee rate percentage.
+        /// The fee rate percentage. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount)
         /// </summary>
-        /// <value>The fee rate percentage.</value>
+        /// <value>The fee rate percentage. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount)</value>
         [DataMember(Name = "feeRatePercentage", EmitDefaultValue = true)]
         public decimal? FeeRatePercentage { get; set; }
 
