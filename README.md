@@ -18,7 +18,7 @@ To find out which category an API endpoint falls into, see [LUSID API Documentat
 
 ## Documentation
 
-For documentation on building the SDK, running the tutorials and using the SDK please see the [wiki](https://github.com/finbourne/lusid-sdk-csharp/wiki).
+For documentation on building the SDK, [Getting Started](https://github.com/finbourne/lusid-sdk-csharp/wiki/API-Credentials#for-example-to-authenticate-using-the-secretsjson) and using the SDK please see the [wiki](https://github.com/finbourne/lusid-sdk-csharp/wiki).
 
 Documentation for namespaces, interfaces, classes, functions and other members of the 
 SDK is [available to view online](https://lusid-sdk-csharp.readthedocs.io/en/latest/).
