@@ -26,5 +26,4 @@ SDK is [available to view online](https://lusid-sdk-csharp.readthedocs.io/en/lat
 ## Build Status 
 
 ![Nuget](https://img.shields.io/nuget/v/Lusid.Sdk?color=blue)
-
-![run-sdk-tests](https://github.com/finbourne/lusid-sdk-csharp/workflows/run-sdk-tests/badge.svg?branch=main)
+[![Daily build](https://github.com/finbourne/lusid-sdk-csharp/actions/workflows/cron.yaml/badge.svg)](https://github.com/finbourne/lusid-sdk-csharp/actions/workflows/cron.yaml)
