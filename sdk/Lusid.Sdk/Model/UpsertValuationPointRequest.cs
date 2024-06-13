@@ -31,16 +31,26 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpsertValuationPointRequest" /> class.
         /// </summary>
-        /// <param name="diaryEntryCode">Unique code for the Valuation Point..</param>
+        [JsonConstructorAttribute]
+        protected UpsertValuationPointRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpsertValuationPointRequest" /> class.
+        /// </summary>
+        /// <param name="diaryEntryCode">Unique code for the Valuation Point. (required).</param>
         /// <param name="name">Identifiable Name assigned to the Valuation Point..</param>
-        /// <param name="effectiveAt">The effective time of the diary entry..</param>
+        /// <param name="effectiveAt">The effective time of the diary entry. (required).</param>
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
-        public UpsertValuationPointRequest(string diaryEntryCode = default(string), string name = default(string), DateTimeOffset? effectiveAt = default(DateTimeOffset?), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public UpsertValuationPointRequest(string diaryEntryCode = default(string), string name = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
+            // to ensure "diaryEntryCode" is required (not null)
+            if (diaryEntryCode == null)
+            {
+                throw new ArgumentNullException("diaryEntryCode is a required property for UpsertValuationPointRequest and cannot be null");
+            }
             this.DiaryEntryCode = diaryEntryCode;
-            this.Name = name;
             this.EffectiveAt = effectiveAt;
+            this.Name = name;
             this.QueryAsAt = queryAsAt;
             this.Properties = properties;
         }
@@ -49,7 +59,7 @@ namespace Lusid.Sdk.Model
         /// Unique code for the Valuation Point.
         /// </summary>
         /// <value>Unique code for the Valuation Point.</value>
-        [DataMember(Name = "diaryEntryCode", EmitDefaultValue = true)]
+        [DataMember(Name = "diaryEntryCode", IsRequired = true, EmitDefaultValue = true)]
         public string DiaryEntryCode { get; set; }
 
         /// <summary>
@@ -63,8 +73,8 @@ namespace Lusid.Sdk.Model
         /// The effective time of the diary entry.
         /// </summary>
         /// <value>The effective time of the diary entry.</value>
-        [DataMember(Name = "effectiveAt", EmitDefaultValue = true)]
-        public DateTimeOffset? EffectiveAt { get; set; }
+        [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
         /// The query time of the diary entry. Defaults to latest.

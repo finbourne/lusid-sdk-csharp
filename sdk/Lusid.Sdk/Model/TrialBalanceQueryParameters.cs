@@ -33,7 +33,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="start">start.</param>
         /// <param name="end">end.</param>
-        /// <param name="dateMode">The mode of calculation of the trial balance. The available values are: ActivityDate..</param>
+        /// <param name="dateMode">The mode of calculation of the trial balance. The available values are: ActivityDate, AccountingDate..</param>
         /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate trial balance with levels..</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the trial balance..</param>
         /// <param name="excludeCleardownModule">By deafult this flag is set to false, if this is set to true, no cleardown module will be applied to the trial balance..</param>
@@ -60,9 +60,9 @@ namespace Lusid.Sdk.Model
         public DateOrDiaryEntry End { get; set; }
 
         /// <summary>
-        /// The mode of calculation of the trial balance. The available values are: ActivityDate.
+        /// The mode of calculation of the trial balance. The available values are: ActivityDate, AccountingDate.
         /// </summary>
-        /// <value>The mode of calculation of the trial balance. The available values are: ActivityDate.</value>
+        /// <value>The mode of calculation of the trial balance. The available values are: ActivityDate, AccountingDate.</value>
         [DataMember(Name = "dateMode", EmitDefaultValue = true)]
         public string DateMode { get; set; }
 

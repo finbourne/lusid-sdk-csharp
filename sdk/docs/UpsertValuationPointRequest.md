@@ -5,9 +5,9 @@ A definition for the period you wish to close
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DiaryEntryCode** | **string** | Unique code for the Valuation Point. | [optional] 
+**DiaryEntryCode** | **string** | Unique code for the Valuation Point. | 
 **Name** | **string** | Identifiable Name assigned to the Valuation Point. | [optional] 
-**EffectiveAt** | **DateTimeOffset?** | The effective time of the diary entry. | [optional] 
+**EffectiveAt** | **DateTimeOffset** | The effective time of the diary entry. | 
 **QueryAsAt** | **DateTimeOffset?** | The query time of the diary entry. Defaults to latest. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the diary entry. | [optional] 
 

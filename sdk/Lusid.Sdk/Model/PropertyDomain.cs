@@ -234,46 +234,52 @@ namespace Lusid.Sdk.Model
         Fund = 34,
 
         /// <summary>
+        /// Enum FundConfiguration for value: FundConfiguration
+        /// </summary>
+        [EnumMember(Value = "FundConfiguration")]
+        FundConfiguration = 35,
+
+        /// <summary>
         /// Enum Fee for value: Fee
         /// </summary>
         [EnumMember(Value = "Fee")]
-        Fee = 35,
+        Fee = 36,
 
         /// <summary>
         /// Enum Reconciliation for value: Reconciliation
         /// </summary>
         [EnumMember(Value = "Reconciliation")]
-        Reconciliation = 36,
+        Reconciliation = 37,
 
         /// <summary>
         /// Enum PropertyDefinition for value: PropertyDefinition
         /// </summary>
         [EnumMember(Value = "PropertyDefinition")]
-        PropertyDefinition = 37,
+        PropertyDefinition = 38,
 
         /// <summary>
         /// Enum Compliance for value: Compliance
         /// </summary>
         [EnumMember(Value = "Compliance")]
-        Compliance = 38,
+        Compliance = 39,
 
         /// <summary>
         /// Enum DiaryEntry for value: DiaryEntry
         /// </summary>
         [EnumMember(Value = "DiaryEntry")]
-        DiaryEntry = 39,
+        DiaryEntry = 40,
 
         /// <summary>
         /// Enum Leg for value: Leg
         /// </summary>
         [EnumMember(Value = "Leg")]
-        Leg = 40,
+        Leg = 41,
 
         /// <summary>
         /// Enum DerivedValuation for value: DerivedValuation
         /// </summary>
         [EnumMember(Value = "DerivedValuation")]
-        DerivedValuation = 41
+        DerivedValuation = 42
 
     }
 

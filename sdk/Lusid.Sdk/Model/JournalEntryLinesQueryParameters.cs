@@ -33,7 +33,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="start">start.</param>
         /// <param name="end">end.</param>
-        /// <param name="dateMode">The mode of calculation of the journal entry lines. The available values are: ActivityDate..</param>
+        /// <param name="dateMode">The mode of calculation of the journal entry lines. The available values are: ActivityDate, AccountingDate..</param>
         /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels..</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the journal entry lines..</param>
         public JournalEntryLinesQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry), string dateMode = default(string), string generalLedgerProfileCode = default(string), List<string> propertyKeys = default(List<string>))
@@ -58,9 +58,9 @@ namespace Lusid.Sdk.Model
         public DateOrDiaryEntry End { get; set; }
 
         /// <summary>
-        /// The mode of calculation of the journal entry lines. The available values are: ActivityDate.
+        /// The mode of calculation of the journal entry lines. The available values are: ActivityDate, AccountingDate.
         /// </summary>
-        /// <value>The mode of calculation of the journal entry lines. The available values are: ActivityDate.</value>
+        /// <value>The mode of calculation of the journal entry lines. The available values are: ActivityDate, AccountingDate.</value>
         [DataMember(Name = "dateMode", EmitDefaultValue = true)]
         public string DateMode { get; set; }
 
