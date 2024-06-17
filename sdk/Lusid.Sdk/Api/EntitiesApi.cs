@@ -39,9 +39,10 @@ namespace Lusid.Sdk.Api
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PortfolioEntity</returns>
-        PortfolioEntity GetPortfolioByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        PortfolioEntity GetPortfolioByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
@@ -53,9 +54,10 @@ namespace Lusid.Sdk.Api
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PortfolioEntity</returns>
-        ApiResponse<PortfolioEntity> GetPortfolioByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<PortfolioEntity> GetPortfolioByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0);
         /// <summary>
         /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
         /// </summary>
@@ -102,10 +104,11 @@ namespace Lusid.Sdk.Api
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PortfolioEntity</returns>
-        System.Threading.Tasks.Task<PortfolioEntity> GetPortfolioByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PortfolioEntity> GetPortfolioByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
@@ -117,10 +120,11 @@ namespace Lusid.Sdk.Api
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PortfolioEntity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PortfolioEntity>> GetPortfolioByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PortfolioEntity>> GetPortfolioByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
         /// </summary>
@@ -274,11 +278,12 @@ namespace Lusid.Sdk.Api
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PortfolioEntity</returns>
-        public PortfolioEntity GetPortfolioByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public PortfolioEntity GetPortfolioByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<PortfolioEntity> localVarResponse = GetPortfolioByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt);
+            Lusid.Sdk.Client.ApiResponse<PortfolioEntity> localVarResponse = GetPortfolioByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews);
             return localVarResponse.Data;
         }
 
@@ -289,9 +294,10 @@ namespace Lusid.Sdk.Api
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PortfolioEntity</returns>
-        public Lusid.Sdk.Client.ApiResponse<PortfolioEntity> GetPortfolioByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PortfolioEntity> GetPortfolioByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0)
         {
             // verify the required parameter 'entityUniqueId' is set
             if (entityUniqueId == null)
@@ -331,6 +337,10 @@ namespace Lusid.Sdk.Api
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (previews != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "previews", previews));
             }
 
             localVarRequestOptions.Operation = "EntitiesApi.GetPortfolioByEntityUniqueId";
@@ -374,12 +384,13 @@ namespace Lusid.Sdk.Api
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PortfolioEntity</returns>
-        public async System.Threading.Tasks.Task<PortfolioEntity> GetPortfolioByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PortfolioEntity> GetPortfolioByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<PortfolioEntity> localVarResponse = await GetPortfolioByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, effectiveAt, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PortfolioEntity> localVarResponse = await GetPortfolioByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, effectiveAt, asAt, previews, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -390,10 +401,11 @@ namespace Lusid.Sdk.Api
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
+        /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PortfolioEntity)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioEntity>> GetPortfolioByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioEntity>> GetPortfolioByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'entityUniqueId' is set
             if (entityUniqueId == null)
@@ -434,6 +446,10 @@ namespace Lusid.Sdk.Api
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (previews != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "previews", previews));
             }
 
             localVarRequestOptions.Operation = "EntitiesApi.GetPortfolioByEntityUniqueId";

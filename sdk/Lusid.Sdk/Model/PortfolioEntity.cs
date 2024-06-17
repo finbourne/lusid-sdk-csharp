@@ -46,8 +46,10 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveAtCreated">The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt..</param>
         /// <param name="prevailingPortfolio">prevailingPortfolio.</param>
         /// <param name="deletedPortfolio">deletedPortfolio.</param>
+        /// <param name="previewedStatus">The status of the previewed entity..</param>
+        /// <param name="previewedPortfolio">previewedPortfolio.</param>
         /// <param name="links">links.</param>
-        public PortfolioEntity(string href = default(string), string entityUniqueId = default(string), int? asAtVersionNumber = default(int?), string status = default(string), DateTimeOffset? asAtDeleted = default(DateTimeOffset?), string userIdDeleted = default(string), string requestIdDeleted = default(string), DateTimeOffset? effectiveAtCreated = default(DateTimeOffset?), PortfolioWithoutHref prevailingPortfolio = default(PortfolioWithoutHref), PortfolioWithoutHref deletedPortfolio = default(PortfolioWithoutHref), List<Link> links = default(List<Link>))
+        public PortfolioEntity(string href = default(string), string entityUniqueId = default(string), int? asAtVersionNumber = default(int?), string status = default(string), DateTimeOffset? asAtDeleted = default(DateTimeOffset?), string userIdDeleted = default(string), string requestIdDeleted = default(string), DateTimeOffset? effectiveAtCreated = default(DateTimeOffset?), PortfolioWithoutHref prevailingPortfolio = default(PortfolioWithoutHref), PortfolioWithoutHref deletedPortfolio = default(PortfolioWithoutHref), string previewedStatus = default(string), PortfolioWithoutHref previewedPortfolio = default(PortfolioWithoutHref), List<Link> links = default(List<Link>))
         {
             // to ensure "href" is required (not null)
             if (href == null)
@@ -74,6 +76,8 @@ namespace Lusid.Sdk.Model
             this.EffectiveAtCreated = effectiveAtCreated;
             this.PrevailingPortfolio = prevailingPortfolio;
             this.DeletedPortfolio = deletedPortfolio;
+            this.PreviewedStatus = previewedStatus;
+            this.PreviewedPortfolio = previewedPortfolio;
             this.Links = links;
         }
 
@@ -146,6 +150,19 @@ namespace Lusid.Sdk.Model
         public PortfolioWithoutHref DeletedPortfolio { get; set; }
 
         /// <summary>
+        /// The status of the previewed entity.
+        /// </summary>
+        /// <value>The status of the previewed entity.</value>
+        [DataMember(Name = "previewedStatus", EmitDefaultValue = true)]
+        public string PreviewedStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PreviewedPortfolio
+        /// </summary>
+        [DataMember(Name = "previewedPortfolio", EmitDefaultValue = false)]
+        public PortfolioWithoutHref PreviewedPortfolio { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -169,6 +186,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveAtCreated: ").Append(EffectiveAtCreated).Append("\n");
             sb.Append("  PrevailingPortfolio: ").Append(PrevailingPortfolio).Append("\n");
             sb.Append("  DeletedPortfolio: ").Append(DeletedPortfolio).Append("\n");
+            sb.Append("  PreviewedStatus: ").Append(PreviewedStatus).Append("\n");
+            sb.Append("  PreviewedPortfolio: ").Append(PreviewedPortfolio).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -256,6 +275,16 @@ namespace Lusid.Sdk.Model
                     this.DeletedPortfolio.Equals(input.DeletedPortfolio))
                 ) && 
                 (
+                    this.PreviewedStatus == input.PreviewedStatus ||
+                    (this.PreviewedStatus != null &&
+                    this.PreviewedStatus.Equals(input.PreviewedStatus))
+                ) && 
+                (
+                    this.PreviewedPortfolio == input.PreviewedPortfolio ||
+                    (this.PreviewedPortfolio != null &&
+                    this.PreviewedPortfolio.Equals(input.PreviewedPortfolio))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -311,6 +340,14 @@ namespace Lusid.Sdk.Model
                 if (this.DeletedPortfolio != null)
                 {
                     hashCode = (hashCode * 59) + this.DeletedPortfolio.GetHashCode();
+                }
+                if (this.PreviewedStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviewedStatus.GetHashCode();
+                }
+                if (this.PreviewedPortfolio != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviewedPortfolio.GetHashCode();
                 }
                 if (this.Links != null)
                 {

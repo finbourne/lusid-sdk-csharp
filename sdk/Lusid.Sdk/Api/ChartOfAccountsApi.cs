@@ -669,6 +669,64 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleResponse</returns>
         ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
         /// <summary>
+        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
+        /// </summary>
+        /// <remarks>
+        /// Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>CleardownModuleResponse</returns>
+        CleardownModuleResponse PatchCleardownModule(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
+        /// </summary>
+        /// <remarks>
+        /// Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of CleardownModuleResponse</returns>
+        ApiResponse<CleardownModuleResponse> PatchCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PostingModuleResponse</returns>
+        PostingModuleResponse PatchPostingModule(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PostingModuleResponse</returns>
+        ApiResponse<PostingModuleResponse> PatchPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
         /// </summary>
         /// <remarks>
@@ -1586,6 +1644,68 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPostingModuleResponse>> ListPostingModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
+        /// </summary>
+        /// <remarks>
+        /// Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CleardownModuleResponse</returns>
+        System.Threading.Tasks.Task<CleardownModuleResponse> PatchCleardownModuleAsync(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
+        /// </summary>
+        /// <remarks>
+        /// Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CleardownModuleResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CleardownModuleResponse>> PatchCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PostingModuleResponse</returns>
+        System.Threading.Tasks.Task<PostingModuleResponse> PatchPostingModuleAsync(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> PatchPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
         /// </summary>
@@ -6886,6 +7006,490 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListPostingModules", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>CleardownModuleResponse</returns>
+        public CleardownModuleResponse PatchCleardownModule(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = PatchCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode, operation);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of CleardownModuleResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> PatchCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->PatchCleardownModule");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->PatchCleardownModule");
+            }
+
+            // verify the required parameter 'cleardownModuleCode' is set
+            if (cleardownModuleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'cleardownModuleCode' when calling ChartOfAccountsApi->PatchCleardownModule");
+            }
+
+            // verify the required parameter 'operation' is set
+            if (operation == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'operation' when calling ChartOfAccountsApi->PatchCleardownModule");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("cleardownModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(cleardownModuleCode)); // path parameter
+            localVarRequestOptions.Data = operation;
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.PatchCleardownModule";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<CleardownModuleResponse>("/api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PatchCleardownModule", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CleardownModuleResponse</returns>
+        public async System.Threading.Tasks.Task<CleardownModuleResponse> PatchCleardownModuleAsync(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = await PatchCleardownModuleWithHttpInfoAsync(scope, code, cleardownModuleCode, operation, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CleardownModuleResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse>> PatchCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->PatchCleardownModule");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->PatchCleardownModule");
+            }
+
+            // verify the required parameter 'cleardownModuleCode' is set
+            if (cleardownModuleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'cleardownModuleCode' when calling ChartOfAccountsApi->PatchCleardownModule");
+            }
+
+            // verify the required parameter 'operation' is set
+            if (operation == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'operation' when calling ChartOfAccountsApi->PatchCleardownModule");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("cleardownModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(cleardownModuleCode)); // path parameter
+            localVarRequestOptions.Data = operation;
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.PatchCleardownModule";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<CleardownModuleResponse>("/api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PatchCleardownModule", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PostingModuleResponse</returns>
+        public PostingModuleResponse PatchPostingModule(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = PatchPostingModuleWithHttpInfo(scope, code, postingModuleCode, operation);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PostingModuleResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> PatchPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->PatchPostingModule");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->PatchPostingModule");
+            }
+
+            // verify the required parameter 'postingModuleCode' is set
+            if (postingModuleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleCode' when calling ChartOfAccountsApi->PatchPostingModule");
+            }
+
+            // verify the required parameter 'operation' is set
+            if (operation == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'operation' when calling ChartOfAccountsApi->PatchPostingModule");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("postingModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(postingModuleCode)); // path parameter
+            localVarRequestOptions.Data = operation;
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.PatchPostingModule";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<PostingModuleResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PatchPostingModule", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PostingModuleResponse</returns>
+        public async System.Threading.Tasks.Task<PostingModuleResponse> PatchPostingModuleAsync(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await PatchPostingModuleWithHttpInfoAsync(scope, code, postingModuleCode, operation, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
+        /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> PatchPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->PatchPostingModule");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->PatchPostingModule");
+            }
+
+            // verify the required parameter 'postingModuleCode' is set
+            if (postingModuleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleCode' when calling ChartOfAccountsApi->PatchPostingModule");
+            }
+
+            // verify the required parameter 'operation' is set
+            if (operation == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'operation' when calling ChartOfAccountsApi->PatchPostingModule");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("postingModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(postingModuleCode)); // path parameter
+            localVarRequestOptions.Data = operation;
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.PatchPostingModule";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<PostingModuleResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PatchPostingModule", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -9,7 +9,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 <a id="getportfoliobyentityuniqueid"></a>
 # **GetPortfolioByEntityUniqueId**
-> PortfolioEntity GetPortfolioByEntityUniqueId (string entityUniqueId, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
+> PortfolioEntity GetPortfolioByEntityUniqueId (string entityUniqueId, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? previews = null)
 
 [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
 
@@ -38,11 +38,12 @@ namespace Example
             var entityUniqueId = "entityUniqueId_example";  // string | The universally unique identifier of the portfolio definition.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional) 
+            var previews = new List<string>?(); // List<string>? | The ids of the staged modifications to be previewed in the response. (optional) 
 
             try
             {
                 // [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
-                PortfolioEntity result = apiInstance.GetPortfolioByEntityUniqueId(entityUniqueId, effectiveAt, asAt);
+                PortfolioEntity result = apiInstance.GetPortfolioByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -63,7 +64,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
-    ApiResponse<PortfolioEntity> response = apiInstance.GetPortfolioByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt);
+    ApiResponse<PortfolioEntity> response = apiInstance.GetPortfolioByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -83,6 +84,7 @@ catch (ApiException e)
 | **entityUniqueId** | **string** | The universally unique identifier of the portfolio definition. |  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. | [optional]  |
+| **previews** | [**List&lt;string&gt;?**](string.md) | The ids of the staged modifications to be previewed in the response. | [optional]  |
 
 ### Return type
 

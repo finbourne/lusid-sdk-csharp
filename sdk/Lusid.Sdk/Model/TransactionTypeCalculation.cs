@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TransactionTypeCalculation" /> class.
         /// </summary>
         /// <param name="type">The type of calculation to perform (required).</param>
-        /// <param name="side">The side to which the calculation is applied (required).</param>
+        /// <param name="side">The side to which the calculation is applied.</param>
         public TransactionTypeCalculation(string type = default(string), string side = default(string))
         {
             // to ensure "type" is required (not null)
@@ -46,11 +46,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("type is a required property for TransactionTypeCalculation and cannot be null");
             }
             this.Type = type;
-            // to ensure "side" is required (not null)
-            if (side == null)
-            {
-                throw new ArgumentNullException("side is a required property for TransactionTypeCalculation and cannot be null");
-            }
             this.Side = side;
         }
 
@@ -65,7 +60,7 @@ namespace Lusid.Sdk.Model
         /// The side to which the calculation is applied
         /// </summary>
         /// <value>The side to which the calculation is applied</value>
-        [DataMember(Name = "side", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "side", EmitDefaultValue = true)]
         public string Side { get; set; }
 
         /// <summary>
@@ -153,6 +148,12 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Type (string) maxLength
+            if (this.Type != null && this.Type.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than 64.", new [] { "Type" });
+            }
+
             // Type (string) minLength
             if (this.Type != null && this.Type.Length < 1)
             {
@@ -166,9 +167,9 @@ namespace Lusid.Sdk.Model
             }
 
             // Side (string) minLength
-            if (this.Side != null && this.Side.Length < 1)
+            if (this.Side != null && this.Side.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Side, length must be greater than 1.", new [] { "Side" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Side, length must be greater than 0.", new [] { "Side" });
             }
 
             // Side (string) pattern
