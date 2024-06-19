@@ -47,8 +47,6 @@ namespace Lusid.Sdk.Model
         /// <param name="treatment">The accrual period of the Fee; &#39;Monthly&#39; or &#39;Daily&#39;. (required).</param>
         /// <param name="totalAnnualAccrualAmount">The total annual accrued amount for the Fee. (TotalAnnualAccrualAmount and CalculationBase cannot both be present).</param>
         /// <param name="feeRatePercentage">The fee rate percentage. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount).</param>
-        /// <param name="monthlyAccrual">The monthly accrual amount..</param>
-        /// <param name="dailyAccrual">The daily accrual amount..</param>
         /// <param name="payableFrequency">The payable frequency for the Fee; &#39;Annually&#39;, &#39;Quarterly&#39; or &#39;Monthly&#39;. (required).</param>
         /// <param name="businessDayConvention">The business day convention to use for Fee calculations on weekends. (required).</param>
         /// <param name="startDate">The start date of the Fee. (required).</param>
@@ -58,7 +56,7 @@ namespace Lusid.Sdk.Model
         /// <param name="version">version.</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="links">links.</param>
-        public Fee(string href = default(string), string feeCode = default(string), ResourceId feeType = default(ResourceId), string name = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), decimal? monthlyAccrual = default(decimal?), decimal? dailyAccrual = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), ResourceId portfolioId = default(ResourceId), List<Link> links = default(List<Link>))
+        public Fee(string href = default(string), string feeCode = default(string), ResourceId feeType = default(ResourceId), string name = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), ResourceId portfolioId = default(ResourceId), List<Link> links = default(List<Link>))
         {
             // to ensure "feeType" is required (not null)
             if (feeType == null)
@@ -104,8 +102,6 @@ namespace Lusid.Sdk.Model
             this.CalculationBase = calculationBase;
             this.TotalAnnualAccrualAmount = totalAnnualAccrualAmount;
             this.FeeRatePercentage = feeRatePercentage;
-            this.MonthlyAccrual = monthlyAccrual;
-            this.DailyAccrual = dailyAccrual;
             this.EndDate = endDate;
             this.AnchorDate = anchorDate;
             this.Properties = properties;
@@ -191,20 +187,6 @@ namespace Lusid.Sdk.Model
         public decimal? FeeRatePercentage { get; set; }
 
         /// <summary>
-        /// The monthly accrual amount.
-        /// </summary>
-        /// <value>The monthly accrual amount.</value>
-        [DataMember(Name = "monthlyAccrual", EmitDefaultValue = true)]
-        public decimal? MonthlyAccrual { get; set; }
-
-        /// <summary>
-        /// The daily accrual amount.
-        /// </summary>
-        /// <value>The daily accrual amount.</value>
-        [DataMember(Name = "dailyAccrual", EmitDefaultValue = true)]
-        public decimal? DailyAccrual { get; set; }
-
-        /// <summary>
         /// The payable frequency for the Fee; &#39;Annually&#39;, &#39;Quarterly&#39; or &#39;Monthly&#39;.
         /// </summary>
         /// <value>The payable frequency for the Fee; &#39;Annually&#39;, &#39;Quarterly&#39; or &#39;Monthly&#39;.</value>
@@ -282,8 +264,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Treatment: ").Append(Treatment).Append("\n");
             sb.Append("  TotalAnnualAccrualAmount: ").Append(TotalAnnualAccrualAmount).Append("\n");
             sb.Append("  FeeRatePercentage: ").Append(FeeRatePercentage).Append("\n");
-            sb.Append("  MonthlyAccrual: ").Append(MonthlyAccrual).Append("\n");
-            sb.Append("  DailyAccrual: ").Append(DailyAccrual).Append("\n");
             sb.Append("  PayableFrequency: ").Append(PayableFrequency).Append("\n");
             sb.Append("  BusinessDayConvention: ").Append(BusinessDayConvention).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
@@ -382,16 +362,6 @@ namespace Lusid.Sdk.Model
                     this.FeeRatePercentage == input.FeeRatePercentage ||
                     (this.FeeRatePercentage != null &&
                     this.FeeRatePercentage.Equals(input.FeeRatePercentage))
-                ) && 
-                (
-                    this.MonthlyAccrual == input.MonthlyAccrual ||
-                    (this.MonthlyAccrual != null &&
-                    this.MonthlyAccrual.Equals(input.MonthlyAccrual))
-                ) && 
-                (
-                    this.DailyAccrual == input.DailyAccrual ||
-                    (this.DailyAccrual != null &&
-                    this.DailyAccrual.Equals(input.DailyAccrual))
                 ) && 
                 (
                     this.PayableFrequency == input.PayableFrequency ||
@@ -494,14 +464,6 @@ namespace Lusid.Sdk.Model
                 if (this.FeeRatePercentage != null)
                 {
                     hashCode = (hashCode * 59) + this.FeeRatePercentage.GetHashCode();
-                }
-                if (this.MonthlyAccrual != null)
-                {
-                    hashCode = (hashCode * 59) + this.MonthlyAccrual.GetHashCode();
-                }
-                if (this.DailyAccrual != null)
-                {
-                    hashCode = (hashCode * 59) + this.DailyAccrual.GetHashCode();
                 }
                 if (this.PayableFrequency != null)
                 {
