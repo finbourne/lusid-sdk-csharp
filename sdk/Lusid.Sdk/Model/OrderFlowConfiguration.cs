@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderFlowConfiguration" /> class.
         /// </summary>
-        /// <param name="includeEntityTypes">includeEntityTypes (required).</param>
+        /// <param name="includeEntityTypes">Controls whether Orders and Allocations orders are included in the Portfolio valuation.  Valid values are  None (to account for Transactions only), Allocations (to include Allocations and Transactions) and  OrdersAndAllocations (to include Orders, Allocations and Transactions). (required).</param>
         public OrderFlowConfiguration(string includeEntityTypes = default(string))
         {
             // to ensure "includeEntityTypes" is required (not null)
@@ -48,8 +48,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets IncludeEntityTypes
+        /// Controls whether Orders and Allocations orders are included in the Portfolio valuation.  Valid values are  None (to account for Transactions only), Allocations (to include Allocations and Transactions) and  OrdersAndAllocations (to include Orders, Allocations and Transactions).
         /// </summary>
+        /// <value>Controls whether Orders and Allocations orders are included in the Portfolio valuation.  Valid values are  None (to account for Transactions only), Allocations (to include Allocations and Transactions) and  OrdersAndAllocations (to include Orders, Allocations and Transactions).</value>
         [DataMember(Name = "includeEntityTypes", IsRequired = true, EmitDefaultValue = true)]
         public string IncludeEntityTypes { get; set; }
 

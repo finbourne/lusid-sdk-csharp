@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **InstrumentScope** | **string** | The scope in which the instrument lies. | [optional] 
 **InstrumentUid** | **string** | The unique Lusid Instrument Id (LUID) of the instrument that this gain or loss is associated with. | 
 **Units** | **decimal** | The number of units of the associated instrument against which the gain or loss has been realised. | 
-**PurchaseTradeDate** | **DateTimeOffset?** | The effective datetime that the units associated with this gain or loss where originally purchased. | [optional] [readonly] 
-**PurchaseSettlementDate** | **DateTimeOffset?** | The effective datetime that the units associated with this gain or loss where originally settled. | [optional] [readonly] 
+**PurchaseTradeDate** | **DateTimeOffset?** | The effective datetime at which the units associated with this gain or loss were originally purchased. | [optional] [readonly] 
+**PurchaseSettlementDate** | **DateTimeOffset?** | The effective datetime at which the units associated with this gain or loss were originally settled. | [optional] [readonly] 
 **PurchasePrice** | **decimal?** | The purchase price of each unit associated with this gain or loss. | [optional] 
 **CostTradeCcy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **CostPortfolioCcy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 

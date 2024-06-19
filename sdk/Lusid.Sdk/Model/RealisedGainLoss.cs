@@ -107,9 +107,9 @@ namespace Lusid.Sdk.Model
         public decimal Units { get; set; }
 
         /// <summary>
-        /// The effective datetime that the units associated with this gain or loss where originally purchased.
+        /// The effective datetime at which the units associated with this gain or loss were originally purchased.
         /// </summary>
-        /// <value>The effective datetime that the units associated with this gain or loss where originally purchased.</value>
+        /// <value>The effective datetime at which the units associated with this gain or loss were originally purchased.</value>
         [DataMember(Name = "purchaseTradeDate", EmitDefaultValue = true)]
         public DateTimeOffset? PurchaseTradeDate { get; private set; }
 
@@ -122,9 +122,9 @@ namespace Lusid.Sdk.Model
             return false;
         }
         /// <summary>
-        /// The effective datetime that the units associated with this gain or loss where originally settled.
+        /// The effective datetime at which the units associated with this gain or loss were originally settled.
         /// </summary>
-        /// <value>The effective datetime that the units associated with this gain or loss where originally settled.</value>
+        /// <value>The effective datetime at which the units associated with this gain or loss were originally settled.</value>
         [DataMember(Name = "purchaseSettlementDate", EmitDefaultValue = true)]
         public DateTimeOffset? PurchaseSettlementDate { get; private set; }
 
