@@ -31,12 +31,22 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrencyAndAmount" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected CurrencyAndAmount() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CurrencyAndAmount" /> class.
+        /// </summary>
         /// <param name="amount">amount.</param>
-        /// <param name="currency">currency.</param>
+        /// <param name="currency">currency (required).</param>
         public CurrencyAndAmount(decimal amount = default(decimal), string currency = default(string))
         {
-            this.Amount = amount;
+            // to ensure "currency" is required (not null)
+            if (currency == null)
+            {
+                throw new ArgumentNullException("currency is a required property for CurrencyAndAmount and cannot be null");
+            }
             this.Currency = currency;
+            this.Amount = amount;
         }
 
         /// <summary>
@@ -48,7 +58,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Currency
         /// </summary>
-        [DataMember(Name = "currency", EmitDefaultValue = true)]
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>

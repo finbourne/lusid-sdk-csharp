@@ -6,7 +6,7 @@ An amount of a specific currency, specifying a value and an associated unit
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **decimal** |  | [optional] 
-**Currency** | **string** |  | [optional] 
+**Currency** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

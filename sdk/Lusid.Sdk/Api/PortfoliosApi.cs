@@ -802,7 +802,7 @@ namespace Lusid.Sdk.Api
         /// PatchPortfolio: Patch portfolio.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
+        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -816,7 +816,7 @@ namespace Lusid.Sdk.Api
         /// PatchPortfolio: Patch portfolio.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
+        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -1835,7 +1835,7 @@ namespace Lusid.Sdk.Api
         /// PatchPortfolio: Patch portfolio.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
+        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -1850,7 +1850,7 @@ namespace Lusid.Sdk.Api
         /// PatchPortfolio: Patch portfolio.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
+        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -7998,7 +7998,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
+        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -8013,7 +8013,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
+        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -8108,7 +8108,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
+        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -8124,7 +8124,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
+        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
