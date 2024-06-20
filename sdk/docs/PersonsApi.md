@@ -21,6 +21,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**SetPersonProperties**](PersonsApi.md#setpersonproperties) | **POST** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EARLY ACCESS] SetPersonProperties: Set Person Properties |
 | [**UpsertPerson**](PersonsApi.md#upsertperson) | **POST** /api/persons | [EARLY ACCESS] UpsertPerson: Upsert Person |
 | [**UpsertPersonAccessMetadata**](PersonsApi.md#upsertpersonaccessmetadata) | **PUT** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. |
+| [**UpsertPersons**](PersonsApi.md#upsertpersons) | **POST** /api/persons/$batchUpsert | [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons |
 
 <a id="deleteperson"></a>
 # **DeletePerson**
@@ -1809,6 +1810,104 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The successfully updated or inserted item or any failure. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="upsertpersons"></a>
+# **UpsertPersons**
+> UpsertPersonsResponse UpsertPersons (string successMode, Dictionary<string, UpsertPersonRequest> requestBody)
+
+[EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+
+Create or updates a collection of person(s).
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class UpsertPersonsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PersonsApi(config);
+            var successMode = "successMode_example";  // string | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial
+            var requestBody = new Dictionary<string, UpsertPersonRequest>(); // Dictionary<string, UpsertPersonRequest> | A collection of requests to create or update Person(s).
+
+            try
+            {
+                // [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+                UpsertPersonsResponse result = apiInstance.UpsertPersons(successMode, requestBody);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PersonsApi.UpsertPersons: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpsertPersonsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+    ApiResponse<UpsertPersonsResponse> response = apiInstance.UpsertPersonsWithHttpInfo(successMode, requestBody);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PersonsApi.UpsertPersonsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **successMode** | **string** | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial |  |
+| **requestBody** | [**Dictionary&lt;string, UpsertPersonRequest&gt;**](UpsertPersonRequest.md) | A collection of requests to create or update Person(s). |  |
+
+### Return type
+
+[**UpsertPersonsResponse**](UpsertPersonsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The newly created or updated person(s) |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

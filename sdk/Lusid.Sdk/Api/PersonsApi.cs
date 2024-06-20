@@ -580,6 +580,31 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResourceListOfAccessMetadataValueOf</returns>
         ApiResponse<ResourceListOfAccessMetadataValueOf> UpsertPersonAccessMetadataWithHttpInfo(string idTypeScope, string idTypeCode, string code, string metadataKey, UpsertPersonAccessMetadataRequest upsertPersonAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0);
+        /// <summary>
+        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+        /// </summary>
+        /// <remarks>
+        /// Create or updates a collection of person(s).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
+        /// <param name="requestBody">A collection of requests to create or update Person(s).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>UpsertPersonsResponse</returns>
+        UpsertPersonsResponse UpsertPersons(string successMode, Dictionary<string, UpsertPersonRequest> requestBody, int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+        /// </summary>
+        /// <remarks>
+        /// Create or updates a collection of person(s).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
+        /// <param name="requestBody">A collection of requests to create or update Person(s).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of UpsertPersonsResponse</returns>
+        ApiResponse<UpsertPersonsResponse> UpsertPersonsWithHttpInfo(string successMode, Dictionary<string, UpsertPersonRequest> requestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -1174,6 +1199,33 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfAccessMetadataValueOf)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfAccessMetadataValueOf>> UpsertPersonAccessMetadataWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, string metadataKey, UpsertPersonAccessMetadataRequest upsertPersonAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+        /// </summary>
+        /// <remarks>
+        /// Create or updates a collection of person(s).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
+        /// <param name="requestBody">A collection of requests to create or update Person(s).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UpsertPersonsResponse</returns>
+        System.Threading.Tasks.Task<UpsertPersonsResponse> UpsertPersonsAsync(string successMode, Dictionary<string, UpsertPersonRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+        /// </summary>
+        /// <remarks>
+        /// Create or updates a collection of person(s).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
+        /// <param name="requestBody">A collection of requests to create or update Person(s).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UpsertPersonsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpsertPersonsResponse>> UpsertPersonsWithHttpInfoAsync(string successMode, Dictionary<string, UpsertPersonRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -5570,6 +5622,212 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpsertPersonAccessMetadata", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons Create or updates a collection of person(s).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
+        /// <param name="requestBody">A collection of requests to create or update Person(s).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>UpsertPersonsResponse</returns>
+        public UpsertPersonsResponse UpsertPersons(string successMode, Dictionary<string, UpsertPersonRequest> requestBody, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<UpsertPersonsResponse> localVarResponse = UpsertPersonsWithHttpInfo(successMode, requestBody);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons Create or updates a collection of person(s).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
+        /// <param name="requestBody">A collection of requests to create or update Person(s).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of UpsertPersonsResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<UpsertPersonsResponse> UpsertPersonsWithHttpInfo(string successMode, Dictionary<string, UpsertPersonRequest> requestBody, int operationIndex = 0)
+        {
+            // verify the required parameter 'successMode' is set
+            if (successMode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'successMode' when calling PersonsApi->UpsertPersons");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling PersonsApi->UpsertPersons");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "PersonsApi.UpsertPersons";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<UpsertPersonsResponse>("/api/persons/$batchUpsert", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertPersons", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons Create or updates a collection of person(s).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
+        /// <param name="requestBody">A collection of requests to create or update Person(s).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UpsertPersonsResponse</returns>
+        public async System.Threading.Tasks.Task<UpsertPersonsResponse> UpsertPersonsAsync(string successMode, Dictionary<string, UpsertPersonRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<UpsertPersonsResponse> localVarResponse = await UpsertPersonsWithHttpInfoAsync(successMode, requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons Create or updates a collection of person(s).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
+        /// <param name="requestBody">A collection of requests to create or update Person(s).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UpsertPersonsResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertPersonsResponse>> UpsertPersonsWithHttpInfoAsync(string successMode, Dictionary<string, UpsertPersonRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'successMode' is set
+            if (successMode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'successMode' when calling PersonsApi->UpsertPersons");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling PersonsApi->UpsertPersons");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "PersonsApi.UpsertPersons";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<UpsertPersonsResponse>("/api/persons/$batchUpsert", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertPersons", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
