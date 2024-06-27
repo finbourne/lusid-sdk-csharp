@@ -33,10 +33,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="requiredApprovals">requiredApprovals.</param>
         /// <param name="decidingUser">decidingUser.</param>
-        public StagingRuleApprovalCriteria(int? requiredApprovals = default(int?), string decidingUser = default(string))
+        /// <param name="stagingUserCanDecide">stagingUserCanDecide.</param>
+        public StagingRuleApprovalCriteria(int? requiredApprovals = default(int?), string decidingUser = default(string), bool? stagingUserCanDecide = default(bool?))
         {
             this.RequiredApprovals = requiredApprovals;
             this.DecidingUser = decidingUser;
+            this.StagingUserCanDecide = stagingUserCanDecide;
         }
 
         /// <summary>
@@ -52,6 +54,12 @@ namespace Lusid.Sdk.Model
         public string DecidingUser { get; set; }
 
         /// <summary>
+        /// Gets or Sets StagingUserCanDecide
+        /// </summary>
+        [DataMember(Name = "stagingUserCanDecide", EmitDefaultValue = true)]
+        public bool? StagingUserCanDecide { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,6 +69,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class StagingRuleApprovalCriteria {\n");
             sb.Append("  RequiredApprovals: ").Append(RequiredApprovals).Append("\n");
             sb.Append("  DecidingUser: ").Append(DecidingUser).Append("\n");
+            sb.Append("  StagingUserCanDecide: ").Append(StagingUserCanDecide).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,6 +114,11 @@ namespace Lusid.Sdk.Model
                     this.DecidingUser == input.DecidingUser ||
                     (this.DecidingUser != null &&
                     this.DecidingUser.Equals(input.DecidingUser))
+                ) && 
+                (
+                    this.StagingUserCanDecide == input.StagingUserCanDecide ||
+                    (this.StagingUserCanDecide != null &&
+                    this.StagingUserCanDecide.Equals(input.StagingUserCanDecide))
                 );
         }
 
@@ -124,6 +138,10 @@ namespace Lusid.Sdk.Model
                 if (this.DecidingUser != null)
                 {
                     hashCode = (hashCode * 59) + this.DecidingUser.GetHashCode();
+                }
+                if (this.StagingUserCanDecide != null)
+                {
+                    hashCode = (hashCode * 59) + this.StagingUserCanDecide.GetHashCode();
                 }
                 return hashCode;
             }
