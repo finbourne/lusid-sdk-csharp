@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.GroupByStepRequest
+# Lusid.Sdk.Model.PercentCheckStepRequest
 
 ## Properties
 

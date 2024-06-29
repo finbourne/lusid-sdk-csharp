@@ -5,7 +5,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AcceptEstimateValuationPoint**](FundsApi.md#acceptestimatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$acceptestimate | [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. |
-| [**CreateFee**](FundsApi.md#createfee) | **POST** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] CreateFee: Create a Fee. |
+| [**CreateFee**](FundsApi.md#createfee) | **POST** /api/funds/{scope}/{code}/fees | [EXPERIMENTAL] CreateFee: Create a Fee. |
 | [**CreateFund**](FundsApi.md#createfund) | **POST** /api/funds/{scope} | [EXPERIMENTAL] CreateFund: Create a Fund. |
 | [**DeleteFee**](FundsApi.md#deletefee) | **DELETE** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] DeleteFee: Delete a Fee. |
 | [**DeleteFund**](FundsApi.md#deletefund) | **DELETE** /api/funds/{scope}/{code} | [EXPERIMENTAL] DeleteFund: Delete a Fund. |
@@ -124,7 +124,7 @@ catch (ApiException e)
 
 <a id="createfee"></a>
 # **CreateFee**
-> Fee CreateFee (string scope, string code, string feeCode, FeeRequest feeRequest)
+> Fee CreateFee (string scope, string code, FeeRequest feeRequest)
 
 [EXPERIMENTAL] CreateFee: Create a Fee.
 
@@ -152,13 +152,12 @@ namespace Example
             var apiInstance = new FundsApi(config);
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
-            var feeCode = "feeCode_example";  // string | The code of the Fee.
             var feeRequest = new FeeRequest(); // FeeRequest | The Fee to create.
 
             try
             {
                 // [EXPERIMENTAL] CreateFee: Create a Fee.
-                Fee result = apiInstance.CreateFee(scope, code, feeCode, feeRequest);
+                Fee result = apiInstance.CreateFee(scope, code, feeRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -179,7 +178,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] CreateFee: Create a Fee.
-    ApiResponse<Fee> response = apiInstance.CreateFeeWithHttpInfo(scope, code, feeCode, feeRequest);
+    ApiResponse<Fee> response = apiInstance.CreateFeeWithHttpInfo(scope, code, feeRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -198,7 +197,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
-| **feeCode** | **string** | The code of the Fee. |  |
 | **feeRequest** | [**FeeRequest**](FeeRequest.md) | The Fee to create. |  |
 
 ### Return type

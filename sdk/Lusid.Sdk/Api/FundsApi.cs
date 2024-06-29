@@ -65,11 +65,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="feeCode">The code of the Fee.</param>
         /// <param name="feeRequest">The Fee to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Fee</returns>
-        Fee CreateFee(string scope, string code, string feeCode, FeeRequest feeRequest, int operationIndex = 0);
+        Fee CreateFee(string scope, string code, FeeRequest feeRequest, int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateFee: Create a Fee.
@@ -80,11 +79,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="feeCode">The code of the Fee.</param>
         /// <param name="feeRequest">The Fee to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Fee</returns>
-        ApiResponse<Fee> CreateFeeWithHttpInfo(string scope, string code, string feeCode, FeeRequest feeRequest, int operationIndex = 0);
+        ApiResponse<Fee> CreateFeeWithHttpInfo(string scope, string code, FeeRequest feeRequest, int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] CreateFund: Create a Fund.
         /// </summary>
@@ -569,12 +567,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="feeCode">The code of the Fee.</param>
         /// <param name="feeRequest">The Fee to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Fee</returns>
-        System.Threading.Tasks.Task<Fee> CreateFeeAsync(string scope, string code, string feeCode, FeeRequest feeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Fee> CreateFeeAsync(string scope, string code, FeeRequest feeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] CreateFee: Create a Fee.
@@ -585,12 +582,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="feeCode">The code of the Fee.</param>
         /// <param name="feeRequest">The Fee to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Fee)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Fee>> CreateFeeWithHttpInfoAsync(string scope, string code, string feeCode, FeeRequest feeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Fee>> CreateFeeWithHttpInfoAsync(string scope, string code, FeeRequest feeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] CreateFund: Create a Fund.
         /// </summary>
@@ -1405,13 +1401,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="feeCode">The code of the Fee.</param>
         /// <param name="feeRequest">The Fee to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Fee</returns>
-        public Fee CreateFee(string scope, string code, string feeCode, FeeRequest feeRequest, int operationIndex = 0)
+        public Fee CreateFee(string scope, string code, FeeRequest feeRequest, int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<Fee> localVarResponse = CreateFeeWithHttpInfo(scope, code, feeCode, feeRequest);
+            Lusid.Sdk.Client.ApiResponse<Fee> localVarResponse = CreateFeeWithHttpInfo(scope, code, feeRequest);
             return localVarResponse.Data;
         }
 
@@ -1421,11 +1416,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="feeCode">The code of the Fee.</param>
         /// <param name="feeRequest">The Fee to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Fee</returns>
-        public Lusid.Sdk.Client.ApiResponse<Fee> CreateFeeWithHttpInfo(string scope, string code, string feeCode, FeeRequest feeRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Fee> CreateFeeWithHttpInfo(string scope, string code, FeeRequest feeRequest, int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1437,12 +1431,6 @@ namespace Lusid.Sdk.Api
             if (code == null)
             {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->CreateFee");
-            }
-
-            // verify the required parameter 'feeCode' is set
-            if (feeCode == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'feeCode' when calling FundsApi->CreateFee");
             }
 
             // verify the required parameter 'feeRequest' is set
@@ -1481,7 +1469,6 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
-            localVarRequestOptions.PathParameters.Add("feeCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(feeCode)); // path parameter
             localVarRequestOptions.Data = feeRequest;
 
             localVarRequestOptions.Operation = "FundsApi.CreateFee";
@@ -1505,7 +1492,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Fee>("/api/funds/{scope}/{code}/fees/{feeCode}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<Fee>("/api/funds/{scope}/{code}/fees", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateFee", localVarResponse);
@@ -1524,14 +1511,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="feeCode">The code of the Fee.</param>
         /// <param name="feeRequest">The Fee to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Fee</returns>
-        public async System.Threading.Tasks.Task<Fee> CreateFeeAsync(string scope, string code, string feeCode, FeeRequest feeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Fee> CreateFeeAsync(string scope, string code, FeeRequest feeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<Fee> localVarResponse = await CreateFeeWithHttpInfoAsync(scope, code, feeCode, feeRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Fee> localVarResponse = await CreateFeeWithHttpInfoAsync(scope, code, feeRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1541,12 +1527,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="feeCode">The code of the Fee.</param>
         /// <param name="feeRequest">The Fee to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Fee)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fee>> CreateFeeWithHttpInfoAsync(string scope, string code, string feeCode, FeeRequest feeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fee>> CreateFeeWithHttpInfoAsync(string scope, string code, FeeRequest feeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1558,12 +1543,6 @@ namespace Lusid.Sdk.Api
             if (code == null)
             {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->CreateFee");
-            }
-
-            // verify the required parameter 'feeCode' is set
-            if (feeCode == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'feeCode' when calling FundsApi->CreateFee");
             }
 
             // verify the required parameter 'feeRequest' is set
@@ -1603,7 +1582,6 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
-            localVarRequestOptions.PathParameters.Add("feeCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(feeCode)); // path parameter
             localVarRequestOptions.Data = feeRequest;
 
             localVarRequestOptions.Operation = "FundsApi.CreateFee";
@@ -1627,7 +1605,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Fee>("/api/funds/{scope}/{code}/fees/{feeCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Fee>("/api/funds/{scope}/{code}/fees", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -44,7 +44,8 @@ namespace Lusid.Sdk.Model
         /// <param name="name">The movement name (optional).</param>
         /// <param name="movementOptions">Allows extra specifications for the movement. The options currently available are &#39;DirectAdjustment&#39; and &#39;IncludesTradedInterest&#39;. A movement type of &#39;StockMovement&#39; with an option of &#39;DirectAdjusment&#39; will allow you to adjust the units of a holding without affecting its cost base. You will, therefore, be able to reflect the impact of a stock split by loading a Transaction..</param>
         /// <param name="settlementDateOverride">Optional property key that must be in the Transaction domain when specified. When the movement is processed and the transaction has this property set to a valid date, then the property value will override the SettlementDate of the transaction..</param>
-        public TransactionTypeMovement(string movementTypes = default(string), string side = default(string), int direction = default(int), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TransactionTypePropertyMapping> mappings = default(List<TransactionTypePropertyMapping>), string name = default(string), List<string> movementOptions = default(List<string>), string settlementDateOverride = default(string))
+        /// <param name="condition">The condition that the transaction must satisfy to generate the movement, such as: Portfolio.BaseCurrency eq &#39;GBP&#39;. The condition can contain fields and properties from transactions and portfolios. If no condition is provided, the movement will apply for all transactions of this type..</param>
+        public TransactionTypeMovement(string movementTypes = default(string), string side = default(string), int direction = default(int), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TransactionTypePropertyMapping> mappings = default(List<TransactionTypePropertyMapping>), string name = default(string), List<string> movementOptions = default(List<string>), string settlementDateOverride = default(string), string condition = default(string))
         {
             // to ensure "movementTypes" is required (not null)
             if (movementTypes == null)
@@ -64,6 +65,7 @@ namespace Lusid.Sdk.Model
             this.Name = name;
             this.MovementOptions = movementOptions;
             this.SettlementDateOverride = settlementDateOverride;
+            this.Condition = condition;
         }
 
         /// <summary>
@@ -123,6 +125,13 @@ namespace Lusid.Sdk.Model
         public string SettlementDateOverride { get; set; }
 
         /// <summary>
+        /// The condition that the transaction must satisfy to generate the movement, such as: Portfolio.BaseCurrency eq &#39;GBP&#39;. The condition can contain fields and properties from transactions and portfolios. If no condition is provided, the movement will apply for all transactions of this type.
+        /// </summary>
+        /// <value>The condition that the transaction must satisfy to generate the movement, such as: Portfolio.BaseCurrency eq &#39;GBP&#39;. The condition can contain fields and properties from transactions and portfolios. If no condition is provided, the movement will apply for all transactions of this type.</value>
+        [DataMember(Name = "condition", EmitDefaultValue = true)]
+        public string Condition { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -138,6 +147,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  MovementOptions: ").Append(MovementOptions).Append("\n");
             sb.Append("  SettlementDateOverride: ").Append(SettlementDateOverride).Append("\n");
+            sb.Append("  Condition: ").Append(Condition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -214,6 +224,11 @@ namespace Lusid.Sdk.Model
                     this.SettlementDateOverride == input.SettlementDateOverride ||
                     (this.SettlementDateOverride != null &&
                     this.SettlementDateOverride.Equals(input.SettlementDateOverride))
+                ) && 
+                (
+                    this.Condition == input.Condition ||
+                    (this.Condition != null &&
+                    this.Condition.Equals(input.Condition))
                 );
         }
 
@@ -254,6 +269,10 @@ namespace Lusid.Sdk.Model
                 if (this.SettlementDateOverride != null)
                 {
                     hashCode = (hashCode * 59) + this.SettlementDateOverride.GetHashCode();
+                }
+                if (this.Condition != null)
+                {
+                    hashCode = (hashCode * 59) + this.Condition.GetHashCode();
                 }
                 return hashCode;
             }
@@ -308,6 +327,25 @@ namespace Lusid.Sdk.Model
             if (false == regexName.Match(this.Name).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });
+            }
+
+            // Condition (string) maxLength
+            if (this.Condition != null && this.Condition.Length > 16384)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Condition, length must be less than 16384.", new [] { "Condition" });
+            }
+
+            // Condition (string) minLength
+            if (this.Condition != null && this.Condition.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Condition, length must be greater than 0.", new [] { "Condition" });
+            }
+
+            // Condition (string) pattern
+            Regex regexCondition = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexCondition.Match(this.Condition).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Condition, must match a pattern of " + regexCondition, new [] { "Condition" });
             }
 
             yield break;

@@ -152,7 +152,13 @@ namespace Lusid.Sdk.Model
         /// Enum PropertyListComplianceParameter for value: PropertyListComplianceParameter
         /// </summary>
         [EnumMember(Value = "PropertyListComplianceParameter")]
-        PropertyListComplianceParameter = 21
+        PropertyListComplianceParameter = 21,
+
+        /// <summary>
+        /// Enum GroupCalculationComplianceParameter for value: GroupCalculationComplianceParameter
+        /// </summary>
+        [EnumMember(Value = "GroupCalculationComplianceParameter")]
+        GroupCalculationComplianceParameter = 22
 
     }
 

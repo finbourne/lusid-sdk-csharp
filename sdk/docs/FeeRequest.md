@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Code** | **string** | The code of the Fee. | 
 **FeeType** | [**ResourceId**](ResourceId.md) |  | 
 **Name** | **string** | The name of the Fee. | 
 **Description** | **string** | A description for the Fee. | [optional] 

@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
         /// <param name="limitCheckParameters">Parameters required for an absolute limit check (required).</param>
-        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep (required) (default to &quot;GroupFilterStep&quot;).</param>
+        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep (required) (default to &quot;GroupFilterStep&quot;).</param>
         public GroupFilterStep(string label = default(string), List<ComplianceTemplateParameter> limitCheckParameters = default(List<ComplianceTemplateParameter>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum)) : base(complianceStepType)
         {
             // to ensure "label" is required (not null)

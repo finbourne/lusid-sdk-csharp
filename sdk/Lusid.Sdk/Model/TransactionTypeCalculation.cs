@@ -38,7 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="type">The type of calculation to perform (required).</param>
         /// <param name="side">The side to which the calculation is applied.</param>
-        public TransactionTypeCalculation(string type = default(string), string side = default(string))
+        /// <param name="formula">The formula used to derive the total consideration amount when it is not provided on the transaction.</param>
+        public TransactionTypeCalculation(string type = default(string), string side = default(string), string formula = default(string))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -47,6 +48,7 @@ namespace Lusid.Sdk.Model
             }
             this.Type = type;
             this.Side = side;
+            this.Formula = formula;
         }
 
         /// <summary>
@@ -64,6 +66,13 @@ namespace Lusid.Sdk.Model
         public string Side { get; set; }
 
         /// <summary>
+        /// The formula used to derive the total consideration amount when it is not provided on the transaction
+        /// </summary>
+        /// <value>The formula used to derive the total consideration amount when it is not provided on the transaction</value>
+        [DataMember(Name = "formula", EmitDefaultValue = true)]
+        public string Formula { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class TransactionTypeCalculation {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Side: ").Append(Side).Append("\n");
+            sb.Append("  Formula: ").Append(Formula).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,6 +127,11 @@ namespace Lusid.Sdk.Model
                     this.Side == input.Side ||
                     (this.Side != null &&
                     this.Side.Equals(input.Side))
+                ) && 
+                (
+                    this.Formula == input.Formula ||
+                    (this.Formula != null &&
+                    this.Formula.Equals(input.Formula))
                 );
         }
 
@@ -136,6 +151,10 @@ namespace Lusid.Sdk.Model
                 if (this.Side != null)
                 {
                     hashCode = (hashCode * 59) + this.Side.GetHashCode();
+                }
+                if (this.Formula != null)
+                {
+                    hashCode = (hashCode * 59) + this.Formula.GetHashCode();
                 }
                 return hashCode;
             }
@@ -167,16 +186,21 @@ namespace Lusid.Sdk.Model
             }
 
             // Side (string) minLength
-            if (this.Side != null && this.Side.Length < 0)
+            if (this.Side != null && this.Side.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Side, length must be greater than 0.", new [] { "Side" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Side, length must be greater than 1.", new [] { "Side" });
             }
 
-            // Side (string) pattern
-            Regex regexSide = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexSide.Match(this.Side).Success)
+            // Formula (string) maxLength
+            if (this.Formula != null && this.Formula.Length > 1024)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Side, must match a pattern of " + regexSide, new [] { "Side" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Formula, length must be less than 1024.", new [] { "Formula" });
+            }
+
+            // Formula (string) minLength
+            if (this.Formula != null && this.Formula.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Formula, length must be greater than 0.", new [] { "Formula" });
             }
 
             yield break;

@@ -36,6 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FeeRequest" /> class.
         /// </summary>
+        /// <param name="code">The code of the Fee. (required).</param>
         /// <param name="feeType">feeType (required).</param>
         /// <param name="name">The name of the Fee. (required).</param>
         /// <param name="description">A description for the Fee..</param>
@@ -52,8 +53,14 @@ namespace Lusid.Sdk.Model
         /// <param name="anchorDate">anchorDate.</param>
         /// <param name="properties">The Fee properties. These will be from the &#39;Fee&#39; domain..</param>
         /// <param name="portfolioId">portfolioId.</param>
-        public FeeRequest(ResourceId feeType = default(ResourceId), string name = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset? endDate = default(DateTimeOffset?), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ResourceId portfolioId = default(ResourceId))
+        public FeeRequest(string code = default(string), ResourceId feeType = default(ResourceId), string name = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset? endDate = default(DateTimeOffset?), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ResourceId portfolioId = default(ResourceId))
         {
+            // to ensure "code" is required (not null)
+            if (code == null)
+            {
+                throw new ArgumentNullException("code is a required property for FeeRequest and cannot be null");
+            }
+            this.Code = code;
             // to ensure "feeType" is required (not null)
             if (feeType == null)
             {
@@ -101,6 +108,13 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.PortfolioId = portfolioId;
         }
+
+        /// <summary>
+        /// The code of the Fee.
+        /// </summary>
+        /// <value>The code of the Fee.</value>
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        public string Code { get; set; }
 
         /// <summary>
         /// Gets or Sets FeeType
@@ -219,6 +233,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class FeeRequest {\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  FeeType: ").Append(FeeType).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -270,6 +285,11 @@ namespace Lusid.Sdk.Model
                 return false;
             }
             return 
+                (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                ) && 
                 (
                     this.FeeType == input.FeeType ||
                     (this.FeeType != null &&
@@ -362,6 +382,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Code != null)
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
                 if (this.FeeType != null)
                 {
                     hashCode = (hashCode * 59) + this.FeeType.GetHashCode();
@@ -437,6 +461,25 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Code (string) maxLength
+            if (this.Code != null && this.Code.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than 64.", new [] { "Code" });
+            }
+
+            // Code (string) minLength
+            if (this.Code != null && this.Code.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
+            }
+
+            // Code (string) pattern
+            Regex regexCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexCode.Match(this.Code).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
+            }
+
             // Name (string) maxLength
             if (this.Name != null && this.Name.Length > 256)
             {

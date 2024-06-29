@@ -24,30 +24,44 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// IntermediateComplianceStepRequest
+    /// PercentCheckStep
     /// </summary>
-    [DataContract(Name = "IntermediateComplianceStepRequest")]
-    [JsonConverter(typeof(JsonSubtypes), "ComplianceStepTypeRequest")]
-    public partial class IntermediateComplianceStepRequest : ComplianceStepRequest, IEquatable<IntermediateComplianceStepRequest>, IValidatableObject
+    [DataContract(Name = "PercentCheckStep")]
+    [JsonConverter(typeof(JsonSubtypes), "ComplianceStepType")]
+    public partial class PercentCheckStep : ComplianceStep, IEquatable<PercentCheckStep>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IntermediateComplianceStepRequest" /> class.
+        /// Initializes a new instance of the <see cref="PercentCheckStep" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected IntermediateComplianceStepRequest() { }
+        protected PercentCheckStep() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="IntermediateComplianceStepRequest" /> class.
+        /// Initializes a new instance of the <see cref="PercentCheckStep" /> class.
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
-        /// <param name="complianceStepTypeRequest">. The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest, PercentCheckStepRequest (required) (default to &quot;IntermediateComplianceStepRequest&quot;).</param>
-        public IntermediateComplianceStepRequest(string label = default(string), ComplianceStepTypeRequestEnum complianceStepTypeRequest = default(ComplianceStepTypeRequestEnum)) : base(complianceStepTypeRequest)
+        /// <param name="limitCheckParameters">Parameters required for an absolute limit check (required).</param>
+        /// <param name="warningCheckParameters">Parameters required for a warning limit check (required).</param>
+        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep (required) (default to &quot;PercentCheckStep&quot;).</param>
+        public PercentCheckStep(string label = default(string), List<ComplianceTemplateParameter> limitCheckParameters = default(List<ComplianceTemplateParameter>), List<ComplianceTemplateParameter> warningCheckParameters = default(List<ComplianceTemplateParameter>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum)) : base(complianceStepType)
         {
             // to ensure "label" is required (not null)
             if (label == null)
             {
-                throw new ArgumentNullException("label is a required property for IntermediateComplianceStepRequest and cannot be null");
+                throw new ArgumentNullException("label is a required property for PercentCheckStep and cannot be null");
             }
             this.Label = label;
+            // to ensure "limitCheckParameters" is required (not null)
+            if (limitCheckParameters == null)
+            {
+                throw new ArgumentNullException("limitCheckParameters is a required property for PercentCheckStep and cannot be null");
+            }
+            this.LimitCheckParameters = limitCheckParameters;
+            // to ensure "warningCheckParameters" is required (not null)
+            if (warningCheckParameters == null)
+            {
+                throw new ArgumentNullException("warningCheckParameters is a required property for PercentCheckStep and cannot be null");
+            }
+            this.WarningCheckParameters = warningCheckParameters;
         }
 
         /// <summary>
@@ -58,15 +72,31 @@ namespace Lusid.Sdk.Model
         public string Label { get; set; }
 
         /// <summary>
+        /// Parameters required for an absolute limit check
+        /// </summary>
+        /// <value>Parameters required for an absolute limit check</value>
+        [DataMember(Name = "limitCheckParameters", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComplianceTemplateParameter> LimitCheckParameters { get; set; }
+
+        /// <summary>
+        /// Parameters required for a warning limit check
+        /// </summary>
+        /// <value>Parameters required for a warning limit check</value>
+        [DataMember(Name = "warningCheckParameters", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComplianceTemplateParameter> WarningCheckParameters { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class IntermediateComplianceStepRequest {\n");
+            sb.Append("class PercentCheckStep {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
+            sb.Append("  LimitCheckParameters: ").Append(LimitCheckParameters).Append("\n");
+            sb.Append("  WarningCheckParameters: ").Append(WarningCheckParameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,15 +117,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as IntermediateComplianceStepRequest);
+            return this.Equals(input as PercentCheckStep);
         }
 
         /// <summary>
-        /// Returns true if IntermediateComplianceStepRequest instances are equal
+        /// Returns true if PercentCheckStep instances are equal
         /// </summary>
-        /// <param name="input">Instance of IntermediateComplianceStepRequest to be compared</param>
+        /// <param name="input">Instance of PercentCheckStep to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IntermediateComplianceStepRequest input)
+        public bool Equals(PercentCheckStep input)
         {
             if (input == null)
             {
@@ -106,6 +136,18 @@ namespace Lusid.Sdk.Model
                     this.Label == input.Label ||
                     (this.Label != null &&
                     this.Label.Equals(input.Label))
+                ) && base.Equals(input) && 
+                (
+                    this.LimitCheckParameters == input.LimitCheckParameters ||
+                    this.LimitCheckParameters != null &&
+                    input.LimitCheckParameters != null &&
+                    this.LimitCheckParameters.SequenceEqual(input.LimitCheckParameters)
+                ) && base.Equals(input) && 
+                (
+                    this.WarningCheckParameters == input.WarningCheckParameters ||
+                    this.WarningCheckParameters != null &&
+                    input.WarningCheckParameters != null &&
+                    this.WarningCheckParameters.SequenceEqual(input.WarningCheckParameters)
                 );
         }
 
@@ -121,6 +163,14 @@ namespace Lusid.Sdk.Model
                 if (this.Label != null)
                 {
                     hashCode = (hashCode * 59) + this.Label.GetHashCode();
+                }
+                if (this.LimitCheckParameters != null)
+                {
+                    hashCode = (hashCode * 59) + this.LimitCheckParameters.GetHashCode();
+                }
+                if (this.WarningCheckParameters != null)
+                {
+                    hashCode = (hashCode * 59) + this.WarningCheckParameters.GetHashCode();
                 }
                 return hashCode;
             }
@@ -147,23 +197,10 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
-            // Label (string) maxLength
-            if (this.Label != null && this.Label.Length > 64)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, length must be less than 64.", new [] { "Label" });
-            }
-
             // Label (string) minLength
             if (this.Label != null && this.Label.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, length must be greater than 1.", new [] { "Label" });
-            }
-
-            // Label (string) pattern
-            Regex regexLabel = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexLabel.Match(this.Label).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, must match a pattern of " + regexLabel, new [] { "Label" });
             }
 
             yield break;

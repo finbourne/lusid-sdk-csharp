@@ -24,38 +24,38 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// AddressKeyComplianceParameter
+    /// PercentCheckStepRequest
     /// </summary>
-    [DataContract(Name = "AddressKeyComplianceParameter")]
-    [JsonConverter(typeof(JsonSubtypes), "ComplianceParameterType")]
-    public partial class AddressKeyComplianceParameter : ComplianceParameter, IEquatable<AddressKeyComplianceParameter>, IValidatableObject
+    [DataContract(Name = "PercentCheckStepRequest")]
+    [JsonConverter(typeof(JsonSubtypes), "ComplianceStepTypeRequest")]
+    public partial class PercentCheckStepRequest : ComplianceStepRequest, IEquatable<PercentCheckStepRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddressKeyComplianceParameter" /> class.
+        /// Initializes a new instance of the <see cref="PercentCheckStepRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AddressKeyComplianceParameter() { }
+        protected PercentCheckStepRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddressKeyComplianceParameter" /> class.
+        /// Initializes a new instance of the <see cref="PercentCheckStepRequest" /> class.
         /// </summary>
-        /// <param name="value">The key that uniquely identifies a queryable address in Lusid. (required).</param>
-        /// <param name="complianceParameterType">The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter, PropertyListComplianceParameter, GroupCalculationComplianceParameter (required) (default to &quot;AddressKeyComplianceParameter&quot;).</param>
-        public AddressKeyComplianceParameter(string value = default(string), ComplianceParameterTypeEnum complianceParameterType = default(ComplianceParameterTypeEnum)) : base(complianceParameterType)
+        /// <param name="label">The label of the compliance step (required).</param>
+        /// <param name="complianceStepTypeRequest">. The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest, PercentCheckStepRequest (required) (default to &quot;PercentCheckStepRequest&quot;).</param>
+        public PercentCheckStepRequest(string label = default(string), ComplianceStepTypeRequestEnum complianceStepTypeRequest = default(ComplianceStepTypeRequestEnum)) : base(complianceStepTypeRequest)
         {
-            // to ensure "value" is required (not null)
-            if (value == null)
+            // to ensure "label" is required (not null)
+            if (label == null)
             {
-                throw new ArgumentNullException("value is a required property for AddressKeyComplianceParameter and cannot be null");
+                throw new ArgumentNullException("label is a required property for PercentCheckStepRequest and cannot be null");
             }
-            this.Value = value;
+            this.Label = label;
         }
 
         /// <summary>
-        /// The key that uniquely identifies a queryable address in Lusid.
+        /// The label of the compliance step
         /// </summary>
-        /// <value>The key that uniquely identifies a queryable address in Lusid.</value>
-        [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
-        public string Value { get; set; }
+        /// <value>The label of the compliance step</value>
+        [DataMember(Name = "label", IsRequired = true, EmitDefaultValue = true)]
+        public string Label { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,9 +64,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AddressKeyComplianceParameter {\n");
+            sb.Append("class PercentCheckStepRequest {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,15 +87,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AddressKeyComplianceParameter);
+            return this.Equals(input as PercentCheckStepRequest);
         }
 
         /// <summary>
-        /// Returns true if AddressKeyComplianceParameter instances are equal
+        /// Returns true if PercentCheckStepRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of AddressKeyComplianceParameter to be compared</param>
+        /// <param name="input">Instance of PercentCheckStepRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AddressKeyComplianceParameter input)
+        public bool Equals(PercentCheckStepRequest input)
         {
             if (input == null)
             {
@@ -103,9 +103,9 @@ namespace Lusid.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.Label == input.Label ||
+                    (this.Label != null &&
+                    this.Label.Equals(input.Label))
                 );
         }
 
@@ -118,9 +118,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.Value != null)
+                if (this.Label != null)
                 {
-                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Label.GetHashCode();
                 }
                 return hashCode;
             }
@@ -147,6 +147,25 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
+            // Label (string) maxLength
+            if (this.Label != null && this.Label.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, length must be less than 64.", new [] { "Label" });
+            }
+
+            // Label (string) minLength
+            if (this.Label != null && this.Label.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, length must be greater than 1.", new [] { "Label" });
+            }
+
+            // Label (string) pattern
+            Regex regexLabel = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexLabel.Match(this.Label).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, must match a pattern of " + regexLabel, new [] { "Label" });
+            }
+
             yield break;
         }
     }

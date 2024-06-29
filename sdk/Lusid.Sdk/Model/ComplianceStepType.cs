@@ -62,7 +62,13 @@ namespace Lusid.Sdk.Model
         /// Enum CheckStep for value: CheckStep
         /// </summary>
         [EnumMember(Value = "CheckStep")]
-        CheckStep = 6
+        CheckStep = 6,
+
+        /// <summary>
+        /// Enum PercentCheckStep for value: PercentCheckStep
+        /// </summary>
+        [EnumMember(Value = "PercentCheckStep")]
+        PercentCheckStep = 7
 
     }
 

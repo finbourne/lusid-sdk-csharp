@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
         /// <param name="groupedParameters">Parameters required for the step (required).</param>
-        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep (required) (default to &quot;IntermediateComplianceStep&quot;).</param>
+        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep (required) (default to &quot;IntermediateComplianceStep&quot;).</param>
         public IntermediateComplianceStep(string label = default(string), Dictionary<string, List<ComplianceTemplateParameter>> groupedParameters = default(Dictionary<string, List<ComplianceTemplateParameter>>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum)) : base(complianceStepType)
         {
             // to ensure "label" is required (not null)

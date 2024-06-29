@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class BranchStepRequestAllOf : IEquatable<BranchStepRequestAllOf>, IValidatableObject
     {
         /// <summary>
-        /// . The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest
+        /// . The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest, PercentCheckStepRequest
         /// </summary>
-        /// <value>. The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest</value>
+        /// <value>. The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest, PercentCheckStepRequest</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ComplianceStepTypeRequestEnum
         {
@@ -63,15 +63,21 @@ namespace Lusid.Sdk.Model
             /// Enum CheckStepRequest for value: CheckStepRequest
             /// </summary>
             [EnumMember(Value = "CheckStepRequest")]
-            CheckStepRequest = 5
+            CheckStepRequest = 5,
+
+            /// <summary>
+            /// Enum PercentCheckStepRequest for value: PercentCheckStepRequest
+            /// </summary>
+            [EnumMember(Value = "PercentCheckStepRequest")]
+            PercentCheckStepRequest = 6
 
         }
 
 
         /// <summary>
-        /// . The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest
+        /// . The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest, PercentCheckStepRequest
         /// </summary>
-        /// <value>. The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest</value>
+        /// <value>. The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest, PercentCheckStepRequest</value>
         [DataMember(Name = "complianceStepTypeRequest", IsRequired = true, EmitDefaultValue = true)]
         public ComplianceStepTypeRequestEnum ComplianceStepTypeRequest { get; set; }
         /// <summary>
@@ -83,7 +89,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="BranchStepRequestAllOf" /> class.
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
-        /// <param name="complianceStepTypeRequest">. The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest (required).</param>
+        /// <param name="complianceStepTypeRequest">. The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest, PercentCheckStepRequest (required).</param>
         public BranchStepRequestAllOf(string label = default(string), ComplianceStepTypeRequestEnum complianceStepTypeRequest = default(ComplianceStepTypeRequestEnum))
         {
             // to ensure "label" is required (not null)
@@ -193,6 +199,13 @@ namespace Lusid.Sdk.Model
             if (this.Label != null && this.Label.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, length must be greater than 1.", new [] { "Label" });
+            }
+
+            // Label (string) pattern
+            Regex regexLabel = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexLabel.Match(this.Label).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, must match a pattern of " + regexLabel, new [] { "Label" });
             }
 
             yield break;

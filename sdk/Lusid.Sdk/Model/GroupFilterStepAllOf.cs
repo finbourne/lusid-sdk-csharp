@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class GroupFilterStepAllOf : IEquatable<GroupFilterStepAllOf>, IValidatableObject
     {
         /// <summary>
-        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep
+        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep
         /// </summary>
-        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep</value>
+        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ComplianceStepTypeEnum
         {
@@ -69,15 +69,21 @@ namespace Lusid.Sdk.Model
             /// Enum CheckStep for value: CheckStep
             /// </summary>
             [EnumMember(Value = "CheckStep")]
-            CheckStep = 6
+            CheckStep = 6,
+
+            /// <summary>
+            /// Enum PercentCheckStep for value: PercentCheckStep
+            /// </summary>
+            [EnumMember(Value = "PercentCheckStep")]
+            PercentCheckStep = 7
 
         }
 
 
         /// <summary>
-        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep
+        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep
         /// </summary>
-        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep</value>
+        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep</value>
         [DataMember(Name = "complianceStepType", IsRequired = true, EmitDefaultValue = true)]
         public ComplianceStepTypeEnum ComplianceStepType { get; set; }
         /// <summary>
@@ -90,7 +96,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
         /// <param name="limitCheckParameters">Parameters required for an absolute limit check (required).</param>
-        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep (required).</param>
+        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep (required).</param>
         public GroupFilterStepAllOf(string label = default(string), List<ComplianceTemplateParameter> limitCheckParameters = default(List<ComplianceTemplateParameter>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum))
         {
             // to ensure "label" is required (not null)

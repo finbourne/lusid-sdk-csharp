@@ -34,13 +34,14 @@ namespace Lusid.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(GroupByStep), "GroupByStep")]
     [JsonSubtypes.KnownSubType(typeof(GroupFilterStep), "GroupFilterStep")]
     [JsonSubtypes.KnownSubType(typeof(IntermediateComplianceStep), "IntermediateComplianceStep")]
+    [JsonSubtypes.KnownSubType(typeof(PercentCheckStep), "PercentCheckStep")]
     [JsonSubtypes.KnownSubType(typeof(RecombineStep), "RecombineStep")]
     public partial class ComplianceStep : IEquatable<ComplianceStep>, IValidatableObject
     {
         /// <summary>
-        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep
+        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep
         /// </summary>
-        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep</value>
+        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ComplianceStepTypeEnum
         {
@@ -78,15 +79,21 @@ namespace Lusid.Sdk.Model
             /// Enum CheckStep for value: CheckStep
             /// </summary>
             [EnumMember(Value = "CheckStep")]
-            CheckStep = 6
+            CheckStep = 6,
+
+            /// <summary>
+            /// Enum PercentCheckStep for value: PercentCheckStep
+            /// </summary>
+            [EnumMember(Value = "PercentCheckStep")]
+            PercentCheckStep = 7
 
         }
 
 
         /// <summary>
-        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep
+        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep
         /// </summary>
-        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep</value>
+        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep</value>
         [DataMember(Name = "complianceStepType", IsRequired = true, EmitDefaultValue = true)]
         public ComplianceStepTypeEnum ComplianceStepType { get; set; }
         /// <summary>
@@ -97,7 +104,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ComplianceStep" /> class.
         /// </summary>
-        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep (required).</param>
+        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep (required).</param>
         public ComplianceStep(ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum))
         {
             this.ComplianceStepType = complianceStepType;

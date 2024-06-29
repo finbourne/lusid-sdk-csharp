@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CheckStepRequest" /> class.
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
-        /// <param name="complianceStepTypeRequest">. The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest (required) (default to &quot;CheckStepRequest&quot;).</param>
+        /// <param name="complianceStepTypeRequest">. The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest, PercentCheckStepRequest (required) (default to &quot;CheckStepRequest&quot;).</param>
         public CheckStepRequest(string label = default(string), ComplianceStepTypeRequestEnum complianceStepTypeRequest = default(ComplianceStepTypeRequestEnum)) : base(complianceStepTypeRequest)
         {
             // to ensure "label" is required (not null)
@@ -157,6 +157,13 @@ namespace Lusid.Sdk.Model
             if (this.Label != null && this.Label.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, length must be greater than 1.", new [] { "Label" });
+            }
+
+            // Label (string) pattern
+            Regex regexLabel = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexLabel.Match(this.Label).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, must match a pattern of " + regexLabel, new [] { "Label" });
             }
 
             yield break;
