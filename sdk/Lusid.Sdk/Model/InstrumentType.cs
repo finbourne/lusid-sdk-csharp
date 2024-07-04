@@ -254,7 +254,19 @@ namespace Lusid.Sdk.Model
         /// Enum FlexibleLoan for value: FlexibleLoan
         /// </summary>
         [EnumMember(Value = "FlexibleLoan")]
-        FlexibleLoan = 38
+        FlexibleLoan = 38,
+
+        /// <summary>
+        /// Enum UnsettledCash for value: UnsettledCash
+        /// </summary>
+        [EnumMember(Value = "UnsettledCash")]
+        UnsettledCash = 39,
+
+        /// <summary>
+        /// Enum Cash for value: Cash
+        /// </summary>
+        [EnumMember(Value = "Cash")]
+        Cash = 40
 
     }
 

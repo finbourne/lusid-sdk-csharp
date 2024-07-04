@@ -31,64 +31,96 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FeeAccrual" /> class.
         /// </summary>
-        /// <param name="effectiveAt">effectiveAt.</param>
-        /// <param name="name">name.</param>
-        /// <param name="calculationBase">calculationBase.</param>
-        /// <param name="amount">amount.</param>
-        /// <param name="previousAccrual">previousAccrual.</param>
-        public FeeAccrual(DateTimeOffset effectiveAt = default(DateTimeOffset), string name = default(string), decimal calculationBase = default(decimal), decimal amount = default(decimal), decimal previousAccrual = default(decimal))
+        [JsonConstructorAttribute]
+        protected FeeAccrual() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FeeAccrual" /> class.
+        /// </summary>
+        /// <param name="effectiveAt">The effective date for which the fee accrual has been calculated. (required).</param>
+        /// <param name="code">The code of the fee for which the accrual has been calculated. (required).</param>
+        /// <param name="name">The name of the fee for which the accrual has been calculated. (required).</param>
+        /// <param name="calculationBase">The result of the evaluating the fee&#39;s calculation base expression..</param>
+        /// <param name="amount">The result of applying the fee to the calculation base, and scaled down to a day..</param>
+        /// <param name="previousAccrual">The previous valuation point&#39;s total accrual..</param>
+        /// <param name="totalAccrual">The sum of the PreviousAccrual and Amount..</param>
+        /// <param name="links">links.</param>
+        public FeeAccrual(DateTimeOffset effectiveAt = default(DateTimeOffset), string code = default(string), string name = default(string), decimal calculationBase = default(decimal), decimal amount = default(decimal), decimal previousAccrual = default(decimal), decimal totalAccrual = default(decimal), List<Link> links = default(List<Link>))
         {
             this.EffectiveAt = effectiveAt;
+            // to ensure "code" is required (not null)
+            if (code == null)
+            {
+                throw new ArgumentNullException("code is a required property for FeeAccrual and cannot be null");
+            }
+            this.Code = code;
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for FeeAccrual and cannot be null");
+            }
             this.Name = name;
             this.CalculationBase = calculationBase;
             this.Amount = amount;
             this.PreviousAccrual = previousAccrual;
+            this.TotalAccrual = totalAccrual;
+            this.Links = links;
         }
 
         /// <summary>
-        /// Gets or Sets EffectiveAt
+        /// The effective date for which the fee accrual has been calculated.
         /// </summary>
-        [DataMember(Name = "effectiveAt", EmitDefaultValue = false)]
+        /// <value>The effective date for which the fee accrual has been calculated.</value>
+        [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// The code of the fee for which the accrual has been calculated.
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        /// <value>The code of the fee for which the accrual has been calculated.</value>
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        public string Code { get; set; }
+
+        /// <summary>
+        /// The name of the fee for which the accrual has been calculated.
+        /// </summary>
+        /// <value>The name of the fee for which the accrual has been calculated.</value>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets CalculationBase
+        /// The result of the evaluating the fee&#39;s calculation base expression.
         /// </summary>
+        /// <value>The result of the evaluating the fee&#39;s calculation base expression.</value>
         [DataMember(Name = "calculationBase", EmitDefaultValue = true)]
         public decimal CalculationBase { get; set; }
 
         /// <summary>
-        /// Gets or Sets Amount
+        /// The result of applying the fee to the calculation base, and scaled down to a day.
         /// </summary>
+        /// <value>The result of applying the fee to the calculation base, and scaled down to a day.</value>
         [DataMember(Name = "amount", EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 
         /// <summary>
-        /// Gets or Sets PreviousAccrual
+        /// The previous valuation point&#39;s total accrual.
         /// </summary>
+        /// <value>The previous valuation point&#39;s total accrual.</value>
         [DataMember(Name = "previousAccrual", EmitDefaultValue = true)]
         public decimal PreviousAccrual { get; set; }
 
         /// <summary>
-        /// Gets or Sets TotalAccrual
+        /// The sum of the PreviousAccrual and Amount.
         /// </summary>
+        /// <value>The sum of the PreviousAccrual and Amount.</value>
         [DataMember(Name = "totalAccrual", EmitDefaultValue = true)]
-        public decimal TotalAccrual { get; private set; }
+        public decimal TotalAccrual { get; set; }
 
         /// <summary>
-        /// Returns false as TotalAccrual should not be serialized given that it's read-only.
+        /// Gets or Sets Links
         /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeTotalAccrual()
-        {
-            return false;
-        }
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -98,11 +130,13 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class FeeAccrual {\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  CalculationBase: ").Append(CalculationBase).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  PreviousAccrual: ").Append(PreviousAccrual).Append("\n");
             sb.Append("  TotalAccrual: ").Append(TotalAccrual).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -144,6 +178,11 @@ namespace Lusid.Sdk.Model
                     this.EffectiveAt.Equals(input.EffectiveAt))
                 ) && 
                 (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -163,6 +202,12 @@ namespace Lusid.Sdk.Model
                 (
                     this.TotalAccrual == input.TotalAccrual ||
                     this.TotalAccrual.Equals(input.TotalAccrual)
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -179,6 +224,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
                 }
+                if (this.Code != null)
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
@@ -187,6 +236,10 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 hashCode = (hashCode * 59) + this.PreviousAccrual.GetHashCode();
                 hashCode = (hashCode * 59) + this.TotalAccrual.GetHashCode();
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -198,6 +251,37 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Code (string) maxLength
+            if (this.Code != null && this.Code.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than 64.", new [] { "Code" });
+            }
+
+            // Code (string) minLength
+            if (this.Code != null && this.Code.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
+            }
+
+            // Code (string) pattern
+            Regex regexCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexCode.Match(this.Code).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
+            }
+
+            // Name (string) maxLength
+            if (this.Name != null && this.Name.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 50.", new [] { "Name" });
+            }
+
+            // Name (string) minLength
+            if (this.Name != null && this.Name.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
+            }
+
             yield break;
         }
     }

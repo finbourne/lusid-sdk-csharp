@@ -33,13 +33,15 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="values">The instruments which have been successfully updated or created..</param>
+        /// <param name="staged">The instruments that have been staged for updation or creation..</param>
         /// <param name="failed">The instruments that could not be updated or created or were left unchanged without error along with a reason for their failure..</param>
         /// <param name="metadata">Meta data associated with the upsert event..</param>
         /// <param name="links">links.</param>
-        public UpsertInstrumentsResponse(string href = default(string), Dictionary<string, Instrument> values = default(Dictionary<string, Instrument>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
+        public UpsertInstrumentsResponse(string href = default(string), Dictionary<string, Instrument> values = default(Dictionary<string, Instrument>), Dictionary<string, Instrument> staged = default(Dictionary<string, Instrument>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
             this.Values = values;
+            this.Staged = staged;
             this.Failed = failed;
             this.Metadata = metadata;
             this.Links = links;
@@ -58,6 +60,13 @@ namespace Lusid.Sdk.Model
         /// <value>The instruments which have been successfully updated or created.</value>
         [DataMember(Name = "values", EmitDefaultValue = true)]
         public Dictionary<string, Instrument> Values { get; set; }
+
+        /// <summary>
+        /// The instruments that have been staged for updation or creation.
+        /// </summary>
+        /// <value>The instruments that have been staged for updation or creation.</value>
+        [DataMember(Name = "staged", EmitDefaultValue = true)]
+        public Dictionary<string, Instrument> Staged { get; set; }
 
         /// <summary>
         /// The instruments that could not be updated or created or were left unchanged without error along with a reason for their failure.
@@ -89,6 +98,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class UpsertInstrumentsResponse {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
+            sb.Append("  Staged: ").Append(Staged).Append("\n");
             sb.Append("  Failed: ").Append(Failed).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -139,6 +149,12 @@ namespace Lusid.Sdk.Model
                     this.Values.SequenceEqual(input.Values)
                 ) && 
                 (
+                    this.Staged == input.Staged ||
+                    this.Staged != null &&
+                    input.Staged != null &&
+                    this.Staged.SequenceEqual(input.Staged)
+                ) && 
+                (
                     this.Failed == input.Failed ||
                     this.Failed != null &&
                     input.Failed != null &&
@@ -174,6 +190,10 @@ namespace Lusid.Sdk.Model
                 if (this.Values != null)
                 {
                     hashCode = (hashCode * 59) + this.Values.GetHashCode();
+                }
+                if (this.Staged != null)
+                {
+                    hashCode = (hashCode * 59) + this.Staged.GetHashCode();
                 }
                 if (this.Failed != null)
                 {

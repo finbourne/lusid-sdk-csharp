@@ -138,6 +138,7 @@ namespace Lusid.Sdk.Model
         /// <param name="scope">The scope in which the instrument lies..</param>
         /// <param name="lusidInstrumentId">The unique LUSID Instrument Identifier (LUID) of the instrument. (required).</param>
         /// <param name="version">version (required).</param>
+        /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="name">The name of the instrument. (required).</param>
         /// <param name="identifiers">The set of identifiers that can be used to identify the instrument. (required).</param>
         /// <param name="properties">The requested instrument properties. These will be from the &#39;Instrument&#39; domain..</param>
@@ -148,7 +149,7 @@ namespace Lusid.Sdk.Model
         /// <param name="domCcy">The domestic currency, meaning the currency in which the instrument would typically be expected to pay cashflows, e.g. a share in AAPL being USD..</param>
         /// <param name="relationships">A set of relationships associated to the instrument..</param>
         /// <param name="links">links.</param>
-        public Instrument(string href = default(string), string scope = default(string), string lusidInstrumentId = default(string), ModelVersion version = default(ModelVersion), string name = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>), List<Property> properties = default(List<Property>), ResourceId lookthroughPortfolio = default(ResourceId), LusidInstrument instrumentDefinition = default(LusidInstrument), StateEnum state = default(StateEnum), AssetClassEnum? assetClass = default(AssetClassEnum?), string domCcy = default(string), List<Relationship> relationships = default(List<Relationship>), List<Link> links = default(List<Link>))
+        public Instrument(string href = default(string), string scope = default(string), string lusidInstrumentId = default(string), ModelVersion version = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), string name = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>), List<Property> properties = default(List<Property>), ResourceId lookthroughPortfolio = default(ResourceId), LusidInstrument instrumentDefinition = default(LusidInstrument), StateEnum state = default(StateEnum), AssetClassEnum? assetClass = default(AssetClassEnum?), string domCcy = default(string), List<Relationship> relationships = default(List<Relationship>), List<Link> links = default(List<Link>))
         {
             // to ensure "lusidInstrumentId" is required (not null)
             if (lusidInstrumentId == null)
@@ -177,6 +178,7 @@ namespace Lusid.Sdk.Model
             this.State = state;
             this.Href = href;
             this.Scope = scope;
+            this.StagedModifications = stagedModifications;
             this.Properties = properties;
             this.LookthroughPortfolio = lookthroughPortfolio;
             this.InstrumentDefinition = instrumentDefinition;
@@ -212,6 +214,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public ModelVersion _Version { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StagedModifications
+        /// </summary>
+        [DataMember(Name = "stagedModifications", EmitDefaultValue = false)]
+        public StagedModificationsInfo StagedModifications { get; set; }
 
         /// <summary>
         /// The name of the instrument.
@@ -278,6 +286,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
@@ -342,6 +351,11 @@ namespace Lusid.Sdk.Model
                     this._Version == input._Version ||
                     (this._Version != null &&
                     this._Version.Equals(input._Version))
+                ) && 
+                (
+                    this.StagedModifications == input.StagedModifications ||
+                    (this.StagedModifications != null &&
+                    this.StagedModifications.Equals(input.StagedModifications))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -421,6 +435,10 @@ namespace Lusid.Sdk.Model
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                }
+                if (this.StagedModifications != null)
+                {
+                    hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
                 }
                 if (this.Name != null)
                 {
