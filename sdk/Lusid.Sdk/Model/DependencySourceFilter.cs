@@ -34,11 +34,13 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentType">Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type.  If null, then no filtering on instrument type is applied..</param>
         /// <param name="assetClass">Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied..</param>
         /// <param name="domCcy">Specify that a rule should only apply if the market data is requested by an instrument with a given domestic currency.  If null, then no filtering on currency is applied..</param>
-        public DependencySourceFilter(string instrumentType = default(string), string assetClass = default(string), string domCcy = default(string))
+        /// <param name="longOrShortIndicator">Specify that a rule should apply if the market data is requested by a model with a given long or short indicator.  If none, then no filtering on LongOrShortIndicator is applied..</param>
+        public DependencySourceFilter(string instrumentType = default(string), string assetClass = default(string), string domCcy = default(string), string longOrShortIndicator = default(string))
         {
             this.InstrumentType = instrumentType;
             this.AssetClass = assetClass;
             this.DomCcy = domCcy;
+            this.LongOrShortIndicator = longOrShortIndicator;
         }
 
         /// <summary>
@@ -63,6 +65,13 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
+        /// Specify that a rule should apply if the market data is requested by a model with a given long or short indicator.  If none, then no filtering on LongOrShortIndicator is applied.
+        /// </summary>
+        /// <value>Specify that a rule should apply if the market data is requested by a model with a given long or short indicator.  If none, then no filtering on LongOrShortIndicator is applied.</value>
+        [DataMember(Name = "longOrShortIndicator", EmitDefaultValue = true)]
+        public string LongOrShortIndicator { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("  AssetClass: ").Append(AssetClass).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
+            sb.Append("  LongOrShortIndicator: ").Append(LongOrShortIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +132,11 @@ namespace Lusid.Sdk.Model
                     this.DomCcy == input.DomCcy ||
                     (this.DomCcy != null &&
                     this.DomCcy.Equals(input.DomCcy))
+                ) && 
+                (
+                    this.LongOrShortIndicator == input.LongOrShortIndicator ||
+                    (this.LongOrShortIndicator != null &&
+                    this.LongOrShortIndicator.Equals(input.LongOrShortIndicator))
                 );
         }
 
@@ -145,6 +160,10 @@ namespace Lusid.Sdk.Model
                 if (this.DomCcy != null)
                 {
                     hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
+                }
+                if (this.LongOrShortIndicator != null)
+                {
+                    hashCode = (hashCode * 59) + this.LongOrShortIndicator.GetHashCode();
                 }
                 return hashCode;
             }
