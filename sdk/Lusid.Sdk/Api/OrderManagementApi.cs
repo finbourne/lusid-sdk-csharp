@@ -55,6 +55,29 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BookTransactionsResponse</returns>
         ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0);
         /// <summary>
+        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
+        /// </summary>
+        /// <remarks>
+        /// The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>CancelPlacementsResponse</returns>
+        CancelPlacementsResponse CancelPlacements(Dictionary<string, ResourceId> requestBody, int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
+        /// </summary>
+        /// <remarks>
+        /// The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of CancelPlacementsResponse</returns>
+        ApiResponse<CancelPlacementsResponse> CancelPlacementsWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0);
+        /// <summary>
         /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
         /// </summary>
         /// <remarks>
@@ -152,7 +175,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -164,7 +187,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -207,6 +230,31 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BookTransactionsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
+        /// </summary>
+        /// <remarks>
+        /// The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CancelPlacementsResponse</returns>
+        System.Threading.Tasks.Task<CancelPlacementsResponse> CancelPlacementsAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
+        /// </summary>
+        /// <remarks>
+        /// The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CancelPlacementsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CancelPlacementsResponse>> CancelPlacementsWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
         /// </summary>
@@ -313,7 +361,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -326,7 +374,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -642,6 +690,194 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BookTransactions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>CancelPlacementsResponse</returns>
+        public CancelPlacementsResponse CancelPlacements(Dictionary<string, ResourceId> requestBody, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse> localVarResponse = CancelPlacementsWithHttpInfo(requestBody);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of CancelPlacementsResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse> CancelPlacementsWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0)
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling OrderManagementApi->CancelPlacements");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "OrderManagementApi.CancelPlacements";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<CancelPlacementsResponse>("/api/ordermanagement/$cancelplacements", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelPlacements", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CancelPlacementsResponse</returns>
+        public async System.Threading.Tasks.Task<CancelPlacementsResponse> CancelPlacementsAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse> localVarResponse = await CancelPlacementsWithHttpInfoAsync(requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CancelPlacementsResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse>> CancelPlacementsWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling OrderManagementApi->CancelPlacements");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "OrderManagementApi.CancelPlacements";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CancelPlacementsResponse>("/api/ordermanagement/$cancelplacements", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelPlacements", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1404,7 +1640,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -1417,7 +1653,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -1496,7 +1732,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -1510,7 +1746,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
+        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>

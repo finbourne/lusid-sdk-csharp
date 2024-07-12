@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class CreateTransactionPortfolioRequest : IEquatable<CreateTransactionPortfolioRequest>, IValidatableObject
     {
         /// <summary>
-        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst
+        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency
         /// </summary>
-        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst</value>
+        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AccountingMethodEnum
         {
@@ -69,15 +69,33 @@ namespace Lusid.Sdk.Model
             /// Enum LowestCostFirst for value: LowestCostFirst
             /// </summary>
             [EnumMember(Value = "LowestCostFirst")]
-            LowestCostFirst = 6
+            LowestCostFirst = 6,
+
+            /// <summary>
+            /// Enum ProRateByUnits for value: ProRateByUnits
+            /// </summary>
+            [EnumMember(Value = "ProRateByUnits")]
+            ProRateByUnits = 7,
+
+            /// <summary>
+            /// Enum ProRateByCost for value: ProRateByCost
+            /// </summary>
+            [EnumMember(Value = "ProRateByCost")]
+            ProRateByCost = 8,
+
+            /// <summary>
+            /// Enum ProRateByCostPortfolioCurrency for value: ProRateByCostPortfolioCurrency
+            /// </summary>
+            [EnumMember(Value = "ProRateByCostPortfolioCurrency")]
+            ProRateByCostPortfolioCurrency = 9
 
         }
 
 
         /// <summary>
-        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst
+        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency
         /// </summary>
-        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst</value>
+        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency</value>
         [DataMember(Name = "accountingMethod", EmitDefaultValue = false)]
         public AccountingMethodEnum? AccountingMethod { get; set; }
         /// <summary>
@@ -94,7 +112,7 @@ namespace Lusid.Sdk.Model
         /// <param name="created">The effective datetime at which to create the transaction portfolio. No transactions can be added to the transaction portfolio before this date. Defaults to the current LUSID system datetime if not specified..</param>
         /// <param name="baseCurrency">The base currency of the transaction portfolio in ISO 4217 currency code format. (required).</param>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
-        /// <param name="accountingMethod">. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst.</param>
+        /// <param name="accountingMethod">. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency.</param>
         /// <param name="subHoldingKeys">A set of unique transaction properties to group the transaction portfolio&#39;s holdings by, perhaps for strategy tagging. Each property must be from the &#39;Transaction&#39; domain and identified by a key in the format {domain}/{scope}/{code}, for example &#39;Transaction/strategies/quantsignal&#39;. See https://support.lusid.com/knowledgebase/article/KA-01879/en-us for more information..</param>
         /// <param name="properties">A set of unique portfolio properties to add custom data to the transaction portfolio. Each property must be from the &#39;Portfolio&#39; domain and identified by a key in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Note these properties must be pre-defined..</param>
         /// <param name="instrumentScopes">The resolution strategy used to resolve instruments of transactions/holdings upserted to this portfolio..</param>

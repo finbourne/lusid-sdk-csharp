@@ -63,9 +63,9 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TypeEnum Type { get; set; }
         /// <summary>
-        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst
+        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency
         /// </summary>
-        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst</value>
+        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AccountingMethodEnum
         {
@@ -103,15 +103,33 @@ namespace Lusid.Sdk.Model
             /// Enum LowestCostFirst for value: LowestCostFirst
             /// </summary>
             [EnumMember(Value = "LowestCostFirst")]
-            LowestCostFirst = 6
+            LowestCostFirst = 6,
+
+            /// <summary>
+            /// Enum ProRateByUnits for value: ProRateByUnits
+            /// </summary>
+            [EnumMember(Value = "ProRateByUnits")]
+            ProRateByUnits = 7,
+
+            /// <summary>
+            /// Enum ProRateByCost for value: ProRateByCost
+            /// </summary>
+            [EnumMember(Value = "ProRateByCost")]
+            ProRateByCost = 8,
+
+            /// <summary>
+            /// Enum ProRateByCostPortfolioCurrency for value: ProRateByCostPortfolioCurrency
+            /// </summary>
+            [EnumMember(Value = "ProRateByCostPortfolioCurrency")]
+            ProRateByCostPortfolioCurrency = 9
 
         }
 
 
         /// <summary>
-        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst
+        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency
         /// </summary>
-        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst</value>
+        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency</value>
         [DataMember(Name = "accountingMethod", EmitDefaultValue = false)]
         public AccountingMethodEnum? AccountingMethod { get; set; }
         /// <summary>
@@ -135,7 +153,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain..</param>
         /// <param name="relationships">A set of relationships associated to the portfolio..</param>
         /// <param name="instrumentScopes">The instrument scope resolution strategy of this portfolio..</param>
-        /// <param name="accountingMethod">. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst.</param>
+        /// <param name="accountingMethod">. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency.</param>
         /// <param name="amortisationMethod">The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.</param>
         /// <param name="transactionTypeScope">The scope of the transaction types..</param>
         /// <param name="cashGainLossCalculationDate">The scope of the transaction types..</param>

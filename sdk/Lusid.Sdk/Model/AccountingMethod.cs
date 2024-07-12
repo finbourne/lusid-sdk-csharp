@@ -62,7 +62,25 @@ namespace Lusid.Sdk.Model
         /// Enum LowestCostFirst for value: LowestCostFirst
         /// </summary>
         [EnumMember(Value = "LowestCostFirst")]
-        LowestCostFirst = 6
+        LowestCostFirst = 6,
+
+        /// <summary>
+        /// Enum ProRateByUnits for value: ProRateByUnits
+        /// </summary>
+        [EnumMember(Value = "ProRateByUnits")]
+        ProRateByUnits = 7,
+
+        /// <summary>
+        /// Enum ProRateByCost for value: ProRateByCost
+        /// </summary>
+        [EnumMember(Value = "ProRateByCost")]
+        ProRateByCost = 8,
+
+        /// <summary>
+        /// Enum ProRateByCostPortfolioCurrency for value: ProRateByCostPortfolioCurrency
+        /// </summary>
+        [EnumMember(Value = "ProRateByCostPortfolioCurrency")]
+        ProRateByCostPortfolioCurrency = 9
 
     }
 

@@ -195,7 +195,13 @@ namespace Lusid.Sdk.Model
         /// Enum MergerEvent for value: MergerEvent
         /// </summary>
         [EnumMember(Value = "MergerEvent")]
-        MergerEvent = 28
+        MergerEvent = 28,
+
+        /// <summary>
+        /// Enum FutureExpiryEvent for value: FutureExpiryEvent
+        /// </summary>
+        [EnumMember(Value = "FutureExpiryEvent")]
+        FutureExpiryEvent = 29
 
     }
 

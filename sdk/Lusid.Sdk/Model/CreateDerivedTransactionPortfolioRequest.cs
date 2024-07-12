@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class CreateDerivedTransactionPortfolioRequest : IEquatable<CreateDerivedTransactionPortfolioRequest>, IValidatableObject
     {
         /// <summary>
-        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst
+        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency
         /// </summary>
-        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst</value>
+        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AccountingMethodEnum
         {
@@ -69,15 +69,33 @@ namespace Lusid.Sdk.Model
             /// Enum LowestCostFirst for value: LowestCostFirst
             /// </summary>
             [EnumMember(Value = "LowestCostFirst")]
-            LowestCostFirst = 6
+            LowestCostFirst = 6,
+
+            /// <summary>
+            /// Enum ProRateByUnits for value: ProRateByUnits
+            /// </summary>
+            [EnumMember(Value = "ProRateByUnits")]
+            ProRateByUnits = 7,
+
+            /// <summary>
+            /// Enum ProRateByCost for value: ProRateByCost
+            /// </summary>
+            [EnumMember(Value = "ProRateByCost")]
+            ProRateByCost = 8,
+
+            /// <summary>
+            /// Enum ProRateByCostPortfolioCurrency for value: ProRateByCostPortfolioCurrency
+            /// </summary>
+            [EnumMember(Value = "ProRateByCostPortfolioCurrency")]
+            ProRateByCostPortfolioCurrency = 9
 
         }
 
 
         /// <summary>
-        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst
+        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency
         /// </summary>
-        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst</value>
+        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency</value>
         [DataMember(Name = "accountingMethod", EmitDefaultValue = false)]
         public AccountingMethodEnum? AccountingMethod { get; set; }
         /// <summary>
@@ -94,7 +112,7 @@ namespace Lusid.Sdk.Model
         /// <param name="parentPortfolioId">parentPortfolioId (required).</param>
         /// <param name="created">This will be auto-populated to be the parent portfolio creation date..</param>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
-        /// <param name="accountingMethod">. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst.</param>
+        /// <param name="accountingMethod">. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency.</param>
         /// <param name="subHoldingKeys">A set of unique transaction properties to group the derived transaction portfolio&#39;s holdings by, perhaps for strategy tagging. Each property must be from the &#39;Transaction&#39; domain and identified by a key in the format {domain}/{scope}/{code}, for example &#39;Transaction/strategies/quantsignal&#39;. See https://support.lusid.com/knowledgebase/article/KA-01879/en-us for more information..</param>
         /// <param name="instrumentScopes">The resolution strategy used to resolve instruments of transactions/holdings upserted to this derived portfolio..</param>
         /// <param name="amortisationMethod">The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.</param>
