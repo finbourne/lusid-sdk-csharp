@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="units">units (required).</param>
         /// <param name="transactionPrice">transactionPrice (required).</param>
         /// <param name="transactionCurrency">transactionCurrency (required).</param>
-        /// <param name="exchangeRate">exchangeRate (required).</param>
+        /// <param name="exchangeRate">exchangeRate.</param>
         /// <param name="totalConsideration">totalConsideration (required).</param>
         public TransactionFieldMap(string transactionId = default(string), string type = default(string), string source = default(string), string instrument = default(string), string transactionDate = default(string), string settlementDate = default(string), string units = default(string), TransactionPriceAndType transactionPrice = default(TransactionPriceAndType), string transactionCurrency = default(string), string exchangeRate = default(string), TransactionCurrencyAndAmount totalConsideration = default(TransactionCurrencyAndAmount))
         {
@@ -103,18 +103,13 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("transactionCurrency is a required property for TransactionFieldMap and cannot be null");
             }
             this.TransactionCurrency = transactionCurrency;
-            // to ensure "exchangeRate" is required (not null)
-            if (exchangeRate == null)
-            {
-                throw new ArgumentNullException("exchangeRate is a required property for TransactionFieldMap and cannot be null");
-            }
-            this.ExchangeRate = exchangeRate;
             // to ensure "totalConsideration" is required (not null)
             if (totalConsideration == null)
             {
                 throw new ArgumentNullException("totalConsideration is a required property for TransactionFieldMap and cannot be null");
             }
             this.TotalConsideration = totalConsideration;
+            this.ExchangeRate = exchangeRate;
         }
 
         /// <summary>
@@ -174,7 +169,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets ExchangeRate
         /// </summary>
-        [DataMember(Name = "exchangeRate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exchangeRate", EmitDefaultValue = true)]
         public string ExchangeRate { get; set; }
 
         /// <summary>

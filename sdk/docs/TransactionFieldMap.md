@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Units** | **string** |  | 
 **TransactionPrice** | [**TransactionPriceAndType**](TransactionPriceAndType.md) |  | 
 **TransactionCurrency** | **string** |  | 
-**ExchangeRate** | **string** |  | 
+**ExchangeRate** | **string** |  | [optional] 
 **TotalConsideration** | [**TransactionCurrencyAndAmount**](TransactionCurrencyAndAmount.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
