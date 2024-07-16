@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="transactionDate">transactionDate (required).</param>
         /// <param name="settlementDate">settlementDate (required).</param>
         /// <param name="units">units (required).</param>
-        /// <param name="transactionPrice">transactionPrice (required).</param>
+        /// <param name="transactionPrice">transactionPrice.</param>
         /// <param name="transactionCurrency">transactionCurrency (required).</param>
         /// <param name="exchangeRate">exchangeRate.</param>
         /// <param name="totalConsideration">totalConsideration (required).</param>
@@ -91,12 +91,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("units is a required property for TransactionFieldMap and cannot be null");
             }
             this.Units = units;
-            // to ensure "transactionPrice" is required (not null)
-            if (transactionPrice == null)
-            {
-                throw new ArgumentNullException("transactionPrice is a required property for TransactionFieldMap and cannot be null");
-            }
-            this.TransactionPrice = transactionPrice;
             // to ensure "transactionCurrency" is required (not null)
             if (transactionCurrency == null)
             {
@@ -109,6 +103,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("totalConsideration is a required property for TransactionFieldMap and cannot be null");
             }
             this.TotalConsideration = totalConsideration;
+            this.TransactionPrice = transactionPrice;
             this.ExchangeRate = exchangeRate;
         }
 
@@ -157,7 +152,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets TransactionPrice
         /// </summary>
-        [DataMember(Name = "transactionPrice", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "transactionPrice", EmitDefaultValue = false)]
         public TransactionPriceAndType TransactionPrice { get; set; }
 
         /// <summary>

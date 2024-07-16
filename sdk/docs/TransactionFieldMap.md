@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **TransactionDate** | **string** |  | 
 **SettlementDate** | **string** |  | 
 **Units** | **string** |  | 
-**TransactionPrice** | [**TransactionPriceAndType**](TransactionPriceAndType.md) |  | 
+**TransactionPrice** | [**TransactionPriceAndType**](TransactionPriceAndType.md) |  | [optional] 
 **TransactionCurrency** | **string** |  | 
 **ExchangeRate** | **string** |  | [optional] 
 **TotalConsideration** | [**TransactionCurrencyAndAmount**](TransactionCurrencyAndAmount.md) |  | 
