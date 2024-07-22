@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **TickerStep** | **decimal** | Minimal step size change in ticker. | [optional] 
 **UnitValue** | **decimal** | The value in the currency of a 1 unit change in the contract price. | [optional] 
 **Calendars** | **List&lt;string&gt;** | Holiday calendars that apply to yield-to-price conversions (i.e. for BRL futures). | [optional] 
+**DeliveryType** | **string** | Delivery type to be used on settling the contract.  Optional: Defaults to DeliveryType.Physical if not provided.    Supported string (enumeration) values are: [Cash, Physical]. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

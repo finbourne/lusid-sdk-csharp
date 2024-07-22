@@ -50,7 +50,8 @@ namespace Lusid.Sdk.Model
         /// <param name="tickerStep">Minimal step size change in ticker..</param>
         /// <param name="unitValue">The value in the currency of a 1 unit change in the contract price..</param>
         /// <param name="calendars">Holiday calendars that apply to yield-to-price conversions (i.e. for BRL futures)..</param>
-        public FuturesContractDetails(string domCcy = default(string), string fgnCcy = default(string), string assetClass = default(string), string contractCode = default(string), string contractMonth = default(string), decimal contractSize = default(decimal), string convention = default(string), string country = default(string), string description = default(string), string exchangeCode = default(string), string exchangeName = default(string), decimal tickerStep = default(decimal), decimal unitValue = default(decimal), List<string> calendars = default(List<string>))
+        /// <param name="deliveryType">Delivery type to be used on settling the contract.  Optional: Defaults to DeliveryType.Physical if not provided.    Supported string (enumeration) values are: [Cash, Physical]..</param>
+        public FuturesContractDetails(string domCcy = default(string), string fgnCcy = default(string), string assetClass = default(string), string contractCode = default(string), string contractMonth = default(string), decimal contractSize = default(decimal), string convention = default(string), string country = default(string), string description = default(string), string exchangeCode = default(string), string exchangeName = default(string), decimal tickerStep = default(decimal), decimal unitValue = default(decimal), List<string> calendars = default(List<string>), string deliveryType = default(string))
         {
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
@@ -86,6 +87,7 @@ namespace Lusid.Sdk.Model
             this.TickerStep = tickerStep;
             this.UnitValue = unitValue;
             this.Calendars = calendars;
+            this.DeliveryType = deliveryType;
         }
 
         /// <summary>
@@ -187,6 +189,13 @@ namespace Lusid.Sdk.Model
         public List<string> Calendars { get; set; }
 
         /// <summary>
+        /// Delivery type to be used on settling the contract.  Optional: Defaults to DeliveryType.Physical if not provided.    Supported string (enumeration) values are: [Cash, Physical].
+        /// </summary>
+        /// <value>Delivery type to be used on settling the contract.  Optional: Defaults to DeliveryType.Physical if not provided.    Supported string (enumeration) values are: [Cash, Physical].</value>
+        [DataMember(Name = "deliveryType", EmitDefaultValue = true)]
+        public string DeliveryType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -208,6 +217,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TickerStep: ").Append(TickerStep).Append("\n");
             sb.Append("  UnitValue: ").Append(UnitValue).Append("\n");
             sb.Append("  Calendars: ").Append(Calendars).Append("\n");
+            sb.Append("  DeliveryType: ").Append(DeliveryType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -310,6 +320,11 @@ namespace Lusid.Sdk.Model
                     this.Calendars != null &&
                     input.Calendars != null &&
                     this.Calendars.SequenceEqual(input.Calendars)
+                ) && 
+                (
+                    this.DeliveryType == input.DeliveryType ||
+                    (this.DeliveryType != null &&
+                    this.DeliveryType.Equals(input.DeliveryType))
                 );
         }
 
@@ -368,6 +383,10 @@ namespace Lusid.Sdk.Model
                 if (this.Calendars != null)
                 {
                     hashCode = (hashCode * 59) + this.Calendars.GetHashCode();
+                }
+                if (this.DeliveryType != null)
+                {
+                    hashCode = (hashCode * 59) + this.DeliveryType.GetHashCode();
                 }
                 return hashCode;
             }

@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="matchCriteria">matchCriteria (required).</param>
         /// <param name="components">components.</param>
-        public ComponentRule(string matchCriteria = default(string), Dictionary<string, string> components = default(Dictionary<string, string>))
+        public ComponentRule(string matchCriteria = default(string), List<ComponentFilter> components = default(List<ComponentFilter>))
         {
             // to ensure "matchCriteria" is required (not null)
             if (matchCriteria == null)
@@ -58,8 +58,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Components
         /// </summary>
-        [DataMember(Name = "components", EmitDefaultValue = true)]
-        public Dictionary<string, string> Components { get; set; }
+        [DataMember(Name = "components", EmitDefaultValue = false)]
+        public List<ComponentFilter> Components { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

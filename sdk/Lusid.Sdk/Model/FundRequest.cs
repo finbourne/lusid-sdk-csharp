@@ -39,6 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="code">The code given for the Fund. (required).</param>
         /// <param name="displayName">The name of the Fund..</param>
         /// <param name="description">A description for the Fund..</param>
+        /// <param name="fundConfigurationId">fundConfigurationId.</param>
         /// <param name="aborId">aborId (required).</param>
         /// <param name="shareClassInstrumentScopes">The scopes in which the instruments lie, currently limited to one..</param>
         /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them..</param>
@@ -47,7 +48,7 @@ namespace Lusid.Sdk.Model
         /// <param name="decimalPlaces">Number of decimal places for reporting.</param>
         /// <param name="yearEndDate">yearEndDate (required).</param>
         /// <param name="properties">A set of properties for the Fund..</param>
-        public FundRequest(string code = default(string), string displayName = default(string), string description = default(string), ResourceId aborId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public FundRequest(string code = default(string), string displayName = default(string), string description = default(string), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -76,6 +77,7 @@ namespace Lusid.Sdk.Model
             this.YearEndDate = yearEndDate;
             this.DisplayName = displayName;
             this.Description = description;
+            this.FundConfigurationId = fundConfigurationId;
             this.ShareClassInstrumentScopes = shareClassInstrumentScopes;
             this.ShareClassInstruments = shareClassInstruments;
             this.DecimalPlaces = decimalPlaces;
@@ -102,6 +104,12 @@ namespace Lusid.Sdk.Model
         /// <value>A description for the Fund.</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FundConfigurationId
+        /// </summary>
+        [DataMember(Name = "fundConfigurationId", EmitDefaultValue = false)]
+        public ResourceId FundConfigurationId { get; set; }
 
         /// <summary>
         /// Gets or Sets AborId
@@ -168,6 +176,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  FundConfigurationId: ").Append(FundConfigurationId).Append("\n");
             sb.Append("  AborId: ").Append(AborId).Append("\n");
             sb.Append("  ShareClassInstrumentScopes: ").Append(ShareClassInstrumentScopes).Append("\n");
             sb.Append("  ShareClassInstruments: ").Append(ShareClassInstruments).Append("\n");
@@ -225,6 +234,11 @@ namespace Lusid.Sdk.Model
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.FundConfigurationId == input.FundConfigurationId ||
+                    (this.FundConfigurationId != null &&
+                    this.FundConfigurationId.Equals(input.FundConfigurationId))
                 ) && 
                 (
                     this.AborId == input.AborId ||
@@ -291,6 +305,10 @@ namespace Lusid.Sdk.Model
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.FundConfigurationId != null)
+                {
+                    hashCode = (hashCode * 59) + this.FundConfigurationId.GetHashCode();
                 }
                 if (this.AborId != null)
                 {

@@ -110,7 +110,25 @@ namespace Lusid.Sdk.Model
         /// Enum DirtyPrice for value: DirtyPrice
         /// </summary>
         [EnumMember(Value = "DirtyPrice")]
-        DirtyPrice = 14
+        DirtyPrice = 14,
+
+        /// <summary>
+        /// Enum PrincipalWriteOff for value: PrincipalWriteOff
+        /// </summary>
+        [EnumMember(Value = "PrincipalWriteOff")]
+        PrincipalWriteOff = 15,
+
+        /// <summary>
+        /// Enum InterestDeferred for value: InterestDeferred
+        /// </summary>
+        [EnumMember(Value = "InterestDeferred")]
+        InterestDeferred = 16,
+
+        /// <summary>
+        /// Enum InterestShortfall for value: InterestShortfall
+        /// </summary>
+        [EnumMember(Value = "InterestShortfall")]
+        InterestShortfall = 17
 
     }
 

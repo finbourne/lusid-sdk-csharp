@@ -31,6 +31,7 @@ namespace Lusid.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(Basket), "Basket")]
     [JsonSubtypes.KnownSubType(typeof(Bond), "Bond")]
     [JsonSubtypes.KnownSubType(typeof(CapFloor), "CapFloor")]
+    [JsonSubtypes.KnownSubType(typeof(Cash), "Cash")]
     [JsonSubtypes.KnownSubType(typeof(CashPerpetual), "CashPerpetual")]
     [JsonSubtypes.KnownSubType(typeof(CdsIndex), "CdsIndex")]
     [JsonSubtypes.KnownSubType(typeof(ComplexBond), "ComplexBond")]

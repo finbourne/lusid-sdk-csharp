@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Code** | **string** | The code given for the Fund. | 
 **DisplayName** | **string** | The name of the Fund. | [optional] 
 **Description** | **string** | A description for the Fund. | [optional] 
+**FundConfigurationId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AborId** | [**ResourceId**](ResourceId.md) |  | 
 **ShareClassInstrumentScopes** | **List&lt;string&gt;** | The scopes in which the instruments lie, currently limited to one. | [optional] 
 **ShareClassInstruments** | [**List&lt;InstrumentResolutionDetail&gt;**](InstrumentResolutionDetail.md) | Details the user-provided instrument identifiers and the instrument resolved from them. | [optional] 
