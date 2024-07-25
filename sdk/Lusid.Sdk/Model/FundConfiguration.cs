@@ -40,11 +40,13 @@ namespace Lusid.Sdk.Model
         /// <param name="id">id (required).</param>
         /// <param name="displayName">The name of the FundConfiguration..</param>
         /// <param name="description">A description for the FundConfiguration..</param>
-        /// <param name="componentRules">The first matching rule decides the set of filters used..</param>
+        /// <param name="dealingRule">dealingRule.</param>
+        /// <param name="fundPnlExclusionRule">fundPnlExclusionRule.</param>
+        /// <param name="backOutRule">backOutRule.</param>
         /// <param name="properties">A set of properties for the Fund Configuration..</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
-        public FundConfiguration(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<ComponentRule> componentRules = default(List<ComponentRule>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public FundConfiguration(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ComponentRule dealingRule = default(ComponentRule), ComponentRule fundPnlExclusionRule = default(ComponentRule), ComponentRule backOutRule = default(ComponentRule), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -55,7 +57,9 @@ namespace Lusid.Sdk.Model
             this.Href = href;
             this.DisplayName = displayName;
             this.Description = description;
-            this.ComponentRules = componentRules;
+            this.DealingRule = dealingRule;
+            this.FundPnlExclusionRule = fundPnlExclusionRule;
+            this.BackOutRule = backOutRule;
             this.Properties = properties;
             this._Version = version;
             this.Links = links;
@@ -89,11 +93,22 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The first matching rule decides the set of filters used.
+        /// Gets or Sets DealingRule
         /// </summary>
-        /// <value>The first matching rule decides the set of filters used.</value>
-        [DataMember(Name = "componentRules", EmitDefaultValue = true)]
-        public List<ComponentRule> ComponentRules { get; set; }
+        [DataMember(Name = "dealingRule", EmitDefaultValue = false)]
+        public ComponentRule DealingRule { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FundPnlExclusionRule
+        /// </summary>
+        [DataMember(Name = "fundPnlExclusionRule", EmitDefaultValue = false)]
+        public ComponentRule FundPnlExclusionRule { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BackOutRule
+        /// </summary>
+        [DataMember(Name = "backOutRule", EmitDefaultValue = false)]
+        public ComponentRule BackOutRule { get; set; }
 
         /// <summary>
         /// A set of properties for the Fund Configuration.
@@ -126,7 +141,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  ComponentRules: ").Append(ComponentRules).Append("\n");
+            sb.Append("  DealingRule: ").Append(DealingRule).Append("\n");
+            sb.Append("  FundPnlExclusionRule: ").Append(FundPnlExclusionRule).Append("\n");
+            sb.Append("  BackOutRule: ").Append(BackOutRule).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -186,10 +203,19 @@ namespace Lusid.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.ComponentRules == input.ComponentRules ||
-                    this.ComponentRules != null &&
-                    input.ComponentRules != null &&
-                    this.ComponentRules.SequenceEqual(input.ComponentRules)
+                    this.DealingRule == input.DealingRule ||
+                    (this.DealingRule != null &&
+                    this.DealingRule.Equals(input.DealingRule))
+                ) && 
+                (
+                    this.FundPnlExclusionRule == input.FundPnlExclusionRule ||
+                    (this.FundPnlExclusionRule != null &&
+                    this.FundPnlExclusionRule.Equals(input.FundPnlExclusionRule))
+                ) && 
+                (
+                    this.BackOutRule == input.BackOutRule ||
+                    (this.BackOutRule != null &&
+                    this.BackOutRule.Equals(input.BackOutRule))
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -235,9 +261,17 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this.ComponentRules != null)
+                if (this.DealingRule != null)
                 {
-                    hashCode = (hashCode * 59) + this.ComponentRules.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DealingRule.GetHashCode();
+                }
+                if (this.FundPnlExclusionRule != null)
+                {
+                    hashCode = (hashCode * 59) + this.FundPnlExclusionRule.GetHashCode();
+                }
+                if (this.BackOutRule != null)
+                {
+                    hashCode = (hashCode * 59) + this.BackOutRule.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

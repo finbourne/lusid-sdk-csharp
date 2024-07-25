@@ -4492,7 +4492,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<DiaryEntry>("/api/funds/{scope}/{code}/valuationpoints/$upsert", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<DiaryEntry>("/api/funds/{scope}/{code}/valuationpoints", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpsertDiaryEntryTypeValuationPoint", localVarResponse);
@@ -4605,7 +4605,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<DiaryEntry>("/api/funds/{scope}/{code}/valuationpoints/$upsert", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<DiaryEntry>("/api/funds/{scope}/{code}/valuationpoints", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

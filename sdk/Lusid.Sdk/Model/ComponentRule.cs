@@ -31,29 +31,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ComponentRule" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ComponentRule() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ComponentRule" /> class.
-        /// </summary>
-        /// <param name="matchCriteria">matchCriteria (required).</param>
         /// <param name="components">components.</param>
-        public ComponentRule(string matchCriteria = default(string), List<ComponentFilter> components = default(List<ComponentFilter>))
+        public ComponentRule(List<ComponentFilter> components = default(List<ComponentFilter>))
         {
-            // to ensure "matchCriteria" is required (not null)
-            if (matchCriteria == null)
-            {
-                throw new ArgumentNullException("matchCriteria is a required property for ComponentRule and cannot be null");
-            }
-            this.MatchCriteria = matchCriteria;
             this.Components = components;
         }
-
-        /// <summary>
-        /// Gets or Sets MatchCriteria
-        /// </summary>
-        [DataMember(Name = "matchCriteria", IsRequired = true, EmitDefaultValue = true)]
-        public string MatchCriteria { get; set; }
 
         /// <summary>
         /// Gets or Sets Components
@@ -69,7 +51,6 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ComponentRule {\n");
-            sb.Append("  MatchCriteria: ").Append(MatchCriteria).Append("\n");
             sb.Append("  Components: ").Append(Components).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -107,11 +88,6 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.MatchCriteria == input.MatchCriteria ||
-                    (this.MatchCriteria != null &&
-                    this.MatchCriteria.Equals(input.MatchCriteria))
-                ) && 
-                (
                     this.Components == input.Components ||
                     this.Components != null &&
                     input.Components != null &&
@@ -128,10 +104,6 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.MatchCriteria != null)
-                {
-                    hashCode = (hashCode * 59) + this.MatchCriteria.GetHashCode();
-                }
                 if (this.Components != null)
                 {
                     hashCode = (hashCode * 59) + this.Components.GetHashCode();
@@ -147,25 +119,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // MatchCriteria (string) maxLength
-            if (this.MatchCriteria != null && this.MatchCriteria.Length > 16384)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchCriteria, length must be less than 16384.", new [] { "MatchCriteria" });
-            }
-
-            // MatchCriteria (string) minLength
-            if (this.MatchCriteria != null && this.MatchCriteria.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchCriteria, length must be greater than 1.", new [] { "MatchCriteria" });
-            }
-
-            // MatchCriteria (string) pattern
-            Regex regexMatchCriteria = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
-            if (false == regexMatchCriteria.Match(this.MatchCriteria).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchCriteria, must match a pattern of " + regexMatchCriteria, new [] { "MatchCriteria" });
-            }
-
             yield break;
         }
     }

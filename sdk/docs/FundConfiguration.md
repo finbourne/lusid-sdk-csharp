@@ -8,7 +8,9 @@ Name | Type | Description | Notes
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **DisplayName** | **string** | The name of the FundConfiguration. | [optional] 
 **Description** | **string** | A description for the FundConfiguration. | [optional] 
-**ComponentRules** | [**List&lt;ComponentRule&gt;**](ComponentRule.md) | The first matching rule decides the set of filters used. | [optional] 
+**DealingRule** | [**ComponentRule**](ComponentRule.md) |  | [optional] 
+**FundPnlExclusionRule** | [**ComponentRule**](ComponentRule.md) |  | [optional] 
+**BackOutRule** | [**ComponentRule**](ComponentRule.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund Configuration. | [optional] 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
