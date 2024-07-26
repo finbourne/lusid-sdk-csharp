@@ -15,6 +15,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**ListComplianceRuns**](ComplianceApi.md#listcomplianceruns) | **GET** /api/compliance/runs | [EARLY ACCESS] ListComplianceRuns: List historical compliance run identifiers. |
 | [**ListComplianceTemplates**](ComplianceApi.md#listcompliancetemplates) | **GET** /api/compliance/templates | [EARLY ACCESS] ListComplianceTemplates: List compliance templates. |
 | [**RunCompliance**](ComplianceApi.md#runcompliance) | **POST** /api/compliance/runs | [EARLY ACCESS] RunCompliance: Run a compliance check. |
+| [**RunCompliancePreview**](ComplianceApi.md#runcompliancepreview) | **POST** /api/compliance/preview/runs | [EARLY ACCESS] RunCompliancePreview: Run a compliance check. |
 | [**UpdateComplianceTemplate**](ComplianceApi.md#updatecompliancetemplate) | **PUT** /api/compliance/templates/{scope}/{code} | [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate |
 | [**UpsertComplianceRule**](ComplianceApi.md#upsertcompliancerule) | **POST** /api/compliance/rules | [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule. |
 | [**UpsertComplianceRunSummary**](ComplianceApi.md#upsertcompliancerunsummary) | **POST** /api/compliance/runs/summary | [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary. |
@@ -1117,6 +1118,110 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The identifying information of a compliance run |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="runcompliancepreview"></a>
+# **RunCompliancePreview**
+> ComplianceRunInfoV2 RunCompliancePreview (string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = null)
+
+[EARLY ACCESS] RunCompliancePreview: Run a compliance check.
+
+Use this endpoint to run a compliance check using rules from a specific scope.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class RunCompliancePreviewExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new ComplianceApi(config);
+            var runScope = "runScope_example";  // string | Required: Scope to save the run results in.
+            var ruleScope = "ruleScope_example";  // string | Required: Scope from which to select rules to be run.
+            var recipeIdScope = "recipeIdScope_example";  // string | Required: the scope of the recipe to be used
+            var recipeIdCode = "recipeIdCode_example";  // string | Required: The code of the recipe to be used. If left blank, the default recipe will be used.
+            var complianceRunConfiguration = new ComplianceRunConfiguration?(); // ComplianceRunConfiguration? | Configuration options for the compliance run. (optional) 
+
+            try
+            {
+                // [EARLY ACCESS] RunCompliancePreview: Run a compliance check.
+                ComplianceRunInfoV2 result = apiInstance.RunCompliancePreview(runScope, ruleScope, recipeIdScope, recipeIdCode, complianceRunConfiguration);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ComplianceApi.RunCompliancePreview: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the RunCompliancePreviewWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] RunCompliancePreview: Run a compliance check.
+    ApiResponse<ComplianceRunInfoV2> response = apiInstance.RunCompliancePreviewWithHttpInfo(runScope, ruleScope, recipeIdScope, recipeIdCode, complianceRunConfiguration);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ComplianceApi.RunCompliancePreviewWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **runScope** | **string** | Required: Scope to save the run results in. |  |
+| **ruleScope** | **string** | Required: Scope from which to select rules to be run. |  |
+| **recipeIdScope** | **string** | Required: the scope of the recipe to be used |  |
+| **recipeIdCode** | **string** | Required: The code of the recipe to be used. If left blank, the default recipe will be used. |  |
+| **complianceRunConfiguration** | [**ComplianceRunConfiguration?**](ComplianceRunConfiguration?.md) | Configuration options for the compliance run. | [optional]  |
+
+### Return type
+
+[**ComplianceRunInfoV2**](ComplianceRunInfoV2.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

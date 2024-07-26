@@ -337,6 +337,37 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ComplianceRunInfoV2</returns>
         ApiResponse<ComplianceRunInfoV2> RunComplianceWithHttpInfo(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0);
         /// <summary>
+        /// [EARLY ACCESS] RunCompliancePreview: Run a compliance check.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to run a compliance check using rules from a specific scope.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Scope to save the run results in.</param>
+        /// <param name="ruleScope">Required: Scope from which to select rules to be run.</param>
+        /// <param name="recipeIdScope">Required: the scope of the recipe to be used</param>
+        /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
+        /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ComplianceRunInfoV2</returns>
+        ComplianceRunInfoV2 RunCompliancePreview(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] RunCompliancePreview: Run a compliance check.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to run a compliance check using rules from a specific scope.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Scope to save the run results in.</param>
+        /// <param name="ruleScope">Required: Scope from which to select rules to be run.</param>
+        /// <param name="recipeIdScope">Required: the scope of the recipe to be used</param>
+        /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
+        /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ComplianceRunInfoV2</returns>
+        ApiResponse<ComplianceRunInfoV2> RunCompliancePreviewWithHttpInfo(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0);
+        /// <summary>
         /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
         /// </summary>
         /// <remarks>
@@ -747,6 +778,39 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ComplianceRunInfoV2)</returns>
         System.Threading.Tasks.Task<ApiResponse<ComplianceRunInfoV2>> RunComplianceWithHttpInfoAsync(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EARLY ACCESS] RunCompliancePreview: Run a compliance check.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to run a compliance check using rules from a specific scope.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Scope to save the run results in.</param>
+        /// <param name="ruleScope">Required: Scope from which to select rules to be run.</param>
+        /// <param name="recipeIdScope">Required: the scope of the recipe to be used</param>
+        /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
+        /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ComplianceRunInfoV2</returns>
+        System.Threading.Tasks.Task<ComplianceRunInfoV2> RunCompliancePreviewAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] RunCompliancePreview: Run a compliance check.
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to run a compliance check using rules from a specific scope.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Scope to save the run results in.</param>
+        /// <param name="ruleScope">Required: Scope from which to select rules to be run.</param>
+        /// <param name="recipeIdScope">Required: the scope of the recipe to be used</param>
+        /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
+        /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRunInfoV2)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ComplianceRunInfoV2>> RunCompliancePreviewWithHttpInfoAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
         /// </summary>
@@ -3294,6 +3358,254 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RunCompliance", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] RunCompliancePreview: Run a compliance check. Use this endpoint to run a compliance check using rules from a specific scope.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Scope to save the run results in.</param>
+        /// <param name="ruleScope">Required: Scope from which to select rules to be run.</param>
+        /// <param name="recipeIdScope">Required: the scope of the recipe to be used</param>
+        /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
+        /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ComplianceRunInfoV2</returns>
+        public ComplianceRunInfoV2 RunCompliancePreview(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> localVarResponse = RunCompliancePreviewWithHttpInfo(runScope, ruleScope, recipeIdScope, recipeIdCode, complianceRunConfiguration);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] RunCompliancePreview: Run a compliance check. Use this endpoint to run a compliance check using rules from a specific scope.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Scope to save the run results in.</param>
+        /// <param name="ruleScope">Required: Scope from which to select rules to be run.</param>
+        /// <param name="recipeIdScope">Required: the scope of the recipe to be used</param>
+        /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
+        /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ComplianceRunInfoV2</returns>
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> RunCompliancePreviewWithHttpInfo(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0)
+        {
+            // verify the required parameter 'runScope' is set
+            if (runScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runScope' when calling ComplianceApi->RunCompliancePreview");
+            }
+
+            // verify the required parameter 'ruleScope' is set
+            if (ruleScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleScope' when calling ComplianceApi->RunCompliancePreview");
+            }
+
+            // verify the required parameter 'recipeIdScope' is set
+            if (recipeIdScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'recipeIdScope' when calling ComplianceApi->RunCompliancePreview");
+            }
+
+            // verify the required parameter 'recipeIdCode' is set
+            if (recipeIdCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'recipeIdCode' when calling ComplianceApi->RunCompliancePreview");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "runScope", runScope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "ruleScope", ruleScope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeIdScope", recipeIdScope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeIdCode", recipeIdCode));
+            localVarRequestOptions.Data = complianceRunConfiguration;
+
+            localVarRequestOptions.Operation = "ComplianceApi.RunCompliancePreview";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ComplianceRunInfoV2>("/api/compliance/preview/runs", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RunCompliancePreview", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] RunCompliancePreview: Run a compliance check. Use this endpoint to run a compliance check using rules from a specific scope.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Scope to save the run results in.</param>
+        /// <param name="ruleScope">Required: Scope from which to select rules to be run.</param>
+        /// <param name="recipeIdScope">Required: the scope of the recipe to be used</param>
+        /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
+        /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ComplianceRunInfoV2</returns>
+        public async System.Threading.Tasks.Task<ComplianceRunInfoV2> RunCompliancePreviewAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> localVarResponse = await RunCompliancePreviewWithHttpInfoAsync(runScope, ruleScope, recipeIdScope, recipeIdCode, complianceRunConfiguration, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] RunCompliancePreview: Run a compliance check. Use this endpoint to run a compliance check using rules from a specific scope.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="runScope">Required: Scope to save the run results in.</param>
+        /// <param name="ruleScope">Required: Scope from which to select rules to be run.</param>
+        /// <param name="recipeIdScope">Required: the scope of the recipe to be used</param>
+        /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
+        /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRunInfoV2)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2>> RunCompliancePreviewWithHttpInfoAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'runScope' is set
+            if (runScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runScope' when calling ComplianceApi->RunCompliancePreview");
+            }
+
+            // verify the required parameter 'ruleScope' is set
+            if (ruleScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleScope' when calling ComplianceApi->RunCompliancePreview");
+            }
+
+            // verify the required parameter 'recipeIdScope' is set
+            if (recipeIdScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'recipeIdScope' when calling ComplianceApi->RunCompliancePreview");
+            }
+
+            // verify the required parameter 'recipeIdCode' is set
+            if (recipeIdCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'recipeIdCode' when calling ComplianceApi->RunCompliancePreview");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "runScope", runScope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "ruleScope", ruleScope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeIdScope", recipeIdScope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeIdCode", recipeIdCode));
+            localVarRequestOptions.Data = complianceRunConfiguration;
+
+            localVarRequestOptions.Operation = "ComplianceApi.RunCompliancePreview";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ComplianceRunInfoV2>("/api/compliance/preview/runs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RunCompliancePreview", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
