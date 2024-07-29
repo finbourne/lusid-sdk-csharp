@@ -11,6 +11,7 @@ using Exception = System.Exception;
 using ArgumentNullException = System.ArgumentNullException;
 using SystemEventHandler = System.EventHandler;
 using DateTimeOffset = System.DateTimeOffset;
+using Guid = System.Guid;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
