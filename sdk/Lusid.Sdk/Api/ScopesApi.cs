@@ -38,9 +38,12 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResourceListOfScopeDefinition</returns>
-        ResourceListOfScopeDefinition ListEntityScopes(string entityType, int operationIndex = 0);
+        ResourceListOfScopeDefinition ListEntityScopes(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// ListEntityScopes: List Entity Scopes
@@ -50,9 +53,12 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResourceListOfScopeDefinition</returns>
-        ApiResponse<ResourceListOfScopeDefinition> ListEntityScopesWithHttpInfo(string entityType, int operationIndex = 0);
+        ApiResponse<ResourceListOfScopeDefinition> ListEntityScopesWithHttpInfo(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0);
         /// <summary>
         /// ListScopes: List Scopes
         /// </summary>
@@ -93,10 +99,13 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfScopeDefinition</returns>
-        System.Threading.Tasks.Task<ResourceListOfScopeDefinition> ListEntityScopesAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfScopeDefinition> ListEntityScopesAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// ListEntityScopes: List Entity Scopes
@@ -106,10 +115,13 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfScopeDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfScopeDefinition>> ListEntityScopesWithHttpInfoAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfScopeDefinition>> ListEntityScopesWithHttpInfoAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// ListScopes: List Scopes
         /// </summary>
@@ -257,11 +269,14 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResourceListOfScopeDefinition</returns>
-        public ResourceListOfScopeDefinition ListEntityScopes(string entityType, int operationIndex = 0)
+        public ResourceListOfScopeDefinition ListEntityScopes(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfScopeDefinition> localVarResponse = ListEntityScopesWithHttpInfo(entityType);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfScopeDefinition> localVarResponse = ListEntityScopesWithHttpInfo(entityType, asAt, page, limit);
             return localVarResponse.Data;
         }
 
@@ -270,9 +285,12 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResourceListOfScopeDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfScopeDefinition> ListEntityScopesWithHttpInfo(string entityType, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfScopeDefinition> ListEntityScopesWithHttpInfo(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -305,6 +323,18 @@ namespace Lusid.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
 
             localVarRequestOptions.Operation = "ScopesApi.ListEntityScopes";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -345,12 +375,15 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfScopeDefinition</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfScopeDefinition> ListEntityScopesAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfScopeDefinition> ListEntityScopesAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfScopeDefinition> localVarResponse = await ListEntityScopesWithHttpInfoAsync(entityType, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfScopeDefinition> localVarResponse = await ListEntityScopesWithHttpInfoAsync(entityType, asAt, page, limit, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -359,10 +392,13 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfScopeDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfScopeDefinition>> ListEntityScopesWithHttpInfoAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfScopeDefinition>> ListEntityScopesWithHttpInfoAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -396,6 +432,18 @@ namespace Lusid.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
 
             localVarRequestOptions.Operation = "ScopesApi.ListEntityScopes";
             localVarRequestOptions.OperationIndex = operationIndex;
