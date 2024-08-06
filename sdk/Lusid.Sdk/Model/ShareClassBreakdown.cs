@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="backOut">Bucket of detail for the Valuation Point where data points have been &#39;backed out&#39;. (required).</param>
         /// <param name="dealing">Bucket of detail for any &#39;Dealing&#39; that has occured inside the queried period. (required).</param>
-        /// <param name="pnL">Bucket of detail for &#39;PnL&#39; that has occured inside the queried period. (required).</param>
+        /// <param name="pnL">pnL (required).</param>
         /// <param name="gav">gav (required).</param>
         /// <param name="fees">Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period. (required).</param>
         /// <param name="nav">nav (required).</param>
@@ -47,7 +47,7 @@ namespace Lusid.Sdk.Model
         /// <param name="shareClassToFundFxRate">The fx rate from the Share Class currency to the fund currency at this valuation point. (required).</param>
         /// <param name="capitalRatio">The proportion of the fund&#39;s adjusted beginning equity (ie: the sum of the previous NAV and the net dealing) that is invested in the share class. (required).</param>
         /// <param name="previousShareClassBreakdown">previousShareClassBreakdown (required).</param>
-        public ShareClassBreakdown(Dictionary<string, ShareClassAmount> backOut = default(Dictionary<string, ShareClassAmount>), Dictionary<string, ShareClassAmount> dealing = default(Dictionary<string, ShareClassAmount>), Dictionary<string, ShareClassAmount> pnL = default(Dictionary<string, ShareClassAmount>), MultiCurrencyAmounts gav = default(MultiCurrencyAmounts), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), MultiCurrencyAmounts nav = default(MultiCurrencyAmounts), UnitisationData unitisation = default(UnitisationData), Dictionary<string, ShareClassAmount> miscellaneous = default(Dictionary<string, ShareClassAmount>), decimal shareClassToFundFxRate = default(decimal), decimal capitalRatio = default(decimal), PreviousShareClassBreakdown previousShareClassBreakdown = default(PreviousShareClassBreakdown))
+        public ShareClassBreakdown(Dictionary<string, ShareClassAmount> backOut = default(Dictionary<string, ShareClassAmount>), Dictionary<string, ShareClassAmount> dealing = default(Dictionary<string, ShareClassAmount>), ShareClassPnlBreakdown pnL = default(ShareClassPnlBreakdown), MultiCurrencyAmounts gav = default(MultiCurrencyAmounts), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), MultiCurrencyAmounts nav = default(MultiCurrencyAmounts), UnitisationData unitisation = default(UnitisationData), Dictionary<string, ShareClassAmount> miscellaneous = default(Dictionary<string, ShareClassAmount>), decimal shareClassToFundFxRate = default(decimal), decimal capitalRatio = default(decimal), PreviousShareClassBreakdown previousShareClassBreakdown = default(PreviousShareClassBreakdown))
         {
             // to ensure "backOut" is required (not null)
             if (backOut == null)
@@ -112,11 +112,10 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, ShareClassAmount> Dealing { get; set; }
 
         /// <summary>
-        /// Bucket of detail for &#39;PnL&#39; that has occured inside the queried period.
+        /// Gets or Sets PnL
         /// </summary>
-        /// <value>Bucket of detail for &#39;PnL&#39; that has occured inside the queried period.</value>
         [DataMember(Name = "pnL", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, ShareClassAmount> PnL { get; set; }
+        public ShareClassPnlBreakdown PnL { get; set; }
 
         /// <summary>
         /// Gets or Sets Gav
@@ -238,9 +237,8 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.PnL == input.PnL ||
-                    this.PnL != null &&
-                    input.PnL != null &&
-                    this.PnL.SequenceEqual(input.PnL)
+                    (this.PnL != null &&
+                    this.PnL.Equals(input.PnL))
                 ) && 
                 (
                     this.Gav == input.Gav ||

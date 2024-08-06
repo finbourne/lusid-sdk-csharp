@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **EffectiveAt** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The effectiveAt or cut label that this item of complex market data is/was updated/inserted with. | [optional] 
 **MarketAsset** | **string** | The name of the market entity that the document represents | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

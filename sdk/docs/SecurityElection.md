@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **Price** | **decimal?** | Price per unit of the security. At least one of UnitsRatio or Price must be provided.  Price must non-zero. | [optional] 
 **UnitsRatio** | [**UnitsRatio**](UnitsRatio.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

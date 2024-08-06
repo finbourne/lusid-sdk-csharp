@@ -12,5 +12,5 @@ Name | Type | Description | Notes
 **SerialisationFormat** | **string** | The serialisation format of a document in this dialect. e.g. JSON, XML. | 
 **EntityType** | **string** | The type of entity this dialect describes e.g. Instrument. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

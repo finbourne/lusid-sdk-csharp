@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **Amount** | **string** | The value, field or property key defining the side&#39;s amount | 
 **NotionalAmount** | **string** | The value, field or property key defining the side&#39;s notional amount | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

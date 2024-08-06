@@ -43,17 +43,22 @@ namespace Lusid.Sdk.Extensions
         public string ClientSecret { get;  set; }
 
         /// <summary>
-        /// Lusid Api Url
+        /// Api Url
         /// </summary>
         [ConfigurationKeyName("lusidUrl")]
         public string BaseUrl { get; set; }
 
-
         /// <summary>
-        /// lusid Api Url
+        /// Snake Case Api Url
         /// </summary>
         [ConfigurationKeyName("lusidUrl")]
-        public string BackUpBaseUrl { get; set; }
+        public string SnakeCaseBaseUrl { get; set; }
+
+        /// <summary>
+        /// Lower Case Api Url
+        /// </summary>
+        [ConfigurationKeyName("lusidUrl")]
+        public string LowerCaseBaseUrl { get; set; }
 
         /// <summary>
         /// Client Application name
@@ -68,7 +73,7 @@ namespace Lusid.Sdk.Extensions
 
         internal bool MissingPersonalAccessTokenVariables =>
             string.IsNullOrWhiteSpace(PersonalAccessToken) ||
-            (string.IsNullOrWhiteSpace(BaseUrl) && string.IsNullOrWhiteSpace(BackUpBaseUrl));
+            (string.IsNullOrWhiteSpace(BaseUrl) && string.IsNullOrWhiteSpace(SnakeCaseBaseUrl) && string.IsNullOrWhiteSpace(LowerCaseBaseUrl));
 
         internal bool MissingSecretVariables =>
             string.IsNullOrWhiteSpace(TokenUrl) ||
@@ -76,7 +81,7 @@ namespace Lusid.Sdk.Extensions
             string.IsNullOrWhiteSpace(Password) ||
             string.IsNullOrWhiteSpace(ClientId) ||
             string.IsNullOrWhiteSpace(ClientSecret) ||
-            (string.IsNullOrWhiteSpace(BaseUrl) && string.IsNullOrWhiteSpace(BackUpBaseUrl)) ;
+            (string.IsNullOrWhiteSpace(BaseUrl) && string.IsNullOrWhiteSpace(SnakeCaseBaseUrl) && string.IsNullOrWhiteSpace(LowerCaseBaseUrl)) ;
 
         /// <summary>
         /// Checks if any of the required configuration values are missing
@@ -129,9 +134,9 @@ namespace Lusid.Sdk.Extensions
                 missingConfig.Add(nameof(ClientSecret));
             }
 
-            if(string.IsNullOrWhiteSpace(BackUpBaseUrl) && string.IsNullOrWhiteSpace(BaseUrl))
+            if(string.IsNullOrWhiteSpace(BaseUrl) && string.IsNullOrWhiteSpace(SnakeCaseBaseUrl) && string.IsNullOrWhiteSpace(LowerCaseBaseUrl))
             {
-                PropertyInfo propertyInfo = typeof(ApiConfiguration).GetProperty(nameof(BackUpBaseUrl));
+                PropertyInfo propertyInfo = typeof(ApiConfiguration).GetProperty(nameof(BaseUrl));
                 var attribute = (ConfigurationKeyNameAttribute)Attribute.GetCustomAttribute(propertyInfo!, typeof(ConfigurationKeyNameAttribute));
 
                 missingConfig.Add(attribute!.Name);

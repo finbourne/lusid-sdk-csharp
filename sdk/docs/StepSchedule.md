@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **StepScheduleType** | **string** | The type of step that this schedule is for.  Supported string (enumeration) values are: [Coupon, Notional, Spread]. | 
 **Steps** | [**List&lt;LevelStep&gt;**](LevelStep.md) | The level steps which are applied. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

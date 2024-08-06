@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **RequiredApprovals** | **int** | The number of approvals required. If left blank, one approval is needed. | [optional] 
 **CurrentUserCanDecide** | **bool** | True or False indicating whether the current user can make a decision on the staged modification. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

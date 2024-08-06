@@ -38,14 +38,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="backOut">Bucket of detail for the Valuation Point where data points have been &#39;backed out&#39;. (required).</param>
         /// <param name="dealing">Bucket of detail for any &#39;Dealing&#39; that has occured inside the queried period. (required).</param>
-        /// <param name="pnL">Bucket of detail for &#39;PnL&#39; that has occured inside the queried period. (required).</param>
+        /// <param name="pnL">pnL (required).</param>
         /// <param name="gav">The Gross Asset Value of the Fund or Share Class at the Valuation Point. This is effectively a summation of all Trial balance entries linked to accounts of types &#39;Asset&#39; and &#39;Liabilities&#39;. (required).</param>
         /// <param name="fees">Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period. (required).</param>
         /// <param name="nav">The Net Asset Value of the Fund or Share Class at the Valuation Point. This represents the GAV with any fees applied in the period. (required).</param>
         /// <param name="unitisation">unitisation.</param>
         /// <param name="miscellaneous">Not used directly by the LUSID engines but serves as a holding area for any custom derived data points that may be useful in, for example, fee calculations)..</param>
         /// <param name="previousValuationPointData">previousValuationPointData.</param>
-        public FundValuationPointData(Dictionary<string, FundAmount> backOut = default(Dictionary<string, FundAmount>), Dictionary<string, FundAmount> dealing = default(Dictionary<string, FundAmount>), Dictionary<string, FundAmount> pnL = default(Dictionary<string, FundAmount>), decimal gav = default(decimal), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), decimal nav = default(decimal), UnitisationData unitisation = default(UnitisationData), Dictionary<string, FundAmount> miscellaneous = default(Dictionary<string, FundAmount>), PreviousFundValuationPointData previousValuationPointData = default(PreviousFundValuationPointData))
+        public FundValuationPointData(Dictionary<string, FundAmount> backOut = default(Dictionary<string, FundAmount>), Dictionary<string, FundAmount> dealing = default(Dictionary<string, FundAmount>), FundPnlBreakdown pnL = default(FundPnlBreakdown), decimal gav = default(decimal), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), decimal nav = default(decimal), UnitisationData unitisation = default(UnitisationData), Dictionary<string, FundAmount> miscellaneous = default(Dictionary<string, FundAmount>), PreviousFundValuationPointData previousValuationPointData = default(PreviousFundValuationPointData))
         {
             // to ensure "backOut" is required (not null)
             if (backOut == null)
@@ -93,11 +93,10 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, FundAmount> Dealing { get; set; }
 
         /// <summary>
-        /// Bucket of detail for &#39;PnL&#39; that has occured inside the queried period.
+        /// Gets or Sets PnL
         /// </summary>
-        /// <value>Bucket of detail for &#39;PnL&#39; that has occured inside the queried period.</value>
         [DataMember(Name = "pnL", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, FundAmount> PnL { get; set; }
+        public FundPnlBreakdown PnL { get; set; }
 
         /// <summary>
         /// The Gross Asset Value of the Fund or Share Class at the Valuation Point. This is effectively a summation of all Trial balance entries linked to accounts of types &#39;Asset&#39; and &#39;Liabilities&#39;.
@@ -205,9 +204,8 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.PnL == input.PnL ||
-                    this.PnL != null &&
-                    input.PnL != null &&
-                    this.PnL.SequenceEqual(input.PnL)
+                    (this.PnL != null &&
+                    this.PnL.Equals(input.PnL))
                 ) && 
                 (
                     this.Gav == input.Gav ||

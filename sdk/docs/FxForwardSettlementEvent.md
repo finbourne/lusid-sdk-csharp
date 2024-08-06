@@ -18,5 +18,5 @@ Name | Type | Description | Notes
 **DomesticToForeignRate** | **decimal?** | Domestic currency to foreign currency FX rate.  Not required, only used to override quotes. | [optional] 
 **DomesticToSettlementRate** | **decimal?** | Domestic currency to settlement currency FX rate  Not required, only used to override quotes. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

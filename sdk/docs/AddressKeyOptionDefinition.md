@@ -12,5 +12,5 @@ Name | Type | Description | Notes
 **AllowedValueSet** | **List&lt;string&gt;** | If the option is a string or enum, the allowed set of values it can take. | [optional] 
 **DefaultValue** | **string** | If the option is not required, what is the default value? | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

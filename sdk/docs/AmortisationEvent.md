@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **PayReceive** | **string** | Is this event in relation to the Pay or Receive leg | 
 **PaymentDate** | **DateTimeOffset** | The date the principal payment is to be made. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

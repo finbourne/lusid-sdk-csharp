@@ -13,5 +13,5 @@ Name | Type | Description | Notes
 **MappedStrings** | [**List&lt;MappedString&gt;**](MappedString.md) | The (optional) value used to map string values. | [optional] 
 **IsCaseSensitive** | **bool** | Should string comparisons take case into account, defaults to &#x60;false&#x60;. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

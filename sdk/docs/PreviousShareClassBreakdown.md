@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **Unitisation** | [**UnitisationData**](UnitisationData.md) |  | [optional] 
 **ShareClassToFundFxRate** | **decimal** | The fx rate from the Share Class currency to the fund currency at this valuation point. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

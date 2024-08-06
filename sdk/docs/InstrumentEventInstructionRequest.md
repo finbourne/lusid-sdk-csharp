@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **ElectionKey** | **string** | For elected instructions, the key to be chosen | [optional] 
 **HoldingId** | **long?** | For holding instructions, the id of the holding for which the instruction will apply | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

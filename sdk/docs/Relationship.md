@@ -13,5 +13,5 @@ Name | Type | Description | Notes
 **EffectiveFrom** | **DateTimeOffset** | The effective datetime from which the relationship is valid. | [optional] 
 **EffectiveUntil** | **DateTimeOffset** | The effective datetime until which the relationship is valid. If no future deletions are present or an effective until has not been set for the relationship, this will be indefinite and represented by the maximum date. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

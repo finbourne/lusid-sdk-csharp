@@ -15,5 +15,5 @@ Name | Type | Description | Notes
 **RemovalDate** | **DateTimeOffset?** | If the life cycle status is set to deprecated then this will be populated with the date on or after which removal of the address query will happen | [optional] 
 **ApplicableOptions** | [**Dictionary&lt;string, AddressKeyOptionDefinition&gt;**](AddressKeyOptionDefinition.md) | A mapping from option names to the definition that the corresponding option value must match. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

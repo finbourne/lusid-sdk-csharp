@@ -13,5 +13,5 @@ Name | Type | Description | Notes
 **DerivedState** | **string** | A simple description of the overall state of a placement. | 
 **CalculatedAveragePrice** | **decimal?** | Average price realised on executions for a given placement | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

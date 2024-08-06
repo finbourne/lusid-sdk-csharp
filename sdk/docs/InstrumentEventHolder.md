@@ -17,5 +17,5 @@ Name | Type | Description | Notes
 **SequenceNumber** | **int** | The order of the instrument event relative others on the same date (0 being processed first). Must be non negative. | [optional] 
 **ParticipationType** | **string** | Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary. | [optional] [default to "Mandatory"]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

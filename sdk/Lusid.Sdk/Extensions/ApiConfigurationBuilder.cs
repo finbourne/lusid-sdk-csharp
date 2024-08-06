@@ -21,7 +21,7 @@ namespace Lusid.Sdk.Extensions
         private static readonly Dictionary<string, string> ConfigNamesToEnvVariables = new Dictionary<string, string>()
             {
                 { "TokenUrl", "FBN_TOKEN_URL" },
-                { "BaseUrl", "FBN_LUSID_API_URL" },
+                { "BaseUrl", "FBN_LUSID_URL" },
                 { "ClientId", "FBN_CLIENT_ID" },
                 { "ClientSecret", "FBN_CLIENT_SECRET" },
                 { "Username", "FBN_USERNAME" },
@@ -87,10 +87,11 @@ namespace Lusid.Sdk.Extensions
             var apiConfig = new ApiConfiguration
             {
                 TokenUrl = Environment.GetEnvironmentVariable("FBN_TOKEN_URL") ?? Environment.GetEnvironmentVariable("fbn_token_url"),
-                BaseUrl = (Environment.GetEnvironmentVariable("FBN_LUSID_API_URL") ?? 
-                           Environment.GetEnvironmentVariable("fbn_lusid_api_url")) ?? 
-                          (Environment.GetEnvironmentVariable("FBN_LUSID_API_URL") ?? 
-                           Environment.GetEnvironmentVariable("fbn_lusid_api_url")),
+                BaseUrl = Environment.GetEnvironmentVariable("FBN_LUSID_URL") ??
+                          Environment.GetEnvironmentVariable("FBN_LUSID_API_URL") ?? 
+                          Environment.GetEnvironmentVariable("fbn_lusid_api_url") ?? 
+                          Environment.GetEnvironmentVariable("FBN_LUSID_API_URL") ?? 
+                          Environment.GetEnvironmentVariable("fbn_lusid_api_url"),
                 ClientId = Environment.GetEnvironmentVariable("FBN_CLIENT_ID") ?? Environment.GetEnvironmentVariable("fbn_client_id"),
                 ClientSecret = Environment.GetEnvironmentVariable("FBN_CLIENT_SECRET") ?? Environment.GetEnvironmentVariable("fbn_client_secret"),
                 Username = Environment.GetEnvironmentVariable("FBN_USERNAME") ?? Environment.GetEnvironmentVariable("fbn_username"),
@@ -142,7 +143,8 @@ namespace Lusid.Sdk.Extensions
         {
             if(string.IsNullOrWhiteSpace(parsedConfig.BaseUrl))
             {
-                parsedConfig.BaseUrl = parsedConfig.BackUpBaseUrl;
+                parsedConfig.BaseUrl = string.IsNullOrWhiteSpace(parsedConfig.SnakeCaseBaseUrl)
+                    ? parsedConfig.LowerCaseBaseUrl : parsedConfig.SnakeCaseBaseUrl;
             }
 
             return parsedConfig;

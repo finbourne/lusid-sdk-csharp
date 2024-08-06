@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **UserId** | [**User**](User.md) |  | 
 **ProcessedTime** | **DateTimeOffset** | The asAt datetime that the events published by the processing of this command were committed to LUSID. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

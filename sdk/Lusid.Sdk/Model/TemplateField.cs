@@ -40,8 +40,9 @@ namespace Lusid.Sdk.Model
         /// <param name="specificity">specificity (required).</param>
         /// <param name="description">description (required).</param>
         /// <param name="type">type (required).</param>
+        /// <param name="availability">availability (required).</param>
         /// <param name="usage">usage (required).</param>
-        public TemplateField(string fieldName = default(string), string specificity = default(string), string description = default(string), string type = default(string), List<string> usage = default(List<string>))
+        public TemplateField(string fieldName = default(string), string specificity = default(string), string description = default(string), string type = default(string), string availability = default(string), List<string> usage = default(List<string>))
         {
             // to ensure "fieldName" is required (not null)
             if (fieldName == null)
@@ -67,6 +68,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("type is a required property for TemplateField and cannot be null");
             }
             this.Type = type;
+            // to ensure "availability" is required (not null)
+            if (availability == null)
+            {
+                throw new ArgumentNullException("availability is a required property for TemplateField and cannot be null");
+            }
+            this.Availability = availability;
             // to ensure "usage" is required (not null)
             if (usage == null)
             {
@@ -100,6 +107,12 @@ namespace Lusid.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// Gets or Sets Availability
+        /// </summary>
+        [DataMember(Name = "availability", IsRequired = true, EmitDefaultValue = true)]
+        public string Availability { get; set; }
+
+        /// <summary>
         /// Gets or Sets Usage
         /// </summary>
         [DataMember(Name = "usage", IsRequired = true, EmitDefaultValue = true)]
@@ -117,6 +130,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Specificity: ").Append(Specificity).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Availability: ").Append(Availability).Append("\n");
             sb.Append("  Usage: ").Append(Usage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -174,6 +188,11 @@ namespace Lusid.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.Availability == input.Availability ||
+                    (this.Availability != null &&
+                    this.Availability.Equals(input.Availability))
+                ) && 
+                (
                     this.Usage == input.Usage ||
                     this.Usage != null &&
                     input.Usage != null &&
@@ -205,6 +224,10 @@ namespace Lusid.Sdk.Model
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                if (this.Availability != null)
+                {
+                    hashCode = (hashCode * 59) + this.Availability.GetHashCode();
                 }
                 if (this.Usage != null)
                 {
@@ -243,6 +266,12 @@ namespace Lusid.Sdk.Model
             if (this.Type != null && this.Type.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
+            }
+
+            // Availability (string) minLength
+            if (this.Availability != null && this.Availability.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Availability, length must be greater than 1.", new [] { "Availability" });
             }
 
             yield break;

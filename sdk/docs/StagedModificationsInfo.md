@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **HrefPending** | **string** | Link to the list staged modifications endpoint, filtered by entityType, entityUniqueId and status (&#x3D; Pending). | 
 **IdsPreviewed** | **List&lt;string&gt;** | An array of the ids of any StagedModifications being previewed. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

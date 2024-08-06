@@ -21,5 +21,5 @@ Name | Type | Description | Notes
 **Calendars** | **List&lt;string&gt;** | Holiday calendars that apply to yield-to-price conversions (i.e. for BRL futures). | [optional] 
 **DeliveryType** | **string** | Delivery type to be used on settling the contract.  Optional: Defaults to DeliveryType.Physical if not provided.    Supported string (enumeration) values are: [Cash, Physical]. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

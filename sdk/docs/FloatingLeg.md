@@ -14,5 +14,5 @@ Name | Type | Description | Notes
 **CapRate** | **decimal?** | The maximum floating rate which a cashflow can accrue. | [optional] 
 **FloorRate** | **decimal?** | The minimum floating rate which a cashflow can accrue. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

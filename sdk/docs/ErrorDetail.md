@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **Detail** | **string** | Description of the failure that occurred. | [optional] 
 **ErrorDetails** | **List&lt;Dictionary&lt;string, string&gt;&gt;** | Information about the particular instance of the failure (supplied information depends on the type of failure). | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

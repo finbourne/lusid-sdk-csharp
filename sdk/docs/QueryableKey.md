@@ -17,5 +17,5 @@ Name | Type | Description | Notes
 **ApplicableOptions** | [**Dictionary&lt;string, AddressKeyOptionDefinition&gt;**](AddressKeyOptionDefinition.md) | A mapping from option names to the definition that the corresponding option value must match. | [optional] 
 **DerivationFormula** | **string** | Derivation formula for when the for when the query key represents a DerivedValuation property. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

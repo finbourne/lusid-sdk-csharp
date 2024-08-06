@@ -17,5 +17,5 @@ Name | Type | Description | Notes
 **DependencySourceFilter** | [**DependencySourceFilter**](DependencySourceFilter.md) |  | 
 **SourceSystem** | **string** | Determines from where LUSID should attempt to find the data. Optional and, if omitted, will default to \&quot;Lusid\&quot;.  This means that data will be retrieved from the Quotes store and the ComplexMarketData store.  These can be populated using the Quotes and ComplexMarketData endpoints. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **Document** | **string** | The document that will be stored (or retrieved) and which describes a unit result data entity such as a set of prices or yields | 
 **DataMapKey** | [**DataMapKey**](DataMapKey.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

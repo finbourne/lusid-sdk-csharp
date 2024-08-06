@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **LegId** | **string** | Identifier string for the leg of a payment diary. | [optional] 
 **Rows** | [**List&lt;InstrumentPaymentDiaryRow&gt;**](InstrumentPaymentDiaryRow.md) | List of individual cashflows within the payment diary. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

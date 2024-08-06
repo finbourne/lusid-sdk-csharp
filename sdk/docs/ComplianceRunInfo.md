@@ -12,5 +12,5 @@ Name | Type | Description | Notes
 **HasResults** | **bool** | False when no results have been returned eg. when no rules exist | 
 **AsAt** | **DateTimeOffset** | Legacy AsAt time for backwards compatibility | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

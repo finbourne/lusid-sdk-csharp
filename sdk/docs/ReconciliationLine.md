@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **Difference** | **Dictionary&lt;string, Object&gt;** | Difference between LHS and RHS of comparison | [optional] 
 **ResultComparison** | **Dictionary&lt;string, Object&gt;** | The logical or semantic description of the difference, e.g. \&quot;Matches\&quot; or \&quot;MatchesWithTolerance\&quot; or \&quot;Failed\&quot;. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

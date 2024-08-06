@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **AsAt** | **DateTimeOffset?** | The asAt date to use | [optional] 
 **EffectiveAt** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The market data time, i.e. the recipe generated will look for rules with this effectiveAt. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

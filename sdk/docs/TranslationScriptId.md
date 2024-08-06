@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **Code** | **string** | Code of the translation script. | 
 **_Version** | **string** | Semantic Version of the translation script of the form MAJOR.MINOR.PATCH. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

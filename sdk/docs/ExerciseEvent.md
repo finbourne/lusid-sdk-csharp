@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **AnchorDate** | **DateTimeOffset** | The date the exercise window starts, or point it takes effect on. | 
 **EventWindowEnd** | **DateTimeOffset** | The date the exercise window ends, or point it takes effect on. | [optional] [readonly] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

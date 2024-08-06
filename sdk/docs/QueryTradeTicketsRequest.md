@@ -12,5 +12,5 @@ Name | Type | Description | Notes
 **RecipeId** | [**ResourceId**](ResourceId.md) |  | 
 **EffectiveAt** | **DateTimeOffset** | The Effective date used in the valuation of the tradetickets. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

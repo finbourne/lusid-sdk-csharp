@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **Code** | **string** | User given string name (code) to identify the recipe. | 
 **Operations** | [**List&lt;RecipeBlock&gt;**](RecipeBlock.md) | Atomic operations used to compose a Configuration Recipe. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

@@ -13,5 +13,5 @@ Name | Type | Description | Notes
 **ValuationDateTimes** | **List&lt;string&gt;** | If given, this is the exact set of dates on which to perform a valuation. This will replace/override all other specified values if given. | [optional] 
 **BusinessDayConvention** | **string** | When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end.  In that case, the BusinessDayConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

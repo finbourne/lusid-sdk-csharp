@@ -19,5 +19,5 @@ Name | Type | Description | Notes
 **Underlying** | [**LusidInstrument**](LusidInstrument.md) |  | 
 **UnderlyingCode** | **string** | Code of the underlying, for an option on futures this should be the futures code. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

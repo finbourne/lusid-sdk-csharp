@@ -65,7 +65,7 @@ namespace Lusid.Sdk.Extensions
                 if (string.IsNullOrWhiteSpace(apiConfiguration.BaseUrl))
                     throw new ArgumentNullException(
                         nameof(apiConfiguration.BaseUrl),
-                        $"BaseUrl Uri missing. Please specify either FBN_LUSID_API_URL environment variable or lusidUrl in secrets.json.");
+                        $"BaseUrl Uri missing. Please specify either FBN_LUSID_URL environment variable or lusidUrl in secrets.json.");
 
                 throw new UriFormatException($"Invalid Uri: {apiConfiguration.BaseUrl}");
             }

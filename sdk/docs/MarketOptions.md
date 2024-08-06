@@ -12,5 +12,5 @@ Name | Type | Description | Notes
 **CalendarScope** | **string** | The scope in which holiday calendars stored | [optional] 
 **ConventionScope** | **string** | The scope in which conventions stored | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

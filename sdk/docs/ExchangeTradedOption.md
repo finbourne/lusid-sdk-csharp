@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **Contracts** | **decimal** | The number of contracts held. | 
 **RefSpotPrice** | **decimal** | The reference spot price for the option at which the contract was entered into. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

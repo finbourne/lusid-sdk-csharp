@@ -13,5 +13,5 @@ Name | Type | Description | Notes
 **Relationships** | [**List&lt;Relationship&gt;**](Relationship.md) | A set of relationships associated to the Person. | [optional] 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

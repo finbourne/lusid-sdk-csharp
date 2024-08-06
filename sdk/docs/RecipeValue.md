@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **AsString** | **string** | For simple value, a single input value, note complex nested objects are not allowed here. | [optional] 
 **FromRecipe** | [**FromRecipe**](FromRecipe.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

@@ -16,5 +16,5 @@ Name | Type | Description | Notes
 **Currency** | **string** | Optional - either a string or a property. If provided, the results will be converted to the specified currency | [optional] 
 **RunMode** | **string** | The dates the AggregatedReturns output will be calculated: ReturnData/WeekDays/AllDays/MonthEnd. Defaults to ReturnData. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

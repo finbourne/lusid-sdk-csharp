@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **InstrumentIdType** | **string** | The type of the instrument id e.g. LusidInstrument Id | 
 **Scope** | **string** | Scope for the instrument (optional) | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

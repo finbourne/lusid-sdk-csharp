@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **Tags** | **List&lt;string&gt;** | The tags associated with the reference list. | [optional] 
 **ReferenceList** | [**ReferenceList**](ReferenceList.md) |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
