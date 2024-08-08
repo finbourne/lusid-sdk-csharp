@@ -37,10 +37,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PostingModuleRule" /> class.
         /// </summary>
         /// <param name="ruleId">The identifier for the Posting Rule. (required).</param>
-        /// <param name="account">The general ledger account to post the Activity credit or debit to..</param>
+        /// <param name="generalLedgerAccountCode">The general ledger account to post the Activity credit or debit to. (required).</param>
         /// <param name="ruleFilter">The filter syntax for the Posting Rule. See https://support.lusid.com/knowledgebase/article/KA-02140 for more information on filter syntax. (required).</param>
-        /// <param name="generalLedgerAccountCode">The general ledger account to post the Activity credit or debit to..</param>
-        public PostingModuleRule(string ruleId = default(string), string account = default(string), string ruleFilter = default(string), string generalLedgerAccountCode = default(string))
+        public PostingModuleRule(string ruleId = default(string), string generalLedgerAccountCode = default(string), string ruleFilter = default(string))
         {
             // to ensure "ruleId" is required (not null)
             if (ruleId == null)
@@ -48,14 +47,18 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("ruleId is a required property for PostingModuleRule and cannot be null");
             }
             this.RuleId = ruleId;
+            // to ensure "generalLedgerAccountCode" is required (not null)
+            if (generalLedgerAccountCode == null)
+            {
+                throw new ArgumentNullException("generalLedgerAccountCode is a required property for PostingModuleRule and cannot be null");
+            }
+            this.GeneralLedgerAccountCode = generalLedgerAccountCode;
             // to ensure "ruleFilter" is required (not null)
             if (ruleFilter == null)
             {
                 throw new ArgumentNullException("ruleFilter is a required property for PostingModuleRule and cannot be null");
             }
             this.RuleFilter = ruleFilter;
-            this.Account = account;
-            this.GeneralLedgerAccountCode = generalLedgerAccountCode;
         }
 
         /// <summary>
@@ -69,8 +72,8 @@ namespace Lusid.Sdk.Model
         /// The general ledger account to post the Activity credit or debit to.
         /// </summary>
         /// <value>The general ledger account to post the Activity credit or debit to.</value>
-        [DataMember(Name = "account", EmitDefaultValue = true)]
-        public string Account { get; set; }
+        [DataMember(Name = "generalLedgerAccountCode", IsRequired = true, EmitDefaultValue = true)]
+        public string GeneralLedgerAccountCode { get; set; }
 
         /// <summary>
         /// The filter syntax for the Posting Rule. See https://support.lusid.com/knowledgebase/article/KA-02140 for more information on filter syntax.
@@ -78,13 +81,6 @@ namespace Lusid.Sdk.Model
         /// <value>The filter syntax for the Posting Rule. See https://support.lusid.com/knowledgebase/article/KA-02140 for more information on filter syntax.</value>
         [DataMember(Name = "ruleFilter", IsRequired = true, EmitDefaultValue = true)]
         public string RuleFilter { get; set; }
-
-        /// <summary>
-        /// The general ledger account to post the Activity credit or debit to.
-        /// </summary>
-        /// <value>The general ledger account to post the Activity credit or debit to.</value>
-        [DataMember(Name = "generalLedgerAccountCode", EmitDefaultValue = true)]
-        public string GeneralLedgerAccountCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -95,9 +91,8 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PostingModuleRule {\n");
             sb.Append("  RuleId: ").Append(RuleId).Append("\n");
-            sb.Append("  Account: ").Append(Account).Append("\n");
-            sb.Append("  RuleFilter: ").Append(RuleFilter).Append("\n");
             sb.Append("  GeneralLedgerAccountCode: ").Append(GeneralLedgerAccountCode).Append("\n");
+            sb.Append("  RuleFilter: ").Append(RuleFilter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,19 +134,14 @@ namespace Lusid.Sdk.Model
                     this.RuleId.Equals(input.RuleId))
                 ) && 
                 (
-                    this.Account == input.Account ||
-                    (this.Account != null &&
-                    this.Account.Equals(input.Account))
+                    this.GeneralLedgerAccountCode == input.GeneralLedgerAccountCode ||
+                    (this.GeneralLedgerAccountCode != null &&
+                    this.GeneralLedgerAccountCode.Equals(input.GeneralLedgerAccountCode))
                 ) && 
                 (
                     this.RuleFilter == input.RuleFilter ||
                     (this.RuleFilter != null &&
                     this.RuleFilter.Equals(input.RuleFilter))
-                ) && 
-                (
-                    this.GeneralLedgerAccountCode == input.GeneralLedgerAccountCode ||
-                    (this.GeneralLedgerAccountCode != null &&
-                    this.GeneralLedgerAccountCode.Equals(input.GeneralLedgerAccountCode))
                 );
         }
 
@@ -168,17 +158,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.RuleId.GetHashCode();
                 }
-                if (this.Account != null)
+                if (this.GeneralLedgerAccountCode != null)
                 {
-                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                    hashCode = (hashCode * 59) + this.GeneralLedgerAccountCode.GetHashCode();
                 }
                 if (this.RuleFilter != null)
                 {
                     hashCode = (hashCode * 59) + this.RuleFilter.GetHashCode();
-                }
-                if (this.GeneralLedgerAccountCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.GeneralLedgerAccountCode.GetHashCode();
                 }
                 return hashCode;
             }
@@ -210,23 +196,23 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RuleId, must match a pattern of " + regexRuleId, new [] { "RuleId" });
             }
 
-            // Account (string) maxLength
-            if (this.Account != null && this.Account.Length > 512)
+            // GeneralLedgerAccountCode (string) maxLength
+            if (this.GeneralLedgerAccountCode != null && this.GeneralLedgerAccountCode.Length > 512)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Account, length must be less than 512.", new [] { "Account" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GeneralLedgerAccountCode, length must be less than 512.", new [] { "GeneralLedgerAccountCode" });
             }
 
-            // Account (string) minLength
-            if (this.Account != null && this.Account.Length < 1)
+            // GeneralLedgerAccountCode (string) minLength
+            if (this.GeneralLedgerAccountCode != null && this.GeneralLedgerAccountCode.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Account, length must be greater than 1.", new [] { "Account" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GeneralLedgerAccountCode, length must be greater than 1.", new [] { "GeneralLedgerAccountCode" });
             }
 
-            // Account (string) pattern
-            Regex regexAccount = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
-            if (false == regexAccount.Match(this.Account).Success)
+            // GeneralLedgerAccountCode (string) pattern
+            Regex regexGeneralLedgerAccountCode = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexGeneralLedgerAccountCode.Match(this.GeneralLedgerAccountCode).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Account, must match a pattern of " + regexAccount, new [] { "Account" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GeneralLedgerAccountCode, must match a pattern of " + regexGeneralLedgerAccountCode, new [] { "GeneralLedgerAccountCode" });
             }
 
             // RuleFilter (string) maxLength
@@ -246,25 +232,6 @@ namespace Lusid.Sdk.Model
             if (false == regexRuleFilter.Match(this.RuleFilter).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RuleFilter, must match a pattern of " + regexRuleFilter, new [] { "RuleFilter" });
-            }
-
-            // GeneralLedgerAccountCode (string) maxLength
-            if (this.GeneralLedgerAccountCode != null && this.GeneralLedgerAccountCode.Length > 512)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GeneralLedgerAccountCode, length must be less than 512.", new [] { "GeneralLedgerAccountCode" });
-            }
-
-            // GeneralLedgerAccountCode (string) minLength
-            if (this.GeneralLedgerAccountCode != null && this.GeneralLedgerAccountCode.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GeneralLedgerAccountCode, length must be greater than 1.", new [] { "GeneralLedgerAccountCode" });
-            }
-
-            // GeneralLedgerAccountCode (string) pattern
-            Regex regexGeneralLedgerAccountCode = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
-            if (false == regexGeneralLedgerAccountCode.Match(this.GeneralLedgerAccountCode).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GeneralLedgerAccountCode, must match a pattern of " + regexGeneralLedgerAccountCode, new [] { "GeneralLedgerAccountCode" });
             }
 
             yield break;
