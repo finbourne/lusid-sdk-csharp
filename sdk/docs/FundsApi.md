@@ -16,6 +16,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**GetValuationPointData**](FundsApi.md#getvaluationpointdata) | **POST** /api/funds/{scope}/{code}/valuationpoints/$query | [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. |
 | [**ListFees**](FundsApi.md#listfees) | **GET** /api/funds/{scope}/{code}/fees | [EXPERIMENTAL] ListFees: List Fees for a specified Fund. |
 | [**ListFunds**](FundsApi.md#listfunds) | **GET** /api/funds | [EXPERIMENTAL] ListFunds: List Funds. |
+| [**ListValuationPointOverview**](FundsApi.md#listvaluationpointoverview) | **GET** /api/funds/{scope}/{code}/valuationPointOverview | [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. |
 | [**PatchFee**](FundsApi.md#patchfee) | **PATCH** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] PatchFee: Patch Fee. |
 | [**SetShareClassInstruments**](FundsApi.md#setshareclassinstruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund. |
 | [**UpsertDiaryEntryTypeValuationPoint**](FundsApi.md#upsertdiaryentrytypevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints | [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point. |
@@ -1329,6 +1330,123 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested Funds. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listvaluationpointoverview"></a>
+# **ListValuationPointOverview**
+> PagedResourceListOfValuationPointOverview ListValuationPointOverview (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null)
+
+[EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+
+List all the Valuation Points that match the given criteria for a given Fund.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
+            var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results by.              For example, to filter on the NAV, specify \"NAV gt 300\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'DiaryEntry' domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example 'DiaryEntry/ValuationPoint/Id'. (optional) 
+
+            try
+            {
+                // [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+                PagedResourceListOfValuationPointOverview result = apiInstance.ListValuationPointOverview(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.ListValuationPointOverview: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListValuationPointOverviewWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+    ApiResponse<PagedResourceListOfValuationPointOverview> response = apiInstance.ListValuationPointOverviewWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.ListValuationPointOverviewWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfValuationPointOverview**](PagedResourceListOfValuationPointOverview.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested ValuationPointOverview. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

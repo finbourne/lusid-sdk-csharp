@@ -383,6 +383,43 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfFund</returns>
         ApiResponse<PagedResourceListOfFund> ListFundsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
         /// <summary>
+        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+        /// </summary>
+        /// <remarks>
+        /// List all the Valuation Points that match the given criteria for a given Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PagedResourceListOfValuationPointOverview</returns>
+        PagedResourceListOfValuationPointOverview ListValuationPointOverview(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+        /// </summary>
+        /// <remarks>
+        /// List all the Valuation Points that match the given criteria for a given Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PagedResourceListOfValuationPointOverview</returns>
+        ApiResponse<PagedResourceListOfValuationPointOverview> ListValuationPointOverviewWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] PatchFee: Patch Fee.
         /// </summary>
         /// <remarks>
@@ -906,6 +943,45 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfFund)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfFund>> ListFundsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+        /// </summary>
+        /// <remarks>
+        /// List all the Valuation Points that match the given criteria for a given Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PagedResourceListOfValuationPointOverview</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfValuationPointOverview> ListValuationPointOverviewAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
+        /// </summary>
+        /// <remarks>
+        /// List all the Valuation Points that match the given criteria for a given Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfValuationPointOverview)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfValuationPointOverview>> ListValuationPointOverviewWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] PatchFee: Patch Fee.
         /// </summary>
@@ -3921,6 +3997,276 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListFunds", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List all the Valuation Points that match the given criteria for a given Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PagedResourceListOfValuationPointOverview</returns>
+        public PagedResourceListOfValuationPointOverview ListValuationPointOverview(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfValuationPointOverview> localVarResponse = ListValuationPointOverviewWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List all the Valuation Points that match the given criteria for a given Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PagedResourceListOfValuationPointOverview</returns>
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfValuationPointOverview> ListValuationPointOverviewWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->ListValuationPointOverview");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->ListValuationPointOverview");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
+
+            localVarRequestOptions.Operation = "FundsApi.ListValuationPointOverview";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PagedResourceListOfValuationPointOverview>("/api/funds/{scope}/{code}/valuationPointOverview", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListValuationPointOverview", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List all the Valuation Points that match the given criteria for a given Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PagedResourceListOfValuationPointOverview</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfValuationPointOverview> ListValuationPointOverviewAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfValuationPointOverview> localVarResponse = await ListValuationPointOverviewWithHttpInfoAsync(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List all the Valuation Points that match the given criteria for a given Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfValuationPointOverview)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfValuationPointOverview>> ListValuationPointOverviewWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->ListValuationPointOverview");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->ListValuationPointOverview");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
+
+            localVarRequestOptions.Operation = "FundsApi.ListValuationPointOverview";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfValuationPointOverview>("/api/funds/{scope}/{code}/valuationPointOverview", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListValuationPointOverview", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

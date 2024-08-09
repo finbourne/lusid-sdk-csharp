@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The name of the FundConfiguration. | [optional] 
 **Description** | **string** | A description for the FundConfiguration. | [optional] 
 **DealingRule** | [**ComponentRule**](ComponentRule.md) |  | [optional] 
-**FundPnlRule** | [**ComponentRule**](ComponentRule.md) |  | [optional] 
+**PnlRule** | [**ComponentRule**](ComponentRule.md) |  | [optional] 
 **BackOutRule** | [**ComponentRule**](ComponentRule.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund Configuration. | [optional] 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
