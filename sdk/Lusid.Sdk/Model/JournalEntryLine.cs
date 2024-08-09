@@ -46,6 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="generalLedgerAccountCode">The code of the account in the general ledger the Journal Entry was posted to. (required).</param>
         /// <param name="local">local (required).</param>
         /// <param name="_base">_base (required).</param>
+        /// <param name="units">Units held for the Journal Entry Line. (required).</param>
         /// <param name="postingModuleCode">The code of the posting module where the posting rules derived the Journal Entry lines..</param>
         /// <param name="postingRule">The rule generating the Journal Entry Line. (required).</param>
         /// <param name="asAtDate">The corresponding input date and time of the Transaction generating the Journal Entry Line. (required).</param>
@@ -64,7 +65,7 @@ namespace Lusid.Sdk.Model
         /// <param name="ledgerColumn">Indicates if the Journal Entry Line is credit or debit..</param>
         /// <param name="journalEntryLineType">Indicates the Journal Entry Line type.</param>
         /// <param name="links">links.</param>
-        public JournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount _base = default(CurrencyAndAmount), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<Link> links = default(List<Link>))
+        public JournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount _base = default(CurrencyAndAmount), decimal units = default(decimal), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<Link> links = default(List<Link>))
         {
             this.AccountingDate = accountingDate;
             this.ActivityDate = activityDate;
@@ -104,6 +105,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("_base is a required property for JournalEntryLine and cannot be null");
             }
             this.Base = _base;
+            this.Units = units;
             // to ensure "postingRule" is required (not null)
             if (postingRule == null)
             {
@@ -217,6 +219,13 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "base", IsRequired = true, EmitDefaultValue = true)]
         public CurrencyAndAmount Base { get; set; }
+
+        /// <summary>
+        /// Units held for the Journal Entry Line.
+        /// </summary>
+        /// <value>Units held for the Journal Entry Line.</value>
+        [DataMember(Name = "units", IsRequired = true, EmitDefaultValue = true)]
+        public decimal Units { get; set; }
 
         /// <summary>
         /// The code of the posting module where the posting rules derived the Journal Entry lines.
@@ -361,6 +370,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  GeneralLedgerAccountCode: ").Append(GeneralLedgerAccountCode).Append("\n");
             sb.Append("  Local: ").Append(Local).Append("\n");
             sb.Append("  Base: ").Append(Base).Append("\n");
+            sb.Append("  Units: ").Append(Units).Append("\n");
             sb.Append("  PostingModuleCode: ").Append(PostingModuleCode).Append("\n");
             sb.Append("  PostingRule: ").Append(PostingRule).Append("\n");
             sb.Append("  AsAtDate: ").Append(AsAtDate).Append("\n");
@@ -464,6 +474,10 @@ namespace Lusid.Sdk.Model
                     this.Base == input.Base ||
                     (this.Base != null &&
                     this.Base.Equals(input.Base))
+                ) && 
+                (
+                    this.Units == input.Units ||
+                    this.Units.Equals(input.Units)
                 ) && 
                 (
                     this.PostingModuleCode == input.PostingModuleCode ||
@@ -610,6 +624,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Base.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Units.GetHashCode();
                 if (this.PostingModuleCode != null)
                 {
                     hashCode = (hashCode * 59) + this.PostingModuleCode.GetHashCode();

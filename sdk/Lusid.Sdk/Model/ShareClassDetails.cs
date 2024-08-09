@@ -34,11 +34,13 @@ namespace Lusid.Sdk.Model
         /// <param name="lusidInstrumentId">LUSID&#39;s internal unique instrument identifier, resolved from the share class&#39; instrument identifiers.</param>
         /// <param name="instrumentScope">The scope in which the share class instrument lies..</param>
         /// <param name="domCurrency">The domestic currency of the share class instrument.</param>
-        public ShareClassDetails(string lusidInstrumentId = default(string), string instrumentScope = default(string), string domCurrency = default(string))
+        /// <param name="instrumentActive">If the instrument of the share class is active..</param>
+        public ShareClassDetails(string lusidInstrumentId = default(string), string instrumentScope = default(string), string domCurrency = default(string), bool instrumentActive = default(bool))
         {
             this.LusidInstrumentId = lusidInstrumentId;
             this.InstrumentScope = instrumentScope;
             this.DomCurrency = domCurrency;
+            this.InstrumentActive = instrumentActive;
         }
 
         /// <summary>
@@ -63,6 +65,13 @@ namespace Lusid.Sdk.Model
         public string DomCurrency { get; set; }
 
         /// <summary>
+        /// If the instrument of the share class is active.
+        /// </summary>
+        /// <value>If the instrument of the share class is active.</value>
+        [DataMember(Name = "instrumentActive", EmitDefaultValue = true)]
+        public bool InstrumentActive { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
             sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
             sb.Append("  DomCurrency: ").Append(DomCurrency).Append("\n");
+            sb.Append("  InstrumentActive: ").Append(InstrumentActive).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +132,10 @@ namespace Lusid.Sdk.Model
                     this.DomCurrency == input.DomCurrency ||
                     (this.DomCurrency != null &&
                     this.DomCurrency.Equals(input.DomCurrency))
+                ) && 
+                (
+                    this.InstrumentActive == input.InstrumentActive ||
+                    this.InstrumentActive.Equals(input.InstrumentActive)
                 );
         }
 
@@ -146,6 +160,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DomCurrency.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.InstrumentActive.GetHashCode();
                 return hashCode;
             }
         }

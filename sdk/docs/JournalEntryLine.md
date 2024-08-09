@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **GeneralLedgerAccountCode** | **string** | The code of the account in the general ledger the Journal Entry was posted to. | 
 **Local** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **Base** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
+**Units** | **decimal** | Units held for the Journal Entry Line. | 
 **PostingModuleCode** | **string** | The code of the posting module where the posting rules derived the Journal Entry lines. | [optional] 
 **PostingRule** | **string** | The rule generating the Journal Entry Line. | 
 **AsAtDate** | **DateTimeOffset** | The corresponding input date and time of the Transaction generating the Journal Entry Line. | 

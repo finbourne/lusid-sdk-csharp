@@ -240,7 +240,6 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DataType" /> class.
         /// </summary>
-        /// <param name="href">href.</param>
         /// <param name="typeValueRange">The available values are: Open, Closed (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="displayName">displayName (required).</param>
@@ -251,8 +250,9 @@ namespace Lusid.Sdk.Model
         /// <param name="acceptableUnits">acceptableUnits.</param>
         /// <param name="referenceData">referenceData.</param>
         /// <param name="version">version.</param>
+        /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="links">links.</param>
-        public DataType(string href = default(string), TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), List<IUnitDefinitionDto> acceptableUnits = default(List<IUnitDefinitionDto>), ReferenceData referenceData = default(ReferenceData), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public DataType(TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), List<IUnitDefinitionDto> acceptableUnits = default(List<IUnitDefinitionDto>), ReferenceData referenceData = default(ReferenceData), ModelVersion version = default(ModelVersion), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.TypeValueRange = typeValueRange;
             // to ensure "id" is required (not null)
@@ -274,20 +274,14 @@ namespace Lusid.Sdk.Model
             }
             this.Description = description;
             this.ValueType = valueType;
-            this.Href = href;
             this.AcceptableValues = acceptableValues;
             this.UnitSchema = unitSchema;
             this.AcceptableUnits = acceptableUnits;
             this.ReferenceData = referenceData;
             this._Version = version;
+            this.Href = href;
             this.Links = links;
         }
-
-        /// <summary>
-        /// Gets or Sets Href
-        /// </summary>
-        [DataMember(Name = "href", EmitDefaultValue = true)]
-        public string Href { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -332,6 +326,13 @@ namespace Lusid.Sdk.Model
         public ModelVersion _Version { get; set; }
 
         /// <summary>
+        /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+        /// </summary>
+        /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
+        [DataMember(Name = "href", EmitDefaultValue = true)]
+        public string Href { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -345,7 +346,6 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class DataType {\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  TypeValueRange: ").Append(TypeValueRange).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
@@ -356,6 +356,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AcceptableUnits: ").Append(AcceptableUnits).Append("\n");
             sb.Append("  ReferenceData: ").Append(ReferenceData).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -392,11 +393,6 @@ namespace Lusid.Sdk.Model
                 return false;
             }
             return 
-                (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
-                ) && 
                 (
                     this.TypeValueRange == input.TypeValueRange ||
                     this.TypeValueRange.Equals(input.TypeValueRange)
@@ -447,6 +443,11 @@ namespace Lusid.Sdk.Model
                     this._Version.Equals(input._Version))
                 ) && 
                 (
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -463,10 +464,6 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Href != null)
-                {
-                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
-                }
                 hashCode = (hashCode * 59) + this.TypeValueRange.GetHashCode();
                 if (this.Id != null)
                 {
@@ -497,6 +494,10 @@ namespace Lusid.Sdk.Model
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                }
+                if (this.Href != null)
+                {
+                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
                 }
                 if (this.Links != null)
                 {
