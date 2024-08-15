@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **UnitsRatio** | [**UnitsRatio**](UnitsRatio.md) |  | 
 **RecordDate** | **DateTimeOffset?** | Date you have to be the holder of record in order to receive the additional shares. | [optional] 
 **AnnouncementDate** | **DateTimeOffset?** | Date the stock split was announced. | [optional] 
+**FractionalUnitsCashPrice** | **decimal?** | The cash price per unit paid in lieu when fractional units can not be distributed. | [optional] 
+**FractionalUnitsCashCurrency** | **string** | The currency of the cash paid in lieu of fractional units. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
