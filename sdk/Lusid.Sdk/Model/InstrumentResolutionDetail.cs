@@ -37,7 +37,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="InstrumentResolutionDetail" /> class.
         /// </summary>
         /// <param name="instrumentIdentifiers">Unique instrument identifiers (required).</param>
-        public InstrumentResolutionDetail(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>))
+        /// <param name="launchPrice">The launch price set when a shareclass is added to the fund. Defaults to 1..</param>
+        /// <param name="launchDate">The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date..</param>
+        public InstrumentResolutionDetail(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? launchPrice = default(decimal?), DateTimeOffset? launchDate = default(DateTimeOffset?))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
@@ -45,6 +47,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instrumentIdentifiers is a required property for InstrumentResolutionDetail and cannot be null");
             }
             this.InstrumentIdentifiers = instrumentIdentifiers;
+            this.LaunchPrice = launchPrice;
+            this.LaunchDate = launchDate;
         }
 
         /// <summary>
@@ -85,6 +89,20 @@ namespace Lusid.Sdk.Model
             return false;
         }
         /// <summary>
+        /// The launch price set when a shareclass is added to the fund. Defaults to 1.
+        /// </summary>
+        /// <value>The launch price set when a shareclass is added to the fund. Defaults to 1.</value>
+        [DataMember(Name = "launchPrice", EmitDefaultValue = true)]
+        public decimal? LaunchPrice { get; set; }
+
+        /// <summary>
+        /// The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date.
+        /// </summary>
+        /// <value>The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date.</value>
+        [DataMember(Name = "launchDate", EmitDefaultValue = true)]
+        public DateTimeOffset? LaunchDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +113,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentIdentifiers: ").Append(InstrumentIdentifiers).Append("\n");
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
             sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
+            sb.Append("  LaunchPrice: ").Append(LaunchPrice).Append("\n");
+            sb.Append("  LaunchDate: ").Append(LaunchDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,6 +165,16 @@ namespace Lusid.Sdk.Model
                     this.InstrumentScope == input.InstrumentScope ||
                     (this.InstrumentScope != null &&
                     this.InstrumentScope.Equals(input.InstrumentScope))
+                ) && 
+                (
+                    this.LaunchPrice == input.LaunchPrice ||
+                    (this.LaunchPrice != null &&
+                    this.LaunchPrice.Equals(input.LaunchPrice))
+                ) && 
+                (
+                    this.LaunchDate == input.LaunchDate ||
+                    (this.LaunchDate != null &&
+                    this.LaunchDate.Equals(input.LaunchDate))
                 );
         }
 
@@ -168,6 +198,14 @@ namespace Lusid.Sdk.Model
                 if (this.InstrumentScope != null)
                 {
                     hashCode = (hashCode * 59) + this.InstrumentScope.GetHashCode();
+                }
+                if (this.LaunchPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.LaunchPrice.GetHashCode();
+                }
+                if (this.LaunchDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.LaunchDate.GetHashCode();
                 }
                 return hashCode;
             }

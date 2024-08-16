@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Model
         /// <param name="name">Identifiable Name assigned to the period. Where left blank, the system will generate a name in the format &#39;yyyyMMDD&#39;..</param>
         /// <param name="effectiveAt">The effective time of the diary entry..</param>
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
-        /// <param name="status">The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods..</param>
+        /// <param name="status">The status of a Diary Entry of Type &#39;PeriodBoundary&#39;. Defaults to &#39;Estimate&#39; when closing a period, and supports &#39;Estimate&#39; and &#39;Final&#39; for closing periods and &#39;Final&#39; for locking periods..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
         /// <param name="closingOptions">The options which will be executed once a period is closed or locked..</param>
         public ClosePeriodDiaryEntryRequest(string diaryEntryCode = default(string), string name = default(string), DateTimeOffset? effectiveAt = default(DateTimeOffset?), DateTimeOffset? queryAsAt = default(DateTimeOffset?), string status = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> closingOptions = default(List<string>))
@@ -78,9 +78,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? QueryAsAt { get; set; }
 
         /// <summary>
-        /// The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods.
+        /// The status of a Diary Entry of Type &#39;PeriodBoundary&#39;. Defaults to &#39;Estimate&#39; when closing a period, and supports &#39;Estimate&#39; and &#39;Final&#39; for closing periods and &#39;Final&#39; for locking periods.
         /// </summary>
-        /// <value>The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods.</value>
+        /// <value>The status of a Diary Entry of Type &#39;PeriodBoundary&#39;. Defaults to &#39;Estimate&#39; when closing a period, and supports &#39;Estimate&#39; and &#39;Final&#39; for closing periods and &#39;Final&#39; for locking periods.</value>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; set; }
 
