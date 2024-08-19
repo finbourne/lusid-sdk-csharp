@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// AccumulationEventAllOf
+    /// SwapCashFlowEventAllOf
     /// </summary>
-    [DataContract(Name = "AccumulationEvent_allOf")]
-    public partial class AccumulationEventAllOf : IEquatable<AccumulationEventAllOf>, IValidatableObject
+    [DataContract(Name = "SwapCashFlowEvent_allOf")]
+    public partial class SwapCashFlowEventAllOf : IEquatable<SwapCashFlowEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent
@@ -225,68 +225,59 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccumulationEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="SwapCashFlowEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AccumulationEventAllOf() { }
+        protected SwapCashFlowEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccumulationEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="SwapCashFlowEventAllOf" /> class.
         /// </summary>
-        /// <param name="announcementDate">Date on which the dividend was announced / declared..</param>
-        /// <param name="dividendCurrency">Payment currency (required).</param>
-        /// <param name="dividendRate">Dividend rate or payment rate as a percentage.  i.e. 5% is written as 0.05 (required).</param>
-        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate. (required).</param>
-        /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
+        /// <param name="exDate">The ex-dividend date of the cashflow. (required).</param>
+        /// <param name="paymentDate">The payment date of the cashflow. (required).</param>
+        /// <param name="currency">The currency in which the cashflow is paid. (required).</param>
+        /// <param name="cashFlowPerUnit">The cashflow amount received for each unit of the instrument held on the ex date..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent (required).</param>
-        public AccumulationEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), string dividendCurrency = default(string), decimal dividendRate = default(decimal), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public SwapCashFlowEventAllOf(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal cashFlowPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            // to ensure "dividendCurrency" is required (not null)
-            if (dividendCurrency == null)
-            {
-                throw new ArgumentNullException("dividendCurrency is a required property for AccumulationEventAllOf and cannot be null");
-            }
-            this.DividendCurrency = dividendCurrency;
-            this.DividendRate = dividendRate;
             this.ExDate = exDate;
             this.PaymentDate = paymentDate;
+            // to ensure "currency" is required (not null)
+            if (currency == null)
+            {
+                throw new ArgumentNullException("currency is a required property for SwapCashFlowEventAllOf and cannot be null");
+            }
+            this.Currency = currency;
             this.InstrumentEventType = instrumentEventType;
-            this.AnnouncementDate = announcementDate;
+            this.CashFlowPerUnit = cashFlowPerUnit;
         }
 
         /// <summary>
-        /// Date on which the dividend was announced / declared.
+        /// The ex-dividend date of the cashflow.
         /// </summary>
-        /// <value>Date on which the dividend was announced / declared.</value>
-        [DataMember(Name = "announcementDate", EmitDefaultValue = true)]
-        public DateTimeOffset? AnnouncementDate { get; set; }
-
-        /// <summary>
-        /// Payment currency
-        /// </summary>
-        /// <value>Payment currency</value>
-        [DataMember(Name = "dividendCurrency", IsRequired = true, EmitDefaultValue = true)]
-        public string DividendCurrency { get; set; }
-
-        /// <summary>
-        /// Dividend rate or payment rate as a percentage.  i.e. 5% is written as 0.05
-        /// </summary>
-        /// <value>Dividend rate or payment rate as a percentage.  i.e. 5% is written as 0.05</value>
-        [DataMember(Name = "dividendRate", IsRequired = true, EmitDefaultValue = true)]
-        public decimal DividendRate { get; set; }
-
-        /// <summary>
-        /// The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.
-        /// </summary>
-        /// <value>The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.</value>
+        /// <value>The ex-dividend date of the cashflow.</value>
         [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
-        /// The date the company pays out dividends to shareholders.
+        /// The payment date of the cashflow.
         /// </summary>
-        /// <value>The date the company pays out dividends to shareholders.</value>
+        /// <value>The payment date of the cashflow.</value>
         [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset PaymentDate { get; set; }
+
+        /// <summary>
+        /// The currency in which the cashflow is paid.
+        /// </summary>
+        /// <value>The currency in which the cashflow is paid.</value>
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// The cashflow amount received for each unit of the instrument held on the ex date.
+        /// </summary>
+        /// <value>The cashflow amount received for each unit of the instrument held on the ex date.</value>
+        [DataMember(Name = "cashFlowPerUnit", EmitDefaultValue = true)]
+        public decimal CashFlowPerUnit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -295,12 +286,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AccumulationEventAllOf {\n");
-            sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
-            sb.Append("  DividendCurrency: ").Append(DividendCurrency).Append("\n");
-            sb.Append("  DividendRate: ").Append(DividendRate).Append("\n");
+            sb.Append("class SwapCashFlowEventAllOf {\n");
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  CashFlowPerUnit: ").Append(CashFlowPerUnit).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -322,35 +312,21 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AccumulationEventAllOf);
+            return this.Equals(input as SwapCashFlowEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if AccumulationEventAllOf instances are equal
+        /// Returns true if SwapCashFlowEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of AccumulationEventAllOf to be compared</param>
+        /// <param name="input">Instance of SwapCashFlowEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AccumulationEventAllOf input)
+        public bool Equals(SwapCashFlowEventAllOf input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
-                (
-                    this.AnnouncementDate == input.AnnouncementDate ||
-                    (this.AnnouncementDate != null &&
-                    this.AnnouncementDate.Equals(input.AnnouncementDate))
-                ) && 
-                (
-                    this.DividendCurrency == input.DividendCurrency ||
-                    (this.DividendCurrency != null &&
-                    this.DividendCurrency.Equals(input.DividendCurrency))
-                ) && 
-                (
-                    this.DividendRate == input.DividendRate ||
-                    this.DividendRate.Equals(input.DividendRate)
-                ) && 
                 (
                     this.ExDate == input.ExDate ||
                     (this.ExDate != null &&
@@ -360,6 +336,15 @@ namespace Lusid.Sdk.Model
                     this.PaymentDate == input.PaymentDate ||
                     (this.PaymentDate != null &&
                     this.PaymentDate.Equals(input.PaymentDate))
+                ) && 
+                (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.CashFlowPerUnit == input.CashFlowPerUnit ||
+                    this.CashFlowPerUnit.Equals(input.CashFlowPerUnit)
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -376,15 +361,6 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AnnouncementDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
-                }
-                if (this.DividendCurrency != null)
-                {
-                    hashCode = (hashCode * 59) + this.DividendCurrency.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.DividendRate.GetHashCode();
                 if (this.ExDate != null)
                 {
                     hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
@@ -393,6 +369,11 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
                 }
+                if (this.Currency != null)
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CashFlowPerUnit.GetHashCode();
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
             }

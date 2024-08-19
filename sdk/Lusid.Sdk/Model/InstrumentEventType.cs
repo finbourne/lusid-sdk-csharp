@@ -201,7 +201,13 @@ namespace Lusid.Sdk.Model
         /// Enum FutureExpiryEvent for value: FutureExpiryEvent
         /// </summary>
         [EnumMember(Value = "FutureExpiryEvent")]
-        FutureExpiryEvent = 29
+        FutureExpiryEvent = 29,
+
+        /// <summary>
+        /// Enum SwapCashFlowEvent for value: SwapCashFlowEvent
+        /// </summary>
+        [EnumMember(Value = "SwapCashFlowEvent")]
+        SwapCashFlowEvent = 30
 
     }
 

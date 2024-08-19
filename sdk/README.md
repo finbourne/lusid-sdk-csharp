@@ -1586,6 +1586,8 @@ Class | Method | HTTP request | Description
  - [StructuredResultDataId](docs/StructuredResultDataId.md)
  - [SubHoldingKeyValueEquals](docs/SubHoldingKeyValueEquals.md)
  - [SubHoldingKeyValueEqualsAllOf](docs/SubHoldingKeyValueEqualsAllOf.md)
+ - [SwapCashFlowEvent](docs/SwapCashFlowEvent.md)
+ - [SwapCashFlowEventAllOf](docs/SwapCashFlowEventAllOf.md)
  - [TargetTaxLot](docs/TargetTaxLot.md)
  - [TargetTaxLotRequest](docs/TargetTaxLotRequest.md)
  - [TaxRule](docs/TaxRule.md)
