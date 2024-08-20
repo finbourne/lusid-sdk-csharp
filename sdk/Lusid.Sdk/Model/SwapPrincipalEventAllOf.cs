@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// InformationalErrorEventAllOf
+    /// SwapPrincipalEventAllOf
     /// </summary>
-    [DataContract(Name = "InformationalErrorEvent_allOf")]
-    public partial class InformationalErrorEventAllOf : IEquatable<InformationalErrorEventAllOf>, IValidatableObject
+    [DataContract(Name = "SwapPrincipalEvent_allOf")]
+    public partial class SwapPrincipalEventAllOf : IEquatable<SwapPrincipalEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent
@@ -231,55 +231,59 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InformationalErrorEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="SwapPrincipalEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InformationalErrorEventAllOf() { }
+        protected SwapPrincipalEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InformationalErrorEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="SwapPrincipalEventAllOf" /> class.
         /// </summary>
-        /// <param name="errorDetail">The details of the error (required).</param>
-        /// <param name="errorReason">The error reason (required).</param>
-        /// <param name="effectiveAt">The effective date of the evaulation (required).</param>
+        /// <param name="exDate">The entitlement date of the principal payment. (required).</param>
+        /// <param name="paymentDate">The payment date of the principal. (required).</param>
+        /// <param name="currency">The currency in which the principal is paid. (required).</param>
+        /// <param name="principalPerUnit">The principal amount received for each unit of the instrument held on the ex date..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent (required).</param>
-        public InformationalErrorEventAllOf(string errorDetail = default(string), string errorReason = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public SwapPrincipalEventAllOf(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal principalPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            // to ensure "errorDetail" is required (not null)
-            if (errorDetail == null)
+            this.ExDate = exDate;
+            this.PaymentDate = paymentDate;
+            // to ensure "currency" is required (not null)
+            if (currency == null)
             {
-                throw new ArgumentNullException("errorDetail is a required property for InformationalErrorEventAllOf and cannot be null");
+                throw new ArgumentNullException("currency is a required property for SwapPrincipalEventAllOf and cannot be null");
             }
-            this.ErrorDetail = errorDetail;
-            // to ensure "errorReason" is required (not null)
-            if (errorReason == null)
-            {
-                throw new ArgumentNullException("errorReason is a required property for InformationalErrorEventAllOf and cannot be null");
-            }
-            this.ErrorReason = errorReason;
-            this.EffectiveAt = effectiveAt;
+            this.Currency = currency;
             this.InstrumentEventType = instrumentEventType;
+            this.PrincipalPerUnit = principalPerUnit;
         }
 
         /// <summary>
-        /// The details of the error
+        /// The entitlement date of the principal payment.
         /// </summary>
-        /// <value>The details of the error</value>
-        [DataMember(Name = "errorDetail", IsRequired = true, EmitDefaultValue = true)]
-        public string ErrorDetail { get; set; }
+        /// <value>The entitlement date of the principal payment.</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
-        /// The error reason
+        /// The payment date of the principal.
         /// </summary>
-        /// <value>The error reason</value>
-        [DataMember(Name = "errorReason", IsRequired = true, EmitDefaultValue = true)]
-        public string ErrorReason { get; set; }
+        /// <value>The payment date of the principal.</value>
+        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// The effective date of the evaulation
+        /// The currency in which the principal is paid.
         /// </summary>
-        /// <value>The effective date of the evaulation</value>
-        [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset EffectiveAt { get; set; }
+        /// <value>The currency in which the principal is paid.</value>
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// The principal amount received for each unit of the instrument held on the ex date.
+        /// </summary>
+        /// <value>The principal amount received for each unit of the instrument held on the ex date.</value>
+        [DataMember(Name = "principalPerUnit", EmitDefaultValue = true)]
+        public decimal PrincipalPerUnit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -288,10 +292,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InformationalErrorEventAllOf {\n");
-            sb.Append("  ErrorDetail: ").Append(ErrorDetail).Append("\n");
-            sb.Append("  ErrorReason: ").Append(ErrorReason).Append("\n");
-            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
+            sb.Append("class SwapPrincipalEventAllOf {\n");
+            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  PrincipalPerUnit: ").Append(PrincipalPerUnit).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -313,15 +318,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InformationalErrorEventAllOf);
+            return this.Equals(input as SwapPrincipalEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if InformationalErrorEventAllOf instances are equal
+        /// Returns true if SwapPrincipalEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of InformationalErrorEventAllOf to be compared</param>
+        /// <param name="input">Instance of SwapPrincipalEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InformationalErrorEventAllOf input)
+        public bool Equals(SwapPrincipalEventAllOf input)
         {
             if (input == null)
             {
@@ -329,19 +334,23 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.ErrorDetail == input.ErrorDetail ||
-                    (this.ErrorDetail != null &&
-                    this.ErrorDetail.Equals(input.ErrorDetail))
+                    this.ExDate == input.ExDate ||
+                    (this.ExDate != null &&
+                    this.ExDate.Equals(input.ExDate))
                 ) && 
                 (
-                    this.ErrorReason == input.ErrorReason ||
-                    (this.ErrorReason != null &&
-                    this.ErrorReason.Equals(input.ErrorReason))
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
                 ) && 
                 (
-                    this.EffectiveAt == input.EffectiveAt ||
-                    (this.EffectiveAt != null &&
-                    this.EffectiveAt.Equals(input.EffectiveAt))
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.PrincipalPerUnit == input.PrincipalPerUnit ||
+                    this.PrincipalPerUnit.Equals(input.PrincipalPerUnit)
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -358,18 +367,19 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ErrorDetail != null)
+                if (this.ExDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.ErrorDetail.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
                 }
-                if (this.ErrorReason != null)
+                if (this.PaymentDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.ErrorReason.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
                 }
-                if (this.EffectiveAt != null)
+                if (this.Currency != null)
                 {
-                    hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.PrincipalPerUnit.GetHashCode();
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
             }
@@ -382,18 +392,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ErrorDetail (string) minLength
-            if (this.ErrorDetail != null && this.ErrorDetail.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ErrorDetail, length must be greater than 1.", new [] { "ErrorDetail" });
-            }
-
-            // ErrorReason (string) minLength
-            if (this.ErrorReason != null && this.ErrorReason.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ErrorReason, length must be greater than 1.", new [] { "ErrorReason" });
-            }
-
             yield break;
         }
     }

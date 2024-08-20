@@ -24,65 +24,65 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of a swap cash flow event.  This event describes the cashflow generated from either an interest rate swap or inflation swap instrument.
+    /// Definition of a Swap Principal Event.  This is an event that describes the occurence of a cashflow due to the principal payment.
     /// </summary>
-    [DataContract(Name = "SwapCashFlowEvent")]
+    [DataContract(Name = "SwapPrincipalEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class SwapCashFlowEvent : InstrumentEvent, IEquatable<SwapCashFlowEvent>, IValidatableObject
+    public partial class SwapPrincipalEvent : InstrumentEvent, IEquatable<SwapPrincipalEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SwapCashFlowEvent" /> class.
+        /// Initializes a new instance of the <see cref="SwapPrincipalEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SwapCashFlowEvent() { }
+        protected SwapPrincipalEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SwapCashFlowEvent" /> class.
+        /// Initializes a new instance of the <see cref="SwapPrincipalEvent" /> class.
         /// </summary>
-        /// <param name="exDate">The ex-dividend date of the cashflow. (required).</param>
-        /// <param name="paymentDate">The payment date of the cashflow. (required).</param>
-        /// <param name="currency">The currency in which the cashflow is paid. (required).</param>
-        /// <param name="cashFlowPerUnit">The cashflow amount received for each unit of the instrument held on the ex date..</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent (required) (default to &quot;SwapCashFlowEvent&quot;).</param>
-        public SwapCashFlowEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal cashFlowPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="exDate">The entitlement date of the principal payment. (required).</param>
+        /// <param name="paymentDate">The payment date of the principal. (required).</param>
+        /// <param name="currency">The currency in which the principal is paid. (required).</param>
+        /// <param name="principalPerUnit">The principal amount received for each unit of the instrument held on the ex date..</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent (required) (default to &quot;SwapPrincipalEvent&quot;).</param>
+        public SwapPrincipalEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal principalPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.ExDate = exDate;
             this.PaymentDate = paymentDate;
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
-                throw new ArgumentNullException("currency is a required property for SwapCashFlowEvent and cannot be null");
+                throw new ArgumentNullException("currency is a required property for SwapPrincipalEvent and cannot be null");
             }
             this.Currency = currency;
-            this.CashFlowPerUnit = cashFlowPerUnit;
+            this.PrincipalPerUnit = principalPerUnit;
         }
 
         /// <summary>
-        /// The ex-dividend date of the cashflow.
+        /// The entitlement date of the principal payment.
         /// </summary>
-        /// <value>The ex-dividend date of the cashflow.</value>
+        /// <value>The entitlement date of the principal payment.</value>
         [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
-        /// The payment date of the cashflow.
+        /// The payment date of the principal.
         /// </summary>
-        /// <value>The payment date of the cashflow.</value>
+        /// <value>The payment date of the principal.</value>
         [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// The currency in which the cashflow is paid.
+        /// The currency in which the principal is paid.
         /// </summary>
-        /// <value>The currency in which the cashflow is paid.</value>
+        /// <value>The currency in which the principal is paid.</value>
         [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The cashflow amount received for each unit of the instrument held on the ex date.
+        /// The principal amount received for each unit of the instrument held on the ex date.
         /// </summary>
-        /// <value>The cashflow amount received for each unit of the instrument held on the ex date.</value>
-        [DataMember(Name = "cashFlowPerUnit", EmitDefaultValue = true)]
-        public decimal CashFlowPerUnit { get; set; }
+        /// <value>The principal amount received for each unit of the instrument held on the ex date.</value>
+        [DataMember(Name = "principalPerUnit", EmitDefaultValue = true)]
+        public decimal PrincipalPerUnit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,12 +91,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class SwapCashFlowEvent {\n");
+            sb.Append("class SwapPrincipalEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  CashFlowPerUnit: ").Append(CashFlowPerUnit).Append("\n");
+            sb.Append("  PrincipalPerUnit: ").Append(PrincipalPerUnit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,15 +117,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SwapCashFlowEvent);
+            return this.Equals(input as SwapPrincipalEvent);
         }
 
         /// <summary>
-        /// Returns true if SwapCashFlowEvent instances are equal
+        /// Returns true if SwapPrincipalEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of SwapCashFlowEvent to be compared</param>
+        /// <param name="input">Instance of SwapPrincipalEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SwapCashFlowEvent input)
+        public bool Equals(SwapPrincipalEvent input)
         {
             if (input == null)
             {
@@ -148,8 +148,8 @@ namespace Lusid.Sdk.Model
                     this.Currency.Equals(input.Currency))
                 ) && base.Equals(input) && 
                 (
-                    this.CashFlowPerUnit == input.CashFlowPerUnit ||
-                    this.CashFlowPerUnit.Equals(input.CashFlowPerUnit)
+                    this.PrincipalPerUnit == input.PrincipalPerUnit ||
+                    this.PrincipalPerUnit.Equals(input.PrincipalPerUnit)
                 );
         }
 
@@ -174,7 +174,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.CashFlowPerUnit.GetHashCode();
+                hashCode = (hashCode * 59) + this.PrincipalPerUnit.GetHashCode();
                 return hashCode;
             }
         }

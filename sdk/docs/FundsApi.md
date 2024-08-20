@@ -25,11 +25,11 @@ All URIs are relative to *https://www.lusid.com/api*
 
 <a id="acceptestimatevaluationpoint"></a>
 # **AcceptEstimateValuationPoint**
-> ValuationPointDataResponse AcceptEstimateValuationPoint (string scope, string code, ValuationPointDataRequest valuationPointDataRequest)
+> AcceptEstimateValuationPointResponse AcceptEstimateValuationPoint (string scope, string code, ValuationPointDataRequest valuationPointDataRequest)
 
 [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
 
-Accepts the specified estimate Valuation Point. Should the Valuation Point differ since the valuation Point was last run, status will be marked as 'Candidate', otherwise it will be marked as 'Final'
+Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as 'Candidate',  otherwise it will be marked as 'Final'.
 
 ### Example
 ```csharp
@@ -69,7 +69,7 @@ namespace Examples
             try
             {
                 // [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
-                ValuationPointDataResponse result = apiInstance.AcceptEstimateValuationPoint(scope, code, valuationPointDataRequest);
+                AcceptEstimateValuationPointResponse result = apiInstance.AcceptEstimateValuationPoint(scope, code, valuationPointDataRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -90,7 +90,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
-    ApiResponse<ValuationPointDataResponse> response = apiInstance.AcceptEstimateValuationPointWithHttpInfo(scope, code, valuationPointDataRequest);
+    ApiResponse<AcceptEstimateValuationPointResponse> response = apiInstance.AcceptEstimateValuationPointWithHttpInfo(scope, code, valuationPointDataRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -113,7 +113,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ValuationPointDataResponse**](ValuationPointDataResponse.md)
+[**AcceptEstimateValuationPointResponse**](AcceptEstimateValuationPointResponse.md)
 
 ### HTTP request headers
 

@@ -34,29 +34,29 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Accepts the specified estimate Valuation Point. Should the Valuation Point differ since the valuation Point was last run, status will be marked as &#39;Candidate&#39;, otherwise it will be marked as &#39;Final&#39;
+        /// Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ValuationPointDataResponse</returns>
-        ValuationPointDataResponse AcceptEstimateValuationPoint(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0);
+        /// <returns>AcceptEstimateValuationPointResponse</returns>
+        AcceptEstimateValuationPointResponse AcceptEstimateValuationPoint(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Accepts the specified estimate Valuation Point. Should the Valuation Point differ since the valuation Point was last run, status will be marked as &#39;Candidate&#39;, otherwise it will be marked as &#39;Final&#39;
+        /// Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ValuationPointDataResponse</returns>
-        ApiResponse<ValuationPointDataResponse> AcceptEstimateValuationPointWithHttpInfo(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0);
+        /// <returns>ApiResponse of AcceptEstimateValuationPointResponse</returns>
+        ApiResponse<AcceptEstimateValuationPointResponse> AcceptEstimateValuationPointWithHttpInfo(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] CreateFee: Create a Fee.
         /// </summary>
@@ -571,7 +571,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Accepts the specified estimate Valuation Point. Should the Valuation Point differ since the valuation Point was last run, status will be marked as &#39;Candidate&#39;, otherwise it will be marked as &#39;Final&#39;
+        /// Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -579,14 +579,14 @@ namespace Lusid.Sdk.Api
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ValuationPointDataResponse</returns>
-        System.Threading.Tasks.Task<ValuationPointDataResponse> AcceptEstimateValuationPointAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of AcceptEstimateValuationPointResponse</returns>
+        System.Threading.Tasks.Task<AcceptEstimateValuationPointResponse> AcceptEstimateValuationPointAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Accepts the specified estimate Valuation Point. Should the Valuation Point differ since the valuation Point was last run, status will be marked as &#39;Candidate&#39;, otherwise it will be marked as &#39;Final&#39;
+        /// Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -594,8 +594,8 @@ namespace Lusid.Sdk.Api
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ValuationPointDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ValuationPointDataResponse>> AcceptEstimateValuationPointWithHttpInfoAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (AcceptEstimateValuationPointResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AcceptEstimateValuationPointResponse>> AcceptEstimateValuationPointWithHttpInfoAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] CreateFee: Create a Fee.
         /// </summary>
@@ -1249,30 +1249,30 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point. Should the Valuation Point differ since the valuation Point was last run, status will be marked as &#39;Candidate&#39;, otherwise it will be marked as &#39;Final&#39;
+        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ValuationPointDataResponse</returns>
-        public ValuationPointDataResponse AcceptEstimateValuationPoint(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0)
+        /// <returns>AcceptEstimateValuationPointResponse</returns>
+        public AcceptEstimateValuationPointResponse AcceptEstimateValuationPoint(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> localVarResponse = AcceptEstimateValuationPointWithHttpInfo(scope, code, valuationPointDataRequest);
+            Lusid.Sdk.Client.ApiResponse<AcceptEstimateValuationPointResponse> localVarResponse = AcceptEstimateValuationPointWithHttpInfo(scope, code, valuationPointDataRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point. Should the Valuation Point differ since the valuation Point was last run, status will be marked as &#39;Candidate&#39;, otherwise it will be marked as &#39;Final&#39;
+        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ValuationPointDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> AcceptEstimateValuationPointWithHttpInfo(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0)
+        /// <returns>ApiResponse of AcceptEstimateValuationPointResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<AcceptEstimateValuationPointResponse> AcceptEstimateValuationPointWithHttpInfo(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1345,7 +1345,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<ValuationPointDataResponse>("/api/funds/{scope}/{code}/valuationpoints/$acceptestimate", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<AcceptEstimateValuationPointResponse>("/api/funds/{scope}/{code}/valuationpoints/$acceptestimate", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AcceptEstimateValuationPoint", localVarResponse);
@@ -1359,7 +1359,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point. Should the Valuation Point differ since the valuation Point was last run, status will be marked as &#39;Candidate&#39;, otherwise it will be marked as &#39;Final&#39;
+        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1367,15 +1367,15 @@ namespace Lusid.Sdk.Api
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ValuationPointDataResponse</returns>
-        public async System.Threading.Tasks.Task<ValuationPointDataResponse> AcceptEstimateValuationPointAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of AcceptEstimateValuationPointResponse</returns>
+        public async System.Threading.Tasks.Task<AcceptEstimateValuationPointResponse> AcceptEstimateValuationPointAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> localVarResponse = await AcceptEstimateValuationPointWithHttpInfoAsync(scope, code, valuationPointDataRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AcceptEstimateValuationPointResponse> localVarResponse = await AcceptEstimateValuationPointWithHttpInfoAsync(scope, code, valuationPointDataRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point. Should the Valuation Point differ since the valuation Point was last run, status will be marked as &#39;Candidate&#39;, otherwise it will be marked as &#39;Final&#39;
+        /// [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. Accepts the specified estimate Valuation Point.  Should the Valuation Point differ since the Valuation Point was last run, both Valuation Points will be returned and status will be marked as &#39;Candidate&#39;,  otherwise it will be marked as &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1383,8 +1383,8 @@ namespace Lusid.Sdk.Api
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ValuationPointDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse>> AcceptEstimateValuationPointWithHttpInfoAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (AcceptEstimateValuationPointResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AcceptEstimateValuationPointResponse>> AcceptEstimateValuationPointWithHttpInfoAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1458,7 +1458,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<ValuationPointDataResponse>("/api/funds/{scope}/{code}/valuationpoints/$acceptestimate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AcceptEstimateValuationPointResponse>("/api/funds/{scope}/{code}/valuationpoints/$acceptestimate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
