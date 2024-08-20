@@ -6,7 +6,7 @@ A request to create or update a Order.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
-**Quantity** | **decimal** | The quantity of given instrument ordered. | [optional] 
+**Quantity** | **decimal?** | The quantity of given instrument ordered. | [optional] 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this order. | [optional] 
 **Price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 

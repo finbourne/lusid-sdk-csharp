@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="price">price.</param>
         /// <param name="limitPrice">limitPrice.</param>
         /// <param name="stopPrice">stopPrice.</param>
-        public OrderUpdateRequest(ResourceId id = default(ResourceId), decimal quantity = default(decimal), ResourceId portfolioId = default(ResourceId), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount))
+        public OrderUpdateRequest(ResourceId id = default(ResourceId), decimal? quantity = default(decimal?), ResourceId portfolioId = default(ResourceId), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -70,7 +70,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The quantity of given instrument ordered.</value>
         [DataMember(Name = "quantity", EmitDefaultValue = true)]
-        public decimal Quantity { get; set; }
+        public decimal? Quantity { get; set; }
 
         /// <summary>
         /// Gets or Sets PortfolioId
@@ -160,7 +160,8 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.Quantity == input.Quantity ||
-                    this.Quantity.Equals(input.Quantity)
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
                 ) && 
                 (
                     this.PortfolioId == input.PortfolioId ||
@@ -203,7 +204,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                if (this.Quantity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                }
                 if (this.PortfolioId != null)
                 {
                     hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
