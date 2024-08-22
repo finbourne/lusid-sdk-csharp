@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="holdingId">For holding instructions, the id of the holding for which the instruction will apply.</param>
         /// <param name="version">version.</param>
         /// <param name="href">The uri for this version of this instruction.</param>
-        public InstrumentEventInstruction(string instrumentEventInstructionId = default(string), ResourceId portfolioId = default(ResourceId), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), ModelVersion version = default(ModelVersion), string href = default(string))
+        /// <param name="links">links.</param>
+        public InstrumentEventInstruction(string instrumentEventInstructionId = default(string), ResourceId portfolioId = default(ResourceId), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), ModelVersion version = default(ModelVersion), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.InstrumentEventInstructionId = instrumentEventInstructionId;
             this.PortfolioId = portfolioId;
@@ -49,6 +50,7 @@ namespace Lusid.Sdk.Model
             this.HoldingId = holdingId;
             this._Version = version;
             this.Href = href;
+            this.Links = links;
         }
 
         /// <summary>
@@ -106,6 +108,12 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -121,6 +129,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  HoldingId: ").Append(HoldingId).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -195,6 +204,12 @@ namespace Lusid.Sdk.Model
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -238,6 +253,10 @@ namespace Lusid.Sdk.Model
                 if (this.Href != null)
                 {
                     hashCode = (hashCode * 59) + this.Href.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

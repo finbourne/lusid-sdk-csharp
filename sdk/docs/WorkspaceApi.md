@@ -4,32 +4,32 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreatePersonalItem**](WorkspaceApi.md#createpersonalitem) | **POST** /api/workspaces/personal/{workspaceName}/items | [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace. |
-| [**CreatePersonalWorkspace**](WorkspaceApi.md#createpersonalworkspace) | **POST** /api/workspaces/personal | [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace. |
-| [**CreateSharedItem**](WorkspaceApi.md#createshareditem) | **POST** /api/workspaces/shared/{workspaceName}/items | [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace. |
-| [**CreateSharedWorkspace**](WorkspaceApi.md#createsharedworkspace) | **POST** /api/workspaces/shared | [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace. |
-| [**DeletePersonalItem**](WorkspaceApi.md#deletepersonalitem) | **DELETE** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace. |
-| [**DeletePersonalWorkspace**](WorkspaceApi.md#deletepersonalworkspace) | **DELETE** /api/workspaces/personal/{workspaceName} | [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace. |
-| [**DeleteSharedItem**](WorkspaceApi.md#deleteshareditem) | **DELETE** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace. |
-| [**DeleteSharedWorkspace**](WorkspaceApi.md#deletesharedworkspace) | **DELETE** /api/workspaces/shared/{workspaceName} | [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace. |
-| [**GetPersonalItem**](WorkspaceApi.md#getpersonalitem) | **GET** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item. |
-| [**GetPersonalWorkspace**](WorkspaceApi.md#getpersonalworkspace) | **GET** /api/workspaces/personal/{workspaceName} | [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace. |
-| [**GetSharedItem**](WorkspaceApi.md#getshareditem) | **GET** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EARLY ACCESS] GetSharedItem: Get a single shared workspace item. |
-| [**GetSharedWorkspace**](WorkspaceApi.md#getsharedworkspace) | **GET** /api/workspaces/shared/{workspaceName} | [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace. |
-| [**ListPersonalItems**](WorkspaceApi.md#listpersonalitems) | **GET** /api/workspaces/personal/{workspaceName}/items | [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace. |
-| [**ListPersonalWorkspaces**](WorkspaceApi.md#listpersonalworkspaces) | **GET** /api/workspaces/personal | [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces. |
-| [**ListSharedItems**](WorkspaceApi.md#listshareditems) | **GET** /api/workspaces/shared/{workspaceName}/items | [EARLY ACCESS] ListSharedItems: List the items in a shared workspace. |
-| [**ListSharedWorkspaces**](WorkspaceApi.md#listsharedworkspaces) | **GET** /api/workspaces/shared | [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces. |
-| [**UpdatePersonalItem**](WorkspaceApi.md#updatepersonalitem) | **PUT** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace. |
-| [**UpdatePersonalWorkspace**](WorkspaceApi.md#updatepersonalworkspace) | **PUT** /api/workspaces/personal/{workspaceName} | [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace. |
-| [**UpdateSharedItem**](WorkspaceApi.md#updateshareditem) | **PUT** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace. |
-| [**UpdateSharedWorkspace**](WorkspaceApi.md#updatesharedworkspace) | **PUT** /api/workspaces/shared/{workspaceName} | [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace. |
+| [**CreatePersonalItem**](WorkspaceApi.md#createpersonalitem) | **POST** /api/workspaces/personal/{workspaceName}/items | [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace. |
+| [**CreatePersonalWorkspace**](WorkspaceApi.md#createpersonalworkspace) | **POST** /api/workspaces/personal | [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace. |
+| [**CreateSharedItem**](WorkspaceApi.md#createshareditem) | **POST** /api/workspaces/shared/{workspaceName}/items | [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace. |
+| [**CreateSharedWorkspace**](WorkspaceApi.md#createsharedworkspace) | **POST** /api/workspaces/shared | [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace. |
+| [**DeletePersonalItem**](WorkspaceApi.md#deletepersonalitem) | **DELETE** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace. |
+| [**DeletePersonalWorkspace**](WorkspaceApi.md#deletepersonalworkspace) | **DELETE** /api/workspaces/personal/{workspaceName} | [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace. |
+| [**DeleteSharedItem**](WorkspaceApi.md#deleteshareditem) | **DELETE** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace. |
+| [**DeleteSharedWorkspace**](WorkspaceApi.md#deletesharedworkspace) | **DELETE** /api/workspaces/shared/{workspaceName} | [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace. |
+| [**GetPersonalItem**](WorkspaceApi.md#getpersonalitem) | **GET** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item. |
+| [**GetPersonalWorkspace**](WorkspaceApi.md#getpersonalworkspace) | **GET** /api/workspaces/personal/{workspaceName} | [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace. |
+| [**GetSharedItem**](WorkspaceApi.md#getshareditem) | **GET** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item. |
+| [**GetSharedWorkspace**](WorkspaceApi.md#getsharedworkspace) | **GET** /api/workspaces/shared/{workspaceName} | [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace. |
+| [**ListPersonalItems**](WorkspaceApi.md#listpersonalitems) | **GET** /api/workspaces/personal/{workspaceName}/items | [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace. |
+| [**ListPersonalWorkspaces**](WorkspaceApi.md#listpersonalworkspaces) | **GET** /api/workspaces/personal | [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces. |
+| [**ListSharedItems**](WorkspaceApi.md#listshareditems) | **GET** /api/workspaces/shared/{workspaceName}/items | [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace. |
+| [**ListSharedWorkspaces**](WorkspaceApi.md#listsharedworkspaces) | **GET** /api/workspaces/shared | [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces. |
+| [**UpdatePersonalItem**](WorkspaceApi.md#updatepersonalitem) | **PUT** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace. |
+| [**UpdatePersonalWorkspace**](WorkspaceApi.md#updatepersonalworkspace) | **PUT** /api/workspaces/personal/{workspaceName} | [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace. |
+| [**UpdateSharedItem**](WorkspaceApi.md#updateshareditem) | **PUT** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace. |
+| [**UpdateSharedWorkspace**](WorkspaceApi.md#updatesharedworkspace) | **PUT** /api/workspaces/shared/{workspaceName} | [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace. |
 
 <a id="createpersonalitem"></a>
 # **CreatePersonalItem**
 > WorkspaceItem CreatePersonalItem (string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = null)
 
-[EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace.
+[EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
 
 Create a new item in a personal workspace.
 
@@ -69,7 +69,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace.
+                // [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
                 WorkspaceItem result = apiInstance.CreatePersonalItem(workspaceName, workspaceItemCreationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -90,7 +90,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace.
+    // [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
     ApiResponse<WorkspaceItem> response = apiInstance.CreatePersonalItemWithHttpInfo(workspaceName, workspaceItemCreationRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -134,7 +134,7 @@ catch (ApiException e)
 # **CreatePersonalWorkspace**
 > Workspace CreatePersonalWorkspace (WorkspaceCreationRequest? workspaceCreationRequest = null)
 
-[EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace.
+[EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
 
 Create a new personal workspace.
 
@@ -173,7 +173,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace.
+                // [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
                 Workspace result = apiInstance.CreatePersonalWorkspace(workspaceCreationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -194,7 +194,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace.
+    // [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
     ApiResponse<Workspace> response = apiInstance.CreatePersonalWorkspaceWithHttpInfo(workspaceCreationRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -237,7 +237,7 @@ catch (ApiException e)
 # **CreateSharedItem**
 > WorkspaceItem CreateSharedItem (string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = null)
 
-[EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace.
+[EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
 
 Create a new item in a shared workspace.
 
@@ -277,7 +277,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace.
+                // [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
                 WorkspaceItem result = apiInstance.CreateSharedItem(workspaceName, workspaceItemCreationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -298,7 +298,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace.
+    // [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
     ApiResponse<WorkspaceItem> response = apiInstance.CreateSharedItemWithHttpInfo(workspaceName, workspaceItemCreationRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -342,7 +342,7 @@ catch (ApiException e)
 # **CreateSharedWorkspace**
 > Workspace CreateSharedWorkspace (WorkspaceCreationRequest? workspaceCreationRequest = null)
 
-[EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace.
+[EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
 
 Create a new shared workspace.
 
@@ -381,7 +381,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace.
+                // [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
                 Workspace result = apiInstance.CreateSharedWorkspace(workspaceCreationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -402,7 +402,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace.
+    // [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
     ApiResponse<Workspace> response = apiInstance.CreateSharedWorkspaceWithHttpInfo(workspaceCreationRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -445,7 +445,7 @@ catch (ApiException e)
 # **DeletePersonalItem**
 > DeletedEntityResponse DeletePersonalItem (string workspaceName, string itemName)
 
-[EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace.
+[EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
 
 Delete an item from a personal workspace.
 
@@ -485,7 +485,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace.
+                // [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
                 DeletedEntityResponse result = apiInstance.DeletePersonalItem(workspaceName, itemName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -506,7 +506,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace.
+    // [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeletePersonalItemWithHttpInfo(workspaceName, itemName);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -550,7 +550,7 @@ catch (ApiException e)
 # **DeletePersonalWorkspace**
 > DeletedEntityResponse DeletePersonalWorkspace (string workspaceName)
 
-[EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace.
+[EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
 
 Delete a personal workspace.
 
@@ -589,7 +589,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace.
+                // [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
                 DeletedEntityResponse result = apiInstance.DeletePersonalWorkspace(workspaceName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -610,7 +610,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace.
+    // [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeletePersonalWorkspaceWithHttpInfo(workspaceName);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -653,7 +653,7 @@ catch (ApiException e)
 # **DeleteSharedItem**
 > DeletedEntityResponse DeleteSharedItem (string workspaceName, string itemName)
 
-[EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace.
+[EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
 
 Delete an item from a shared workspace.
 
@@ -693,7 +693,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace.
+                // [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
                 DeletedEntityResponse result = apiInstance.DeleteSharedItem(workspaceName, itemName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -714,7 +714,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace.
+    // [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteSharedItemWithHttpInfo(workspaceName, itemName);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -758,7 +758,7 @@ catch (ApiException e)
 # **DeleteSharedWorkspace**
 > DeletedEntityResponse DeleteSharedWorkspace (string workspaceName)
 
-[EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace.
+[EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
 
 Delete a shared workspace.
 
@@ -797,7 +797,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace.
+                // [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
                 DeletedEntityResponse result = apiInstance.DeleteSharedWorkspace(workspaceName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -818,7 +818,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace.
+    // [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteSharedWorkspaceWithHttpInfo(workspaceName);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -861,7 +861,7 @@ catch (ApiException e)
 # **GetPersonalItem**
 > WorkspaceItem GetPersonalItem (string workspaceName, string itemName, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetPersonalItem: Get a single personal workspace item.
+[EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
 
 Get a single personal workspace item.
 
@@ -902,7 +902,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item.
+                // [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
                 WorkspaceItem result = apiInstance.GetPersonalItem(workspaceName, itemName, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -923,7 +923,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item.
+    // [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
     ApiResponse<WorkspaceItem> response = apiInstance.GetPersonalItemWithHttpInfo(workspaceName, itemName, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -968,7 +968,7 @@ catch (ApiException e)
 # **GetPersonalWorkspace**
 > Workspace GetPersonalWorkspace (string workspaceName, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace.
+[EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
 
 Get a personal workspace.
 
@@ -1008,7 +1008,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace.
+                // [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
                 Workspace result = apiInstance.GetPersonalWorkspace(workspaceName, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1029,7 +1029,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace.
+    // [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
     ApiResponse<Workspace> response = apiInstance.GetPersonalWorkspaceWithHttpInfo(workspaceName, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1073,7 +1073,7 @@ catch (ApiException e)
 # **GetSharedItem**
 > WorkspaceItem GetSharedItem (string workspaceName, string itemName, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetSharedItem: Get a single shared workspace item.
+[EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
 
 Get a single shared workspace item.
 
@@ -1114,7 +1114,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] GetSharedItem: Get a single shared workspace item.
+                // [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
                 WorkspaceItem result = apiInstance.GetSharedItem(workspaceName, itemName, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1135,7 +1135,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetSharedItem: Get a single shared workspace item.
+    // [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
     ApiResponse<WorkspaceItem> response = apiInstance.GetSharedItemWithHttpInfo(workspaceName, itemName, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1180,7 +1180,7 @@ catch (ApiException e)
 # **GetSharedWorkspace**
 > Workspace GetSharedWorkspace (string workspaceName, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetSharedWorkspace: Get a shared workspace.
+[EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
 
 Get a shared workspace.
 
@@ -1220,7 +1220,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace.
+                // [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
                 Workspace result = apiInstance.GetSharedWorkspace(workspaceName, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1241,7 +1241,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace.
+    // [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
     ApiResponse<Workspace> response = apiInstance.GetSharedWorkspaceWithHttpInfo(workspaceName, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1285,7 +1285,7 @@ catch (ApiException e)
 # **ListPersonalItems**
 > PagedResourceListOfWorkspaceItem ListPersonalItems (string workspaceName, DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
 
-[EARLY ACCESS] ListPersonalItems: List the items in a personal workspace.
+[EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
 
 List the items in a personal workspace.
 
@@ -1329,7 +1329,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace.
+                // [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
                 PagedResourceListOfWorkspaceItem result = apiInstance.ListPersonalItems(workspaceName, asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1350,7 +1350,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace.
+    // [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
     ApiResponse<PagedResourceListOfWorkspaceItem> response = apiInstance.ListPersonalItemsWithHttpInfo(workspaceName, asAt, page, sortBy, limit, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1398,7 +1398,7 @@ catch (ApiException e)
 # **ListPersonalWorkspaces**
 > PagedResourceListOfWorkspace ListPersonalWorkspaces (DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
 
-[EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces.
+[EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
 
 List personal workspaces.
 
@@ -1441,7 +1441,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces.
+                // [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
                 PagedResourceListOfWorkspace result = apiInstance.ListPersonalWorkspaces(asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1462,7 +1462,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces.
+    // [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
     ApiResponse<PagedResourceListOfWorkspace> response = apiInstance.ListPersonalWorkspacesWithHttpInfo(asAt, page, sortBy, limit, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1509,7 +1509,7 @@ catch (ApiException e)
 # **ListSharedItems**
 > PagedResourceListOfWorkspaceItem ListSharedItems (string workspaceName, DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
 
-[EARLY ACCESS] ListSharedItems: List the items in a shared workspace.
+[EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
 
 List the items in a shared workspace.
 
@@ -1553,7 +1553,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] ListSharedItems: List the items in a shared workspace.
+                // [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
                 PagedResourceListOfWorkspaceItem result = apiInstance.ListSharedItems(workspaceName, asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1574,7 +1574,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListSharedItems: List the items in a shared workspace.
+    // [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
     ApiResponse<PagedResourceListOfWorkspaceItem> response = apiInstance.ListSharedItemsWithHttpInfo(workspaceName, asAt, page, sortBy, limit, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1622,7 +1622,7 @@ catch (ApiException e)
 # **ListSharedWorkspaces**
 > PagedResourceListOfWorkspace ListSharedWorkspaces (DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
 
-[EARLY ACCESS] ListSharedWorkspaces: List shared workspaces.
+[EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
 
 List shared workspaces.
 
@@ -1665,7 +1665,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces.
+                // [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
                 PagedResourceListOfWorkspace result = apiInstance.ListSharedWorkspaces(asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1686,7 +1686,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces.
+    // [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
     ApiResponse<PagedResourceListOfWorkspace> response = apiInstance.ListSharedWorkspacesWithHttpInfo(asAt, page, sortBy, limit, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1733,7 +1733,7 @@ catch (ApiException e)
 # **UpdatePersonalItem**
 > WorkspaceItem UpdatePersonalItem (string workspaceName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = null)
 
-[EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace.
+[EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
 
 Update an item in a personal workspace.
 
@@ -1774,7 +1774,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace.
+                // [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
                 WorkspaceItem result = apiInstance.UpdatePersonalItem(workspaceName, itemName, workspaceItemUpdateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1795,7 +1795,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace.
+    // [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
     ApiResponse<WorkspaceItem> response = apiInstance.UpdatePersonalItemWithHttpInfo(workspaceName, itemName, workspaceItemUpdateRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1840,7 +1840,7 @@ catch (ApiException e)
 # **UpdatePersonalWorkspace**
 > Workspace UpdatePersonalWorkspace (string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = null)
 
-[EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace.
+[EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
 
 Update a personal workspace.
 
@@ -1880,7 +1880,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace.
+                // [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
                 Workspace result = apiInstance.UpdatePersonalWorkspace(workspaceName, workspaceUpdateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1901,7 +1901,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace.
+    // [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
     ApiResponse<Workspace> response = apiInstance.UpdatePersonalWorkspaceWithHttpInfo(workspaceName, workspaceUpdateRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1945,7 +1945,7 @@ catch (ApiException e)
 # **UpdateSharedItem**
 > WorkspaceItem UpdateSharedItem (string workspaceName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = null)
 
-[EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace.
+[EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
 
 Update an item in a shared workspace.
 
@@ -1986,7 +1986,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace.
+                // [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
                 WorkspaceItem result = apiInstance.UpdateSharedItem(workspaceName, itemName, workspaceItemUpdateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2007,7 +2007,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace.
+    // [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
     ApiResponse<WorkspaceItem> response = apiInstance.UpdateSharedItemWithHttpInfo(workspaceName, itemName, workspaceItemUpdateRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2052,7 +2052,7 @@ catch (ApiException e)
 # **UpdateSharedWorkspace**
 > Workspace UpdateSharedWorkspace (string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = null)
 
-[EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace.
+[EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
 
 Update a shared workspace.
 
@@ -2092,7 +2092,7 @@ namespace Examples
 
             try
             {
-                // [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace.
+                // [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
                 Workspace result = apiInstance.UpdateSharedWorkspace(workspaceName, workspaceUpdateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2113,7 +2113,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace.
+    // [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
     ApiResponse<Workspace> response = apiInstance.UpdateSharedWorkspaceWithHttpInfo(workspaceName, workspaceUpdateRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

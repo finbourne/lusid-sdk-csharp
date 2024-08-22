@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="entityType">The identifier for the custom entity type, derived from the “entityTypeName” provided on creation. (required).</param>
         /// <param name="fieldSchema">The description of the fields on the custom entity type. (required).</param>
         /// <param name="version">version (required).</param>
-        public CustomEntityDefinition(string href = default(string), string entityTypeName = default(string), string displayName = default(string), string description = default(string), string entityType = default(string), List<CustomEntityFieldDefinition> fieldSchema = default(List<CustomEntityFieldDefinition>), ModelVersion version = default(ModelVersion))
+        /// <param name="links">links.</param>
+        public CustomEntityDefinition(string href = default(string), string entityTypeName = default(string), string displayName = default(string), string description = default(string), string entityType = default(string), List<CustomEntityFieldDefinition> fieldSchema = default(List<CustomEntityFieldDefinition>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "entityTypeName" is required (not null)
             if (entityTypeName == null)
@@ -77,6 +78,7 @@ namespace Lusid.Sdk.Model
             this._Version = version;
             this.Href = href;
             this.Description = description;
+            this.Links = links;
         }
 
         /// <summary>
@@ -128,6 +130,12 @@ namespace Lusid.Sdk.Model
         public ModelVersion _Version { get; set; }
 
         /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -142,6 +150,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("  FieldSchema: ").Append(FieldSchema).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -212,6 +221,12 @@ namespace Lusid.Sdk.Model
                     this._Version == input._Version ||
                     (this._Version != null &&
                     this._Version.Equals(input._Version))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -251,6 +266,10 @@ namespace Lusid.Sdk.Model
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

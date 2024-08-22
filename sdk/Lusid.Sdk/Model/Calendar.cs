@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="sourceProvider">sourceProvider (required).</param>
         /// <param name="properties">properties (required).</param>
         /// <param name="version">version.</param>
-        public Calendar(string href = default(string), ResourceId id = default(ResourceId), string type = default(string), WeekendMask weekendMask = default(WeekendMask), string sourceProvider = default(string), List<Property> properties = default(List<Property>), ModelVersion version = default(ModelVersion))
+        /// <param name="links">links.</param>
+        public Calendar(string href = default(string), ResourceId id = default(ResourceId), string type = default(string), WeekendMask weekendMask = default(WeekendMask), string sourceProvider = default(string), List<Property> properties = default(List<Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -77,6 +78,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.Href = href;
             this._Version = version;
+            this.Links = links;
         }
 
         /// <summary>
@@ -122,6 +124,12 @@ namespace Lusid.Sdk.Model
         public ModelVersion _Version { get; set; }
 
         /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -136,6 +144,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SourceProvider: ").Append(SourceProvider).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -206,6 +215,12 @@ namespace Lusid.Sdk.Model
                     this._Version == input._Version ||
                     (this._Version != null &&
                     this._Version.Equals(input._Version))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -245,6 +260,10 @@ namespace Lusid.Sdk.Model
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

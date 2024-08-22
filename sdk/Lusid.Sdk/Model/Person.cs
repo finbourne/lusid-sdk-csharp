@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">A set of properties associated to the Person. There can be multiple properties associated with a property key..</param>
         /// <param name="relationships">A set of relationships associated to the Person..</param>
         /// <param name="version">version.</param>
-        public Person(string displayName = default(string), string description = default(string), string href = default(string), string lusidPersonId = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), ModelVersion version = default(ModelVersion))
+        /// <param name="links">links.</param>
+        public Person(string displayName = default(string), string description = default(string), string href = default(string), string lusidPersonId = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             this.DisplayName = displayName;
             this.Description = description;
@@ -49,6 +50,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.Relationships = relationships;
             this._Version = version;
+            this.Links = links;
         }
 
         /// <summary>
@@ -107,6 +109,12 @@ namespace Lusid.Sdk.Model
         public ModelVersion _Version { get; set; }
 
         /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -122,6 +130,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Relationships: ").Append(Relationships).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -199,6 +208,12 @@ namespace Lusid.Sdk.Model
                     this._Version == input._Version ||
                     (this._Version != null &&
                     this._Version.Equals(input._Version))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -242,6 +257,10 @@ namespace Lusid.Sdk.Model
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

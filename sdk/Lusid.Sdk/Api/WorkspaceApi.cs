@@ -31,7 +31,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
         /// </summary>
         /// <remarks>
         /// Create a new item in a personal workspace.
@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Api
         WorkspaceItem CreatePersonalItem(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
         /// </summary>
         /// <remarks>
         /// Create a new item in a personal workspace.
@@ -56,7 +56,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of WorkspaceItem</returns>
         ApiResponse<WorkspaceItem> CreatePersonalItemWithHttpInfo(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
         /// </summary>
         /// <remarks>
         /// Create a new personal workspace.
@@ -68,7 +68,7 @@ namespace Lusid.Sdk.Api
         Workspace CreatePersonalWorkspace(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
         /// </summary>
         /// <remarks>
         /// Create a new personal workspace.
@@ -79,7 +79,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Workspace</returns>
         ApiResponse<Workspace> CreatePersonalWorkspaceWithHttpInfo(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace.
+        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
         /// </summary>
         /// <remarks>
         /// Create a new item in a shared workspace.
@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Api
         WorkspaceItem CreateSharedItem(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace.
+        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
         /// </summary>
         /// <remarks>
         /// Create a new item in a shared workspace.
@@ -104,7 +104,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of WorkspaceItem</returns>
         ApiResponse<WorkspaceItem> CreateSharedItemWithHttpInfo(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace.
+        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
         /// </summary>
         /// <remarks>
         /// Create a new shared workspace.
@@ -116,7 +116,7 @@ namespace Lusid.Sdk.Api
         Workspace CreateSharedWorkspace(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace.
+        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
         /// </summary>
         /// <remarks>
         /// Create a new shared workspace.
@@ -127,7 +127,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Workspace</returns>
         ApiResponse<Workspace> CreateSharedWorkspaceWithHttpInfo(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
         /// </summary>
         /// <remarks>
         /// Delete an item from a personal workspace.
@@ -140,7 +140,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeletePersonalItem(string workspaceName, string itemName, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
         /// </summary>
         /// <remarks>
         /// Delete an item from a personal workspace.
@@ -152,7 +152,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeletePersonalItemWithHttpInfo(string workspaceName, string itemName, int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
         /// </summary>
         /// <remarks>
         /// Delete a personal workspace.
@@ -164,7 +164,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeletePersonalWorkspace(string workspaceName, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
         /// </summary>
         /// <remarks>
         /// Delete a personal workspace.
@@ -175,7 +175,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeletePersonalWorkspaceWithHttpInfo(string workspaceName, int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
         /// </summary>
         /// <remarks>
         /// Delete an item from a shared workspace.
@@ -188,7 +188,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteSharedItem(string workspaceName, string itemName, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
         /// </summary>
         /// <remarks>
         /// Delete an item from a shared workspace.
@@ -200,7 +200,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeleteSharedItemWithHttpInfo(string workspaceName, string itemName, int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
         /// </summary>
         /// <remarks>
         /// Delete a shared workspace.
@@ -212,7 +212,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteSharedWorkspace(string workspaceName, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
         /// </summary>
         /// <remarks>
         /// Delete a shared workspace.
@@ -223,7 +223,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeleteSharedWorkspaceWithHttpInfo(string workspaceName, int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
         /// </summary>
         /// <remarks>
         /// Get a single personal workspace item.
@@ -237,7 +237,7 @@ namespace Lusid.Sdk.Api
         WorkspaceItem GetPersonalItem(string workspaceName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
         /// </summary>
         /// <remarks>
         /// Get a single personal workspace item.
@@ -250,7 +250,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of WorkspaceItem</returns>
         ApiResponse<WorkspaceItem> GetPersonalItemWithHttpInfo(string workspaceName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace.
+        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
         /// </summary>
         /// <remarks>
         /// Get a personal workspace.
@@ -263,7 +263,7 @@ namespace Lusid.Sdk.Api
         Workspace GetPersonalWorkspace(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace.
+        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
         /// </summary>
         /// <remarks>
         /// Get a personal workspace.
@@ -275,7 +275,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Workspace</returns>
         ApiResponse<Workspace> GetPersonalWorkspaceWithHttpInfo(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetSharedItem: Get a single shared workspace item.
+        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
         /// </summary>
         /// <remarks>
         /// Get a single shared workspace item.
@@ -289,7 +289,7 @@ namespace Lusid.Sdk.Api
         WorkspaceItem GetSharedItem(string workspaceName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetSharedItem: Get a single shared workspace item.
+        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
         /// </summary>
         /// <remarks>
         /// Get a single shared workspace item.
@@ -302,7 +302,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of WorkspaceItem</returns>
         ApiResponse<WorkspaceItem> GetSharedItemWithHttpInfo(string workspaceName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace.
+        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
         /// </summary>
         /// <remarks>
         /// Get a shared workspace.
@@ -315,7 +315,7 @@ namespace Lusid.Sdk.Api
         Workspace GetSharedWorkspace(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace.
+        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
         /// </summary>
         /// <remarks>
         /// Get a shared workspace.
@@ -327,7 +327,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Workspace</returns>
         ApiResponse<Workspace> GetSharedWorkspaceWithHttpInfo(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
         /// </summary>
         /// <remarks>
         /// List the items in a personal workspace.
@@ -344,7 +344,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfWorkspaceItem ListPersonalItems(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
         /// </summary>
         /// <remarks>
         /// List the items in a personal workspace.
@@ -360,7 +360,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfWorkspaceItem</returns>
         ApiResponse<PagedResourceListOfWorkspaceItem> ListPersonalItemsWithHttpInfo(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces.
+        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
         /// </summary>
         /// <remarks>
         /// List personal workspaces.
@@ -376,7 +376,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfWorkspace ListPersonalWorkspaces(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces.
+        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
         /// </summary>
         /// <remarks>
         /// List personal workspaces.
@@ -391,7 +391,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfWorkspace</returns>
         ApiResponse<PagedResourceListOfWorkspace> ListPersonalWorkspacesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] ListSharedItems: List the items in a shared workspace.
+        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
         /// </summary>
         /// <remarks>
         /// List the items in a shared workspace.
@@ -408,7 +408,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfWorkspaceItem ListSharedItems(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] ListSharedItems: List the items in a shared workspace.
+        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
         /// </summary>
         /// <remarks>
         /// List the items in a shared workspace.
@@ -424,7 +424,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfWorkspaceItem</returns>
         ApiResponse<PagedResourceListOfWorkspaceItem> ListSharedItemsWithHttpInfo(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces.
+        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
         /// </summary>
         /// <remarks>
         /// List shared workspaces.
@@ -440,7 +440,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfWorkspace ListSharedWorkspaces(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces.
+        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
         /// </summary>
         /// <remarks>
         /// List shared workspaces.
@@ -455,7 +455,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfWorkspace</returns>
         ApiResponse<PagedResourceListOfWorkspace> ListSharedWorkspacesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
         /// </summary>
         /// <remarks>
         /// Update an item in a personal workspace.
@@ -469,7 +469,7 @@ namespace Lusid.Sdk.Api
         WorkspaceItem UpdatePersonalItem(string workspaceName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
         /// </summary>
         /// <remarks>
         /// Update an item in a personal workspace.
@@ -482,7 +482,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of WorkspaceItem</returns>
         ApiResponse<WorkspaceItem> UpdatePersonalItemWithHttpInfo(string workspaceName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
         /// </summary>
         /// <remarks>
         /// Update a personal workspace.
@@ -495,7 +495,7 @@ namespace Lusid.Sdk.Api
         Workspace UpdatePersonalWorkspace(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
         /// </summary>
         /// <remarks>
         /// Update a personal workspace.
@@ -507,7 +507,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Workspace</returns>
         ApiResponse<Workspace> UpdatePersonalWorkspaceWithHttpInfo(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
         /// </summary>
         /// <remarks>
         /// Update an item in a shared workspace.
@@ -521,7 +521,7 @@ namespace Lusid.Sdk.Api
         WorkspaceItem UpdateSharedItem(string workspaceName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
         /// </summary>
         /// <remarks>
         /// Update an item in a shared workspace.
@@ -534,7 +534,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of WorkspaceItem</returns>
         ApiResponse<WorkspaceItem> UpdateSharedItemWithHttpInfo(string workspaceName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
         /// </summary>
         /// <remarks>
         /// Update a shared workspace.
@@ -547,7 +547,7 @@ namespace Lusid.Sdk.Api
         Workspace UpdateSharedWorkspace(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
         /// </summary>
         /// <remarks>
         /// Update a shared workspace.
@@ -568,7 +568,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
         /// </summary>
         /// <remarks>
         /// Create a new item in a personal workspace.
@@ -582,7 +582,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<WorkspaceItem> CreatePersonalItemAsync(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
         /// </summary>
         /// <remarks>
         /// Create a new item in a personal workspace.
@@ -595,7 +595,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<WorkspaceItem>> CreatePersonalItemWithHttpInfoAsync(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
         /// </summary>
         /// <remarks>
         /// Create a new personal workspace.
@@ -608,7 +608,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Workspace> CreatePersonalWorkspaceAsync(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
         /// </summary>
         /// <remarks>
         /// Create a new personal workspace.
@@ -620,7 +620,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Workspace)</returns>
         System.Threading.Tasks.Task<ApiResponse<Workspace>> CreatePersonalWorkspaceWithHttpInfoAsync(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace.
+        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
         /// </summary>
         /// <remarks>
         /// Create a new item in a shared workspace.
@@ -634,7 +634,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<WorkspaceItem> CreateSharedItemAsync(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace.
+        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
         /// </summary>
         /// <remarks>
         /// Create a new item in a shared workspace.
@@ -647,7 +647,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<WorkspaceItem>> CreateSharedItemWithHttpInfoAsync(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace.
+        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
         /// </summary>
         /// <remarks>
         /// Create a new shared workspace.
@@ -660,7 +660,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Workspace> CreateSharedWorkspaceAsync(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace.
+        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
         /// </summary>
         /// <remarks>
         /// Create a new shared workspace.
@@ -672,7 +672,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Workspace)</returns>
         System.Threading.Tasks.Task<ApiResponse<Workspace>> CreateSharedWorkspaceWithHttpInfoAsync(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
         /// </summary>
         /// <remarks>
         /// Delete an item from a personal workspace.
@@ -686,7 +686,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeletePersonalItemAsync(string workspaceName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
         /// </summary>
         /// <remarks>
         /// Delete an item from a personal workspace.
@@ -699,7 +699,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeletePersonalItemWithHttpInfoAsync(string workspaceName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
         /// </summary>
         /// <remarks>
         /// Delete a personal workspace.
@@ -712,7 +712,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeletePersonalWorkspaceAsync(string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
         /// </summary>
         /// <remarks>
         /// Delete a personal workspace.
@@ -724,7 +724,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeletePersonalWorkspaceWithHttpInfoAsync(string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
         /// </summary>
         /// <remarks>
         /// Delete an item from a shared workspace.
@@ -738,7 +738,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSharedItemAsync(string workspaceName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
         /// </summary>
         /// <remarks>
         /// Delete an item from a shared workspace.
@@ -751,7 +751,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteSharedItemWithHttpInfoAsync(string workspaceName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
         /// </summary>
         /// <remarks>
         /// Delete a shared workspace.
@@ -764,7 +764,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSharedWorkspaceAsync(string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
         /// </summary>
         /// <remarks>
         /// Delete a shared workspace.
@@ -776,7 +776,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteSharedWorkspaceWithHttpInfoAsync(string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
         /// </summary>
         /// <remarks>
         /// Get a single personal workspace item.
@@ -791,7 +791,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<WorkspaceItem> GetPersonalItemAsync(string workspaceName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
         /// </summary>
         /// <remarks>
         /// Get a single personal workspace item.
@@ -805,7 +805,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<WorkspaceItem>> GetPersonalItemWithHttpInfoAsync(string workspaceName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace.
+        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
         /// </summary>
         /// <remarks>
         /// Get a personal workspace.
@@ -819,7 +819,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Workspace> GetPersonalWorkspaceAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace.
+        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
         /// </summary>
         /// <remarks>
         /// Get a personal workspace.
@@ -832,7 +832,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Workspace)</returns>
         System.Threading.Tasks.Task<ApiResponse<Workspace>> GetPersonalWorkspaceWithHttpInfoAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetSharedItem: Get a single shared workspace item.
+        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
         /// </summary>
         /// <remarks>
         /// Get a single shared workspace item.
@@ -847,7 +847,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<WorkspaceItem> GetSharedItemAsync(string workspaceName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetSharedItem: Get a single shared workspace item.
+        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
         /// </summary>
         /// <remarks>
         /// Get a single shared workspace item.
@@ -861,7 +861,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<WorkspaceItem>> GetSharedItemWithHttpInfoAsync(string workspaceName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace.
+        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
         /// </summary>
         /// <remarks>
         /// Get a shared workspace.
@@ -875,7 +875,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Workspace> GetSharedWorkspaceAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace.
+        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
         /// </summary>
         /// <remarks>
         /// Get a shared workspace.
@@ -888,7 +888,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Workspace)</returns>
         System.Threading.Tasks.Task<ApiResponse<Workspace>> GetSharedWorkspaceWithHttpInfoAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
         /// </summary>
         /// <remarks>
         /// List the items in a personal workspace.
@@ -906,7 +906,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfWorkspaceItem> ListPersonalItemsAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
         /// </summary>
         /// <remarks>
         /// List the items in a personal workspace.
@@ -923,7 +923,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfWorkspaceItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfWorkspaceItem>> ListPersonalItemsWithHttpInfoAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces.
+        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
         /// </summary>
         /// <remarks>
         /// List personal workspaces.
@@ -940,7 +940,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfWorkspace> ListPersonalWorkspacesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces.
+        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
         /// </summary>
         /// <remarks>
         /// List personal workspaces.
@@ -956,7 +956,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfWorkspace)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfWorkspace>> ListPersonalWorkspacesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] ListSharedItems: List the items in a shared workspace.
+        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
         /// </summary>
         /// <remarks>
         /// List the items in a shared workspace.
@@ -974,7 +974,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfWorkspaceItem> ListSharedItemsAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] ListSharedItems: List the items in a shared workspace.
+        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
         /// </summary>
         /// <remarks>
         /// List the items in a shared workspace.
@@ -991,7 +991,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfWorkspaceItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfWorkspaceItem>> ListSharedItemsWithHttpInfoAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces.
+        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
         /// </summary>
         /// <remarks>
         /// List shared workspaces.
@@ -1008,7 +1008,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfWorkspace> ListSharedWorkspacesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces.
+        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
         /// </summary>
         /// <remarks>
         /// List shared workspaces.
@@ -1024,7 +1024,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfWorkspace)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfWorkspace>> ListSharedWorkspacesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
         /// </summary>
         /// <remarks>
         /// Update an item in a personal workspace.
@@ -1039,7 +1039,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<WorkspaceItem> UpdatePersonalItemAsync(string workspaceName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
         /// </summary>
         /// <remarks>
         /// Update an item in a personal workspace.
@@ -1053,7 +1053,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<WorkspaceItem>> UpdatePersonalItemWithHttpInfoAsync(string workspaceName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
         /// </summary>
         /// <remarks>
         /// Update a personal workspace.
@@ -1067,7 +1067,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Workspace> UpdatePersonalWorkspaceAsync(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
         /// </summary>
         /// <remarks>
         /// Update a personal workspace.
@@ -1080,7 +1080,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Workspace)</returns>
         System.Threading.Tasks.Task<ApiResponse<Workspace>> UpdatePersonalWorkspaceWithHttpInfoAsync(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
         /// </summary>
         /// <remarks>
         /// Update an item in a shared workspace.
@@ -1095,7 +1095,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<WorkspaceItem> UpdateSharedItemAsync(string workspaceName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
         /// </summary>
         /// <remarks>
         /// Update an item in a shared workspace.
@@ -1109,7 +1109,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<WorkspaceItem>> UpdateSharedItemWithHttpInfoAsync(string workspaceName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
         /// </summary>
         /// <remarks>
         /// Update a shared workspace.
@@ -1123,7 +1123,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Workspace> UpdateSharedWorkspaceAsync(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
         /// </summary>
         /// <remarks>
         /// Update a shared workspace.
@@ -1253,7 +1253,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace. Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace. Create a new item in a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -1267,7 +1267,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace. Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace. Create a new item in a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -1348,7 +1348,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace. Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace. Create a new item in a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -1363,7 +1363,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalItem: Create a new item in a personal workspace. Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace. Create a new item in a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -1447,7 +1447,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace. Create a new personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace. Create a new personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
@@ -1460,7 +1460,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace. Create a new personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace. Create a new personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
@@ -1533,7 +1533,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace. Create a new personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace. Create a new personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
@@ -1547,7 +1547,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreatePersonalWorkspace: Create a new personal workspace. Create a new personal workspace.
+        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace. Create a new personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
@@ -1623,7 +1623,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace. Create a new item in a shared workspace.
+        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace. Create a new item in a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -1637,7 +1637,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace. Create a new item in a shared workspace.
+        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace. Create a new item in a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -1718,7 +1718,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace. Create a new item in a shared workspace.
+        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace. Create a new item in a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -1733,7 +1733,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedItem: Create a new item in a shared workspace. Create a new item in a shared workspace.
+        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace. Create a new item in a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -1817,7 +1817,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace. Create a new shared workspace.
+        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace. Create a new shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
@@ -1830,7 +1830,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace. Create a new shared workspace.
+        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace. Create a new shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
@@ -1903,7 +1903,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace. Create a new shared workspace.
+        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace. Create a new shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
@@ -1917,7 +1917,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateSharedWorkspace: Create a new shared workspace. Create a new shared workspace.
+        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace. Create a new shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
@@ -1993,7 +1993,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace. Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace. Delete an item from a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the personal workspace.</param>
@@ -2007,7 +2007,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace. Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace. Delete an item from a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the personal workspace.</param>
@@ -2090,7 +2090,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace. Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace. Delete an item from a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the personal workspace.</param>
@@ -2105,7 +2105,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalItem: Delete an item from a personal workspace. Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace. Delete an item from a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the personal workspace.</param>
@@ -2191,7 +2191,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace. Delete a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace. Delete a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the personal workspace.</param>
@@ -2204,7 +2204,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace. Delete a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace. Delete a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the personal workspace.</param>
@@ -2279,7 +2279,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace. Delete a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace. Delete a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the personal workspace.</param>
@@ -2293,7 +2293,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonalWorkspace: Delete a personal workspace. Delete a personal workspace.
+        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace. Delete a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the personal workspace.</param>
@@ -2371,7 +2371,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace. Delete an item from a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace. Delete an item from a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the shared workspace.</param>
@@ -2385,7 +2385,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace. Delete an item from a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace. Delete an item from a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the shared workspace.</param>
@@ -2468,7 +2468,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace. Delete an item from a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace. Delete an item from a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the shared workspace.</param>
@@ -2483,7 +2483,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedItem: Delete an item from a shared workspace. Delete an item from a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace. Delete an item from a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the shared workspace.</param>
@@ -2569,7 +2569,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace. Delete a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace. Delete a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the shared workspace.</param>
@@ -2582,7 +2582,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace. Delete a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace. Delete a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the shared workspace.</param>
@@ -2657,7 +2657,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace. Delete a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace. Delete a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the shared workspace.</param>
@@ -2671,7 +2671,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteSharedWorkspace: Delete a shared workspace. Delete a shared workspace.
+        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace. Delete a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the shared workspace.</param>
@@ -2749,7 +2749,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item. Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item. Get a single personal workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the personal workspace.</param>
@@ -2764,7 +2764,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item. Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item. Get a single personal workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the personal workspace.</param>
@@ -2852,7 +2852,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item. Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item. Get a single personal workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the personal workspace.</param>
@@ -2868,7 +2868,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalItem: Get a single personal workspace item. Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item. Get a single personal workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the personal workspace.</param>
@@ -2959,7 +2959,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace. Get a personal workspace.
+        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace. Get a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The personal workspace name.</param>
@@ -2973,7 +2973,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace. Get a personal workspace.
+        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace. Get a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The personal workspace name.</param>
@@ -3053,7 +3053,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace. Get a personal workspace.
+        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace. Get a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The personal workspace name.</param>
@@ -3068,7 +3068,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonalWorkspace: Get a personal workspace. Get a personal workspace.
+        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace. Get a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The personal workspace name.</param>
@@ -3151,7 +3151,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSharedItem: Get a single shared workspace item. Get a single shared workspace item.
+        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item. Get a single shared workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the shared workspace.</param>
@@ -3166,7 +3166,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSharedItem: Get a single shared workspace item. Get a single shared workspace item.
+        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item. Get a single shared workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the shared workspace.</param>
@@ -3254,7 +3254,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSharedItem: Get a single shared workspace item. Get a single shared workspace item.
+        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item. Get a single shared workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the shared workspace.</param>
@@ -3270,7 +3270,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSharedItem: Get a single shared workspace item. Get a single shared workspace item.
+        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item. Get a single shared workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The name of the shared workspace.</param>
@@ -3361,7 +3361,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace. Get a shared workspace.
+        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace. Get a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The shared workspace name.</param>
@@ -3375,7 +3375,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace. Get a shared workspace.
+        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace. Get a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The shared workspace name.</param>
@@ -3455,7 +3455,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace. Get a shared workspace.
+        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace. Get a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The shared workspace name.</param>
@@ -3470,7 +3470,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSharedWorkspace: Get a shared workspace. Get a shared workspace.
+        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace. Get a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The shared workspace name.</param>
@@ -3553,7 +3553,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace. List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace. List the items in a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -3571,7 +3571,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace. List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace. List the items in a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -3671,7 +3671,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace. List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace. List the items in a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -3690,7 +3690,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalItems: List the items in a personal workspace. List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace. List the items in a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -3793,7 +3793,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces. List personal workspaces.
+        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces. List personal workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
@@ -3810,7 +3810,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces. List personal workspaces.
+        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces. List personal workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
@@ -3902,7 +3902,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces. List personal workspaces.
+        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces. List personal workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
@@ -3920,7 +3920,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListPersonalWorkspaces: List personal workspaces. List personal workspaces.
+        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces. List personal workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
@@ -4015,7 +4015,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListSharedItems: List the items in a shared workspace. List the items in a shared workspace.
+        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace. List the items in a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -4033,7 +4033,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListSharedItems: List the items in a shared workspace. List the items in a shared workspace.
+        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace. List the items in a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -4133,7 +4133,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListSharedItems: List the items in a shared workspace. List the items in a shared workspace.
+        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace. List the items in a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -4152,7 +4152,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListSharedItems: List the items in a shared workspace. List the items in a shared workspace.
+        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace. List the items in a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
@@ -4255,7 +4255,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces. List shared workspaces.
+        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces. List shared workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
@@ -4272,7 +4272,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces. List shared workspaces.
+        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces. List shared workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
@@ -4364,7 +4364,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces. List shared workspaces.
+        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces. List shared workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
@@ -4382,7 +4382,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListSharedWorkspaces: List shared workspaces. List shared workspaces.
+        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces. List shared workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
@@ -4477,7 +4477,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace. Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace. Update an item in a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The personal workspace name.</param>
@@ -4492,7 +4492,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace. Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace. Update an item in a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The personal workspace name.</param>
@@ -4581,7 +4581,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace. Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace. Update an item in a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The personal workspace name.</param>
@@ -4597,7 +4597,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalItem: Update an item in a personal workspace. Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace. Update an item in a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The personal workspace name.</param>
@@ -4689,7 +4689,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace. Update a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace. Update a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The personal workspace name.</param>
@@ -4703,7 +4703,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace. Update a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace. Update a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The personal workspace name.</param>
@@ -4784,7 +4784,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace. Update a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace. Update a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The personal workspace name.</param>
@@ -4799,7 +4799,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePersonalWorkspace: Update a personal workspace. Update a personal workspace.
+        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace. Update a personal workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The personal workspace name.</param>
@@ -4883,7 +4883,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace. Update an item in a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace. Update an item in a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The shared workspace name.</param>
@@ -4898,7 +4898,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace. Update an item in a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace. Update an item in a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The shared workspace name.</param>
@@ -4987,7 +4987,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace. Update an item in a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace. Update an item in a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The shared workspace name.</param>
@@ -5003,7 +5003,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedItem: Update an item in a shared workspace. Update an item in a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace. Update an item in a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The shared workspace name.</param>
@@ -5095,7 +5095,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace. Update a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace. Update a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The shared workspace name.</param>
@@ -5109,7 +5109,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace. Update a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace. Update a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The shared workspace name.</param>
@@ -5190,7 +5190,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace. Update a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace. Update a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The shared workspace name.</param>
@@ -5205,7 +5205,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateSharedWorkspace: Update a shared workspace. Update a shared workspace.
+        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace. Update a shared workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="workspaceName">The shared workspace name.</param>

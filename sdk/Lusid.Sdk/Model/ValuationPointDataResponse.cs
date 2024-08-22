@@ -48,8 +48,10 @@ namespace Lusid.Sdk.Model
         /// <param name="previousNav">DEPRECATED. The Net Asset Value of the Fund at the End of the last Period. (required).</param>
         /// <param name="fundValuationPointData">fundValuationPointData (required).</param>
         /// <param name="shareClassData">The data for all share classes in fund. Share classes are identified by their short codes. (required).</param>
+        /// <param name="valuationPointCode">The code of the valuation point..</param>
+        /// <param name="previousValuationPointCode">The code of the previous valuation point..</param>
         /// <param name="links">links.</param>
-        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), Dictionary<string, decimal> backout = default(Dictionary<string, decimal>), Dictionary<string, decimal> dealing = default(Dictionary<string, decimal>), Dictionary<string, decimal> pnL = default(Dictionary<string, decimal>), decimal gav = default(decimal), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), decimal nav = default(decimal), decimal previousNav = default(decimal), FundValuationPointData fundValuationPointData = default(FundValuationPointData), Dictionary<string, ShareClassData> shareClassData = default(Dictionary<string, ShareClassData>), List<Link> links = default(List<Link>))
+        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), Dictionary<string, decimal> backout = default(Dictionary<string, decimal>), Dictionary<string, decimal> dealing = default(Dictionary<string, decimal>), Dictionary<string, decimal> pnL = default(Dictionary<string, decimal>), decimal gav = default(decimal), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), decimal nav = default(decimal), decimal previousNav = default(decimal), FundValuationPointData fundValuationPointData = default(FundValuationPointData), Dictionary<string, ShareClassData> shareClassData = default(Dictionary<string, ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -103,6 +105,8 @@ namespace Lusid.Sdk.Model
             }
             this.ShareClassData = shareClassData;
             this.Href = href;
+            this.ValuationPointCode = valuationPointCode;
+            this.PreviousValuationPointCode = previousValuationPointCode;
             this.Links = links;
         }
 
@@ -190,6 +194,20 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, ShareClassData> ShareClassData { get; set; }
 
         /// <summary>
+        /// The code of the valuation point.
+        /// </summary>
+        /// <value>The code of the valuation point.</value>
+        [DataMember(Name = "valuationPointCode", EmitDefaultValue = true)]
+        public string ValuationPointCode { get; set; }
+
+        /// <summary>
+        /// The code of the previous valuation point.
+        /// </summary>
+        /// <value>The code of the previous valuation point.</value>
+        [DataMember(Name = "previousValuationPointCode", EmitDefaultValue = true)]
+        public string PreviousValuationPointCode { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -215,6 +233,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  PreviousNav: ").Append(PreviousNav).Append("\n");
             sb.Append("  FundValuationPointData: ").Append(FundValuationPointData).Append("\n");
             sb.Append("  ShareClassData: ").Append(ShareClassData).Append("\n");
+            sb.Append("  ValuationPointCode: ").Append(ValuationPointCode).Append("\n");
+            sb.Append("  PreviousValuationPointCode: ").Append(PreviousValuationPointCode).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -314,6 +334,16 @@ namespace Lusid.Sdk.Model
                     this.ShareClassData.SequenceEqual(input.ShareClassData)
                 ) && 
                 (
+                    this.ValuationPointCode == input.ValuationPointCode ||
+                    (this.ValuationPointCode != null &&
+                    this.ValuationPointCode.Equals(input.ValuationPointCode))
+                ) && 
+                (
+                    this.PreviousValuationPointCode == input.PreviousValuationPointCode ||
+                    (this.PreviousValuationPointCode != null &&
+                    this.PreviousValuationPointCode.Equals(input.PreviousValuationPointCode))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -368,6 +398,14 @@ namespace Lusid.Sdk.Model
                 if (this.ShareClassData != null)
                 {
                     hashCode = (hashCode * 59) + this.ShareClassData.GetHashCode();
+                }
+                if (this.ValuationPointCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValuationPointCode.GetHashCode();
+                }
+                if (this.PreviousValuationPointCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviousValuationPointCode.GetHashCode();
                 }
                 if (this.Links != null)
                 {
