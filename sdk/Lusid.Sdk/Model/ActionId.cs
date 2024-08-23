@@ -199,9 +199,9 @@ namespace Lusid.Sdk.Model
             }
 
             // Entity (string) maxLength
-            if (this.Entity != null && this.Entity.Length > 25)
+            if (this.Entity != null && this.Entity.Length > 40)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Entity, length must be less than 25.", new [] { "Entity" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Entity, length must be less than 40.", new [] { "Entity" });
             }
 
             // Entity (string) minLength

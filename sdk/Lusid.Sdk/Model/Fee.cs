@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Model
         /// <param name="totalAnnualAccrualAmount">The total annual accrued amount for the Fee. (TotalAnnualAccrualAmount and CalculationBase cannot both be present).</param>
         /// <param name="feeRatePercentage">The fee rate percentage. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount).</param>
         /// <param name="payableFrequency">The payable frequency for the Fee; &#39;Annually&#39;, &#39;Quarterly&#39; or &#39;Monthly&#39;. (required).</param>
-        /// <param name="businessDayConvention">The business day convention to use for Fee calculations on weekends. (required).</param>
+        /// <param name="businessDayConvention">The business day convention to use for Fee calculations on weekends. Supported string values are: [Previous, P, Following, F]. (required).</param>
         /// <param name="startDate">The start date of the Fee. (required).</param>
         /// <param name="endDate">The end date of the Fee..</param>
         /// <param name="anchorDate">anchorDate.</param>
@@ -194,9 +194,9 @@ namespace Lusid.Sdk.Model
         public string PayableFrequency { get; set; }
 
         /// <summary>
-        /// The business day convention to use for Fee calculations on weekends.
+        /// The business day convention to use for Fee calculations on weekends. Supported string values are: [Previous, P, Following, F].
         /// </summary>
-        /// <value>The business day convention to use for Fee calculations on weekends.</value>
+        /// <value>The business day convention to use for Fee calculations on weekends. Supported string values are: [Previous, P, Following, F].</value>
         [DataMember(Name = "businessDayConvention", IsRequired = true, EmitDefaultValue = true)]
         public string BusinessDayConvention { get; set; }
 

@@ -44,10 +44,12 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentEventType">instrumentEventType (required).</param>
         /// <param name="instrumentEventId">instrumentEventId (required).</param>
         /// <param name="generatedEvent">generatedEvent.</param>
+        /// <param name="generatedEventDiagnostics">generatedEventDiagnostics.</param>
         /// <param name="loadedEvent">loadedEvent.</param>
         /// <param name="appliedInstrumentEventInstructionId">appliedInstrumentEventInstructionId (required).</param>
         /// <param name="transactions">transactions.</param>
-        public ApplicableInstrumentEvent(ResourceId portfolioId = default(ResourceId), long holdingId = default(long), string lusidInstrumentId = default(string), string instrumentScope = default(string), string instrumentType = default(string), string instrumentEventType = default(string), string instrumentEventId = default(string), InstrumentEventHolder generatedEvent = default(InstrumentEventHolder), InstrumentEventHolder loadedEvent = default(InstrumentEventHolder), string appliedInstrumentEventInstructionId = default(string), List<Transaction> transactions = default(List<Transaction>))
+        /// <param name="transactionDiagnostics">transactionDiagnostics.</param>
+        public ApplicableInstrumentEvent(ResourceId portfolioId = default(ResourceId), long holdingId = default(long), string lusidInstrumentId = default(string), string instrumentScope = default(string), string instrumentType = default(string), string instrumentEventType = default(string), string instrumentEventId = default(string), InstrumentEventHolder generatedEvent = default(InstrumentEventHolder), GeneratedEventDiagnostics generatedEventDiagnostics = default(GeneratedEventDiagnostics), InstrumentEventHolder loadedEvent = default(InstrumentEventHolder), string appliedInstrumentEventInstructionId = default(string), List<Transaction> transactions = default(List<Transaction>), TransactionDiagnostics transactionDiagnostics = default(TransactionDiagnostics))
         {
             // to ensure "portfolioId" is required (not null)
             if (portfolioId == null)
@@ -93,8 +95,10 @@ namespace Lusid.Sdk.Model
             }
             this.AppliedInstrumentEventInstructionId = appliedInstrumentEventInstructionId;
             this.GeneratedEvent = generatedEvent;
+            this.GeneratedEventDiagnostics = generatedEventDiagnostics;
             this.LoadedEvent = loadedEvent;
             this.Transactions = transactions;
+            this.TransactionDiagnostics = transactionDiagnostics;
         }
 
         /// <summary>
@@ -146,6 +150,12 @@ namespace Lusid.Sdk.Model
         public InstrumentEventHolder GeneratedEvent { get; set; }
 
         /// <summary>
+        /// Gets or Sets GeneratedEventDiagnostics
+        /// </summary>
+        [DataMember(Name = "generatedEventDiagnostics", EmitDefaultValue = false)]
+        public GeneratedEventDiagnostics GeneratedEventDiagnostics { get; set; }
+
+        /// <summary>
         /// Gets or Sets LoadedEvent
         /// </summary>
         [DataMember(Name = "loadedEvent", EmitDefaultValue = false)]
@@ -164,6 +174,12 @@ namespace Lusid.Sdk.Model
         public List<Transaction> Transactions { get; set; }
 
         /// <summary>
+        /// Gets or Sets TransactionDiagnostics
+        /// </summary>
+        [DataMember(Name = "transactionDiagnostics", EmitDefaultValue = false)]
+        public TransactionDiagnostics TransactionDiagnostics { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -179,9 +195,11 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("  InstrumentEventId: ").Append(InstrumentEventId).Append("\n");
             sb.Append("  GeneratedEvent: ").Append(GeneratedEvent).Append("\n");
+            sb.Append("  GeneratedEventDiagnostics: ").Append(GeneratedEventDiagnostics).Append("\n");
             sb.Append("  LoadedEvent: ").Append(LoadedEvent).Append("\n");
             sb.Append("  AppliedInstrumentEventInstructionId: ").Append(AppliedInstrumentEventInstructionId).Append("\n");
             sb.Append("  Transactions: ").Append(Transactions).Append("\n");
+            sb.Append("  TransactionDiagnostics: ").Append(TransactionDiagnostics).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -257,6 +275,11 @@ namespace Lusid.Sdk.Model
                     this.GeneratedEvent.Equals(input.GeneratedEvent))
                 ) && 
                 (
+                    this.GeneratedEventDiagnostics == input.GeneratedEventDiagnostics ||
+                    (this.GeneratedEventDiagnostics != null &&
+                    this.GeneratedEventDiagnostics.Equals(input.GeneratedEventDiagnostics))
+                ) && 
+                (
                     this.LoadedEvent == input.LoadedEvent ||
                     (this.LoadedEvent != null &&
                     this.LoadedEvent.Equals(input.LoadedEvent))
@@ -271,6 +294,11 @@ namespace Lusid.Sdk.Model
                     this.Transactions != null &&
                     input.Transactions != null &&
                     this.Transactions.SequenceEqual(input.Transactions)
+                ) && 
+                (
+                    this.TransactionDiagnostics == input.TransactionDiagnostics ||
+                    (this.TransactionDiagnostics != null &&
+                    this.TransactionDiagnostics.Equals(input.TransactionDiagnostics))
                 );
         }
 
@@ -312,6 +340,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.GeneratedEvent.GetHashCode();
                 }
+                if (this.GeneratedEventDiagnostics != null)
+                {
+                    hashCode = (hashCode * 59) + this.GeneratedEventDiagnostics.GetHashCode();
+                }
                 if (this.LoadedEvent != null)
                 {
                     hashCode = (hashCode * 59) + this.LoadedEvent.GetHashCode();
@@ -323,6 +355,10 @@ namespace Lusid.Sdk.Model
                 if (this.Transactions != null)
                 {
                     hashCode = (hashCode * 59) + this.Transactions.GetHashCode();
+                }
+                if (this.TransactionDiagnostics != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionDiagnostics.GetHashCode();
                 }
                 return hashCode;
             }
