@@ -46,12 +46,13 @@ namespace Lusid.Sdk.Model
         /// <param name="fees">DEPRECATED. Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period. (required).</param>
         /// <param name="nav">DEPRECATED. The Net Asset Value of the Fund at the Period end. This represents the GAV with any fees applied in the period. (required).</param>
         /// <param name="previousNav">DEPRECATED. The Net Asset Value of the Fund at the End of the last Period. (required).</param>
+        /// <param name="fundDetails">fundDetails (required).</param>
         /// <param name="fundValuationPointData">fundValuationPointData (required).</param>
         /// <param name="shareClassData">The data for all share classes in fund. Share classes are identified by their short codes. (required).</param>
         /// <param name="valuationPointCode">The code of the valuation point..</param>
         /// <param name="previousValuationPointCode">The code of the previous valuation point..</param>
         /// <param name="links">links.</param>
-        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), Dictionary<string, decimal> backout = default(Dictionary<string, decimal>), Dictionary<string, decimal> dealing = default(Dictionary<string, decimal>), Dictionary<string, decimal> pnL = default(Dictionary<string, decimal>), decimal gav = default(decimal), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), decimal nav = default(decimal), decimal previousNav = default(decimal), FundValuationPointData fundValuationPointData = default(FundValuationPointData), Dictionary<string, ShareClassData> shareClassData = default(Dictionary<string, ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<Link> links = default(List<Link>))
+        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), Dictionary<string, decimal> backout = default(Dictionary<string, decimal>), Dictionary<string, decimal> dealing = default(Dictionary<string, decimal>), Dictionary<string, decimal> pnL = default(Dictionary<string, decimal>), decimal gav = default(decimal), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), decimal nav = default(decimal), decimal previousNav = default(decimal), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), Dictionary<string, ShareClassData> shareClassData = default(Dictionary<string, ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -92,6 +93,12 @@ namespace Lusid.Sdk.Model
             this.Fees = fees;
             this.Nav = nav;
             this.PreviousNav = previousNav;
+            // to ensure "fundDetails" is required (not null)
+            if (fundDetails == null)
+            {
+                throw new ArgumentNullException("fundDetails is a required property for ValuationPointDataResponse and cannot be null");
+            }
+            this.FundDetails = fundDetails;
             // to ensure "fundValuationPointData" is required (not null)
             if (fundValuationPointData == null)
             {
@@ -181,6 +188,12 @@ namespace Lusid.Sdk.Model
         public decimal PreviousNav { get; set; }
 
         /// <summary>
+        /// Gets or Sets FundDetails
+        /// </summary>
+        [DataMember(Name = "fundDetails", IsRequired = true, EmitDefaultValue = true)]
+        public FundDetails FundDetails { get; set; }
+
+        /// <summary>
         /// Gets or Sets FundValuationPointData
         /// </summary>
         [DataMember(Name = "fundValuationPointData", IsRequired = true, EmitDefaultValue = true)]
@@ -231,6 +244,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Fees: ").Append(Fees).Append("\n");
             sb.Append("  Nav: ").Append(Nav).Append("\n");
             sb.Append("  PreviousNav: ").Append(PreviousNav).Append("\n");
+            sb.Append("  FundDetails: ").Append(FundDetails).Append("\n");
             sb.Append("  FundValuationPointData: ").Append(FundValuationPointData).Append("\n");
             sb.Append("  ShareClassData: ").Append(ShareClassData).Append("\n");
             sb.Append("  ValuationPointCode: ").Append(ValuationPointCode).Append("\n");
@@ -323,6 +337,11 @@ namespace Lusid.Sdk.Model
                     this.PreviousNav.Equals(input.PreviousNav)
                 ) && 
                 (
+                    this.FundDetails == input.FundDetails ||
+                    (this.FundDetails != null &&
+                    this.FundDetails.Equals(input.FundDetails))
+                ) && 
+                (
                     this.FundValuationPointData == input.FundValuationPointData ||
                     (this.FundValuationPointData != null &&
                     this.FundValuationPointData.Equals(input.FundValuationPointData))
@@ -391,6 +410,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.Nav.GetHashCode();
                 hashCode = (hashCode * 59) + this.PreviousNav.GetHashCode();
+                if (this.FundDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.FundDetails.GetHashCode();
+                }
                 if (this.FundValuationPointData != null)
                 {
                     hashCode = (hashCode * 59) + this.FundValuationPointData.GetHashCode();

@@ -37,12 +37,12 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PlacementUpdateRequest" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        /// <param name="quantity">The quantity of given instrument ordered. (required).</param>
+        /// <param name="quantity">The quantity of given instrument ordered..</param>
         /// <param name="properties">Client-defined properties associated with this placement..</param>
         /// <param name="counterparty">Optionally specifies the market entity this placement is placed with..</param>
         /// <param name="executionSystem">Optionally specifies the execution system in use..</param>
         /// <param name="entryType">Optionally specifies the entry type of this placement..</param>
-        public PlacementUpdateRequest(ResourceId id = default(ResourceId), decimal quantity = default(decimal), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string))
+        public PlacementUpdateRequest(ResourceId id = default(ResourceId), decimal? quantity = default(decimal?), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -67,8 +67,8 @@ namespace Lusid.Sdk.Model
         /// The quantity of given instrument ordered.
         /// </summary>
         /// <value>The quantity of given instrument ordered.</value>
-        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Quantity { get; set; }
+        [DataMember(Name = "quantity", EmitDefaultValue = true)]
+        public decimal? Quantity { get; set; }
 
         /// <summary>
         /// Client-defined properties associated with this placement.
@@ -154,7 +154,8 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.Quantity == input.Quantity ||
-                    this.Quantity.Equals(input.Quantity)
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -192,7 +193,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                if (this.Quantity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                }
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();

@@ -310,9 +310,9 @@ namespace Lusid.Sdk.Model
             }
 
             // IndexName (string) maxLength
-            if (this.IndexName != null && this.IndexName.Length > 16)
+            if (this.IndexName != null && this.IndexName.Length > 64)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IndexName, length must be less than 16.", new [] { "IndexName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IndexName, length must be less than 64.", new [] { "IndexName" });
             }
 
             // IndexName (string) minLength

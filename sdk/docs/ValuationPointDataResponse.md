@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Fees** | [**Dictionary&lt;string, FeeAccrual&gt;**](FeeAccrual.md) | DEPRECATED. Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period. | 
 **Nav** | **decimal** | DEPRECATED. The Net Asset Value of the Fund at the Period end. This represents the GAV with any fees applied in the period. | 
 **PreviousNav** | **decimal** | DEPRECATED. The Net Asset Value of the Fund at the End of the last Period. | 
+**FundDetails** | [**FundDetails**](FundDetails.md) |  | 
 **FundValuationPointData** | [**FundValuationPointData**](FundValuationPointData.md) |  | 
 **ShareClassData** | [**Dictionary&lt;string, ShareClassData&gt;**](ShareClassData.md) | The data for all share classes in fund. Share classes are identified by their short codes. | 
 **ValuationPointCode** | **string** | The code of the valuation point. | [optional] 

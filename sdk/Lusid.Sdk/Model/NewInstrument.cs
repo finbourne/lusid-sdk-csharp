@@ -85,6 +85,21 @@ namespace Lusid.Sdk.Model
             return false;
         }
         /// <summary>
+        /// The domestic currency of the instrument, resolved from the instrument identifiers.
+        /// </summary>
+        /// <value>The domestic currency of the instrument, resolved from the instrument identifiers.</value>
+        [DataMember(Name = "domCcy", EmitDefaultValue = true)]
+        public string DomCcy { get; private set; }
+
+        /// <summary>
+        /// Returns false as DomCcy should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeDomCcy()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +110,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentIdentifiers: ").Append(InstrumentIdentifiers).Append("\n");
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
             sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
+            sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,6 +161,11 @@ namespace Lusid.Sdk.Model
                     this.InstrumentScope == input.InstrumentScope ||
                     (this.InstrumentScope != null &&
                     this.InstrumentScope.Equals(input.InstrumentScope))
+                ) && 
+                (
+                    this.DomCcy == input.DomCcy ||
+                    (this.DomCcy != null &&
+                    this.DomCcy.Equals(input.DomCcy))
                 );
         }
 
@@ -168,6 +189,10 @@ namespace Lusid.Sdk.Model
                 if (this.InstrumentScope != null)
                 {
                     hashCode = (hashCode * 59) + this.InstrumentScope.GetHashCode();
+                }
+                if (this.DomCcy != null)
+                {
+                    hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
                 }
                 return hashCode;
             }
