@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PreviousNAV" /> class.
         /// </summary>
         /// <param name="amount">amount.</param>
-        public PreviousNAV(MultiCurrencyAmounts amount = default(MultiCurrencyAmounts))
+        public PreviousNAV(ShareClassAmount amount = default(ShareClassAmount))
         {
             this.Amount = amount;
         }
@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Amount
         /// </summary>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public MultiCurrencyAmounts Amount { get; set; }
+        public ShareClassAmount Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -31,16 +31,16 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FundAmount" /> class.
         /// </summary>
-        /// <param name="value">The value of the amount..</param>
+        /// <param name="value">The value of the amount in the fund currency..</param>
         public FundAmount(decimal value = default(decimal))
         {
             this.Value = value;
         }
 
         /// <summary>
-        /// The value of the amount.
+        /// The value of the amount in the fund currency.
         /// </summary>
-        /// <value>The value of the amount.</value>
+        /// <value>The value of the amount in the fund currency.</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public decimal Value { get; set; }
 

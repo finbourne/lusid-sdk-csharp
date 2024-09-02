@@ -31,17 +31,27 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ShareClassAmount" /> class.
         /// </summary>
-        /// <param name="value">value.</param>
-        public ShareClassAmount(MultiCurrencyAmounts value = default(MultiCurrencyAmounts))
+        /// <param name="fundCurrencyAmount">The value of the amount in the fund currency..</param>
+        /// <param name="shareClassCurrencyAmount">The value of the amount in the share class currency..</param>
+        public ShareClassAmount(decimal fundCurrencyAmount = default(decimal), decimal shareClassCurrencyAmount = default(decimal))
         {
-            this.Value = value;
+            this.FundCurrencyAmount = fundCurrencyAmount;
+            this.ShareClassCurrencyAmount = shareClassCurrencyAmount;
         }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// The value of the amount in the fund currency.
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
-        public MultiCurrencyAmounts Value { get; set; }
+        /// <value>The value of the amount in the fund currency.</value>
+        [DataMember(Name = "fundCurrencyAmount", EmitDefaultValue = true)]
+        public decimal FundCurrencyAmount { get; set; }
+
+        /// <summary>
+        /// The value of the amount in the share class currency.
+        /// </summary>
+        /// <value>The value of the amount in the share class currency.</value>
+        [DataMember(Name = "shareClassCurrencyAmount", EmitDefaultValue = true)]
+        public decimal ShareClassCurrencyAmount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -51,7 +61,8 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ShareClassAmount {\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  FundCurrencyAmount: ").Append(FundCurrencyAmount).Append("\n");
+            sb.Append("  ShareClassCurrencyAmount: ").Append(ShareClassCurrencyAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,9 +99,12 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.FundCurrencyAmount == input.FundCurrencyAmount ||
+                    this.FundCurrencyAmount.Equals(input.FundCurrencyAmount)
+                ) && 
+                (
+                    this.ShareClassCurrencyAmount == input.ShareClassCurrencyAmount ||
+                    this.ShareClassCurrencyAmount.Equals(input.ShareClassCurrencyAmount)
                 );
         }
 
@@ -103,10 +117,8 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Value != null)
-                {
-                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.FundCurrencyAmount.GetHashCode();
+                hashCode = (hashCode * 59) + this.ShareClassCurrencyAmount.GetHashCode();
                 return hashCode;
             }
         }

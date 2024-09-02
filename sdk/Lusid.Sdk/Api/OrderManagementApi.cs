@@ -125,6 +125,31 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfBlockAndOrders</returns>
         ApiResponse<ResourceListOfBlockAndOrders> CreateOrdersWithHttpInfo(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0);
         /// <summary>
+        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
+        /// </summary>
+        /// <remarks>
+        /// Get the changes that have happened to an order and related entities.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the order.</param>
+        /// <param name="code">The code of the order.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ResourceListOfEntityChangeItem</returns>
+        ResourceListOfEntityChangeItem GetOrderHistory(string scope, string code, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
+        /// </summary>
+        /// <remarks>
+        /// Get the changes that have happened to an order and related entities.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the order.</param>
+        /// <param name="code">The code of the order.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ResourceListOfEntityChangeItem</returns>
+        ApiResponse<ResourceListOfEntityChangeItem> GetOrderHistoryWithHttpInfo(string scope, string code, int operationIndex = 0);
+        /// <summary>
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
         /// </summary>
         /// <remarks>
@@ -352,6 +377,33 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfBlockAndOrders)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfBlockAndOrders>> CreateOrdersWithHttpInfoAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
+        /// </summary>
+        /// <remarks>
+        /// Get the changes that have happened to an order and related entities.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the order.</param>
+        /// <param name="code">The code of the order.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ResourceListOfEntityChangeItem</returns>
+        System.Threading.Tasks.Task<ResourceListOfEntityChangeItem> GetOrderHistoryAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
+        /// </summary>
+        /// <remarks>
+        /// Get the changes that have happened to an order and related entities.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the order.</param>
+        /// <param name="code">The code of the order.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfEntityChangeItem)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfEntityChangeItem>> GetOrderHistoryWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
         /// </summary>
@@ -1351,6 +1403,204 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateOrders", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes Get the changes that have happened to an order and related entities.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the order.</param>
+        /// <param name="code">The code of the order.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ResourceListOfEntityChangeItem</returns>
+        public ResourceListOfEntityChangeItem GetOrderHistory(string scope, string code, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfEntityChangeItem> localVarResponse = GetOrderHistoryWithHttpInfo(scope, code);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes Get the changes that have happened to an order and related entities.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the order.</param>
+        /// <param name="code">The code of the order.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ResourceListOfEntityChangeItem</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfEntityChangeItem> GetOrderHistoryWithHttpInfo(string scope, string code, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling OrderManagementApi->GetOrderHistory");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling OrderManagementApi->GetOrderHistory");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+
+            localVarRequestOptions.Operation = "OrderManagementApi.GetOrderHistory";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ResourceListOfEntityChangeItem>("/api/ordermanagement/order/{scope}/{code}/$history", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetOrderHistory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes Get the changes that have happened to an order and related entities.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the order.</param>
+        /// <param name="code">The code of the order.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ResourceListOfEntityChangeItem</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfEntityChangeItem> GetOrderHistoryAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfEntityChangeItem> localVarResponse = await GetOrderHistoryWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes Get the changes that have happened to an order and related entities.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the order.</param>
+        /// <param name="code">The code of the order.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfEntityChangeItem)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfEntityChangeItem>> GetOrderHistoryWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling OrderManagementApi->GetOrderHistory");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling OrderManagementApi->GetOrderHistory");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+
+            localVarRequestOptions.Operation = "OrderManagementApi.GetOrderHistory";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfEntityChangeItem>("/api/ordermanagement/order/{scope}/{code}/$history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetOrderHistory", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

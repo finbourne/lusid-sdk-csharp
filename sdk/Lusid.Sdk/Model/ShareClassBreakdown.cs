@@ -47,7 +47,7 @@ namespace Lusid.Sdk.Model
         /// <param name="shareClassToFundFxRate">The fx rate from the Share Class currency to the fund currency at this valuation point. (required).</param>
         /// <param name="capitalRatio">The proportion of the fund&#39;s adjusted beginning equity (ie: the sum of the previous NAV and the net dealing) that is invested in the share class. (required).</param>
         /// <param name="previousShareClassBreakdown">previousShareClassBreakdown (required).</param>
-        public ShareClassBreakdown(Dictionary<string, ShareClassAmount> backOut = default(Dictionary<string, ShareClassAmount>), ShareClassDealingBreakdown dealing = default(ShareClassDealingBreakdown), ShareClassPnlBreakdown pnL = default(ShareClassPnlBreakdown), MultiCurrencyAmounts gav = default(MultiCurrencyAmounts), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), MultiCurrencyAmounts nav = default(MultiCurrencyAmounts), UnitisationData unitisation = default(UnitisationData), Dictionary<string, ShareClassAmount> miscellaneous = default(Dictionary<string, ShareClassAmount>), decimal shareClassToFundFxRate = default(decimal), decimal capitalRatio = default(decimal), PreviousShareClassBreakdown previousShareClassBreakdown = default(PreviousShareClassBreakdown))
+        public ShareClassBreakdown(Dictionary<string, ShareClassAmount> backOut = default(Dictionary<string, ShareClassAmount>), ShareClassDealingBreakdown dealing = default(ShareClassDealingBreakdown), ShareClassPnlBreakdown pnL = default(ShareClassPnlBreakdown), ShareClassAmount gav = default(ShareClassAmount), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), ShareClassAmount nav = default(ShareClassAmount), UnitisationData unitisation = default(UnitisationData), Dictionary<string, ShareClassAmount> miscellaneous = default(Dictionary<string, ShareClassAmount>), decimal shareClassToFundFxRate = default(decimal), decimal capitalRatio = default(decimal), PreviousShareClassBreakdown previousShareClassBreakdown = default(PreviousShareClassBreakdown))
         {
             // to ensure "backOut" is required (not null)
             if (backOut == null)
@@ -120,7 +120,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Gav
         /// </summary>
         [DataMember(Name = "gav", IsRequired = true, EmitDefaultValue = true)]
-        public MultiCurrencyAmounts Gav { get; set; }
+        public ShareClassAmount Gav { get; set; }
 
         /// <summary>
         /// Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period.
@@ -133,7 +133,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Nav
         /// </summary>
         [DataMember(Name = "nav", IsRequired = true, EmitDefaultValue = true)]
-        public MultiCurrencyAmounts Nav { get; set; }
+        public ShareClassAmount Nav { get; set; }
 
         /// <summary>
         /// Gets or Sets Unitisation

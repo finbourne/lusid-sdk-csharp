@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **BackOut** | [**Dictionary&lt;string, ShareClassAmount&gt;**](ShareClassAmount.md) | Bucket of detail for the Valuation Point where data points have been &#39;backed out&#39;. | 
 **Dealing** | [**ShareClassDealingBreakdown**](ShareClassDealingBreakdown.md) |  | 
 **PnL** | [**ShareClassPnlBreakdown**](ShareClassPnlBreakdown.md) |  | 
-**Gav** | [**MultiCurrencyAmounts**](MultiCurrencyAmounts.md) |  | 
+**Gav** | [**ShareClassAmount**](ShareClassAmount.md) |  | 
 **Fees** | [**Dictionary&lt;string, FeeAccrual&gt;**](FeeAccrual.md) | Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period. | 
-**Nav** | [**MultiCurrencyAmounts**](MultiCurrencyAmounts.md) |  | 
+**Nav** | [**ShareClassAmount**](ShareClassAmount.md) |  | 
 **Unitisation** | [**UnitisationData**](UnitisationData.md) |  | [optional] 
 **Miscellaneous** | [**Dictionary&lt;string, ShareClassAmount&gt;**](ShareClassAmount.md) | Not used directly by the LUSID engines but serves as a holding area for any custom derived data points that may be useful in, for example, fee calculations). | [optional] 
 **ShareClassToFundFxRate** | **decimal** | The fx rate from the Share Class currency to the fund currency at this valuation point. | 

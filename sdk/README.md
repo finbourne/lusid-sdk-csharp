@@ -292,6 +292,7 @@ Class | Method | HTTP request | Description
 *OrderManagementApi* | [**CancelOrders**](docs/OrderManagementApi.md#cancelorders) | **POST** /api/ordermanagement/cancelorders | [EARLY ACCESS] CancelOrders: Cancel existing orders
 *OrderManagementApi* | [**CancelPlacements**](docs/OrderManagementApi.md#cancelplacements) | **POST** /api/ordermanagement/$cancelplacements | [EARLY ACCESS] CancelPlacements: Cancel existing placements
 *OrderManagementApi* | [**CreateOrders**](docs/OrderManagementApi.md#createorders) | **POST** /api/ordermanagement/createorders | [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
+*OrderManagementApi* | [**GetOrderHistory**](docs/OrderManagementApi.md#getorderhistory) | **GET** /api/ordermanagement/order/{scope}/{code}/$history | [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
 *OrderManagementApi* | [**MoveOrders**](docs/OrderManagementApi.md#moveorders) | **POST** /api/ordermanagement/moveorders | [EARLY ACCESS] MoveOrders: Move orders to new or existing block
 *OrderManagementApi* | [**PlaceBlocks**](docs/OrderManagementApi.md#placeblocks) | **POST** /api/ordermanagement/placeblocks | [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
 *OrderManagementApi* | [**RunAllocationService**](docs/OrderManagementApi.md#runallocationservice) | **POST** /api/ordermanagement/allocate | [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
@@ -899,6 +900,7 @@ Class | Method | HTTP request | Description
  - [EligibilityCalculation](docs/EligibilityCalculation.md)
  - [EmptyModelOptions](docs/EmptyModelOptions.md)
  - [EmptyModelOptionsAllOf](docs/EmptyModelOptionsAllOf.md)
+ - [EntityChangeItem](docs/EntityChangeItem.md)
  - [EntityIdentifier](docs/EntityIdentifier.md)
  - [Equity](docs/Equity.md)
  - [EquityAllOf](docs/EquityAllOf.md)
@@ -1458,6 +1460,7 @@ Class | Method | HTTP request | Description
  - [ResourceListOfConstituentsAdjustmentHeader](docs/ResourceListOfConstituentsAdjustmentHeader.md)
  - [ResourceListOfCorporateAction](docs/ResourceListOfCorporateAction.md)
  - [ResourceListOfDataType](docs/ResourceListOfDataType.md)
+ - [ResourceListOfEntityChangeItem](docs/ResourceListOfEntityChangeItem.md)
  - [ResourceListOfExecution](docs/ResourceListOfExecution.md)
  - [ResourceListOfFeeRule](docs/ResourceListOfFeeRule.md)
  - [ResourceListOfGetCdsFlowConventionsResponse](docs/ResourceListOfGetCdsFlowConventionsResponse.md)

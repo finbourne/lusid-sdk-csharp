@@ -35,12 +35,14 @@ namespace Lusid.Sdk.Model
         /// <param name="holdingIdentifier">Identifier for the instrument.  For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or  a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument  such as purchase of shares on multiple dates where tax implications are different this would not be the case.    In an inlined aggregation request if this is wanted to identify a line item, it can be specified in the set of aggregation keys given on the aggregation  request that accompanies the set of weighted instruments..</param>
         /// <param name="instrument">instrument.</param>
         /// <param name="inLineLookupIdentifiers">inLineLookupIdentifiers.</param>
-        public WeightedInstrument(decimal quantity = default(decimal), string holdingIdentifier = default(string), LusidInstrument instrument = default(LusidInstrument), WeightedInstrumentInLineLookupIdentifiers inLineLookupIdentifiers = default(WeightedInstrumentInLineLookupIdentifiers))
+        /// <param name="instrumentScope">The scope in which to resolve the instrument, if no inlined definition is provided.  If left empty, the default scope will be used..</param>
+        public WeightedInstrument(decimal quantity = default(decimal), string holdingIdentifier = default(string), LusidInstrument instrument = default(LusidInstrument), WeightedInstrumentInLineLookupIdentifiers inLineLookupIdentifiers = default(WeightedInstrumentInLineLookupIdentifiers), string instrumentScope = default(string))
         {
             this.Quantity = quantity;
             this.HoldingIdentifier = holdingIdentifier;
             this.Instrument = instrument;
             this.InLineLookupIdentifiers = inLineLookupIdentifiers;
+            this.InstrumentScope = instrumentScope;
         }
 
         /// <summary>
@@ -70,6 +72,13 @@ namespace Lusid.Sdk.Model
         public WeightedInstrumentInLineLookupIdentifiers InLineLookupIdentifiers { get; set; }
 
         /// <summary>
+        /// The scope in which to resolve the instrument, if no inlined definition is provided.  If left empty, the default scope will be used.
+        /// </summary>
+        /// <value>The scope in which to resolve the instrument, if no inlined definition is provided.  If left empty, the default scope will be used.</value>
+        [DataMember(Name = "instrumentScope", EmitDefaultValue = true)]
+        public string InstrumentScope { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +90,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  HoldingIdentifier: ").Append(HoldingIdentifier).Append("\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
             sb.Append("  InLineLookupIdentifiers: ").Append(InLineLookupIdentifiers).Append("\n");
+            sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,6 +144,11 @@ namespace Lusid.Sdk.Model
                     this.InLineLookupIdentifiers == input.InLineLookupIdentifiers ||
                     (this.InLineLookupIdentifiers != null &&
                     this.InLineLookupIdentifiers.Equals(input.InLineLookupIdentifiers))
+                ) && 
+                (
+                    this.InstrumentScope == input.InstrumentScope ||
+                    (this.InstrumentScope != null &&
+                    this.InstrumentScope.Equals(input.InstrumentScope))
                 );
         }
 
@@ -159,6 +174,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.InLineLookupIdentifiers.GetHashCode();
                 }
+                if (this.InstrumentScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstrumentScope.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -180,6 +199,18 @@ namespace Lusid.Sdk.Model
             if (this.HoldingIdentifier != null && this.HoldingIdentifier.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HoldingIdentifier, length must be greater than 0.", new [] { "HoldingIdentifier" });
+            }
+
+            // InstrumentScope (string) maxLength
+            if (this.InstrumentScope != null && this.InstrumentScope.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentScope, length must be less than 256.", new [] { "InstrumentScope" });
+            }
+
+            // InstrumentScope (string) minLength
+            if (this.InstrumentScope != null && this.InstrumentScope.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentScope, length must be greater than 0.", new [] { "InstrumentScope" });
             }
 
             yield break;
