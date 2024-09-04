@@ -213,7 +213,25 @@ namespace Lusid.Sdk.Model
         /// Enum SwapPrincipalEvent for value: SwapPrincipalEvent
         /// </summary>
         [EnumMember(Value = "SwapPrincipalEvent")]
-        SwapPrincipalEvent = 31
+        SwapPrincipalEvent = 31,
+
+        /// <summary>
+        /// Enum CreditPremiumCashFlowEvent for value: CreditPremiumCashFlowEvent
+        /// </summary>
+        [EnumMember(Value = "CreditPremiumCashFlowEvent")]
+        CreditPremiumCashFlowEvent = 32,
+
+        /// <summary>
+        /// Enum CdsCreditEvent for value: CdsCreditEvent
+        /// </summary>
+        [EnumMember(Value = "CdsCreditEvent")]
+        CdsCreditEvent = 33,
+
+        /// <summary>
+        /// Enum CdxCreditEvent for value: CdxCreditEvent
+        /// </summary>
+        [EnumMember(Value = "CdxCreditEvent")]
+        CdxCreditEvent = 34
 
     }
 

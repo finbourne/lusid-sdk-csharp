@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Model
         /// <param name="cashFlowPerUnit">Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true).  CashFlow per unit.  Paid in the SettlementCcy..</param>
         /// <param name="domesticToForeignRate">Domestic currency to foreign currency FX rate.  Not required, only used to override quotes..</param>
         /// <param name="domesticToSettlementRate">Domestic currency to settlement currency FX rate  Not required, only used to override quotes..</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent (required) (default to &quot;FxForwardSettlementEvent&quot;).</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent (required) (default to &quot;FxForwardSettlementEvent&quot;).</param>
         public FxForwardSettlementEvent(DateTimeOffset maturityDate = default(DateTimeOffset), decimal domAmountPerUnit = default(decimal), string domCcy = default(string), decimal fgnAmountPerUnit = default(decimal), string fgnCcy = default(string), bool isNdf = default(bool), DateTimeOffset? fixingDate = default(DateTimeOffset?), string settlementCcy = default(string), decimal? cashFlowPerUnit = default(decimal?), decimal? domesticToForeignRate = default(decimal?), decimal? domesticToSettlementRate = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.MaturityDate = maturityDate;
@@ -153,6 +153,21 @@ namespace Lusid.Sdk.Model
         public decimal? DomesticToSettlementRate { get; set; }
 
         /// <summary>
+        /// Foreign currency to settlement currency FX rate  Not required, only used to override quotes.
+        /// </summary>
+        /// <value>Foreign currency to settlement currency FX rate  Not required, only used to override quotes.</value>
+        [DataMember(Name = "foreignToSettlementRate", EmitDefaultValue = true)]
+        public decimal? ForeignToSettlementRate { get; private set; }
+
+        /// <summary>
+        /// Returns false as ForeignToSettlementRate should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeForeignToSettlementRate()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -172,6 +187,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CashFlowPerUnit: ").Append(CashFlowPerUnit).Append("\n");
             sb.Append("  DomesticToForeignRate: ").Append(DomesticToForeignRate).Append("\n");
             sb.Append("  DomesticToSettlementRate: ").Append(DomesticToSettlementRate).Append("\n");
+            sb.Append("  ForeignToSettlementRate: ").Append(ForeignToSettlementRate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -258,6 +274,11 @@ namespace Lusid.Sdk.Model
                     this.DomesticToSettlementRate == input.DomesticToSettlementRate ||
                     (this.DomesticToSettlementRate != null &&
                     this.DomesticToSettlementRate.Equals(input.DomesticToSettlementRate))
+                ) && base.Equals(input) && 
+                (
+                    this.ForeignToSettlementRate == input.ForeignToSettlementRate ||
+                    (this.ForeignToSettlementRate != null &&
+                    this.ForeignToSettlementRate.Equals(input.ForeignToSettlementRate))
                 );
         }
 
@@ -304,6 +325,10 @@ namespace Lusid.Sdk.Model
                 if (this.DomesticToSettlementRate != null)
                 {
                     hashCode = (hashCode * 59) + this.DomesticToSettlementRate.GetHashCode();
+                }
+                if (this.ForeignToSettlementRate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ForeignToSettlementRate.GetHashCode();
                 }
                 return hashCode;
             }
