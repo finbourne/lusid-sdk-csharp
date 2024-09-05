@@ -35,12 +35,14 @@ namespace Lusid.Sdk.Model
         /// <param name="modelChoice">The choice of which model selection (vendor library, pricing model) to use in evaluation of a given instrument type..</param>
         /// <param name="options">options.</param>
         /// <param name="resultDataRules">Set of rules that control querying of unit results either for direct queries into aggregation or for  overriding intermediate calculations. For example, a dirty price is made up from a clean price and the accrued interest.  One might consider overriding the accrued interest calculated by a model (perhaps one wants to match an external value or simply disagrees with the  calculated result) and use that in calculation of the dirty price..</param>
-        public PricingContext(List<VendorModelRule> modelRules = default(List<VendorModelRule>), Dictionary<string, ModelSelection> modelChoice = default(Dictionary<string, ModelSelection>), PricingOptions options = default(PricingOptions), List<ResultKeyRule> resultDataRules = default(List<ResultKeyRule>))
+        /// <param name="holdingPricingInfo">holdingPricingInfo.</param>
+        public PricingContext(List<VendorModelRule> modelRules = default(List<VendorModelRule>), Dictionary<string, ModelSelection> modelChoice = default(Dictionary<string, ModelSelection>), PricingOptions options = default(PricingOptions), List<ResultKeyRule> resultDataRules = default(List<ResultKeyRule>), HoldingPricingInfo holdingPricingInfo = default(HoldingPricingInfo))
         {
             this.ModelRules = modelRules;
             this.ModelChoice = modelChoice;
             this.Options = options;
             this.ResultDataRules = resultDataRules;
+            this.HoldingPricingInfo = holdingPricingInfo;
         }
 
         /// <summary>
@@ -71,6 +73,12 @@ namespace Lusid.Sdk.Model
         public List<ResultKeyRule> ResultDataRules { get; set; }
 
         /// <summary>
+        /// Gets or Sets HoldingPricingInfo
+        /// </summary>
+        [DataMember(Name = "holdingPricingInfo", EmitDefaultValue = false)]
+        public HoldingPricingInfo HoldingPricingInfo { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +90,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ModelChoice: ").Append(ModelChoice).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("  ResultDataRules: ").Append(ResultDataRules).Append("\n");
+            sb.Append("  HoldingPricingInfo: ").Append(HoldingPricingInfo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +148,11 @@ namespace Lusid.Sdk.Model
                     this.ResultDataRules != null &&
                     input.ResultDataRules != null &&
                     this.ResultDataRules.SequenceEqual(input.ResultDataRules)
+                ) && 
+                (
+                    this.HoldingPricingInfo == input.HoldingPricingInfo ||
+                    (this.HoldingPricingInfo != null &&
+                    this.HoldingPricingInfo.Equals(input.HoldingPricingInfo))
                 );
         }
 
@@ -166,6 +180,10 @@ namespace Lusid.Sdk.Model
                 if (this.ResultDataRules != null)
                 {
                     hashCode = (hashCode * 59) + this.ResultDataRules.GetHashCode();
+                }
+                if (this.HoldingPricingInfo != null)
+                {
+                    hashCode = (hashCode * 59) + this.HoldingPricingInfo.GetHashCode();
                 }
                 return hashCode;
             }
