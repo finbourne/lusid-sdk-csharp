@@ -31,6 +31,33 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios
+        /// </summary>
+        /// <remarks>
+        /// Update or insert multiple Portfolios Access Metadata Rule in multiple scopes. Items will be updated if it already exists  and inserted if it does not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpsertPortfolioAccessMetadataRequest">The Portfolio Access Metadata Rule to update or insert</param>
+        /// <param name="effectiveAt">The date this rule will effective from (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>BatchUpsertPortfolioAccessMetadataResponse</returns>
+        BatchUpsertPortfolioAccessMetadataResponse BatchUpsertPortfolioAccessMetadata(BatchUpsertPortfolioAccessMetadataRequest batchUpsertPortfolioAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios
+        /// </summary>
+        /// <remarks>
+        /// Update or insert multiple Portfolios Access Metadata Rule in multiple scopes. Items will be updated if it already exists  and inserted if it does not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpsertPortfolioAccessMetadataRequest">The Portfolio Access Metadata Rule to update or insert</param>
+        /// <param name="effectiveAt">The date this rule will effective from (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of BatchUpsertPortfolioAccessMetadataResponse</returns>
+        ApiResponse<BatchUpsertPortfolioAccessMetadataResponse> BatchUpsertPortfolioAccessMetadataWithHttpInfo(BatchUpsertPortfolioAccessMetadataRequest batchUpsertPortfolioAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0);
+        /// <summary>
         /// [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction
         /// </summary>
         /// <remarks>
@@ -1017,6 +1044,35 @@ namespace Lusid.Sdk.Api
     public interface IPortfoliosApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios
+        /// </summary>
+        /// <remarks>
+        /// Update or insert multiple Portfolios Access Metadata Rule in multiple scopes. Items will be updated if it already exists  and inserted if it does not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpsertPortfolioAccessMetadataRequest">The Portfolio Access Metadata Rule to update or insert</param>
+        /// <param name="effectiveAt">The date this rule will effective from (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BatchUpsertPortfolioAccessMetadataResponse</returns>
+        System.Threading.Tasks.Task<BatchUpsertPortfolioAccessMetadataResponse> BatchUpsertPortfolioAccessMetadataAsync(BatchUpsertPortfolioAccessMetadataRequest batchUpsertPortfolioAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios
+        /// </summary>
+        /// <remarks>
+        /// Update or insert multiple Portfolios Access Metadata Rule in multiple scopes. Items will be updated if it already exists  and inserted if it does not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpsertPortfolioAccessMetadataRequest">The Portfolio Access Metadata Rule to update or insert</param>
+        /// <param name="effectiveAt">The date this rule will effective from (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BatchUpsertPortfolioAccessMetadataResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BatchUpsertPortfolioAccessMetadataResponse>> BatchUpsertPortfolioAccessMetadataWithHttpInfoAsync(BatchUpsertPortfolioAccessMetadataRequest batchUpsertPortfolioAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction
         /// </summary>
@@ -2170,6 +2226,218 @@ namespace Lusid.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios Update or insert multiple Portfolios Access Metadata Rule in multiple scopes. Items will be updated if it already exists  and inserted if it does not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpsertPortfolioAccessMetadataRequest">The Portfolio Access Metadata Rule to update or insert</param>
+        /// <param name="effectiveAt">The date this rule will effective from (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>BatchUpsertPortfolioAccessMetadataResponse</returns>
+        public BatchUpsertPortfolioAccessMetadataResponse BatchUpsertPortfolioAccessMetadata(BatchUpsertPortfolioAccessMetadataRequest batchUpsertPortfolioAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioAccessMetadataResponse> localVarResponse = BatchUpsertPortfolioAccessMetadataWithHttpInfo(batchUpsertPortfolioAccessMetadataRequest, effectiveAt, effectiveUntil);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios Update or insert multiple Portfolios Access Metadata Rule in multiple scopes. Items will be updated if it already exists  and inserted if it does not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpsertPortfolioAccessMetadataRequest">The Portfolio Access Metadata Rule to update or insert</param>
+        /// <param name="effectiveAt">The date this rule will effective from (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of BatchUpsertPortfolioAccessMetadataResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioAccessMetadataResponse> BatchUpsertPortfolioAccessMetadataWithHttpInfo(BatchUpsertPortfolioAccessMetadataRequest batchUpsertPortfolioAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0)
+        {
+            // verify the required parameter 'batchUpsertPortfolioAccessMetadataRequest' is set
+            if (batchUpsertPortfolioAccessMetadataRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'batchUpsertPortfolioAccessMetadataRequest' when calling PortfoliosApi->BatchUpsertPortfolioAccessMetadata");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (effectiveUntil != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveUntil", effectiveUntil));
+            }
+            localVarRequestOptions.Data = batchUpsertPortfolioAccessMetadataRequest;
+
+            localVarRequestOptions.Operation = "PortfoliosApi.BatchUpsertPortfolioAccessMetadata";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<BatchUpsertPortfolioAccessMetadataResponse>("/api/portfolios/metadata", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchUpsertPortfolioAccessMetadata", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios Update or insert multiple Portfolios Access Metadata Rule in multiple scopes. Items will be updated if it already exists  and inserted if it does not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpsertPortfolioAccessMetadataRequest">The Portfolio Access Metadata Rule to update or insert</param>
+        /// <param name="effectiveAt">The date this rule will effective from (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BatchUpsertPortfolioAccessMetadataResponse</returns>
+        public async System.Threading.Tasks.Task<BatchUpsertPortfolioAccessMetadataResponse> BatchUpsertPortfolioAccessMetadataAsync(BatchUpsertPortfolioAccessMetadataRequest batchUpsertPortfolioAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioAccessMetadataResponse> localVarResponse = await BatchUpsertPortfolioAccessMetadataWithHttpInfoAsync(batchUpsertPortfolioAccessMetadataRequest, effectiveAt, effectiveUntil, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios Update or insert multiple Portfolios Access Metadata Rule in multiple scopes. Items will be updated if it already exists  and inserted if it does not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpsertPortfolioAccessMetadataRequest">The Portfolio Access Metadata Rule to update or insert</param>
+        /// <param name="effectiveAt">The date this rule will effective from (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BatchUpsertPortfolioAccessMetadataResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioAccessMetadataResponse>> BatchUpsertPortfolioAccessMetadataWithHttpInfoAsync(BatchUpsertPortfolioAccessMetadataRequest batchUpsertPortfolioAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'batchUpsertPortfolioAccessMetadataRequest' is set
+            if (batchUpsertPortfolioAccessMetadataRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'batchUpsertPortfolioAccessMetadataRequest' when calling PortfoliosApi->BatchUpsertPortfolioAccessMetadata");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (effectiveUntil != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveUntil", effectiveUntil));
+            }
+            localVarRequestOptions.Data = batchUpsertPortfolioAccessMetadataRequest;
+
+            localVarRequestOptions.Operation = "PortfoliosApi.BatchUpsertPortfolioAccessMetadata";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<BatchUpsertPortfolioAccessMetadataResponse>("/api/portfolios/metadata", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchUpsertPortfolioAccessMetadata", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

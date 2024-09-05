@@ -40,6 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="decisions">Object containing information relating to the decision on the staged modification..</param>
         /// <param name="decisionsCount">Number of decisions made..</param>
         /// <param name="status">The status of the staged modification..</param>
+        /// <param name="asAtClosed">Time at which the modification was closed by either rejection or approval..</param>
         /// <param name="entityType">The type of the entity that the staged modification applies to..</param>
         /// <param name="scope">The scope of the entity that this staged modification applies to..</param>
         /// <param name="entityUniqueId">The unique Id of the entity the staged modification applies to..</param>
@@ -47,7 +48,7 @@ namespace Lusid.Sdk.Model
         /// <param name="entityHrefs">entityHrefs.</param>
         /// <param name="displayName">The display name of the entity the staged modification applies to..</param>
         /// <param name="links">links.</param>
-        public StagedModification(string id = default(string), DateTimeOffset asAtStaged = default(DateTimeOffset), string userIdStaged = default(string), string requestedIdStaged = default(string), string action = default(string), StagedModificationStagingRule stagingRule = default(StagedModificationStagingRule), List<StagedModificationDecision> decisions = default(List<StagedModificationDecision>), int decisionsCount = default(int), string status = default(string), string entityType = default(string), string scope = default(string), string entityUniqueId = default(string), RequestedChanges requestedChanges = default(RequestedChanges), StagedModificationsEntityHrefs entityHrefs = default(StagedModificationsEntityHrefs), string displayName = default(string), List<Link> links = default(List<Link>))
+        public StagedModification(string id = default(string), DateTimeOffset asAtStaged = default(DateTimeOffset), string userIdStaged = default(string), string requestedIdStaged = default(string), string action = default(string), StagedModificationStagingRule stagingRule = default(StagedModificationStagingRule), List<StagedModificationDecision> decisions = default(List<StagedModificationDecision>), int decisionsCount = default(int), string status = default(string), DateTimeOffset? asAtClosed = default(DateTimeOffset?), string entityType = default(string), string scope = default(string), string entityUniqueId = default(string), RequestedChanges requestedChanges = default(RequestedChanges), StagedModificationsEntityHrefs entityHrefs = default(StagedModificationsEntityHrefs), string displayName = default(string), List<Link> links = default(List<Link>))
         {
             this.Id = id;
             this.AsAtStaged = asAtStaged;
@@ -58,6 +59,7 @@ namespace Lusid.Sdk.Model
             this.Decisions = decisions;
             this.DecisionsCount = decisionsCount;
             this.Status = status;
+            this.AsAtClosed = asAtClosed;
             this.EntityType = entityType;
             this.Scope = scope;
             this.EntityUniqueId = entityUniqueId;
@@ -130,6 +132,13 @@ namespace Lusid.Sdk.Model
         public string Status { get; set; }
 
         /// <summary>
+        /// Time at which the modification was closed by either rejection or approval.
+        /// </summary>
+        /// <value>Time at which the modification was closed by either rejection or approval.</value>
+        [DataMember(Name = "asAtClosed", EmitDefaultValue = true)]
+        public DateTimeOffset? AsAtClosed { get; set; }
+
+        /// <summary>
         /// The type of the entity that the staged modification applies to.
         /// </summary>
         /// <value>The type of the entity that the staged modification applies to.</value>
@@ -192,6 +201,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Decisions: ").Append(Decisions).Append("\n");
             sb.Append("  DecisionsCount: ").Append(DecisionsCount).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  AsAtClosed: ").Append(AsAtClosed).Append("\n");
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
@@ -280,6 +290,11 @@ namespace Lusid.Sdk.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
+                    this.AsAtClosed == input.AsAtClosed ||
+                    (this.AsAtClosed != null &&
+                    this.AsAtClosed.Equals(input.AsAtClosed))
+                ) && 
+                (
                     this.EntityType == input.EntityType ||
                     (this.EntityType != null &&
                     this.EntityType.Equals(input.EntityType))
@@ -358,6 +373,10 @@ namespace Lusid.Sdk.Model
                 if (this.Status != null)
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.AsAtClosed != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsAtClosed.GetHashCode();
                 }
                 if (this.EntityType != null)
                 {

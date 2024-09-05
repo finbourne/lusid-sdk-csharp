@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Decisions** | [**List&lt;StagedModificationDecision&gt;**](StagedModificationDecision.md) | Object containing information relating to the decision on the staged modification. | [optional] 
 **DecisionsCount** | **int** | Number of decisions made. | [optional] 
 **Status** | **string** | The status of the staged modification. | [optional] 
+**AsAtClosed** | **DateTimeOffset?** | Time at which the modification was closed by either rejection or approval. | [optional] 
 **EntityType** | **string** | The type of the entity that the staged modification applies to. | [optional] 
 **Scope** | **string** | The scope of the entity that this staged modification applies to. | [optional] 
 **EntityUniqueId** | **string** | The unique Id of the entity the staged modification applies to. | [optional] 
