@@ -23,30 +23,30 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ResourceListOfEntityChangeItem
+    /// ResourceListOfChangeIntervalWithOrderManagementDetail
     /// </summary>
-    [DataContract(Name = "ResourceListOfEntityChangeItem")]
-    public partial class ResourceListOfEntityChangeItem : IEquatable<ResourceListOfEntityChangeItem>, IValidatableObject
+    [DataContract(Name = "ResourceListOfChangeIntervalWithOrderManagementDetail")]
+    public partial class ResourceListOfChangeIntervalWithOrderManagementDetail : IEquatable<ResourceListOfChangeIntervalWithOrderManagementDetail>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfEntityChangeItem" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfChangeIntervalWithOrderManagementDetail" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ResourceListOfEntityChangeItem() { }
+        protected ResourceListOfChangeIntervalWithOrderManagementDetail() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfEntityChangeItem" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfChangeIntervalWithOrderManagementDetail" /> class.
         /// </summary>
         /// <param name="values">values (required).</param>
         /// <param name="href">href.</param>
         /// <param name="links">links.</param>
         /// <param name="nextPage">nextPage.</param>
         /// <param name="previousPage">previousPage.</param>
-        public ResourceListOfEntityChangeItem(List<EntityChangeItem> values = default(List<EntityChangeItem>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
+        public ResourceListOfChangeIntervalWithOrderManagementDetail(List<ChangeIntervalWithOrderManagementDetail> values = default(List<ChangeIntervalWithOrderManagementDetail>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
         {
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for ResourceListOfEntityChangeItem and cannot be null");
+                throw new ArgumentNullException("values is a required property for ResourceListOfChangeIntervalWithOrderManagementDetail and cannot be null");
             }
             this.Values = values;
             this.Href = href;
@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Values
         /// </summary>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<EntityChangeItem> Values { get; set; }
+        public List<ChangeIntervalWithOrderManagementDetail> Values { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ResourceListOfEntityChangeItem {\n");
+            sb.Append("class ResourceListOfChangeIntervalWithOrderManagementDetail {\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -118,15 +118,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ResourceListOfEntityChangeItem);
+            return this.Equals(input as ResourceListOfChangeIntervalWithOrderManagementDetail);
         }
 
         /// <summary>
-        /// Returns true if ResourceListOfEntityChangeItem instances are equal
+        /// Returns true if ResourceListOfChangeIntervalWithOrderManagementDetail instances are equal
         /// </summary>
-        /// <param name="input">Instance of ResourceListOfEntityChangeItem to be compared</param>
+        /// <param name="input">Instance of ResourceListOfChangeIntervalWithOrderManagementDetail to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResourceListOfEntityChangeItem input)
+        public bool Equals(ResourceListOfChangeIntervalWithOrderManagementDetail input)
         {
             if (input == null)
             {

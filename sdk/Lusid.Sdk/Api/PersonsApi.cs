@@ -31,7 +31,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] DeletePerson: Delete person
+        /// DeletePerson: Delete person
         /// </summary>
         /// <remarks>
         /// Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeletePerson(string idTypeScope, string idTypeCode, string code, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePerson: Delete person
+        /// DeletePerson: Delete person
         /// </summary>
         /// <remarks>
         /// Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -524,7 +524,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Person</returns>
         ApiResponse<Person> SetPersonPropertiesWithHttpInfo(string idTypeScope, string idTypeCode, string code, SetPersonPropertiesRequest setPersonPropertiesRequest, int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpsertPerson: Upsert Person
+        /// UpsertPerson: Upsert Person
         /// </summary>
         /// <remarks>
         /// Create or update a new person under the specified scope.
@@ -536,7 +536,7 @@ namespace Lusid.Sdk.Api
         Person UpsertPerson(UpsertPersonRequest upsertPersonRequest, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPerson: Upsert Person
+        /// UpsertPerson: Upsert Person
         /// </summary>
         /// <remarks>
         /// Create or update a new person under the specified scope.
@@ -616,7 +616,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] DeletePerson: Delete person
+        /// DeletePerson: Delete person
         /// </summary>
         /// <remarks>
         /// Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -631,7 +631,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeletePersonAsync(string idTypeScope, string idTypeCode, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePerson: Delete person
+        /// DeletePerson: Delete person
         /// </summary>
         /// <remarks>
         /// Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -1139,7 +1139,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Person)</returns>
         System.Threading.Tasks.Task<ApiResponse<Person>> SetPersonPropertiesWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, SetPersonPropertiesRequest setPersonPropertiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpsertPerson: Upsert Person
+        /// UpsertPerson: Upsert Person
         /// </summary>
         /// <remarks>
         /// Create or update a new person under the specified scope.
@@ -1152,7 +1152,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Person> UpsertPersonAsync(UpsertPersonRequest upsertPersonRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPerson: Upsert Person
+        /// UpsertPerson: Upsert Person
         /// </summary>
         /// <remarks>
         /// Create or update a new person under the specified scope.
@@ -1345,7 +1345,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the person identifier type.</param>
@@ -1360,7 +1360,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the person identifier type.</param>
@@ -1451,7 +1451,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the person identifier type.</param>
@@ -1467,7 +1467,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the person identifier type.</param>
@@ -5161,7 +5161,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPerson: Upsert Person Create or update a new person under the specified scope.
+        /// UpsertPerson: Upsert Person Create or update a new person under the specified scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertPersonRequest">Request to create or update a person.</param>
@@ -5174,7 +5174,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPerson: Upsert Person Create or update a new person under the specified scope.
+        /// UpsertPerson: Upsert Person Create or update a new person under the specified scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertPersonRequest">Request to create or update a person.</param>
@@ -5253,7 +5253,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPerson: Upsert Person Create or update a new person under the specified scope.
+        /// UpsertPerson: Upsert Person Create or update a new person under the specified scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertPersonRequest">Request to create or update a person.</param>
@@ -5267,7 +5267,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPerson: Upsert Person Create or update a new person under the specified scope.
+        /// UpsertPerson: Upsert Person Create or update a new person under the specified scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertPersonRequest">Request to create or update a person.</param>

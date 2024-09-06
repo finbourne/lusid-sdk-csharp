@@ -431,7 +431,7 @@ catch (ApiException e)
 
 <a id="getorderhistory"></a>
 # **GetOrderHistory**
-> ResourceListOfEntityChangeItem GetOrderHistory (string scope, string code)
+> ResourceListOfChangeIntervalWithOrderManagementDetail GetOrderHistory (string scope, string code, DateTimeOffset? asAt = null)
 
 [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
 
@@ -470,11 +470,12 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var scope = "scope_example";  // string | The scope of the order.
             var code = "code_example";  // string | The code of the order.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional) 
 
             try
             {
                 // [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
-                ResourceListOfEntityChangeItem result = apiInstance.GetOrderHistory(scope, code);
+                ResourceListOfChangeIntervalWithOrderManagementDetail result = apiInstance.GetOrderHistory(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -495,7 +496,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
-    ApiResponse<ResourceListOfEntityChangeItem> response = apiInstance.GetOrderHistoryWithHttpInfo(scope, code);
+    ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> response = apiInstance.GetOrderHistoryWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -514,10 +515,11 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the order. |  |
 | **code** | **string** | The code of the order. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. | [optional]  |
 
 ### Return type
 
-[**ResourceListOfEntityChangeItem**](ResourceListOfEntityChangeItem.md)
+[**ResourceListOfChangeIntervalWithOrderManagementDetail**](ResourceListOfChangeIntervalWithOrderManagementDetail.md)
 
 ### HTTP request headers
 

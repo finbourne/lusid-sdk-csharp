@@ -1,10 +1,10 @@
-# Lusid.Sdk.Model.ResourceListOfEntityChangeItem
+# Lusid.Sdk.Model.ResourceListOfChangeIntervalWithOrderManagementDetail
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;EntityChangeItem&gt;**](EntityChangeItem.md) |  | 
+**Values** | [**List&lt;ChangeIntervalWithOrderManagementDetail&gt;**](ChangeIntervalWithOrderManagementDetail.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 **NextPage** | **string** |  | [optional] 

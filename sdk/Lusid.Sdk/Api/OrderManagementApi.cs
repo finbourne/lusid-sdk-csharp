@@ -133,9 +133,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ResourceListOfEntityChangeItem</returns>
-        ResourceListOfEntityChangeItem GetOrderHistory(string scope, string code, int operationIndex = 0);
+        /// <returns>ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
+        ResourceListOfChangeIntervalWithOrderManagementDetail GetOrderHistory(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
@@ -146,9 +147,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ResourceListOfEntityChangeItem</returns>
-        ApiResponse<ResourceListOfEntityChangeItem> GetOrderHistoryWithHttpInfo(string scope, string code, int operationIndex = 0);
+        /// <returns>ApiResponse of ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
+        ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
         /// </summary>
@@ -386,10 +388,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ResourceListOfEntityChangeItem</returns>
-        System.Threading.Tasks.Task<ResourceListOfEntityChangeItem> GetOrderHistoryAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
+        System.Threading.Tasks.Task<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
@@ -400,10 +403,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ResourceListOfEntityChangeItem)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfEntityChangeItem>> GetOrderHistoryWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ResourceListOfChangeIntervalWithOrderManagementDetail)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail>> GetOrderHistoryWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
         /// </summary>
@@ -1418,11 +1422,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ResourceListOfEntityChangeItem</returns>
-        public ResourceListOfEntityChangeItem GetOrderHistory(string scope, string code, int operationIndex = 0)
+        /// <returns>ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
+        public ResourceListOfChangeIntervalWithOrderManagementDetail GetOrderHistory(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfEntityChangeItem> localVarResponse = GetOrderHistoryWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> localVarResponse = GetOrderHistoryWithHttpInfo(scope, code, asAt);
             return localVarResponse.Data;
         }
 
@@ -1432,9 +1437,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ResourceListOfEntityChangeItem</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfEntityChangeItem> GetOrderHistoryWithHttpInfo(string scope, string code, int operationIndex = 0)
+        /// <returns>ApiResponse of ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1474,6 +1480,10 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
 
             localVarRequestOptions.Operation = "OrderManagementApi.GetOrderHistory";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1496,7 +1506,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ResourceListOfEntityChangeItem>("/api/ordermanagement/order/{scope}/{code}/$history", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ResourceListOfChangeIntervalWithOrderManagementDetail>("/api/ordermanagement/order/{scope}/{code}/$history", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOrderHistory", localVarResponse);
@@ -1515,12 +1525,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ResourceListOfEntityChangeItem</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfEntityChangeItem> GetOrderHistoryAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfEntityChangeItem> localVarResponse = await GetOrderHistoryWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> localVarResponse = await GetOrderHistoryWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1530,10 +1541,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ResourceListOfEntityChangeItem)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfEntityChangeItem>> GetOrderHistoryWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ResourceListOfChangeIntervalWithOrderManagementDetail)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail>> GetOrderHistoryWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1574,6 +1586,10 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
 
             localVarRequestOptions.Operation = "OrderManagementApi.GetOrderHistory";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1596,7 +1612,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfEntityChangeItem>("/api/ordermanagement/order/{scope}/{code}/$history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfChangeIntervalWithOrderManagementDetail>("/api/ordermanagement/order/{scope}/{code}/$history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
