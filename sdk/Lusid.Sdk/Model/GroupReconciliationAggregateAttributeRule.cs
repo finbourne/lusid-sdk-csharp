@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="left">left (required).</param>
         /// <param name="right">right (required).</param>
-        /// <param name="tolerance">tolerance (required).</param>
+        /// <param name="tolerance">tolerance.</param>
         public GroupReconciliationAggregateAttributeRule(GroupReconciliationAggregateComparisonRuleOperand left = default(GroupReconciliationAggregateComparisonRuleOperand), GroupReconciliationAggregateComparisonRuleOperand right = default(GroupReconciliationAggregateComparisonRuleOperand), GroupReconciliationComparisonRuleTolerance tolerance = default(GroupReconciliationComparisonRuleTolerance))
         {
             // to ensure "left" is required (not null)
@@ -53,11 +53,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("right is a required property for GroupReconciliationAggregateAttributeRule and cannot be null");
             }
             this.Right = right;
-            // to ensure "tolerance" is required (not null)
-            if (tolerance == null)
-            {
-                throw new ArgumentNullException("tolerance is a required property for GroupReconciliationAggregateAttributeRule and cannot be null");
-            }
             this.Tolerance = tolerance;
         }
 
@@ -76,7 +71,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Tolerance
         /// </summary>
-        [DataMember(Name = "tolerance", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tolerance", EmitDefaultValue = false)]
         public GroupReconciliationComparisonRuleTolerance Tolerance { get; set; }
 
         /// <summary>

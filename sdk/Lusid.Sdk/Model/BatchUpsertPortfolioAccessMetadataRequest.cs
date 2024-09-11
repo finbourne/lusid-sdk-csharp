@@ -36,23 +36,35 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchUpsertPortfolioAccessMetadataRequest" /> class.
         /// </summary>
-        /// <param name="portfoliosWithMetadata">The set of portfolios with the access control metadata (required).</param>
-        public BatchUpsertPortfolioAccessMetadataRequest(Dictionary<string, MetadataKeyValue> portfoliosWithMetadata = default(Dictionary<string, MetadataKeyValue>))
+        /// <param name="portfolioId">portfolioId (required).</param>
+        /// <param name="metadata">metadata (required).</param>
+        public BatchUpsertPortfolioAccessMetadataRequest(ResourceId portfolioId = default(ResourceId), Dictionary<string, List<AccessMetadataValue>> metadata = default(Dictionary<string, List<AccessMetadataValue>>))
         {
-            // to ensure "portfoliosWithMetadata" is required (not null)
-            if (portfoliosWithMetadata == null)
+            // to ensure "portfolioId" is required (not null)
+            if (portfolioId == null)
             {
-                throw new ArgumentNullException("portfoliosWithMetadata is a required property for BatchUpsertPortfolioAccessMetadataRequest and cannot be null");
+                throw new ArgumentNullException("portfolioId is a required property for BatchUpsertPortfolioAccessMetadataRequest and cannot be null");
             }
-            this.PortfoliosWithMetadata = portfoliosWithMetadata;
+            this.PortfolioId = portfolioId;
+            // to ensure "metadata" is required (not null)
+            if (metadata == null)
+            {
+                throw new ArgumentNullException("metadata is a required property for BatchUpsertPortfolioAccessMetadataRequest and cannot be null");
+            }
+            this.Metadata = metadata;
         }
 
         /// <summary>
-        /// The set of portfolios with the access control metadata
+        /// Gets or Sets PortfolioId
         /// </summary>
-        /// <value>The set of portfolios with the access control metadata</value>
-        [DataMember(Name = "portfoliosWithMetadata", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, MetadataKeyValue> PortfoliosWithMetadata { get; set; }
+        [DataMember(Name = "portfolioId", IsRequired = true, EmitDefaultValue = true)]
+        public ResourceId PortfolioId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Metadata
+        /// </summary>
+        [DataMember(Name = "metadata", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, List<AccessMetadataValue>> Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,7 +74,8 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class BatchUpsertPortfolioAccessMetadataRequest {\n");
-            sb.Append("  PortfoliosWithMetadata: ").Append(PortfoliosWithMetadata).Append("\n");
+            sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,10 +112,15 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.PortfoliosWithMetadata == input.PortfoliosWithMetadata ||
-                    this.PortfoliosWithMetadata != null &&
-                    input.PortfoliosWithMetadata != null &&
-                    this.PortfoliosWithMetadata.SequenceEqual(input.PortfoliosWithMetadata)
+                    this.PortfolioId == input.PortfolioId ||
+                    (this.PortfolioId != null &&
+                    this.PortfolioId.Equals(input.PortfolioId))
+                ) && 
+                (
+                    this.Metadata == input.Metadata ||
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
                 );
         }
 
@@ -115,9 +133,13 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PortfoliosWithMetadata != null)
+                if (this.PortfolioId != null)
                 {
-                    hashCode = (hashCode * 59) + this.PortfoliosWithMetadata.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
+                }
+                if (this.Metadata != null)
+                {
+                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
                 }
                 return hashCode;
             }

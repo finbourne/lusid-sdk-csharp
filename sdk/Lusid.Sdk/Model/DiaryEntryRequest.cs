@@ -36,19 +36,33 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DiaryEntryRequest" /> class.
         /// </summary>
+        /// <param name="diaryEntryCode">The code of the diary entry. (required).</param>
         /// <param name="name">The name of the diary entry..</param>
         /// <param name="status">The status of a Diary Entry of Type &#39;Other&#39;. Defaults to &#39;Undefined&#39; and supports &#39;Undefined&#39;, &#39;Estimate&#39;, &#39;Candidate&#39;, and &#39;Final&#39;..</param>
         /// <param name="effectiveAt">The effective time of the diary entry. (required).</param>
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
-        public DiaryEntryRequest(string name = default(string), string status = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public DiaryEntryRequest(string diaryEntryCode = default(string), string name = default(string), string status = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
+            // to ensure "diaryEntryCode" is required (not null)
+            if (diaryEntryCode == null)
+            {
+                throw new ArgumentNullException("diaryEntryCode is a required property for DiaryEntryRequest and cannot be null");
+            }
+            this.DiaryEntryCode = diaryEntryCode;
             this.EffectiveAt = effectiveAt;
             this.Name = name;
             this.Status = status;
             this.QueryAsAt = queryAsAt;
             this.Properties = properties;
         }
+
+        /// <summary>
+        /// The code of the diary entry.
+        /// </summary>
+        /// <value>The code of the diary entry.</value>
+        [DataMember(Name = "diaryEntryCode", IsRequired = true, EmitDefaultValue = true)]
+        public string DiaryEntryCode { get; set; }
 
         /// <summary>
         /// The name of the diary entry.
@@ -93,6 +107,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class DiaryEntryRequest {\n");
+            sb.Append("  DiaryEntryCode: ").Append(DiaryEntryCode).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
@@ -134,6 +149,11 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.DiaryEntryCode == input.DiaryEntryCode ||
+                    (this.DiaryEntryCode != null &&
+                    this.DiaryEntryCode.Equals(input.DiaryEntryCode))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -170,6 +190,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.DiaryEntryCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.DiaryEntryCode.GetHashCode();
+                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
@@ -201,6 +225,25 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // DiaryEntryCode (string) maxLength
+            if (this.DiaryEntryCode != null && this.DiaryEntryCode.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryCode, length must be less than 64.", new [] { "DiaryEntryCode" });
+            }
+
+            // DiaryEntryCode (string) minLength
+            if (this.DiaryEntryCode != null && this.DiaryEntryCode.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryCode, length must be greater than 1.", new [] { "DiaryEntryCode" });
+            }
+
+            // DiaryEntryCode (string) pattern
+            Regex regexDiaryEntryCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexDiaryEntryCode.Match(this.DiaryEntryCode).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryCode, must match a pattern of " + regexDiaryEntryCode, new [] { "DiaryEntryCode" });
+            }
+
             // Name (string) maxLength
             if (this.Name != null && this.Name.Length > 512)
             {

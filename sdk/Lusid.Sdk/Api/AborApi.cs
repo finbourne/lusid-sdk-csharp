@@ -39,11 +39,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="diaryEntryCode">Diary entry code</param>
         /// <param name="diaryEntryRequest">The diary entry to add.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DiaryEntry</returns>
-        DiaryEntry AddDiaryEntry(string scope, string code, string diaryEntryCode, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0);
+        DiaryEntry AddDiaryEntry(string scope, string code, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor.
@@ -54,11 +53,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="diaryEntryCode">Diary entry code</param>
         /// <param name="diaryEntryRequest">The diary entry to add.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DiaryEntry</returns>
-        ApiResponse<DiaryEntry> AddDiaryEntryWithHttpInfo(string scope, string code, string diaryEntryCode, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0);
+        ApiResponse<DiaryEntry> AddDiaryEntryWithHttpInfo(string scope, string code, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
         /// </summary>
@@ -437,12 +435,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="diaryEntryCode">Diary entry code</param>
         /// <param name="diaryEntryRequest">The diary entry to add.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DiaryEntry</returns>
-        System.Threading.Tasks.Task<DiaryEntry> AddDiaryEntryAsync(string scope, string code, string diaryEntryCode, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DiaryEntry> AddDiaryEntryAsync(string scope, string code, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor.
@@ -453,12 +450,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="diaryEntryCode">Diary entry code</param>
         /// <param name="diaryEntryRequest">The diary entry to add.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DiaryEntry)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DiaryEntry>> AddDiaryEntryWithHttpInfoAsync(string scope, string code, string diaryEntryCode, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DiaryEntry>> AddDiaryEntryWithHttpInfoAsync(string scope, string code, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
         /// </summary>
@@ -966,13 +962,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="diaryEntryCode">Diary entry code</param>
         /// <param name="diaryEntryRequest">The diary entry to add.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DiaryEntry</returns>
-        public DiaryEntry AddDiaryEntry(string scope, string code, string diaryEntryCode, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0)
+        public DiaryEntry AddDiaryEntry(string scope, string code, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<DiaryEntry> localVarResponse = AddDiaryEntryWithHttpInfo(scope, code, diaryEntryCode, diaryEntryRequest);
+            Lusid.Sdk.Client.ApiResponse<DiaryEntry> localVarResponse = AddDiaryEntryWithHttpInfo(scope, code, diaryEntryRequest);
             return localVarResponse.Data;
         }
 
@@ -982,11 +977,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="diaryEntryCode">Diary entry code</param>
         /// <param name="diaryEntryRequest">The diary entry to add.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DiaryEntry</returns>
-        public Lusid.Sdk.Client.ApiResponse<DiaryEntry> AddDiaryEntryWithHttpInfo(string scope, string code, string diaryEntryCode, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DiaryEntry> AddDiaryEntryWithHttpInfo(string scope, string code, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -998,12 +992,6 @@ namespace Lusid.Sdk.Api
             if (code == null)
             {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AborApi->AddDiaryEntry");
-            }
-
-            // verify the required parameter 'diaryEntryCode' is set
-            if (diaryEntryCode == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'diaryEntryCode' when calling AborApi->AddDiaryEntry");
             }
 
             // verify the required parameter 'diaryEntryRequest' is set
@@ -1042,7 +1030,6 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
-            localVarRequestOptions.PathParameters.Add("diaryEntryCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(diaryEntryCode)); // path parameter
             localVarRequestOptions.Data = diaryEntryRequest;
 
             localVarRequestOptions.Operation = "AborApi.AddDiaryEntry";
@@ -1066,7 +1053,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<DiaryEntry>("/api/abor/{scope}/{code}/accountingdiary/{diaryEntryCode}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<DiaryEntry>("/api/abor/{scope}/{code}/accountingdiary", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AddDiaryEntry", localVarResponse);
@@ -1085,14 +1072,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="diaryEntryCode">Diary entry code</param>
         /// <param name="diaryEntryRequest">The diary entry to add.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DiaryEntry</returns>
-        public async System.Threading.Tasks.Task<DiaryEntry> AddDiaryEntryAsync(string scope, string code, string diaryEntryCode, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DiaryEntry> AddDiaryEntryAsync(string scope, string code, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<DiaryEntry> localVarResponse = await AddDiaryEntryWithHttpInfoAsync(scope, code, diaryEntryCode, diaryEntryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DiaryEntry> localVarResponse = await AddDiaryEntryWithHttpInfoAsync(scope, code, diaryEntryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1102,12 +1088,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="diaryEntryCode">Diary entry code</param>
         /// <param name="diaryEntryRequest">The diary entry to add.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DiaryEntry)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DiaryEntry>> AddDiaryEntryWithHttpInfoAsync(string scope, string code, string diaryEntryCode, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DiaryEntry>> AddDiaryEntryWithHttpInfoAsync(string scope, string code, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1119,12 +1104,6 @@ namespace Lusid.Sdk.Api
             if (code == null)
             {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AborApi->AddDiaryEntry");
-            }
-
-            // verify the required parameter 'diaryEntryCode' is set
-            if (diaryEntryCode == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'diaryEntryCode' when calling AborApi->AddDiaryEntry");
             }
 
             // verify the required parameter 'diaryEntryRequest' is set
@@ -1164,7 +1143,6 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
-            localVarRequestOptions.PathParameters.Add("diaryEntryCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(diaryEntryCode)); // path parameter
             localVarRequestOptions.Data = diaryEntryRequest;
 
             localVarRequestOptions.Operation = "AborApi.AddDiaryEntry";
@@ -1188,7 +1166,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<DiaryEntry>("/api/abor/{scope}/{code}/accountingdiary/{diaryEntryCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<DiaryEntry>("/api/abor/{scope}/{code}/accountingdiary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

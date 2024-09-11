@@ -154,15 +154,15 @@ namespace Lusid.Sdk.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Key (string) maxLength
-            if (this.Key != null && this.Key.Length > 256)
+            if (this.Key != null && this.Key.Length > 1024)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Key, length must be less than 256.", new [] { "Key" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Key, length must be less than 1024.", new [] { "Key" });
             }
 
             // Key (string) minLength
-            if (this.Key != null && this.Key.Length < 1)
+            if (this.Key != null && this.Key.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Key, length must be greater than 1.", new [] { "Key" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Key, length must be greater than 0.", new [] { "Key" });
             }
 
             // Operation (string) minLength

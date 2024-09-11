@@ -23,29 +23,42 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// MetadataKeyValue
+    /// BatchUpsertPortfolioAccessMetadataResponseItem
     /// </summary>
-    [DataContract(Name = "MetadataKeyValue")]
-    public partial class MetadataKeyValue : IEquatable<MetadataKeyValue>, IValidatableObject
+    [DataContract(Name = "BatchUpsertPortfolioAccessMetadataResponseItem")]
+    public partial class BatchUpsertPortfolioAccessMetadataResponseItem : IEquatable<BatchUpsertPortfolioAccessMetadataResponseItem>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MetadataKeyValue" /> class.
+        /// Initializes a new instance of the <see cref="BatchUpsertPortfolioAccessMetadataResponseItem" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MetadataKeyValue() { }
+        protected BatchUpsertPortfolioAccessMetadataResponseItem() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MetadataKeyValue" /> class.
+        /// Initializes a new instance of the <see cref="BatchUpsertPortfolioAccessMetadataResponseItem" /> class.
         /// </summary>
+        /// <param name="portfolioId">portfolioId (required).</param>
         /// <param name="metadata">metadata (required).</param>
-        public MetadataKeyValue(Dictionary<string, List<AccessMetadataValue>> metadata = default(Dictionary<string, List<AccessMetadataValue>>))
+        public BatchUpsertPortfolioAccessMetadataResponseItem(ResourceId portfolioId = default(ResourceId), Dictionary<string, List<AccessMetadataValue>> metadata = default(Dictionary<string, List<AccessMetadataValue>>))
         {
+            // to ensure "portfolioId" is required (not null)
+            if (portfolioId == null)
+            {
+                throw new ArgumentNullException("portfolioId is a required property for BatchUpsertPortfolioAccessMetadataResponseItem and cannot be null");
+            }
+            this.PortfolioId = portfolioId;
             // to ensure "metadata" is required (not null)
             if (metadata == null)
             {
-                throw new ArgumentNullException("metadata is a required property for MetadataKeyValue and cannot be null");
+                throw new ArgumentNullException("metadata is a required property for BatchUpsertPortfolioAccessMetadataResponseItem and cannot be null");
             }
             this.Metadata = metadata;
         }
+
+        /// <summary>
+        /// Gets or Sets PortfolioId
+        /// </summary>
+        [DataMember(Name = "portfolioId", IsRequired = true, EmitDefaultValue = true)]
+        public ResourceId PortfolioId { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
@@ -60,7 +73,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class MetadataKeyValue {\n");
+            sb.Append("class BatchUpsertPortfolioAccessMetadataResponseItem {\n");
+            sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -82,21 +96,26 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MetadataKeyValue);
+            return this.Equals(input as BatchUpsertPortfolioAccessMetadataResponseItem);
         }
 
         /// <summary>
-        /// Returns true if MetadataKeyValue instances are equal
+        /// Returns true if BatchUpsertPortfolioAccessMetadataResponseItem instances are equal
         /// </summary>
-        /// <param name="input">Instance of MetadataKeyValue to be compared</param>
+        /// <param name="input">Instance of BatchUpsertPortfolioAccessMetadataResponseItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MetadataKeyValue input)
+        public bool Equals(BatchUpsertPortfolioAccessMetadataResponseItem input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
+                (
+                    this.PortfolioId == input.PortfolioId ||
+                    (this.PortfolioId != null &&
+                    this.PortfolioId.Equals(input.PortfolioId))
+                ) && 
                 (
                     this.Metadata == input.Metadata ||
                     this.Metadata != null &&
@@ -114,6 +133,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.PortfolioId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
+                }
                 if (this.Metadata != null)
                 {
                     hashCode = (hashCode * 59) + this.Metadata.GetHashCode();

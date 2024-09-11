@@ -5,7 +5,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AborApi* | [**AddDiaryEntry**](docs/AborApi.md#adddiaryentry) | **POST** /api/abor/{scope}/{code}/accountingdiary/{diaryEntryCode} | [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor.
+*AborApi* | [**AddDiaryEntry**](docs/AborApi.md#adddiaryentry) | **POST** /api/abor/{scope}/{code}/accountingdiary | [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor.
 *AborApi* | [**ClosePeriod**](docs/AborApi.md#closeperiod) | **POST** /api/abor/{scope}/{code}/accountingdiary/$closeperiod | [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
 *AborApi* | [**CreateAbor**](docs/AborApi.md#createabor) | **POST** /api/abor/{scope} | [EXPERIMENTAL] CreateAbor: Create an Abor.
 *AborApi* | [**DeleteAbor**](docs/AborApi.md#deleteabor) | **DELETE** /api/abor/{scope}/{code} | [EXPERIMENTAL] DeleteAbor: Delete an Abor.
@@ -183,6 +183,7 @@ Class | Method | HTTP request | Description
 *DataTypesApi* | [**UpdateReferenceValues**](docs/DataTypesApi.md#updatereferencevalues) | **PUT** /api/datatypes/{scope}/{code}/referencedatavalues | [EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type
 *DerivedTransactionPortfoliosApi* | [**CreateDerivedPortfolio**](docs/DerivedTransactionPortfoliosApi.md#createderivedportfolio) | **POST** /api/derivedtransactionportfolios/{scope} | CreateDerivedPortfolio: Create derived portfolio
 *DerivedTransactionPortfoliosApi* | [**DeleteDerivedPortfolioDetails**](docs/DerivedTransactionPortfoliosApi.md#deletederivedportfoliodetails) | **DELETE** /api/derivedtransactionportfolios/{scope}/{code}/details | [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
+*EntitiesApi* | [**GetCustomEntityByEntityUniqueId**](docs/EntitiesApi.md#getcustomentitybyentityuniqueid) | **GET** /api/entities/customentities/{entityUniqueId} | [EXPERIMENTAL] GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
 *EntitiesApi* | [**GetDataTypeByEntityUniqueId**](docs/EntitiesApi.md#getdatatypebyentityuniqueid) | **GET** /api/entities/datatypes/{entityUniqueId} | [EXPERIMENTAL] GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
 *EntitiesApi* | [**GetInstrumentByEntityUniqueId**](docs/EntitiesApi.md#getinstrumentbyentityuniqueid) | **GET** /api/entities/instruments/{entityUniqueId} | [EXPERIMENTAL] GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
 *EntitiesApi* | [**GetPortfolioByEntityUniqueId**](docs/EntitiesApi.md#getportfoliobyentityuniqueid) | **GET** /api/entities/portfolios/{entityUniqueId} | [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
@@ -222,6 +223,7 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**UpsertFeeProperties**](docs/FundsApi.md#upsertfeeproperties) | **POST** /api/funds/{scope}/{code}/fees/{feeCode}/properties/$upsert | [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
 *FundsApi* | [**UpsertFundProperties**](docs/FundsApi.md#upsertfundproperties) | **POST** /api/funds/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.
 *GroupReconciliationsApi* | [**CreateComparisonRuleset**](docs/GroupReconciliationsApi.md#createcomparisonruleset) | **POST** /api/reconciliations/comparisonrulesets | [EXPERIMENTAL] CreateComparisonRuleset: Create a Group Reconciliation Comparison Ruleset
+*GroupReconciliationsApi* | [**DeleteComparisonRuleset**](docs/GroupReconciliationsApi.md#deletecomparisonruleset) | **DELETE** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset
 *GroupReconciliationsApi* | [**GetComparisonRuleset**](docs/GroupReconciliationsApi.md#getcomparisonruleset) | **GET** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] GetComparisonRuleset: Get a single Group Reconciliation Comparison Ruleset by scope and code
 *InstrumentEventTypesApi* | [**CreateTransactionTemplate**](docs/InstrumentEventTypesApi.md#createtransactiontemplate) | **POST** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
 *InstrumentEventTypesApi* | [**DeleteTransactionTemplate**](docs/InstrumentEventTypesApi.md#deletetransactiontemplate) | **DELETE** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
@@ -358,7 +360,7 @@ Class | Method | HTTP request | Description
 *PortfolioGroupsApi* | [**UpdatePortfolioGroup**](docs/PortfolioGroupsApi.md#updateportfoliogroup) | **PUT** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
 *PortfolioGroupsApi* | [**UpsertGroupProperties**](docs/PortfolioGroupsApi.md#upsertgroupproperties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertGroupProperties: Upsert group properties
 *PortfolioGroupsApi* | [**UpsertPortfolioGroupAccessMetadata**](docs/PortfolioGroupsApi.md#upsertportfoliogroupaccessmetadata) | **PUT** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
-*PortfoliosApi* | [**BatchUpsertPortfolioAccessMetadata**](docs/PortfoliosApi.md#batchupsertportfolioaccessmetadata) | **PUT** /api/portfolios/metadata | [EXPERIMENTAL] BatchUpsertPortfolioAccessMetadata: Upsert multiple portfolio access metadata with different keys to multiple portfolios
+*PortfoliosApi* | [**BatchUpsertPortfolioAccessMetadata**](docs/PortfoliosApi.md#batchupsertportfolioaccessmetadata) | **PUT** /api/portfolios/metadata | [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios
 *PortfoliosApi* | [**DeleteInstrumentEventInstruction**](docs/PortfoliosApi.md#deleteinstrumenteventinstruction) | **DELETE** /api/portfolios/{scope}/{code}/instrumenteventinstructions/{instrumentEventInstructionId} | [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction
 *PortfoliosApi* | [**DeleteKeyFromPortfolioAccessMetadata**](docs/PortfoliosApi.md#deletekeyfromportfolioaccessmetadata) | **DELETE** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
 *PortfoliosApi* | [**DeletePortfolio**](docs/PortfoliosApi.md#deleteportfolio) | **DELETE** /api/portfolios/{scope}/{code} | DeletePortfolio: Delete portfolio
@@ -648,6 +650,7 @@ Class | Method | HTTP request | Description
  - [BatchUpsertInstrumentPropertiesResponse](docs/BatchUpsertInstrumentPropertiesResponse.md)
  - [BatchUpsertPortfolioAccessMetadataRequest](docs/BatchUpsertPortfolioAccessMetadataRequest.md)
  - [BatchUpsertPortfolioAccessMetadataResponse](docs/BatchUpsertPortfolioAccessMetadataResponse.md)
+ - [BatchUpsertPortfolioAccessMetadataResponseItem](docs/BatchUpsertPortfolioAccessMetadataResponseItem.md)
  - [BatchUpsertPortfolioTransactionsResponse](docs/BatchUpsertPortfolioTransactionsResponse.md)
  - [BatchUpsertPropertyDefinitionPropertiesResponse](docs/BatchUpsertPropertyDefinitionPropertiesResponse.md)
  - [Block](docs/Block.md)
@@ -846,6 +849,7 @@ Class | Method | HTTP request | Description
  - [CustodianAccountsUpsertResponse](docs/CustodianAccountsUpsertResponse.md)
  - [CustomEntityDefinition](docs/CustomEntityDefinition.md)
  - [CustomEntityDefinitionRequest](docs/CustomEntityDefinitionRequest.md)
+ - [CustomEntityEntity](docs/CustomEntityEntity.md)
  - [CustomEntityField](docs/CustomEntityField.md)
  - [CustomEntityFieldDefinition](docs/CustomEntityFieldDefinition.md)
  - [CustomEntityId](docs/CustomEntityId.md)
@@ -1182,8 +1186,6 @@ Class | Method | HTTP request | Description
  - [MaturityEventAllOf](docs/MaturityEventAllOf.md)
  - [MergerEvent](docs/MergerEvent.md)
  - [MergerEventAllOf](docs/MergerEventAllOf.md)
- - [MetadataKeyValue](docs/MetadataKeyValue.md)
- - [MetadataKeyValueResponse](docs/MetadataKeyValueResponse.md)
  - [MetricValue](docs/MetricValue.md)
  - [ModelClient](docs/ModelClient.md)
  - [ModelOptions](docs/ModelOptions.md)

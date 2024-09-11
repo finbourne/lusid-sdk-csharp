@@ -31,28 +31,35 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchUpsertPortfolioAccessMetadataResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected BatchUpsertPortfolioAccessMetadataResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BatchUpsertPortfolioAccessMetadataResponse" /> class.
-        /// </summary>
-        /// <param name="portfoliosWithMetadata">The set of portfolios with the access control metadata (required).</param>
-        public BatchUpsertPortfolioAccessMetadataResponse(Dictionary<string, MetadataKeyValueResponse> portfoliosWithMetadata = default(Dictionary<string, MetadataKeyValueResponse>))
+        /// <param name="values">The items have been successfully updated or created..</param>
+        /// <param name="failed">The items that could not be updated or created along with a reason for their failure..</param>
+        /// <param name="links">links.</param>
+        public BatchUpsertPortfolioAccessMetadataResponse(Dictionary<string, BatchUpsertPortfolioAccessMetadataResponseItem> values = default(Dictionary<string, BatchUpsertPortfolioAccessMetadataResponseItem>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<Link> links = default(List<Link>))
         {
-            // to ensure "portfoliosWithMetadata" is required (not null)
-            if (portfoliosWithMetadata == null)
-            {
-                throw new ArgumentNullException("portfoliosWithMetadata is a required property for BatchUpsertPortfolioAccessMetadataResponse and cannot be null");
-            }
-            this.PortfoliosWithMetadata = portfoliosWithMetadata;
+            this.Values = values;
+            this.Failed = failed;
+            this.Links = links;
         }
 
         /// <summary>
-        /// The set of portfolios with the access control metadata
+        /// The items have been successfully updated or created.
         /// </summary>
-        /// <value>The set of portfolios with the access control metadata</value>
-        [DataMember(Name = "portfoliosWithMetadata", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, MetadataKeyValueResponse> PortfoliosWithMetadata { get; set; }
+        /// <value>The items have been successfully updated or created.</value>
+        [DataMember(Name = "values", EmitDefaultValue = true)]
+        public Dictionary<string, BatchUpsertPortfolioAccessMetadataResponseItem> Values { get; set; }
+
+        /// <summary>
+        /// The items that could not be updated or created along with a reason for their failure.
+        /// </summary>
+        /// <value>The items that could not be updated or created along with a reason for their failure.</value>
+        [DataMember(Name = "failed", EmitDefaultValue = true)]
+        public Dictionary<string, ErrorDetail> Failed { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,7 +69,9 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class BatchUpsertPortfolioAccessMetadataResponse {\n");
-            sb.Append("  PortfoliosWithMetadata: ").Append(PortfoliosWithMetadata).Append("\n");
+            sb.Append("  Values: ").Append(Values).Append("\n");
+            sb.Append("  Failed: ").Append(Failed).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,10 +108,22 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.PortfoliosWithMetadata == input.PortfoliosWithMetadata ||
-                    this.PortfoliosWithMetadata != null &&
-                    input.PortfoliosWithMetadata != null &&
-                    this.PortfoliosWithMetadata.SequenceEqual(input.PortfoliosWithMetadata)
+                    this.Values == input.Values ||
+                    this.Values != null &&
+                    input.Values != null &&
+                    this.Values.SequenceEqual(input.Values)
+                ) && 
+                (
+                    this.Failed == input.Failed ||
+                    this.Failed != null &&
+                    input.Failed != null &&
+                    this.Failed.SequenceEqual(input.Failed)
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -115,9 +136,17 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PortfoliosWithMetadata != null)
+                if (this.Values != null)
                 {
-                    hashCode = (hashCode * 59) + this.PortfoliosWithMetadata.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Values.GetHashCode();
+                }
+                if (this.Failed != null)
+                {
+                    hashCode = (hashCode * 59) + this.Failed.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

@@ -48,9 +48,10 @@ namespace Lusid.Sdk.Model
         /// <param name="accrualDateAdjustment">Indicates if the accrual dates are adjusted using the business day convention. The default value is &#39;Adjusted&#39;.    Supported string (enumeration) values are: [Adjusted, Unadjusted]..</param>
         /// <param name="businessDayConvention">When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.    Supported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]..</param>
         /// <param name="accrualDayCountConvention">Optional, if not set the main DayCountConvention is used for all accrual calculations.  This only needs to be set when accrual uses a different day count to the coupon calculation..</param>
+        /// <param name="couponPaymentLag">couponPaymentLag.</param>
         /// <param name="scope">The scope used when updating or inserting the convention..</param>
         /// <param name="code">The code of the convention..</param>
-        public FlowConventions(string currency = default(string), string paymentFrequency = default(string), string dayCountConvention = default(string), string rollConvention = default(string), List<string> paymentCalendars = default(List<string>), List<string> resetCalendars = default(List<string>), int settleDays = default(int), int resetDays = default(int), bool? leapDaysIncluded = default(bool?), string accrualDateAdjustment = default(string), string businessDayConvention = default(string), string accrualDayCountConvention = default(string), string scope = default(string), string code = default(string))
+        public FlowConventions(string currency = default(string), string paymentFrequency = default(string), string dayCountConvention = default(string), string rollConvention = default(string), List<string> paymentCalendars = default(List<string>), List<string> resetCalendars = default(List<string>), int settleDays = default(int), int resetDays = default(int), bool? leapDaysIncluded = default(bool?), string accrualDateAdjustment = default(string), string businessDayConvention = default(string), string accrualDayCountConvention = default(string), RelativeDateOffset couponPaymentLag = default(RelativeDateOffset), string scope = default(string), string code = default(string))
         {
             // to ensure "currency" is required (not null)
             if (currency == null)
@@ -94,6 +95,7 @@ namespace Lusid.Sdk.Model
             this.AccrualDateAdjustment = accrualDateAdjustment;
             this.BusinessDayConvention = businessDayConvention;
             this.AccrualDayCountConvention = accrualDayCountConvention;
+            this.CouponPaymentLag = couponPaymentLag;
             this.Scope = scope;
             this.Code = code;
         }
@@ -183,6 +185,12 @@ namespace Lusid.Sdk.Model
         public string AccrualDayCountConvention { get; set; }
 
         /// <summary>
+        /// Gets or Sets CouponPaymentLag
+        /// </summary>
+        [DataMember(Name = "couponPaymentLag", EmitDefaultValue = false)]
+        public RelativeDateOffset CouponPaymentLag { get; set; }
+
+        /// <summary>
         /// The scope used when updating or inserting the convention.
         /// </summary>
         /// <value>The scope used when updating or inserting the convention.</value>
@@ -216,6 +224,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AccrualDateAdjustment: ").Append(AccrualDateAdjustment).Append("\n");
             sb.Append("  BusinessDayConvention: ").Append(BusinessDayConvention).Append("\n");
             sb.Append("  AccrualDayCountConvention: ").Append(AccrualDayCountConvention).Append("\n");
+            sb.Append("  CouponPaymentLag: ").Append(CouponPaymentLag).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("}\n");
@@ -314,6 +323,11 @@ namespace Lusid.Sdk.Model
                     this.AccrualDayCountConvention.Equals(input.AccrualDayCountConvention))
                 ) && 
                 (
+                    this.CouponPaymentLag == input.CouponPaymentLag ||
+                    (this.CouponPaymentLag != null &&
+                    this.CouponPaymentLag.Equals(input.CouponPaymentLag))
+                ) && 
+                (
                     this.Scope == input.Scope ||
                     (this.Scope != null &&
                     this.Scope.Equals(input.Scope))
@@ -375,6 +389,10 @@ namespace Lusid.Sdk.Model
                 if (this.AccrualDayCountConvention != null)
                 {
                     hashCode = (hashCode * 59) + this.AccrualDayCountConvention.GetHashCode();
+                }
+                if (this.CouponPaymentLag != null)
+                {
+                    hashCode = (hashCode * 59) + this.CouponPaymentLag.GetHashCode();
                 }
                 if (this.Scope != null)
                 {
