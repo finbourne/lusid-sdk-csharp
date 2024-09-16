@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">For user defined DerivedValuation keys. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfQueryableKey</returns>
-        ResourceListOfQueryableKey GetAllQueryableKeys(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0);
+        ResourceListOfQueryableKey GetAllQueryableKeys(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetAllQueryableKeys: Query the set of supported \&quot;addresses\&quot; that can be queried from all endpoints.
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">For user defined DerivedValuation keys. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfQueryableKey</returns>
-        ApiResponse<ResourceListOfQueryableKey> GetAllQueryableKeysWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<ResourceListOfQueryableKey> GetAllQueryableKeysWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -75,8 +78,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfQueryableKey</returns>
-        System.Threading.Tasks.Task<ResourceListOfQueryableKey> GetAllQueryableKeysAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfQueryableKey> GetAllQueryableKeysAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetAllQueryableKeys: Query the set of supported \&quot;addresses\&quot; that can be queried from all endpoints.
@@ -89,8 +93,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfQueryableKey)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfQueryableKey>> GetAllQueryableKeysWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfQueryableKey>> GetAllQueryableKeysWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -123,9 +128,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public QueryableKeysApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -215,10 +226,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">For user defined DerivedValuation keys. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfQueryableKey</returns>
-        public ResourceListOfQueryableKey GetAllQueryableKeys(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0)
+        public ResourceListOfQueryableKey GetAllQueryableKeys(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfQueryableKey> localVarResponse = GetAllQueryableKeysWithHttpInfo(asAt, filter);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfQueryableKey> localVarResponse = GetAllQueryableKeysWithHttpInfo(asAt, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -229,10 +241,21 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">For user defined DerivedValuation keys. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfQueryableKey</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfQueryableKey> GetAllQueryableKeysWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfQueryableKey> GetAllQueryableKeysWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -307,10 +330,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfQueryableKey</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfQueryableKey> GetAllQueryableKeysAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfQueryableKey> GetAllQueryableKeysAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfQueryableKey> localVarResponse = await GetAllQueryableKeysWithHttpInfoAsync(asAt, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfQueryableKey> localVarResponse = await GetAllQueryableKeysWithHttpInfoAsync(asAt, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -322,11 +346,22 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfQueryableKey)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfQueryableKey>> GetAllQueryableKeysWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfQueryableKey>> GetAllQueryableKeysWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

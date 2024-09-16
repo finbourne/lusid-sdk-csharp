@@ -48,12 +48,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StagingRuleSetApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StagingRuleSetApi>();
             var entityType = "entityType_example";  // string | The entity type for which to create the staging rule set.
             var createStagingRuleSetRequest = new CreateStagingRuleSetRequest(); // CreateStagingRuleSetRequest | Request to create a staging rule set.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // StagingRuleSet result = apiInstance.CreateStagingRuleSet(entityType, createStagingRuleSetRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet
                 StagingRuleSet result = apiInstance.CreateStagingRuleSet(entityType, createStagingRuleSetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -153,11 +164,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StagingRuleSetApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StagingRuleSetApi>();
             var entityType = "entityType_example";  // string | The entity type for which to delete the staging rule set.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteStagingRuleSet(entityType, opts: opts);
+
                 // [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
                 DeletedEntityResponse result = apiInstance.DeleteStagingRuleSet(entityType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -256,12 +278,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StagingRuleSetApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StagingRuleSetApi>();
             var entityType = "entityType_example";  // string | The entity type for which to retrieve the staging rule set.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the staging rule set. Defaults to return the latest              version of the staging rule set if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // StagingRuleSet result = apiInstance.GetStagingRuleSet(entityType, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
                 StagingRuleSet result = apiInstance.GetStagingRuleSet(entityType, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -361,6 +394,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StagingRuleSetApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StagingRuleSetApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the staging rule sets. Defaults to return the latest              version of the staging rule sets if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing staging rule sets from a previous call to list              staging rule sets. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional) 
@@ -370,6 +411,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfStagingRuleSet result = apiInstance.ListStagingRuleSets(asAt, page, sortBy, limit, filter, opts: opts);
+
                 // [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
                 PagedResourceListOfStagingRuleSet result = apiInstance.ListStagingRuleSets(asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -472,12 +516,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StagingRuleSetApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StagingRuleSetApi>();
             var entityType = "entityType_example";  // string | The entity type for which to update the staging rule set.
             var updateStagingRuleSetRequest = new UpdateStagingRuleSetRequest(); // UpdateStagingRuleSetRequest | Request to update a staging rule set.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // StagingRuleSet result = apiInstance.UpdateStagingRuleSet(entityType, updateStagingRuleSetRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
                 StagingRuleSet result = apiInstance.UpdateStagingRuleSet(entityType, updateStagingRuleSetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

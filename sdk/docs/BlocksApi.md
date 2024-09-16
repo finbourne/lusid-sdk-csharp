@@ -47,12 +47,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<BlocksApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<BlocksApi>();
             var scope = "scope_example";  // string | The block scope.
             var code = "code_example";  // string | The block's code. This, together with the scope uniquely identifies the block to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteBlock(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeleteBlock: Delete block
                 DeletedEntityResponse result = apiInstance.DeleteBlock(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -152,6 +163,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<BlocksApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<BlocksApi>();
             var scope = "scope_example";  // string | The scope to which the block belongs.
             var code = "code_example";  // string | The block's unique identifier.
@@ -160,6 +179,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Block result = apiInstance.GetBlock(scope, code, asAt, propertyKeys, opts: opts);
+
                 // [EARLY ACCESS] GetBlock: Get Block
                 Block result = apiInstance.GetBlock(scope, code, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -261,6 +283,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<BlocksApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<BlocksApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing blocks from a previous call to list blocks.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
@@ -271,6 +301,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfBlock result = apiInstance.ListBlocks(asAt, page, sortBy, limit, filter, propertyKeys, opts: opts);
+
                 // [EARLY ACCESS] ListBlocks: List Blocks
                 PagedResourceListOfBlock result = apiInstance.ListBlocks(asAt, page, sortBy, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -374,11 +407,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<BlocksApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<BlocksApi>();
             var blockSetRequest = new BlockSetRequest?(); // BlockSetRequest? | The collection of block requests. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfBlock result = apiInstance.UpsertBlocks(blockSetRequest, opts: opts);
+
                 // [EARLY ACCESS] UpsertBlocks: Upsert Block
                 ResourceListOfBlock result = apiInstance.UpsertBlocks(blockSetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

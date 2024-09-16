@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to create the staging rule set.</param>
         /// <param name="createStagingRuleSetRequest">Request to create a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>StagingRuleSet</returns>
-        StagingRuleSet CreateStagingRuleSet(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0);
+        StagingRuleSet CreateStagingRuleSet(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to create the staging rule set.</param>
         /// <param name="createStagingRuleSetRequest">Request to create a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of StagingRuleSet</returns>
-        ApiResponse<StagingRuleSet> CreateStagingRuleSetWithHttpInfo(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0);
+        ApiResponse<StagingRuleSet> CreateStagingRuleSetWithHttpInfo(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
         /// </summary>
@@ -64,8 +67,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to delete the staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteStagingRuleSet(string entityType, int operationIndex = 0);
+        DeletedEntityResponse DeleteStagingRuleSet(string entityType, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
@@ -76,8 +80,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to delete the staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteStagingRuleSetWithHttpInfo(string entityType, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteStagingRuleSetWithHttpInfo(string entityType, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
         /// </summary>
@@ -88,8 +93,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to retrieve the staging rule set.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the staging rule set. Defaults to return the latest              version of the staging rule set if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>StagingRuleSet</returns>
-        StagingRuleSet GetStagingRuleSet(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        StagingRuleSet GetStagingRuleSet(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
@@ -101,8 +107,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to retrieve the staging rule set.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the staging rule set. Defaults to return the latest              version of the staging rule set if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of StagingRuleSet</returns>
-        ApiResponse<StagingRuleSet> GetStagingRuleSetWithHttpInfo(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<StagingRuleSet> GetStagingRuleSetWithHttpInfo(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
         /// </summary>
@@ -116,8 +123,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfStagingRuleSet</returns>
-        PagedResourceListOfStagingRuleSet ListStagingRuleSets(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        PagedResourceListOfStagingRuleSet ListStagingRuleSets(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
@@ -132,8 +140,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfStagingRuleSet</returns>
-        ApiResponse<PagedResourceListOfStagingRuleSet> ListStagingRuleSetsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfStagingRuleSet> ListStagingRuleSetsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
         /// </summary>
@@ -144,8 +153,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to update the staging rule set.</param>
         /// <param name="updateStagingRuleSetRequest">Request to update a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>StagingRuleSet</returns>
-        StagingRuleSet UpdateStagingRuleSet(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0);
+        StagingRuleSet UpdateStagingRuleSet(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
@@ -157,8 +167,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to update the staging rule set.</param>
         /// <param name="updateStagingRuleSetRequest">Request to update a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of StagingRuleSet</returns>
-        ApiResponse<StagingRuleSet> UpdateStagingRuleSetWithHttpInfo(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0);
+        ApiResponse<StagingRuleSet> UpdateStagingRuleSetWithHttpInfo(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -179,8 +190,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createStagingRuleSetRequest">Request to create a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of StagingRuleSet</returns>
-        System.Threading.Tasks.Task<StagingRuleSet> CreateStagingRuleSetAsync(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StagingRuleSet> CreateStagingRuleSetAsync(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet
@@ -193,8 +205,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createStagingRuleSetRequest">Request to create a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (StagingRuleSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StagingRuleSet>> CreateStagingRuleSetWithHttpInfoAsync(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StagingRuleSet>> CreateStagingRuleSetWithHttpInfoAsync(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
         /// </summary>
@@ -205,8 +218,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to delete the staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteStagingRuleSetAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteStagingRuleSetAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
@@ -218,8 +232,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to delete the staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteStagingRuleSetWithHttpInfoAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteStagingRuleSetWithHttpInfoAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
         /// </summary>
@@ -231,8 +246,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the staging rule set. Defaults to return the latest              version of the staging rule set if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of StagingRuleSet</returns>
-        System.Threading.Tasks.Task<StagingRuleSet> GetStagingRuleSetAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StagingRuleSet> GetStagingRuleSetAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
@@ -245,8 +261,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the staging rule set. Defaults to return the latest              version of the staging rule set if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (StagingRuleSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StagingRuleSet>> GetStagingRuleSetWithHttpInfoAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StagingRuleSet>> GetStagingRuleSetWithHttpInfoAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
         /// </summary>
@@ -261,8 +278,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfStagingRuleSet</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfStagingRuleSet> ListStagingRuleSetsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfStagingRuleSet> ListStagingRuleSetsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
@@ -278,8 +296,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfStagingRuleSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfStagingRuleSet>> ListStagingRuleSetsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfStagingRuleSet>> ListStagingRuleSetsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
         /// </summary>
@@ -291,8 +310,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateStagingRuleSetRequest">Request to update a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of StagingRuleSet</returns>
-        System.Threading.Tasks.Task<StagingRuleSet> UpdateStagingRuleSetAsync(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StagingRuleSet> UpdateStagingRuleSetAsync(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
@@ -305,8 +325,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateStagingRuleSetRequest">Request to update a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (StagingRuleSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StagingRuleSet>> UpdateStagingRuleSetWithHttpInfoAsync(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StagingRuleSet>> UpdateStagingRuleSetWithHttpInfoAsync(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -339,9 +360,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public StagingRuleSetApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -431,10 +458,11 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to create the staging rule set.</param>
         /// <param name="createStagingRuleSetRequest">Request to create a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>StagingRuleSet</returns>
-        public StagingRuleSet CreateStagingRuleSet(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0)
+        public StagingRuleSet CreateStagingRuleSet(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<StagingRuleSet> localVarResponse = CreateStagingRuleSetWithHttpInfo(entityType, createStagingRuleSetRequest);
+            Lusid.Sdk.Client.ApiResponse<StagingRuleSet> localVarResponse = CreateStagingRuleSetWithHttpInfo(entityType, createStagingRuleSetRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -445,8 +473,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to create the staging rule set.</param>
         /// <param name="createStagingRuleSetRequest">Request to create a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of StagingRuleSet</returns>
-        public Lusid.Sdk.Client.ApiResponse<StagingRuleSet> CreateStagingRuleSetWithHttpInfo(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<StagingRuleSet> CreateStagingRuleSetWithHttpInfo(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -461,6 +490,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -533,10 +572,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createStagingRuleSetRequest">Request to create a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of StagingRuleSet</returns>
-        public async System.Threading.Tasks.Task<StagingRuleSet> CreateStagingRuleSetAsync(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StagingRuleSet> CreateStagingRuleSetAsync(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<StagingRuleSet> localVarResponse = await CreateStagingRuleSetWithHttpInfoAsync(entityType, createStagingRuleSetRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<StagingRuleSet> localVarResponse = await CreateStagingRuleSetWithHttpInfoAsync(entityType, createStagingRuleSetRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -548,8 +588,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createStagingRuleSetRequest">Request to create a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (StagingRuleSet)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagingRuleSet>> CreateStagingRuleSetWithHttpInfoAsync(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagingRuleSet>> CreateStagingRuleSetWithHttpInfoAsync(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -565,6 +606,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -636,10 +687,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to delete the staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteStagingRuleSet(string entityType, int operationIndex = 0)
+        public DeletedEntityResponse DeleteStagingRuleSet(string entityType, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteStagingRuleSetWithHttpInfo(entityType);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteStagingRuleSetWithHttpInfo(entityType, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -649,8 +701,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to delete the staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteStagingRuleSetWithHttpInfo(string entityType, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteStagingRuleSetWithHttpInfo(string entityType, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -659,6 +712,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -725,10 +788,11 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to delete the staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteStagingRuleSetAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteStagingRuleSetAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteStagingRuleSetWithHttpInfoAsync(entityType, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteStagingRuleSetWithHttpInfoAsync(entityType, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -739,8 +803,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to delete the staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteStagingRuleSetWithHttpInfoAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteStagingRuleSetWithHttpInfoAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -750,6 +815,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -817,10 +892,11 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to retrieve the staging rule set.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the staging rule set. Defaults to return the latest              version of the staging rule set if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>StagingRuleSet</returns>
-        public StagingRuleSet GetStagingRuleSet(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public StagingRuleSet GetStagingRuleSet(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<StagingRuleSet> localVarResponse = GetStagingRuleSetWithHttpInfo(entityType, asAt);
+            Lusid.Sdk.Client.ApiResponse<StagingRuleSet> localVarResponse = GetStagingRuleSetWithHttpInfo(entityType, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -831,8 +907,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to retrieve the staging rule set.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the staging rule set. Defaults to return the latest              version of the staging rule set if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of StagingRuleSet</returns>
-        public Lusid.Sdk.Client.ApiResponse<StagingRuleSet> GetStagingRuleSetWithHttpInfo(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<StagingRuleSet> GetStagingRuleSetWithHttpInfo(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -841,6 +918,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -912,10 +999,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the staging rule set. Defaults to return the latest              version of the staging rule set if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of StagingRuleSet</returns>
-        public async System.Threading.Tasks.Task<StagingRuleSet> GetStagingRuleSetAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StagingRuleSet> GetStagingRuleSetAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<StagingRuleSet> localVarResponse = await GetStagingRuleSetWithHttpInfoAsync(entityType, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<StagingRuleSet> localVarResponse = await GetStagingRuleSetWithHttpInfoAsync(entityType, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -927,8 +1015,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the staging rule set. Defaults to return the latest              version of the staging rule set if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (StagingRuleSet)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagingRuleSet>> GetStagingRuleSetWithHttpInfoAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagingRuleSet>> GetStagingRuleSetWithHttpInfoAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -938,6 +1027,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1012,10 +1111,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfStagingRuleSet</returns>
-        public PagedResourceListOfStagingRuleSet ListStagingRuleSets(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public PagedResourceListOfStagingRuleSet ListStagingRuleSets(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagingRuleSet> localVarResponse = ListStagingRuleSetsWithHttpInfo(asAt, page, sortBy, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagingRuleSet> localVarResponse = ListStagingRuleSetsWithHttpInfo(asAt, page, sortBy, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1029,10 +1129,21 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfStagingRuleSet</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagingRuleSet> ListStagingRuleSetsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagingRuleSet> ListStagingRuleSetsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1122,10 +1233,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfStagingRuleSet</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfStagingRuleSet> ListStagingRuleSetsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfStagingRuleSet> ListStagingRuleSetsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagingRuleSet> localVarResponse = await ListStagingRuleSetsWithHttpInfoAsync(asAt, page, sortBy, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagingRuleSet> localVarResponse = await ListStagingRuleSetsWithHttpInfoAsync(asAt, page, sortBy, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1140,11 +1252,22 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfStagingRuleSet)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagingRuleSet>> ListStagingRuleSetsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagingRuleSet>> ListStagingRuleSetsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1231,10 +1354,11 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to update the staging rule set.</param>
         /// <param name="updateStagingRuleSetRequest">Request to update a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>StagingRuleSet</returns>
-        public StagingRuleSet UpdateStagingRuleSet(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0)
+        public StagingRuleSet UpdateStagingRuleSet(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<StagingRuleSet> localVarResponse = UpdateStagingRuleSetWithHttpInfo(entityType, updateStagingRuleSetRequest);
+            Lusid.Sdk.Client.ApiResponse<StagingRuleSet> localVarResponse = UpdateStagingRuleSetWithHttpInfo(entityType, updateStagingRuleSetRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1245,8 +1369,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type for which to update the staging rule set.</param>
         /// <param name="updateStagingRuleSetRequest">Request to update a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of StagingRuleSet</returns>
-        public Lusid.Sdk.Client.ApiResponse<StagingRuleSet> UpdateStagingRuleSetWithHttpInfo(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<StagingRuleSet> UpdateStagingRuleSetWithHttpInfo(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -1261,6 +1386,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1333,10 +1468,11 @@ namespace Lusid.Sdk.Api
         /// <param name="updateStagingRuleSetRequest">Request to update a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of StagingRuleSet</returns>
-        public async System.Threading.Tasks.Task<StagingRuleSet> UpdateStagingRuleSetAsync(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StagingRuleSet> UpdateStagingRuleSetAsync(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<StagingRuleSet> localVarResponse = await UpdateStagingRuleSetWithHttpInfoAsync(entityType, updateStagingRuleSetRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<StagingRuleSet> localVarResponse = await UpdateStagingRuleSetWithHttpInfoAsync(entityType, updateStagingRuleSetRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1348,8 +1484,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateStagingRuleSetRequest">Request to update a staging rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (StagingRuleSet)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagingRuleSet>> UpdateStagingRuleSetWithHttpInfoAsync(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagingRuleSet>> UpdateStagingRuleSetWithHttpInfoAsync(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -1365,6 +1502,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

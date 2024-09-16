@@ -45,12 +45,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<DerivedTransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DerivedTransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope in which to create the derived transaction portfolio.
             var createDerivedTransactionPortfolioRequest = new CreateDerivedTransactionPortfolioRequest?(); // CreateDerivedTransactionPortfolioRequest? | The definition of the derived transaction portfolio. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Portfolio result = apiInstance.CreateDerivedPortfolio(scope, createDerivedTransactionPortfolioRequest, opts: opts);
+
                 // CreateDerivedPortfolio: Create derived portfolio
                 Portfolio result = apiInstance.CreateDerivedPortfolio(scope, createDerivedTransactionPortfolioRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -150,6 +161,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<DerivedTransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DerivedTransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the derived transaction portfolio.
             var code = "code_example";  // string | The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.
@@ -157,6 +176,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteDerivedPortfolioDetails(scope, code, effectiveAt, opts: opts);
+
                 // [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
                 DeletedEntityResponse result = apiInstance.DeleteDerivedPortfolioDetails(scope, code, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

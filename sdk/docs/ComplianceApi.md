@@ -58,12 +58,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var scope = "scope_example";  // string | The scope of the Compliance Rule Template.
             var createComplianceTemplateRequest = new CreateComplianceTemplateRequest(); // CreateComplianceTemplateRequest | Request to create a compliance rule template.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ComplianceRuleTemplate result = apiInstance.CreateComplianceTemplate(scope, createComplianceTemplateRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template
                 ComplianceRuleTemplate result = apiInstance.CreateComplianceTemplate(scope, createComplianceTemplateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -163,12 +174,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var scope = "scope_example";  // string | The compliance rule's scope.
             var code = "code_example";  // string | The compliance rule's code.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteComplianceRule(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
                 DeletedEntityResponse result = apiInstance.DeleteComplianceRule(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -268,12 +290,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var scope = "scope_example";  // string | The scope of the template to be deleted.
             var code = "code_example";  // string | The code of the template to be deleted.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteComplianceTemplate(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
                 DeletedEntityResponse result = apiInstance.DeleteComplianceTemplate(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -373,6 +406,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var scope = "scope_example";  // string | The compliance rule's scope.
             var code = "code_example";  // string | The compliance rule's code.
@@ -381,6 +422,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ComplianceRuleResponse result = apiInstance.GetComplianceRule(scope, code, asAt, propertyKeys, opts: opts);
+
                 // [EARLY ACCESS] GetComplianceRule: Get compliance rule.
                 ComplianceRuleResponse result = apiInstance.GetComplianceRule(scope, code, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -482,6 +526,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var runScope = "runScope_example";  // string | Required: Run Scope.
             var runCode = "runCode_example";  // string | Required: Run Code.
@@ -490,6 +542,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ComplianceRuleResultV2 result = apiInstance.GetComplianceRuleResult(runScope, runCode, ruleScope, ruleCode, opts: opts);
+
                 // [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
                 ComplianceRuleResultV2 result = apiInstance.GetComplianceRuleResult(runScope, runCode, ruleScope, ruleCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -591,6 +646,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var scope = "scope_example";  // string | Scope of TemplateID
             var code = "code_example";  // string | Code of TemplateID
@@ -598,6 +661,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ComplianceTemplate result = apiInstance.GetComplianceTemplate(scope, code, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template.
                 ComplianceTemplate result = apiInstance.GetComplianceTemplate(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -698,12 +764,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var scope = "scope_example";  // string | Required: Run Scope.
             var code = "code_example";  // string | Required: Run Code.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DecoratedComplianceRunSummary result = apiInstance.GetDecoratedComplianceRunSummary(scope, code, opts: opts);
+
                 // [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run.
                 DecoratedComplianceRunSummary result = apiInstance.GetDecoratedComplianceRunSummary(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -803,6 +880,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. Asat time. (optional) 
             var page = "page_example";  // string? | Optional. Pagination token. (optional) 
@@ -812,6 +897,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfComplianceRuleResponse result = apiInstance.ListComplianceRules(asAt, page, limit, filter, propertyKeys, opts: opts);
+
                 // [EARLY ACCESS] ListComplianceRules: List compliance rules.
                 PagedResourceListOfComplianceRuleResponse result = apiInstance.ListComplianceRules(asAt, page, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -914,6 +1002,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The time at which to get results from. Default : latest (optional) 
             var page = "page_example";  // string? | Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
@@ -923,6 +1019,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfComplianceRunInfoV2 result = apiInstance.ListComplianceRuns(asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EARLY ACCESS] ListComplianceRuns: List historical compliance run identifiers.
                 PagedResourceListOfComplianceRunInfoV2 result = apiInstance.ListComplianceRuns(asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1025,6 +1124,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The time at which to get results from. Default : latest (optional) 
             var page = "page_example";  // string? | Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
@@ -1033,6 +1140,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfComplianceTemplate result = apiInstance.ListComplianceTemplates(asAt, page, limit, filter, opts: opts);
+
                 // [EARLY ACCESS] ListComplianceTemplates: List compliance templates.
                 PagedResourceListOfComplianceTemplate result = apiInstance.ListComplianceTemplates(asAt, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1134,6 +1244,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var runScope = "runScope_example";  // string | Required: Scope to save the run results in.
             var ruleScope = "ruleScope_example";  // string | Required: Scope from which to select rules to be run.
@@ -1143,6 +1261,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ComplianceRunInfoV2 result = apiInstance.RunCompliance(runScope, ruleScope, isPreTrade, recipeIdScope, recipeIdCode, opts: opts);
+
                 // [EARLY ACCESS] RunCompliance: Run a compliance check.
                 ComplianceRunInfoV2 result = apiInstance.RunCompliance(runScope, ruleScope, isPreTrade, recipeIdScope, recipeIdCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1245,6 +1366,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var runScope = "runScope_example";  // string | Required: Scope to save the run results in.
             var ruleScope = "ruleScope_example";  // string | Required: Scope from which to select rules to be run.
@@ -1254,6 +1383,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ComplianceRunInfoV2 result = apiInstance.RunCompliancePreview(runScope, ruleScope, recipeIdScope, recipeIdCode, complianceRunConfiguration, opts: opts);
+
                 // [EARLY ACCESS] RunCompliancePreview: Run a compliance check.
                 ComplianceRunInfoV2 result = apiInstance.RunCompliancePreview(runScope, ruleScope, recipeIdScope, recipeIdCode, complianceRunConfiguration);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1356,6 +1488,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var scope = "scope_example";  // string | The scope of the Compliance Rule Template.
             var code = "code_example";  // string | The code of the Compliance Rule Template.
@@ -1363,6 +1503,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ComplianceRuleTemplate result = apiInstance.UpdateComplianceTemplate(scope, code, updateComplianceTemplateRequest, opts: opts);
+
                 // [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
                 ComplianceRuleTemplate result = apiInstance.UpdateComplianceTemplate(scope, code, updateComplianceTemplateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1463,11 +1606,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var upsertComplianceRuleRequest = new UpsertComplianceRuleRequest?(); // UpsertComplianceRuleRequest? |  (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ComplianceRuleResponse result = apiInstance.UpsertComplianceRule(upsertComplianceRuleRequest, opts: opts);
+
                 // [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
                 ComplianceRuleResponse result = apiInstance.UpsertComplianceRule(upsertComplianceRuleRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1566,11 +1720,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var upsertComplianceRunSummaryRequest = new UpsertComplianceRunSummaryRequest?(); // UpsertComplianceRunSummaryRequest? |  (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertComplianceRunSummaryResult result = apiInstance.UpsertComplianceRunSummary(upsertComplianceRunSummaryRequest, opts: opts);
+
                 // [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary.
                 UpsertComplianceRunSummaryResult result = apiInstance.UpsertComplianceRunSummary(upsertComplianceRunSummaryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

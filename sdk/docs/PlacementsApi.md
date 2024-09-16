@@ -47,12 +47,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PlacementsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PlacementsApi>();
             var scope = "scope_example";  // string | The placement scope.
             var code = "code_example";  // string | The placement's code. This, together with the scope uniquely identifies the placement to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePlacement(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeletePlacement: Delete placement
                 DeletedEntityResponse result = apiInstance.DeletePlacement(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -152,6 +163,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PlacementsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PlacementsApi>();
             var scope = "scope_example";  // string | The scope to which the placement belongs.
             var code = "code_example";  // string | The placement's unique identifier.
@@ -160,6 +179,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Placement result = apiInstance.GetPlacement(scope, code, asAt, propertyKeys, opts: opts);
+
                 // [EARLY ACCESS] GetPlacement: Get Placement
                 Placement result = apiInstance.GetPlacement(scope, code, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -261,6 +283,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PlacementsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PlacementsApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing placements from a previous call to list placements.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
@@ -271,6 +301,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfPlacement result = apiInstance.ListPlacements(asAt, page, sortBy, limit, filter, propertyKeys, opts: opts);
+
                 // [EARLY ACCESS] ListPlacements: List Placements
                 PagedResourceListOfPlacement result = apiInstance.ListPlacements(asAt, page, sortBy, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -374,11 +407,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PlacementsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PlacementsApi>();
             var placementSetRequest = new PlacementSetRequest?(); // PlacementSetRequest? | The collection of placement requests. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPlacement result = apiInstance.UpsertPlacements(placementSetRequest, opts: opts);
+
                 // [EARLY ACCESS] UpsertPlacements: Upsert Placement
                 ResourceListOfPlacement result = apiInstance.UpsertPlacements(placementSetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

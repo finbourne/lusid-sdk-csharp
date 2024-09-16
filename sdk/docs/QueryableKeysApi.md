@@ -44,12 +44,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<QueryableKeysApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<QueryableKeysApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | For user defined DerivedValuation keys. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfQueryableKey result = apiInstance.GetAllQueryableKeys(asAt, filter, opts: opts);
+
                 // [EARLY ACCESS] GetAllQueryableKeys: Query the set of supported \"addresses\" that can be queried from all endpoints.
                 ResourceListOfQueryableKey result = apiInstance.GetAllQueryableKeys(asAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

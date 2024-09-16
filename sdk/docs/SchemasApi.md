@@ -47,11 +47,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SchemasApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SchemasApi>();
             var entity = "entity_example";  // string | The name of a valid entity
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Schema result = apiInstance.GetEntitySchema(entity, opts: opts);
+
                 // [EARLY ACCESS] GetEntitySchema: Get schema
                 Schema result = apiInstance.GetEntitySchema(entity);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -150,12 +161,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SchemasApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SchemasApi>();
             var propertyKeys = new List<string>?(); // List<string>? | One or more property keys for which the schema is requested (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PropertySchema result = apiInstance.GetPropertySchema(propertyKeys, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetPropertySchema: Get property schema
                 PropertySchema result = apiInstance.GetPropertySchema(propertyKeys, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -255,12 +277,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SchemasApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SchemasApi>();
             var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfValueType result = apiInstance.GetValueTypes(sortBy, limit, opts: opts);
+
                 // [EARLY ACCESS] GetValueTypes: Get value types
                 ResourceListOfValueType result = apiInstance.GetValueTypes(sortBy, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -360,10 +393,21 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SchemasApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SchemasApi>();
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfString result = apiInstance.ListEntities(opts: opts);
+
                 // [EARLY ACCESS] ListEntities: List entities
                 ResourceListOfString result = apiInstance.ListEntities();
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

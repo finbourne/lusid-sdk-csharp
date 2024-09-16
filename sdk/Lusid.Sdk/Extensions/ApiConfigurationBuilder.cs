@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using SdkConfiguration = Lusid.Sdk.Client.Configuration;
 using Microsoft.Extensions.Configuration;
 
 namespace Lusid.Sdk.Extensions
@@ -20,23 +21,28 @@ namespace Lusid.Sdk.Extensions
     {
         private static readonly Dictionary<string, string> ConfigNamesToEnvVariables = new Dictionary<string, string>()
             {
-                { "TokenUrl", "FBN_TOKEN_URL" },
-                { "BaseUrl", "FBN_LUSID_URL" },
-                { "ClientId", "FBN_CLIENT_ID" },
-                { "ClientSecret", "FBN_CLIENT_SECRET" },
-                { "Username", "FBN_USERNAME" },
-                { "Password", "FBN_PASSWORD" },
-                { "PersonalAccessToken", "FBN_ACCESS_TOKEN" },
+                { nameof(ApiConfiguration.TokenUrl), "FBN_TOKEN_URL" },
+                { nameof(ApiConfiguration.BaseUrl), "FBN_LUSID_URL" },
+                { nameof(ApiConfiguration.ClientId), "FBN_CLIENT_ID" },
+                { nameof(ApiConfiguration.ClientSecret), "FBN_CLIENT_SECRET" },
+                { nameof(ApiConfiguration.Username), "FBN_USERNAME" },
+                { nameof(ApiConfiguration.Password), "FBN_PASSWORD" },
+                { nameof(ApiConfiguration.PersonalAccessToken), "FBN_ACCESS_TOKEN" },
+                { nameof(ApiConfiguration.TimeoutMs), "FBN_TIMEOUT_MS" },
+                { nameof(ApiConfiguration.RateLimitRetries), "FBN_RATE_LIMIT_RETRIES" },
             };
 
         private static readonly Dictionary<string, string> ConfigNamesToSecrets = new Dictionary<string, string>()
         {
-            { "TokenUrl", "tokenUrl" },
-            { "BaseUrl", "lusidUrl" },
-            { "ClientId", "clientId" },
-            { "ClientSecret", "clientSecret" },
-            { "Username", "username" },
-            { "Password", "password" },
+            { nameof(ApiConfiguration.TokenUrl), "tokenUrl" },
+            { nameof(ApiConfiguration.BaseUrl), "lusidUrl" },
+            { nameof(ApiConfiguration.ClientId), "clientId" },
+            { nameof(ApiConfiguration.ClientSecret), "clientSecret" },
+            { nameof(ApiConfiguration.Username), "username" },
+            { nameof(ApiConfiguration.Password), "password" },
+            { nameof(ApiConfiguration.PersonalAccessToken), "accessToken" },
+            { nameof(ApiConfiguration.TimeoutMs), "timeoutMs" },
+            { nameof(ApiConfiguration.RateLimitRetries), "rateLimitRetries" },
         };
 
         /// <summary>
@@ -47,10 +53,10 @@ namespace Lusid.Sdk.Extensions
         /// </summary>
         /// <param name="apiSecretsFilename">filename of the secrets.json</param>
         /// <returns>ApiConfiguration object</returns>
-        public static ApiConfiguration Build(string apiSecretsFilename)
+        public static ApiConfiguration Build(string apiSecretsFilename, ConfigurationOptions? opts = null)
         {
-            var result = BuildFromSecretsFile(apiSecretsFilename);
-            result = result.HasMissingConfig() ? BuildFromEnvironmentVariables() : result;
+            var result = BuildFromSecretsFile(apiSecretsFilename, opts);
+            result = result.HasMissingConfig() ? BuildFromEnvironmentVariables(opts) : result;
             return result;
         }
 
@@ -61,7 +67,7 @@ namespace Lusid.Sdk.Extensions
         /// </summary>
         /// <param name="config">section of ASP Core configuration with required fields</param>
         /// <returns>ApiConfiguration object</returns>
-        public static ApiConfiguration BuildFromConfiguration(IConfigurationSection config)
+        public static ApiConfiguration BuildFromConfiguration(IConfigurationSection config, ConfigurationOptions? opts = null)
         {
             if (config == null) throw new ArgumentNullException(nameof(config));
 
@@ -70,20 +76,47 @@ namespace Lusid.Sdk.Extensions
 
             apiConfig = CheckBaseUrl(apiConfig);
 
+            var errors = new List<string>();
             if (apiConfig.HasMissingConfig())
             {
-                var missingValues = apiConfig.GetMissingConfig()
-                    .Select(value => $"'{value}'");
-                var message = $"[{string.Join(", ", missingValues)}]";
-                throw new MissingConfigException(
-                    $"The provided configuration section is missing the following required values: {message}");
+                errors.AddRange(apiConfig.GetMissingConfig()
+                    .Select(value => $"'{value}' was not set"));
+            }
+            
+            if (opts != null)
+            {
+                if (opts.TimeoutMs != null)
+                {
+                    apiConfig.TimeoutMs = opts.TimeoutMs;
+                }
+
+                if (opts.RateLimitRetries != null)
+                {
+                    apiConfig.RateLimitRetries = opts.RateLimitRetries;
+                }
+            }
+            
+            if (apiConfig.TimeoutMs is < 1)
+            {
+                errors.Add($"'{nameof(apiConfig.TimeoutMs)}' must be a positive integer between 1 and {int.MaxValue}");
+            }
+                
+            if (apiConfig.RateLimitRetries is < 0)
+            {
+                errors.Add($"'{nameof(apiConfig.RateLimitRetries)}' must be a positive integer between 0 and {int.MaxValue}");
             }
 
+            if (errors.Any())
+            {
+                throw new ConfigurationException($"The provided configuration section is not valid. The following issues were detected: {string.Join("; ", errors)}");
+            }
+            
             return apiConfig;
         }        
 
-        private static ApiConfiguration BuildFromEnvironmentVariables()
-        {            
+        private static ApiConfiguration BuildFromEnvironmentVariables(ConfigurationOptions? opts)
+        {
+            var errors = new List<string>();
             var apiConfig = new ApiConfiguration
             {
                 TokenUrl = Environment.GetEnvironmentVariable("FBN_TOKEN_URL") ?? Environment.GetEnvironmentVariable("fbn_token_url"),
@@ -100,40 +133,110 @@ namespace Lusid.Sdk.Extensions
                 PersonalAccessToken = Environment.GetEnvironmentVariable("FBN_ACCESS_TOKEN") ?? Environment.GetEnvironmentVariable("fbn_access_token"),
             };
 
+            apiConfig.TimeoutMs = GetPositiveIntegerEnvVarValue(ConfigNamesToEnvVariables[nameof(ApiConfiguration.TimeoutMs)], errors, 1, SdkConfiguration.DefaultTimeoutMs);
+            apiConfig.RateLimitRetries = GetPositiveIntegerEnvVarValue(ConfigNamesToEnvVariables[nameof(ApiConfiguration.RateLimitRetries)], errors, 0, SdkConfiguration.DefaultRateLimitRetries);
+            
+            if (opts != null)
+            {
+                if (opts.TimeoutMs != null)
+                {
+                    apiConfig.TimeoutMs = opts.TimeoutMs;
+                }
+
+                if (opts.RateLimitRetries != null)
+                {
+                    apiConfig.RateLimitRetries = opts.RateLimitRetries;
+                }
+            }
+
             if (apiConfig.HasMissingConfig())
             {
-                var missingValues = apiConfig.GetMissingConfig()
-                    .Select(value => $"'{ConfigNamesToEnvVariables[value]}'");
-                var message = $"[{string.Join(", ", missingValues)}]";
-                throw new MissingConfigException(
-                    $"The following required environment variables are not set: {message}");
+                errors.AddRange(apiConfig.GetMissingConfig()
+                    .Select(value => $"'{ConfigNamesToEnvVariables[value]}' was not set"));
+            }
+
+            if (errors.Any())
+            {
+                throw new ConfigurationException($"Configuration parameters are not valid. The following issues were detected with the environment variables set: {string.Join("; ", errors)}");
             }
 
             return apiConfig;
         }
 
-        private static ApiConfiguration BuildFromSecretsFile(string apiSecretsFilename)
+        private static int GetPositiveIntegerEnvVarValue(string envVarName, List<string> errors, int minimumAllowedValue, int defaultValue)
         {
-            var apiConfig = new ApiConfiguration();
-            if (apiSecretsFilename == null || !File.Exists(Path.Combine(Directory.GetCurrentDirectory(), apiSecretsFilename)))
+            var envVarValueString = Environment.GetEnvironmentVariable(envVarName) ??
+                                  Environment.GetEnvironmentVariable(envVarName.ToLower());
+            if (envVarValueString == null)
             {
-                return apiConfig;
+                return defaultValue;
             }
-            var config = new ConfigurationBuilder()
-                            .SetBasePath(Directory.GetCurrentDirectory())
-                            .AddJsonFile(apiSecretsFilename)
-                            .Build();
-            config.GetSection("api").Bind(apiConfig);
-
-            apiConfig = CheckBaseUrl(apiConfig);
-
-            if (apiConfig.HasMissingConfig())
+            if (int.TryParse(envVarValueString, out var envVarValueInt))
             {
-                var missingValues = apiConfig.GetMissingConfig()
-                    .Select(value => $"'{ConfigNamesToSecrets[value]}'");
-                var message = $"[{string.Join(", ", missingValues)}]";
-                throw new MissingConfigException(
-                    $"The provided secrets file is missing the following required values: {message}");
+                if (envVarValueInt < minimumAllowedValue)
+                {
+                    errors.Add($"'{envVarName}' must be a positive integer between {minimumAllowedValue} and {int.MaxValue}");
+                }
+                else
+                {
+                    return envVarValueInt;
+                }
+            }
+            else
+            {
+                errors.Add($"'{envVarName}' is not a valid integer");
+            }
+            return defaultValue;
+        }
+
+        private static ApiConfiguration BuildFromSecretsFile(string apiSecretsFilename, ConfigurationOptions? opts)
+        {
+            var errors = new List<string>();
+            var apiConfig = new ApiConfiguration();
+            if (apiSecretsFilename != null &&
+                File.Exists(Path.Combine(Directory.GetCurrentDirectory(), apiSecretsFilename)))
+            {
+                var config = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile(apiSecretsFilename)
+                    .Build();
+                config.GetSection("api").Bind(apiConfig);
+
+                apiConfig = CheckBaseUrl(apiConfig);
+                
+                if (apiConfig.HasMissingConfig())
+                {
+                    errors.AddRange(apiConfig.GetMissingConfig()
+                        .Select(value => $"'api.{ConfigNamesToSecrets[value]}' was not set"));
+                }
+            }
+
+            if (opts != null)
+            {
+                if (opts.TimeoutMs != null)
+                {
+                    apiConfig.TimeoutMs = opts.TimeoutMs;
+                }
+
+                if (opts.RateLimitRetries != null)
+                {
+                    apiConfig.RateLimitRetries = opts.RateLimitRetries;
+                }
+            }
+            
+            if (apiConfig.TimeoutMs is < 1)
+            {
+                errors.Add($"'api.{ConfigNamesToSecrets[nameof(apiConfig.TimeoutMs)]}' must be a positive integer between 1 and {int.MaxValue}");
+            }
+                
+            if (apiConfig.RateLimitRetries is < 0)
+            {
+                errors.Add($"'api.{ConfigNamesToSecrets[nameof(apiConfig.RateLimitRetries)]}' must be a positive integer between 0 and {int.MaxValue}");
+            }
+
+            if (errors.Any())
+            {
+                throw new ConfigurationException($"The provided configuration file '{apiSecretsFilename}' is not valid. The following issues were detected: {string.Join("; ", errors)}");
             }
 
             return apiConfig;

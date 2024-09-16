@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -39,8 +40,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DataType</returns>
-        DataType CreateDataType(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0);
+        DataType CreateDataType(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateDataType: Create data type definition
@@ -51,8 +53,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> CreateDataTypeWithHttpInfo(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0);
+        ApiResponse<DataType> CreateDataTypeWithHttpInfo(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteDataType: Delete a data type definition.
         /// </summary>
@@ -63,8 +66,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteDataType(string scope, string code, int operationIndex = 0);
+        DeletedEntityResponse DeleteDataType(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// DeleteDataType: Delete a data type definition.
@@ -76,8 +80,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteDataTypeWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteDataTypeWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetDataType: Get data type definition
         /// </summary>
@@ -89,8 +94,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DataType</returns>
-        DataType GetDataType(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        DataType GetDataType(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetDataType: Get data type definition
@@ -103,8 +109,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> GetDataTypeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<DataType> GetDataTypeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
         /// </summary>
@@ -118,8 +125,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfIUnitDefinitionDto</returns>
-        ResourceListOfIUnitDefinitionDto GetUnitsFromDataType(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ResourceListOfIUnitDefinitionDto GetUnitsFromDataType(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
@@ -134,8 +142,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfIUnitDefinitionDto</returns>
-        ApiResponse<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeWithHttpInfo(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeWithHttpInfo(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
         /// </summary>
@@ -149,8 +158,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfDataTypeSummary</returns>
-        PagedResourceListOfDataTypeSummary ListDataTypeSummaries(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfDataTypeSummary ListDataTypeSummaries(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
@@ -165,8 +175,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfDataTypeSummary</returns>
-        ApiResponse<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListDataTypes: List data types
         /// </summary>
@@ -181,8 +192,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfDataType</returns>
-        ResourceListOfDataType ListDataTypes(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ResourceListOfDataType ListDataTypes(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListDataTypes: List data types
@@ -198,8 +210,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfDataType</returns>
-        ApiResponse<ResourceListOfDataType> ListDataTypesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<ResourceListOfDataType> ListDataTypesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateDataType: Update data type definition
         /// </summary>
@@ -211,8 +224,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="updateDataTypeRequest">The updated definition of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DataType</returns>
-        DataType UpdateDataType(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0);
+        DataType UpdateDataType(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateDataType: Update data type definition
@@ -225,8 +239,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="updateDataTypeRequest">The updated definition of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> UpdateDataTypeWithHttpInfo(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0);
+        ApiResponse<DataType> UpdateDataTypeWithHttpInfo(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type
         /// </summary>
@@ -238,8 +253,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="fieldValue">The updated reference values</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DataType</returns>
-        DataType UpdateReferenceValues(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0);
+        DataType UpdateReferenceValues(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type
@@ -252,8 +268,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="fieldValue">The updated reference values</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> UpdateReferenceValuesWithHttpInfo(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0);
+        ApiResponse<DataType> UpdateReferenceValuesWithHttpInfo(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -273,8 +290,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> CreateDataTypeAsync(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DataType> CreateDataTypeAsync(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateDataType: Create data type definition
@@ -286,8 +304,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> CreateDataTypeWithHttpInfoAsync(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DataType>> CreateDataTypeWithHttpInfoAsync(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteDataType: Delete a data type definition.
         /// </summary>
@@ -299,8 +318,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDataTypeAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDataTypeAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// DeleteDataType: Delete a data type definition.
@@ -313,8 +333,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteDataTypeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteDataTypeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetDataType: Get data type definition
         /// </summary>
@@ -327,8 +348,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> GetDataTypeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DataType> GetDataTypeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetDataType: Get data type definition
@@ -342,8 +364,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> GetDataTypeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DataType>> GetDataTypeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
         /// </summary>
@@ -358,8 +381,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfIUnitDefinitionDto</returns>
-        System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
@@ -375,8 +399,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfIUnitDefinitionDto)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpInfoAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpInfoAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
         /// </summary>
@@ -391,8 +416,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfDataTypeSummary</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
@@ -408,8 +434,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfDataTypeSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfDataTypeSummary>> ListDataTypeSummariesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfDataTypeSummary>> ListDataTypeSummariesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListDataTypes: List data types
         /// </summary>
@@ -425,8 +452,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfDataType</returns>
-        System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListDataTypes: List data types
@@ -443,8 +471,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfDataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfDataType>> ListDataTypesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfDataType>> ListDataTypesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateDataType: Update data type definition
         /// </summary>
@@ -457,8 +486,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateDataTypeRequest">The updated definition of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> UpdateDataTypeAsync(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DataType> UpdateDataTypeAsync(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateDataType: Update data type definition
@@ -472,8 +502,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateDataTypeRequest">The updated definition of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> UpdateDataTypeWithHttpInfoAsync(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DataType>> UpdateDataTypeWithHttpInfoAsync(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type
         /// </summary>
@@ -486,8 +517,9 @@ namespace Lusid.Sdk.Api
         /// <param name="fieldValue">The updated reference values</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> UpdateReferenceValuesAsync(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DataType> UpdateReferenceValuesAsync(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type
@@ -501,8 +533,9 @@ namespace Lusid.Sdk.Api
         /// <param name="fieldValue">The updated reference values</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> UpdateReferenceValuesWithHttpInfoAsync(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DataType>> UpdateReferenceValuesWithHttpInfoAsync(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -535,9 +568,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public DataTypesApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -626,10 +665,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DataType</returns>
-        public DataType CreateDataType(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0)
+        public DataType CreateDataType(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = CreateDataTypeWithHttpInfo(createDataTypeRequest);
+            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = CreateDataTypeWithHttpInfo(createDataTypeRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -639,10 +679,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataType</returns>
-        public Lusid.Sdk.Client.ApiResponse<DataType> CreateDataTypeWithHttpInfo(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DataType> CreateDataTypeWithHttpInfo(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -713,10 +764,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> CreateDataTypeAsync(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DataType> CreateDataTypeAsync(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = await CreateDataTypeWithHttpInfoAsync(createDataTypeRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = await CreateDataTypeWithHttpInfoAsync(createDataTypeRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -727,11 +779,22 @@ namespace Lusid.Sdk.Api
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataType>> CreateDataTypeWithHttpInfoAsync(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataType>> CreateDataTypeWithHttpInfoAsync(CreateDataTypeRequest? createDataTypeRequest = default(CreateDataTypeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -803,10 +866,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteDataType(string scope, string code, int operationIndex = 0)
+        public DeletedEntityResponse DeleteDataType(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteDataTypeWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteDataTypeWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -817,8 +881,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteDataTypeWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteDataTypeWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -833,6 +898,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -901,10 +976,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDataTypeAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDataTypeAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteDataTypeWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteDataTypeWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -916,8 +992,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteDataTypeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteDataTypeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -933,6 +1010,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1002,10 +1089,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DataType</returns>
-        public DataType GetDataType(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public DataType GetDataType(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = GetDataTypeWithHttpInfo(scope, code, asAt);
+            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = GetDataTypeWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1017,8 +1105,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataType</returns>
-        public Lusid.Sdk.Client.ApiResponse<DataType> GetDataTypeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DataType> GetDataTypeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1033,6 +1122,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1106,10 +1205,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> GetDataTypeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DataType> GetDataTypeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = await GetDataTypeWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = await GetDataTypeWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1122,8 +1222,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataType>> GetDataTypeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataType>> GetDataTypeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1139,6 +1240,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1214,10 +1325,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfIUnitDefinitionDto</returns>
-        public ResourceListOfIUnitDefinitionDto GetUnitsFromDataType(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public ResourceListOfIUnitDefinitionDto GetUnitsFromDataType(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = GetUnitsFromDataTypeWithHttpInfo(scope, code, units, filter, asAt);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = GetUnitsFromDataTypeWithHttpInfo(scope, code, units, filter, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1231,8 +1343,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfIUnitDefinitionDto</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeWithHttpInfo(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeWithHttpInfo(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1247,6 +1360,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1330,10 +1453,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfIUnitDefinitionDto</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = await GetUnitsFromDataTypeWithHttpInfoAsync(scope, code, units, filter, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = await GetUnitsFromDataTypeWithHttpInfoAsync(scope, code, units, filter, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1348,8 +1472,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfIUnitDefinitionDto)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpInfoAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpInfoAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1365,6 +1490,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1448,10 +1583,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfDataTypeSummary</returns>
-        public PagedResourceListOfDataTypeSummary ListDataTypeSummaries(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfDataTypeSummary ListDataTypeSummaries(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> localVarResponse = ListDataTypeSummariesWithHttpInfo(asAt, page, limit, filter, sortBy);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> localVarResponse = ListDataTypeSummariesWithHttpInfo(asAt, page, limit, filter, sortBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1465,10 +1601,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfDataTypeSummary</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1558,10 +1705,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfDataTypeSummary</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> localVarResponse = await ListDataTypeSummariesWithHttpInfoAsync(asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> localVarResponse = await ListDataTypeSummariesWithHttpInfoAsync(asAt, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1576,11 +1724,22 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfDataTypeSummary)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary>> ListDataTypeSummariesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary>> ListDataTypeSummariesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1671,10 +1830,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfDataType</returns>
-        public ResourceListOfDataType ListDataTypes(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public ResourceListOfDataType ListDataTypes(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> localVarResponse = ListDataTypesWithHttpInfo(scope, asAt, includeSystem, sortBy, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> localVarResponse = ListDataTypesWithHttpInfo(scope, asAt, includeSystem, sortBy, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1689,8 +1849,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfDataType</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> ListDataTypesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> ListDataTypesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1699,6 +1860,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1790,10 +1961,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfDataType</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> localVarResponse = await ListDataTypesWithHttpInfoAsync(scope, asAt, includeSystem, sortBy, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> localVarResponse = await ListDataTypesWithHttpInfoAsync(scope, asAt, includeSystem, sortBy, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1809,8 +1981,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfDataType)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType>> ListDataTypesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType>> ListDataTypesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1820,6 +1993,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1908,10 +2091,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="updateDataTypeRequest">The updated definition of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DataType</returns>
-        public DataType UpdateDataType(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0)
+        public DataType UpdateDataType(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = UpdateDataTypeWithHttpInfo(scope, code, updateDataTypeRequest);
+            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = UpdateDataTypeWithHttpInfo(scope, code, updateDataTypeRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1923,8 +2107,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="updateDataTypeRequest">The updated definition of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataType</returns>
-        public Lusid.Sdk.Client.ApiResponse<DataType> UpdateDataTypeWithHttpInfo(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DataType> UpdateDataTypeWithHttpInfo(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1945,6 +2130,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2019,10 +2214,11 @@ namespace Lusid.Sdk.Api
         /// <param name="updateDataTypeRequest">The updated definition of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> UpdateDataTypeAsync(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DataType> UpdateDataTypeAsync(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = await UpdateDataTypeWithHttpInfoAsync(scope, code, updateDataTypeRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = await UpdateDataTypeWithHttpInfoAsync(scope, code, updateDataTypeRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2035,8 +2231,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateDataTypeRequest">The updated definition of the data type</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataType>> UpdateDataTypeWithHttpInfoAsync(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataType>> UpdateDataTypeWithHttpInfoAsync(string scope, string code, UpdateDataTypeRequest updateDataTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2058,6 +2255,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2132,10 +2339,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="fieldValue">The updated reference values</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DataType</returns>
-        public DataType UpdateReferenceValues(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0)
+        public DataType UpdateReferenceValues(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = UpdateReferenceValuesWithHttpInfo(scope, code, fieldValue);
+            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = UpdateReferenceValuesWithHttpInfo(scope, code, fieldValue, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2147,8 +2355,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the data type</param>
         /// <param name="fieldValue">The updated reference values</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataType</returns>
-        public Lusid.Sdk.Client.ApiResponse<DataType> UpdateReferenceValuesWithHttpInfo(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DataType> UpdateReferenceValuesWithHttpInfo(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2169,6 +2378,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2243,10 +2462,11 @@ namespace Lusid.Sdk.Api
         /// <param name="fieldValue">The updated reference values</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> UpdateReferenceValuesAsync(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DataType> UpdateReferenceValuesAsync(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = await UpdateReferenceValuesWithHttpInfoAsync(scope, code, fieldValue, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = await UpdateReferenceValuesWithHttpInfoAsync(scope, code, fieldValue, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2259,8 +2479,9 @@ namespace Lusid.Sdk.Api
         /// <param name="fieldValue">The updated reference values</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataType>> UpdateReferenceValuesWithHttpInfoAsync(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataType>> UpdateReferenceValuesWithHttpInfoAsync(string scope, string code, List<FieldValue> fieldValue, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2282,6 +2503,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="chartOfAccountsRequest">The definition of the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ChartOfAccounts</returns>
-        ChartOfAccounts CreateChartOfAccounts(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0);
+        ChartOfAccounts CreateChartOfAccounts(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateChartOfAccounts: Create a Chart of Accounts
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="chartOfAccountsRequest">The definition of the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ChartOfAccounts</returns>
-        ApiResponse<ChartOfAccounts> CreateChartOfAccountsWithHttpInfo(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0);
+        ApiResponse<ChartOfAccounts> CreateChartOfAccountsWithHttpInfo(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateCleardownModule: Create a Cleardown Module
         /// </summary>
@@ -66,8 +69,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleRequest">The definition of the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CleardownModuleResponse</returns>
-        CleardownModuleResponse CreateCleardownModule(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0);
+        CleardownModuleResponse CreateCleardownModule(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateCleardownModule: Create a Cleardown Module
@@ -80,8 +84,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleRequest">The definition of the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CleardownModuleResponse</returns>
-        ApiResponse<CleardownModuleResponse> CreateCleardownModuleWithHttpInfo(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0);
+        ApiResponse<CleardownModuleResponse> CreateCleardownModuleWithHttpInfo(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
         /// </summary>
@@ -93,8 +98,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts.</param>
         /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GeneralLedgerProfileResponse</returns>
-        GeneralLedgerProfileResponse CreateGeneralLedgerProfile(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0);
+        GeneralLedgerProfileResponse CreateGeneralLedgerProfile(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
@@ -107,8 +113,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts.</param>
         /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
-        ApiResponse<GeneralLedgerProfileResponse> CreateGeneralLedgerProfileWithHttpInfo(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0);
+        ApiResponse<GeneralLedgerProfileResponse> CreateGeneralLedgerProfileWithHttpInfo(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
         /// </summary>
@@ -120,8 +127,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PostingModuleResponse</returns>
-        PostingModuleResponse CreatePostingModule(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0);
+        PostingModuleResponse CreatePostingModule(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
@@ -134,8 +142,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PostingModuleResponse</returns>
-        ApiResponse<PostingModuleResponse> CreatePostingModuleWithHttpInfo(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0);
+        ApiResponse<PostingModuleResponse> CreatePostingModuleWithHttpInfo(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
         /// </summary>
@@ -148,8 +157,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The codes of the accounts to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeleteAccountsResponse</returns>
-        DeleteAccountsResponse DeleteAccounts(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0);
+        DeleteAccountsResponse DeleteAccounts(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
@@ -163,8 +173,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The codes of the accounts to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeleteAccountsResponse</returns>
-        ApiResponse<DeleteAccountsResponse> DeleteAccountsWithHttpInfo(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0);
+        ApiResponse<DeleteAccountsResponse> DeleteAccountsWithHttpInfo(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteChartOfAccounts: Delete a Chart of Accounts
         /// </summary>
@@ -175,8 +186,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts to be deleted.</param>
         /// <param name="code">The code of the Chart of Accounts to be deleted. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteChartOfAccounts(string scope, string code, int operationIndex = 0);
+        DeletedEntityResponse DeleteChartOfAccounts(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteChartOfAccounts: Delete a Chart of Accounts
@@ -188,8 +200,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts to be deleted.</param>
         /// <param name="code">The code of the Chart of Accounts to be deleted. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteChartOfAccountsWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteChartOfAccountsWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteCleardownModule: Delete a Cleardown Module.
         /// </summary>
@@ -201,8 +214,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteCleardownModule(string scope, string code, string cleardownModuleCode, int operationIndex = 0);
+        DeletedEntityResponse DeleteCleardownModule(string scope, string code, string cleardownModuleCode, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteCleardownModule: Delete a Cleardown Module.
@@ -215,8 +229,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
         /// </summary>
@@ -228,8 +243,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0);
+        DeletedEntityResponse DeleteGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
@@ -242,8 +258,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
         /// </summary>
@@ -255,8 +272,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the Posting Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeletePostingModule(string scope, string code, string postingModuleCode, int operationIndex = 0);
+        DeletedEntityResponse DeletePostingModule(string scope, string code, string postingModuleCode, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
@@ -269,8 +287,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the Posting Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeletePostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeletePostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetAccount: Get Account
         /// </summary>
@@ -285,8 +304,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If not provided will return all the entitled properties for that Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Account</returns>
-        Account GetAccount(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        Account GetAccount(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetAccount: Get Account
@@ -302,8 +322,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If not provided will return all the entitled properties for that Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Account</returns>
-        ApiResponse<Account> GetAccountWithHttpInfo(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ApiResponse<Account> GetAccountWithHttpInfo(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
         /// </summary>
@@ -317,8 +338,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ChartOfAccounts</returns>
-        ChartOfAccounts GetChartOfAccounts(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ChartOfAccounts GetChartOfAccounts(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
@@ -333,8 +355,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ChartOfAccounts</returns>
-        ApiResponse<ChartOfAccounts> GetChartOfAccountsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ApiResponse<ChartOfAccounts> GetChartOfAccountsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
         /// </summary>
@@ -347,8 +370,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CleardownModuleResponse</returns>
-        CleardownModuleResponse GetCleardownModule(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        CleardownModuleResponse GetCleardownModule(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
@@ -362,8 +386,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CleardownModuleResponse</returns>
-        ApiResponse<CleardownModuleResponse> GetCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<CleardownModuleResponse> GetCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
         /// </summary>
@@ -376,8 +401,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GeneralLedgerProfileResponse</returns>
-        GeneralLedgerProfileResponse GetGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        GeneralLedgerProfileResponse GetGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
@@ -391,8 +417,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
-        ApiResponse<GeneralLedgerProfileResponse> GetGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<GeneralLedgerProfileResponse> GetGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
         /// </summary>
@@ -405,8 +432,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PostingModuleResponse</returns>
-        PostingModuleResponse GetPostingModule(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        PostingModuleResponse GetPostingModule(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
@@ -420,8 +448,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PostingModuleResponse</returns>
-        ApiResponse<PostingModuleResponse> GetPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<PostingModuleResponse> GetPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListAccounts: List Accounts
         /// </summary>
@@ -438,8 +467,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfAccount</returns>
-        PagedResourceListOfAccount ListAccounts(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfAccount ListAccounts(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListAccounts: List Accounts
@@ -457,8 +487,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfAccount</returns>
-        ApiResponse<PagedResourceListOfAccount> ListAccountsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfAccount> ListAccountsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
         /// </summary>
@@ -474,8 +505,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfChartOfAccounts</returns>
-        PagedResourceListOfChartOfAccounts ListChartsOfAccounts(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfChartOfAccounts ListChartsOfAccounts(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
@@ -492,8 +524,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfChartOfAccounts</returns>
-        ApiResponse<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules
         /// </summary>
@@ -509,8 +542,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCleardownModuleRule</returns>
-        PagedResourceListOfCleardownModuleRule ListCleardownModuleRules(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        PagedResourceListOfCleardownModuleRule ListCleardownModuleRules(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules
@@ -527,8 +561,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCleardownModuleRule</returns>
-        ApiResponse<PagedResourceListOfCleardownModuleRule> ListCleardownModuleRulesWithHttpInfo(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfCleardownModuleRule> ListCleardownModuleRulesWithHttpInfo(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListCleardownModules: List Cleardown Modules
         /// </summary>
@@ -544,8 +579,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCleardownModuleResponse</returns>
-        PagedResourceListOfCleardownModuleResponse ListCleardownModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfCleardownModuleResponse ListCleardownModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListCleardownModules: List Cleardown Modules
@@ -562,8 +598,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCleardownModuleResponse</returns>
-        ApiResponse<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
         /// </summary>
@@ -579,8 +616,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfGeneralLedgerProfileResponse</returns>
-        PagedResourceListOfGeneralLedgerProfileResponse ListGeneralLedgerProfiles(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfGeneralLedgerProfileResponse ListGeneralLedgerProfiles(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
@@ -597,8 +635,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfGeneralLedgerProfileResponse</returns>
-        ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
         /// </summary>
@@ -614,8 +653,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPostingModuleRule</returns>
-        PagedResourceListOfPostingModuleRule ListPostingModuleRules(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        PagedResourceListOfPostingModuleRule ListPostingModuleRules(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
@@ -632,8 +672,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleRule</returns>
-        ApiResponse<PagedResourceListOfPostingModuleRule> ListPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfPostingModuleRule> ListPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListPostingModules: List Posting Modules
         /// </summary>
@@ -649,8 +690,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPostingModuleResponse</returns>
-        PagedResourceListOfPostingModuleResponse ListPostingModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfPostingModuleResponse ListPostingModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListPostingModules: List Posting Modules
@@ -667,8 +709,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleResponse</returns>
-        ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
         /// </summary>
@@ -681,8 +724,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CleardownModuleResponse</returns>
-        CleardownModuleResponse PatchCleardownModule(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0);
+        CleardownModuleResponse PatchCleardownModule(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
@@ -696,8 +740,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CleardownModuleResponse</returns>
-        ApiResponse<CleardownModuleResponse> PatchCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0);
+        ApiResponse<CleardownModuleResponse> PatchCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
         /// </summary>
@@ -710,8 +755,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PostingModuleResponse</returns>
-        PostingModuleResponse PatchPostingModule(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0);
+        PostingModuleResponse PatchPostingModule(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
@@ -725,8 +771,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PostingModuleResponse</returns>
-        ApiResponse<PostingModuleResponse> PatchPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0);
+        ApiResponse<PostingModuleResponse> PatchPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
         /// </summary>
@@ -739,8 +786,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
         /// <param name="cleardownModuleDetails">The new details for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CleardownModuleResponse</returns>
-        CleardownModuleResponse SetCleardownModuleDetails(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0);
+        CleardownModuleResponse SetCleardownModuleDetails(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
@@ -754,8 +802,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
         /// <param name="cleardownModuleDetails">The new details for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CleardownModuleResponse</returns>
-        ApiResponse<CleardownModuleResponse> SetCleardownModuleDetailsWithHttpInfo(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0);
+        ApiResponse<CleardownModuleResponse> SetCleardownModuleDetailsWithHttpInfo(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetCleardownModuleRules: Set the rules of a Cleardown Module
         /// </summary>
@@ -768,8 +817,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
         /// <param name="cleardownModuleRule">The new rule set for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CleardownModuleRulesUpdatedResponse</returns>
-        CleardownModuleRulesUpdatedResponse SetCleardownModuleRules(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0);
+        CleardownModuleRulesUpdatedResponse SetCleardownModuleRules(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetCleardownModuleRules: Set the rules of a Cleardown Module
@@ -783,8 +833,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
         /// <param name="cleardownModuleRule">The new rule set for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CleardownModuleRulesUpdatedResponse</returns>
-        ApiResponse<CleardownModuleRulesUpdatedResponse> SetCleardownModuleRulesWithHttpInfo(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0);
+        ApiResponse<CleardownModuleRulesUpdatedResponse> SetCleardownModuleRulesWithHttpInfo(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
         /// </summary>
@@ -797,8 +848,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileCode">The code of the General Ledger Profile</param>
         /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GeneralLedgerProfileResponse</returns>
-        GeneralLedgerProfileResponse SetGeneralLedgerProfileMappings(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0);
+        GeneralLedgerProfileResponse SetGeneralLedgerProfileMappings(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
@@ -812,8 +864,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileCode">The code of the General Ledger Profile</param>
         /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
-        ApiResponse<GeneralLedgerProfileResponse> SetGeneralLedgerProfileMappingsWithHttpInfo(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0);
+        ApiResponse<GeneralLedgerProfileResponse> SetGeneralLedgerProfileMappingsWithHttpInfo(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
         /// </summary>
@@ -826,8 +879,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
         /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PostingModuleResponse</returns>
-        PostingModuleResponse SetPostingModuleDetails(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0);
+        PostingModuleResponse SetPostingModuleDetails(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
@@ -841,8 +895,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
         /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PostingModuleResponse</returns>
-        ApiResponse<PostingModuleResponse> SetPostingModuleDetailsWithHttpInfo(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0);
+        ApiResponse<PostingModuleResponse> SetPostingModuleDetailsWithHttpInfo(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
         /// </summary>
@@ -855,8 +910,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
         /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PostingModuleRulesUpdatedResponse</returns>
-        PostingModuleRulesUpdatedResponse SetPostingModuleRules(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0);
+        PostingModuleRulesUpdatedResponse SetPostingModuleRules(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
@@ -870,8 +926,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
         /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PostingModuleRulesUpdatedResponse</returns>
-        ApiResponse<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0);
+        ApiResponse<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
         /// </summary>
@@ -884,8 +941,9 @@ namespace Lusid.Sdk.Api
         /// <param name="accountCode">The unique ID of the account to create or update properties for.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AccountProperties</returns>
-        AccountProperties UpsertAccountProperties(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0);
+        AccountProperties UpsertAccountProperties(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
@@ -899,8 +957,9 @@ namespace Lusid.Sdk.Api
         /// <param name="accountCode">The unique ID of the account to create or update properties for.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AccountProperties</returns>
-        ApiResponse<AccountProperties> UpsertAccountPropertiesWithHttpInfo(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0);
+        ApiResponse<AccountProperties> UpsertAccountPropertiesWithHttpInfo(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
         /// </summary>
@@ -912,8 +971,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AccountsUpsertResponse</returns>
-        AccountsUpsertResponse UpsertAccounts(string scope, string code, List<Account> account, int operationIndex = 0);
+        AccountsUpsertResponse UpsertAccounts(string scope, string code, List<Account> account, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
@@ -926,8 +986,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AccountsUpsertResponse</returns>
-        ApiResponse<AccountsUpsertResponse> UpsertAccountsWithHttpInfo(string scope, string code, List<Account> account, int operationIndex = 0);
+        ApiResponse<AccountsUpsertResponse> UpsertAccountsWithHttpInfo(string scope, string code, List<Account> account, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
         /// </summary>
@@ -939,8 +1000,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ChartOfAccountsProperties</returns>
-        ChartOfAccountsProperties UpsertChartOfAccountsProperties(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0);
+        ChartOfAccountsProperties UpsertChartOfAccountsProperties(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
@@ -953,8 +1015,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ChartOfAccountsProperties</returns>
-        ApiResponse<ChartOfAccountsProperties> UpsertChartOfAccountsPropertiesWithHttpInfo(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0);
+        ApiResponse<ChartOfAccountsProperties> UpsertChartOfAccountsPropertiesWithHttpInfo(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -975,8 +1038,9 @@ namespace Lusid.Sdk.Api
         /// <param name="chartOfAccountsRequest">The definition of the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ChartOfAccounts</returns>
-        System.Threading.Tasks.Task<ChartOfAccounts> CreateChartOfAccountsAsync(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ChartOfAccounts> CreateChartOfAccountsAsync(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateChartOfAccounts: Create a Chart of Accounts
@@ -989,8 +1053,9 @@ namespace Lusid.Sdk.Api
         /// <param name="chartOfAccountsRequest">The definition of the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ChartOfAccounts)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ChartOfAccounts>> CreateChartOfAccountsWithHttpInfoAsync(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ChartOfAccounts>> CreateChartOfAccountsWithHttpInfoAsync(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateCleardownModule: Create a Cleardown Module
         /// </summary>
@@ -1003,8 +1068,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleRequest">The definition of the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CleardownModuleResponse</returns>
-        System.Threading.Tasks.Task<CleardownModuleResponse> CreateCleardownModuleAsync(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CleardownModuleResponse> CreateCleardownModuleAsync(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateCleardownModule: Create a Cleardown Module
@@ -1018,8 +1084,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleRequest">The definition of the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CleardownModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CleardownModuleResponse>> CreateCleardownModuleWithHttpInfoAsync(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CleardownModuleResponse>> CreateCleardownModuleWithHttpInfoAsync(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
         /// </summary>
@@ -1032,8 +1099,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GeneralLedgerProfileResponse</returns>
-        System.Threading.Tasks.Task<GeneralLedgerProfileResponse> CreateGeneralLedgerProfileAsync(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GeneralLedgerProfileResponse> CreateGeneralLedgerProfileAsync(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
@@ -1047,8 +1115,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GeneralLedgerProfileResponse>> CreateGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GeneralLedgerProfileResponse>> CreateGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
         /// </summary>
@@ -1061,8 +1130,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PostingModuleResponse</returns>
-        System.Threading.Tasks.Task<PostingModuleResponse> CreatePostingModuleAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PostingModuleResponse> CreatePostingModuleAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
@@ -1076,8 +1146,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> CreatePostingModuleWithHttpInfoAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> CreatePostingModuleWithHttpInfoAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
         /// </summary>
@@ -1091,8 +1162,9 @@ namespace Lusid.Sdk.Api
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeleteAccountsResponse</returns>
-        System.Threading.Tasks.Task<DeleteAccountsResponse> DeleteAccountsAsync(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeleteAccountsResponse> DeleteAccountsAsync(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
@@ -1107,8 +1179,9 @@ namespace Lusid.Sdk.Api
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeleteAccountsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeleteAccountsResponse>> DeleteAccountsWithHttpInfoAsync(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeleteAccountsResponse>> DeleteAccountsWithHttpInfoAsync(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteChartOfAccounts: Delete a Chart of Accounts
         /// </summary>
@@ -1120,8 +1193,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts to be deleted. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteChartOfAccountsAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteChartOfAccountsAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteChartOfAccounts: Delete a Chart of Accounts
@@ -1134,8 +1208,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts to be deleted. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteChartOfAccountsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteChartOfAccountsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteCleardownModule: Delete a Cleardown Module.
         /// </summary>
@@ -1148,8 +1223,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCleardownModuleAsync(string scope, string code, string cleardownModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCleardownModuleAsync(string scope, string code, string cleardownModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteCleardownModule: Delete a Cleardown Module.
@@ -1163,8 +1239,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
         /// </summary>
@@ -1177,8 +1254,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
@@ -1192,8 +1270,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
         /// </summary>
@@ -1206,8 +1285,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeletePostingModuleAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeletePostingModuleAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
@@ -1221,8 +1301,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeletePostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeletePostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetAccount: Get Account
         /// </summary>
@@ -1238,8 +1319,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If not provided will return all the entitled properties for that Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Account</returns>
-        System.Threading.Tasks.Task<Account> GetAccountAsync(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Account> GetAccountAsync(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetAccount: Get Account
@@ -1256,8 +1338,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If not provided will return all the entitled properties for that Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Account)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Account>> GetAccountWithHttpInfoAsync(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Account>> GetAccountWithHttpInfoAsync(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
         /// </summary>
@@ -1272,8 +1355,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ChartOfAccounts</returns>
-        System.Threading.Tasks.Task<ChartOfAccounts> GetChartOfAccountsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ChartOfAccounts> GetChartOfAccountsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
@@ -1289,8 +1373,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ChartOfAccounts)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ChartOfAccounts>> GetChartOfAccountsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ChartOfAccounts>> GetChartOfAccountsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
         /// </summary>
@@ -1304,8 +1389,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CleardownModuleResponse</returns>
-        System.Threading.Tasks.Task<CleardownModuleResponse> GetCleardownModuleAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CleardownModuleResponse> GetCleardownModuleAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
@@ -1320,8 +1406,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CleardownModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CleardownModuleResponse>> GetCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CleardownModuleResponse>> GetCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
         /// </summary>
@@ -1335,8 +1422,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GeneralLedgerProfileResponse</returns>
-        System.Threading.Tasks.Task<GeneralLedgerProfileResponse> GetGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GeneralLedgerProfileResponse> GetGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
@@ -1351,8 +1439,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GeneralLedgerProfileResponse>> GetGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GeneralLedgerProfileResponse>> GetGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
         /// </summary>
@@ -1366,8 +1455,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PostingModuleResponse</returns>
-        System.Threading.Tasks.Task<PostingModuleResponse> GetPostingModuleAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PostingModuleResponse> GetPostingModuleAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
@@ -1382,8 +1472,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> GetPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> GetPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListAccounts: List Accounts
         /// </summary>
@@ -1401,8 +1492,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfAccount</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfAccount> ListAccountsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfAccount> ListAccountsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListAccounts: List Accounts
@@ -1421,8 +1513,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfAccount)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfAccount>> ListAccountsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfAccount>> ListAccountsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
         /// </summary>
@@ -1439,8 +1532,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfChartOfAccounts</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
@@ -1458,8 +1552,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfChartOfAccounts)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfChartOfAccounts>> ListChartsOfAccountsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfChartOfAccounts>> ListChartsOfAccountsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules
         /// </summary>
@@ -1476,8 +1571,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfCleardownModuleRule</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfCleardownModuleRule> ListCleardownModuleRulesAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfCleardownModuleRule> ListCleardownModuleRulesAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules
@@ -1495,8 +1591,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCleardownModuleRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCleardownModuleRule>> ListCleardownModuleRulesWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCleardownModuleRule>> ListCleardownModuleRulesWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListCleardownModules: List Cleardown Modules
         /// </summary>
@@ -1513,8 +1610,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfCleardownModuleResponse</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListCleardownModules: List Cleardown Modules
@@ -1532,8 +1630,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCleardownModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCleardownModuleResponse>> ListCleardownModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCleardownModuleResponse>> ListCleardownModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
         /// </summary>
@@ -1550,8 +1649,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfGeneralLedgerProfileResponse</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
@@ -1569,8 +1669,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfGeneralLedgerProfileResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse>> ListGeneralLedgerProfilesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse>> ListGeneralLedgerProfilesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
         /// </summary>
@@ -1587,8 +1688,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPostingModuleRule</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfPostingModuleRule> ListPostingModuleRulesAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfPostingModuleRule> ListPostingModuleRulesAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
@@ -1606,8 +1708,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPostingModuleRule>> ListPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPostingModuleRule>> ListPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListPostingModules: List Posting Modules
         /// </summary>
@@ -1624,8 +1727,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPostingModuleResponse</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfPostingModuleResponse> ListPostingModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfPostingModuleResponse> ListPostingModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListPostingModules: List Posting Modules
@@ -1643,8 +1747,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPostingModuleResponse>> ListPostingModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPostingModuleResponse>> ListPostingModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
         /// </summary>
@@ -1658,8 +1763,9 @@ namespace Lusid.Sdk.Api
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CleardownModuleResponse</returns>
-        System.Threading.Tasks.Task<CleardownModuleResponse> PatchCleardownModuleAsync(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CleardownModuleResponse> PatchCleardownModuleAsync(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
@@ -1674,8 +1780,9 @@ namespace Lusid.Sdk.Api
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CleardownModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CleardownModuleResponse>> PatchCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CleardownModuleResponse>> PatchCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
         /// </summary>
@@ -1689,8 +1796,9 @@ namespace Lusid.Sdk.Api
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PostingModuleResponse</returns>
-        System.Threading.Tasks.Task<PostingModuleResponse> PatchPostingModuleAsync(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PostingModuleResponse> PatchPostingModuleAsync(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
@@ -1705,8 +1813,9 @@ namespace Lusid.Sdk.Api
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> PatchPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> PatchPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
         /// </summary>
@@ -1720,8 +1829,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleDetails">The new details for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CleardownModuleResponse</returns>
-        System.Threading.Tasks.Task<CleardownModuleResponse> SetCleardownModuleDetailsAsync(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CleardownModuleResponse> SetCleardownModuleDetailsAsync(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
@@ -1736,8 +1846,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleDetails">The new details for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CleardownModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CleardownModuleResponse>> SetCleardownModuleDetailsWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CleardownModuleResponse>> SetCleardownModuleDetailsWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetCleardownModuleRules: Set the rules of a Cleardown Module
         /// </summary>
@@ -1751,8 +1862,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleRule">The new rule set for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CleardownModuleRulesUpdatedResponse</returns>
-        System.Threading.Tasks.Task<CleardownModuleRulesUpdatedResponse> SetCleardownModuleRulesAsync(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CleardownModuleRulesUpdatedResponse> SetCleardownModuleRulesAsync(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetCleardownModuleRules: Set the rules of a Cleardown Module
@@ -1767,8 +1879,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleRule">The new rule set for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CleardownModuleRulesUpdatedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CleardownModuleRulesUpdatedResponse>> SetCleardownModuleRulesWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CleardownModuleRulesUpdatedResponse>> SetCleardownModuleRulesWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
         /// </summary>
@@ -1782,8 +1895,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GeneralLedgerProfileResponse</returns>
-        System.Threading.Tasks.Task<GeneralLedgerProfileResponse> SetGeneralLedgerProfileMappingsAsync(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GeneralLedgerProfileResponse> SetGeneralLedgerProfileMappingsAsync(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
@@ -1798,8 +1912,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GeneralLedgerProfileResponse>> SetGeneralLedgerProfileMappingsWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GeneralLedgerProfileResponse>> SetGeneralLedgerProfileMappingsWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
         /// </summary>
@@ -1813,8 +1928,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PostingModuleResponse</returns>
-        System.Threading.Tasks.Task<PostingModuleResponse> SetPostingModuleDetailsAsync(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PostingModuleResponse> SetPostingModuleDetailsAsync(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
@@ -1829,8 +1945,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> SetPostingModuleDetailsWithHttpInfoAsync(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> SetPostingModuleDetailsWithHttpInfoAsync(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
         /// </summary>
@@ -1844,8 +1961,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PostingModuleRulesUpdatedResponse</returns>
-        System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesAsync(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesAsync(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
@@ -1860,8 +1978,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PostingModuleRulesUpdatedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostingModuleRulesUpdatedResponse>> SetPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PostingModuleRulesUpdatedResponse>> SetPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
         /// </summary>
@@ -1875,8 +1994,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AccountProperties</returns>
-        System.Threading.Tasks.Task<AccountProperties> UpsertAccountPropertiesAsync(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AccountProperties> UpsertAccountPropertiesAsync(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
@@ -1891,8 +2011,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AccountProperties)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountProperties>> UpsertAccountPropertiesWithHttpInfoAsync(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AccountProperties>> UpsertAccountPropertiesWithHttpInfoAsync(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
         /// </summary>
@@ -1905,8 +2026,9 @@ namespace Lusid.Sdk.Api
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AccountsUpsertResponse</returns>
-        System.Threading.Tasks.Task<AccountsUpsertResponse> UpsertAccountsAsync(string scope, string code, List<Account> account, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AccountsUpsertResponse> UpsertAccountsAsync(string scope, string code, List<Account> account, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
@@ -1920,8 +2042,9 @@ namespace Lusid.Sdk.Api
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AccountsUpsertResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountsUpsertResponse>> UpsertAccountsWithHttpInfoAsync(string scope, string code, List<Account> account, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AccountsUpsertResponse>> UpsertAccountsWithHttpInfoAsync(string scope, string code, List<Account> account, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
         /// </summary>
@@ -1934,8 +2057,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ChartOfAccountsProperties</returns>
-        System.Threading.Tasks.Task<ChartOfAccountsProperties> UpsertChartOfAccountsPropertiesAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ChartOfAccountsProperties> UpsertChartOfAccountsPropertiesAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
@@ -1949,8 +2073,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ChartOfAccountsProperties)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ChartOfAccountsProperties>> UpsertChartOfAccountsPropertiesWithHttpInfoAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ChartOfAccountsProperties>> UpsertChartOfAccountsPropertiesWithHttpInfoAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -1983,9 +2108,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public ChartOfAccountsApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -2075,10 +2206,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="chartOfAccountsRequest">The definition of the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ChartOfAccounts</returns>
-        public ChartOfAccounts CreateChartOfAccounts(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0)
+        public ChartOfAccounts CreateChartOfAccounts(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ChartOfAccounts> localVarResponse = CreateChartOfAccountsWithHttpInfo(scope, chartOfAccountsRequest);
+            Lusid.Sdk.Client.ApiResponse<ChartOfAccounts> localVarResponse = CreateChartOfAccountsWithHttpInfo(scope, chartOfAccountsRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2089,8 +2221,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="chartOfAccountsRequest">The definition of the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ChartOfAccounts</returns>
-        public Lusid.Sdk.Client.ApiResponse<ChartOfAccounts> CreateChartOfAccountsWithHttpInfo(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ChartOfAccounts> CreateChartOfAccountsWithHttpInfo(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2105,6 +2238,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2177,10 +2320,11 @@ namespace Lusid.Sdk.Api
         /// <param name="chartOfAccountsRequest">The definition of the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ChartOfAccounts</returns>
-        public async System.Threading.Tasks.Task<ChartOfAccounts> CreateChartOfAccountsAsync(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ChartOfAccounts> CreateChartOfAccountsAsync(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ChartOfAccounts> localVarResponse = await CreateChartOfAccountsWithHttpInfoAsync(scope, chartOfAccountsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ChartOfAccounts> localVarResponse = await CreateChartOfAccountsWithHttpInfoAsync(scope, chartOfAccountsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2192,8 +2336,9 @@ namespace Lusid.Sdk.Api
         /// <param name="chartOfAccountsRequest">The definition of the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ChartOfAccounts)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ChartOfAccounts>> CreateChartOfAccountsWithHttpInfoAsync(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ChartOfAccounts>> CreateChartOfAccountsWithHttpInfoAsync(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2209,6 +2354,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2282,10 +2437,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleRequest">The definition of the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CleardownModuleResponse</returns>
-        public CleardownModuleResponse CreateCleardownModule(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0)
+        public CleardownModuleResponse CreateCleardownModule(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = CreateCleardownModuleWithHttpInfo(scope, code, cleardownModuleRequest);
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = CreateCleardownModuleWithHttpInfo(scope, code, cleardownModuleRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2297,8 +2453,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleRequest">The definition of the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CleardownModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> CreateCleardownModuleWithHttpInfo(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> CreateCleardownModuleWithHttpInfo(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2319,6 +2476,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2393,10 +2560,11 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleRequest">The definition of the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CleardownModuleResponse</returns>
-        public async System.Threading.Tasks.Task<CleardownModuleResponse> CreateCleardownModuleAsync(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CleardownModuleResponse> CreateCleardownModuleAsync(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = await CreateCleardownModuleWithHttpInfoAsync(scope, code, cleardownModuleRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = await CreateCleardownModuleWithHttpInfoAsync(scope, code, cleardownModuleRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2409,8 +2577,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleRequest">The definition of the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CleardownModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse>> CreateCleardownModuleWithHttpInfoAsync(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse>> CreateCleardownModuleWithHttpInfoAsync(string scope, string code, CleardownModuleRequest cleardownModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2432,6 +2601,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2506,10 +2685,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts.</param>
         /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GeneralLedgerProfileResponse</returns>
-        public GeneralLedgerProfileResponse CreateGeneralLedgerProfile(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0)
+        public GeneralLedgerProfileResponse CreateGeneralLedgerProfile(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = CreateGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileRequest);
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = CreateGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2521,8 +2701,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts.</param>
         /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> CreateGeneralLedgerProfileWithHttpInfo(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> CreateGeneralLedgerProfileWithHttpInfo(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2543,6 +2724,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2617,10 +2808,11 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GeneralLedgerProfileResponse</returns>
-        public async System.Threading.Tasks.Task<GeneralLedgerProfileResponse> CreateGeneralLedgerProfileAsync(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GeneralLedgerProfileResponse> CreateGeneralLedgerProfileAsync(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = await CreateGeneralLedgerProfileWithHttpInfoAsync(scope, code, generalLedgerProfileRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = await CreateGeneralLedgerProfileWithHttpInfoAsync(scope, code, generalLedgerProfileRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2633,8 +2825,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse>> CreateGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse>> CreateGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2656,6 +2849,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2730,10 +2933,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PostingModuleResponse</returns>
-        public PostingModuleResponse CreatePostingModule(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0)
+        public PostingModuleResponse CreatePostingModule(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = CreatePostingModuleWithHttpInfo(scope, code, postingModuleRequest);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = CreatePostingModuleWithHttpInfo(scope, code, postingModuleRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2745,8 +2949,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PostingModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> CreatePostingModuleWithHttpInfo(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> CreatePostingModuleWithHttpInfo(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2767,6 +2972,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2841,10 +3056,11 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PostingModuleResponse</returns>
-        public async System.Threading.Tasks.Task<PostingModuleResponse> CreatePostingModuleAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PostingModuleResponse> CreatePostingModuleAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await CreatePostingModuleWithHttpInfoAsync(scope, code, postingModuleRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await CreatePostingModuleWithHttpInfoAsync(scope, code, postingModuleRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2857,8 +3073,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> CreatePostingModuleWithHttpInfoAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> CreatePostingModuleWithHttpInfoAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2880,6 +3097,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2955,10 +3182,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The codes of the accounts to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeleteAccountsResponse</returns>
-        public DeleteAccountsResponse DeleteAccounts(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0)
+        public DeleteAccountsResponse DeleteAccounts(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeleteAccountsResponse> localVarResponse = DeleteAccountsWithHttpInfo(scope, code, requestBody, deleteMode);
+            Lusid.Sdk.Client.ApiResponse<DeleteAccountsResponse> localVarResponse = DeleteAccountsWithHttpInfo(scope, code, requestBody, deleteMode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2971,8 +3199,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The codes of the accounts to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeleteAccountsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeleteAccountsResponse> DeleteAccountsWithHttpInfo(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeleteAccountsResponse> DeleteAccountsWithHttpInfo(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2993,6 +3222,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3072,10 +3311,11 @@ namespace Lusid.Sdk.Api
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeleteAccountsResponse</returns>
-        public async System.Threading.Tasks.Task<DeleteAccountsResponse> DeleteAccountsAsync(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeleteAccountsResponse> DeleteAccountsAsync(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeleteAccountsResponse> localVarResponse = await DeleteAccountsWithHttpInfoAsync(scope, code, requestBody, deleteMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeleteAccountsResponse> localVarResponse = await DeleteAccountsWithHttpInfoAsync(scope, code, requestBody, deleteMode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3089,8 +3329,9 @@ namespace Lusid.Sdk.Api
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeleteAccountsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeleteAccountsResponse>> DeleteAccountsWithHttpInfoAsync(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeleteAccountsResponse>> DeleteAccountsWithHttpInfoAsync(string scope, string code, List<string> requestBody, string? deleteMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3112,6 +3353,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -3189,10 +3440,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts to be deleted.</param>
         /// <param name="code">The code of the Chart of Accounts to be deleted. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteChartOfAccounts(string scope, string code, int operationIndex = 0)
+        public DeletedEntityResponse DeleteChartOfAccounts(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteChartOfAccountsWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteChartOfAccountsWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3203,8 +3455,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts to be deleted.</param>
         /// <param name="code">The code of the Chart of Accounts to be deleted. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteChartOfAccountsWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteChartOfAccountsWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3219,6 +3472,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3287,10 +3550,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts to be deleted. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteChartOfAccountsAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteChartOfAccountsAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteChartOfAccountsWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteChartOfAccountsWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3302,8 +3566,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts to be deleted. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteChartOfAccountsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteChartOfAccountsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3319,6 +3584,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3388,10 +3663,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteCleardownModule(string scope, string code, string cleardownModuleCode, int operationIndex = 0)
+        public DeletedEntityResponse DeleteCleardownModule(string scope, string code, string cleardownModuleCode, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3403,8 +3679,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3425,6 +3702,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3495,10 +3782,11 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCleardownModuleAsync(string scope, string code, string cleardownModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCleardownModuleAsync(string scope, string code, string cleardownModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteCleardownModuleWithHttpInfoAsync(scope, code, cleardownModuleCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteCleardownModuleWithHttpInfoAsync(scope, code, cleardownModuleCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3511,8 +3799,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3534,6 +3823,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3604,10 +3903,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0)
+        public DeletedEntityResponse DeleteGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileCode);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3619,8 +3919,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3641,6 +3942,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3711,10 +4022,11 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteGeneralLedgerProfileWithHttpInfoAsync(scope, code, generalLedgerProfileCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteGeneralLedgerProfileWithHttpInfoAsync(scope, code, generalLedgerProfileCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3727,8 +4039,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3750,6 +4063,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3820,10 +4143,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the Posting Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeletePostingModule(string scope, string code, string postingModuleCode, int operationIndex = 0)
+        public DeletedEntityResponse DeletePostingModule(string scope, string code, string postingModuleCode, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeletePostingModuleWithHttpInfo(scope, code, postingModuleCode);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeletePostingModuleWithHttpInfo(scope, code, postingModuleCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3835,8 +4159,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the Posting Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3857,6 +4182,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3927,10 +4262,11 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeletePostingModuleAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeletePostingModuleAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeletePostingModuleWithHttpInfoAsync(scope, code, postingModuleCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeletePostingModuleWithHttpInfoAsync(scope, code, postingModuleCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3943,8 +4279,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3966,6 +4303,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -4039,10 +4386,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If not provided will return all the entitled properties for that Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Account</returns>
-        public Account GetAccount(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Account GetAccount(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Account> localVarResponse = GetAccountWithHttpInfo(scope, code, accountCode, effectiveAt, asAt, propertyKeys);
+            Lusid.Sdk.Client.ApiResponse<Account> localVarResponse = GetAccountWithHttpInfo(scope, code, accountCode, effectiveAt, asAt, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -4057,8 +4405,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If not provided will return all the entitled properties for that Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Account</returns>
-        public Lusid.Sdk.Client.ApiResponse<Account> GetAccountWithHttpInfo(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Account> GetAccountWithHttpInfo(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4079,6 +4428,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -4164,10 +4523,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If not provided will return all the entitled properties for that Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Account</returns>
-        public async System.Threading.Tasks.Task<Account> GetAccountAsync(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Account> GetAccountAsync(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Account> localVarResponse = await GetAccountWithHttpInfoAsync(scope, code, accountCode, effectiveAt, asAt, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Account> localVarResponse = await GetAccountWithHttpInfoAsync(scope, code, accountCode, effectiveAt, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4183,8 +4543,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If not provided will return all the entitled properties for that Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Account)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Account>> GetAccountWithHttpInfoAsync(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Account>> GetAccountWithHttpInfoAsync(string scope, string code, string accountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4206,6 +4567,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -4290,10 +4661,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ChartOfAccounts</returns>
-        public ChartOfAccounts GetChartOfAccounts(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public ChartOfAccounts GetChartOfAccounts(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ChartOfAccounts> localVarResponse = GetChartOfAccountsWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
+            Lusid.Sdk.Client.ApiResponse<ChartOfAccounts> localVarResponse = GetChartOfAccountsWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -4307,8 +4679,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ChartOfAccounts</returns>
-        public Lusid.Sdk.Client.ApiResponse<ChartOfAccounts> GetChartOfAccountsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ChartOfAccounts> GetChartOfAccountsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4323,6 +4696,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -4406,10 +4789,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ChartOfAccounts</returns>
-        public async System.Threading.Tasks.Task<ChartOfAccounts> GetChartOfAccountsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ChartOfAccounts> GetChartOfAccountsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ChartOfAccounts> localVarResponse = await GetChartOfAccountsWithHttpInfoAsync(scope, code, effectiveAt, asAt, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ChartOfAccounts> localVarResponse = await GetChartOfAccountsWithHttpInfoAsync(scope, code, effectiveAt, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4424,8 +4808,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ChartOfAccounts)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ChartOfAccounts>> GetChartOfAccountsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ChartOfAccounts>> GetChartOfAccountsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4441,6 +4826,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -4523,10 +4918,11 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CleardownModuleResponse</returns>
-        public CleardownModuleResponse GetCleardownModule(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public CleardownModuleResponse GetCleardownModule(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = GetCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode, asAt);
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = GetCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -4539,8 +4935,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CleardownModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> GetCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> GetCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4561,6 +4958,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -4636,10 +5043,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CleardownModuleResponse</returns>
-        public async System.Threading.Tasks.Task<CleardownModuleResponse> GetCleardownModuleAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CleardownModuleResponse> GetCleardownModuleAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = await GetCleardownModuleWithHttpInfoAsync(scope, code, cleardownModuleCode, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = await GetCleardownModuleWithHttpInfoAsync(scope, code, cleardownModuleCode, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4653,8 +5061,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CleardownModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse>> GetCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse>> GetCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4676,6 +5085,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -4751,10 +5170,11 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GeneralLedgerProfileResponse</returns>
-        public GeneralLedgerProfileResponse GetGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public GeneralLedgerProfileResponse GetGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = GetGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileCode, asAt);
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = GetGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileCode, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -4767,8 +5187,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> GetGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> GetGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4789,6 +5210,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -4864,10 +5295,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GeneralLedgerProfileResponse</returns>
-        public async System.Threading.Tasks.Task<GeneralLedgerProfileResponse> GetGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GeneralLedgerProfileResponse> GetGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = await GetGeneralLedgerProfileWithHttpInfoAsync(scope, code, generalLedgerProfileCode, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = await GetGeneralLedgerProfileWithHttpInfoAsync(scope, code, generalLedgerProfileCode, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4881,8 +5313,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse>> GetGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse>> GetGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4904,6 +5337,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -4979,10 +5422,11 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PostingModuleResponse</returns>
-        public PostingModuleResponse GetPostingModule(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public PostingModuleResponse GetPostingModule(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = GetPostingModuleWithHttpInfo(scope, code, postingModuleCode, asAt);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = GetPostingModuleWithHttpInfo(scope, code, postingModuleCode, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -4995,8 +5439,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PostingModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> GetPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> GetPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -5017,6 +5462,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -5092,10 +5547,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PostingModuleResponse</returns>
-        public async System.Threading.Tasks.Task<PostingModuleResponse> GetPostingModuleAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PostingModuleResponse> GetPostingModuleAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await GetPostingModuleWithHttpInfoAsync(scope, code, postingModuleCode, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await GetPostingModuleWithHttpInfoAsync(scope, code, postingModuleCode, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5109,8 +5565,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> GetPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> GetPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -5132,6 +5589,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -5211,10 +5678,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfAccount</returns>
-        public PagedResourceListOfAccount ListAccounts(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfAccount ListAccounts(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAccount> localVarResponse = ListAccountsWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAccount> localVarResponse = ListAccountsWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -5231,8 +5699,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfAccount</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAccount> ListAccountsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAccount> ListAccountsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -5247,6 +5716,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -5345,10 +5824,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfAccount</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfAccount> ListAccountsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfAccount> ListAccountsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAccount> localVarResponse = await ListAccountsWithHttpInfoAsync(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAccount> localVarResponse = await ListAccountsWithHttpInfoAsync(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5366,8 +5846,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfAccount)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAccount>> ListAccountsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAccount>> ListAccountsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -5383,6 +5864,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -5480,10 +5971,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfChartOfAccounts</returns>
-        public PagedResourceListOfChartOfAccounts ListChartsOfAccounts(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfChartOfAccounts ListChartsOfAccounts(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts> localVarResponse = ListChartsOfAccountsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts> localVarResponse = ListChartsOfAccountsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -5499,10 +5991,21 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfChartOfAccounts</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -5602,10 +6105,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfChartOfAccounts</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts> localVarResponse = await ListChartsOfAccountsWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts> localVarResponse = await ListChartsOfAccountsWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5622,11 +6126,22 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfChartOfAccounts)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts>> ListChartsOfAccountsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts>> ListChartsOfAccountsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -5726,10 +6241,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCleardownModuleRule</returns>
-        public PagedResourceListOfCleardownModuleRule ListCleardownModuleRules(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public PagedResourceListOfCleardownModuleRule ListCleardownModuleRules(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleRule> localVarResponse = ListCleardownModuleRulesWithHttpInfo(scope, code, cleardownModuleCode, asAt, page, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleRule> localVarResponse = ListCleardownModuleRulesWithHttpInfo(scope, code, cleardownModuleCode, asAt, page, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -5745,8 +6261,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCleardownModuleRule</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleRule> ListCleardownModuleRulesWithHttpInfo(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleRule> ListCleardownModuleRulesWithHttpInfo(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -5767,6 +6284,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -5857,10 +6384,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfCleardownModuleRule</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfCleardownModuleRule> ListCleardownModuleRulesAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfCleardownModuleRule> ListCleardownModuleRulesAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleRule> localVarResponse = await ListCleardownModuleRulesWithHttpInfoAsync(scope, code, cleardownModuleCode, asAt, page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleRule> localVarResponse = await ListCleardownModuleRulesWithHttpInfoAsync(scope, code, cleardownModuleCode, asAt, page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5877,8 +6405,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCleardownModuleRule)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleRule>> ListCleardownModuleRulesWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleRule>> ListCleardownModuleRulesWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -5900,6 +6429,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -5990,10 +6529,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCleardownModuleResponse</returns>
-        public PagedResourceListOfCleardownModuleResponse ListCleardownModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfCleardownModuleResponse ListCleardownModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse> localVarResponse = ListCleardownModulesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse> localVarResponse = ListCleardownModulesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -6009,8 +6549,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCleardownModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6025,6 +6566,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -6118,10 +6669,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfCleardownModuleResponse</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse> localVarResponse = await ListCleardownModulesWithHttpInfoAsync(scope, code, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse> localVarResponse = await ListCleardownModulesWithHttpInfoAsync(scope, code, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6138,8 +6690,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCleardownModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse>> ListCleardownModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse>> ListCleardownModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6155,6 +6708,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -6248,10 +6811,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfGeneralLedgerProfileResponse</returns>
-        public PagedResourceListOfGeneralLedgerProfileResponse ListGeneralLedgerProfiles(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfGeneralLedgerProfileResponse ListGeneralLedgerProfiles(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> localVarResponse = ListGeneralLedgerProfilesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> localVarResponse = ListGeneralLedgerProfilesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -6267,8 +6831,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfGeneralLedgerProfileResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6283,6 +6848,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -6376,10 +6951,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfGeneralLedgerProfileResponse</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> localVarResponse = await ListGeneralLedgerProfilesWithHttpInfoAsync(scope, code, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> localVarResponse = await ListGeneralLedgerProfilesWithHttpInfoAsync(scope, code, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6396,8 +6972,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfGeneralLedgerProfileResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse>> ListGeneralLedgerProfilesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse>> ListGeneralLedgerProfilesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6413,6 +6990,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -6506,10 +7093,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPostingModuleRule</returns>
-        public PagedResourceListOfPostingModuleRule ListPostingModuleRules(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public PagedResourceListOfPostingModuleRule ListPostingModuleRules(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule> localVarResponse = ListPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, asAt, page, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule> localVarResponse = ListPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, asAt, page, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -6525,8 +7113,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleRule</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule> ListPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule> ListPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6547,6 +7136,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -6637,10 +7236,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPostingModuleRule</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfPostingModuleRule> ListPostingModuleRulesAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfPostingModuleRule> ListPostingModuleRulesAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule> localVarResponse = await ListPostingModuleRulesWithHttpInfoAsync(scope, code, postingModuleCode, asAt, page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule> localVarResponse = await ListPostingModuleRulesWithHttpInfoAsync(scope, code, postingModuleCode, asAt, page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6657,8 +7257,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleRule)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule>> ListPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleRule>> ListPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6680,6 +7281,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -6770,10 +7381,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPostingModuleResponse</returns>
-        public PagedResourceListOfPostingModuleResponse ListPostingModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfPostingModuleResponse ListPostingModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> localVarResponse = ListPostingModulesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> localVarResponse = ListPostingModulesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -6789,8 +7401,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6805,6 +7418,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -6898,10 +7521,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPostingModuleResponse</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfPostingModuleResponse> ListPostingModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfPostingModuleResponse> ListPostingModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> localVarResponse = await ListPostingModulesWithHttpInfoAsync(scope, code, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> localVarResponse = await ListPostingModulesWithHttpInfoAsync(scope, code, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6918,8 +7542,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse>> ListPostingModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse>> ListPostingModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6935,6 +7560,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -7025,10 +7660,11 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CleardownModuleResponse</returns>
-        public CleardownModuleResponse PatchCleardownModule(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0)
+        public CleardownModuleResponse PatchCleardownModule(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = PatchCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode, operation);
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = PatchCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode, operation, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -7041,8 +7677,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CleardownModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> PatchCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> PatchCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7069,6 +7706,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -7145,10 +7792,11 @@ namespace Lusid.Sdk.Api
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CleardownModuleResponse</returns>
-        public async System.Threading.Tasks.Task<CleardownModuleResponse> PatchCleardownModuleAsync(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CleardownModuleResponse> PatchCleardownModuleAsync(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = await PatchCleardownModuleWithHttpInfoAsync(scope, code, cleardownModuleCode, operation, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = await PatchCleardownModuleWithHttpInfoAsync(scope, code, cleardownModuleCode, operation, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7162,8 +7810,9 @@ namespace Lusid.Sdk.Api
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CleardownModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse>> PatchCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse>> PatchCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7191,6 +7840,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -7267,10 +7926,11 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PostingModuleResponse</returns>
-        public PostingModuleResponse PatchPostingModule(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0)
+        public PostingModuleResponse PatchPostingModule(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = PatchPostingModuleWithHttpInfo(scope, code, postingModuleCode, operation);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = PatchPostingModuleWithHttpInfo(scope, code, postingModuleCode, operation, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -7283,8 +7943,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PostingModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> PatchPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> PatchPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7311,6 +7972,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -7387,10 +8058,11 @@ namespace Lusid.Sdk.Api
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PostingModuleResponse</returns>
-        public async System.Threading.Tasks.Task<PostingModuleResponse> PatchPostingModuleAsync(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PostingModuleResponse> PatchPostingModuleAsync(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await PatchPostingModuleWithHttpInfoAsync(scope, code, postingModuleCode, operation, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await PatchPostingModuleWithHttpInfoAsync(scope, code, postingModuleCode, operation, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7404,8 +8076,9 @@ namespace Lusid.Sdk.Api
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> PatchPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> PatchPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7433,6 +8106,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -7509,10 +8192,11 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
         /// <param name="cleardownModuleDetails">The new details for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CleardownModuleResponse</returns>
-        public CleardownModuleResponse SetCleardownModuleDetails(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0)
+        public CleardownModuleResponse SetCleardownModuleDetails(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = SetCleardownModuleDetailsWithHttpInfo(scope, code, cleardownModuleCode, cleardownModuleDetails);
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = SetCleardownModuleDetailsWithHttpInfo(scope, code, cleardownModuleCode, cleardownModuleDetails, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -7525,8 +8209,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
         /// <param name="cleardownModuleDetails">The new details for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CleardownModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> SetCleardownModuleDetailsWithHttpInfo(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> SetCleardownModuleDetailsWithHttpInfo(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7553,6 +8238,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -7629,10 +8324,11 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleDetails">The new details for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CleardownModuleResponse</returns>
-        public async System.Threading.Tasks.Task<CleardownModuleResponse> SetCleardownModuleDetailsAsync(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CleardownModuleResponse> SetCleardownModuleDetailsAsync(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = await SetCleardownModuleDetailsWithHttpInfoAsync(scope, code, cleardownModuleCode, cleardownModuleDetails, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = await SetCleardownModuleDetailsWithHttpInfoAsync(scope, code, cleardownModuleCode, cleardownModuleDetails, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7646,8 +8342,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleDetails">The new details for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CleardownModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse>> SetCleardownModuleDetailsWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse>> SetCleardownModuleDetailsWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, CleardownModuleDetails cleardownModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7675,6 +8372,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -7751,10 +8458,11 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
         /// <param name="cleardownModuleRule">The new rule set for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CleardownModuleRulesUpdatedResponse</returns>
-        public CleardownModuleRulesUpdatedResponse SetCleardownModuleRules(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0)
+        public CleardownModuleRulesUpdatedResponse SetCleardownModuleRules(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CleardownModuleRulesUpdatedResponse> localVarResponse = SetCleardownModuleRulesWithHttpInfo(scope, code, cleardownModuleCode, cleardownModuleRule);
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleRulesUpdatedResponse> localVarResponse = SetCleardownModuleRulesWithHttpInfo(scope, code, cleardownModuleCode, cleardownModuleRule, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -7767,8 +8475,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleCode">The code of the Cleardown Module to be updated.</param>
         /// <param name="cleardownModuleRule">The new rule set for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CleardownModuleRulesUpdatedResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<CleardownModuleRulesUpdatedResponse> SetCleardownModuleRulesWithHttpInfo(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CleardownModuleRulesUpdatedResponse> SetCleardownModuleRulesWithHttpInfo(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7795,6 +8504,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -7871,10 +8590,11 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleRule">The new rule set for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CleardownModuleRulesUpdatedResponse</returns>
-        public async System.Threading.Tasks.Task<CleardownModuleRulesUpdatedResponse> SetCleardownModuleRulesAsync(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CleardownModuleRulesUpdatedResponse> SetCleardownModuleRulesAsync(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CleardownModuleRulesUpdatedResponse> localVarResponse = await SetCleardownModuleRulesWithHttpInfoAsync(scope, code, cleardownModuleCode, cleardownModuleRule, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleRulesUpdatedResponse> localVarResponse = await SetCleardownModuleRulesWithHttpInfoAsync(scope, code, cleardownModuleCode, cleardownModuleRule, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7888,8 +8608,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cleardownModuleRule">The new rule set for the Cleardown Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CleardownModuleRulesUpdatedResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleRulesUpdatedResponse>> SetCleardownModuleRulesWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleRulesUpdatedResponse>> SetCleardownModuleRulesWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, List<CleardownModuleRule> cleardownModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7917,6 +8638,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -7993,10 +8724,11 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileCode">The code of the General Ledger Profile</param>
         /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GeneralLedgerProfileResponse</returns>
-        public GeneralLedgerProfileResponse SetGeneralLedgerProfileMappings(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0)
+        public GeneralLedgerProfileResponse SetGeneralLedgerProfileMappings(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = SetGeneralLedgerProfileMappingsWithHttpInfo(scope, code, generalLedgerProfileCode, generalLedgerProfileMapping);
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = SetGeneralLedgerProfileMappingsWithHttpInfo(scope, code, generalLedgerProfileCode, generalLedgerProfileMapping, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -8009,8 +8741,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileCode">The code of the General Ledger Profile</param>
         /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> SetGeneralLedgerProfileMappingsWithHttpInfo(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> SetGeneralLedgerProfileMappingsWithHttpInfo(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8037,6 +8770,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -8113,10 +8856,11 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GeneralLedgerProfileResponse</returns>
-        public async System.Threading.Tasks.Task<GeneralLedgerProfileResponse> SetGeneralLedgerProfileMappingsAsync(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GeneralLedgerProfileResponse> SetGeneralLedgerProfileMappingsAsync(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = await SetGeneralLedgerProfileMappingsWithHttpInfoAsync(scope, code, generalLedgerProfileCode, generalLedgerProfileMapping, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = await SetGeneralLedgerProfileMappingsWithHttpInfoAsync(scope, code, generalLedgerProfileCode, generalLedgerProfileMapping, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8130,8 +8874,9 @@ namespace Lusid.Sdk.Api
         /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse>> SetGeneralLedgerProfileMappingsWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse>> SetGeneralLedgerProfileMappingsWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8159,6 +8904,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -8235,10 +8990,11 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
         /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PostingModuleResponse</returns>
-        public PostingModuleResponse SetPostingModuleDetails(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0)
+        public PostingModuleResponse SetPostingModuleDetails(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = SetPostingModuleDetailsWithHttpInfo(scope, code, postingModuleCode, postingModuleDetails);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = SetPostingModuleDetailsWithHttpInfo(scope, code, postingModuleCode, postingModuleDetails, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -8251,8 +9007,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
         /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PostingModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> SetPostingModuleDetailsWithHttpInfo(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> SetPostingModuleDetailsWithHttpInfo(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8279,6 +9036,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -8355,10 +9122,11 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PostingModuleResponse</returns>
-        public async System.Threading.Tasks.Task<PostingModuleResponse> SetPostingModuleDetailsAsync(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PostingModuleResponse> SetPostingModuleDetailsAsync(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await SetPostingModuleDetailsWithHttpInfoAsync(scope, code, postingModuleCode, postingModuleDetails, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await SetPostingModuleDetailsWithHttpInfoAsync(scope, code, postingModuleCode, postingModuleDetails, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8372,8 +9140,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> SetPostingModuleDetailsWithHttpInfoAsync(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> SetPostingModuleDetailsWithHttpInfoAsync(string scope, string code, string postingModuleCode, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8401,6 +9170,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -8477,10 +9256,11 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
         /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PostingModuleRulesUpdatedResponse</returns>
-        public PostingModuleRulesUpdatedResponse SetPostingModuleRules(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0)
+        public PostingModuleRulesUpdatedResponse SetPostingModuleRules(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = SetPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, postingModuleRule);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = SetPostingModuleRulesWithHttpInfo(scope, code, postingModuleCode, postingModuleRule, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -8493,8 +9273,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleCode">The code of the Posting Module to be updated.</param>
         /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PostingModuleRulesUpdatedResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesWithHttpInfo(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8521,6 +9302,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -8597,10 +9388,11 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PostingModuleRulesUpdatedResponse</returns>
-        public async System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesAsync(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesAsync(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = await SetPostingModuleRulesWithHttpInfoAsync(scope, code, postingModuleCode, postingModuleRule, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = await SetPostingModuleRulesWithHttpInfoAsync(scope, code, postingModuleCode, postingModuleRule, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8614,8 +9406,9 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PostingModuleRulesUpdatedResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse>> SetPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse>> SetPostingModuleRulesWithHttpInfoAsync(string scope, string code, string postingModuleCode, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8643,6 +9436,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -8719,10 +9522,11 @@ namespace Lusid.Sdk.Api
         /// <param name="accountCode">The unique ID of the account to create or update properties for.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AccountProperties</returns>
-        public AccountProperties UpsertAccountProperties(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0)
+        public AccountProperties UpsertAccountProperties(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AccountProperties> localVarResponse = UpsertAccountPropertiesWithHttpInfo(scope, code, accountCode, requestBody);
+            Lusid.Sdk.Client.ApiResponse<AccountProperties> localVarResponse = UpsertAccountPropertiesWithHttpInfo(scope, code, accountCode, requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -8735,8 +9539,9 @@ namespace Lusid.Sdk.Api
         /// <param name="accountCode">The unique ID of the account to create or update properties for.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AccountProperties</returns>
-        public Lusid.Sdk.Client.ApiResponse<AccountProperties> UpsertAccountPropertiesWithHttpInfo(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AccountProperties> UpsertAccountPropertiesWithHttpInfo(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8757,6 +9562,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -8833,10 +9648,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AccountProperties</returns>
-        public async System.Threading.Tasks.Task<AccountProperties> UpsertAccountPropertiesAsync(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AccountProperties> UpsertAccountPropertiesAsync(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AccountProperties> localVarResponse = await UpsertAccountPropertiesWithHttpInfoAsync(scope, code, accountCode, requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AccountProperties> localVarResponse = await UpsertAccountPropertiesWithHttpInfoAsync(scope, code, accountCode, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8850,8 +9666,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AccountProperties)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AccountProperties>> UpsertAccountPropertiesWithHttpInfoAsync(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AccountProperties>> UpsertAccountPropertiesWithHttpInfoAsync(string scope, string code, string accountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8873,6 +9690,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -8948,10 +9775,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AccountsUpsertResponse</returns>
-        public AccountsUpsertResponse UpsertAccounts(string scope, string code, List<Account> account, int operationIndex = 0)
+        public AccountsUpsertResponse UpsertAccounts(string scope, string code, List<Account> account, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AccountsUpsertResponse> localVarResponse = UpsertAccountsWithHttpInfo(scope, code, account);
+            Lusid.Sdk.Client.ApiResponse<AccountsUpsertResponse> localVarResponse = UpsertAccountsWithHttpInfo(scope, code, account, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -8963,8 +9791,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AccountsUpsertResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AccountsUpsertResponse> UpsertAccountsWithHttpInfo(string scope, string code, List<Account> account, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AccountsUpsertResponse> UpsertAccountsWithHttpInfo(string scope, string code, List<Account> account, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8985,6 +9814,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -9059,10 +9898,11 @@ namespace Lusid.Sdk.Api
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AccountsUpsertResponse</returns>
-        public async System.Threading.Tasks.Task<AccountsUpsertResponse> UpsertAccountsAsync(string scope, string code, List<Account> account, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AccountsUpsertResponse> UpsertAccountsAsync(string scope, string code, List<Account> account, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AccountsUpsertResponse> localVarResponse = await UpsertAccountsWithHttpInfoAsync(scope, code, account, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AccountsUpsertResponse> localVarResponse = await UpsertAccountsWithHttpInfoAsync(scope, code, account, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9075,8 +9915,9 @@ namespace Lusid.Sdk.Api
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AccountsUpsertResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AccountsUpsertResponse>> UpsertAccountsWithHttpInfoAsync(string scope, string code, List<Account> account, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AccountsUpsertResponse>> UpsertAccountsWithHttpInfoAsync(string scope, string code, List<Account> account, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -9098,6 +9939,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -9172,10 +10023,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ChartOfAccountsProperties</returns>
-        public ChartOfAccountsProperties UpsertChartOfAccountsProperties(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0)
+        public ChartOfAccountsProperties UpsertChartOfAccountsProperties(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ChartOfAccountsProperties> localVarResponse = UpsertChartOfAccountsPropertiesWithHttpInfo(scope, code, requestBody);
+            Lusid.Sdk.Client.ApiResponse<ChartOfAccountsProperties> localVarResponse = UpsertChartOfAccountsPropertiesWithHttpInfo(scope, code, requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -9187,8 +10039,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ChartOfAccountsProperties</returns>
-        public Lusid.Sdk.Client.ApiResponse<ChartOfAccountsProperties> UpsertChartOfAccountsPropertiesWithHttpInfo(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ChartOfAccountsProperties> UpsertChartOfAccountsPropertiesWithHttpInfo(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -9203,6 +10056,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -9277,10 +10140,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ChartOfAccountsProperties</returns>
-        public async System.Threading.Tasks.Task<ChartOfAccountsProperties> UpsertChartOfAccountsPropertiesAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ChartOfAccountsProperties> UpsertChartOfAccountsPropertiesAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ChartOfAccountsProperties> localVarResponse = await UpsertChartOfAccountsPropertiesWithHttpInfoAsync(scope, code, requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ChartOfAccountsProperties> localVarResponse = await UpsertChartOfAccountsPropertiesWithHttpInfoAsync(scope, code, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9293,8 +10157,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ChartOfAccountsProperties)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ChartOfAccountsProperties>> UpsertChartOfAccountsPropertiesWithHttpInfoAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ChartOfAccountsProperties>> UpsertChartOfAccountsPropertiesWithHttpInfoAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -9310,6 +10175,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

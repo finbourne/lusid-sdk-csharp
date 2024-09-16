@@ -49,12 +49,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AmortisationRuleSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AmortisationRuleSetsApi>();
             var scope = "scope_example";  // string | The scope of the rule set.
             var createAmortisationRuleSetRequest = new CreateAmortisationRuleSetRequest(); // CreateAmortisationRuleSetRequest | The contents of the rule set.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AmortisationRuleSet result = apiInstance.CreateAmortisationRuleSet(scope, createAmortisationRuleSetRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set.
                 AmortisationRuleSet result = apiInstance.CreateAmortisationRuleSet(scope, createAmortisationRuleSetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -154,12 +165,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AmortisationRuleSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AmortisationRuleSetsApi>();
             var scope = "scope_example";  // string | The rule set scope.
             var code = "code_example";  // string | The rule set code.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteAmortisationRuleset(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
                 DeletedEntityResponse result = apiInstance.DeleteAmortisationRuleset(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -259,6 +281,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AmortisationRuleSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AmortisationRuleSetsApi>();
             var scope = "scope_example";  // string | The rule set scope.
             var code = "code_example";  // string | The rule set code.
@@ -267,6 +297,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AmortisationRuleSet result = apiInstance.GetAmortisationRuleSet(scope, code, effectiveAt, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetAmortisationRuleSet: Retrieve the definition of a single amortisation rule set
                 AmortisationRuleSet result = apiInstance.GetAmortisationRuleSet(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -368,6 +401,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AmortisationRuleSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AmortisationRuleSetsApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional) 
@@ -378,6 +419,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfAmortisationRuleSet result = apiInstance.ListAmortisationRuleSets(effectiveAt, asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EXPERIMENTAL] ListAmortisationRuleSets: List amortisation rule sets.
                 PagedResourceListOfAmortisationRuleSet result = apiInstance.ListAmortisationRuleSets(effectiveAt, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -481,6 +525,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AmortisationRuleSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AmortisationRuleSetsApi>();
             var scope = "scope_example";  // string | The rule set scope.
             var code = "code_example";  // string | The rule set code.
@@ -488,6 +540,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AmortisationRuleSet result = apiInstance.SetAmortisationRules(scope, code, setAmortisationRulesRequest, opts: opts);
+
                 // [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set.
                 AmortisationRuleSet result = apiInstance.SetAmortisationRules(scope, code, setAmortisationRulesRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -588,6 +643,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AmortisationRuleSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AmortisationRuleSetsApi>();
             var scope = "scope_example";  // string | The rule set scope.
             var code = "code_example";  // string | The rule set code.
@@ -595,6 +658,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AmortisationRuleSet result = apiInstance.UpdateAmortisationRuleSetDetails(scope, code, updateAmortisationRuleSetDetailsRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdateAmortisationRuleSetDetails: Update an amortisation rule set.
                 AmortisationRuleSet result = apiInstance.UpdateAmortisationRuleSetDetails(scope, code, updateAmortisationRuleSetDetailsRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

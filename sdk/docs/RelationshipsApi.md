@@ -45,6 +45,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RelationshipsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationshipsApi>();
             var scope = "scope_example";  // string | The scope of the relationship
             var code = "code_example";  // string | The code of the relationship
@@ -52,6 +60,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CompleteRelationship result = apiInstance.CreateRelationship(scope, code, createRelationshipRequest, opts: opts);
+
                 // CreateRelationship: Create Relationship
                 CompleteRelationship result = apiInstance.CreateRelationship(scope, code, createRelationshipRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -152,6 +163,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RelationshipsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationshipsApi>();
             var scope = "scope_example";  // string | The scope of the relationship
             var code = "code_example";  // string | The code of the relationship
@@ -159,6 +178,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteRelationship(scope, code, deleteRelationshipRequest, opts: opts);
+
                 // [EARLY ACCESS] DeleteRelationship: Delete Relationship
                 DeletedEntityResponse result = apiInstance.DeleteRelationship(scope, code, deleteRelationshipRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

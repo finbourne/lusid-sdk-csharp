@@ -79,6 +79,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -88,6 +96,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AdjustHolding result = apiInstance.AdjustHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, opts: opts);
+
                 // AdjustHoldings: Adjust holdings
                 AdjustHolding result = apiInstance.AdjustHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -190,6 +201,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.
@@ -199,6 +218,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BatchAdjustHoldingsResponse result = apiInstance.BatchAdjustHoldings(scope, code, successMode, requestBody, reconciliationMethods, opts: opts);
+
                 // [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings
                 BatchAdjustHoldingsResponse result = apiInstance.BatchAdjustHoldings(scope, code, successMode, requestBody, reconciliationMethods);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -301,6 +323,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -308,6 +338,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CreateTradeTicketsResponse result = apiInstance.BatchCreateTradeTickets(scope, code, lusidTradeTicket, opts: opts);
+
                 // [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
                 CreateTradeTicketsResponse result = apiInstance.BatchCreateTradeTickets(scope, code, lusidTradeTicket);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -408,6 +441,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -417,6 +458,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BatchUpsertPortfolioTransactionsResponse result = apiInstance.BatchUpsertTransactions(scope, code, successMode, requestBody, preserveProperties, opts: opts);
+
                 // [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
                 BatchUpsertPortfolioTransactionsResponse result = apiInstance.BatchUpsertTransactions(scope, code, successMode, requestBody, preserveProperties);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -519,6 +563,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -531,6 +583,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactions(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, opts: opts);
+
                 // BuildTransactions: Build transactions
                 VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactions(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -636,6 +691,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -643,6 +706,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.CancelAdjustHoldings(scope, code, effectiveAt, opts: opts);
+
                 // CancelAdjustHoldings: Cancel adjust holdings
                 DeletedEntityResponse result = apiInstance.CancelAdjustHoldings(scope, code, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -743,6 +809,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -750,6 +824,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.CancelTransactions(scope, code, transactionIds, opts: opts);
+
                 // CancelTransactions: Cancel transactions
                 DeletedEntityResponse result = apiInstance.CancelTransactions(scope, code, transactionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -850,12 +927,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope in which to create the transaction portfolio.
             var createTransactionPortfolioRequest = new CreateTransactionPortfolioRequest(); // CreateTransactionPortfolioRequest | The definition of the transaction portfolio.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Portfolio result = apiInstance.CreatePortfolio(scope, createTransactionPortfolioRequest, opts: opts);
+
                 // CreatePortfolio: Create portfolio
                 Portfolio result = apiInstance.CreatePortfolio(scope, createTransactionPortfolioRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -955,6 +1043,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -962,6 +1058,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // LusidTradeTicket result = apiInstance.CreateTradeTicket(scope, code, lusidTradeTicket, opts: opts);
+
                 // [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
                 LusidTradeTicket result = apiInstance.CreateTradeTicket(scope, code, lusidTradeTicket);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1062,6 +1161,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Transaction Portfolios.
             var code = "code_example";  // string | The code of the Transaction Portfolios. Together with the scope this uniquely identifies              the Transaction Portfolios.
@@ -1070,6 +1177,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeleteCustodianAccountsResponse result = apiInstance.DeleteCustodianAccounts(scope, code, resourceId, deleteMode, opts: opts);
+
                 // [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
                 DeleteCustodianAccountsResponse result = apiInstance.DeleteCustodianAccounts(scope, code, resourceId, deleteMode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1171,6 +1281,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -1179,6 +1297,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePropertiesFromTransaction(scope, code, transactionId, propertyKeys, opts: opts);
+
                 // DeletePropertiesFromTransaction: Delete properties from transaction
                 DeletedEntityResponse result = apiInstance.DeletePropertiesFromTransaction(scope, code, transactionId, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1280,6 +1401,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio to retrieve the A2B report for.
             var code = "code_example";  // string | The code of the portfolio to retrieve the A2B report for. Together with the scope this              uniquely identifies the portfolio.
@@ -1293,6 +1422,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfA2BDataRecord result = apiInstance.GetA2BData(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, opts: opts);
+
                 // GetA2BData: Get A2B data
                 VersionedResourceListOfA2BDataRecord result = apiInstance.GetA2BData(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1399,6 +1531,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio to retrieve the A2B movement report for.
             var code = "code_example";  // string | The code of the portfolio to retrieve the A2B movement report for. Together with the scope this              uniquely identifies the portfolio.
@@ -1412,6 +1552,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfA2BMovementRecord result = apiInstance.GetA2BMovements(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, opts: opts);
+
                 // GetA2BMovements: Get an A2B report at the movement level for the given portfolio.
                 VersionedResourceListOfA2BMovementRecord result = apiInstance.GetA2BMovements(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1518,6 +1661,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -1525,6 +1676,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BucketedCashFlowResponse result = apiInstance.GetBucketedCashFlows(scope, code, bucketedCashFlowRequest, opts: opts);
+
                 // [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
                 BucketedCashFlowResponse result = apiInstance.GetBucketedCashFlows(scope, code, bucketedCashFlowRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1625,6 +1779,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Transaction Portfolio.
             var code = "code_example";  // string | The code of the Transaction Portfolio. Together with the scope this uniquely identifies the Transaction Portfolio.
@@ -1636,6 +1798,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CustodianAccount result = apiInstance.GetCustodianAccount(scope, code, custodianAccountScope, custodianAccountCode, effectiveAt, asAt, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] GetCustodianAccount: Get Custodian Account
                 CustodianAccount result = apiInstance.GetCustodianAccount(scope, code, custodianAccountScope, custodianAccountCode, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1740,6 +1905,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio.
@@ -1748,6 +1921,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioDetails result = apiInstance.GetDetails(scope, code, effectiveAt, asAt, opts: opts);
+
                 // GetDetails: Get details
                 PortfolioDetails result = apiInstance.GetDetails(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1849,6 +2025,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -1864,6 +2048,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributors(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, limit, asAt, page, opts: opts);
+
                 // [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors
                 VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributors(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, limit, asAt, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1972,6 +2159,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -1984,6 +2179,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfPortfolioHolding result = apiInstance.GetHoldings(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, includeSettlementEventsAfterDays, opts: opts);
+
                 // GetHoldings: Get holdings
                 VersionedResourceListOfPortfolioHolding result = apiInstance.GetHoldings(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, includeSettlementEventsAfterDays);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2089,6 +2287,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -2098,6 +2304,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // HoldingsAdjustment result = apiInstance.GetHoldingsAdjustment(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
+
                 // GetHoldingsAdjustment: Get holdings adjustment
                 HoldingsAdjustment result = apiInstance.GetHoldingsAdjustment(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2200,6 +2409,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -2214,6 +2431,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListWithWarningsOfPortfolioHolding result = apiInstance.GetHoldingsWithOrders(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, recipeIdScope, recipeIdCode, includeSettlementEventsAfterDays, opts: opts);
+
                 // [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders
                 VersionedResourceListWithWarningsOfPortfolioHolding result = apiInstance.GetHoldingsWithOrders(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, recipeIdScope, recipeIdCode, includeSettlementEventsAfterDays);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2321,6 +2541,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio.
@@ -2335,6 +2563,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfInstrumentCashFlow result = apiInstance.GetPortfolioCashFlows(scope, code, effectiveAt, windowStart, windowEnd, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, opts: opts);
+
                 // GetPortfolioCashFlows: Get portfolio cash flows
                 ResourceListOfInstrumentCashFlow result = apiInstance.GetPortfolioCashFlows(scope, code, effectiveAt, windowStart, windowEnd, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2442,6 +2673,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio.
@@ -2456,6 +2695,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPortfolioCashLadder result = apiInstance.GetPortfolioCashLadder(scope, code, fromEffectiveAt, toEffectiveAt, effectiveAt, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, opts: opts);
+
                 // GetPortfolioCashLadder: Get portfolio cash ladder
                 ResourceListOfPortfolioCashLadder result = apiInstance.GetPortfolioCashLadder(scope, code, fromEffectiveAt, toEffectiveAt, effectiveAt, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2563,6 +2805,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio.
@@ -2575,6 +2825,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPortfolioCashFlow result = apiInstance.GetPortfolioCashStatement(scope, code, fromEffectiveAt, toEffectiveAt, asAt, filter, recipeIdScope, recipeIdCode, opts: opts);
+
                 // GetPortfolioCashStatement: Get portfolio cash statement
                 ResourceListOfPortfolioCashFlow result = apiInstance.GetPortfolioCashStatement(scope, code, fromEffectiveAt, toEffectiveAt, asAt, filter, recipeIdScope, recipeIdCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2680,6 +2933,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -2688,6 +2949,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfChangeHistory result = apiInstance.GetTransactionHistory(scope, code, transactionId, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction
                 ResourceListOfChangeHistory result = apiInstance.GetTransactionHistory(scope, code, transactionId, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2789,6 +3053,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.
@@ -2804,6 +3076,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfTransaction result = apiInstance.GetTransactions(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit, showCancelledTransactions, sortBy, opts: opts);
+
                 // GetTransactions: Get transactions
                 VersionedResourceListOfTransaction result = apiInstance.GetTransactions(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit, showCancelledTransactions, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2912,6 +3187,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio.
@@ -2926,6 +3209,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfTransaction result = apiInstance.GetUpsertablePortfolioCashFlows(scope, code, effectiveAt, windowStart, windowEnd, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, opts: opts);
+
                 // GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
                 ResourceListOfTransaction result = apiInstance.GetUpsertablePortfolioCashFlows(scope, code, effectiveAt, windowStart, windowEnd, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3033,6 +3319,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Transaction Portfolio.
             var code = "code_example";  // string | The code of the Transaction Portfolio. Together with the scope this uniquely identifies              the Transaction Portfolios.
@@ -3045,6 +3339,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfCustodianAccount result = apiInstance.ListCustodianAccounts(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts
                 PagedResourceListOfCustodianAccount result = apiInstance.ListCustodianAccounts(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3150,6 +3447,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -3159,6 +3464,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfHoldingsAdjustmentHeader result = apiInstance.ListHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, asAt, opts: opts);
+
                 // ListHoldingsAdjustments: List holdings adjustments
                 ResourceListOfHoldingsAdjustmentHeader result = apiInstance.ListHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3261,6 +3569,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the               scope this uniquely identifies the transaction portfolio.
@@ -3269,6 +3585,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioDetails result = apiInstance.PatchPortfolioDetails(scope, code, operation, effectiveAt, opts: opts);
+
                 // PatchPortfolioDetails: Patch portfolio details
                 PortfolioDetails result = apiInstance.PatchPortfolioDetails(scope, code, operation, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3370,6 +3689,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -3381,6 +3708,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertPortfolioTransactionsResponse result = apiInstance.ResolveInstrument(scope, code, instrumentIdentifierType, instrumentIdentifierValue, fromEffectiveAt, reResolve, requestBody, opts: opts);
+
                 // [EARLY ACCESS] ResolveInstrument: Resolve instrument
                 UpsertPortfolioTransactionsResponse result = apiInstance.ResolveInstrument(scope, code, instrumentIdentifierType, instrumentIdentifierValue, fromEffectiveAt, reResolve, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3485,6 +3815,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -3494,6 +3832,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AdjustHolding result = apiInstance.SetHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, opts: opts);
+
                 // SetHoldings: Set holdings
                 AdjustHolding result = apiInstance.SetHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3596,6 +3937,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Transaction Portfolio.
             var code = "code_example";  // string | The code of the Transaction Portfolio. Together with the scope this uniquely identifies              the Transaction Portfolios.
@@ -3603,6 +3952,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CustodianAccountsUpsertResponse result = apiInstance.UpsertCustodianAccounts(scope, code, custodianAccountRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts
                 CustodianAccountsUpsertResponse result = apiInstance.UpsertCustodianAccounts(scope, code, custodianAccountRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3703,6 +4055,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Transaction Portfolios to update or insert the properties onto.
             var code = "code_example";  // string | The code of the Transaction Portfolios to update or insert the properties onto. Together with the scope this uniquely identifies the Transaction Portfolios.
@@ -3712,6 +4072,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CustodianAccountProperties result = apiInstance.UpsertCustodianAccountsProperties(scope, code, custodianAccountScope, custodianAccountCode, requestBody, opts: opts);
+
                 // [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties
                 CustodianAccountProperties result = apiInstance.UpsertCustodianAccountsProperties(scope, code, custodianAccountScope, custodianAccountCode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3814,6 +4177,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the               scope this uniquely identifies the transaction portfolio.
@@ -3822,6 +4193,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioDetails result = apiInstance.UpsertPortfolioDetails(scope, code, createPortfolioDetails, effectiveAt, opts: opts);
+
                 // UpsertPortfolioDetails: Upsert portfolio details
                 PortfolioDetails result = apiInstance.UpsertPortfolioDetails(scope, code, createPortfolioDetails, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3923,6 +4297,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -3931,6 +4313,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertTransactionPropertiesResponse result = apiInstance.UpsertTransactionProperties(scope, code, transactionId, requestBody, opts: opts);
+
                 // UpsertTransactionProperties: Upsert transaction properties
                 UpsertTransactionPropertiesResponse result = apiInstance.UpsertTransactionProperties(scope, code, transactionId, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -4032,6 +4417,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
@@ -4040,6 +4433,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertPortfolioTransactionsResponse result = apiInstance.UpsertTransactions(scope, code, transactionRequest, preserveProperties, opts: opts);
+
                 // UpsertTransactions: Upsert transactions
                 UpsertPortfolioTransactionsResponse result = apiInstance.UpsertTransactions(scope, code, transactionRequest, preserveProperties);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

@@ -51,12 +51,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegacyComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
             var scope = "scope_example";  // string | The compliance rule scope.
             var code = "code_example";  // string | The compliance rule code.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteLegacyComplianceRule(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteLegacyComplianceRule: Deletes a compliance rule.
                 DeletedEntityResponse result = apiInstance.DeleteLegacyComplianceRule(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -156,6 +167,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegacyComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
             var runId = "runId_example";  // string | The RunId that the results should be checked for
             var orderScope = "orderScope_example";  // string? | Optional. Find rules related to a specific order by providing an Order Scope/Code combination (optional) 
@@ -164,6 +183,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfComplianceBreachedOrderInfo result = apiInstance.GetLegacyBreachedOrdersInfo(runId, orderScope, orderCode, limit, opts: opts);
+
                 // [EXPERIMENTAL] GetLegacyBreachedOrdersInfo: Get the Ids of Breached orders in a given compliance run and the corresponding list of rules that could have caused it.
                 ResourceListOfComplianceBreachedOrderInfo result = apiInstance.GetLegacyBreachedOrdersInfo(runId, orderScope, orderCode, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -265,6 +287,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegacyComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
             var scope = "scope_example";  // string | The compliance rule scope.
             var code = "code_example";  // string | The compliance rule code.
@@ -273,6 +303,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ComplianceRule result = apiInstance.GetLegacyComplianceRule(scope, code, effectiveAt, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetLegacyComplianceRule: Retrieve the definition of single compliance rule.
                 ComplianceRule result = apiInstance.GetLegacyComplianceRule(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -374,6 +407,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegacyComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
             var runId = "runId_example";  // string | The unique identifier of the compliance run requested.
             var page = "page_example";  // string? | The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
@@ -382,6 +423,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfComplianceRuleResult result = apiInstance.GetLegacyComplianceRunResults(runId, page, limit, filter, opts: opts);
+
                 // [EXPERIMENTAL] GetLegacyComplianceRunResults: Get the details of a single compliance run.
                 ResourceListOfComplianceRuleResult result = apiInstance.GetLegacyComplianceRunResults(runId, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -483,6 +527,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegacyComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional) 
@@ -492,6 +544,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfComplianceRule result = apiInstance.ListLegacyComplianceRules(effectiveAt, asAt, page, limit, filter, opts: opts);
+
                 // [EXPERIMENTAL] ListLegacyComplianceRules: List compliance rules, with optional filtering.
                 ResourceListOfComplianceRule result = apiInstance.ListLegacyComplianceRules(effectiveAt, asAt, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -594,6 +649,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegacyComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The time at which to get results from. Default : latest (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
@@ -602,6 +665,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfComplianceRunInfo result = apiInstance.ListLegacyComplianceRunInfo(asAt, page, limit, filter, opts: opts);
+
                 // [EXPERIMENTAL] ListLegacyComplianceRunInfo: List historical compliance run ids.
                 ResourceListOfComplianceRunInfo result = apiInstance.ListLegacyComplianceRunInfo(asAt, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -703,6 +769,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegacyComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
             var isPreTrade = true;  // bool | Required: Boolean flag indicating if a run should be PreTrade (Including orders). For post-trade only, set to false
             var recipeIdScope = "recipeIdScope_example";  // string | Required: the scope of the recipe to be used
@@ -711,6 +785,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ComplianceRunInfo result = apiInstance.RunLegacyCompliance(isPreTrade, recipeIdScope, recipeIdCode, byTaxlots, opts: opts);
+
                 // [EXPERIMENTAL] RunLegacyCompliance: Kick off the compliance check process
                 ComplianceRunInfo result = apiInstance.RunLegacyCompliance(isPreTrade, recipeIdScope, recipeIdCode, byTaxlots);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -812,12 +889,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegacyComplianceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
             var requestBody = new Dictionary<string, ComplianceRuleUpsertRequest>(); // Dictionary<string, ComplianceRuleUpsertRequest> | A dictionary of upsert request identifiers to rule upsert requests. The request               identifiers are valid for the request only and can be used to link the upserted compliance rule to the code               of a created compliance rule.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID  system datetime if not specified. In the case of an update, the changes will take place from this effective  time until the next effective time that the rule as been upserted at. For example, consider a rule that  already exists, and has previously had an update applied so that the definition will change on the first day  of the coming month. An upsert effective from the current day will only change the definition until the  first day of the coming month. An additional upsert at the same time (first day of the month) is required  if the newly-updated definition is to supersede the future definition. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ComplianceRuleUpsertResponse result = apiInstance.UpsertLegacyComplianceRules(requestBody, effectiveAt, opts: opts);
+
                 // [EXPERIMENTAL] UpsertLegacyComplianceRules: Upsert compliance rules.
                 ComplianceRuleUpsertResponse result = apiInstance.UpsertLegacyComplianceRules(requestBody, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

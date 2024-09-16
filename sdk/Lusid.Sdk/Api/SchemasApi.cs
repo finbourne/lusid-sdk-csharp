@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -39,8 +40,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entity">The name of a valid entity</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Schema</returns>
-        Schema GetEntitySchema(string entity, int operationIndex = 0);
+        Schema GetEntitySchema(string entity, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetEntitySchema: Get schema
@@ -51,8 +53,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entity">The name of a valid entity</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Schema</returns>
-        ApiResponse<Schema> GetEntitySchemaWithHttpInfo(string entity, int operationIndex = 0);
+        ApiResponse<Schema> GetEntitySchemaWithHttpInfo(string entity, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetPropertySchema: Get property schema
         /// </summary>
@@ -63,8 +66,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertySchema</returns>
-        PropertySchema GetPropertySchema(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        PropertySchema GetPropertySchema(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetPropertySchema: Get property schema
@@ -76,8 +80,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertySchema</returns>
-        ApiResponse<PropertySchema> GetPropertySchemaWithHttpInfo(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<PropertySchema> GetPropertySchemaWithHttpInfo(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetValueTypes: Get value types
         /// </summary>
@@ -88,8 +93,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfValueType</returns>
-        ResourceListOfValueType GetValueTypes(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0);
+        ResourceListOfValueType GetValueTypes(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetValueTypes: Get value types
@@ -101,8 +107,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfValueType</returns>
-        ApiResponse<ResourceListOfValueType> GetValueTypesWithHttpInfo(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0);
+        ApiResponse<ResourceListOfValueType> GetValueTypesWithHttpInfo(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListEntities: List entities
         /// </summary>
@@ -111,8 +118,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfString</returns>
-        ResourceListOfString ListEntities(int operationIndex = 0);
+        ResourceListOfString ListEntities(int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListEntities: List entities
@@ -122,8 +130,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfString</returns>
-        ApiResponse<ResourceListOfString> ListEntitiesWithHttpInfo(int operationIndex = 0);
+        ApiResponse<ResourceListOfString> ListEntitiesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -143,8 +152,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entity">The name of a valid entity</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Schema</returns>
-        System.Threading.Tasks.Task<Schema> GetEntitySchemaAsync(string entity, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Schema> GetEntitySchemaAsync(string entity, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetEntitySchema: Get schema
@@ -156,8 +166,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entity">The name of a valid entity</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Schema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Schema>> GetEntitySchemaWithHttpInfoAsync(string entity, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Schema>> GetEntitySchemaWithHttpInfoAsync(string entity, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetPropertySchema: Get property schema
         /// </summary>
@@ -169,8 +180,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertySchema</returns>
-        System.Threading.Tasks.Task<PropertySchema> GetPropertySchemaAsync(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PropertySchema> GetPropertySchemaAsync(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetPropertySchema: Get property schema
@@ -183,8 +195,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertySchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PropertySchema>> GetPropertySchemaWithHttpInfoAsync(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PropertySchema>> GetPropertySchemaWithHttpInfoAsync(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetValueTypes: Get value types
         /// </summary>
@@ -196,8 +209,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfValueType</returns>
-        System.Threading.Tasks.Task<ResourceListOfValueType> GetValueTypesAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfValueType> GetValueTypesAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetValueTypes: Get value types
@@ -210,8 +224,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfValueType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfValueType>> GetValueTypesWithHttpInfoAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfValueType>> GetValueTypesWithHttpInfoAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListEntities: List entities
         /// </summary>
@@ -221,8 +236,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfString</returns>
-        System.Threading.Tasks.Task<ResourceListOfString> ListEntitiesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfString> ListEntitiesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListEntities: List entities
@@ -233,8 +249,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfString)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfString>> ListEntitiesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfString>> ListEntitiesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -267,9 +284,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public SchemasApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -358,10 +381,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entity">The name of a valid entity</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Schema</returns>
-        public Schema GetEntitySchema(string entity, int operationIndex = 0)
+        public Schema GetEntitySchema(string entity, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Schema> localVarResponse = GetEntitySchemaWithHttpInfo(entity);
+            Lusid.Sdk.Client.ApiResponse<Schema> localVarResponse = GetEntitySchemaWithHttpInfo(entity, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -371,8 +395,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entity">The name of a valid entity</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Schema</returns>
-        public Lusid.Sdk.Client.ApiResponse<Schema> GetEntitySchemaWithHttpInfo(string entity, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Schema> GetEntitySchemaWithHttpInfo(string entity, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entity' is set
             if (entity == null)
@@ -381,6 +406,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -447,10 +482,11 @@ namespace Lusid.Sdk.Api
         /// <param name="entity">The name of a valid entity</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Schema</returns>
-        public async System.Threading.Tasks.Task<Schema> GetEntitySchemaAsync(string entity, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Schema> GetEntitySchemaAsync(string entity, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Schema> localVarResponse = await GetEntitySchemaWithHttpInfoAsync(entity, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Schema> localVarResponse = await GetEntitySchemaWithHttpInfoAsync(entity, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -461,8 +497,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entity">The name of a valid entity</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Schema)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Schema>> GetEntitySchemaWithHttpInfoAsync(string entity, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Schema>> GetEntitySchemaWithHttpInfoAsync(string entity, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entity' is set
             if (entity == null)
@@ -472,6 +509,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -539,10 +586,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertySchema</returns>
-        public PropertySchema GetPropertySchema(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public PropertySchema GetPropertySchema(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertySchema> localVarResponse = GetPropertySchemaWithHttpInfo(propertyKeys, asAt);
+            Lusid.Sdk.Client.ApiResponse<PropertySchema> localVarResponse = GetPropertySchemaWithHttpInfo(propertyKeys, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -553,10 +601,21 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertySchema</returns>
-        public Lusid.Sdk.Client.ApiResponse<PropertySchema> GetPropertySchemaWithHttpInfo(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PropertySchema> GetPropertySchemaWithHttpInfo(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -631,10 +690,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertySchema</returns>
-        public async System.Threading.Tasks.Task<PropertySchema> GetPropertySchemaAsync(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PropertySchema> GetPropertySchemaAsync(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertySchema> localVarResponse = await GetPropertySchemaWithHttpInfoAsync(propertyKeys, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PropertySchema> localVarResponse = await GetPropertySchemaWithHttpInfoAsync(propertyKeys, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -646,11 +706,22 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertySchema)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertySchema>> GetPropertySchemaWithHttpInfoAsync(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertySchema>> GetPropertySchemaWithHttpInfoAsync(List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -725,10 +796,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfValueType</returns>
-        public ResourceListOfValueType GetValueTypes(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0)
+        public ResourceListOfValueType GetValueTypes(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfValueType> localVarResponse = GetValueTypesWithHttpInfo(sortBy, limit);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfValueType> localVarResponse = GetValueTypesWithHttpInfo(sortBy, limit, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -739,10 +811,21 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfValueType</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfValueType> GetValueTypesWithHttpInfo(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfValueType> GetValueTypesWithHttpInfo(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -817,10 +900,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfValueType</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfValueType> GetValueTypesAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfValueType> GetValueTypesAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfValueType> localVarResponse = await GetValueTypesWithHttpInfoAsync(sortBy, limit, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfValueType> localVarResponse = await GetValueTypesWithHttpInfoAsync(sortBy, limit, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -832,11 +916,22 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfValueType)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfValueType>> GetValueTypesWithHttpInfoAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfValueType>> GetValueTypesWithHttpInfoAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -909,10 +1004,11 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfString</returns>
-        public ResourceListOfString ListEntities(int operationIndex = 0)
+        public ResourceListOfString ListEntities(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfString> localVarResponse = ListEntitiesWithHttpInfo();
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfString> localVarResponse = ListEntitiesWithHttpInfo(opts: opts);
             return localVarResponse.Data;
         }
 
@@ -921,10 +1017,21 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfString</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfString> ListEntitiesWithHttpInfo(int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfString> ListEntitiesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -989,10 +1096,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfString</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfString> ListEntitiesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfString> ListEntitiesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfString> localVarResponse = await ListEntitiesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfString> localVarResponse = await ListEntitiesWithHttpInfoAsync(operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1002,11 +1110,22 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfString)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfString>> ListEntitiesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfString>> ListEntitiesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

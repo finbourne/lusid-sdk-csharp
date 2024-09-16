@@ -47,12 +47,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReferenceListsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReferenceListsApi>();
             var scope = "scope_example";  // string | The scope to which the Reference List belongs.
             var code = "code_example";  // string | The Reference List's unique identifier.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteReferenceList(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeleteReferenceList: Delete Reference List
                 DeletedEntityResponse result = apiInstance.DeleteReferenceList(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -152,6 +163,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReferenceListsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReferenceListsApi>();
             var scope = "scope_example";  // string | The scope to which the Reference List belongs.
             var code = "code_example";  // string | The Reference List's unique identifier.
@@ -159,6 +178,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ReferenceListResponse result = apiInstance.GetReferenceList(scope, code, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetReferenceList: Get Reference List
                 ReferenceListResponse result = apiInstance.GetReferenceList(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -259,6 +281,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReferenceListsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReferenceListsApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list Reference Lists. Defaults to return the latest version of Reference Lists if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.              This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields              must not have changed since the original request. (optional) 
@@ -267,6 +297,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfReferenceListResponse result = apiInstance.ListReferenceLists(asAt, page, limit, filter, opts: opts);
+
                 // [EARLY ACCESS] ListReferenceLists: List Reference Lists
                 PagedResourceListOfReferenceListResponse result = apiInstance.ListReferenceLists(asAt, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -368,11 +401,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReferenceListsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReferenceListsApi>();
             var referenceListRequest = new ReferenceListRequest?(); // ReferenceListRequest? | The payload describing the Reference List instance. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ReferenceListResponse result = apiInstance.UpsertReferenceList(referenceListRequest, opts: opts);
+
                 // [EARLY ACCESS] UpsertReferenceList: Upsert Reference List
                 ReferenceListResponse result = apiInstance.UpsertReferenceList(referenceListRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

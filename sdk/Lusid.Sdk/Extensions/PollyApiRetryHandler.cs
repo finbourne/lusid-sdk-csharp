@@ -10,7 +10,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Lusid.Sdk.Client;
+using SdkConfiguration = Lusid.Sdk.Client.Configuration;
 using Polly;
+using Polly.Retry;
 using Polly.Wrap;
 using RestSharp;
 
@@ -25,8 +28,6 @@ namespace Lusid.Sdk.Extensions
         /// Number of max default retry attempts
         /// </summary>
         public const int DefaultNumberOfRetries = 2;
-
-        private const int RateLimitRetryCount = 3;
 
         /// <summary>
         /// Get the Polly retry condition on which to retry.
@@ -69,6 +70,18 @@ namespace Lusid.Sdk.Extensions
             DefaultFallbackPolicy.Wrap(DefaultRetryPolicy);
 
         /// <summary>
+        /// Combines DefaultFallbackPolicy and GetDefaultRetryPolicyWithRateLimit.
+        /// Use .Wrap() method to combine this policy with your other custom policies
+        /// </summary>
+        /// <param name="rateLimitRetries"></param>
+        /// <returns></returns>
+        public static PolicyWrap<RestResponse> GetDefaultRetryPolicyWithRateLimitWithFallback(int rateLimitRetries)
+        {
+            // Order of wraps matters. We must wrap the retry policy ON the fallback policy, not the other way around.
+            return DefaultFallbackPolicy.Wrap(GetDefaultRetryPolicyWithRateLimit(rateLimitRetries));
+        }
+
+        /// <summary>
         /// Causes the actual API response to be returned after retries have been exceeded.
         /// It is necessary to use with OpenAPI, as without it a null result will be returned
         /// </summary>
@@ -98,14 +111,24 @@ namespace Lusid.Sdk.Extensions
         /// <returns> Policy Wraps (Synchronous)</returns>
         public static PolicyWrap<RestResponse> DefaultRetryPolicyWithRateLimit =>
             // Order of wraps matters. We must wrap the retry policy ON the fallback policy, not the other way around.
-            DefaultRetryPolicy.Wrap(RateLimitRetryPolicy);
+            GetDefaultRetryPolicyWithRateLimit(SdkConfiguration.DefaultRateLimitRetries);
+
+        private static PolicyWrap<RestResponse> GetDefaultRetryPolicyWithRateLimit(int rateLimitRetries)
+        {
+            return DefaultRetryPolicy.Wrap(GetRateLimitRetryPolicy(rateLimitRetries));
+        }
 
         /// <summary>
         /// Defines policy for handling rate limit (429) http response codes.
         /// </summary>
-        public static Policy<RestResponse> RateLimitRetryPolicy => Policy
-            .HandleResult<RestResponse>(GetPollyRateLimitRetryCondition)
-            .WaitAndRetry(RateLimitRetryCount, RateLimitSleepDurationProvider, OnRetry);
+        public static Policy<RestResponse> RateLimitRetryPolicy => GetRateLimitRetryPolicy(GlobalConfiguration.Instance.RateLimitRetries);
+
+        private static RetryPolicy<RestResponse> GetRateLimitRetryPolicy(int rateLimitRetries)
+        {
+            return Policy
+                .HandleResult<RestResponse>(GetPollyRateLimitRetryCondition)
+                .WaitAndRetry(rateLimitRetries, RateLimitSleepDurationProvider, OnRetry);
+        }
 
         private static void OnRetry(DelegateResult<RestResponse> arg1, TimeSpan arg2, Context arg3)
         {
@@ -120,8 +143,19 @@ namespace Lusid.Sdk.Extensions
         /// Use .WrapAsync() method to combine this policy with your other custom policies
         /// </summary>
         public static readonly AsyncPolicyWrap<RestResponse> DefaultRetryPolicyWithFallbackAsync =
-            // Order of wraps matters. We must wrap the retry policy ON the fallback policy, not the other way around.
             DefaultFallbackPolicyAsync.WrapAsync(DefaultRetryPolicyAsync);
+
+        /// <summary>
+        /// Combines DefaultFallbackPolicyAsync and GetAsyncDefaultRetryPolicyWithRateLimit.
+        /// Use .Wrap() method to combine this policy with your other custom policies
+        /// </summary>
+        /// <param name="rateLimitRetries"></param>
+        /// <returns></returns>
+        public static AsyncPolicyWrap<RestResponse> GetDefaultRetryPolicyWithRateLimitRetryWithFallbackAsync(int rateLimitRetries)
+        {
+            // Order of wraps matters. We must wrap the retry policy ON the fallback policy, not the other way around.
+            return DefaultFallbackPolicyAsync.WrapAsync(GetAsyncDefaultRetryPolicyWithRateLimit(rateLimitRetries));
+        }
 
         /// <summary>
         /// Define Polly retry policy for asynchronous API calls.
@@ -135,8 +169,13 @@ namespace Lusid.Sdk.Extensions
         /// Defines async policy for handling rate limit (429) http response codes.
         /// </summary>
         public static AsyncPolicy<RestResponse> AsyncRateLimitRetryPolicy
-            => Policy.HandleResult<RestResponse>(GetPollyRateLimitRetryCondition)
-                .WaitAndRetryAsync(RateLimitRetryCount, RateLimitSleepDurationProvider, OnRetryAsync);
+            => GetAsyncRateLimitRetryPolicy(GlobalConfiguration.Instance.RateLimitRetries);
+
+        private static AsyncPolicy<RestResponse> GetAsyncRateLimitRetryPolicy(int rateLimitRetries)
+        {
+            return Policy.HandleResult<RestResponse>(GetPollyRateLimitRetryCondition)
+                .WaitAndRetryAsync(rateLimitRetries, RateLimitSleepDurationProvider, OnRetryAsync);
+        }
 
         private static Task OnRetryAsync(DelegateResult<RestResponse> arg1, TimeSpan arg2, int arg3, Context arg4)
         {
@@ -171,8 +210,13 @@ namespace Lusid.Sdk.Extensions
         /// </summary>
         /// <returns>Policy Wrap (Async)</returns>
         public static AsyncPolicyWrap<RestResponse> AsyncDefaultRetryPolicyWithRateLimit =>
+            GetAsyncDefaultRetryPolicyWithRateLimit(GlobalConfiguration.Instance.RateLimitRetries);
+
+        private static AsyncPolicyWrap<RestResponse> GetAsyncDefaultRetryPolicyWithRateLimit(int rateLimitRetries)
+        {
             // Order of wraps matters. We must wrap the retry policy ON the fallback policy, not the other way around.
-            DefaultRetryPolicyAsync.WrapAsync(AsyncRateLimitRetryPolicy);
+            return DefaultRetryPolicyAsync.WrapAsync(GetAsyncRateLimitRetryPolicy(rateLimitRetries));
+        }
 
         #endregion
 

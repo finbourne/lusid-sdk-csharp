@@ -47,6 +47,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AggregationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AggregationApi>();
             var scope = "scope_example";  // string | The scope of the portfolio
             var code = "code_example";  // string | The code of the portfolio
@@ -54,6 +62,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ConfigurationRecipe result = apiInstance.GenerateConfigurationRecipe(scope, code, createRecipeRequest, opts: opts);
+
                 // [EXPERIMENTAL] GenerateConfigurationRecipe: Generates a recipe sufficient to perform valuations for the given portfolio.
                 ConfigurationRecipe result = apiInstance.GenerateConfigurationRecipe(scope, code, createRecipeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -154,6 +165,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AggregationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AggregationApi>();
             var page = "page_example";  // string? | The pagination token to use to continue listing queryable keys from a previous call to list queryable keys.              This value is returned from the previous call. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
@@ -161,6 +180,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfAggregationQuery result = apiInstance.GetQueryableKeys(page, limit, filter, opts: opts);
+
                 // GetQueryableKeys: Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.
                 ResourceListOfAggregationQuery result = apiInstance.GetQueryableKeys(page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -261,11 +283,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AggregationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AggregationApi>();
             var valuationRequest = new ValuationRequest?(); // ValuationRequest? | The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ListAggregationResponse result = apiInstance.GetValuation(valuationRequest, opts: opts);
+
                 // GetValuation: Perform valuation for a list of portfolios and/or portfolio groups
                 ListAggregationResponse result = apiInstance.GetValuation(valuationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -364,11 +397,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AggregationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AggregationApi>();
             var inlineValuationRequest = new InlineValuationRequest?(); // InlineValuationRequest? | The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ListAggregationResponse result = apiInstance.GetValuationOfWeightedInstruments(inlineValuationRequest, opts: opts);
+
                 // GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio
                 ListAggregationResponse result = apiInstance.GetValuationOfWeightedInstruments(inlineValuationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

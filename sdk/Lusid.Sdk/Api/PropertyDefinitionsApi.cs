@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -39,8 +40,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDerivedPropertyDefinitionRequest">The definition of the new derived property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinition</returns>
-        PropertyDefinition CreateDerivedPropertyDefinition(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0);
+        PropertyDefinition CreateDerivedPropertyDefinition(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateDerivedPropertyDefinition: Create derived property definition
@@ -51,8 +53,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDerivedPropertyDefinitionRequest">The definition of the new derived property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinition</returns>
-        ApiResponse<PropertyDefinition> CreateDerivedPropertyDefinitionWithHttpInfo(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0);
+        ApiResponse<PropertyDefinition> CreateDerivedPropertyDefinitionWithHttpInfo(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// CreatePropertyDefinition: Create property definition
         /// </summary>
@@ -62,8 +65,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPropertyDefinitionRequest">The definition of the new property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinition</returns>
-        PropertyDefinition CreatePropertyDefinition(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0);
+        PropertyDefinition CreatePropertyDefinition(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CreatePropertyDefinition: Create property definition
@@ -74,8 +78,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPropertyDefinitionRequest">The definition of the new property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinition</returns>
-        ApiResponse<PropertyDefinition> CreatePropertyDefinitionWithHttpInfo(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0);
+        ApiResponse<PropertyDefinition> CreatePropertyDefinitionWithHttpInfo(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// DeletePropertyDefinition: Delete property definition
         /// </summary>
@@ -87,8 +92,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the property to be deleted.</param>
         /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeletePropertyDefinition(string domain, string scope, string code, int operationIndex = 0);
+        DeletedEntityResponse DeletePropertyDefinition(string domain, string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// DeletePropertyDefinition: Delete property definition
@@ -101,8 +107,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the property to be deleted.</param>
         /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeletePropertyDefinitionWithHttpInfo(string domain, string scope, string code, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeletePropertyDefinitionWithHttpInfo(string domain, string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties
         /// </summary>
@@ -116,8 +123,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeletePropertyDefinitionProperties(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
+        DeletedEntityResponse DeletePropertyDefinitionProperties(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties
@@ -132,8 +140,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeletePropertyDefinitionPropertiesWithHttpInfo(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeletePropertyDefinitionPropertiesWithHttpInfo(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetMultiplePropertyDefinitions: Get multiple property definitions
         /// </summary>
@@ -146,8 +155,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPropertyDefinition</returns>
-        ResourceListOfPropertyDefinition GetMultiplePropertyDefinitions(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
+        ResourceListOfPropertyDefinition GetMultiplePropertyDefinitions(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetMultiplePropertyDefinitions: Get multiple property definitions
@@ -161,8 +171,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPropertyDefinition</returns>
-        ApiResponse<ResourceListOfPropertyDefinition> GetMultiplePropertyDefinitionsWithHttpInfo(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
+        ApiResponse<ResourceListOfPropertyDefinition> GetMultiplePropertyDefinitionsWithHttpInfo(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetPropertyDefinition: Get property definition
         /// </summary>
@@ -176,8 +187,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinition</returns>
-        PropertyDefinition GetPropertyDefinition(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
+        PropertyDefinition GetPropertyDefinition(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetPropertyDefinition: Get property definition
@@ -192,8 +204,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinition</returns>
-        ApiResponse<PropertyDefinition> GetPropertyDefinitionWithHttpInfo(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
+        ApiResponse<PropertyDefinition> GetPropertyDefinitionWithHttpInfo(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetPropertyDefinitionPropertyTimeSeries: Get Property Definition Property Time Series
         /// </summary>
@@ -210,8 +223,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPropertyInterval</returns>
-        ResourceListOfPropertyInterval GetPropertyDefinitionPropertyTimeSeries(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0);
+        ResourceListOfPropertyInterval GetPropertyDefinitionPropertyTimeSeries(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetPropertyDefinitionPropertyTimeSeries: Get Property Definition Property Time Series
@@ -229,8 +243,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPropertyInterval</returns>
-        ApiResponse<ResourceListOfPropertyInterval> GetPropertyDefinitionPropertyTimeSeriesWithHttpInfo(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0);
+        ApiResponse<ResourceListOfPropertyInterval> GetPropertyDefinitionPropertyTimeSeriesWithHttpInfo(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListPropertyDefinitions: List property definitions
         /// </summary>
@@ -246,8 +261,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPropertyDefinition</returns>
-        PagedResourceListOfPropertyDefinition ListPropertyDefinitions(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfPropertyDefinition ListPropertyDefinitions(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListPropertyDefinitions: List property definitions
@@ -264,8 +280,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPropertyDefinition</returns>
-        ApiResponse<PagedResourceListOfPropertyDefinition> ListPropertyDefinitionsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfPropertyDefinition> ListPropertyDefinitionsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateDerivedPropertyDefinition: Update a pre-existing derived property definition
         /// </summary>
@@ -278,8 +295,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of the property definition</param>
         /// <param name="updateDerivedPropertyDefinitionRequest">Information about the derived property definition being updated</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinition</returns>
-        PropertyDefinition UpdateDerivedPropertyDefinition(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0);
+        PropertyDefinition UpdateDerivedPropertyDefinition(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateDerivedPropertyDefinition: Update a pre-existing derived property definition
@@ -293,8 +311,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of the property definition</param>
         /// <param name="updateDerivedPropertyDefinitionRequest">Information about the derived property definition being updated</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinition</returns>
-        ApiResponse<PropertyDefinition> UpdateDerivedPropertyDefinitionWithHttpInfo(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0);
+        ApiResponse<PropertyDefinition> UpdateDerivedPropertyDefinitionWithHttpInfo(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpdatePropertyDefinition: Update property definition
         /// </summary>
@@ -307,8 +326,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinition</returns>
-        PropertyDefinition UpdatePropertyDefinition(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0);
+        PropertyDefinition UpdatePropertyDefinition(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpdatePropertyDefinition: Update property definition
@@ -322,8 +342,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinition</returns>
-        ApiResponse<PropertyDefinition> UpdatePropertyDefinitionWithHttpInfo(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0);
+        ApiResponse<PropertyDefinition> UpdatePropertyDefinitionWithHttpInfo(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertPropertyDefinitionProperties: Upsert properties to a property definition
         /// </summary>
@@ -337,8 +358,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BatchUpsertPropertyDefinitionPropertiesResponse</returns>
-        BatchUpsertPropertyDefinitionPropertiesResponse UpsertPropertyDefinitionProperties(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0);
+        BatchUpsertPropertyDefinitionPropertiesResponse UpsertPropertyDefinitionProperties(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertPropertyDefinitionProperties: Upsert properties to a property definition
@@ -353,8 +375,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpsertPropertyDefinitionPropertiesResponse</returns>
-        ApiResponse<BatchUpsertPropertyDefinitionPropertiesResponse> UpsertPropertyDefinitionPropertiesWithHttpInfo(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0);
+        ApiResponse<BatchUpsertPropertyDefinitionPropertiesResponse> UpsertPropertyDefinitionPropertiesWithHttpInfo(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -374,8 +397,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createDerivedPropertyDefinitionRequest">The definition of the new derived property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertyDefinition</returns>
-        System.Threading.Tasks.Task<PropertyDefinition> CreateDerivedPropertyDefinitionAsync(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PropertyDefinition> CreateDerivedPropertyDefinitionAsync(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateDerivedPropertyDefinition: Create derived property definition
@@ -387,8 +411,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createDerivedPropertyDefinitionRequest">The definition of the new derived property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertyDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PropertyDefinition>> CreateDerivedPropertyDefinitionWithHttpInfoAsync(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PropertyDefinition>> CreateDerivedPropertyDefinitionWithHttpInfoAsync(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// CreatePropertyDefinition: Create property definition
         /// </summary>
@@ -399,8 +424,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createPropertyDefinitionRequest">The definition of the new property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertyDefinition</returns>
-        System.Threading.Tasks.Task<PropertyDefinition> CreatePropertyDefinitionAsync(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PropertyDefinition> CreatePropertyDefinitionAsync(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CreatePropertyDefinition: Create property definition
@@ -412,8 +438,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createPropertyDefinitionRequest">The definition of the new property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertyDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PropertyDefinition>> CreatePropertyDefinitionWithHttpInfoAsync(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PropertyDefinition>> CreatePropertyDefinitionWithHttpInfoAsync(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// DeletePropertyDefinition: Delete property definition
         /// </summary>
@@ -426,8 +453,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeletePropertyDefinitionAsync(string domain, string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeletePropertyDefinitionAsync(string domain, string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// DeletePropertyDefinition: Delete property definition
@@ -441,8 +469,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeletePropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeletePropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties
         /// </summary>
@@ -457,8 +486,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeletePropertyDefinitionPropertiesAsync(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeletePropertyDefinitionPropertiesAsync(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties
@@ -474,8 +504,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeletePropertyDefinitionPropertiesWithHttpInfoAsync(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeletePropertyDefinitionPropertiesWithHttpInfoAsync(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetMultiplePropertyDefinitions: Get multiple property definitions
         /// </summary>
@@ -489,8 +520,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfPropertyDefinition</returns>
-        System.Threading.Tasks.Task<ResourceListOfPropertyDefinition> GetMultiplePropertyDefinitionsAsync(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfPropertyDefinition> GetMultiplePropertyDefinitionsAsync(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetMultiplePropertyDefinitions: Get multiple property definitions
@@ -505,8 +537,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPropertyDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPropertyDefinition>> GetMultiplePropertyDefinitionsWithHttpInfoAsync(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPropertyDefinition>> GetMultiplePropertyDefinitionsWithHttpInfoAsync(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetPropertyDefinition: Get property definition
         /// </summary>
@@ -521,8 +554,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertyDefinition</returns>
-        System.Threading.Tasks.Task<PropertyDefinition> GetPropertyDefinitionAsync(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PropertyDefinition> GetPropertyDefinitionAsync(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetPropertyDefinition: Get property definition
@@ -538,8 +572,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertyDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PropertyDefinition>> GetPropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PropertyDefinition>> GetPropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetPropertyDefinitionPropertyTimeSeries: Get Property Definition Property Time Series
         /// </summary>
@@ -557,8 +592,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfPropertyInterval</returns>
-        System.Threading.Tasks.Task<ResourceListOfPropertyInterval> GetPropertyDefinitionPropertyTimeSeriesAsync(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfPropertyInterval> GetPropertyDefinitionPropertyTimeSeriesAsync(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetPropertyDefinitionPropertyTimeSeries: Get Property Definition Property Time Series
@@ -577,8 +613,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPropertyInterval)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPropertyInterval>> GetPropertyDefinitionPropertyTimeSeriesWithHttpInfoAsync(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPropertyInterval>> GetPropertyDefinitionPropertyTimeSeriesWithHttpInfoAsync(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListPropertyDefinitions: List property definitions
         /// </summary>
@@ -595,8 +632,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPropertyDefinition</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfPropertyDefinition> ListPropertyDefinitionsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfPropertyDefinition> ListPropertyDefinitionsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListPropertyDefinitions: List property definitions
@@ -614,8 +652,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPropertyDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPropertyDefinition>> ListPropertyDefinitionsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPropertyDefinition>> ListPropertyDefinitionsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateDerivedPropertyDefinition: Update a pre-existing derived property definition
         /// </summary>
@@ -629,8 +668,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateDerivedPropertyDefinitionRequest">Information about the derived property definition being updated</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertyDefinition</returns>
-        System.Threading.Tasks.Task<PropertyDefinition> UpdateDerivedPropertyDefinitionAsync(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PropertyDefinition> UpdateDerivedPropertyDefinitionAsync(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateDerivedPropertyDefinition: Update a pre-existing derived property definition
@@ -645,8 +685,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateDerivedPropertyDefinitionRequest">Information about the derived property definition being updated</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertyDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PropertyDefinition>> UpdateDerivedPropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PropertyDefinition>> UpdateDerivedPropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpdatePropertyDefinition: Update property definition
         /// </summary>
@@ -660,8 +701,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertyDefinition</returns>
-        System.Threading.Tasks.Task<PropertyDefinition> UpdatePropertyDefinitionAsync(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PropertyDefinition> UpdatePropertyDefinitionAsync(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpdatePropertyDefinition: Update property definition
@@ -676,8 +718,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertyDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PropertyDefinition>> UpdatePropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PropertyDefinition>> UpdatePropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertPropertyDefinitionProperties: Upsert properties to a property definition
         /// </summary>
@@ -692,8 +735,9 @@ namespace Lusid.Sdk.Api
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BatchUpsertPropertyDefinitionPropertiesResponse</returns>
-        System.Threading.Tasks.Task<BatchUpsertPropertyDefinitionPropertiesResponse> UpsertPropertyDefinitionPropertiesAsync(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BatchUpsertPropertyDefinitionPropertiesResponse> UpsertPropertyDefinitionPropertiesAsync(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertPropertyDefinitionProperties: Upsert properties to a property definition
@@ -709,8 +753,9 @@ namespace Lusid.Sdk.Api
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertPropertyDefinitionPropertiesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchUpsertPropertyDefinitionPropertiesResponse>> UpsertPropertyDefinitionPropertiesWithHttpInfoAsync(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BatchUpsertPropertyDefinitionPropertiesResponse>> UpsertPropertyDefinitionPropertiesWithHttpInfoAsync(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -743,9 +788,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public PropertyDefinitionsApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -834,10 +885,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDerivedPropertyDefinitionRequest">The definition of the new derived property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinition</returns>
-        public PropertyDefinition CreateDerivedPropertyDefinition(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0)
+        public PropertyDefinition CreateDerivedPropertyDefinition(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = CreateDerivedPropertyDefinitionWithHttpInfo(createDerivedPropertyDefinitionRequest);
+            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = CreateDerivedPropertyDefinitionWithHttpInfo(createDerivedPropertyDefinitionRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -847,8 +899,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDerivedPropertyDefinitionRequest">The definition of the new derived property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<PropertyDefinition> CreateDerivedPropertyDefinitionWithHttpInfo(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PropertyDefinition> CreateDerivedPropertyDefinitionWithHttpInfo(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'createDerivedPropertyDefinitionRequest' is set
             if (createDerivedPropertyDefinitionRequest == null)
@@ -857,6 +910,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -927,10 +990,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createDerivedPropertyDefinitionRequest">The definition of the new derived property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertyDefinition</returns>
-        public async System.Threading.Tasks.Task<PropertyDefinition> CreateDerivedPropertyDefinitionAsync(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PropertyDefinition> CreateDerivedPropertyDefinitionAsync(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = await CreateDerivedPropertyDefinitionWithHttpInfoAsync(createDerivedPropertyDefinitionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = await CreateDerivedPropertyDefinitionWithHttpInfoAsync(createDerivedPropertyDefinitionRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -941,8 +1005,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createDerivedPropertyDefinitionRequest">The definition of the new derived property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertyDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertyDefinition>> CreateDerivedPropertyDefinitionWithHttpInfoAsync(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertyDefinition>> CreateDerivedPropertyDefinitionWithHttpInfoAsync(CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'createDerivedPropertyDefinitionRequest' is set
             if (createDerivedPropertyDefinitionRequest == null)
@@ -952,6 +1017,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1022,10 +1097,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPropertyDefinitionRequest">The definition of the new property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinition</returns>
-        public PropertyDefinition CreatePropertyDefinition(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0)
+        public PropertyDefinition CreatePropertyDefinition(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = CreatePropertyDefinitionWithHttpInfo(createPropertyDefinitionRequest);
+            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = CreatePropertyDefinitionWithHttpInfo(createPropertyDefinitionRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1035,8 +1111,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPropertyDefinitionRequest">The definition of the new property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<PropertyDefinition> CreatePropertyDefinitionWithHttpInfo(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PropertyDefinition> CreatePropertyDefinitionWithHttpInfo(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'createPropertyDefinitionRequest' is set
             if (createPropertyDefinitionRequest == null)
@@ -1045,6 +1122,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1115,10 +1202,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createPropertyDefinitionRequest">The definition of the new property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertyDefinition</returns>
-        public async System.Threading.Tasks.Task<PropertyDefinition> CreatePropertyDefinitionAsync(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PropertyDefinition> CreatePropertyDefinitionAsync(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = await CreatePropertyDefinitionWithHttpInfoAsync(createPropertyDefinitionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = await CreatePropertyDefinitionWithHttpInfoAsync(createPropertyDefinitionRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1129,8 +1217,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createPropertyDefinitionRequest">The definition of the new property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertyDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertyDefinition>> CreatePropertyDefinitionWithHttpInfoAsync(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertyDefinition>> CreatePropertyDefinitionWithHttpInfoAsync(CreatePropertyDefinitionRequest createPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'createPropertyDefinitionRequest' is set
             if (createPropertyDefinitionRequest == null)
@@ -1140,6 +1229,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1212,10 +1311,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the property to be deleted.</param>
         /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeletePropertyDefinition(string domain, string scope, string code, int operationIndex = 0)
+        public DeletedEntityResponse DeletePropertyDefinition(string domain, string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeletePropertyDefinitionWithHttpInfo(domain, scope, code);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeletePropertyDefinitionWithHttpInfo(domain, scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1227,8 +1327,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the property to be deleted.</param>
         /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePropertyDefinitionWithHttpInfo(string domain, string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePropertyDefinitionWithHttpInfo(string domain, string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -1249,6 +1350,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1319,10 +1430,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeletePropertyDefinitionAsync(string domain, string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeletePropertyDefinitionAsync(string domain, string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeletePropertyDefinitionWithHttpInfoAsync(domain, scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeletePropertyDefinitionWithHttpInfoAsync(domain, scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1335,8 +1447,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -1358,6 +1471,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1430,10 +1553,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeletePropertyDefinitionProperties(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0)
+        public DeletedEntityResponse DeletePropertyDefinitionProperties(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeletePropertyDefinitionPropertiesWithHttpInfo(domain, scope, code, requestBody, effectiveAt);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeletePropertyDefinitionPropertiesWithHttpInfo(domain, scope, code, requestBody, effectiveAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1447,8 +1571,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePropertyDefinitionPropertiesWithHttpInfo(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePropertyDefinitionPropertiesWithHttpInfo(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -1475,6 +1600,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1556,10 +1691,11 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeletePropertyDefinitionPropertiesAsync(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeletePropertyDefinitionPropertiesAsync(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeletePropertyDefinitionPropertiesWithHttpInfoAsync(domain, scope, code, requestBody, effectiveAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeletePropertyDefinitionPropertiesWithHttpInfoAsync(domain, scope, code, requestBody, effectiveAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1574,8 +1710,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePropertyDefinitionPropertiesWithHttpInfoAsync(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePropertyDefinitionPropertiesWithHttpInfoAsync(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -1603,6 +1740,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1683,10 +1830,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPropertyDefinition</returns>
-        public ResourceListOfPropertyDefinition GetMultiplePropertyDefinitions(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0)
+        public ResourceListOfPropertyDefinition GetMultiplePropertyDefinitions(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyDefinition> localVarResponse = GetMultiplePropertyDefinitionsWithHttpInfo(propertyKeys, asAt, filter, effectiveAt);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyDefinition> localVarResponse = GetMultiplePropertyDefinitionsWithHttpInfo(propertyKeys, asAt, filter, effectiveAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1699,8 +1847,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPropertyDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyDefinition> GetMultiplePropertyDefinitionsWithHttpInfo(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyDefinition> GetMultiplePropertyDefinitionsWithHttpInfo(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'propertyKeys' is set
             if (propertyKeys == null)
@@ -1709,6 +1858,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1790,10 +1949,11 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfPropertyDefinition</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfPropertyDefinition> GetMultiplePropertyDefinitionsAsync(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfPropertyDefinition> GetMultiplePropertyDefinitionsAsync(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyDefinition> localVarResponse = await GetMultiplePropertyDefinitionsWithHttpInfoAsync(propertyKeys, asAt, filter, effectiveAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyDefinition> localVarResponse = await GetMultiplePropertyDefinitionsWithHttpInfoAsync(propertyKeys, asAt, filter, effectiveAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1807,8 +1967,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPropertyDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyDefinition>> GetMultiplePropertyDefinitionsWithHttpInfoAsync(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyDefinition>> GetMultiplePropertyDefinitionsWithHttpInfoAsync(List<string> propertyKeys, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'propertyKeys' is set
             if (propertyKeys == null)
@@ -1818,6 +1979,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1900,10 +2071,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinition</returns>
-        public PropertyDefinition GetPropertyDefinition(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0)
+        public PropertyDefinition GetPropertyDefinition(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = GetPropertyDefinitionWithHttpInfo(domain, scope, code, asAt, effectiveAt);
+            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = GetPropertyDefinitionWithHttpInfo(domain, scope, code, asAt, effectiveAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1917,8 +2089,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<PropertyDefinition> GetPropertyDefinitionWithHttpInfo(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PropertyDefinition> GetPropertyDefinitionWithHttpInfo(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -1939,6 +2112,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2019,10 +2202,11 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertyDefinition</returns>
-        public async System.Threading.Tasks.Task<PropertyDefinition> GetPropertyDefinitionAsync(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PropertyDefinition> GetPropertyDefinitionAsync(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = await GetPropertyDefinitionWithHttpInfoAsync(domain, scope, code, asAt, effectiveAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = await GetPropertyDefinitionWithHttpInfoAsync(domain, scope, code, asAt, effectiveAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2037,8 +2221,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertyDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertyDefinition>> GetPropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertyDefinition>> GetPropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -2060,6 +2245,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2143,10 +2338,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPropertyInterval</returns>
-        public ResourceListOfPropertyInterval GetPropertyDefinitionPropertyTimeSeries(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0)
+        public ResourceListOfPropertyInterval GetPropertyDefinitionPropertyTimeSeries(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval> localVarResponse = GetPropertyDefinitionPropertyTimeSeriesWithHttpInfo(domain, scope, code, propertyKey, asAt, filter, page, limit);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval> localVarResponse = GetPropertyDefinitionPropertyTimeSeriesWithHttpInfo(domain, scope, code, propertyKey, asAt, filter, page, limit, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2163,8 +2359,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPropertyInterval</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval> GetPropertyDefinitionPropertyTimeSeriesWithHttpInfo(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval> GetPropertyDefinitionPropertyTimeSeriesWithHttpInfo(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -2191,6 +2388,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2283,10 +2490,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfPropertyInterval</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfPropertyInterval> GetPropertyDefinitionPropertyTimeSeriesAsync(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfPropertyInterval> GetPropertyDefinitionPropertyTimeSeriesAsync(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval> localVarResponse = await GetPropertyDefinitionPropertyTimeSeriesWithHttpInfoAsync(domain, scope, code, propertyKey, asAt, filter, page, limit, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval> localVarResponse = await GetPropertyDefinitionPropertyTimeSeriesWithHttpInfoAsync(domain, scope, code, propertyKey, asAt, filter, page, limit, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2304,8 +2512,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPropertyInterval)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval>> GetPropertyDefinitionPropertyTimeSeriesWithHttpInfoAsync(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval>> GetPropertyDefinitionPropertyTimeSeriesWithHttpInfoAsync(string domain, string scope, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -2333,6 +2542,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2424,10 +2643,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPropertyDefinition</returns>
-        public PagedResourceListOfPropertyDefinition ListPropertyDefinitions(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfPropertyDefinition ListPropertyDefinitions(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinition> localVarResponse = ListPropertyDefinitionsWithHttpInfo(effectiveAt, asAt, propertyKeys, page, limit, filter, sortBy);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinition> localVarResponse = ListPropertyDefinitionsWithHttpInfo(effectiveAt, asAt, propertyKeys, page, limit, filter, sortBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2443,10 +2663,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPropertyDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinition> ListPropertyDefinitionsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinition> ListPropertyDefinitionsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2546,10 +2777,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPropertyDefinition</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfPropertyDefinition> ListPropertyDefinitionsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfPropertyDefinition> ListPropertyDefinitionsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinition> localVarResponse = await ListPropertyDefinitionsWithHttpInfoAsync(effectiveAt, asAt, propertyKeys, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinition> localVarResponse = await ListPropertyDefinitionsWithHttpInfoAsync(effectiveAt, asAt, propertyKeys, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2566,11 +2798,22 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPropertyDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinition>> ListPropertyDefinitionsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinition>> ListPropertyDefinitionsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2667,10 +2910,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of the property definition</param>
         /// <param name="updateDerivedPropertyDefinitionRequest">Information about the derived property definition being updated</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinition</returns>
-        public PropertyDefinition UpdateDerivedPropertyDefinition(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0)
+        public PropertyDefinition UpdateDerivedPropertyDefinition(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = UpdateDerivedPropertyDefinitionWithHttpInfo(domain, scope, code, updateDerivedPropertyDefinitionRequest);
+            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = UpdateDerivedPropertyDefinitionWithHttpInfo(domain, scope, code, updateDerivedPropertyDefinitionRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2683,8 +2927,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of the property definition</param>
         /// <param name="updateDerivedPropertyDefinitionRequest">Information about the derived property definition being updated</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<PropertyDefinition> UpdateDerivedPropertyDefinitionWithHttpInfo(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PropertyDefinition> UpdateDerivedPropertyDefinitionWithHttpInfo(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -2711,6 +2956,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2787,10 +3042,11 @@ namespace Lusid.Sdk.Api
         /// <param name="updateDerivedPropertyDefinitionRequest">Information about the derived property definition being updated</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertyDefinition</returns>
-        public async System.Threading.Tasks.Task<PropertyDefinition> UpdateDerivedPropertyDefinitionAsync(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PropertyDefinition> UpdateDerivedPropertyDefinitionAsync(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = await UpdateDerivedPropertyDefinitionWithHttpInfoAsync(domain, scope, code, updateDerivedPropertyDefinitionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = await UpdateDerivedPropertyDefinitionWithHttpInfoAsync(domain, scope, code, updateDerivedPropertyDefinitionRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2804,8 +3060,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateDerivedPropertyDefinitionRequest">Information about the derived property definition being updated</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertyDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertyDefinition>> UpdateDerivedPropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertyDefinition>> UpdateDerivedPropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, UpdateDerivedPropertyDefinitionRequest updateDerivedPropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -2833,6 +3090,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2909,10 +3176,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinition</returns>
-        public PropertyDefinition UpdatePropertyDefinition(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0)
+        public PropertyDefinition UpdatePropertyDefinition(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = UpdatePropertyDefinitionWithHttpInfo(domain, scope, code, updatePropertyDefinitionRequest);
+            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = UpdatePropertyDefinitionWithHttpInfo(domain, scope, code, updatePropertyDefinitionRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2925,8 +3193,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<PropertyDefinition> UpdatePropertyDefinitionWithHttpInfo(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PropertyDefinition> UpdatePropertyDefinitionWithHttpInfo(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -2953,6 +3222,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3029,10 +3308,11 @@ namespace Lusid.Sdk.Api
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertyDefinition</returns>
-        public async System.Threading.Tasks.Task<PropertyDefinition> UpdatePropertyDefinitionAsync(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PropertyDefinition> UpdatePropertyDefinitionAsync(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = await UpdatePropertyDefinitionWithHttpInfoAsync(domain, scope, code, updatePropertyDefinitionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PropertyDefinition> localVarResponse = await UpdatePropertyDefinitionWithHttpInfoAsync(domain, scope, code, updatePropertyDefinitionRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3046,8 +3326,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertyDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertyDefinition>> UpdatePropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertyDefinition>> UpdatePropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -3075,6 +3356,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -3152,10 +3443,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BatchUpsertPropertyDefinitionPropertiesResponse</returns>
-        public BatchUpsertPropertyDefinitionPropertiesResponse UpsertPropertyDefinitionProperties(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0)
+        public BatchUpsertPropertyDefinitionPropertiesResponse UpsertPropertyDefinitionProperties(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BatchUpsertPropertyDefinitionPropertiesResponse> localVarResponse = UpsertPropertyDefinitionPropertiesWithHttpInfo(domain, scope, code, requestBody, successMode);
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertPropertyDefinitionPropertiesResponse> localVarResponse = UpsertPropertyDefinitionPropertiesWithHttpInfo(domain, scope, code, requestBody, successMode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3169,8 +3461,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpsertPropertyDefinitionPropertiesResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<BatchUpsertPropertyDefinitionPropertiesResponse> UpsertPropertyDefinitionPropertiesWithHttpInfo(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<BatchUpsertPropertyDefinitionPropertiesResponse> UpsertPropertyDefinitionPropertiesWithHttpInfo(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -3197,6 +3490,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3278,10 +3581,11 @@ namespace Lusid.Sdk.Api
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BatchUpsertPropertyDefinitionPropertiesResponse</returns>
-        public async System.Threading.Tasks.Task<BatchUpsertPropertyDefinitionPropertiesResponse> UpsertPropertyDefinitionPropertiesAsync(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BatchUpsertPropertyDefinitionPropertiesResponse> UpsertPropertyDefinitionPropertiesAsync(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BatchUpsertPropertyDefinitionPropertiesResponse> localVarResponse = await UpsertPropertyDefinitionPropertiesWithHttpInfoAsync(domain, scope, code, requestBody, successMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertPropertyDefinitionPropertiesResponse> localVarResponse = await UpsertPropertyDefinitionPropertiesWithHttpInfoAsync(domain, scope, code, requestBody, successMode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3296,8 +3600,9 @@ namespace Lusid.Sdk.Api
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertPropertyDefinitionPropertiesResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertPropertyDefinitionPropertiesResponse>> UpsertPropertyDefinitionPropertiesWithHttpInfoAsync(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertPropertyDefinitionPropertiesResponse>> UpsertPropertyDefinitionPropertiesWithHttpInfoAsync(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -3325,6 +3630,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

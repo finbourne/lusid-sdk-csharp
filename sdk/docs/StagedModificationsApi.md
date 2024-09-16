@@ -47,12 +47,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StagedModificationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StagedModificationsApi>();
             var id = "id_example";  // string | Unique Id for a staged modification..
             var stagedModificationDecisionRequest = new StagedModificationDecisionRequest(); // StagedModificationDecisionRequest | The decision on the requested staged modification, \"Approve\" or \"Reject\".
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // StagedModification result = apiInstance.AddDecision(id, stagedModificationDecisionRequest, opts: opts);
+
                 // [EXPERIMENTAL] AddDecision: AddDecision
                 StagedModification result = apiInstance.AddDecision(id, stagedModificationDecisionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -152,12 +163,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StagedModificationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StagedModificationsApi>();
             var id = "id_example";  // string | The unique identifier for a staged modification.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the staged modification. Defaults to latest if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // StagedModification result = apiInstance.GetStagedModification(id, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetStagedModification: GetStagedModification
                 StagedModification result = apiInstance.GetStagedModification(id, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -257,6 +279,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StagedModificationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StagedModificationsApi>();
             var id = "id_example";  // string | Unique Id for a staged modification..
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list changes. Defaults to return the latest version              of each staged change if not specified. (optional) 
@@ -267,6 +297,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfStagedModificationsRequestedChangeInterval result = apiInstance.ListRequestedChanges(id, asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
                 PagedResourceListOfStagedModificationsRequestedChangeInterval result = apiInstance.ListRequestedChanges(id, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -370,6 +403,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StagedModificationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StagedModificationsApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list staged modifications. Defaults to return the latest version              of each staged modification if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing staged modifications from a previous call to list staged modifications. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
@@ -379,6 +420,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfStagedModification result = apiInstance.ListStagedModifications(asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EXPERIMENTAL] ListStagedModifications: ListStagedModifications
                 PagedResourceListOfStagedModification result = apiInstance.ListStagedModifications(asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

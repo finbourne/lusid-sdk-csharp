@@ -48,11 +48,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CutLabelDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CutLabelDefinitionsApi>();
             var createCutLabelDefinitionRequest = new CreateCutLabelDefinitionRequest?(); // CreateCutLabelDefinitionRequest? | The cut label definition (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CutLabelDefinition result = apiInstance.CreateCutLabelDefinition(createCutLabelDefinitionRequest, opts: opts);
+
                 // CreateCutLabelDefinition: Create a Cut Label
                 CutLabelDefinition result = apiInstance.CreateCutLabelDefinition(createCutLabelDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -151,11 +162,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CutLabelDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CutLabelDefinitionsApi>();
             var code = "code_example";  // string | The Code of the Cut Label that is being Deleted
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DateTimeOffset result = apiInstance.DeleteCutLabelDefinition(code, opts: opts);
+
                 // DeleteCutLabelDefinition: Delete a Cut Label
                 DateTimeOffset result = apiInstance.DeleteCutLabelDefinition(code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -254,12 +276,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CutLabelDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CutLabelDefinitionsApi>();
             var code = "code_example";  // string | The Code of the Cut Label that is being queried
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The time at which to get the Cut Label (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CutLabelDefinition result = apiInstance.GetCutLabelDefinition(code, asAt, opts: opts);
+
                 // GetCutLabelDefinition: Get a Cut Label
                 CutLabelDefinition result = apiInstance.GetCutLabelDefinition(code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -359,6 +392,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CutLabelDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CutLabelDefinitionsApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The As At time at which listed Cut Labels are valid (optional) 
             var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
@@ -368,6 +409,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfCutLabelDefinition result = apiInstance.ListCutLabelDefinitions(asAt, sortBy, limit, filter, page, opts: opts);
+
                 // ListCutLabelDefinitions: List Existing Cut Labels
                 PagedResourceListOfCutLabelDefinition result = apiInstance.ListCutLabelDefinitions(asAt, sortBy, limit, filter, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -470,12 +514,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CutLabelDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CutLabelDefinitionsApi>();
             var code = "code_example";  // string | The Code of the Cut Label that is being updated
             var updateCutLabelDefinitionRequest = new UpdateCutLabelDefinitionRequest?(); // UpdateCutLabelDefinitionRequest? | The cut label update definition (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CutLabelDefinition result = apiInstance.UpdateCutLabelDefinition(code, updateCutLabelDefinitionRequest, opts: opts);
+
                 // UpdateCutLabelDefinition: Update a Cut Label
                 CutLabelDefinition result = apiInstance.UpdateCutLabelDefinition(code, updateCutLabelDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

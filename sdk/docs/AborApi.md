@@ -56,6 +56,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor.
@@ -63,6 +71,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DiaryEntry result = apiInstance.AddDiaryEntry(scope, code, diaryEntryRequest, opts: opts);
+
                 // [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor.
                 DiaryEntry result = apiInstance.AddDiaryEntry(scope, code, diaryEntryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -163,6 +174,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor.
@@ -170,6 +189,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DiaryEntry result = apiInstance.ClosePeriod(scope, code, closePeriodDiaryEntryRequest, opts: opts);
+
                 // [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
                 DiaryEntry result = apiInstance.ClosePeriod(scope, code, closePeriodDiaryEntryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -270,12 +292,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
             var aborRequest = new AborRequest(); // AborRequest | The definition of the Abor.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Abor result = apiInstance.CreateAbor(scope, aborRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateAbor: Create an Abor.
                 Abor result = apiInstance.CreateAbor(scope, aborRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -375,12 +408,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor to be deleted.
             var code = "code_example";  // string | The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteAbor(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteAbor: Delete an Abor.
                 DeletedEntityResponse result = apiInstance.DeleteAbor(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -480,6 +524,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor. Together with the scope this uniquely identifies the Abor.
@@ -489,6 +541,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Abor result = apiInstance.GetAbor(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] GetAbor: Get Abor.
                 Abor result = apiInstance.GetAbor(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -591,6 +646,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.
@@ -602,6 +665,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfJournalEntryLine result = apiInstance.GetJournalEntryLines(scope, code, journalEntryLinesQueryParameters, asAt, filter, limit, page, opts: opts);
+
                 // [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
                 VersionedResourceListOfJournalEntryLine result = apiInstance.GetJournalEntryLines(scope, code, journalEntryLinesQueryParameters, asAt, filter, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -706,6 +772,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor. Together with the scope is the unique identifier for the given Abor.
@@ -717,6 +791,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfTrialBalance result = apiInstance.GetTrialBalance(scope, code, trialBalanceQueryParameters, asAt, filter, limit, page, opts: opts);
+
                 // [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor.
                 VersionedResourceListOfTrialBalance result = apiInstance.GetTrialBalance(scope, code, trialBalanceQueryParameters, asAt, filter, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -821,6 +898,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Abor. Defaults to returning the latest version of each Abor if not specified. (optional) 
@@ -832,6 +917,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfAbor result = apiInstance.ListAbors(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] ListAbors: List Abors.
                 PagedResourceListOfAbor result = apiInstance.ListAbors(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -936,6 +1024,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor.
@@ -949,6 +1045,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfDiaryEntry result = apiInstance.ListDiaryEntries(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] ListDiaryEntries: List diary entries.
                 PagedResourceListOfDiaryEntry result = apiInstance.ListDiaryEntries(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1055,6 +1154,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor.
@@ -1062,6 +1169,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DiaryEntry result = apiInstance.LockPeriod(scope, code, lockPeriodDiaryEntryRequest, opts: opts);
+
                 // [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
                 DiaryEntry result = apiInstance.LockPeriod(scope, code, lockPeriodDiaryEntryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1162,6 +1272,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor. Together with the               scope this uniquely identifies the Abor.
@@ -1169,6 +1287,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Abor result = apiInstance.PatchAbor(scope, code, operation, opts: opts);
+
                 // [EXPERIMENTAL] PatchAbor: Patch Abor.
                 Abor result = apiInstance.PatchAbor(scope, code, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1269,6 +1390,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor to be deleted.
             var code = "code_example";  // string | The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.
@@ -1276,6 +1405,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PeriodDiaryEntriesReopenedResponse result = apiInstance.ReOpenPeriods(scope, code, reOpenPeriodDiaryEntryRequest, opts: opts);
+
                 // [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
                 PeriodDiaryEntriesReopenedResponse result = apiInstance.ReOpenPeriods(scope, code, reOpenPeriodDiaryEntryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1376,6 +1508,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor to update or insert the properties onto.
             var code = "code_example";  // string | The code of the Abor to update or insert the properties onto. Together with the scope this uniquely identifies the Abor.
@@ -1383,6 +1523,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AborProperties result = apiInstance.UpsertAborProperties(scope, code, requestBody, opts: opts);
+
                 // [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
                 AborProperties result = apiInstance.UpsertAborProperties(scope, code, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

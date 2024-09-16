@@ -52,6 +52,10 @@ namespace Lusid.Sdk.Extensions
             {
                 tokenProvider = new PersonalAccessTokenProvider(apiConfiguration.PersonalAccessToken);
             }
+            else if (!string.IsNullOrWhiteSpace(apiConfiguration.AccessTokenOldName))
+            {
+                tokenProvider = new PersonalAccessTokenProvider(apiConfiguration.AccessTokenOldName);
+            }
             else {
                 if (!Uri.TryCreate(apiConfiguration.TokenUrl, UriKind.Absolute, out var _))
                 {
@@ -73,8 +77,15 @@ namespace Lusid.Sdk.Extensions
             // Create configuration
             var configuration = new TokenProviderConfiguration(tokenProvider)
             {
-                BasePath = apiConfiguration.BaseUrl,
+                BasePath = apiConfiguration.BaseUrl
             };
+            
+            // if the timeout config has been specified, use this, else use the value from the global configuration
+            configuration.TimeoutMs = apiConfiguration.TimeoutMs ?? GlobalConfiguration.Instance.TimeoutMs;
+            
+            // if the rate limit retry config has been specified, use this, else use the value from the global configuration
+            configuration.RateLimitRetries = apiConfiguration.RateLimitRetries ?? GlobalConfiguration.Instance.RateLimitRetries;
+
             if(!String.IsNullOrWhiteSpace(apiConfiguration.ApplicationName))
             {
                 configuration.DefaultHeaders.Add("X-LUSID-Application", apiConfiguration.ApplicationName);
@@ -111,15 +122,27 @@ namespace Lusid.Sdk.Extensions
 
         private static Dictionary<Type, IApiAccessor> Init(Client.Configuration configuration)
         {
-            // If some retry policy has already been assigned, use it.
-            // Users can combine their own policy with the default policy by using the .Wrap() method.
-            RetryConfiguration.RetryPolicy =
-                RetryConfiguration.RetryPolicy ?? PollyApiRetryHandler.DefaultRetryPolicyWithFallback;
-
-            // If some async retry policy has already been assigned, use it.
-            // Users can combine their own policy with the default policy by using the .WrapAsync() method.
-            RetryConfiguration.AsyncRetryPolicy =
-                RetryConfiguration.AsyncRetryPolicy ?? PollyApiRetryHandler.DefaultRetryPolicyWithFallbackAsync;
+            // Set GetRetryPolicyFunc (if unset) unless RetryPolicy has been set 
+            // Users can combine their own policy with the existing policies by using the .Wrap() method
+            if (RetryConfiguration.RetryPolicy == null && RetryConfiguration.GetRetryPolicyFunc == null)
+            {
+                RetryConfiguration.GetRetryPolicyFunc = requestOptions =>
+                {
+                    var rateLimitRetries = requestOptions.RateLimitRetries ?? configuration.RateLimitRetries;
+                    return PollyApiRetryHandler.GetDefaultRetryPolicyWithRateLimitWithFallback(rateLimitRetries);
+                };
+            }
+            
+            // Set GetAsyncRetryPolicyFunc (if unset) unless AsyncRetryPolicy has been set 
+            // Users can combine their own policy with the existing policies by using the .WrapAsync() method
+            if (RetryConfiguration.AsyncRetryPolicy == null && RetryConfiguration.GetAsyncRetryPolicyFunc == null)
+            {
+                RetryConfiguration.GetAsyncRetryPolicyFunc = requestOptions =>
+                {
+                    var rateLimitRetries = requestOptions.RateLimitRetries ?? configuration.RateLimitRetries;
+                    return PollyApiRetryHandler.GetDefaultRetryPolicyWithRateLimitRetryWithFallbackAsync(rateLimitRetries);
+                };
+            }
 
             var dict = new Dictionary<Type, IApiAccessor>();
             foreach (Type api in ApiTypes)

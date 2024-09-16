@@ -61,6 +61,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
@@ -68,6 +76,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AcceptEstimateValuationPointResponse result = apiInstance.AcceptEstimateValuationPoint(scope, code, valuationPointDataRequest, opts: opts);
+
                 // [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
                 AcceptEstimateValuationPointResponse result = apiInstance.AcceptEstimateValuationPoint(scope, code, valuationPointDataRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -168,6 +179,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
@@ -175,6 +194,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Fee result = apiInstance.CreateFee(scope, code, feeRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateFee: Create a Fee.
                 Fee result = apiInstance.CreateFee(scope, code, feeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -275,12 +297,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var fundRequest = new FundRequest(); // FundRequest | The definition of the Fund.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Fund result = apiInstance.CreateFund(scope, fundRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateFund: Create a Fund.
                 Fund result = apiInstance.CreateFund(scope, fundRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -380,6 +413,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
@@ -387,6 +428,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteFee(scope, code, feeCode, opts: opts);
+
                 // [EXPERIMENTAL] DeleteFee: Delete a Fee.
                 DeletedEntityResponse result = apiInstance.DeleteFee(scope, code, feeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -487,12 +531,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund to be deleted.
             var code = "code_example";  // string | The code of the Fund to be deleted. Together with the scope this uniquely identifies the Fund.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteFund(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteFund: Delete a Fund.
                 DeletedEntityResponse result = apiInstance.DeleteFund(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -592,6 +647,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund for the valuation point to be deleted.
             var code = "code_example";  // string | The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund.
@@ -599,6 +662,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteValuationPoint(scope, code, diaryEntryCode, opts: opts);
+
                 // [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
                 DeletedEntityResponse result = apiInstance.DeleteValuationPoint(scope, code, diaryEntryCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -699,6 +765,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
@@ -706,6 +780,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ValuationPointDataResponse result = apiInstance.FinaliseCandidateValuationPoint(scope, code, valuationPointDataRequest, opts: opts);
+
                 // [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate.
                 ValuationPointDataResponse result = apiInstance.FinaliseCandidateValuationPoint(scope, code, valuationPointDataRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -806,6 +883,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
@@ -816,6 +901,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Fee result = apiInstance.GetFee(scope, code, feeCode, effectiveAt, asAt, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
                 Fee result = apiInstance.GetFee(scope, code, feeCode, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -919,6 +1007,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
@@ -928,6 +1024,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Fund result = apiInstance.GetFund(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] GetFund: Get a Fund.
                 Fund result = apiInstance.GetFund(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1030,6 +1129,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
@@ -1038,6 +1145,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ValuationPointDataResponse result = apiInstance.GetValuationPointData(scope, code, valuationPointDataQueryParameters, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
                 ValuationPointDataResponse result = apiInstance.GetValuationPointData(scope, code, valuationPointDataQueryParameters, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1139,6 +1249,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund.
@@ -1152,6 +1270,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfFee result = apiInstance.ListFees(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] ListFees: List Fees for a specified Fund.
                 PagedResourceListOfFee result = apiInstance.ListFees(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1258,6 +1379,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the Funds. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Funds. Defaults to returning the latest version of each Fund if not specified. (optional) 
@@ -1269,6 +1398,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfFund result = apiInstance.ListFunds(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] ListFunds: List Funds.
                 PagedResourceListOfFund result = apiInstance.ListFunds(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1373,6 +1505,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund.
@@ -1385,6 +1525,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfValuationPointOverview result = apiInstance.ListValuationPointOverview(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
                 PagedResourceListOfValuationPointOverview result = apiInstance.ListValuationPointOverview(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1490,6 +1633,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
@@ -1498,6 +1649,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Fee result = apiInstance.PatchFee(scope, code, feeCode, operation, opts: opts);
+
                 // [EXPERIMENTAL] PatchFee: Patch Fee.
                 Fee result = apiInstance.PatchFee(scope, code, feeCode, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1599,6 +1753,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund.
@@ -1606,6 +1768,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Fund result = apiInstance.SetShareClassInstruments(scope, code, setShareClassInstrumentsRequest, opts: opts);
+
                 // [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
                 Fund result = apiInstance.SetShareClassInstruments(scope, code, setShareClassInstrumentsRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1706,6 +1871,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
@@ -1713,6 +1886,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DiaryEntry result = apiInstance.UpsertDiaryEntryTypeValuationPoint(scope, code, upsertValuationPointRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
                 DiaryEntry result = apiInstance.UpsertDiaryEntryTypeValuationPoint(scope, code, upsertValuationPointRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1813,6 +1989,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
@@ -1821,6 +2005,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // FeeProperties result = apiInstance.UpsertFeeProperties(scope, code, feeCode, requestBody, opts: opts);
+
                 // [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
                 FeeProperties result = apiInstance.UpsertFeeProperties(scope, code, feeCode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1922,6 +2109,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund to update or insert the properties onto.
             var code = "code_example";  // string | The code of the Fund to update or insert the properties onto. Together with the scope this uniquely identifies the Fund.
@@ -1929,6 +2124,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // FundProperties result = apiInstance.UpsertFundProperties(scope, code, requestBody, opts: opts);
+
                 // [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.
                 FundProperties result = apiInstance.UpsertFundProperties(scope, code, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

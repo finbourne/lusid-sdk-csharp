@@ -10,12 +10,12 @@ using System;
 namespace Lusid.Sdk.Extensions
 {
     /// <summary>
-    /// An exception thrown when missing config parameters
+    /// An exception thrown when config parameters are either missing or invalid
     /// </summary>
-    public class MissingConfigException : Exception
+    public class ConfigurationException : Exception
     {
         /// <inheritdoc />
-        public MissingConfigException(string message) : base(message)
+        public ConfigurationException(string message) : base(message)
         {
         }
     }

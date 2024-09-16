@@ -47,12 +47,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrdersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrdersApi>();
             var scope = "scope_example";  // string | The order scope.
             var code = "code_example";  // string | The order's code. This, together with the scope uniquely identifies the order to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteOrder(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeleteOrder: Delete order
                 DeletedEntityResponse result = apiInstance.DeleteOrder(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -152,6 +163,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrdersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrdersApi>();
             var scope = "scope_example";  // string | The scope to which the order belongs.
             var code = "code_example";  // string | The order's unique identifier.
@@ -160,6 +179,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Order result = apiInstance.GetOrder(scope, code, asAt, propertyKeys, opts: opts);
+
                 // [EARLY ACCESS] GetOrder: Get Order
                 Order result = apiInstance.GetOrder(scope, code, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -261,6 +283,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrdersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrdersApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing orders from a previous call to list orders.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
@@ -271,6 +301,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfOrder result = apiInstance.ListOrders(asAt, page, sortBy, limit, filter, propertyKeys, opts: opts);
+
                 // ListOrders: List Orders
                 PagedResourceListOfOrder result = apiInstance.ListOrders(asAt, page, sortBy, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -374,11 +407,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrdersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrdersApi>();
             var orderSetRequest = new OrderSetRequest?(); // OrderSetRequest? | The collection of order requests. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfOrder result = apiInstance.UpsertOrders(orderSetRequest, opts: opts);
+
                 // UpsertOrders: Upsert Order
                 ResourceListOfOrder result = apiInstance.UpsertOrders(orderSetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

@@ -96,7 +96,7 @@ namespace Lusid.Sdk.Client
         /// Gets the HTTP connection timeout (in milliseconds)
         /// </summary>
         /// <value>HTTP connection timeout.</value>
-        int Timeout { get; }
+        int TimeoutMs { get; }
 
         /// <summary>
         /// Gets the proxy.
@@ -148,5 +148,10 @@ namespace Lusid.Sdk.Client
         /// </summary>
         /// <value>X509 Certificate collection.</value>
         X509CertificateCollection ClientCertificates { get; }
+        
+        /// <summary>
+        /// Gets the number of retries when being rate limited
+        /// </summary>
+        int RateLimitRetries { get; }
     }
 }

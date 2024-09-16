@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="id">Unique Id for a staged modification..</param>
         /// <param name="stagedModificationDecisionRequest">The decision on the requested staged modification, \&quot;Approve\&quot; or \&quot;Reject\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>StagedModification</returns>
-        StagedModification AddDecision(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0);
+        StagedModification AddDecision(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] AddDecision: AddDecision
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="id">Unique Id for a staged modification..</param>
         /// <param name="stagedModificationDecisionRequest">The decision on the requested staged modification, \&quot;Approve\&quot; or \&quot;Reject\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of StagedModification</returns>
-        ApiResponse<StagedModification> AddDecisionWithHttpInfo(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0);
+        ApiResponse<StagedModification> AddDecisionWithHttpInfo(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetStagedModification: GetStagedModification
         /// </summary>
@@ -65,8 +68,9 @@ namespace Lusid.Sdk.Api
         /// <param name="id">The unique identifier for a staged modification.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the staged modification. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>StagedModification</returns>
-        StagedModification GetStagedModification(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        StagedModification GetStagedModification(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetStagedModification: GetStagedModification
@@ -78,8 +82,9 @@ namespace Lusid.Sdk.Api
         /// <param name="id">The unique identifier for a staged modification.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the staged modification. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of StagedModification</returns>
-        ApiResponse<StagedModification> GetStagedModificationWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<StagedModification> GetStagedModificationWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
         /// </summary>
@@ -94,8 +99,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfStagedModificationsRequestedChangeInterval</returns>
-        PagedResourceListOfStagedModificationsRequestedChangeInterval ListRequestedChanges(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfStagedModificationsRequestedChangeInterval ListRequestedChanges(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
@@ -111,8 +117,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfStagedModificationsRequestedChangeInterval</returns>
-        ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval> ListRequestedChangesWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval> ListRequestedChangesWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListStagedModifications: ListStagedModifications
         /// </summary>
@@ -126,8 +133,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfStagedModification</returns>
-        PagedResourceListOfStagedModification ListStagedModifications(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfStagedModification ListStagedModifications(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListStagedModifications: ListStagedModifications
@@ -142,8 +150,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfStagedModification</returns>
-        ApiResponse<PagedResourceListOfStagedModification> ListStagedModificationsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfStagedModification> ListStagedModificationsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -164,8 +173,9 @@ namespace Lusid.Sdk.Api
         /// <param name="stagedModificationDecisionRequest">The decision on the requested staged modification, \&quot;Approve\&quot; or \&quot;Reject\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of StagedModification</returns>
-        System.Threading.Tasks.Task<StagedModification> AddDecisionAsync(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StagedModification> AddDecisionAsync(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] AddDecision: AddDecision
@@ -178,8 +188,9 @@ namespace Lusid.Sdk.Api
         /// <param name="stagedModificationDecisionRequest">The decision on the requested staged modification, \&quot;Approve\&quot; or \&quot;Reject\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (StagedModification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StagedModification>> AddDecisionWithHttpInfoAsync(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StagedModification>> AddDecisionWithHttpInfoAsync(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetStagedModification: GetStagedModification
         /// </summary>
@@ -191,8 +202,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the staged modification. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of StagedModification</returns>
-        System.Threading.Tasks.Task<StagedModification> GetStagedModificationAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StagedModification> GetStagedModificationAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetStagedModification: GetStagedModification
@@ -205,8 +217,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the staged modification. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (StagedModification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StagedModification>> GetStagedModificationWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StagedModification>> GetStagedModificationWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
         /// </summary>
@@ -222,8 +235,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfStagedModificationsRequestedChangeInterval</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfStagedModificationsRequestedChangeInterval> ListRequestedChangesAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfStagedModificationsRequestedChangeInterval> ListRequestedChangesAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
@@ -240,8 +254,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfStagedModificationsRequestedChangeInterval)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval>> ListRequestedChangesWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval>> ListRequestedChangesWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListStagedModifications: ListStagedModifications
         /// </summary>
@@ -256,8 +271,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfStagedModification</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfStagedModification> ListStagedModificationsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfStagedModification> ListStagedModificationsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListStagedModifications: ListStagedModifications
@@ -273,8 +289,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfStagedModification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfStagedModification>> ListStagedModificationsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfStagedModification>> ListStagedModificationsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -307,9 +324,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public StagedModificationsApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -399,10 +422,11 @@ namespace Lusid.Sdk.Api
         /// <param name="id">Unique Id for a staged modification..</param>
         /// <param name="stagedModificationDecisionRequest">The decision on the requested staged modification, \&quot;Approve\&quot; or \&quot;Reject\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>StagedModification</returns>
-        public StagedModification AddDecision(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0)
+        public StagedModification AddDecision(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<StagedModification> localVarResponse = AddDecisionWithHttpInfo(id, stagedModificationDecisionRequest);
+            Lusid.Sdk.Client.ApiResponse<StagedModification> localVarResponse = AddDecisionWithHttpInfo(id, stagedModificationDecisionRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -413,8 +437,9 @@ namespace Lusid.Sdk.Api
         /// <param name="id">Unique Id for a staged modification..</param>
         /// <param name="stagedModificationDecisionRequest">The decision on the requested staged modification, \&quot;Approve\&quot; or \&quot;Reject\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of StagedModification</returns>
-        public Lusid.Sdk.Client.ApiResponse<StagedModification> AddDecisionWithHttpInfo(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<StagedModification> AddDecisionWithHttpInfo(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -429,6 +454,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -501,10 +536,11 @@ namespace Lusid.Sdk.Api
         /// <param name="stagedModificationDecisionRequest">The decision on the requested staged modification, \&quot;Approve\&quot; or \&quot;Reject\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of StagedModification</returns>
-        public async System.Threading.Tasks.Task<StagedModification> AddDecisionAsync(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StagedModification> AddDecisionAsync(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<StagedModification> localVarResponse = await AddDecisionWithHttpInfoAsync(id, stagedModificationDecisionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<StagedModification> localVarResponse = await AddDecisionWithHttpInfoAsync(id, stagedModificationDecisionRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -516,8 +552,9 @@ namespace Lusid.Sdk.Api
         /// <param name="stagedModificationDecisionRequest">The decision on the requested staged modification, \&quot;Approve\&quot; or \&quot;Reject\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (StagedModification)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagedModification>> AddDecisionWithHttpInfoAsync(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagedModification>> AddDecisionWithHttpInfoAsync(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -533,6 +570,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -605,10 +652,11 @@ namespace Lusid.Sdk.Api
         /// <param name="id">The unique identifier for a staged modification.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the staged modification. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>StagedModification</returns>
-        public StagedModification GetStagedModification(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public StagedModification GetStagedModification(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<StagedModification> localVarResponse = GetStagedModificationWithHttpInfo(id, asAt);
+            Lusid.Sdk.Client.ApiResponse<StagedModification> localVarResponse = GetStagedModificationWithHttpInfo(id, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -619,8 +667,9 @@ namespace Lusid.Sdk.Api
         /// <param name="id">The unique identifier for a staged modification.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the staged modification. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of StagedModification</returns>
-        public Lusid.Sdk.Client.ApiResponse<StagedModification> GetStagedModificationWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<StagedModification> GetStagedModificationWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -629,6 +678,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -700,10 +759,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the staged modification. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of StagedModification</returns>
-        public async System.Threading.Tasks.Task<StagedModification> GetStagedModificationAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StagedModification> GetStagedModificationAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<StagedModification> localVarResponse = await GetStagedModificationWithHttpInfoAsync(id, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<StagedModification> localVarResponse = await GetStagedModificationWithHttpInfoAsync(id, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -715,8 +775,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the staged modification. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (StagedModification)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagedModification>> GetStagedModificationWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagedModification>> GetStagedModificationWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -726,6 +787,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -801,10 +872,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfStagedModificationsRequestedChangeInterval</returns>
-        public PagedResourceListOfStagedModificationsRequestedChangeInterval ListRequestedChanges(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfStagedModificationsRequestedChangeInterval ListRequestedChanges(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval> localVarResponse = ListRequestedChangesWithHttpInfo(id, asAt, page, limit, filter, sortBy);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval> localVarResponse = ListRequestedChangesWithHttpInfo(id, asAt, page, limit, filter, sortBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -819,8 +891,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfStagedModificationsRequestedChangeInterval</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval> ListRequestedChangesWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval> ListRequestedChangesWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -829,6 +902,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -920,10 +1003,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfStagedModificationsRequestedChangeInterval</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfStagedModificationsRequestedChangeInterval> ListRequestedChangesAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfStagedModificationsRequestedChangeInterval> ListRequestedChangesAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval> localVarResponse = await ListRequestedChangesWithHttpInfoAsync(id, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval> localVarResponse = await ListRequestedChangesWithHttpInfoAsync(id, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -939,8 +1023,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfStagedModificationsRequestedChangeInterval)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval>> ListRequestedChangesWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval>> ListRequestedChangesWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -950,6 +1035,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1040,10 +1135,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfStagedModification</returns>
-        public PagedResourceListOfStagedModification ListStagedModifications(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfStagedModification ListStagedModifications(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModification> localVarResponse = ListStagedModificationsWithHttpInfo(asAt, page, limit, filter, sortBy);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModification> localVarResponse = ListStagedModificationsWithHttpInfo(asAt, page, limit, filter, sortBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1057,10 +1153,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfStagedModification</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModification> ListStagedModificationsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModification> ListStagedModificationsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1150,10 +1257,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfStagedModification</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfStagedModification> ListStagedModificationsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfStagedModification> ListStagedModificationsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModification> localVarResponse = await ListStagedModificationsWithHttpInfoAsync(asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModification> localVarResponse = await ListStagedModificationsWithHttpInfoAsync(asAt, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1168,11 +1276,22 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfStagedModification)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModification>> ListStagedModificationsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModification>> ListStagedModificationsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

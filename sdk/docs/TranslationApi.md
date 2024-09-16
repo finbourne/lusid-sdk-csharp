@@ -45,11 +45,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TranslationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TranslationApi>();
             var translateInstrumentDefinitionsRequest = new TranslateInstrumentDefinitionsRequest(); // TranslateInstrumentDefinitionsRequest | The definitions of the instruments to translate along with the target dialect.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TranslateInstrumentDefinitionsResponse result = apiInstance.TranslateInstrumentDefinitions(translateInstrumentDefinitionsRequest, opts: opts);
+
                 // [EXPERIMENTAL] TranslateInstrumentDefinitions: Translate instruments
                 TranslateInstrumentDefinitionsResponse result = apiInstance.TranslateInstrumentDefinitions(translateInstrumentDefinitionsRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -148,11 +159,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TranslationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TranslationApi>();
             var translateTradeTicketRequest = new TranslateTradeTicketRequest(); // TranslateTradeTicketRequest | The definitions of the trade ticket to translate along with the target dialect.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TranslateTradeTicketsResponse result = apiInstance.TranslateTradeTickets(translateTradeTicketRequest, opts: opts);
+
                 // [EXPERIMENTAL] TranslateTradeTickets: Translate trade ticket
                 TranslateTradeTicketsResponse result = apiInstance.TranslateTradeTickets(translateTradeTicketRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

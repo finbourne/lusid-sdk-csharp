@@ -50,11 +50,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SystemConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SystemConfigurationApi>();
             var transactionConfigurationDataRequest = new TransactionConfigurationDataRequest?(); // TransactionConfigurationDataRequest? | A transaction type definition. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionSetConfigurationData result = apiInstance.CreateConfigurationTransactionType(transactionConfigurationDataRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateConfigurationTransactionType: Create transaction type
                 TransactionSetConfigurationData result = apiInstance.CreateConfigurationTransactionType(transactionConfigurationDataRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -153,11 +164,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SystemConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SystemConfigurationApi>();
             var sideConfigurationDataRequest = new SideConfigurationDataRequest?(); // SideConfigurationDataRequest? | The definition of the side. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionSetConfigurationData result = apiInstance.CreateSideDefinition(sideConfigurationDataRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateSideDefinition: Create side definition
                 TransactionSetConfigurationData result = apiInstance.CreateSideDefinition(sideConfigurationDataRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -256,11 +278,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SystemConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SystemConfigurationApi>();
             var source = "source_example";  // string | The source to delete transaction configurations for
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteTransactionConfigurationSource(source, opts: opts);
+
                 // [EXPERIMENTAL] DeleteTransactionConfigurationSource: Delete all transaction configurations for a source
                 DeletedEntityResponse result = apiInstance.DeleteTransactionConfigurationSource(source);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -359,12 +392,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SystemConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SystemConfigurationApi>();
             var source = "source_example";  // string | The source for which to retrieve transaction configurations
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionSetConfigurationData result = apiInstance.GetTransactionConfigurationSource(source, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetTransactionConfigurationSource: Get all transaction configurations for a source
                 TransactionSetConfigurationData result = apiInstance.GetTransactionConfigurationSource(source, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -464,11 +508,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SystemConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SystemConfigurationApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionSetConfigurationData result = apiInstance.ListConfigurationTransactionTypes(asAt, opts: opts);
+
                 // [EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types
                 TransactionSetConfigurationData result = apiInstance.ListConfigurationTransactionTypes(asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -567,11 +622,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SystemConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SystemConfigurationApi>();
             var transactionSetConfigurationDataRequest = new TransactionSetConfigurationDataRequest?(); // TransactionSetConfigurationDataRequest? | The complete set of transaction type definitions. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionSetConfigurationData result = apiInstance.SetConfigurationTransactionTypes(transactionSetConfigurationDataRequest, opts: opts);
+
                 // [EXPERIMENTAL] SetConfigurationTransactionTypes: Set transaction types
                 TransactionSetConfigurationData result = apiInstance.SetConfigurationTransactionTypes(transactionSetConfigurationDataRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -670,12 +736,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SystemConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SystemConfigurationApi>();
             var source = "source_example";  // string | The source to set the transaction configurations for
             var setTransactionConfigurationSourceRequest = new List<SetTransactionConfigurationSourceRequest>(); // List<SetTransactionConfigurationSourceRequest> | The set of transaction configurations
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionSetConfigurationData result = apiInstance.SetTransactionConfigurationSource(source, setTransactionConfigurationSourceRequest, opts: opts);
+
                 // [EXPERIMENTAL] SetTransactionConfigurationSource: Set transaction types for a source
                 TransactionSetConfigurationData result = apiInstance.SetTransactionConfigurationSource(source, setTransactionConfigurationSourceRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

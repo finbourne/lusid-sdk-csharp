@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BookTransactionsResponse</returns>
-        BookTransactionsResponse BookTransactions(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0);
+        BookTransactionsResponse BookTransactions(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BookTransactionsResponse</returns>
-        ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0);
+        ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CancelOrders: Cancel existing orders
         /// </summary>
@@ -64,8 +67,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CancelOrdersResponse</returns>
-        CancelOrdersResponse CancelOrders(Dictionary<string, ResourceId> requestBody, int operationIndex = 0);
+        CancelOrdersResponse CancelOrders(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CancelOrders: Cancel existing orders
@@ -76,8 +80,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CancelOrdersResponse</returns>
-        ApiResponse<CancelOrdersResponse> CancelOrdersWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0);
+        ApiResponse<CancelOrdersResponse> CancelOrdersWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
         /// </summary>
@@ -87,8 +92,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CancelPlacementsResponse</returns>
-        CancelPlacementsResponse CancelPlacements(Dictionary<string, ResourceId> requestBody, int operationIndex = 0);
+        CancelPlacementsResponse CancelPlacements(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
@@ -99,8 +105,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CancelPlacementsResponse</returns>
-        ApiResponse<CancelPlacementsResponse> CancelPlacementsWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0);
+        ApiResponse<CancelPlacementsResponse> CancelPlacementsWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
         /// </summary>
@@ -110,8 +117,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfBlockAndOrders</returns>
-        ResourceListOfBlockAndOrders CreateOrders(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0);
+        ResourceListOfBlockAndOrders CreateOrders(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
@@ -122,8 +130,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfBlockAndOrders</returns>
-        ApiResponse<ResourceListOfBlockAndOrders> CreateOrdersWithHttpInfo(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0);
+        ApiResponse<ResourceListOfBlockAndOrders> CreateOrdersWithHttpInfo(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
         /// </summary>
@@ -135,8 +144,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the order.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
-        ResourceListOfChangeIntervalWithOrderManagementDetail GetOrderHistory(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ResourceListOfChangeIntervalWithOrderManagementDetail GetOrderHistory(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
@@ -149,8 +159,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the order.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
-        ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
         /// </summary>
@@ -160,8 +171,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfMovedOrderToDifferentBlockResponse</returns>
-        ResourceListOfMovedOrderToDifferentBlockResponse MoveOrders(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0);
+        ResourceListOfMovedOrderToDifferentBlockResponse MoveOrders(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
@@ -172,8 +184,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfMovedOrderToDifferentBlockResponse</returns>
-        ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersWithHttpInfo(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0);
+        ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersWithHttpInfo(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
         /// </summary>
@@ -183,8 +196,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPlacement</returns>
-        ResourceListOfPlacement PlaceBlocks(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0);
+        ResourceListOfPlacement PlaceBlocks(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
@@ -195,8 +209,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPlacement</returns>
-        ApiResponse<ResourceListOfPlacement> PlaceBlocksWithHttpInfo(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0);
+        ApiResponse<ResourceListOfPlacement> PlaceBlocksWithHttpInfo(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
         /// </summary>
@@ -207,8 +222,9 @@ namespace Lusid.Sdk.Api
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AllocationServiceRunResponse</returns>
-        AllocationServiceRunResponse RunAllocationService(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0);
+        AllocationServiceRunResponse RunAllocationService(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
@@ -220,8 +236,9 @@ namespace Lusid.Sdk.Api
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationServiceRunResponse</returns>
-        ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithHttpInfo(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0);
+        ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithHttpInfo(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateOrders: Update existing orders
         /// </summary>
@@ -231,8 +248,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpdateOrdersResponse</returns>
-        UpdateOrdersResponse UpdateOrders(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0);
+        UpdateOrdersResponse UpdateOrders(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateOrders: Update existing orders
@@ -243,8 +261,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpdateOrdersResponse</returns>
-        ApiResponse<UpdateOrdersResponse> UpdateOrdersWithHttpInfo(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0);
+        ApiResponse<UpdateOrdersResponse> UpdateOrdersWithHttpInfo(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
         /// </summary>
@@ -254,8 +273,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpdatePlacementsResponse</returns>
-        UpdatePlacementsResponse UpdatePlacements(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0);
+        UpdatePlacementsResponse UpdatePlacements(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
@@ -266,8 +286,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpdatePlacementsResponse</returns>
-        ApiResponse<UpdatePlacementsResponse> UpdatePlacementsWithHttpInfo(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0);
+        ApiResponse<UpdatePlacementsResponse> UpdatePlacementsWithHttpInfo(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -288,8 +309,9 @@ namespace Lusid.Sdk.Api
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BookTransactionsResponse</returns>
-        System.Threading.Tasks.Task<BookTransactionsResponse> BookTransactionsAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BookTransactionsResponse> BookTransactionsAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
@@ -302,8 +324,9 @@ namespace Lusid.Sdk.Api
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BookTransactionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CancelOrders: Cancel existing orders
         /// </summary>
@@ -314,8 +337,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CancelOrdersResponse</returns>
-        System.Threading.Tasks.Task<CancelOrdersResponse> CancelOrdersAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CancelOrdersResponse> CancelOrdersAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CancelOrders: Cancel existing orders
@@ -327,8 +351,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CancelOrdersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CancelOrdersResponse>> CancelOrdersWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CancelOrdersResponse>> CancelOrdersWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
         /// </summary>
@@ -339,8 +364,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CancelPlacementsResponse</returns>
-        System.Threading.Tasks.Task<CancelPlacementsResponse> CancelPlacementsAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CancelPlacementsResponse> CancelPlacementsAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
@@ -352,8 +378,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CancelPlacementsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CancelPlacementsResponse>> CancelPlacementsWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CancelPlacementsResponse>> CancelPlacementsWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
         /// </summary>
@@ -364,8 +391,9 @@ namespace Lusid.Sdk.Api
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfBlockAndOrders</returns>
-        System.Threading.Tasks.Task<ResourceListOfBlockAndOrders> CreateOrdersAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfBlockAndOrders> CreateOrdersAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
@@ -377,8 +405,9 @@ namespace Lusid.Sdk.Api
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfBlockAndOrders)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfBlockAndOrders>> CreateOrdersWithHttpInfoAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfBlockAndOrders>> CreateOrdersWithHttpInfoAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
         /// </summary>
@@ -391,8 +420,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
-        System.Threading.Tasks.Task<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
@@ -406,8 +436,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfChangeIntervalWithOrderManagementDetail)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail>> GetOrderHistoryWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail>> GetOrderHistoryWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
         /// </summary>
@@ -418,8 +449,9 @@ namespace Lusid.Sdk.Api
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfMovedOrderToDifferentBlockResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
@@ -431,8 +463,9 @@ namespace Lusid.Sdk.Api
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfMovedOrderToDifferentBlockResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse>> MoveOrdersWithHttpInfoAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse>> MoveOrdersWithHttpInfoAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
         /// </summary>
@@ -443,8 +476,9 @@ namespace Lusid.Sdk.Api
         /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfPlacement</returns>
-        System.Threading.Tasks.Task<ResourceListOfPlacement> PlaceBlocksAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfPlacement> PlaceBlocksAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
@@ -456,8 +490,9 @@ namespace Lusid.Sdk.Api
         /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPlacement)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPlacement>> PlaceBlocksWithHttpInfoAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPlacement>> PlaceBlocksWithHttpInfoAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
         /// </summary>
@@ -469,8 +504,9 @@ namespace Lusid.Sdk.Api
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AllocationServiceRunResponse</returns>
-        System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
@@ -483,8 +519,9 @@ namespace Lusid.Sdk.Api
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AllocationServiceRunResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithHttpInfoAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithHttpInfoAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateOrders: Update existing orders
         /// </summary>
@@ -495,8 +532,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the orders to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpdateOrdersResponse</returns>
-        System.Threading.Tasks.Task<UpdateOrdersResponse> UpdateOrdersAsync(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpdateOrdersResponse> UpdateOrdersAsync(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateOrders: Update existing orders
@@ -508,8 +546,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the orders to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpdateOrdersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpdateOrdersResponse>> UpdateOrdersWithHttpInfoAsync(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpdateOrdersResponse>> UpdateOrdersWithHttpInfoAsync(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
         /// </summary>
@@ -520,8 +559,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the placements to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpdatePlacementsResponse</returns>
-        System.Threading.Tasks.Task<UpdatePlacementsResponse> UpdatePlacementsAsync(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpdatePlacementsResponse> UpdatePlacementsAsync(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
@@ -533,8 +573,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the placements to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpdatePlacementsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpdatePlacementsResponse>> UpdatePlacementsWithHttpInfoAsync(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpdatePlacementsResponse>> UpdatePlacementsWithHttpInfoAsync(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -567,9 +608,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public OrderManagementApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -659,10 +706,11 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BookTransactionsResponse</returns>
-        public BookTransactionsResponse BookTransactions(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0)
+        public BookTransactionsResponse BookTransactions(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> localVarResponse = BookTransactionsWithHttpInfo(bookTransactionsRequest, applyFeesAndCommission);
+            Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> localVarResponse = BookTransactionsWithHttpInfo(bookTransactionsRequest, applyFeesAndCommission, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -673,8 +721,9 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BookTransactionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'bookTransactionsRequest' is set
             if (bookTransactionsRequest == null)
@@ -683,6 +732,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -758,10 +817,11 @@ namespace Lusid.Sdk.Api
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BookTransactionsResponse</returns>
-        public async System.Threading.Tasks.Task<BookTransactionsResponse> BookTransactionsAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BookTransactionsResponse> BookTransactionsAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> localVarResponse = await BookTransactionsWithHttpInfoAsync(bookTransactionsRequest, applyFeesAndCommission, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> localVarResponse = await BookTransactionsWithHttpInfoAsync(bookTransactionsRequest, applyFeesAndCommission, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -773,8 +833,9 @@ namespace Lusid.Sdk.Api
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BookTransactionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'bookTransactionsRequest' is set
             if (bookTransactionsRequest == null)
@@ -784,6 +845,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -858,10 +929,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CancelOrdersResponse</returns>
-        public CancelOrdersResponse CancelOrders(Dictionary<string, ResourceId> requestBody, int operationIndex = 0)
+        public CancelOrdersResponse CancelOrders(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CancelOrdersResponse> localVarResponse = CancelOrdersWithHttpInfo(requestBody);
+            Lusid.Sdk.Client.ApiResponse<CancelOrdersResponse> localVarResponse = CancelOrdersWithHttpInfo(requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -871,8 +943,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CancelOrdersResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<CancelOrdersResponse> CancelOrdersWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CancelOrdersResponse> CancelOrdersWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -881,6 +954,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -951,10 +1034,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CancelOrdersResponse</returns>
-        public async System.Threading.Tasks.Task<CancelOrdersResponse> CancelOrdersAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CancelOrdersResponse> CancelOrdersAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CancelOrdersResponse> localVarResponse = await CancelOrdersWithHttpInfoAsync(requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CancelOrdersResponse> localVarResponse = await CancelOrdersWithHttpInfoAsync(requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -965,8 +1049,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CancelOrdersResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CancelOrdersResponse>> CancelOrdersWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CancelOrdersResponse>> CancelOrdersWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -976,6 +1061,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1046,10 +1141,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CancelPlacementsResponse</returns>
-        public CancelPlacementsResponse CancelPlacements(Dictionary<string, ResourceId> requestBody, int operationIndex = 0)
+        public CancelPlacementsResponse CancelPlacements(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse> localVarResponse = CancelPlacementsWithHttpInfo(requestBody);
+            Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse> localVarResponse = CancelPlacementsWithHttpInfo(requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1059,8 +1155,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CancelPlacementsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse> CancelPlacementsWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse> CancelPlacementsWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -1069,6 +1166,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1139,10 +1246,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CancelPlacementsResponse</returns>
-        public async System.Threading.Tasks.Task<CancelPlacementsResponse> CancelPlacementsAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CancelPlacementsResponse> CancelPlacementsAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse> localVarResponse = await CancelPlacementsWithHttpInfoAsync(requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse> localVarResponse = await CancelPlacementsWithHttpInfoAsync(requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1153,8 +1261,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CancelPlacementsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse>> CancelPlacementsWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse>> CancelPlacementsWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -1164,6 +1273,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1234,10 +1353,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfBlockAndOrders</returns>
-        public ResourceListOfBlockAndOrders CreateOrders(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0)
+        public ResourceListOfBlockAndOrders CreateOrders(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfBlockAndOrders> localVarResponse = CreateOrdersWithHttpInfo(blockAndOrdersCreateRequest);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfBlockAndOrders> localVarResponse = CreateOrdersWithHttpInfo(blockAndOrdersCreateRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1247,8 +1367,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfBlockAndOrders</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfBlockAndOrders> CreateOrdersWithHttpInfo(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfBlockAndOrders> CreateOrdersWithHttpInfo(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'blockAndOrdersCreateRequest' is set
             if (blockAndOrdersCreateRequest == null)
@@ -1257,6 +1378,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1327,10 +1458,11 @@ namespace Lusid.Sdk.Api
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfBlockAndOrders</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfBlockAndOrders> CreateOrdersAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfBlockAndOrders> CreateOrdersAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfBlockAndOrders> localVarResponse = await CreateOrdersWithHttpInfoAsync(blockAndOrdersCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfBlockAndOrders> localVarResponse = await CreateOrdersWithHttpInfoAsync(blockAndOrdersCreateRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1341,8 +1473,9 @@ namespace Lusid.Sdk.Api
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfBlockAndOrders)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfBlockAndOrders>> CreateOrdersWithHttpInfoAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfBlockAndOrders>> CreateOrdersWithHttpInfoAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'blockAndOrdersCreateRequest' is set
             if (blockAndOrdersCreateRequest == null)
@@ -1352,6 +1485,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1424,10 +1567,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the order.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
-        public ResourceListOfChangeIntervalWithOrderManagementDetail GetOrderHistory(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public ResourceListOfChangeIntervalWithOrderManagementDetail GetOrderHistory(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> localVarResponse = GetOrderHistoryWithHttpInfo(scope, code, asAt);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> localVarResponse = GetOrderHistoryWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1439,8 +1583,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the order.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1455,6 +1600,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1528,10 +1683,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> localVarResponse = await GetOrderHistoryWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> localVarResponse = await GetOrderHistoryWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1544,8 +1700,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfChangeIntervalWithOrderManagementDetail)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail>> GetOrderHistoryWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail>> GetOrderHistoryWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1561,6 +1718,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1632,10 +1799,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfMovedOrderToDifferentBlockResponse</returns>
-        public ResourceListOfMovedOrderToDifferentBlockResponse MoveOrders(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0)
+        public ResourceListOfMovedOrderToDifferentBlockResponse MoveOrders(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> localVarResponse = MoveOrdersWithHttpInfo(moveOrdersToDifferentBlocksRequest);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> localVarResponse = MoveOrdersWithHttpInfo(moveOrdersToDifferentBlocksRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1645,8 +1813,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfMovedOrderToDifferentBlockResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersWithHttpInfo(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersWithHttpInfo(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'moveOrdersToDifferentBlocksRequest' is set
             if (moveOrdersToDifferentBlocksRequest == null)
@@ -1655,6 +1824,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1725,10 +1904,11 @@ namespace Lusid.Sdk.Api
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfMovedOrderToDifferentBlockResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> localVarResponse = await MoveOrdersWithHttpInfoAsync(moveOrdersToDifferentBlocksRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> localVarResponse = await MoveOrdersWithHttpInfoAsync(moveOrdersToDifferentBlocksRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1739,8 +1919,9 @@ namespace Lusid.Sdk.Api
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfMovedOrderToDifferentBlockResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse>> MoveOrdersWithHttpInfoAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse>> MoveOrdersWithHttpInfoAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'moveOrdersToDifferentBlocksRequest' is set
             if (moveOrdersToDifferentBlocksRequest == null)
@@ -1750,6 +1931,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1820,10 +2011,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPlacement</returns>
-        public ResourceListOfPlacement PlaceBlocks(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0)
+        public ResourceListOfPlacement PlaceBlocks(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement> localVarResponse = PlaceBlocksWithHttpInfo(placeBlocksRequest);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement> localVarResponse = PlaceBlocksWithHttpInfo(placeBlocksRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1833,10 +2025,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPlacement</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement> PlaceBlocksWithHttpInfo(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement> PlaceBlocksWithHttpInfo(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1907,10 +2110,11 @@ namespace Lusid.Sdk.Api
         /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfPlacement</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfPlacement> PlaceBlocksAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfPlacement> PlaceBlocksAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement> localVarResponse = await PlaceBlocksWithHttpInfoAsync(placeBlocksRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement> localVarResponse = await PlaceBlocksWithHttpInfoAsync(placeBlocksRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1921,11 +2125,22 @@ namespace Lusid.Sdk.Api
         /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPlacement)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement>> PlaceBlocksWithHttpInfoAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement>> PlaceBlocksWithHttpInfoAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1997,10 +2212,11 @@ namespace Lusid.Sdk.Api
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AllocationServiceRunResponse</returns>
-        public AllocationServiceRunResponse RunAllocationService(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0)
+        public AllocationServiceRunResponse RunAllocationService(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> localVarResponse = RunAllocationServiceWithHttpInfo(resourceId, allocationAlgorithm);
+            Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> localVarResponse = RunAllocationServiceWithHttpInfo(resourceId, allocationAlgorithm, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2011,8 +2227,9 @@ namespace Lusid.Sdk.Api
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationServiceRunResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithHttpInfo(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithHttpInfo(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'resourceId' is set
             if (resourceId == null)
@@ -2021,6 +2238,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2096,10 +2323,11 @@ namespace Lusid.Sdk.Api
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AllocationServiceRunResponse</returns>
-        public async System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> localVarResponse = await RunAllocationServiceWithHttpInfoAsync(resourceId, allocationAlgorithm, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> localVarResponse = await RunAllocationServiceWithHttpInfoAsync(resourceId, allocationAlgorithm, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2111,8 +2339,9 @@ namespace Lusid.Sdk.Api
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AllocationServiceRunResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithHttpInfoAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithHttpInfoAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'resourceId' is set
             if (resourceId == null)
@@ -2122,6 +2351,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2196,10 +2435,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpdateOrdersResponse</returns>
-        public UpdateOrdersResponse UpdateOrders(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0)
+        public UpdateOrdersResponse UpdateOrders(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpdateOrdersResponse> localVarResponse = UpdateOrdersWithHttpInfo(requestBody);
+            Lusid.Sdk.Client.ApiResponse<UpdateOrdersResponse> localVarResponse = UpdateOrdersWithHttpInfo(requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2209,8 +2449,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpdateOrdersResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpdateOrdersResponse> UpdateOrdersWithHttpInfo(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpdateOrdersResponse> UpdateOrdersWithHttpInfo(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -2219,6 +2460,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2289,10 +2540,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the orders to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpdateOrdersResponse</returns>
-        public async System.Threading.Tasks.Task<UpdateOrdersResponse> UpdateOrdersAsync(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpdateOrdersResponse> UpdateOrdersAsync(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpdateOrdersResponse> localVarResponse = await UpdateOrdersWithHttpInfoAsync(requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpdateOrdersResponse> localVarResponse = await UpdateOrdersWithHttpInfoAsync(requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2303,8 +2555,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the orders to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpdateOrdersResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpdateOrdersResponse>> UpdateOrdersWithHttpInfoAsync(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpdateOrdersResponse>> UpdateOrdersWithHttpInfoAsync(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -2314,6 +2567,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2384,10 +2647,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpdatePlacementsResponse</returns>
-        public UpdatePlacementsResponse UpdatePlacements(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0)
+        public UpdatePlacementsResponse UpdatePlacements(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpdatePlacementsResponse> localVarResponse = UpdatePlacementsWithHttpInfo(requestBody);
+            Lusid.Sdk.Client.ApiResponse<UpdatePlacementsResponse> localVarResponse = UpdatePlacementsWithHttpInfo(requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2397,8 +2661,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpdatePlacementsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpdatePlacementsResponse> UpdatePlacementsWithHttpInfo(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpdatePlacementsResponse> UpdatePlacementsWithHttpInfo(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -2407,6 +2672,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2477,10 +2752,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the placements to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpdatePlacementsResponse</returns>
-        public async System.Threading.Tasks.Task<UpdatePlacementsResponse> UpdatePlacementsAsync(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpdatePlacementsResponse> UpdatePlacementsAsync(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpdatePlacementsResponse> localVarResponse = await UpdatePlacementsWithHttpInfoAsync(requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpdatePlacementsResponse> localVarResponse = await UpdatePlacementsWithHttpInfoAsync(requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2491,8 +2767,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The request containing the placements to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpdatePlacementsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpdatePlacementsResponse>> UpdatePlacementsWithHttpInfoAsync(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpdatePlacementsResponse>> UpdatePlacementsWithHttpInfoAsync(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -2502,6 +2779,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

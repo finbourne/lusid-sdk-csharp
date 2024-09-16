@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -41,8 +42,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the relationship</param>
         /// <param name="createRelationshipRequest">The details of the relationship to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CompleteRelationship</returns>
-        CompleteRelationship CreateRelationship(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0);
+        CompleteRelationship CreateRelationship(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CreateRelationship: Create Relationship
@@ -55,8 +57,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the relationship</param>
         /// <param name="createRelationshipRequest">The details of the relationship to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CompleteRelationship</returns>
-        ApiResponse<CompleteRelationship> CreateRelationshipWithHttpInfo(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0);
+        ApiResponse<CompleteRelationship> CreateRelationshipWithHttpInfo(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteRelationship: Delete Relationship
         /// </summary>
@@ -68,8 +71,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the relationship</param>
         /// <param name="deleteRelationshipRequest">The details of the relationship to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteRelationship(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0);
+        DeletedEntityResponse DeleteRelationship(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteRelationship: Delete Relationship
@@ -82,8 +86,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the relationship</param>
         /// <param name="deleteRelationshipRequest">The details of the relationship to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteRelationshipWithHttpInfo(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteRelationshipWithHttpInfo(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -105,8 +110,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createRelationshipRequest">The details of the relationship to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CompleteRelationship</returns>
-        System.Threading.Tasks.Task<CompleteRelationship> CreateRelationshipAsync(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CompleteRelationship> CreateRelationshipAsync(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CreateRelationship: Create Relationship
@@ -120,8 +126,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createRelationshipRequest">The details of the relationship to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CompleteRelationship)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CompleteRelationship>> CreateRelationshipWithHttpInfoAsync(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CompleteRelationship>> CreateRelationshipWithHttpInfoAsync(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteRelationship: Delete Relationship
         /// </summary>
@@ -134,8 +141,9 @@ namespace Lusid.Sdk.Api
         /// <param name="deleteRelationshipRequest">The details of the relationship to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteRelationshipAsync(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteRelationshipAsync(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteRelationship: Delete Relationship
@@ -149,8 +157,9 @@ namespace Lusid.Sdk.Api
         /// <param name="deleteRelationshipRequest">The details of the relationship to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteRelationshipWithHttpInfoAsync(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteRelationshipWithHttpInfoAsync(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -183,9 +192,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public RelationshipsApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -276,10 +291,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the relationship</param>
         /// <param name="createRelationshipRequest">The details of the relationship to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CompleteRelationship</returns>
-        public CompleteRelationship CreateRelationship(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0)
+        public CompleteRelationship CreateRelationship(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CompleteRelationship> localVarResponse = CreateRelationshipWithHttpInfo(scope, code, createRelationshipRequest);
+            Lusid.Sdk.Client.ApiResponse<CompleteRelationship> localVarResponse = CreateRelationshipWithHttpInfo(scope, code, createRelationshipRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -291,8 +307,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the relationship</param>
         /// <param name="createRelationshipRequest">The details of the relationship to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CompleteRelationship</returns>
-        public Lusid.Sdk.Client.ApiResponse<CompleteRelationship> CreateRelationshipWithHttpInfo(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CompleteRelationship> CreateRelationshipWithHttpInfo(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -313,6 +330,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -387,10 +414,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createRelationshipRequest">The details of the relationship to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CompleteRelationship</returns>
-        public async System.Threading.Tasks.Task<CompleteRelationship> CreateRelationshipAsync(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CompleteRelationship> CreateRelationshipAsync(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CompleteRelationship> localVarResponse = await CreateRelationshipWithHttpInfoAsync(scope, code, createRelationshipRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CompleteRelationship> localVarResponse = await CreateRelationshipWithHttpInfoAsync(scope, code, createRelationshipRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -403,8 +431,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createRelationshipRequest">The details of the relationship to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CompleteRelationship)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CompleteRelationship>> CreateRelationshipWithHttpInfoAsync(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CompleteRelationship>> CreateRelationshipWithHttpInfoAsync(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -426,6 +455,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -500,10 +539,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the relationship</param>
         /// <param name="deleteRelationshipRequest">The details of the relationship to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteRelationship(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0)
+        public DeletedEntityResponse DeleteRelationship(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteRelationshipWithHttpInfo(scope, code, deleteRelationshipRequest);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteRelationshipWithHttpInfo(scope, code, deleteRelationshipRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -515,8 +555,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the relationship</param>
         /// <param name="deleteRelationshipRequest">The details of the relationship to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteRelationshipWithHttpInfo(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteRelationshipWithHttpInfo(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -537,6 +578,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -611,10 +662,11 @@ namespace Lusid.Sdk.Api
         /// <param name="deleteRelationshipRequest">The details of the relationship to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteRelationshipAsync(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteRelationshipAsync(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteRelationshipWithHttpInfoAsync(scope, code, deleteRelationshipRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteRelationshipWithHttpInfoAsync(scope, code, deleteRelationshipRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -627,8 +679,9 @@ namespace Lusid.Sdk.Api
         /// <param name="deleteRelationshipRequest">The details of the relationship to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteRelationshipWithHttpInfoAsync(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteRelationshipWithHttpInfoAsync(string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -650,6 +703,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

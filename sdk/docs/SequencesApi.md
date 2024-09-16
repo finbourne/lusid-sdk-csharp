@@ -47,12 +47,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SequencesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SequencesApi>();
             var scope = "scope_example";  // string | Scope of the sequence.
             var createSequenceRequest = new CreateSequenceRequest(); // CreateSequenceRequest | Request to create sequence
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // SequenceDefinition result = apiInstance.CreateSequence(scope, createSequenceRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateSequence: Create a new sequence
                 SequenceDefinition result = apiInstance.CreateSequence(scope, createSequenceRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -152,12 +163,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SequencesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SequencesApi>();
             var scope = "scope_example";  // string | Scope of the sequence.
             var code = "code_example";  // string | Code of the sequence. This together with stated scope uniquely              identifies the sequence.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // SequenceDefinition result = apiInstance.GetSequence(scope, code, opts: opts);
+
                 // [EARLY ACCESS] GetSequence: Get a specified sequence
                 SequenceDefinition result = apiInstance.GetSequence(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -257,6 +279,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SequencesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SequencesApi>();
             var page = "page_example";  // string? | The pagination token to use to continue listing sequences from a previous call to list sequences. This  value is returned from the previous call. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional) 
@@ -264,6 +294,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfSequenceDefinition result = apiInstance.ListSequences(page, limit, filter, opts: opts);
+
                 // [EARLY ACCESS] ListSequences: List Sequences
                 PagedResourceListOfSequenceDefinition result = apiInstance.ListSequences(page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -364,6 +397,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SequencesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SequencesApi>();
             var scope = "scope_example";  // string | Scope of the sequence.
             var code = "code_example";  // string | Code of the sequence. This together with stated scope uniquely              identifies the sequence.
@@ -371,6 +412,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // NextValueInSequenceResponse result = apiInstance.Next(scope, code, batch, opts: opts);
+
                 // [EARLY ACCESS] Next: Get next values from sequence
                 NextValueInSequenceResponse result = apiInstance.Next(scope, code, batch);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

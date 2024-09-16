@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -45,8 +46,9 @@ namespace Lusid.Sdk.Api
         /// <param name="version">The semantic version of the dialect: MAJOR.MINOR.PATCH.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the dialect. Defaults to return the latest version of the dialect if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Dialect</returns>
-        Dialect GetTranslationDialect(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        Dialect GetTranslationDialect(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetTranslationDialect: Get a dialect.
@@ -63,8 +65,9 @@ namespace Lusid.Sdk.Api
         /// <param name="version">The semantic version of the dialect: MAJOR.MINOR.PATCH.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the dialect. Defaults to return the latest version of the dialect if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dialect</returns>
-        ApiResponse<Dialect> GetTranslationDialectWithHttpInfo(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<Dialect> GetTranslationDialectWithHttpInfo(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetTranslationScript: Retrieve a translation script by its identifier.
         /// </summary>
@@ -77,8 +80,9 @@ namespace Lusid.Sdk.Api
         /// <param name="version">Semantic version of the translation script.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the translation script. Defaults to latest. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TranslationScript</returns>
-        TranslationScript GetTranslationScript(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        TranslationScript GetTranslationScript(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetTranslationScript: Retrieve a translation script by its identifier.
@@ -92,8 +96,9 @@ namespace Lusid.Sdk.Api
         /// <param name="version">Semantic version of the translation script.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the translation script. Defaults to latest. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslationScript</returns>
-        ApiResponse<TranslationScript> GetTranslationScriptWithHttpInfo(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<TranslationScript> GetTranslationScriptWithHttpInfo(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListDialectIds: List dialect identifiers matching an optional filter.
         /// </summary>
@@ -106,8 +111,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfDialectId</returns>
-        PagedResourceListOfDialectId ListDialectIds(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        PagedResourceListOfDialectId ListDialectIds(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListDialectIds: List dialect identifiers matching an optional filter.
@@ -121,8 +127,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfDialectId</returns>
-        ApiResponse<PagedResourceListOfDialectId> ListDialectIdsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfDialectId> ListDialectIdsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListTranslationScriptIds: List translation script identifiers.
         /// </summary>
@@ -135,8 +142,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTranslationScriptId</returns>
-        PagedResourceListOfTranslationScriptId ListTranslationScriptIds(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0);
+        PagedResourceListOfTranslationScriptId ListTranslationScriptIds(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListTranslationScriptIds: List translation script identifiers.
@@ -150,8 +158,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTranslationScriptId</returns>
-        ApiResponse<PagedResourceListOfTranslationScriptId> ListTranslationScriptIdsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfTranslationScriptId> ListTranslationScriptIdsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script.
         /// </summary>
@@ -161,8 +170,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TranslateEntitiesResponse</returns>
-        TranslateEntitiesResponse TranslateEntities(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0);
+        TranslateEntitiesResponse TranslateEntities(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script.
@@ -173,8 +183,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslateEntitiesResponse</returns>
-        ApiResponse<TranslateEntitiesResponse> TranslateEntitiesWithHttpInfo(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0);
+        ApiResponse<TranslateEntitiesResponse> TranslateEntitiesWithHttpInfo(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script.
         /// </summary>
@@ -184,8 +195,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TranslateEntitiesResponse</returns>
-        TranslateEntitiesResponse TranslateEntitiesInlined(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0);
+        TranslateEntitiesResponse TranslateEntitiesInlined(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script.
@@ -196,8 +208,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslateEntitiesResponse</returns>
-        ApiResponse<TranslateEntitiesResponse> TranslateEntitiesInlinedWithHttpInfo(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0);
+        ApiResponse<TranslateEntitiesResponse> TranslateEntitiesInlinedWithHttpInfo(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertTranslationDialect: Upsert a Dialect.
         /// </summary>
@@ -207,8 +220,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertDialectRequest">The dialect to upsert.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Dialect</returns>
-        Dialect UpsertTranslationDialect(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0);
+        Dialect UpsertTranslationDialect(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertTranslationDialect: Upsert a Dialect.
@@ -219,8 +233,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertDialectRequest">The dialect to upsert.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dialect</returns>
-        ApiResponse<Dialect> UpsertTranslationDialectWithHttpInfo(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0);
+        ApiResponse<Dialect> UpsertTranslationDialectWithHttpInfo(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertTranslationScript: Upsert a translation script.
         /// </summary>
@@ -230,8 +245,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertTranslationScriptRequest">The translation script to be upserted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TranslationScript</returns>
-        TranslationScript UpsertTranslationScript(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0);
+        TranslationScript UpsertTranslationScript(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertTranslationScript: Upsert a translation script.
@@ -242,8 +258,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertTranslationScriptRequest">The translation script to be upserted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslationScript</returns>
-        ApiResponse<TranslationScript> UpsertTranslationScriptWithHttpInfo(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0);
+        ApiResponse<TranslationScript> UpsertTranslationScriptWithHttpInfo(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -269,8 +286,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the dialect. Defaults to return the latest version of the dialect if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Dialect</returns>
-        System.Threading.Tasks.Task<Dialect> GetTranslationDialectAsync(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Dialect> GetTranslationDialectAsync(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetTranslationDialect: Get a dialect.
@@ -288,8 +306,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the dialect. Defaults to return the latest version of the dialect if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dialect)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Dialect>> GetTranslationDialectWithHttpInfoAsync(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Dialect>> GetTranslationDialectWithHttpInfoAsync(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetTranslationScript: Retrieve a translation script by its identifier.
         /// </summary>
@@ -303,8 +322,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the translation script. Defaults to latest. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TranslationScript</returns>
-        System.Threading.Tasks.Task<TranslationScript> GetTranslationScriptAsync(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TranslationScript> GetTranslationScriptAsync(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetTranslationScript: Retrieve a translation script by its identifier.
@@ -319,8 +339,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the translation script. Defaults to latest. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslationScript)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TranslationScript>> GetTranslationScriptWithHttpInfoAsync(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TranslationScript>> GetTranslationScriptWithHttpInfoAsync(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListDialectIds: List dialect identifiers matching an optional filter.
         /// </summary>
@@ -334,8 +355,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfDialectId</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfDialectId> ListDialectIdsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfDialectId> ListDialectIdsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListDialectIds: List dialect identifiers matching an optional filter.
@@ -350,8 +372,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfDialectId)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfDialectId>> ListDialectIdsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfDialectId>> ListDialectIdsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListTranslationScriptIds: List translation script identifiers.
         /// </summary>
@@ -365,8 +388,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfTranslationScriptId</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfTranslationScriptId> ListTranslationScriptIdsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfTranslationScriptId> ListTranslationScriptIdsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListTranslationScriptIds: List translation script identifiers.
@@ -381,8 +405,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTranslationScriptId)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfTranslationScriptId>> ListTranslationScriptIdsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfTranslationScriptId>> ListTranslationScriptIdsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script.
         /// </summary>
@@ -393,8 +418,9 @@ namespace Lusid.Sdk.Api
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TranslateEntitiesResponse</returns>
-        System.Threading.Tasks.Task<TranslateEntitiesResponse> TranslateEntitiesAsync(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TranslateEntitiesResponse> TranslateEntitiesAsync(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script.
@@ -406,8 +432,9 @@ namespace Lusid.Sdk.Api
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslateEntitiesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TranslateEntitiesResponse>> TranslateEntitiesWithHttpInfoAsync(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TranslateEntitiesResponse>> TranslateEntitiesWithHttpInfoAsync(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script.
         /// </summary>
@@ -418,8 +445,9 @@ namespace Lusid.Sdk.Api
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TranslateEntitiesResponse</returns>
-        System.Threading.Tasks.Task<TranslateEntitiesResponse> TranslateEntitiesInlinedAsync(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TranslateEntitiesResponse> TranslateEntitiesInlinedAsync(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script.
@@ -431,8 +459,9 @@ namespace Lusid.Sdk.Api
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslateEntitiesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TranslateEntitiesResponse>> TranslateEntitiesInlinedWithHttpInfoAsync(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TranslateEntitiesResponse>> TranslateEntitiesInlinedWithHttpInfoAsync(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertTranslationDialect: Upsert a Dialect.
         /// </summary>
@@ -443,8 +472,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertDialectRequest">The dialect to upsert.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Dialect</returns>
-        System.Threading.Tasks.Task<Dialect> UpsertTranslationDialectAsync(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Dialect> UpsertTranslationDialectAsync(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertTranslationDialect: Upsert a Dialect.
@@ -456,8 +486,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertDialectRequest">The dialect to upsert.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dialect)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Dialect>> UpsertTranslationDialectWithHttpInfoAsync(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Dialect>> UpsertTranslationDialectWithHttpInfoAsync(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertTranslationScript: Upsert a translation script.
         /// </summary>
@@ -468,8 +499,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertTranslationScriptRequest">The translation script to be upserted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TranslationScript</returns>
-        System.Threading.Tasks.Task<TranslationScript> UpsertTranslationScriptAsync(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TranslationScript> UpsertTranslationScriptAsync(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertTranslationScript: Upsert a translation script.
@@ -481,8 +513,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertTranslationScriptRequest">The translation script to be upserted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslationScript)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TranslationScript>> UpsertTranslationScriptWithHttpInfoAsync(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TranslationScript>> UpsertTranslationScriptWithHttpInfoAsync(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -515,9 +548,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public ScriptedTranslationApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -612,10 +651,11 @@ namespace Lusid.Sdk.Api
         /// <param name="version">The semantic version of the dialect: MAJOR.MINOR.PATCH.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the dialect. Defaults to return the latest version of the dialect if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Dialect</returns>
-        public Dialect GetTranslationDialect(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Dialect GetTranslationDialect(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Dialect> localVarResponse = GetTranslationDialectWithHttpInfo(scope, vendor, sourceSystem, entityType, serialisationFormat, version, asAt);
+            Lusid.Sdk.Client.ApiResponse<Dialect> localVarResponse = GetTranslationDialectWithHttpInfo(scope, vendor, sourceSystem, entityType, serialisationFormat, version, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -631,8 +671,9 @@ namespace Lusid.Sdk.Api
         /// <param name="version">The semantic version of the dialect: MAJOR.MINOR.PATCH.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the dialect. Defaults to return the latest version of the dialect if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dialect</returns>
-        public Lusid.Sdk.Client.ApiResponse<Dialect> GetTranslationDialectWithHttpInfo(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Dialect> GetTranslationDialectWithHttpInfo(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -671,6 +712,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -752,10 +803,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the dialect. Defaults to return the latest version of the dialect if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Dialect</returns>
-        public async System.Threading.Tasks.Task<Dialect> GetTranslationDialectAsync(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dialect> GetTranslationDialectAsync(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Dialect> localVarResponse = await GetTranslationDialectWithHttpInfoAsync(scope, vendor, sourceSystem, entityType, serialisationFormat, version, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Dialect> localVarResponse = await GetTranslationDialectWithHttpInfoAsync(scope, vendor, sourceSystem, entityType, serialisationFormat, version, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -772,8 +824,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the dialect. Defaults to return the latest version of the dialect if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dialect)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dialect>> GetTranslationDialectWithHttpInfoAsync(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dialect>> GetTranslationDialectWithHttpInfoAsync(string scope, string vendor, string sourceSystem, string entityType, string serialisationFormat, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -813,6 +866,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -891,10 +954,11 @@ namespace Lusid.Sdk.Api
         /// <param name="version">Semantic version of the translation script.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the translation script. Defaults to latest. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TranslationScript</returns>
-        public TranslationScript GetTranslationScript(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public TranslationScript GetTranslationScript(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TranslationScript> localVarResponse = GetTranslationScriptWithHttpInfo(scope, code, version, asAt);
+            Lusid.Sdk.Client.ApiResponse<TranslationScript> localVarResponse = GetTranslationScriptWithHttpInfo(scope, code, version, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -907,8 +971,9 @@ namespace Lusid.Sdk.Api
         /// <param name="version">Semantic version of the translation script.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the translation script. Defaults to latest. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslationScript</returns>
-        public Lusid.Sdk.Client.ApiResponse<TranslationScript> GetTranslationScriptWithHttpInfo(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TranslationScript> GetTranslationScriptWithHttpInfo(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -929,6 +994,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1004,10 +1079,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the translation script. Defaults to latest. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TranslationScript</returns>
-        public async System.Threading.Tasks.Task<TranslationScript> GetTranslationScriptAsync(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TranslationScript> GetTranslationScriptAsync(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TranslationScript> localVarResponse = await GetTranslationScriptWithHttpInfoAsync(scope, code, version, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TranslationScript> localVarResponse = await GetTranslationScriptWithHttpInfoAsync(scope, code, version, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1021,8 +1097,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the translation script. Defaults to latest. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslationScript)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslationScript>> GetTranslationScriptWithHttpInfoAsync(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslationScript>> GetTranslationScriptWithHttpInfoAsync(string scope, string code, string version, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1044,6 +1121,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1119,10 +1206,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfDialectId</returns>
-        public PagedResourceListOfDialectId ListDialectIds(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public PagedResourceListOfDialectId ListDialectIds(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDialectId> localVarResponse = ListDialectIdsWithHttpInfo(asAt, page, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDialectId> localVarResponse = ListDialectIdsWithHttpInfo(asAt, page, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1135,10 +1223,21 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfDialectId</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDialectId> ListDialectIdsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDialectId> ListDialectIdsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1223,10 +1322,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfDialectId</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfDialectId> ListDialectIdsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfDialectId> ListDialectIdsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDialectId> localVarResponse = await ListDialectIdsWithHttpInfoAsync(asAt, page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDialectId> localVarResponse = await ListDialectIdsWithHttpInfoAsync(asAt, page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1240,11 +1340,22 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfDialectId)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDialectId>> ListDialectIdsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDialectId>> ListDialectIdsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1329,10 +1440,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTranslationScriptId</returns>
-        public PagedResourceListOfTranslationScriptId ListTranslationScriptIds(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0)
+        public PagedResourceListOfTranslationScriptId ListTranslationScriptIds(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTranslationScriptId> localVarResponse = ListTranslationScriptIdsWithHttpInfo(asAt, limit, filter, page);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTranslationScriptId> localVarResponse = ListTranslationScriptIdsWithHttpInfo(asAt, limit, filter, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1345,10 +1457,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTranslationScriptId</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTranslationScriptId> ListTranslationScriptIdsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTranslationScriptId> ListTranslationScriptIdsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1433,10 +1556,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfTranslationScriptId</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfTranslationScriptId> ListTranslationScriptIdsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfTranslationScriptId> ListTranslationScriptIdsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTranslationScriptId> localVarResponse = await ListTranslationScriptIdsWithHttpInfoAsync(asAt, limit, filter, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTranslationScriptId> localVarResponse = await ListTranslationScriptIdsWithHttpInfoAsync(asAt, limit, filter, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1450,11 +1574,22 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTranslationScriptId)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTranslationScriptId>> ListTranslationScriptIdsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTranslationScriptId>> ListTranslationScriptIdsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1536,10 +1671,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TranslateEntitiesResponse</returns>
-        public TranslateEntitiesResponse TranslateEntities(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0)
+        public TranslateEntitiesResponse TranslateEntities(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse> localVarResponse = TranslateEntitiesWithHttpInfo(translateEntitiesRequest);
+            Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse> localVarResponse = TranslateEntitiesWithHttpInfo(translateEntitiesRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1549,8 +1685,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslateEntitiesResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse> TranslateEntitiesWithHttpInfo(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse> TranslateEntitiesWithHttpInfo(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'translateEntitiesRequest' is set
             if (translateEntitiesRequest == null)
@@ -1559,6 +1696,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1629,10 +1776,11 @@ namespace Lusid.Sdk.Api
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TranslateEntitiesResponse</returns>
-        public async System.Threading.Tasks.Task<TranslateEntitiesResponse> TranslateEntitiesAsync(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TranslateEntitiesResponse> TranslateEntitiesAsync(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse> localVarResponse = await TranslateEntitiesWithHttpInfoAsync(translateEntitiesRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse> localVarResponse = await TranslateEntitiesWithHttpInfoAsync(translateEntitiesRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1643,8 +1791,9 @@ namespace Lusid.Sdk.Api
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslateEntitiesResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse>> TranslateEntitiesWithHttpInfoAsync(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse>> TranslateEntitiesWithHttpInfoAsync(TranslateEntitiesRequest translateEntitiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'translateEntitiesRequest' is set
             if (translateEntitiesRequest == null)
@@ -1654,6 +1803,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1724,10 +1883,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TranslateEntitiesResponse</returns>
-        public TranslateEntitiesResponse TranslateEntitiesInlined(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0)
+        public TranslateEntitiesResponse TranslateEntitiesInlined(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse> localVarResponse = TranslateEntitiesInlinedWithHttpInfo(translateEntitiesInlinedRequest);
+            Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse> localVarResponse = TranslateEntitiesInlinedWithHttpInfo(translateEntitiesInlinedRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1737,8 +1897,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslateEntitiesResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse> TranslateEntitiesInlinedWithHttpInfo(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse> TranslateEntitiesInlinedWithHttpInfo(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'translateEntitiesInlinedRequest' is set
             if (translateEntitiesInlinedRequest == null)
@@ -1747,6 +1908,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1817,10 +1988,11 @@ namespace Lusid.Sdk.Api
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TranslateEntitiesResponse</returns>
-        public async System.Threading.Tasks.Task<TranslateEntitiesResponse> TranslateEntitiesInlinedAsync(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TranslateEntitiesResponse> TranslateEntitiesInlinedAsync(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse> localVarResponse = await TranslateEntitiesInlinedWithHttpInfoAsync(translateEntitiesInlinedRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse> localVarResponse = await TranslateEntitiesInlinedWithHttpInfoAsync(translateEntitiesInlinedRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1831,8 +2003,9 @@ namespace Lusid.Sdk.Api
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslateEntitiesResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse>> TranslateEntitiesInlinedWithHttpInfoAsync(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslateEntitiesResponse>> TranslateEntitiesInlinedWithHttpInfoAsync(TranslateEntitiesInlinedRequest translateEntitiesInlinedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'translateEntitiesInlinedRequest' is set
             if (translateEntitiesInlinedRequest == null)
@@ -1842,6 +2015,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1912,10 +2095,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertDialectRequest">The dialect to upsert.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Dialect</returns>
-        public Dialect UpsertTranslationDialect(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0)
+        public Dialect UpsertTranslationDialect(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Dialect> localVarResponse = UpsertTranslationDialectWithHttpInfo(upsertDialectRequest);
+            Lusid.Sdk.Client.ApiResponse<Dialect> localVarResponse = UpsertTranslationDialectWithHttpInfo(upsertDialectRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1925,8 +2109,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertDialectRequest">The dialect to upsert.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dialect</returns>
-        public Lusid.Sdk.Client.ApiResponse<Dialect> UpsertTranslationDialectWithHttpInfo(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Dialect> UpsertTranslationDialectWithHttpInfo(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertDialectRequest' is set
             if (upsertDialectRequest == null)
@@ -1935,6 +2120,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2005,10 +2200,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertDialectRequest">The dialect to upsert.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Dialect</returns>
-        public async System.Threading.Tasks.Task<Dialect> UpsertTranslationDialectAsync(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dialect> UpsertTranslationDialectAsync(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Dialect> localVarResponse = await UpsertTranslationDialectWithHttpInfoAsync(upsertDialectRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Dialect> localVarResponse = await UpsertTranslationDialectWithHttpInfoAsync(upsertDialectRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2019,8 +2215,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertDialectRequest">The dialect to upsert.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dialect)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dialect>> UpsertTranslationDialectWithHttpInfoAsync(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dialect>> UpsertTranslationDialectWithHttpInfoAsync(UpsertDialectRequest upsertDialectRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertDialectRequest' is set
             if (upsertDialectRequest == null)
@@ -2030,6 +2227,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2100,10 +2307,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertTranslationScriptRequest">The translation script to be upserted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TranslationScript</returns>
-        public TranslationScript UpsertTranslationScript(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0)
+        public TranslationScript UpsertTranslationScript(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TranslationScript> localVarResponse = UpsertTranslationScriptWithHttpInfo(upsertTranslationScriptRequest);
+            Lusid.Sdk.Client.ApiResponse<TranslationScript> localVarResponse = UpsertTranslationScriptWithHttpInfo(upsertTranslationScriptRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2113,8 +2321,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertTranslationScriptRequest">The translation script to be upserted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslationScript</returns>
-        public Lusid.Sdk.Client.ApiResponse<TranslationScript> UpsertTranslationScriptWithHttpInfo(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TranslationScript> UpsertTranslationScriptWithHttpInfo(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertTranslationScriptRequest' is set
             if (upsertTranslationScriptRequest == null)
@@ -2123,6 +2332,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2193,10 +2412,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertTranslationScriptRequest">The translation script to be upserted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TranslationScript</returns>
-        public async System.Threading.Tasks.Task<TranslationScript> UpsertTranslationScriptAsync(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TranslationScript> UpsertTranslationScriptAsync(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TranslationScript> localVarResponse = await UpsertTranslationScriptWithHttpInfoAsync(upsertTranslationScriptRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TranslationScript> localVarResponse = await UpsertTranslationScriptWithHttpInfoAsync(upsertTranslationScriptRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2207,8 +2427,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertTranslationScriptRequest">The translation script to be upserted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslationScript)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslationScript>> UpsertTranslationScriptWithHttpInfoAsync(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslationScript>> UpsertTranslationScriptWithHttpInfoAsync(UpsertTranslationScriptRequest upsertTranslationScriptRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertTranslationScriptRequest' is set
             if (upsertTranslationScriptRequest == null)
@@ -2218,6 +2439,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

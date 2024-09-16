@@ -47,12 +47,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AllocationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AllocationsApi>();
             var scope = "scope_example";  // string | The allocation scope.
             var code = "code_example";  // string | The allocation's code. This, together with the scope uniquely identifies the allocation to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteAllocation(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeleteAllocation: Delete allocation
                 DeletedEntityResponse result = apiInstance.DeleteAllocation(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -152,6 +163,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AllocationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AllocationsApi>();
             var scope = "scope_example";  // string | The scope to which the allocation belongs.
             var code = "code_example";  // string | The allocation's unique identifier.
@@ -160,6 +179,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Allocation result = apiInstance.GetAllocation(scope, code, asAt, propertyKeys, opts: opts);
+
                 // [EARLY ACCESS] GetAllocation: Get Allocation
                 Allocation result = apiInstance.GetAllocation(scope, code, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -261,6 +283,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AllocationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AllocationsApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing allocations from a previous call to list allocations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
@@ -271,6 +301,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfAllocation result = apiInstance.ListAllocations(asAt, page, sortBy, limit, filter, propertyKeys, opts: opts);
+
                 // [EARLY ACCESS] ListAllocations: List Allocations
                 PagedResourceListOfAllocation result = apiInstance.ListAllocations(asAt, page, sortBy, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -374,11 +407,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AllocationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AllocationsApi>();
             var allocationSetRequest = new AllocationSetRequest?(); // AllocationSetRequest? | The collection of allocation requests. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfAllocation result = apiInstance.UpsertAllocations(allocationSetRequest, opts: opts);
+
                 // UpsertAllocations: Upsert Allocations
                 ResourceListOfAllocation result = apiInstance.UpsertAllocations(allocationSetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

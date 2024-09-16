@@ -61,6 +61,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | The scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | The code of the person identifier type.
@@ -68,6 +76,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePerson(idTypeScope, idTypeCode, code, opts: opts);
+
                 // DeletePerson: Delete person
                 DeletedEntityResponse result = apiInstance.DeletePerson(idTypeScope, idTypeCode, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -168,6 +179,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier.
@@ -178,6 +197,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePersonAccessMetadata(idTypeScope, idTypeCode, code, metadataKey, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
                 DeletedEntityResponse result = apiInstance.DeletePersonAccessMetadata(idTypeScope, idTypeCode, code, metadataKey, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -281,6 +303,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
@@ -290,6 +320,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePersonIdentifiers(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, opts: opts);
+
                 // [EARLY ACCESS] DeletePersonIdentifiers: Delete Person Identifiers
                 DeletedEntityResponse result = apiInstance.DeletePersonIdentifiers(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -392,6 +425,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
@@ -401,6 +442,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePersonProperties(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, opts: opts);
+
                 // [EARLY ACCESS] DeletePersonProperties: Delete Person Properties
                 DeletedEntityResponse result = apiInstance.DeletePersonProperties(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -503,6 +547,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier.
@@ -512,6 +564,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, List<AccessMetadataValue>> result = apiInstance.GetAllPersonAccessMetadata(idTypeScope, idTypeCode, code, effectiveAt, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person
                 Dictionary<string, List<AccessMetadataValue>> result = apiInstance.GetAllPersonAccessMetadata(idTypeScope, idTypeCode, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -614,6 +669,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
@@ -625,6 +688,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Person result = apiInstance.GetPerson(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds, opts: opts);
+
                 // [EARLY ACCESS] GetPerson: Get Person
                 Person result = apiInstance.GetPerson(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -729,6 +795,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier.
@@ -739,6 +813,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<AccessMetadataValue> result = apiInstance.GetPersonAccessMetadataByKey(idTypeScope, idTypeCode, code, metadataKey, effectiveAt, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
                 List<AccessMetadataValue> result = apiInstance.GetPersonAccessMetadataByKey(idTypeScope, idTypeCode, code, metadataKey, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -842,6 +919,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
@@ -854,6 +939,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPropertyInterval result = apiInstance.GetPersonPropertyTimeSeries(idTypeScope, idTypeCode, code, propertyKey, asAt, filter, page, limit, opts: opts);
+
                 // [EARLY ACCESS] GetPersonPropertyTimeSeries: Get Person Property Time Series
                 ResourceListOfPropertyInterval result = apiInstance.GetPersonPropertyTimeSeries(idTypeScope, idTypeCode, code, propertyKey, asAt, filter, page, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -959,6 +1047,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
@@ -970,6 +1066,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfRelation result = apiInstance.GetPersonRelations(idTypeScope, idTypeCode, code, effectiveAt, asAt, filter, identifierTypes, opts: opts);
+
                 // [EARLY ACCESS] GetPersonRelations: Get Relations for Person
                 ResourceListOfRelation result = apiInstance.GetPersonRelations(idTypeScope, idTypeCode, code, effectiveAt, asAt, filter, identifierTypes);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1074,6 +1173,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person's identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person's identifier type.
@@ -1085,6 +1192,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfRelationship result = apiInstance.GetPersonRelationships(idTypeScope, idTypeCode, code, effectiveAt, asAt, filter, identifierTypes, opts: opts);
+
                 // [EARLY ACCESS] GetPersonRelationships: Get Relationships for Person
                 ResourceListOfRelationship result = apiInstance.GetPersonRelationships(idTypeScope, idTypeCode, code, effectiveAt, asAt, filter, identifierTypes);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1189,6 +1299,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional) 
@@ -1200,6 +1318,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPerson result = apiInstance.ListAllPersons(effectiveAt, asAt, page, limit, filter, propertyKeys, relationshipDefinitionIds, opts: opts);
+
                 // [EARLY ACCESS] ListAllPersons: List All Persons
                 ResourceListOfPerson result = apiInstance.ListAllPersons(effectiveAt, asAt, page, limit, filter, propertyKeys, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1304,6 +1425,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
@@ -1317,6 +1446,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfPerson result = apiInstance.ListPersons(idTypeScope, idTypeCode, effectiveAt, asAt, page, limit, filter, propertyKeys, relationshipDefinitionIds, opts: opts);
+
                 // [EARLY ACCESS] ListPersons: List Persons
                 PagedResourceListOfPerson result = apiInstance.ListPersons(idTypeScope, idTypeCode, effectiveAt, asAt, page, limit, filter, propertyKeys, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1423,6 +1555,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier.
@@ -1433,6 +1573,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, List<AccessMetadataValue>> result = apiInstance.PatchPersonAccessMetadata(idTypeScope, idTypeCode, code, accessMetadataOperation, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
                 Dictionary<string, List<AccessMetadataValue>> result = apiInstance.PatchPersonAccessMetadata(idTypeScope, idTypeCode, code, accessMetadataOperation, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1536,6 +1679,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
@@ -1544,6 +1695,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Person result = apiInstance.SetPersonIdentifiers(idTypeScope, idTypeCode, code, setPersonIdentifiersRequest, opts: opts);
+
                 // [EARLY ACCESS] SetPersonIdentifiers: Set Person Identifiers
                 Person result = apiInstance.SetPersonIdentifiers(idTypeScope, idTypeCode, code, setPersonIdentifiersRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1645,6 +1799,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
@@ -1653,6 +1815,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Person result = apiInstance.SetPersonProperties(idTypeScope, idTypeCode, code, setPersonPropertiesRequest, opts: opts);
+
                 // [EARLY ACCESS] SetPersonProperties: Set Person Properties
                 Person result = apiInstance.SetPersonProperties(idTypeScope, idTypeCode, code, setPersonPropertiesRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1754,11 +1919,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var upsertPersonRequest = new UpsertPersonRequest(); // UpsertPersonRequest | Request to create or update a person.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Person result = apiInstance.UpsertPerson(upsertPersonRequest, opts: opts);
+
                 // UpsertPerson: Upsert Person
                 Person result = apiInstance.UpsertPerson(upsertPersonRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1857,6 +2033,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier.
@@ -1868,6 +2052,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfAccessMetadataValueOf result = apiInstance.UpsertPersonAccessMetadata(idTypeScope, idTypeCode, code, metadataKey, upsertPersonAccessMetadataRequest, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
                 ResourceListOfAccessMetadataValueOf result = apiInstance.UpsertPersonAccessMetadata(idTypeScope, idTypeCode, code, metadataKey, upsertPersonAccessMetadataRequest, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1972,12 +2159,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var successMode = "successMode_example";  // string | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial
             var requestBody = new Dictionary<string, UpsertPersonRequest>(); // Dictionary<string, UpsertPersonRequest> | A collection of requests to create or update Person(s).
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertPersonsResponse result = apiInstance.UpsertPersons(successMode, requestBody, opts: opts);
+
                 // [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
                 UpsertPersonsResponse result = apiInstance.UpsertPersons(successMode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

@@ -47,11 +47,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntityTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntityTypesApi>();
             var createCustomEntityTypeRequest = new CreateCustomEntityTypeRequest(); // CreateCustomEntityTypeRequest | The payload containing the description of the Custom Entity Type.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CustomEntityType result = apiInstance.CreateCustomEntityType(createCustomEntityTypeRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateCustomEntityType: Define a new Custom Entity Type.
                 CustomEntityType result = apiInstance.CreateCustomEntityType(createCustomEntityTypeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -150,12 +161,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntityTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntityTypesApi>();
             var entityType = "entityType_example";  // string | The identifier for the Custom Entity Type, derived from the \"entityTypeName\" provided on creation.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the definition. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CustomEntityType result = apiInstance.GetCustomEntityType(entityType, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetCustomEntityType: Get a Custom Entity Type.
                 CustomEntityType result = apiInstance.GetCustomEntityType(entityType, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -255,6 +277,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntityTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntityTypesApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the entities. Defaults to returning the latest version              of each Custom Entity Type if not specified. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
@@ -264,6 +294,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfCustomEntityType result = apiInstance.ListCustomEntityTypes(asAt, limit, filter, sortBy, page, opts: opts);
+
                 // [EARLY ACCESS] ListCustomEntityTypes: List Custom Entity Types.
                 PagedResourceListOfCustomEntityType result = apiInstance.ListCustomEntityTypes(asAt, limit, filter, sortBy, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -366,12 +399,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntityTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntityTypesApi>();
             var entityType = "entityType_example";  // string | The identifier for the Custom Entity Type, derived from the \"entityTypeName\" provided on creation.
             var updateCustomEntityTypeRequest = new UpdateCustomEntityTypeRequest(); // UpdateCustomEntityTypeRequest | The payload containing the description of the Custom Entity Type.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CustomEntityType result = apiInstance.UpdateCustomEntityType(entityType, updateCustomEntityTypeRequest, opts: opts);
+
                 // [EARLY ACCESS] UpdateCustomEntityType: Modify an existing Custom Entity Type.
                 CustomEntityType result = apiInstance.UpdateCustomEntityType(entityType, updateCustomEntityTypeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

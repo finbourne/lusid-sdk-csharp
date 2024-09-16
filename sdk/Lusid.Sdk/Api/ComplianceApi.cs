@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Compliance Rule Template.</param>
         /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRuleTemplate</returns>
-        ComplianceRuleTemplate CreateComplianceTemplate(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0);
+        ComplianceRuleTemplate CreateComplianceTemplate(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Compliance Rule Template.</param>
         /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleTemplate</returns>
-        ApiResponse<ComplianceRuleTemplate> CreateComplianceTemplateWithHttpInfo(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0);
+        ApiResponse<ComplianceRuleTemplate> CreateComplianceTemplateWithHttpInfo(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
         /// </summary>
@@ -65,8 +68,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteComplianceRule(string scope, string code, int operationIndex = 0);
+        DeletedEntityResponse DeleteComplianceRule(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
@@ -78,8 +82,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteComplianceRuleWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteComplianceRuleWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
         /// </summary>
@@ -90,8 +95,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the template to be deleted.</param>
         /// <param name="code">The code of the template to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteComplianceTemplate(string scope, string code, int operationIndex = 0);
+        DeletedEntityResponse DeleteComplianceTemplate(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
@@ -103,8 +109,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the template to be deleted.</param>
         /// <param name="code">The code of the template to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteComplianceTemplateWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteComplianceTemplateWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRule: Get compliance rule.
         /// </summary>
@@ -117,8 +124,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRuleResponse</returns>
-        ComplianceRuleResponse GetComplianceRule(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ComplianceRuleResponse GetComplianceRule(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRule: Get compliance rule.
@@ -132,8 +140,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleResponse</returns>
-        ApiResponse<ComplianceRuleResponse> GetComplianceRuleWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ApiResponse<ComplianceRuleResponse> GetComplianceRuleWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
         /// </summary>
@@ -146,8 +155,9 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleScope">Required: Rule Scope.</param>
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRuleResultV2</returns>
-        ComplianceRuleResultV2 GetComplianceRuleResult(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0);
+        ComplianceRuleResultV2 GetComplianceRuleResult(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
@@ -161,8 +171,9 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleScope">Required: Rule Scope.</param>
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleResultV2</returns>
-        ApiResponse<ComplianceRuleResultV2> GetComplianceRuleResultWithHttpInfo(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0);
+        ApiResponse<ComplianceRuleResultV2> GetComplianceRuleResultWithHttpInfo(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template.
         /// </summary>
@@ -174,8 +185,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of TemplateID</param>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceTemplate</returns>
-        ComplianceTemplate GetComplianceTemplate(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ComplianceTemplate GetComplianceTemplate(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template.
@@ -188,8 +200,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of TemplateID</param>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceTemplate</returns>
-        ApiResponse<ComplianceTemplate> GetComplianceTemplateWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ComplianceTemplate> GetComplianceTemplateWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run.
         /// </summary>
@@ -200,8 +213,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">Required: Run Scope.</param>
         /// <param name="code">Required: Run Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DecoratedComplianceRunSummary</returns>
-        DecoratedComplianceRunSummary GetDecoratedComplianceRunSummary(string scope, string code, int operationIndex = 0);
+        DecoratedComplianceRunSummary GetDecoratedComplianceRunSummary(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run.
@@ -213,8 +227,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">Required: Run Scope.</param>
         /// <param name="code">Required: Run Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DecoratedComplianceRunSummary</returns>
-        ApiResponse<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListComplianceRules: List compliance rules.
         /// </summary>
@@ -228,8 +243,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Filter. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfComplianceRuleResponse</returns>
-        PagedResourceListOfComplianceRuleResponse ListComplianceRules(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfComplianceRuleResponse ListComplianceRules(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListComplianceRules: List compliance rules.
@@ -244,8 +260,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Filter. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfComplianceRuleResponse</returns>
-        ApiResponse<PagedResourceListOfComplianceRuleResponse> ListComplianceRulesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfComplianceRuleResponse> ListComplianceRulesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListComplianceRuns: List historical compliance run identifiers.
         /// </summary>
@@ -259,8 +276,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfComplianceRunInfoV2</returns>
-        PagedResourceListOfComplianceRunInfoV2 ListComplianceRuns(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfComplianceRunInfoV2 ListComplianceRuns(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListComplianceRuns: List historical compliance run identifiers.
@@ -275,8 +293,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfComplianceRunInfoV2</returns>
-        ApiResponse<PagedResourceListOfComplianceRunInfoV2> ListComplianceRunsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfComplianceRunInfoV2> ListComplianceRunsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListComplianceTemplates: List compliance templates.
         /// </summary>
@@ -289,8 +308,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfComplianceTemplate</returns>
-        PagedResourceListOfComplianceTemplate ListComplianceTemplates(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        PagedResourceListOfComplianceTemplate ListComplianceTemplates(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListComplianceTemplates: List compliance templates.
@@ -304,8 +324,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfComplianceTemplate</returns>
-        ApiResponse<PagedResourceListOfComplianceTemplate> ListComplianceTemplatesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfComplianceTemplate> ListComplianceTemplatesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] RunCompliance: Run a compliance check.
         /// </summary>
@@ -319,8 +340,9 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">Required: the scope of the recipe to be used</param>
         /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRunInfoV2</returns>
-        ComplianceRunInfoV2 RunCompliance(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0);
+        ComplianceRunInfoV2 RunCompliance(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] RunCompliance: Run a compliance check.
@@ -335,8 +357,9 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">Required: the scope of the recipe to be used</param>
         /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRunInfoV2</returns>
-        ApiResponse<ComplianceRunInfoV2> RunComplianceWithHttpInfo(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0);
+        ApiResponse<ComplianceRunInfoV2> RunComplianceWithHttpInfo(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] RunCompliancePreview: Run a compliance check.
         /// </summary>
@@ -350,8 +373,9 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
         /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRunInfoV2</returns>
-        ComplianceRunInfoV2 RunCompliancePreview(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0);
+        ComplianceRunInfoV2 RunCompliancePreview(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] RunCompliancePreview: Run a compliance check.
@@ -366,8 +390,9 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
         /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRunInfoV2</returns>
-        ApiResponse<ComplianceRunInfoV2> RunCompliancePreviewWithHttpInfo(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0);
+        ApiResponse<ComplianceRunInfoV2> RunCompliancePreviewWithHttpInfo(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
         /// </summary>
@@ -379,8 +404,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Compliance Rule Template.</param>
         /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRuleTemplate</returns>
-        ComplianceRuleTemplate UpdateComplianceTemplate(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0);
+        ComplianceRuleTemplate UpdateComplianceTemplate(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
@@ -393,8 +419,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Compliance Rule Template.</param>
         /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleTemplate</returns>
-        ApiResponse<ComplianceRuleTemplate> UpdateComplianceTemplateWithHttpInfo(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0);
+        ApiResponse<ComplianceRuleTemplate> UpdateComplianceTemplateWithHttpInfo(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
         /// </summary>
@@ -404,8 +431,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRuleResponse</returns>
-        ComplianceRuleResponse UpsertComplianceRule(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0);
+        ComplianceRuleResponse UpsertComplianceRule(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
@@ -416,8 +444,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleResponse</returns>
-        ApiResponse<ComplianceRuleResponse> UpsertComplianceRuleWithHttpInfo(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0);
+        ApiResponse<ComplianceRuleResponse> UpsertComplianceRuleWithHttpInfo(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary.
         /// </summary>
@@ -427,8 +456,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertComplianceRunSummaryResult</returns>
-        UpsertComplianceRunSummaryResult UpsertComplianceRunSummary(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0);
+        UpsertComplianceRunSummaryResult UpsertComplianceRunSummary(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary.
@@ -439,8 +469,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertComplianceRunSummaryResult</returns>
-        ApiResponse<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryWithHttpInfo(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0);
+        ApiResponse<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryWithHttpInfo(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -461,8 +492,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRuleTemplate</returns>
-        System.Threading.Tasks.Task<ComplianceRuleTemplate> CreateComplianceTemplateAsync(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ComplianceRuleTemplate> CreateComplianceTemplateAsync(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template
@@ -475,8 +507,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleTemplate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleTemplate>> CreateComplianceTemplateWithHttpInfoAsync(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleTemplate>> CreateComplianceTemplateWithHttpInfoAsync(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
         /// </summary>
@@ -488,8 +521,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteComplianceRuleAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteComplianceRuleAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
@@ -502,8 +536,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteComplianceRuleWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteComplianceRuleWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
         /// </summary>
@@ -515,8 +550,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the template to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteComplianceTemplateAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteComplianceTemplateAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
@@ -529,8 +565,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the template to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteComplianceTemplateWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteComplianceTemplateWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRule: Get compliance rule.
         /// </summary>
@@ -544,8 +581,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRuleResponse</returns>
-        System.Threading.Tasks.Task<ComplianceRuleResponse> GetComplianceRuleAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ComplianceRuleResponse> GetComplianceRuleAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRule: Get compliance rule.
@@ -560,8 +598,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleResponse>> GetComplianceRuleWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleResponse>> GetComplianceRuleWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
         /// </summary>
@@ -575,8 +614,9 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRuleResultV2</returns>
-        System.Threading.Tasks.Task<ComplianceRuleResultV2> GetComplianceRuleResultAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ComplianceRuleResultV2> GetComplianceRuleResultAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
@@ -591,8 +631,9 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleResultV2)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleResultV2>> GetComplianceRuleResultWithHttpInfoAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleResultV2>> GetComplianceRuleResultWithHttpInfoAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template.
         /// </summary>
@@ -605,8 +646,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceTemplate</returns>
-        System.Threading.Tasks.Task<ComplianceTemplate> GetComplianceTemplateAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ComplianceTemplate> GetComplianceTemplateAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template.
@@ -620,8 +662,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceTemplate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComplianceTemplate>> GetComplianceTemplateWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ComplianceTemplate>> GetComplianceTemplateWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run.
         /// </summary>
@@ -633,8 +676,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Required: Run Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DecoratedComplianceRunSummary</returns>
-        System.Threading.Tasks.Task<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run.
@@ -647,8 +691,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Required: Run Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DecoratedComplianceRunSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DecoratedComplianceRunSummary>> GetDecoratedComplianceRunSummaryWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DecoratedComplianceRunSummary>> GetDecoratedComplianceRunSummaryWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListComplianceRules: List compliance rules.
         /// </summary>
@@ -663,8 +708,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfComplianceRuleResponse</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfComplianceRuleResponse> ListComplianceRulesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfComplianceRuleResponse> ListComplianceRulesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListComplianceRules: List compliance rules.
@@ -680,8 +726,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfComplianceRuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfComplianceRuleResponse>> ListComplianceRulesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfComplianceRuleResponse>> ListComplianceRulesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListComplianceRuns: List historical compliance run identifiers.
         /// </summary>
@@ -696,8 +743,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfComplianceRunInfoV2</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfComplianceRunInfoV2> ListComplianceRunsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfComplianceRunInfoV2> ListComplianceRunsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListComplianceRuns: List historical compliance run identifiers.
@@ -713,8 +761,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfComplianceRunInfoV2)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfComplianceRunInfoV2>> ListComplianceRunsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfComplianceRunInfoV2>> ListComplianceRunsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListComplianceTemplates: List compliance templates.
         /// </summary>
@@ -728,8 +777,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfComplianceTemplate</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfComplianceTemplate> ListComplianceTemplatesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfComplianceTemplate> ListComplianceTemplatesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListComplianceTemplates: List compliance templates.
@@ -744,8 +794,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfComplianceTemplate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfComplianceTemplate>> ListComplianceTemplatesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfComplianceTemplate>> ListComplianceTemplatesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] RunCompliance: Run a compliance check.
         /// </summary>
@@ -760,8 +811,9 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRunInfoV2</returns>
-        System.Threading.Tasks.Task<ComplianceRunInfoV2> RunComplianceAsync(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ComplianceRunInfoV2> RunComplianceAsync(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] RunCompliance: Run a compliance check.
@@ -777,8 +829,9 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRunInfoV2)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComplianceRunInfoV2>> RunComplianceWithHttpInfoAsync(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ComplianceRunInfoV2>> RunComplianceWithHttpInfoAsync(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] RunCompliancePreview: Run a compliance check.
         /// </summary>
@@ -793,8 +846,9 @@ namespace Lusid.Sdk.Api
         /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRunInfoV2</returns>
-        System.Threading.Tasks.Task<ComplianceRunInfoV2> RunCompliancePreviewAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ComplianceRunInfoV2> RunCompliancePreviewAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] RunCompliancePreview: Run a compliance check.
@@ -810,8 +864,9 @@ namespace Lusid.Sdk.Api
         /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRunInfoV2)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComplianceRunInfoV2>> RunCompliancePreviewWithHttpInfoAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ComplianceRunInfoV2>> RunCompliancePreviewWithHttpInfoAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
         /// </summary>
@@ -824,8 +879,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRuleTemplate</returns>
-        System.Threading.Tasks.Task<ComplianceRuleTemplate> UpdateComplianceTemplateAsync(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ComplianceRuleTemplate> UpdateComplianceTemplateAsync(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
@@ -839,8 +895,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleTemplate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleTemplate>> UpdateComplianceTemplateWithHttpInfoAsync(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleTemplate>> UpdateComplianceTemplateWithHttpInfoAsync(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
         /// </summary>
@@ -851,8 +908,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRuleResponse</returns>
-        System.Threading.Tasks.Task<ComplianceRuleResponse> UpsertComplianceRuleAsync(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ComplianceRuleResponse> UpsertComplianceRuleAsync(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
@@ -864,8 +922,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleResponse>> UpsertComplianceRuleWithHttpInfoAsync(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleResponse>> UpsertComplianceRuleWithHttpInfoAsync(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary.
         /// </summary>
@@ -876,8 +935,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertComplianceRunSummaryResult</returns>
-        System.Threading.Tasks.Task<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary.
@@ -889,8 +949,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertComplianceRunSummaryResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertComplianceRunSummaryResult>> UpsertComplianceRunSummaryWithHttpInfoAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertComplianceRunSummaryResult>> UpsertComplianceRunSummaryWithHttpInfoAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -923,9 +984,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public ComplianceApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -1015,10 +1082,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Compliance Rule Template.</param>
         /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRuleTemplate</returns>
-        public ComplianceRuleTemplate CreateComplianceTemplate(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0)
+        public ComplianceRuleTemplate CreateComplianceTemplate(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> localVarResponse = CreateComplianceTemplateWithHttpInfo(scope, createComplianceTemplateRequest);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> localVarResponse = CreateComplianceTemplateWithHttpInfo(scope, createComplianceTemplateRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1029,8 +1097,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Compliance Rule Template.</param>
         /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleTemplate</returns>
-        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> CreateComplianceTemplateWithHttpInfo(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> CreateComplianceTemplateWithHttpInfo(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1045,6 +1114,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1117,10 +1196,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRuleTemplate</returns>
-        public async System.Threading.Tasks.Task<ComplianceRuleTemplate> CreateComplianceTemplateAsync(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ComplianceRuleTemplate> CreateComplianceTemplateAsync(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> localVarResponse = await CreateComplianceTemplateWithHttpInfoAsync(scope, createComplianceTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> localVarResponse = await CreateComplianceTemplateWithHttpInfoAsync(scope, createComplianceTemplateRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1132,8 +1212,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleTemplate)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate>> CreateComplianceTemplateWithHttpInfoAsync(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate>> CreateComplianceTemplateWithHttpInfoAsync(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1149,6 +1230,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1221,10 +1312,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteComplianceRule(string scope, string code, int operationIndex = 0)
+        public DeletedEntityResponse DeleteComplianceRule(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteComplianceRuleWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteComplianceRuleWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1235,8 +1327,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteComplianceRuleWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteComplianceRuleWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1251,6 +1344,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1319,10 +1422,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteComplianceRuleAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteComplianceRuleAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteComplianceRuleWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteComplianceRuleWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1334,8 +1438,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteComplianceRuleWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteComplianceRuleWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1351,6 +1456,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1419,10 +1534,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the template to be deleted.</param>
         /// <param name="code">The code of the template to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteComplianceTemplate(string scope, string code, int operationIndex = 0)
+        public DeletedEntityResponse DeleteComplianceTemplate(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteComplianceTemplateWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteComplianceTemplateWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1433,8 +1549,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the template to be deleted.</param>
         /// <param name="code">The code of the template to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteComplianceTemplateWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteComplianceTemplateWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1449,6 +1566,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1517,10 +1644,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the template to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteComplianceTemplateAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteComplianceTemplateAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteComplianceTemplateWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteComplianceTemplateWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1532,8 +1660,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the template to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteComplianceTemplateWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteComplianceTemplateWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1549,6 +1678,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1619,10 +1758,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRuleResponse</returns>
-        public ComplianceRuleResponse GetComplianceRule(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public ComplianceRuleResponse GetComplianceRule(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> localVarResponse = GetComplianceRuleWithHttpInfo(scope, code, asAt, propertyKeys);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> localVarResponse = GetComplianceRuleWithHttpInfo(scope, code, asAt, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1635,8 +1775,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> GetComplianceRuleWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> GetComplianceRuleWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1651,6 +1792,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1729,10 +1880,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRuleResponse</returns>
-        public async System.Threading.Tasks.Task<ComplianceRuleResponse> GetComplianceRuleAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ComplianceRuleResponse> GetComplianceRuleAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> localVarResponse = await GetComplianceRuleWithHttpInfoAsync(scope, code, asAt, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> localVarResponse = await GetComplianceRuleWithHttpInfoAsync(scope, code, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1746,8 +1898,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse>> GetComplianceRuleWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse>> GetComplianceRuleWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1763,6 +1916,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1841,10 +2004,11 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleScope">Required: Rule Scope.</param>
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRuleResultV2</returns>
-        public ComplianceRuleResultV2 GetComplianceRuleResult(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0)
+        public ComplianceRuleResultV2 GetComplianceRuleResult(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2> localVarResponse = GetComplianceRuleResultWithHttpInfo(runScope, runCode, ruleScope, ruleCode);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2> localVarResponse = GetComplianceRuleResultWithHttpInfo(runScope, runCode, ruleScope, ruleCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1857,8 +2021,9 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleScope">Required: Rule Scope.</param>
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleResultV2</returns>
-        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2> GetComplianceRuleResultWithHttpInfo(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2> GetComplianceRuleResultWithHttpInfo(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'runScope' is set
             if (runScope == null)
@@ -1885,6 +2050,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1957,10 +2132,11 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRuleResultV2</returns>
-        public async System.Threading.Tasks.Task<ComplianceRuleResultV2> GetComplianceRuleResultAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ComplianceRuleResultV2> GetComplianceRuleResultAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2> localVarResponse = await GetComplianceRuleResultWithHttpInfoAsync(runScope, runCode, ruleScope, ruleCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2> localVarResponse = await GetComplianceRuleResultWithHttpInfoAsync(runScope, runCode, ruleScope, ruleCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1974,8 +2150,9 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleResultV2)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2>> GetComplianceRuleResultWithHttpInfoAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2>> GetComplianceRuleResultWithHttpInfoAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'runScope' is set
             if (runScope == null)
@@ -2003,6 +2180,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2074,10 +2261,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of TemplateID</param>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceTemplate</returns>
-        public ComplianceTemplate GetComplianceTemplate(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public ComplianceTemplate GetComplianceTemplate(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceTemplate> localVarResponse = GetComplianceTemplateWithHttpInfo(scope, code, asAt);
+            Lusid.Sdk.Client.ApiResponse<ComplianceTemplate> localVarResponse = GetComplianceTemplateWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2089,8 +2277,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of TemplateID</param>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceTemplate</returns>
-        public Lusid.Sdk.Client.ApiResponse<ComplianceTemplate> GetComplianceTemplateWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ComplianceTemplate> GetComplianceTemplateWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2105,6 +2294,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2178,10 +2377,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceTemplate</returns>
-        public async System.Threading.Tasks.Task<ComplianceTemplate> GetComplianceTemplateAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ComplianceTemplate> GetComplianceTemplateAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceTemplate> localVarResponse = await GetComplianceTemplateWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ComplianceTemplate> localVarResponse = await GetComplianceTemplateWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2194,8 +2394,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceTemplate)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceTemplate>> GetComplianceTemplateWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceTemplate>> GetComplianceTemplateWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2211,6 +2412,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2283,10 +2494,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">Required: Run Scope.</param>
         /// <param name="code">Required: Run Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DecoratedComplianceRunSummary</returns>
-        public DecoratedComplianceRunSummary GetDecoratedComplianceRunSummary(string scope, string code, int operationIndex = 0)
+        public DecoratedComplianceRunSummary GetDecoratedComplianceRunSummary(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> localVarResponse = GetDecoratedComplianceRunSummaryWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> localVarResponse = GetDecoratedComplianceRunSummaryWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2297,8 +2509,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">Required: Run Scope.</param>
         /// <param name="code">Required: Run Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DecoratedComplianceRunSummary</returns>
-        public Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2313,6 +2526,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2381,10 +2604,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Required: Run Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DecoratedComplianceRunSummary</returns>
-        public async System.Threading.Tasks.Task<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DecoratedComplianceRunSummary> GetDecoratedComplianceRunSummaryAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> localVarResponse = await GetDecoratedComplianceRunSummaryWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary> localVarResponse = await GetDecoratedComplianceRunSummaryWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2396,8 +2620,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Required: Run Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DecoratedComplianceRunSummary)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary>> GetDecoratedComplianceRunSummaryWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DecoratedComplianceRunSummary>> GetDecoratedComplianceRunSummaryWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2413,6 +2638,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2484,10 +2719,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Filter. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfComplianceRuleResponse</returns>
-        public PagedResourceListOfComplianceRuleResponse ListComplianceRules(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfComplianceRuleResponse ListComplianceRules(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleResponse> localVarResponse = ListComplianceRulesWithHttpInfo(asAt, page, limit, filter, propertyKeys);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleResponse> localVarResponse = ListComplianceRulesWithHttpInfo(asAt, page, limit, filter, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2501,10 +2737,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Filter. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfComplianceRuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleResponse> ListComplianceRulesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleResponse> ListComplianceRulesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2594,10 +2841,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfComplianceRuleResponse</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfComplianceRuleResponse> ListComplianceRulesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfComplianceRuleResponse> ListComplianceRulesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleResponse> localVarResponse = await ListComplianceRulesWithHttpInfoAsync(asAt, page, limit, filter, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleResponse> localVarResponse = await ListComplianceRulesWithHttpInfoAsync(asAt, page, limit, filter, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2612,11 +2860,22 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfComplianceRuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleResponse>> ListComplianceRulesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRuleResponse>> ListComplianceRulesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2706,10 +2965,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfComplianceRunInfoV2</returns>
-        public PagedResourceListOfComplianceRunInfoV2 ListComplianceRuns(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfComplianceRunInfoV2 ListComplianceRuns(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRunInfoV2> localVarResponse = ListComplianceRunsWithHttpInfo(asAt, page, limit, filter, sortBy);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRunInfoV2> localVarResponse = ListComplianceRunsWithHttpInfo(asAt, page, limit, filter, sortBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2723,10 +2983,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfComplianceRunInfoV2</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRunInfoV2> ListComplianceRunsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRunInfoV2> ListComplianceRunsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2816,10 +3087,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfComplianceRunInfoV2</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfComplianceRunInfoV2> ListComplianceRunsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfComplianceRunInfoV2> ListComplianceRunsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRunInfoV2> localVarResponse = await ListComplianceRunsWithHttpInfoAsync(asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRunInfoV2> localVarResponse = await ListComplianceRunsWithHttpInfoAsync(asAt, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2834,11 +3106,22 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfComplianceRunInfoV2)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRunInfoV2>> ListComplianceRunsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceRunInfoV2>> ListComplianceRunsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2927,10 +3210,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfComplianceTemplate</returns>
-        public PagedResourceListOfComplianceTemplate ListComplianceTemplates(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public PagedResourceListOfComplianceTemplate ListComplianceTemplates(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceTemplate> localVarResponse = ListComplianceTemplatesWithHttpInfo(asAt, page, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceTemplate> localVarResponse = ListComplianceTemplatesWithHttpInfo(asAt, page, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2943,10 +3227,21 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfComplianceTemplate</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceTemplate> ListComplianceTemplatesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceTemplate> ListComplianceTemplatesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3031,10 +3326,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfComplianceTemplate</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfComplianceTemplate> ListComplianceTemplatesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfComplianceTemplate> ListComplianceTemplatesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceTemplate> localVarResponse = await ListComplianceTemplatesWithHttpInfoAsync(asAt, page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceTemplate> localVarResponse = await ListComplianceTemplatesWithHttpInfoAsync(asAt, page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3048,11 +3344,22 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfComplianceTemplate)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceTemplate>> ListComplianceTemplatesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfComplianceTemplate>> ListComplianceTemplatesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3138,10 +3445,11 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">Required: the scope of the recipe to be used</param>
         /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRunInfoV2</returns>
-        public ComplianceRunInfoV2 RunCompliance(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0)
+        public ComplianceRunInfoV2 RunCompliance(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> localVarResponse = RunComplianceWithHttpInfo(runScope, ruleScope, isPreTrade, recipeIdScope, recipeIdCode);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> localVarResponse = RunComplianceWithHttpInfo(runScope, ruleScope, isPreTrade, recipeIdScope, recipeIdCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3155,8 +3463,9 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">Required: the scope of the recipe to be used</param>
         /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRunInfoV2</returns>
-        public Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> RunComplianceWithHttpInfo(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> RunComplianceWithHttpInfo(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'runScope' is set
             if (runScope == null)
@@ -3183,6 +3492,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3257,10 +3576,11 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRunInfoV2</returns>
-        public async System.Threading.Tasks.Task<ComplianceRunInfoV2> RunComplianceAsync(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ComplianceRunInfoV2> RunComplianceAsync(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> localVarResponse = await RunComplianceWithHttpInfoAsync(runScope, ruleScope, isPreTrade, recipeIdScope, recipeIdCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> localVarResponse = await RunComplianceWithHttpInfoAsync(runScope, ruleScope, isPreTrade, recipeIdScope, recipeIdCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3275,8 +3595,9 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRunInfoV2)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2>> RunComplianceWithHttpInfoAsync(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2>> RunComplianceWithHttpInfoAsync(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'runScope' is set
             if (runScope == null)
@@ -3304,6 +3625,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3378,10 +3709,11 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
         /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRunInfoV2</returns>
-        public ComplianceRunInfoV2 RunCompliancePreview(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0)
+        public ComplianceRunInfoV2 RunCompliancePreview(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> localVarResponse = RunCompliancePreviewWithHttpInfo(runScope, ruleScope, recipeIdScope, recipeIdCode, complianceRunConfiguration);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> localVarResponse = RunCompliancePreviewWithHttpInfo(runScope, ruleScope, recipeIdScope, recipeIdCode, complianceRunConfiguration, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3395,8 +3727,9 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">Required: The code of the recipe to be used. If left blank, the default recipe will be used.</param>
         /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRunInfoV2</returns>
-        public Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> RunCompliancePreviewWithHttpInfo(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> RunCompliancePreviewWithHttpInfo(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'runScope' is set
             if (runScope == null)
@@ -3423,6 +3756,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3501,10 +3844,11 @@ namespace Lusid.Sdk.Api
         /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRunInfoV2</returns>
-        public async System.Threading.Tasks.Task<ComplianceRunInfoV2> RunCompliancePreviewAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ComplianceRunInfoV2> RunCompliancePreviewAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> localVarResponse = await RunCompliancePreviewWithHttpInfoAsync(runScope, ruleScope, recipeIdScope, recipeIdCode, complianceRunConfiguration, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2> localVarResponse = await RunCompliancePreviewWithHttpInfoAsync(runScope, ruleScope, recipeIdScope, recipeIdCode, complianceRunConfiguration, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3519,8 +3863,9 @@ namespace Lusid.Sdk.Api
         /// <param name="complianceRunConfiguration">Configuration options for the compliance run. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRunInfoV2)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2>> RunCompliancePreviewWithHttpInfoAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunInfoV2>> RunCompliancePreviewWithHttpInfoAsync(string runScope, string ruleScope, string recipeIdScope, string recipeIdCode, ComplianceRunConfiguration? complianceRunConfiguration = default(ComplianceRunConfiguration?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'runScope' is set
             if (runScope == null)
@@ -3548,6 +3893,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -3624,10 +3979,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Compliance Rule Template.</param>
         /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRuleTemplate</returns>
-        public ComplianceRuleTemplate UpdateComplianceTemplate(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0)
+        public ComplianceRuleTemplate UpdateComplianceTemplate(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> localVarResponse = UpdateComplianceTemplateWithHttpInfo(scope, code, updateComplianceTemplateRequest);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> localVarResponse = UpdateComplianceTemplateWithHttpInfo(scope, code, updateComplianceTemplateRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3639,8 +3995,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Compliance Rule Template.</param>
         /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleTemplate</returns>
-        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> UpdateComplianceTemplateWithHttpInfo(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> UpdateComplianceTemplateWithHttpInfo(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3661,6 +4018,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3735,10 +4102,11 @@ namespace Lusid.Sdk.Api
         /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRuleTemplate</returns>
-        public async System.Threading.Tasks.Task<ComplianceRuleTemplate> UpdateComplianceTemplateAsync(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ComplianceRuleTemplate> UpdateComplianceTemplateAsync(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> localVarResponse = await UpdateComplianceTemplateWithHttpInfoAsync(scope, code, updateComplianceTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> localVarResponse = await UpdateComplianceTemplateWithHttpInfoAsync(scope, code, updateComplianceTemplateRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3751,8 +4119,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleTemplate)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate>> UpdateComplianceTemplateWithHttpInfoAsync(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate>> UpdateComplianceTemplateWithHttpInfoAsync(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3774,6 +4143,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -3846,10 +4225,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRuleResponse</returns>
-        public ComplianceRuleResponse UpsertComplianceRule(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0)
+        public ComplianceRuleResponse UpsertComplianceRule(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> localVarResponse = UpsertComplianceRuleWithHttpInfo(upsertComplianceRuleRequest);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> localVarResponse = UpsertComplianceRuleWithHttpInfo(upsertComplianceRuleRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3859,10 +4239,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> UpsertComplianceRuleWithHttpInfo(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> UpsertComplianceRuleWithHttpInfo(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3933,10 +4324,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ComplianceRuleResponse</returns>
-        public async System.Threading.Tasks.Task<ComplianceRuleResponse> UpsertComplianceRuleAsync(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ComplianceRuleResponse> UpsertComplianceRuleAsync(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> localVarResponse = await UpsertComplianceRuleWithHttpInfoAsync(upsertComplianceRuleRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> localVarResponse = await UpsertComplianceRuleWithHttpInfoAsync(upsertComplianceRuleRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3947,11 +4339,22 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse>> UpsertComplianceRuleWithHttpInfoAsync(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse>> UpsertComplianceRuleWithHttpInfoAsync(UpsertComplianceRuleRequest? upsertComplianceRuleRequest = default(UpsertComplianceRuleRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -4022,10 +4425,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertComplianceRunSummaryResult</returns>
-        public UpsertComplianceRunSummaryResult UpsertComplianceRunSummary(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0)
+        public UpsertComplianceRunSummaryResult UpsertComplianceRunSummary(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult> localVarResponse = UpsertComplianceRunSummaryWithHttpInfo(upsertComplianceRunSummaryRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult> localVarResponse = UpsertComplianceRunSummaryWithHttpInfo(upsertComplianceRunSummaryRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -4035,10 +4439,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertComplianceRunSummaryResult</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryWithHttpInfo(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryWithHttpInfo(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -4109,10 +4524,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertComplianceRunSummaryResult</returns>
-        public async System.Threading.Tasks.Task<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult> localVarResponse = await UpsertComplianceRunSummaryWithHttpInfoAsync(upsertComplianceRunSummaryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult> localVarResponse = await UpsertComplianceRunSummaryWithHttpInfoAsync(upsertComplianceRunSummaryRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4123,11 +4539,22 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertComplianceRunSummaryResult)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult>> UpsertComplianceRunSummaryWithHttpInfoAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult>> UpsertComplianceRunSummaryWithHttpInfoAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

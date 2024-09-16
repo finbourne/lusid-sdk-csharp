@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the complex market data to delete.</param>
         /// <param name="requestBody">The complex market data Ids to delete, each keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulStructuredDataResponse</returns>
-        AnnulStructuredDataResponse DeleteComplexMarketData(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0);
+        AnnulStructuredDataResponse DeleteComplexMarketData(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the complex market data to delete.</param>
         /// <param name="requestBody">The complex market data Ids to delete, each keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulStructuredDataResponse</returns>
-        ApiResponse<AnnulStructuredDataResponse> DeleteComplexMarketDataWithHttpInfo(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0);
+        ApiResponse<AnnulStructuredDataResponse> DeleteComplexMarketDataWithHttpInfo(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplexMarketData: Get complex market data
         /// </summary>
@@ -68,8 +71,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a complex market data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetComplexMarketDataResponse</returns>
-        GetComplexMarketDataResponse GetComplexMarketData(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0);
+        GetComplexMarketDataResponse GetComplexMarketData(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetComplexMarketData: Get complex market data
@@ -84,8 +88,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a complex market data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetComplexMarketDataResponse</returns>
-        ApiResponse<GetComplexMarketDataResponse> GetComplexMarketDataWithHttpInfo(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0);
+        ApiResponse<GetComplexMarketDataResponse> GetComplexMarketDataWithHttpInfo(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
         /// </summary>
@@ -95,8 +100,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfListComplexMarketDataWithMetaDataResponse</returns>
-        ResourceListOfListComplexMarketDataWithMetaDataResponse ListComplexMarketData(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ResourceListOfListComplexMarketDataWithMetaDataResponse ListComplexMarketData(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
@@ -107,8 +113,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfListComplexMarketDataWithMetaDataResponse</returns>
-        ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.
         /// </summary>
@@ -119,8 +126,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to use when updating or inserting the complex market data.</param>
         /// <param name="requestBody">The set of complex market data items to update or insert keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertStructuredDataResponse</returns>
-        UpsertStructuredDataResponse UpsertComplexMarketData(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0);
+        UpsertStructuredDataResponse UpsertComplexMarketData(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.
@@ -132,8 +140,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to use when updating or inserting the complex market data.</param>
         /// <param name="requestBody">The set of complex market data items to update or insert keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertStructuredDataResponse</returns>
-        ApiResponse<UpsertStructuredDataResponse> UpsertComplexMarketDataWithHttpInfo(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0);
+        ApiResponse<UpsertStructuredDataResponse> UpsertComplexMarketDataWithHttpInfo(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -154,8 +163,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The complex market data Ids to delete, each keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<AnnulStructuredDataResponse> DeleteComplexMarketDataAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AnnulStructuredDataResponse> DeleteComplexMarketDataAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
@@ -168,8 +178,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The complex market data Ids to delete, each keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnnulStructuredDataResponse>> DeleteComplexMarketDataWithHttpInfoAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AnnulStructuredDataResponse>> DeleteComplexMarketDataWithHttpInfoAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetComplexMarketData: Get complex market data
         /// </summary>
@@ -184,8 +195,9 @@ namespace Lusid.Sdk.Api
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a complex market data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetComplexMarketDataResponse</returns>
-        System.Threading.Tasks.Task<GetComplexMarketDataResponse> GetComplexMarketDataAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetComplexMarketDataResponse> GetComplexMarketDataAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetComplexMarketData: Get complex market data
@@ -201,8 +213,9 @@ namespace Lusid.Sdk.Api
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a complex market data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetComplexMarketDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetComplexMarketDataResponse>> GetComplexMarketDataWithHttpInfoAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetComplexMarketDataResponse>> GetComplexMarketDataWithHttpInfoAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
         /// </summary>
@@ -213,8 +226,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfListComplexMarketDataWithMetaDataResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
@@ -226,8 +240,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfListComplexMarketDataWithMetaDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse>> ListComplexMarketDataWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse>> ListComplexMarketDataWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.
         /// </summary>
@@ -239,8 +254,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The set of complex market data items to update or insert keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<UpsertStructuredDataResponse> UpsertComplexMarketDataAsync(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertStructuredDataResponse> UpsertComplexMarketDataAsync(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.
@@ -253,8 +269,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The set of complex market data items to update or insert keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertStructuredDataResponse>> UpsertComplexMarketDataWithHttpInfoAsync(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertStructuredDataResponse>> UpsertComplexMarketDataWithHttpInfoAsync(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -287,9 +304,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public ComplexMarketDataApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -379,10 +402,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the complex market data to delete.</param>
         /// <param name="requestBody">The complex market data Ids to delete, each keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulStructuredDataResponse</returns>
-        public AnnulStructuredDataResponse DeleteComplexMarketData(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0)
+        public AnnulStructuredDataResponse DeleteComplexMarketData(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse> localVarResponse = DeleteComplexMarketDataWithHttpInfo(scope, requestBody);
+            Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse> localVarResponse = DeleteComplexMarketDataWithHttpInfo(scope, requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -393,8 +417,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the complex market data to delete.</param>
         /// <param name="requestBody">The complex market data Ids to delete, each keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse> DeleteComplexMarketDataWithHttpInfo(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse> DeleteComplexMarketDataWithHttpInfo(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -409,6 +434,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -481,10 +516,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The complex market data Ids to delete, each keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<AnnulStructuredDataResponse> DeleteComplexMarketDataAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AnnulStructuredDataResponse> DeleteComplexMarketDataAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse> localVarResponse = await DeleteComplexMarketDataWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse> localVarResponse = await DeleteComplexMarketDataWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -496,8 +532,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The complex market data Ids to delete, each keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse>> DeleteComplexMarketDataWithHttpInfoAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse>> DeleteComplexMarketDataWithHttpInfoAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -513,6 +550,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -588,10 +635,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a complex market data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetComplexMarketDataResponse</returns>
-        public GetComplexMarketDataResponse GetComplexMarketData(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0)
+        public GetComplexMarketDataResponse GetComplexMarketData(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetComplexMarketDataResponse> localVarResponse = GetComplexMarketDataWithHttpInfo(scope, requestBody, effectiveAt, asAt, maxAge);
+            Lusid.Sdk.Client.ApiResponse<GetComplexMarketDataResponse> localVarResponse = GetComplexMarketDataWithHttpInfo(scope, requestBody, effectiveAt, asAt, maxAge, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -605,8 +653,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a complex market data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetComplexMarketDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetComplexMarketDataResponse> GetComplexMarketDataWithHttpInfo(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetComplexMarketDataResponse> GetComplexMarketDataWithHttpInfo(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -621,6 +670,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -708,10 +767,11 @@ namespace Lusid.Sdk.Api
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a complex market data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetComplexMarketDataResponse</returns>
-        public async System.Threading.Tasks.Task<GetComplexMarketDataResponse> GetComplexMarketDataAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetComplexMarketDataResponse> GetComplexMarketDataAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetComplexMarketDataResponse> localVarResponse = await GetComplexMarketDataWithHttpInfoAsync(scope, requestBody, effectiveAt, asAt, maxAge, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetComplexMarketDataResponse> localVarResponse = await GetComplexMarketDataWithHttpInfoAsync(scope, requestBody, effectiveAt, asAt, maxAge, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -726,8 +786,9 @@ namespace Lusid.Sdk.Api
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a complex market data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetComplexMarketDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetComplexMarketDataResponse>> GetComplexMarketDataWithHttpInfoAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetComplexMarketDataResponse>> GetComplexMarketDataWithHttpInfoAsync(string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -743,6 +804,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -826,10 +897,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfListComplexMarketDataWithMetaDataResponse</returns>
-        public ResourceListOfListComplexMarketDataWithMetaDataResponse ListComplexMarketData(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public ResourceListOfListComplexMarketDataWithMetaDataResponse ListComplexMarketData(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> localVarResponse = ListComplexMarketDataWithHttpInfo(asAt);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> localVarResponse = ListComplexMarketDataWithHttpInfo(asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -839,10 +911,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfListComplexMarketDataWithMetaDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -912,10 +995,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfListComplexMarketDataWithMetaDataResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> localVarResponse = await ListComplexMarketDataWithHttpInfoAsync(asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> localVarResponse = await ListComplexMarketDataWithHttpInfoAsync(asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -926,11 +1010,22 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfListComplexMarketDataWithMetaDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse>> ListComplexMarketDataWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse>> ListComplexMarketDataWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1001,10 +1096,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to use when updating or inserting the complex market data.</param>
         /// <param name="requestBody">The set of complex market data items to update or insert keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertStructuredDataResponse</returns>
-        public UpsertStructuredDataResponse UpsertComplexMarketData(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0)
+        public UpsertStructuredDataResponse UpsertComplexMarketData(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = UpsertComplexMarketDataWithHttpInfo(scope, requestBody);
+            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = UpsertComplexMarketDataWithHttpInfo(scope, requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1015,8 +1111,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to use when updating or inserting the complex market data.</param>
         /// <param name="requestBody">The set of complex market data items to update or insert keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> UpsertComplexMarketDataWithHttpInfo(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> UpsertComplexMarketDataWithHttpInfo(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1031,6 +1128,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1103,10 +1210,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The set of complex market data items to update or insert keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertStructuredDataResponse> UpsertComplexMarketDataAsync(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertStructuredDataResponse> UpsertComplexMarketDataAsync(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = await UpsertComplexMarketDataWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = await UpsertComplexMarketDataWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1118,8 +1226,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The set of complex market data items to update or insert keyed by a unique correlation id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse>> UpsertComplexMarketDataWithHttpInfoAsync(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse>> UpsertComplexMarketDataWithHttpInfoAsync(string scope, Dictionary<string, UpsertComplexMarketDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1135,6 +1244,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

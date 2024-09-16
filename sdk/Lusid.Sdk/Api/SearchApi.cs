@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -42,8 +43,9 @@ namespace Lusid.Sdk.Api
         /// <param name="masteredOnly">If set to true, only search over instruments that have been mastered within LUSID. Defaults to false. (optional, default to false)</param>
         /// <param name="scope">The scope in which the instrument lies. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;InstrumentMatch&gt;</returns>
-        List<InstrumentMatch> InstrumentsSearch(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0);
+        List<InstrumentMatch> InstrumentsSearch(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] InstrumentsSearch: Instruments search
@@ -57,8 +59,9 @@ namespace Lusid.Sdk.Api
         /// <param name="masteredOnly">If set to true, only search over instruments that have been mastered within LUSID. Defaults to false. (optional, default to false)</param>
         /// <param name="scope">The scope in which the instrument lies. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;InstrumentMatch&gt;</returns>
-        ApiResponse<List<InstrumentMatch>> InstrumentsSearchWithHttpInfo(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0);
+        ApiResponse<List<InstrumentMatch>> InstrumentsSearchWithHttpInfo(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// SearchPortfolioGroups: Search Portfolio Groups
         /// </summary>
@@ -72,8 +75,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records (optional)</param>
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPortfolioGroupSearchResult</returns>
-        PagedResourceListOfPortfolioGroupSearchResult SearchPortfolioGroups(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        PagedResourceListOfPortfolioGroupSearchResult SearchPortfolioGroups(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SearchPortfolioGroups: Search Portfolio Groups
@@ -88,8 +92,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records (optional)</param>
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPortfolioGroupSearchResult</returns>
-        ApiResponse<PagedResourceListOfPortfolioGroupSearchResult> SearchPortfolioGroupsWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfPortfolioGroupSearchResult> SearchPortfolioGroupsWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// SearchPortfolios: Search Portfolios
         /// </summary>
@@ -103,8 +108,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records (optional)</param>
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPortfolioSearchResult</returns>
-        PagedResourceListOfPortfolioSearchResult SearchPortfolios(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        PagedResourceListOfPortfolioSearchResult SearchPortfolios(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SearchPortfolios: Search Portfolios
@@ -119,8 +125,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records (optional)</param>
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPortfolioSearchResult</returns>
-        ApiResponse<PagedResourceListOfPortfolioSearchResult> SearchPortfoliosWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfPortfolioSearchResult> SearchPortfoliosWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// SearchProperties: Search Property Definitions
         /// </summary>
@@ -134,8 +141,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records (optional)</param>
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPropertyDefinitionSearchResult</returns>
-        PagedResourceListOfPropertyDefinitionSearchResult SearchProperties(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        PagedResourceListOfPropertyDefinitionSearchResult SearchProperties(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SearchProperties: Search Property Definitions
@@ -150,8 +158,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records (optional)</param>
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPropertyDefinitionSearchResult</returns>
-        ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult> SearchPropertiesWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult> SearchPropertiesWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -174,8 +183,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the instrument lies. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of List&lt;InstrumentMatch&gt;</returns>
-        System.Threading.Tasks.Task<List<InstrumentMatch>> InstrumentsSearchAsync(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<InstrumentMatch>> InstrumentsSearchAsync(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] InstrumentsSearch: Instruments search
@@ -190,8 +200,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the instrument lies. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;InstrumentMatch&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InstrumentMatch>>> InstrumentsSearchWithHttpInfoAsync(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<InstrumentMatch>>> InstrumentsSearchWithHttpInfoAsync(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// SearchPortfolioGroups: Search Portfolio Groups
         /// </summary>
@@ -206,8 +217,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPortfolioGroupSearchResult</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroupSearchResult> SearchPortfolioGroupsAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroupSearchResult> SearchPortfolioGroupsAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SearchPortfolioGroups: Search Portfolio Groups
@@ -223,8 +235,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPortfolioGroupSearchResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPortfolioGroupSearchResult>> SearchPortfolioGroupsWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPortfolioGroupSearchResult>> SearchPortfolioGroupsWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// SearchPortfolios: Search Portfolios
         /// </summary>
@@ -239,8 +252,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPortfolioSearchResult</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfPortfolioSearchResult> SearchPortfoliosAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfPortfolioSearchResult> SearchPortfoliosAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SearchPortfolios: Search Portfolios
@@ -256,8 +270,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPortfolioSearchResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPortfolioSearchResult>> SearchPortfoliosWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPortfolioSearchResult>> SearchPortfoliosWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// SearchProperties: Search Property Definitions
         /// </summary>
@@ -272,8 +287,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPropertyDefinitionSearchResult</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfPropertyDefinitionSearchResult> SearchPropertiesAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfPropertyDefinitionSearchResult> SearchPropertiesAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SearchProperties: Search Property Definitions
@@ -289,8 +305,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPropertyDefinitionSearchResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult>> SearchPropertiesWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult>> SearchPropertiesWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -323,9 +340,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public SearchApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -417,10 +440,11 @@ namespace Lusid.Sdk.Api
         /// <param name="masteredOnly">If set to true, only search over instruments that have been mastered within LUSID. Defaults to false. (optional, default to false)</param>
         /// <param name="scope">The scope in which the instrument lies. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;InstrumentMatch&gt;</returns>
-        public List<InstrumentMatch> InstrumentsSearch(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0)
+        public List<InstrumentMatch> InstrumentsSearch(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<List<InstrumentMatch>> localVarResponse = InstrumentsSearchWithHttpInfo(instrumentSearchProperty, masteredEffectiveAt, masteredOnly, scope);
+            Lusid.Sdk.Client.ApiResponse<List<InstrumentMatch>> localVarResponse = InstrumentsSearchWithHttpInfo(instrumentSearchProperty, masteredEffectiveAt, masteredOnly, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -433,8 +457,9 @@ namespace Lusid.Sdk.Api
         /// <param name="masteredOnly">If set to true, only search over instruments that have been mastered within LUSID. Defaults to false. (optional, default to false)</param>
         /// <param name="scope">The scope in which the instrument lies. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;InstrumentMatch&gt;</returns>
-        public Lusid.Sdk.Client.ApiResponse<List<InstrumentMatch>> InstrumentsSearchWithHttpInfo(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<List<InstrumentMatch>> InstrumentsSearchWithHttpInfo(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instrumentSearchProperty' is set
             if (instrumentSearchProperty == null)
@@ -443,6 +468,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -528,10 +563,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the instrument lies. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of List&lt;InstrumentMatch&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InstrumentMatch>> InstrumentsSearchAsync(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<InstrumentMatch>> InstrumentsSearchAsync(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<List<InstrumentMatch>> localVarResponse = await InstrumentsSearchWithHttpInfoAsync(instrumentSearchProperty, masteredEffectiveAt, masteredOnly, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<List<InstrumentMatch>> localVarResponse = await InstrumentsSearchWithHttpInfoAsync(instrumentSearchProperty, masteredEffectiveAt, masteredOnly, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -545,8 +581,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the instrument lies. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;InstrumentMatch&gt;)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<List<InstrumentMatch>>> InstrumentsSearchWithHttpInfoAsync(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<List<InstrumentMatch>>> InstrumentsSearchWithHttpInfoAsync(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instrumentSearchProperty' is set
             if (instrumentSearchProperty == null)
@@ -556,6 +593,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -642,10 +689,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records (optional)</param>
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPortfolioGroupSearchResult</returns>
-        public PagedResourceListOfPortfolioGroupSearchResult SearchPortfolioGroups(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        public PagedResourceListOfPortfolioGroupSearchResult SearchPortfolioGroups(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroupSearchResult> localVarResponse = SearchPortfolioGroupsWithHttpInfo(search, filter, sortBy, limit, page);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroupSearchResult> localVarResponse = SearchPortfolioGroupsWithHttpInfo(search, filter, sortBy, limit, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -659,10 +707,21 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records (optional)</param>
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPortfolioGroupSearchResult</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroupSearchResult> SearchPortfolioGroupsWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroupSearchResult> SearchPortfolioGroupsWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -752,10 +811,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPortfolioGroupSearchResult</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroupSearchResult> SearchPortfolioGroupsAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroupSearchResult> SearchPortfolioGroupsAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroupSearchResult> localVarResponse = await SearchPortfolioGroupsWithHttpInfoAsync(search, filter, sortBy, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroupSearchResult> localVarResponse = await SearchPortfolioGroupsWithHttpInfoAsync(search, filter, sortBy, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -770,11 +830,22 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPortfolioGroupSearchResult)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroupSearchResult>> SearchPortfolioGroupsWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroupSearchResult>> SearchPortfolioGroupsWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -864,10 +935,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records (optional)</param>
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPortfolioSearchResult</returns>
-        public PagedResourceListOfPortfolioSearchResult SearchPortfolios(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        public PagedResourceListOfPortfolioSearchResult SearchPortfolios(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioSearchResult> localVarResponse = SearchPortfoliosWithHttpInfo(search, filter, sortBy, limit, page);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioSearchResult> localVarResponse = SearchPortfoliosWithHttpInfo(search, filter, sortBy, limit, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -881,10 +953,21 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records (optional)</param>
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPortfolioSearchResult</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioSearchResult> SearchPortfoliosWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioSearchResult> SearchPortfoliosWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -974,10 +1057,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPortfolioSearchResult</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfPortfolioSearchResult> SearchPortfoliosAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfPortfolioSearchResult> SearchPortfoliosAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioSearchResult> localVarResponse = await SearchPortfoliosWithHttpInfoAsync(search, filter, sortBy, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioSearchResult> localVarResponse = await SearchPortfoliosWithHttpInfoAsync(search, filter, sortBy, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -992,11 +1076,22 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPortfolioSearchResult)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioSearchResult>> SearchPortfoliosWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioSearchResult>> SearchPortfoliosWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1086,10 +1181,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records (optional)</param>
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPropertyDefinitionSearchResult</returns>
-        public PagedResourceListOfPropertyDefinitionSearchResult SearchProperties(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        public PagedResourceListOfPropertyDefinitionSearchResult SearchProperties(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult> localVarResponse = SearchPropertiesWithHttpInfo(search, filter, sortBy, limit, page);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult> localVarResponse = SearchPropertiesWithHttpInfo(search, filter, sortBy, limit, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1103,10 +1199,21 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records (optional)</param>
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPropertyDefinitionSearchResult</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult> SearchPropertiesWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult> SearchPropertiesWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1196,10 +1303,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPropertyDefinitionSearchResult</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfPropertyDefinitionSearchResult> SearchPropertiesAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfPropertyDefinitionSearchResult> SearchPropertiesAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult> localVarResponse = await SearchPropertiesWithHttpInfoAsync(search, filter, sortBy, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult> localVarResponse = await SearchPropertiesWithHttpInfoAsync(search, filter, sortBy, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1214,11 +1322,22 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPropertyDefinitionSearchResult)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult>> SearchPropertiesWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult>> SearchPropertiesWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

@@ -63,12 +63,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The item's workspace name.
             var workspaceItemCreationRequest = new WorkspaceItemCreationRequest?(); // WorkspaceItemCreationRequest? | The item to be created. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // WorkspaceItem result = apiInstance.CreatePersonalItem(workspaceName, workspaceItemCreationRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
                 WorkspaceItem result = apiInstance.CreatePersonalItem(workspaceName, workspaceItemCreationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -168,11 +179,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceCreationRequest = new WorkspaceCreationRequest?(); // WorkspaceCreationRequest? | The workspace to be created. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Workspace result = apiInstance.CreatePersonalWorkspace(workspaceCreationRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
                 Workspace result = apiInstance.CreatePersonalWorkspace(workspaceCreationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -271,12 +293,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The item's workspace name.
             var workspaceItemCreationRequest = new WorkspaceItemCreationRequest?(); // WorkspaceItemCreationRequest? | The item to be created. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // WorkspaceItem result = apiInstance.CreateSharedItem(workspaceName, workspaceItemCreationRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
                 WorkspaceItem result = apiInstance.CreateSharedItem(workspaceName, workspaceItemCreationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -376,11 +409,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceCreationRequest = new WorkspaceCreationRequest?(); // WorkspaceCreationRequest? | The workspace to be created. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Workspace result = apiInstance.CreateSharedWorkspace(workspaceCreationRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
                 Workspace result = apiInstance.CreateSharedWorkspace(workspaceCreationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -479,12 +523,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The name of the personal workspace.
             var itemName = "itemName_example";  // string | The name of the item.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePersonalItem(workspaceName, itemName, opts: opts);
+
                 // [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
                 DeletedEntityResponse result = apiInstance.DeletePersonalItem(workspaceName, itemName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -584,11 +639,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The name of the personal workspace.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePersonalWorkspace(workspaceName, opts: opts);
+
                 // [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
                 DeletedEntityResponse result = apiInstance.DeletePersonalWorkspace(workspaceName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -687,12 +753,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The name of the shared workspace.
             var itemName = "itemName_example";  // string | The name of the item.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteSharedItem(workspaceName, itemName, opts: opts);
+
                 // [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
                 DeletedEntityResponse result = apiInstance.DeleteSharedItem(workspaceName, itemName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -792,11 +869,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The name of the shared workspace.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteSharedWorkspace(workspaceName, opts: opts);
+
                 // [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
                 DeletedEntityResponse result = apiInstance.DeleteSharedWorkspace(workspaceName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -895,6 +983,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The name of the personal workspace.
             var itemName = "itemName_example";  // string | The name of the item.
@@ -902,6 +998,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // WorkspaceItem result = apiInstance.GetPersonalItem(workspaceName, itemName, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
                 WorkspaceItem result = apiInstance.GetPersonalItem(workspaceName, itemName, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1002,12 +1101,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The personal workspace name.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve workspaces. Defaults to 'latest' if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Workspace result = apiInstance.GetPersonalWorkspace(workspaceName, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
                 Workspace result = apiInstance.GetPersonalWorkspace(workspaceName, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1107,6 +1217,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The name of the shared workspace.
             var itemName = "itemName_example";  // string | The name of the item.
@@ -1114,6 +1232,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // WorkspaceItem result = apiInstance.GetSharedItem(workspaceName, itemName, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
                 WorkspaceItem result = apiInstance.GetSharedItem(workspaceName, itemName, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1214,12 +1335,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The shared workspace name.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve workspaces. Defaults to 'latest' if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Workspace result = apiInstance.GetSharedWorkspace(workspaceName, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
                 Workspace result = apiInstance.GetSharedWorkspace(workspaceName, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1319,6 +1451,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The item's workspace name.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve workspace items. Defaults to 'latest' if not specified. (optional) 
@@ -1329,6 +1469,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfWorkspaceItem result = apiInstance.ListPersonalItems(workspaceName, asAt, page, sortBy, limit, filter, opts: opts);
+
                 // [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
                 PagedResourceListOfWorkspaceItem result = apiInstance.ListPersonalItems(workspaceName, asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1432,6 +1575,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve workspaces. Defaults to 'latest' if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
@@ -1441,6 +1592,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfWorkspace result = apiInstance.ListPersonalWorkspaces(asAt, page, sortBy, limit, filter, opts: opts);
+
                 // [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
                 PagedResourceListOfWorkspace result = apiInstance.ListPersonalWorkspaces(asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1543,6 +1697,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The item's workspace name.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve workspace items. Defaults to 'latest' if not specified. (optional) 
@@ -1553,6 +1715,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfWorkspaceItem result = apiInstance.ListSharedItems(workspaceName, asAt, page, sortBy, limit, filter, opts: opts);
+
                 // [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
                 PagedResourceListOfWorkspaceItem result = apiInstance.ListSharedItems(workspaceName, asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1656,6 +1821,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve workspaces. Defaults to 'latest' if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
@@ -1665,6 +1838,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfWorkspace result = apiInstance.ListSharedWorkspaces(asAt, page, sortBy, limit, filter, opts: opts);
+
                 // [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
                 PagedResourceListOfWorkspace result = apiInstance.ListSharedWorkspaces(asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1767,6 +1943,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The personal workspace name.
             var itemName = "itemName_example";  // string | The item name.
@@ -1774,6 +1958,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // WorkspaceItem result = apiInstance.UpdatePersonalItem(workspaceName, itemName, workspaceItemUpdateRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
                 WorkspaceItem result = apiInstance.UpdatePersonalItem(workspaceName, itemName, workspaceItemUpdateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1874,12 +2061,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The personal workspace name.
             var workspaceUpdateRequest = new WorkspaceUpdateRequest?(); // WorkspaceUpdateRequest? | The new workspace details. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Workspace result = apiInstance.UpdatePersonalWorkspace(workspaceName, workspaceUpdateRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
                 Workspace result = apiInstance.UpdatePersonalWorkspace(workspaceName, workspaceUpdateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1979,6 +2177,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The shared workspace name.
             var itemName = "itemName_example";  // string | The item name.
@@ -1986,6 +2192,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // WorkspaceItem result = apiInstance.UpdateSharedItem(workspaceName, itemName, workspaceItemUpdateRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
                 WorkspaceItem result = apiInstance.UpdateSharedItem(workspaceName, itemName, workspaceItemUpdateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2086,12 +2295,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The shared workspace name.
             var workspaceUpdateRequest = new WorkspaceUpdateRequest?(); // WorkspaceUpdateRequest? | The new workspace details. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Workspace result = apiInstance.UpdateSharedWorkspace(workspaceName, workspaceUpdateRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
                 Workspace result = apiInstance.UpdateSharedWorkspace(workspaceName, workspaceUpdateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

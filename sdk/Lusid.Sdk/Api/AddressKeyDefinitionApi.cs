@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -39,8 +40,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAddressKeyDefinitionRequest">The request used to create the address key definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AddressKeyDefinition</returns>
-        AddressKeyDefinition CreateAddressKeyDefinition(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0);
+        AddressKeyDefinition CreateAddressKeyDefinition(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateAddressKeyDefinition: Create an AddressKeyDefinition.
@@ -51,8 +53,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAddressKeyDefinitionRequest">The request used to create the address key definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AddressKeyDefinition</returns>
-        ApiResponse<AddressKeyDefinition> CreateAddressKeyDefinitionWithHttpInfo(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0);
+        ApiResponse<AddressKeyDefinition> CreateAddressKeyDefinitionWithHttpInfo(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetAddressKeyDefinition: Get an AddressKeyDefinition.
         /// </summary>
@@ -63,8 +66,9 @@ namespace Lusid.Sdk.Api
         /// <param name="key">The address key of the address key definition.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the address key definition. Defaults to return the latest version of the address key definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AddressKeyDefinition</returns>
-        AddressKeyDefinition GetAddressKeyDefinition(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        AddressKeyDefinition GetAddressKeyDefinition(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetAddressKeyDefinition: Get an AddressKeyDefinition.
@@ -76,8 +80,9 @@ namespace Lusid.Sdk.Api
         /// <param name="key">The address key of the address key definition.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the address key definition. Defaults to return the latest version of the address key definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AddressKeyDefinition</returns>
-        ApiResponse<AddressKeyDefinition> GetAddressKeyDefinitionWithHttpInfo(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<AddressKeyDefinition> GetAddressKeyDefinitionWithHttpInfo(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListAddressKeyDefinitions: List AddressKeyDefinitions.
         /// </summary>
@@ -90,8 +95,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfAddressKeyDefinition</returns>
-        PagedResourceListOfAddressKeyDefinition ListAddressKeyDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        PagedResourceListOfAddressKeyDefinition ListAddressKeyDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListAddressKeyDefinitions: List AddressKeyDefinitions.
@@ -105,8 +111,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfAddressKeyDefinition</returns>
-        ApiResponse<PagedResourceListOfAddressKeyDefinition> ListAddressKeyDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfAddressKeyDefinition> ListAddressKeyDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -126,8 +133,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createAddressKeyDefinitionRequest">The request used to create the address key definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AddressKeyDefinition</returns>
-        System.Threading.Tasks.Task<AddressKeyDefinition> CreateAddressKeyDefinitionAsync(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AddressKeyDefinition> CreateAddressKeyDefinitionAsync(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateAddressKeyDefinition: Create an AddressKeyDefinition.
@@ -139,8 +147,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createAddressKeyDefinitionRequest">The request used to create the address key definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AddressKeyDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AddressKeyDefinition>> CreateAddressKeyDefinitionWithHttpInfoAsync(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AddressKeyDefinition>> CreateAddressKeyDefinitionWithHttpInfoAsync(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetAddressKeyDefinition: Get an AddressKeyDefinition.
         /// </summary>
@@ -152,8 +161,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the address key definition. Defaults to return the latest version of the address key definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AddressKeyDefinition</returns>
-        System.Threading.Tasks.Task<AddressKeyDefinition> GetAddressKeyDefinitionAsync(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AddressKeyDefinition> GetAddressKeyDefinitionAsync(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetAddressKeyDefinition: Get an AddressKeyDefinition.
@@ -166,8 +176,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the address key definition. Defaults to return the latest version of the address key definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AddressKeyDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AddressKeyDefinition>> GetAddressKeyDefinitionWithHttpInfoAsync(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AddressKeyDefinition>> GetAddressKeyDefinitionWithHttpInfoAsync(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListAddressKeyDefinitions: List AddressKeyDefinitions.
         /// </summary>
@@ -181,8 +192,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfAddressKeyDefinition</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfAddressKeyDefinition> ListAddressKeyDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfAddressKeyDefinition> ListAddressKeyDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListAddressKeyDefinitions: List AddressKeyDefinitions.
@@ -197,8 +209,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfAddressKeyDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfAddressKeyDefinition>> ListAddressKeyDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfAddressKeyDefinition>> ListAddressKeyDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -231,9 +244,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public AddressKeyDefinitionApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -322,10 +341,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAddressKeyDefinitionRequest">The request used to create the address key definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AddressKeyDefinition</returns>
-        public AddressKeyDefinition CreateAddressKeyDefinition(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0)
+        public AddressKeyDefinition CreateAddressKeyDefinition(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition> localVarResponse = CreateAddressKeyDefinitionWithHttpInfo(createAddressKeyDefinitionRequest);
+            Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition> localVarResponse = CreateAddressKeyDefinitionWithHttpInfo(createAddressKeyDefinitionRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -335,8 +355,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAddressKeyDefinitionRequest">The request used to create the address key definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AddressKeyDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition> CreateAddressKeyDefinitionWithHttpInfo(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition> CreateAddressKeyDefinitionWithHttpInfo(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'createAddressKeyDefinitionRequest' is set
             if (createAddressKeyDefinitionRequest == null)
@@ -345,6 +366,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -415,10 +446,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createAddressKeyDefinitionRequest">The request used to create the address key definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AddressKeyDefinition</returns>
-        public async System.Threading.Tasks.Task<AddressKeyDefinition> CreateAddressKeyDefinitionAsync(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AddressKeyDefinition> CreateAddressKeyDefinitionAsync(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition> localVarResponse = await CreateAddressKeyDefinitionWithHttpInfoAsync(createAddressKeyDefinitionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition> localVarResponse = await CreateAddressKeyDefinitionWithHttpInfoAsync(createAddressKeyDefinitionRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -429,8 +461,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createAddressKeyDefinitionRequest">The request used to create the address key definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AddressKeyDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition>> CreateAddressKeyDefinitionWithHttpInfoAsync(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition>> CreateAddressKeyDefinitionWithHttpInfoAsync(CreateAddressKeyDefinitionRequest createAddressKeyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'createAddressKeyDefinitionRequest' is set
             if (createAddressKeyDefinitionRequest == null)
@@ -440,6 +473,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -511,10 +554,11 @@ namespace Lusid.Sdk.Api
         /// <param name="key">The address key of the address key definition.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the address key definition. Defaults to return the latest version of the address key definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AddressKeyDefinition</returns>
-        public AddressKeyDefinition GetAddressKeyDefinition(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public AddressKeyDefinition GetAddressKeyDefinition(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition> localVarResponse = GetAddressKeyDefinitionWithHttpInfo(key, asAt);
+            Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition> localVarResponse = GetAddressKeyDefinitionWithHttpInfo(key, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -525,8 +569,9 @@ namespace Lusid.Sdk.Api
         /// <param name="key">The address key of the address key definition.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the address key definition. Defaults to return the latest version of the address key definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AddressKeyDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition> GetAddressKeyDefinitionWithHttpInfo(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition> GetAddressKeyDefinitionWithHttpInfo(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'key' is set
             if (key == null)
@@ -535,6 +580,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -606,10 +661,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the address key definition. Defaults to return the latest version of the address key definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AddressKeyDefinition</returns>
-        public async System.Threading.Tasks.Task<AddressKeyDefinition> GetAddressKeyDefinitionAsync(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AddressKeyDefinition> GetAddressKeyDefinitionAsync(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition> localVarResponse = await GetAddressKeyDefinitionWithHttpInfoAsync(key, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition> localVarResponse = await GetAddressKeyDefinitionWithHttpInfoAsync(key, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -621,8 +677,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the address key definition. Defaults to return the latest version of the address key definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AddressKeyDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition>> GetAddressKeyDefinitionWithHttpInfoAsync(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AddressKeyDefinition>> GetAddressKeyDefinitionWithHttpInfoAsync(string key, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'key' is set
             if (key == null)
@@ -632,6 +689,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -705,10 +772,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfAddressKeyDefinition</returns>
-        public PagedResourceListOfAddressKeyDefinition ListAddressKeyDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public PagedResourceListOfAddressKeyDefinition ListAddressKeyDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAddressKeyDefinition> localVarResponse = ListAddressKeyDefinitionsWithHttpInfo(asAt, page, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAddressKeyDefinition> localVarResponse = ListAddressKeyDefinitionsWithHttpInfo(asAt, page, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -721,10 +789,21 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfAddressKeyDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAddressKeyDefinition> ListAddressKeyDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAddressKeyDefinition> ListAddressKeyDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -809,10 +888,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfAddressKeyDefinition</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfAddressKeyDefinition> ListAddressKeyDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfAddressKeyDefinition> ListAddressKeyDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAddressKeyDefinition> localVarResponse = await ListAddressKeyDefinitionsWithHttpInfoAsync(asAt, page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAddressKeyDefinition> localVarResponse = await ListAddressKeyDefinitionsWithHttpInfoAsync(asAt, page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -826,11 +906,22 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfAddressKeyDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAddressKeyDefinition>> ListAddressKeyDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAddressKeyDefinition>> ListAddressKeyDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

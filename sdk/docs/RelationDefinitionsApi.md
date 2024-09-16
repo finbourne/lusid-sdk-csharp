@@ -46,11 +46,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RelationDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationDefinitionsApi>();
             var createRelationDefinitionRequest = new CreateRelationDefinitionRequest(); // CreateRelationDefinitionRequest | The definition of the new relation.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // RelationDefinition result = apiInstance.CreateRelationDefinition(createRelationDefinitionRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateRelationDefinition: Create a relation definition
                 RelationDefinition result = apiInstance.CreateRelationDefinition(createRelationDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -149,12 +160,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RelationDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationDefinitionsApi>();
             var scope = "scope_example";  // string | The scope of the relation to be deleted.
             var code = "code_example";  // string | The code of the relation to be deleted. Together with the domain and scope this uniquely              identifies the relation.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteRelationDefinition(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteRelationDefinition: Delete relation definition
                 DeletedEntityResponse result = apiInstance.DeleteRelationDefinition(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -254,6 +276,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RelationDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationDefinitionsApi>();
             var scope = "scope_example";  // string | The scope of the specified relation.
             var code = "code_example";  // string | The code of the specified relation. Together with the domain and scope this uniquely              identifies the relation.
@@ -261,6 +291,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // RelationDefinition result = apiInstance.GetRelationDefinition(scope, code, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetRelationDefinition: Get relation definition
                 RelationDefinition result = apiInstance.GetRelationDefinition(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

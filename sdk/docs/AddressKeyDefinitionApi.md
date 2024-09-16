@@ -46,11 +46,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AddressKeyDefinitionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AddressKeyDefinitionApi>();
             var createAddressKeyDefinitionRequest = new CreateAddressKeyDefinitionRequest(); // CreateAddressKeyDefinitionRequest | The request used to create the address key definition.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AddressKeyDefinition result = apiInstance.CreateAddressKeyDefinition(createAddressKeyDefinitionRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateAddressKeyDefinition: Create an AddressKeyDefinition.
                 AddressKeyDefinition result = apiInstance.CreateAddressKeyDefinition(createAddressKeyDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -149,12 +160,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AddressKeyDefinitionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AddressKeyDefinitionApi>();
             var key = "key_example";  // string | The address key of the address key definition.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the address key definition. Defaults to return the latest version of the address key definition if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AddressKeyDefinition result = apiInstance.GetAddressKeyDefinition(key, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetAddressKeyDefinition: Get an AddressKeyDefinition.
                 AddressKeyDefinition result = apiInstance.GetAddressKeyDefinition(key, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -254,6 +276,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AddressKeyDefinitionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AddressKeyDefinitionApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the address key definition.              Defaults to return the latest version of the address key definition if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing address key definitions from a previous call to list address key definitions.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
@@ -262,6 +292,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfAddressKeyDefinition result = apiInstance.ListAddressKeyDefinitions(asAt, page, limit, filter, opts: opts);
+
                 // [EARLY ACCESS] ListAddressKeyDefinitions: List AddressKeyDefinitions.
                 PagedResourceListOfAddressKeyDefinition result = apiInstance.ListAddressKeyDefinitions(asAt, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

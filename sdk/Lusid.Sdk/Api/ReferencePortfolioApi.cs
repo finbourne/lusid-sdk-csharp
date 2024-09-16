@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create the reference portfolio.</param>
         /// <param name="createReferencePortfolioRequest">The definition of the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Portfolio</returns>
-        Portfolio CreateReferencePortfolio(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0);
+        Portfolio CreateReferencePortfolio(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CreateReferencePortfolio: Create reference portfolio
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create the reference portfolio.</param>
         /// <param name="createReferencePortfolioRequest">The definition of the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Portfolio</returns>
-        ApiResponse<Portfolio> CreateReferencePortfolioWithHttpInfo(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0);
+        ApiResponse<Portfolio> CreateReferencePortfolioWithHttpInfo(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetReferencePortfolioConstituents: Get reference portfolio constituents
         /// </summary>
@@ -68,8 +71,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetReferencePortfolioConstituentsResponse</returns>
-        GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetReferencePortfolioConstituents: Get reference portfolio constituents
@@ -84,8 +88,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetReferencePortfolioConstituentsResponse</returns>
-        ApiResponse<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ApiResponse<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListConstituentsAdjustments: List constituents adjustments
         /// </summary>
@@ -99,8 +104,9 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned.</param>
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfConstituentsAdjustmentHeader</returns>
-        ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0);
+        ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListConstituentsAdjustments: List constituents adjustments
@@ -115,8 +121,9 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned.</param>
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfConstituentsAdjustmentHeader</returns>
-        ApiResponse<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents
         /// </summary>
@@ -128,8 +135,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertReferencePortfolioConstituentsResponse</returns>
-        UpsertReferencePortfolioConstituentsResponse UpsertReferencePortfolioConstituents(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0);
+        UpsertReferencePortfolioConstituentsResponse UpsertReferencePortfolioConstituents(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents
@@ -142,8 +150,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertReferencePortfolioConstituentsResponse</returns>
-        ApiResponse<UpsertReferencePortfolioConstituentsResponse> UpsertReferencePortfolioConstituentsWithHttpInfo(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0);
+        ApiResponse<UpsertReferencePortfolioConstituentsResponse> UpsertReferencePortfolioConstituentsWithHttpInfo(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -164,8 +173,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createReferencePortfolioRequest">The definition of the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Portfolio</returns>
-        System.Threading.Tasks.Task<Portfolio> CreateReferencePortfolioAsync(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Portfolio> CreateReferencePortfolioAsync(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CreateReferencePortfolio: Create reference portfolio
@@ -178,8 +188,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createReferencePortfolioRequest">The definition of the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Portfolio)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Portfolio>> CreateReferencePortfolioWithHttpInfoAsync(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Portfolio>> CreateReferencePortfolioWithHttpInfoAsync(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetReferencePortfolioConstituents: Get reference portfolio constituents
         /// </summary>
@@ -194,8 +205,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetReferencePortfolioConstituentsResponse</returns>
-        System.Threading.Tasks.Task<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetReferencePortfolioConstituents: Get reference portfolio constituents
@@ -211,8 +223,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetReferencePortfolioConstituentsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetReferencePortfolioConstituentsResponse>> GetReferencePortfolioConstituentsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetReferencePortfolioConstituentsResponse>> GetReferencePortfolioConstituentsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListConstituentsAdjustments: List constituents adjustments
         /// </summary>
@@ -227,8 +240,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfConstituentsAdjustmentHeader</returns>
-        System.Threading.Tasks.Task<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListConstituentsAdjustments: List constituents adjustments
@@ -244,8 +258,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfConstituentsAdjustmentHeader)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConstituentsAdjustmentHeader>> ListConstituentsAdjustmentsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConstituentsAdjustmentHeader>> ListConstituentsAdjustmentsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents
         /// </summary>
@@ -258,8 +273,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertReferencePortfolioConstituentsResponse</returns>
-        System.Threading.Tasks.Task<UpsertReferencePortfolioConstituentsResponse> UpsertReferencePortfolioConstituentsAsync(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertReferencePortfolioConstituentsResponse> UpsertReferencePortfolioConstituentsAsync(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents
@@ -273,8 +289,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertReferencePortfolioConstituentsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertReferencePortfolioConstituentsResponse>> UpsertReferencePortfolioConstituentsWithHttpInfoAsync(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertReferencePortfolioConstituentsResponse>> UpsertReferencePortfolioConstituentsWithHttpInfoAsync(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -307,9 +324,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public ReferencePortfolioApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -399,10 +422,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create the reference portfolio.</param>
         /// <param name="createReferencePortfolioRequest">The definition of the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Portfolio</returns>
-        public Portfolio CreateReferencePortfolio(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0)
+        public Portfolio CreateReferencePortfolio(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Portfolio> localVarResponse = CreateReferencePortfolioWithHttpInfo(scope, createReferencePortfolioRequest);
+            Lusid.Sdk.Client.ApiResponse<Portfolio> localVarResponse = CreateReferencePortfolioWithHttpInfo(scope, createReferencePortfolioRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -413,8 +437,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create the reference portfolio.</param>
         /// <param name="createReferencePortfolioRequest">The definition of the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Portfolio</returns>
-        public Lusid.Sdk.Client.ApiResponse<Portfolio> CreateReferencePortfolioWithHttpInfo(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Portfolio> CreateReferencePortfolioWithHttpInfo(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -429,6 +454,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -501,10 +536,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createReferencePortfolioRequest">The definition of the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Portfolio</returns>
-        public async System.Threading.Tasks.Task<Portfolio> CreateReferencePortfolioAsync(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Portfolio> CreateReferencePortfolioAsync(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Portfolio> localVarResponse = await CreateReferencePortfolioWithHttpInfoAsync(scope, createReferencePortfolioRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Portfolio> localVarResponse = await CreateReferencePortfolioWithHttpInfoAsync(scope, createReferencePortfolioRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -516,8 +552,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createReferencePortfolioRequest">The definition of the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Portfolio)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Portfolio>> CreateReferencePortfolioWithHttpInfoAsync(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Portfolio>> CreateReferencePortfolioWithHttpInfoAsync(string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -533,6 +570,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -608,10 +655,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetReferencePortfolioConstituentsResponse</returns>
-        public GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetReferencePortfolioConstituentsResponse> localVarResponse = GetReferencePortfolioConstituentsWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
+            Lusid.Sdk.Client.ApiResponse<GetReferencePortfolioConstituentsResponse> localVarResponse = GetReferencePortfolioConstituentsWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -625,8 +673,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetReferencePortfolioConstituentsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -641,6 +690,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -724,10 +783,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetReferencePortfolioConstituentsResponse</returns>
-        public async System.Threading.Tasks.Task<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetReferencePortfolioConstituentsResponse> localVarResponse = await GetReferencePortfolioConstituentsWithHttpInfoAsync(scope, code, effectiveAt, asAt, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetReferencePortfolioConstituentsResponse> localVarResponse = await GetReferencePortfolioConstituentsWithHttpInfoAsync(scope, code, effectiveAt, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -742,8 +802,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetReferencePortfolioConstituentsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetReferencePortfolioConstituentsResponse>> GetReferencePortfolioConstituentsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetReferencePortfolioConstituentsResponse>> GetReferencePortfolioConstituentsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -759,6 +820,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -842,10 +913,11 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned.</param>
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfConstituentsAdjustmentHeader</returns>
-        public ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0)
+        public ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfConstituentsAdjustmentHeader> localVarResponse = ListConstituentsAdjustmentsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfConstituentsAdjustmentHeader> localVarResponse = ListConstituentsAdjustmentsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -859,8 +931,9 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned.</param>
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfConstituentsAdjustmentHeader</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -887,6 +960,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -964,10 +1047,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfConstituentsAdjustmentHeader</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfConstituentsAdjustmentHeader> localVarResponse = await ListConstituentsAdjustmentsWithHttpInfoAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfConstituentsAdjustmentHeader> localVarResponse = await ListConstituentsAdjustmentsWithHttpInfoAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -982,8 +1066,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfConstituentsAdjustmentHeader)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfConstituentsAdjustmentHeader>> ListConstituentsAdjustmentsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfConstituentsAdjustmentHeader>> ListConstituentsAdjustmentsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1011,6 +1096,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1086,10 +1181,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertReferencePortfolioConstituentsResponse</returns>
-        public UpsertReferencePortfolioConstituentsResponse UpsertReferencePortfolioConstituents(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0)
+        public UpsertReferencePortfolioConstituentsResponse UpsertReferencePortfolioConstituents(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertReferencePortfolioConstituentsResponse> localVarResponse = UpsertReferencePortfolioConstituentsWithHttpInfo(scope, code, upsertReferencePortfolioConstituentsRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertReferencePortfolioConstituentsResponse> localVarResponse = UpsertReferencePortfolioConstituentsWithHttpInfo(scope, code, upsertReferencePortfolioConstituentsRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1101,8 +1197,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertReferencePortfolioConstituentsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertReferencePortfolioConstituentsResponse> UpsertReferencePortfolioConstituentsWithHttpInfo(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertReferencePortfolioConstituentsResponse> UpsertReferencePortfolioConstituentsWithHttpInfo(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1123,6 +1220,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1197,10 +1304,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertReferencePortfolioConstituentsResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertReferencePortfolioConstituentsResponse> UpsertReferencePortfolioConstituentsAsync(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertReferencePortfolioConstituentsResponse> UpsertReferencePortfolioConstituentsAsync(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertReferencePortfolioConstituentsResponse> localVarResponse = await UpsertReferencePortfolioConstituentsWithHttpInfoAsync(scope, code, upsertReferencePortfolioConstituentsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertReferencePortfolioConstituentsResponse> localVarResponse = await UpsertReferencePortfolioConstituentsWithHttpInfoAsync(scope, code, upsertReferencePortfolioConstituentsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1213,8 +1321,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertReferencePortfolioConstituentsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertReferencePortfolioConstituentsResponse>> UpsertReferencePortfolioConstituentsWithHttpInfoAsync(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertReferencePortfolioConstituentsResponse>> UpsertReferencePortfolioConstituentsWithHttpInfoAsync(string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1236,6 +1345,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

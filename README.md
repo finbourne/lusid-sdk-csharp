@@ -45,7 +45,9 @@ $ dotnet add package Lusid.Sdk
 
 ## Getting Started
 
-You'll need to provide some configuration to connect to the LUSID API - see the articles about [short-lived access tokens](https://support.lusid.com/knowledgebase/article/KA-01654) and a [long-lived Personal Access Token](https://support.lusid.com/knowledgebase/article/KA-01774). This configuration can be provided using a secrets file or environment variables. 
+You'll need to provide some configuration to connect to the LUSID API - see the articles about [short-lived access tokens](https://support.lusid.com/knowledgebase/article/KA-01654) and a [long-lived Personal Access Token](https://support.lusid.com/knowledgebase/article/KA-01774). This configuration can be provided using a secrets file or environment variables.
+
+For some configuration it is also possible to override the global configuration at the ApiFactory level, or at the request level. For the set of configuration which can be overridden, please see [ConfigurationOptions](sdk/Lusid.Sdk/Extensions/ConfigurationOptions.cs). For a code illustration of this configuration being overridden, please see the [example](#example).
 
 ### Environment variables
 
@@ -67,6 +69,18 @@ FBN_ACCESS_TOKEN
 
 You can send your requests to the LUSID API via a proxy, by setting `FBN_PROXY_ADDRESS`. If your proxy has basic auth enabled, you must also set `FBN_PROXY_USERNAME` and `FBN_PROXY_PASSWORD`.
 
+Other optional configuration
+
+```bash
+# the sdk client timeout in milliseconds, the default is 1800000 (30 minutes)
+# values must be between 1 and 2147483647
+# please note - the chances of seeing a network issue increases with the duration of the request
+# for this reason, rather than increasing the timeout, it will be more reliable to use an alternate polling style endpoint where these exist
+FBN_TIMEOUT_MS
+# the retries when being rate limited, the default is 2
+FBN_RATE_LIMIT_RETRIES
+```
+
 ### Secrets file
 
 The secrets file must be in the current working directory.
@@ -81,7 +95,7 @@ Required for a short-lived access token
         "username":"<your-username>",
         "password":"<your-password>",
         "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>",
+        "clientSecret":"<your-client-secret>"
     }
 }
 ```
@@ -111,6 +125,23 @@ You can send your requests to the LUSID API via a proxy, by adding a proxy secti
         "address":"<your-proxy-address>",
         "username":"<your-proxy-username>",
         "password":"<your-proxy-password>"
+    }
+}
+```
+
+Other optional configuration
+
+```javascript
+{
+    "api": 
+    {
+        // the sdk client timeout in milliseconds, the default is 1800000 (30 minutes)
+        // values must be between 1 and 2147483647
+        // please note - the chances of seeing a network issue increases with the duration of the request
+        // for this reason, rather than increasing the timeout, it will be more reliable to use an alternate polling style endpoint where these exist
+        "timeoutMs":"<timeout-in-ms>",
+        // the retries when being rate limited, the default is 2
+        "rateLimitRetries":<retries-when-being-rate-limited>
     }
 }
 ```
@@ -145,6 +176,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor.
@@ -152,6 +191,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DiaryEntry result = apiInstance.AddDiaryEntry(scope, code, diaryEntryRequest, opts: opts);
+
                 // [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor.
                 DiaryEntry result = apiInstance.AddDiaryEntry(scope, code, diaryEntryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

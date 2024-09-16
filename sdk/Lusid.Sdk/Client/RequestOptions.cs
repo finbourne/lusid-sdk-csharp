@@ -69,6 +69,16 @@ namespace Lusid.Sdk.Client
         /// If request should be authenticated with OAuth.
         /// </summary>
         public bool OAuth { get; set; }
+        
+        /// <summary>
+        /// The client timeout in milliseconds. If left unset the default timeout will be used
+        /// </summary>
+        public int? TimeoutMs { get; set; }
+        
+        /// <summary>
+        /// The number of retries when being rate limited. If left unset the default number of rate limit retries will be used
+        /// </summary>
+        public int? RateLimitRetries { get; set; }
 
         /// <summary>
         /// Constructs a new instance of <see cref="RequestOptions"/>

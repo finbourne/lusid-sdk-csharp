@@ -63,6 +63,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var requestBody = new Dictionary<string, UpsertInstrumentPropertyRequest>(); // Dictionary<string, UpsertInstrumentPropertyRequest> | A list of instruments and associated instrument properties to create or update.
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
@@ -71,6 +79,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BatchUpsertInstrumentPropertiesResponse result = apiInstance.BatchUpsertInstrumentProperties(requestBody, scope, identifierEffectiveAt, successMode, opts: opts);
+
                 // [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
                 BatchUpsertInstrumentPropertiesResponse result = apiInstance.BatchUpsertInstrumentProperties(requestBody, scope, identifierEffectiveAt, successMode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -172,6 +183,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var identifierType = "identifierType_example";  // string | The unique identifier type to search, for example 'Figi'.
             var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
@@ -179,6 +198,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeleteInstrumentResponse result = apiInstance.DeleteInstrument(identifierType, identifier, scope, opts: opts);
+
                 // DeleteInstrument: Soft delete a single instrument
                 DeleteInstrumentResponse result = apiInstance.DeleteInstrument(identifierType, identifier, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -279,6 +301,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var identifierType = "identifierType_example";  // string | The unique identifier type to search, for example 'Figi'.
             var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
@@ -288,6 +318,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeleteInstrumentPropertiesResponse result = apiInstance.DeleteInstrumentProperties(identifierType, identifier, requestBody, effectiveAt, scope, opts: opts);
+
                 // [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
                 DeleteInstrumentPropertiesResponse result = apiInstance.DeleteInstrumentProperties(identifierType, identifier, requestBody, effectiveAt, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -390,6 +423,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var requestBody = new List<string>(); // List<string> | The list of lusidInstrumentId's to delete.
             var deleteMode = "Soft";  // string? | The delete mode to use (defaults to 'Soft'). (optional) 
@@ -397,6 +438,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeleteInstrumentsResponse result = apiInstance.DeleteInstruments(requestBody, deleteMode, scope, opts: opts);
+
                 // DeleteInstruments: Soft or hard delete multiple instruments
                 DeleteInstrumentsResponse result = apiInstance.DeleteInstruments(requestBody, deleteMode, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -497,11 +541,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var instrumentType = "instrumentType_example";  // string | A lusid instrument type e.g. Bond, FxOption.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, List<string>> result = apiInstance.GetAllPossibleFeatures(instrumentType, opts: opts);
+
                 // [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
                 Dictionary<string, List<string>> result = apiInstance.GetAllPossibleFeatures(instrumentType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -600,6 +655,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var identifier = "identifier_example";  // string | A lusid instrument id identifying the instrument.
             var model = "model_example";  // string? | A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional) 
@@ -611,6 +674,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // InstrumentCapabilities result = apiInstance.GetExistingInstrumentCapabilities(identifier, model, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode, opts: opts);
+
                 // [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
                 InstrumentCapabilities result = apiInstance.GetExistingInstrumentCapabilities(identifier, model, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -715,6 +781,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var identifier = "identifier_example";  // string | A lusid instrument id identifying the instrument.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional) 
@@ -725,6 +799,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // InstrumentModels result = apiInstance.GetExistingInstrumentModels(identifier, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode, opts: opts);
+
                 // GetExistingInstrumentModels: Retrieve supported pricing models for an existing instrument identified by LUID.
                 InstrumentModels result = apiInstance.GetExistingInstrumentModels(identifier, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -828,6 +905,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var identifierType = "identifierType_example";  // string | The unique identifier type to use, for example 'Figi'.
             var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
@@ -839,6 +924,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Instrument result = apiInstance.GetInstrument(identifierType, identifier, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds, opts: opts);
+
                 // GetInstrument: Get instrument
                 Instrument result = apiInstance.GetInstrument(identifierType, identifier, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -943,10 +1031,21 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfInstrumentIdTypeDescriptor result = apiInstance.GetInstrumentIdentifierTypes(opts: opts);
+
                 // GetInstrumentIdentifierTypes: Get instrument identifier types
                 ResourceListOfInstrumentIdTypeDescriptor result = apiInstance.GetInstrumentIdentifierTypes();
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1040,6 +1139,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var identifierType = "identifierType_example";  // string | The identifier being supplied e.g. \"Figi\".
             var identifier = "identifier_example";  // string | The value of the identifier for the requested instrument.
@@ -1051,6 +1158,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // InstrumentPaymentDiary result = apiInstance.GetInstrumentPaymentDiary(identifierType, identifier, recipeScope, recipeCode, effectiveAt, asAt, scope, opts: opts);
+
                 // [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
                 InstrumentPaymentDiary result = apiInstance.GetInstrumentPaymentDiary(identifierType, identifier, recipeScope, recipeCode, effectiveAt, asAt, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1155,6 +1265,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var identifierType = "identifierType_example";  // string | The unique identifier type to search, for example 'Figi'.
             var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
@@ -1164,6 +1282,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // InstrumentProperties result = apiInstance.GetInstrumentProperties(identifierType, identifier, effectiveAt, asAt, scope, opts: opts);
+
                 // [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
                 InstrumentProperties result = apiInstance.GetInstrumentProperties(identifierType, identifier, effectiveAt, asAt, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1266,6 +1387,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var identifierType = "identifierType_example";  // string | The unique identifier type to search, for example 'Figi'.
             var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
@@ -1279,6 +1408,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPropertyInterval result = apiInstance.GetInstrumentPropertyTimeSeries(identifierType, identifier, propertyKey, identifierEffectiveAt, asAt, filter, page, limit, scope, opts: opts);
+
                 // [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
                 ResourceListOfPropertyInterval result = apiInstance.GetInstrumentPropertyTimeSeries(identifierType, identifier, propertyKey, identifierEffectiveAt, asAt, filter, page, limit, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1385,6 +1517,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var identifierType = "identifierType_example";  // string | An identifier type attached to the Instrument.
             var identifier = "identifier_example";  // string | The identifier value.
@@ -1396,6 +1536,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfRelationship result = apiInstance.GetInstrumentRelationships(identifierType, identifier, effectiveAt, asAt, filter, identifierTypes, scope, opts: opts);
+
                 // [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
                 ResourceListOfRelationship result = apiInstance.GetInstrumentRelationships(identifierType, identifier, effectiveAt, asAt, filter, identifierTypes, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1500,6 +1643,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var identifierType = "identifierType_example";  // string | The unique identifier type to use, for example 'Figi'.
             var requestBody = new List<string>(); // List<string> | A list of one or more <i>identifierType</i> values to use to identify instruments.
@@ -1511,6 +1662,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetInstrumentsResponse result = apiInstance.GetInstruments(identifierType, requestBody, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds, opts: opts);
+
                 // GetInstruments: Get instruments
                 GetInstrumentsResponse result = apiInstance.GetInstruments(identifierType, requestBody, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1615,6 +1769,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var identifierType = "identifierType_example";  // string | The unique identifier type to search, for example 'Figi'.
             var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
@@ -1626,6 +1788,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfProperty result = apiInstance.ListInstrumentProperties(identifierType, identifier, effectiveAt, asAt, page, limit, scope, opts: opts);
+
                 // [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
                 ResourceListOfProperty result = apiInstance.ListInstrumentProperties(identifierType, identifier, effectiveAt, asAt, page, limit, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1730,6 +1895,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. (optional) 
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. (optional) 
@@ -1743,6 +1916,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, opts: opts);
+
                 // ListInstruments: List instruments
                 PagedResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1849,12 +2025,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var lusidInstrument = new LusidInstrument(); // LusidInstrument | The definition of the instrument.
             var model = "model_example";  // string? | A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // InstrumentCapabilities result = apiInstance.QueryInstrumentCapabilities(lusidInstrument, model, opts: opts);
+
                 // [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
                 InstrumentCapabilities result = apiInstance.QueryInstrumentCapabilities(lusidInstrument, model);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1954,6 +2141,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var identifierType = "identifierType_example";  // string | The unique identifier type to search, for example 'Figi'.
             var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
@@ -1962,6 +2157,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Instrument result = apiInstance.UpdateInstrumentIdentifier(identifierType, identifier, updateInstrumentIdentifierRequest, scope, opts: opts);
+
                 // UpdateInstrumentIdentifier: Update instrument identifier
                 Instrument result = apiInstance.UpdateInstrumentIdentifier(identifierType, identifier, updateInstrumentIdentifierRequest, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2063,12 +2261,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var requestBody = new Dictionary<string, InstrumentDefinition>(); // Dictionary<string, InstrumentDefinition> | The definitions of the instruments to create or update.
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertInstrumentsResponse result = apiInstance.UpsertInstruments(requestBody, scope, opts: opts);
+
                 // UpsertInstruments: Upsert instruments
                 UpsertInstrumentsResponse result = apiInstance.UpsertInstruments(requestBody, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2168,12 +2377,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var upsertInstrumentPropertyRequest = new List<UpsertInstrumentPropertyRequest>(); // List<UpsertInstrumentPropertyRequest> | A list of instruments and associated instrument properties to create or update.
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertInstrumentPropertiesResponse result = apiInstance.UpsertInstrumentsProperties(upsertInstrumentPropertyRequest, scope, opts: opts);
+
                 // UpsertInstrumentsProperties: Upsert instruments properties
                 UpsertInstrumentPropertiesResponse result = apiInstance.UpsertInstrumentsProperties(upsertInstrumentPropertyRequest, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

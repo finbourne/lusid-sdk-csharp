@@ -49,6 +49,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EntitiesApi>();
             var entityUniqueId = "entityUniqueId_example";  // string | The universally unique identifier of the Custom Entity.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the Custom Entity. Defaults to the current LUSID system datetime if not specified. (optional) 
@@ -57,6 +65,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CustomEntityEntity result = apiInstance.GetCustomEntityByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
+
                 // [EXPERIMENTAL] GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
                 CustomEntityEntity result = apiInstance.GetCustomEntityByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -158,6 +169,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EntitiesApi>();
             var entityUniqueId = "entityUniqueId_example";  // string | The universally unique identifier of the DataType definition.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the DataType definition. Defaults to returning the latest version of the DataType definition if not specified. (optional) 
@@ -165,6 +184,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DataTypeEntity result = apiInstance.GetDataTypeByEntityUniqueId(entityUniqueId, asAt, previews, opts: opts);
+
                 // [EXPERIMENTAL] GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
                 DataTypeEntity result = apiInstance.GetDataTypeByEntityUniqueId(entityUniqueId, asAt, previews);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -265,6 +287,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EntitiesApi>();
             var entityUniqueId = "entityUniqueId_example";  // string | The universally unique identifier of the instrument definition.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the Instrument definition. Defaults to the current LUSID system datetime if not specified. (optional) 
@@ -273,6 +303,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // InstrumentEntity result = apiInstance.GetInstrumentByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
+
                 // [EXPERIMENTAL] GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
                 InstrumentEntity result = apiInstance.GetInstrumentByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -374,6 +407,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EntitiesApi>();
             var entityUniqueId = "entityUniqueId_example";  // string | The universally unique identifier of the portfolio definition.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional) 
@@ -382,6 +423,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioEntity result = apiInstance.GetPortfolioByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
+
                 // [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
                 PortfolioEntity result = apiInstance.GetPortfolioByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -483,6 +527,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EntitiesApi>();
             var scope = "scope_example";  // string | The scope
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel | The effective date of the origin.
@@ -490,6 +542,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfChange result = apiInstance.GetPortfolioChanges(scope, effectiveAt, asAt, opts: opts);
+
                 // GetPortfolioChanges: Get the next change to each portfolio in a scope.
                 ResourceListOfChange result = apiInstance.GetPortfolioChanges(scope, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -590,6 +645,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EntitiesApi>();
             var entityUniqueId = "entityUniqueId_example";  // string | The universally unique identifier of the property definition.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime at which to retrieve the property definition. Defaults to the current LUSID system datetime if not specified. (optional) 
@@ -598,6 +661,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PropertyDefinitionEntity result = apiInstance.GetPropertyDefinitionByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
+
                 // [EXPERIMENTAL] GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
                 PropertyDefinitionEntity result = apiInstance.GetPropertyDefinitionByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

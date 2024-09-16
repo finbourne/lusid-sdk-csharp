@@ -48,11 +48,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RelationshipDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationshipDefinitionsApi>();
             var createRelationshipDefinitionRequest = new CreateRelationshipDefinitionRequest(); // CreateRelationshipDefinitionRequest | The definition of the new relationship.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // RelationshipDefinition result = apiInstance.CreateRelationshipDefinition(createRelationshipDefinitionRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateRelationshipDefinition: Create Relationship Definition
                 RelationshipDefinition result = apiInstance.CreateRelationshipDefinition(createRelationshipDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -151,12 +162,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RelationshipDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationshipDefinitionsApi>();
             var scope = "scope_example";  // string | The scope of the relationship definition to be deleted.
             var code = "code_example";  // string | The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteRelationshipDefinition(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeleteRelationshipDefinition: Delete Relationship Definition
                 DeletedEntityResponse result = apiInstance.DeleteRelationshipDefinition(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -256,6 +278,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RelationshipDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationshipDefinitionsApi>();
             var scope = "scope_example";  // string | The scope of the specified relationship definition.
             var code = "code_example";  // string | The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition.
@@ -263,6 +293,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // RelationshipDefinition result = apiInstance.GetRelationshipDefinition(scope, code, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetRelationshipDefinition: Get relationship definition
                 RelationshipDefinition result = apiInstance.GetRelationshipDefinition(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -363,6 +396,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RelationshipDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationshipDefinitionsApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field  must not have changed since the original request. (optional) 
@@ -372,6 +413,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfRelationshipDefinition result = apiInstance.ListRelationshipDefinitions(asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions
                 PagedResourceListOfRelationshipDefinition result = apiInstance.ListRelationshipDefinitions(asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -474,6 +518,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RelationshipDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationshipDefinitionsApi>();
             var scope = "scope_example";  // string | The scope of the relationship definition being updated.
             var code = "code_example";  // string | The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition.
@@ -481,6 +533,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // RelationshipDefinition result = apiInstance.UpdateRelationshipDefinition(scope, code, updateRelationshipDefinitionRequest, opts: opts);
+
                 // [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition
                 RelationshipDefinition result = apiInstance.UpdateRelationshipDefinition(scope, code, updateRelationshipDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

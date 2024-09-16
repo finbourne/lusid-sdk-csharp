@@ -206,6 +206,59 @@ namespace Lusid.Sdk.Client
     }
 
     /// <summary>
+    /// An interface for the required RestClient methods
+    /// </summary>
+    public interface IRestClientWrapper : IRestClient
+    {
+        /// <summary>
+        /// Wraps the Execute method of RestClient
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        RestResponse WrappedExecute(RestRequest request);
+        
+        /// <summary>
+        /// Wraps the type parameterised Execute method of RestClient
+        /// </summary>
+        /// <param name="request"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        RestResponse<T> WrappedExecute<T>(RestRequest request);
+    }
+
+    /// <summary>
+    /// A wrapper around required RestClient methods
+    /// </summary>
+    public class RestClientWrapper : RestClient, IRestClientWrapper
+    {
+        /// <summary/>
+        /// <param name="httpClient"></param>
+        /// <param name="options"></param>
+        /// <param name="disposeHttpClient"></param>
+        /// <param name="configureSerialization"></param>
+        public RestClientWrapper(
+            HttpClient httpClient,
+            RestClientOptions? options,
+            bool disposeHttpClient = false,
+            ConfigureSerialization? configureSerialization = null
+        ) : base(httpClient, options, disposeHttpClient, configureSerialization)
+        {
+        }
+
+        /// <inheritdoc/>
+        public RestResponse WrappedExecute(RestRequest request)
+        {
+            return this.Execute(request);
+        }
+
+        /// <inheritdoc/>
+        public RestResponse<T> WrappedExecute<T>(RestRequest request)
+        {
+            return this.Execute<T>(request);
+        }
+    }
+
+    /// <summary>
     /// Provides a default implementation of an Api client (both synchronous and asynchronous implementations),
     /// encapsulating general REST accessor use cases.
     /// </summary>
@@ -214,6 +267,7 @@ namespace Lusid.Sdk.Client
         private readonly string _baseUrl;
         private readonly Func<RestClientOptions, HttpMessageHandler> _createHttpMessageHandler;
         private readonly bool _disposeHandler;
+        private readonly Func<RestClientOptions, IReadableConfiguration, IRestClientWrapper> _createRestClient;
 
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
@@ -259,13 +313,25 @@ namespace Lusid.Sdk.Client
         /// <param name="basePath">The target service's base path in URL format.</param>
         /// <param name="CreateHttpMessageHandler">A function to create a HttpMessageHandler for each REST request</param>
         /// <param name="disposeHandler">Should the HttpMessageHandler be disposed of after each request</param>
+        /// <param name="createRestClientFunc">A function that given configuration will return an implementation of the IRestClientWrapper interface. Use to override the default RestClient</param>
         /// <exception cref="ArgumentException"></exception>
-        public ApiClient(string basePath, Func<RestClientOptions, HttpMessageHandler>? CreateHttpMessageHandler = null, bool disposeHandler = true){
+        public ApiClient(string basePath, Func<RestClientOptions, HttpMessageHandler>? CreateHttpMessageHandler = null, bool disposeHandler = true, Func<RestClientOptions, IReadableConfiguration, IRestClientWrapper> createRestClientFunc = null){
             if (string.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
             _baseUrl = basePath;
             _createHttpMessageHandler = CreateHttpMessageHandler ?? TcpKeepAlive.CreateTcpKeepAliveMessageHandler;
             _disposeHandler = disposeHandler;
+            _createRestClient = createRestClientFunc ?? DefaultCreateRestClient;
+        }
+
+        private IRestClientWrapper DefaultCreateRestClient(RestClientOptions clientOptions, IReadableConfiguration configuration)
+        {
+            var httpClient = new HttpClient(_createHttpMessageHandler(clientOptions), _disposeHandler);
+
+            return new RestClientWrapper(httpClient,
+                options: clientOptions,
+                configureSerialization: s =>
+                    s.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
         }
 
         /// <summary>
@@ -445,6 +511,8 @@ namespace Lusid.Sdk.Client
                 }
             }
 
+            request.Timeout = options.TimeoutMs ?? configuration.TimeoutMs;
+
             return request;
         }
 
@@ -495,7 +563,7 @@ namespace Lusid.Sdk.Client
         private ApiResponse<T> Exec<T>(RestRequest req, RequestOptions options, IReadableConfiguration configuration)
         {
             var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;
-
+            
             var cookies = new CookieContainer();
 
             if (options.Cookies != null && options.Cookies.Count > 0)
@@ -510,7 +578,7 @@ namespace Lusid.Sdk.Client
             {
                 ClientCertificates = configuration.ClientCertificates,
                 CookieContainer = cookies,
-                MaxTimeout = configuration.Timeout,
+                MaxTimeout = options.TimeoutMs ?? configuration.TimeoutMs,
                 Proxy = configuration.Proxy,
                 UserAgent = configuration.UserAgent
             };
@@ -529,20 +597,16 @@ namespace Lusid.Sdk.Client
                     configuration);
             }
 
-            var httpClient = new HttpClient(_createHttpMessageHandler(clientOptions), _disposeHandler);
-
-            var client = new RestClient(httpClient,
-                options: clientOptions,
-                configureSerialization: s =>
-                    s.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
+            var client = _createRestClient(clientOptions, configuration);
 
             InterceptRequest(req);
 
             RestResponse<T> response;
-            if (RetryConfiguration.RetryPolicy != null)
+
+            var policy = GetSyncPolicy(options);
+            if (policy != null)
             {
-                var policy = RetryConfiguration.RetryPolicy;
-                var policyResult = policy.ExecuteAndCapture(() => client.Execute(req));
+                var policyResult = policy.ExecuteAndCapture(() => client.WrappedExecute(req));
                 response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>(req)
                 {
                     ErrorException = policyResult.FinalException
@@ -550,7 +614,7 @@ namespace Lusid.Sdk.Client
             }
             else
             {
-                response = client.Execute<T>(req);
+                response = client.WrappedExecute<T>(req);
             }
 
             // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
@@ -615,6 +679,19 @@ namespace Lusid.Sdk.Client
             return result;
         }
 
+        /// <summary>
+        /// Returns the policy configured for executing synchronous requests
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static Policy<RestResponse>? GetSyncPolicy(RequestOptions options)
+        {
+            Policy<RestResponse>? policy = RetryConfiguration.RetryPolicy ?? (RetryConfiguration.GetRetryPolicyFunc == null
+                ? null
+                : RetryConfiguration.GetRetryPolicyFunc(options));
+            return policy;
+        }
+
         private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, RequestOptions options, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;
@@ -622,7 +699,7 @@ namespace Lusid.Sdk.Client
             var clientOptions = new RestClientOptions(baseUrl)
             {
                 ClientCertificates = configuration.ClientCertificates,
-                MaxTimeout = configuration.Timeout,
+                MaxTimeout = options.TimeoutMs ?? configuration.TimeoutMs,
                 Proxy = configuration.Proxy,
                 UserAgent = configuration.UserAgent
             };
@@ -640,20 +717,15 @@ namespace Lusid.Sdk.Client
                     SerializerSettings,
                     configuration);
             }
-
-           var httpClient = new HttpClient(_createHttpMessageHandler(clientOptions), _disposeHandler);
-
-            var client = new RestClient(httpClient,
-                options: clientOptions,
-                configureSerialization: s =>
-                    s.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
-
+            
+            var client = _createRestClient(clientOptions, configuration);
             InterceptRequest(req);
 
             RestResponse<T> response;
-            if (RetryConfiguration.AsyncRetryPolicy != null)
+            var policy = GetAsyncPolicy(options);
+            
+            if (policy != null)
             {
-                var policy = RetryConfiguration.AsyncRetryPolicy;
                 var policyResult = await policy.ExecuteAndCaptureAsync((ct) => client.ExecuteAsync(req, ct), cancellationToken).ConfigureAwait(false);
                 response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>(req)
                 {
@@ -716,6 +788,18 @@ namespace Lusid.Sdk.Client
             return result;
         }
 
+        /// <summary>
+        /// Returns the policy configured for executing asynchronous requests
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static AsyncPolicy<RestResponse>? GetAsyncPolicy(RequestOptions options)
+        {
+            AsyncPolicy<RestResponse>? policy = RetryConfiguration.AsyncRetryPolicy ?? (RetryConfiguration.GetAsyncRetryPolicyFunc == null
+                ? null
+                : RetryConfiguration.GetAsyncRetryPolicyFunc(options));
+            return policy;
+        }
 
         #region IAsynchronousClient
         /// <summary>

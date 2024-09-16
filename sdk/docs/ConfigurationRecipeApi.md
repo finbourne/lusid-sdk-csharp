@@ -54,12 +54,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationRecipeApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var scope = "scope_example";  // string | The scope of the Configuration Recipe to delete.
             var code = "code_example";  // string | The Configuration Recipe to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AnnulSingleStructuredDataResponse result = apiInstance.DeleteConfigurationRecipe(scope, code, opts: opts);
+
                 // DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present.
                 AnnulSingleStructuredDataResponse result = apiInstance.DeleteConfigurationRecipe(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -159,12 +170,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationRecipeApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var scope = "scope_example";  // string | The scope of the Recipe Composer to delete.
             var code = "code_example";  // string | The Recipe Composer to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AnnulSingleStructuredDataResponse result = apiInstance.DeleteRecipeComposer(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
                 AnnulSingleStructuredDataResponse result = apiInstance.DeleteRecipeComposer(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -264,6 +286,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationRecipeApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var scope = "scope_example";  // string | The scope of the Configuration Recipe to retrieve.
             var code = "code_example";  // string | The name of the recipe to retrieve the data for.
@@ -271,6 +301,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetRecipeResponse result = apiInstance.GetConfigurationRecipe(scope, code, asAt, opts: opts);
+
                 // GetConfigurationRecipe: Get Configuration Recipe
                 GetRecipeResponse result = apiInstance.GetConfigurationRecipe(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -371,6 +404,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationRecipeApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var scope = "scope_example";  // string | The scope of the Configuration Recipe or Recipe Composer to return.
             var code = "code_example";  // string | The code of the Configuration Recipe or Recipe Composer to return.
@@ -378,6 +419,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetRecipeResponse result = apiInstance.GetDerivedRecipe(scope, code, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
                 GetRecipeResponse result = apiInstance.GetDerivedRecipe(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -478,6 +522,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationRecipeApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var scope = "scope_example";  // string | The scope of the Recipe Composer to retrieve.
             var code = "code_example";  // string | The name of the Recipe Composer to retrieve the data for.
@@ -485,6 +537,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetRecipeComposerResponse result = apiInstance.GetRecipeComposer(scope, code, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
                 GetRecipeComposerResponse result = apiInstance.GetRecipeComposer(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -585,11 +640,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationRecipeApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var upsertRecipeComposerRequest = new UpsertRecipeComposerRequest(); // UpsertRecipeComposerRequest | Recipe composer used to expand into the Configuration Recipe.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetRecipeResponse result = apiInstance.GetRecipeComposerResolvedInline(upsertRecipeComposerRequest, opts: opts);
+
                 // [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
                 GetRecipeResponse result = apiInstance.GetRecipeComposerResolvedInline(upsertRecipeComposerRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -688,12 +754,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationRecipeApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfGetRecipeResponse result = apiInstance.ListConfigurationRecipes(asAt, filter, opts: opts);
+
                 // ListConfigurationRecipes: List the set of Configuration Recipes
                 ResourceListOfGetRecipeResponse result = apiInstance.ListConfigurationRecipes(asAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -793,12 +870,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationRecipeApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfGetRecipeResponse result = apiInstance.ListDerivedRecipes(asAt, filter, opts: opts);
+
                 // [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
                 ResourceListOfGetRecipeResponse result = apiInstance.ListDerivedRecipes(asAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -898,12 +986,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationRecipeApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfGetRecipeComposerResponse result = apiInstance.ListRecipeComposers(asAt, filter, opts: opts);
+
                 // [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
                 ResourceListOfGetRecipeComposerResponse result = apiInstance.ListRecipeComposers(asAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1003,11 +1102,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationRecipeApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var upsertRecipeRequest = new UpsertRecipeRequest(); // UpsertRecipeRequest | The Configuration Recipe to update or insert
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertSingleStructuredDataResponse result = apiInstance.UpsertConfigurationRecipe(upsertRecipeRequest, opts: opts);
+
                 // UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.
                 UpsertSingleStructuredDataResponse result = apiInstance.UpsertConfigurationRecipe(upsertRecipeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1106,11 +1216,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationRecipeApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var upsertRecipeComposerRequest = new UpsertRecipeComposerRequest(); // UpsertRecipeComposerRequest | The Recipe Composer to update or insert
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertSingleStructuredDataResponse result = apiInstance.UpsertRecipeComposer(upsertRecipeComposerRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
                 UpsertSingleStructuredDataResponse result = apiInstance.UpsertRecipeComposer(upsertRecipeComposerRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

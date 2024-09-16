@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the CDS Flow Conventions to delete.</param>
         /// <param name="code">The CDS Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        AnnulSingleStructuredDataResponse DeleteCdsFlowConventions(string scope, string code, int operationIndex = 0);
+        AnnulSingleStructuredDataResponse DeleteCdsFlowConventions(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] DeleteCdsFlowConventions: Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the CDS Flow Conventions to delete.</param>
         /// <param name="code">The CDS Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        ApiResponse<AnnulSingleStructuredDataResponse> DeleteCdsFlowConventionsWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<AnnulSingleStructuredDataResponse> DeleteCdsFlowConventionsWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] DeleteFlowConventions: Delete the Flow Conventions of given scope and code, assuming that it is present.
         /// </summary>
@@ -65,8 +68,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Flow Conventions to delete.</param>
         /// <param name="code">The Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        AnnulSingleStructuredDataResponse DeleteFlowConventions(string scope, string code, int operationIndex = 0);
+        AnnulSingleStructuredDataResponse DeleteFlowConventions(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] DeleteFlowConventions: Delete the Flow Conventions of given scope and code, assuming that it is present.
@@ -78,8 +82,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Flow Conventions to delete.</param>
         /// <param name="code">The Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        ApiResponse<AnnulSingleStructuredDataResponse> DeleteFlowConventionsWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<AnnulSingleStructuredDataResponse> DeleteFlowConventionsWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] DeleteIndexConvention: Delete the Index Convention of given scope and code, assuming that it is present.
         /// </summary>
@@ -90,8 +95,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Index Convention to delete.</param>
         /// <param name="code">The Index Convention to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        AnnulSingleStructuredDataResponse DeleteIndexConvention(string scope, string code, int operationIndex = 0);
+        AnnulSingleStructuredDataResponse DeleteIndexConvention(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] DeleteIndexConvention: Delete the Index Convention of given scope and code, assuming that it is present.
@@ -103,8 +109,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Index Convention to delete.</param>
         /// <param name="code">The Index Convention to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        ApiResponse<AnnulSingleStructuredDataResponse> DeleteIndexConventionWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<AnnulSingleStructuredDataResponse> DeleteIndexConventionWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] GetCdsFlowConventions: Get CDS Flow Conventions
         /// </summary>
@@ -116,8 +123,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the CDS Flow Conventions to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetCdsFlowConventionsResponse</returns>
-        GetCdsFlowConventionsResponse GetCdsFlowConventions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        GetCdsFlowConventionsResponse GetCdsFlowConventions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] GetCdsFlowConventions: Get CDS Flow Conventions
@@ -130,8 +138,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the CDS Flow Conventions to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetCdsFlowConventionsResponse</returns>
-        ApiResponse<GetCdsFlowConventionsResponse> GetCdsFlowConventionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<GetCdsFlowConventionsResponse> GetCdsFlowConventionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] GetFlowConventions: Get Flow Conventions
         /// </summary>
@@ -143,8 +152,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Flow Conventions to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetFlowConventionsResponse</returns>
-        GetFlowConventionsResponse GetFlowConventions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        GetFlowConventionsResponse GetFlowConventions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] GetFlowConventions: Get Flow Conventions
@@ -157,8 +167,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Flow Conventions to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetFlowConventionsResponse</returns>
-        ApiResponse<GetFlowConventionsResponse> GetFlowConventionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<GetFlowConventionsResponse> GetFlowConventionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] GetIndexConvention: Get Index Convention
         /// </summary>
@@ -170,8 +181,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Index Convention to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetIndexConventionResponse</returns>
-        GetIndexConventionResponse GetIndexConvention(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        GetIndexConventionResponse GetIndexConvention(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] GetIndexConvention: Get Index Convention
@@ -184,8 +196,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Index Convention to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetIndexConventionResponse</returns>
-        ApiResponse<GetIndexConventionResponse> GetIndexConventionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<GetIndexConventionResponse> GetIndexConventionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] ListCdsFlowConventions: List the set of CDS Flow Conventions
         /// </summary>
@@ -195,8 +208,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetCdsFlowConventionsResponse</returns>
-        ResourceListOfGetCdsFlowConventionsResponse ListCdsFlowConventions(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ResourceListOfGetCdsFlowConventionsResponse ListCdsFlowConventions(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] ListCdsFlowConventions: List the set of CDS Flow Conventions
@@ -207,8 +221,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetCdsFlowConventionsResponse</returns>
-        ApiResponse<ResourceListOfGetCdsFlowConventionsResponse> ListCdsFlowConventionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ResourceListOfGetCdsFlowConventionsResponse> ListCdsFlowConventionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] ListFlowConventions: List the set of Flow Conventions
         /// </summary>
@@ -218,8 +233,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetFlowConventionsResponse</returns>
-        ResourceListOfGetFlowConventionsResponse ListFlowConventions(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ResourceListOfGetFlowConventionsResponse ListFlowConventions(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] ListFlowConventions: List the set of Flow Conventions
@@ -230,8 +246,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetFlowConventionsResponse</returns>
-        ApiResponse<ResourceListOfGetFlowConventionsResponse> ListFlowConventionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ResourceListOfGetFlowConventionsResponse> ListFlowConventionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] ListIndexConvention: List the set of Index Conventions
         /// </summary>
@@ -241,8 +258,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetIndexConventionResponse</returns>
-        ResourceListOfGetIndexConventionResponse ListIndexConvention(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ResourceListOfGetIndexConventionResponse ListIndexConvention(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] ListIndexConvention: List the set of Index Conventions
@@ -253,8 +271,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetIndexConventionResponse</returns>
-        ApiResponse<ResourceListOfGetIndexConventionResponse> ListIndexConventionWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ResourceListOfGetIndexConventionResponse> ListIndexConventionWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] UpsertCdsFlowConventions: Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
         /// </summary>
@@ -264,8 +283,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCdsFlowConventionsRequest">The CDS Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        UpsertSingleStructuredDataResponse UpsertCdsFlowConventions(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0);
+        UpsertSingleStructuredDataResponse UpsertCdsFlowConventions(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] UpsertCdsFlowConventions: Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
@@ -276,8 +296,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCdsFlowConventionsRequest">The CDS Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        ApiResponse<UpsertSingleStructuredDataResponse> UpsertCdsFlowConventionsWithHttpInfo(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0);
+        ApiResponse<UpsertSingleStructuredDataResponse> UpsertCdsFlowConventionsWithHttpInfo(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] UpsertFlowConventions: Upsert Flow Conventions. This creates or updates the data in Lusid.
         /// </summary>
@@ -287,8 +308,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertFlowConventionsRequest">The Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        UpsertSingleStructuredDataResponse UpsertFlowConventions(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0);
+        UpsertSingleStructuredDataResponse UpsertFlowConventions(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] UpsertFlowConventions: Upsert Flow Conventions. This creates or updates the data in Lusid.
@@ -299,8 +321,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertFlowConventionsRequest">The Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        ApiResponse<UpsertSingleStructuredDataResponse> UpsertFlowConventionsWithHttpInfo(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0);
+        ApiResponse<UpsertSingleStructuredDataResponse> UpsertFlowConventionsWithHttpInfo(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] UpsertIndexConvention: Upsert a set of Index Convention. This creates or updates the data in Lusid.
         /// </summary>
@@ -310,8 +333,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertIndexConventionRequest">The Index Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        UpsertSingleStructuredDataResponse UpsertIndexConvention(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0);
+        UpsertSingleStructuredDataResponse UpsertIndexConvention(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] UpsertIndexConvention: Upsert a set of Index Convention. This creates or updates the data in Lusid.
@@ -322,8 +346,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertIndexConventionRequest">The Index Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        ApiResponse<UpsertSingleStructuredDataResponse> UpsertIndexConventionWithHttpInfo(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0);
+        ApiResponse<UpsertSingleStructuredDataResponse> UpsertIndexConventionWithHttpInfo(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -344,8 +369,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The CDS Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteCdsFlowConventionsAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteCdsFlowConventionsAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] DeleteCdsFlowConventions: Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
@@ -358,8 +384,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The CDS Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteCdsFlowConventionsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteCdsFlowConventionsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] DeleteFlowConventions: Delete the Flow Conventions of given scope and code, assuming that it is present.
         /// </summary>
@@ -371,8 +398,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteFlowConventionsAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteFlowConventionsAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] DeleteFlowConventions: Delete the Flow Conventions of given scope and code, assuming that it is present.
@@ -385,8 +413,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteFlowConventionsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteFlowConventionsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] DeleteIndexConvention: Delete the Index Convention of given scope and code, assuming that it is present.
         /// </summary>
@@ -398,8 +427,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Index Convention to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteIndexConventionAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteIndexConventionAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] DeleteIndexConvention: Delete the Index Convention of given scope and code, assuming that it is present.
@@ -412,8 +442,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Index Convention to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteIndexConventionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteIndexConventionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] GetCdsFlowConventions: Get CDS Flow Conventions
         /// </summary>
@@ -426,8 +457,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetCdsFlowConventionsResponse</returns>
-        System.Threading.Tasks.Task<GetCdsFlowConventionsResponse> GetCdsFlowConventionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetCdsFlowConventionsResponse> GetCdsFlowConventionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] GetCdsFlowConventions: Get CDS Flow Conventions
@@ -441,8 +473,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetCdsFlowConventionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetCdsFlowConventionsResponse>> GetCdsFlowConventionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetCdsFlowConventionsResponse>> GetCdsFlowConventionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] GetFlowConventions: Get Flow Conventions
         /// </summary>
@@ -455,8 +488,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetFlowConventionsResponse</returns>
-        System.Threading.Tasks.Task<GetFlowConventionsResponse> GetFlowConventionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetFlowConventionsResponse> GetFlowConventionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] GetFlowConventions: Get Flow Conventions
@@ -470,8 +504,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetFlowConventionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetFlowConventionsResponse>> GetFlowConventionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetFlowConventionsResponse>> GetFlowConventionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] GetIndexConvention: Get Index Convention
         /// </summary>
@@ -484,8 +519,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetIndexConventionResponse</returns>
-        System.Threading.Tasks.Task<GetIndexConventionResponse> GetIndexConventionAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetIndexConventionResponse> GetIndexConventionAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] GetIndexConvention: Get Index Convention
@@ -499,8 +535,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetIndexConventionResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetIndexConventionResponse>> GetIndexConventionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetIndexConventionResponse>> GetIndexConventionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] ListCdsFlowConventions: List the set of CDS Flow Conventions
         /// </summary>
@@ -511,8 +548,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetCdsFlowConventionsResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfGetCdsFlowConventionsResponse> ListCdsFlowConventionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfGetCdsFlowConventionsResponse> ListCdsFlowConventionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] ListCdsFlowConventions: List the set of CDS Flow Conventions
@@ -524,8 +562,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetCdsFlowConventionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetCdsFlowConventionsResponse>> ListCdsFlowConventionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetCdsFlowConventionsResponse>> ListCdsFlowConventionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] ListFlowConventions: List the set of Flow Conventions
         /// </summary>
@@ -536,8 +575,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetFlowConventionsResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfGetFlowConventionsResponse> ListFlowConventionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfGetFlowConventionsResponse> ListFlowConventionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] ListFlowConventions: List the set of Flow Conventions
@@ -549,8 +589,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetFlowConventionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetFlowConventionsResponse>> ListFlowConventionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetFlowConventionsResponse>> ListFlowConventionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] ListIndexConvention: List the set of Index Conventions
         /// </summary>
@@ -561,8 +602,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetIndexConventionResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfGetIndexConventionResponse> ListIndexConventionAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfGetIndexConventionResponse> ListIndexConventionAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] ListIndexConvention: List the set of Index Conventions
@@ -574,8 +616,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetIndexConventionResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetIndexConventionResponse>> ListIndexConventionWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetIndexConventionResponse>> ListIndexConventionWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] UpsertCdsFlowConventions: Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
         /// </summary>
@@ -586,8 +629,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCdsFlowConventionsRequest">The CDS Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertCdsFlowConventionsAsync(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertCdsFlowConventionsAsync(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] UpsertCdsFlowConventions: Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
@@ -599,8 +643,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCdsFlowConventionsRequest">The CDS Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertCdsFlowConventionsWithHttpInfoAsync(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertCdsFlowConventionsWithHttpInfoAsync(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] UpsertFlowConventions: Upsert Flow Conventions. This creates or updates the data in Lusid.
         /// </summary>
@@ -611,8 +656,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertFlowConventionsRequest">The Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertFlowConventionsAsync(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertFlowConventionsAsync(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] UpsertFlowConventions: Upsert Flow Conventions. This creates or updates the data in Lusid.
@@ -624,8 +670,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertFlowConventionsRequest">The Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertFlowConventionsWithHttpInfoAsync(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertFlowConventionsWithHttpInfoAsync(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] UpsertIndexConvention: Upsert a set of Index Convention. This creates or updates the data in Lusid.
         /// </summary>
@@ -636,8 +683,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertIndexConventionRequest">The Index Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertIndexConventionAsync(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertIndexConventionAsync(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] UpsertIndexConvention: Upsert a set of Index Convention. This creates or updates the data in Lusid.
@@ -649,8 +697,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertIndexConventionRequest">The Index Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertIndexConventionWithHttpInfoAsync(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertIndexConventionWithHttpInfoAsync(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -683,9 +732,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public ConventionsApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -775,10 +830,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the CDS Flow Conventions to delete.</param>
         /// <param name="code">The CDS Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        public AnnulSingleStructuredDataResponse DeleteCdsFlowConventions(string scope, string code, int operationIndex = 0)
+        public AnnulSingleStructuredDataResponse DeleteCdsFlowConventions(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteCdsFlowConventionsWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteCdsFlowConventionsWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -789,8 +845,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the CDS Flow Conventions to delete.</param>
         /// <param name="code">The CDS Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteCdsFlowConventionsWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteCdsFlowConventionsWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -805,6 +862,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -873,10 +940,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The CDS Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteCdsFlowConventionsAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteCdsFlowConventionsAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteCdsFlowConventionsWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteCdsFlowConventionsWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -888,8 +956,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The CDS Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteCdsFlowConventionsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteCdsFlowConventionsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -905,6 +974,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -973,10 +1052,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Flow Conventions to delete.</param>
         /// <param name="code">The Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        public AnnulSingleStructuredDataResponse DeleteFlowConventions(string scope, string code, int operationIndex = 0)
+        public AnnulSingleStructuredDataResponse DeleteFlowConventions(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteFlowConventionsWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteFlowConventionsWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -987,8 +1067,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Flow Conventions to delete.</param>
         /// <param name="code">The Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteFlowConventionsWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteFlowConventionsWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1003,6 +1084,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1071,10 +1162,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteFlowConventionsAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteFlowConventionsAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteFlowConventionsWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteFlowConventionsWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1086,8 +1178,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Flow Conventions to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteFlowConventionsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteFlowConventionsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1103,6 +1196,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1171,10 +1274,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Index Convention to delete.</param>
         /// <param name="code">The Index Convention to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        public AnnulSingleStructuredDataResponse DeleteIndexConvention(string scope, string code, int operationIndex = 0)
+        public AnnulSingleStructuredDataResponse DeleteIndexConvention(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteIndexConventionWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteIndexConventionWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1185,8 +1289,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Index Convention to delete.</param>
         /// <param name="code">The Index Convention to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteIndexConventionWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteIndexConventionWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1201,6 +1306,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1269,10 +1384,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Index Convention to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteIndexConventionAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteIndexConventionAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteIndexConventionWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteIndexConventionWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1284,8 +1400,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Index Convention to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteIndexConventionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteIndexConventionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1301,6 +1418,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1370,10 +1497,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the CDS Flow Conventions to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetCdsFlowConventionsResponse</returns>
-        public GetCdsFlowConventionsResponse GetCdsFlowConventions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public GetCdsFlowConventionsResponse GetCdsFlowConventions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetCdsFlowConventionsResponse> localVarResponse = GetCdsFlowConventionsWithHttpInfo(scope, code, asAt);
+            Lusid.Sdk.Client.ApiResponse<GetCdsFlowConventionsResponse> localVarResponse = GetCdsFlowConventionsWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1385,8 +1513,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the CDS Flow Conventions to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetCdsFlowConventionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetCdsFlowConventionsResponse> GetCdsFlowConventionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetCdsFlowConventionsResponse> GetCdsFlowConventionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1401,6 +1530,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1474,10 +1613,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetCdsFlowConventionsResponse</returns>
-        public async System.Threading.Tasks.Task<GetCdsFlowConventionsResponse> GetCdsFlowConventionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetCdsFlowConventionsResponse> GetCdsFlowConventionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetCdsFlowConventionsResponse> localVarResponse = await GetCdsFlowConventionsWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetCdsFlowConventionsResponse> localVarResponse = await GetCdsFlowConventionsWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1490,8 +1630,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the CDS Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetCdsFlowConventionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetCdsFlowConventionsResponse>> GetCdsFlowConventionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetCdsFlowConventionsResponse>> GetCdsFlowConventionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1507,6 +1648,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1580,10 +1731,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Flow Conventions to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetFlowConventionsResponse</returns>
-        public GetFlowConventionsResponse GetFlowConventions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public GetFlowConventionsResponse GetFlowConventions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetFlowConventionsResponse> localVarResponse = GetFlowConventionsWithHttpInfo(scope, code, asAt);
+            Lusid.Sdk.Client.ApiResponse<GetFlowConventionsResponse> localVarResponse = GetFlowConventionsWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1595,8 +1747,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Flow Conventions to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetFlowConventionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetFlowConventionsResponse> GetFlowConventionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetFlowConventionsResponse> GetFlowConventionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1611,6 +1764,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1684,10 +1847,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetFlowConventionsResponse</returns>
-        public async System.Threading.Tasks.Task<GetFlowConventionsResponse> GetFlowConventionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetFlowConventionsResponse> GetFlowConventionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetFlowConventionsResponse> localVarResponse = await GetFlowConventionsWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetFlowConventionsResponse> localVarResponse = await GetFlowConventionsWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1700,8 +1864,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Flow Conventions. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetFlowConventionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetFlowConventionsResponse>> GetFlowConventionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetFlowConventionsResponse>> GetFlowConventionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1717,6 +1882,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1790,10 +1965,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Index Convention to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetIndexConventionResponse</returns>
-        public GetIndexConventionResponse GetIndexConvention(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public GetIndexConventionResponse GetIndexConvention(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetIndexConventionResponse> localVarResponse = GetIndexConventionWithHttpInfo(scope, code, asAt);
+            Lusid.Sdk.Client.ApiResponse<GetIndexConventionResponse> localVarResponse = GetIndexConventionWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1805,8 +1981,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Index Convention to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetIndexConventionResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetIndexConventionResponse> GetIndexConventionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetIndexConventionResponse> GetIndexConventionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1821,6 +1998,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1894,10 +2081,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetIndexConventionResponse</returns>
-        public async System.Threading.Tasks.Task<GetIndexConventionResponse> GetIndexConventionAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetIndexConventionResponse> GetIndexConventionAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetIndexConventionResponse> localVarResponse = await GetIndexConventionWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetIndexConventionResponse> localVarResponse = await GetIndexConventionWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1910,8 +2098,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Index Convention. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetIndexConventionResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetIndexConventionResponse>> GetIndexConventionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetIndexConventionResponse>> GetIndexConventionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1927,6 +2116,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1998,10 +2197,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetCdsFlowConventionsResponse</returns>
-        public ResourceListOfGetCdsFlowConventionsResponse ListCdsFlowConventions(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public ResourceListOfGetCdsFlowConventionsResponse ListCdsFlowConventions(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCdsFlowConventionsResponse> localVarResponse = ListCdsFlowConventionsWithHttpInfo(asAt);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCdsFlowConventionsResponse> localVarResponse = ListCdsFlowConventionsWithHttpInfo(asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2011,10 +2211,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetCdsFlowConventionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCdsFlowConventionsResponse> ListCdsFlowConventionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCdsFlowConventionsResponse> ListCdsFlowConventionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2084,10 +2295,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetCdsFlowConventionsResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfGetCdsFlowConventionsResponse> ListCdsFlowConventionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfGetCdsFlowConventionsResponse> ListCdsFlowConventionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCdsFlowConventionsResponse> localVarResponse = await ListCdsFlowConventionsWithHttpInfoAsync(asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCdsFlowConventionsResponse> localVarResponse = await ListCdsFlowConventionsWithHttpInfoAsync(asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2098,11 +2310,22 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetCdsFlowConventionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCdsFlowConventionsResponse>> ListCdsFlowConventionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCdsFlowConventionsResponse>> ListCdsFlowConventionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2172,10 +2395,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetFlowConventionsResponse</returns>
-        public ResourceListOfGetFlowConventionsResponse ListFlowConventions(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public ResourceListOfGetFlowConventionsResponse ListFlowConventions(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetFlowConventionsResponse> localVarResponse = ListFlowConventionsWithHttpInfo(asAt);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetFlowConventionsResponse> localVarResponse = ListFlowConventionsWithHttpInfo(asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2185,10 +2409,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetFlowConventionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetFlowConventionsResponse> ListFlowConventionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetFlowConventionsResponse> ListFlowConventionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2258,10 +2493,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetFlowConventionsResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfGetFlowConventionsResponse> ListFlowConventionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfGetFlowConventionsResponse> ListFlowConventionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetFlowConventionsResponse> localVarResponse = await ListFlowConventionsWithHttpInfoAsync(asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetFlowConventionsResponse> localVarResponse = await ListFlowConventionsWithHttpInfoAsync(asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2272,11 +2508,22 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetFlowConventionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetFlowConventionsResponse>> ListFlowConventionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetFlowConventionsResponse>> ListFlowConventionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2346,10 +2593,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetIndexConventionResponse</returns>
-        public ResourceListOfGetIndexConventionResponse ListIndexConvention(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public ResourceListOfGetIndexConventionResponse ListIndexConvention(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetIndexConventionResponse> localVarResponse = ListIndexConventionWithHttpInfo(asAt);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetIndexConventionResponse> localVarResponse = ListIndexConventionWithHttpInfo(asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2359,10 +2607,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetIndexConventionResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetIndexConventionResponse> ListIndexConventionWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetIndexConventionResponse> ListIndexConventionWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2432,10 +2691,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetIndexConventionResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfGetIndexConventionResponse> ListIndexConventionAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfGetIndexConventionResponse> ListIndexConventionAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetIndexConventionResponse> localVarResponse = await ListIndexConventionWithHttpInfoAsync(asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetIndexConventionResponse> localVarResponse = await ListIndexConventionWithHttpInfoAsync(asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2446,11 +2706,22 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetIndexConventionResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetIndexConventionResponse>> ListIndexConventionWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetIndexConventionResponse>> ListIndexConventionWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2520,10 +2791,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCdsFlowConventionsRequest">The CDS Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        public UpsertSingleStructuredDataResponse UpsertCdsFlowConventions(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0)
+        public UpsertSingleStructuredDataResponse UpsertCdsFlowConventions(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertCdsFlowConventionsWithHttpInfo(upsertCdsFlowConventionsRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertCdsFlowConventionsWithHttpInfo(upsertCdsFlowConventionsRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2533,8 +2805,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCdsFlowConventionsRequest">The CDS Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertCdsFlowConventionsWithHttpInfo(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertCdsFlowConventionsWithHttpInfo(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertCdsFlowConventionsRequest' is set
             if (upsertCdsFlowConventionsRequest == null)
@@ -2543,6 +2816,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2613,10 +2896,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCdsFlowConventionsRequest">The CDS Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertCdsFlowConventionsAsync(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertCdsFlowConventionsAsync(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertCdsFlowConventionsWithHttpInfoAsync(upsertCdsFlowConventionsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertCdsFlowConventionsWithHttpInfoAsync(upsertCdsFlowConventionsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2627,8 +2911,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCdsFlowConventionsRequest">The CDS Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertCdsFlowConventionsWithHttpInfoAsync(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertCdsFlowConventionsWithHttpInfoAsync(UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertCdsFlowConventionsRequest' is set
             if (upsertCdsFlowConventionsRequest == null)
@@ -2638,6 +2923,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2708,10 +3003,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertFlowConventionsRequest">The Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        public UpsertSingleStructuredDataResponse UpsertFlowConventions(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0)
+        public UpsertSingleStructuredDataResponse UpsertFlowConventions(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertFlowConventionsWithHttpInfo(upsertFlowConventionsRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertFlowConventionsWithHttpInfo(upsertFlowConventionsRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2721,8 +3017,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertFlowConventionsRequest">The Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertFlowConventionsWithHttpInfo(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertFlowConventionsWithHttpInfo(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertFlowConventionsRequest' is set
             if (upsertFlowConventionsRequest == null)
@@ -2731,6 +3028,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2801,10 +3108,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertFlowConventionsRequest">The Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertFlowConventionsAsync(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertFlowConventionsAsync(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertFlowConventionsWithHttpInfoAsync(upsertFlowConventionsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertFlowConventionsWithHttpInfoAsync(upsertFlowConventionsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2815,8 +3123,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertFlowConventionsRequest">The Flow Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertFlowConventionsWithHttpInfoAsync(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertFlowConventionsWithHttpInfoAsync(UpsertFlowConventionsRequest upsertFlowConventionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertFlowConventionsRequest' is set
             if (upsertFlowConventionsRequest == null)
@@ -2826,6 +3135,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2896,10 +3215,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertIndexConventionRequest">The Index Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        public UpsertSingleStructuredDataResponse UpsertIndexConvention(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0)
+        public UpsertSingleStructuredDataResponse UpsertIndexConvention(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertIndexConventionWithHttpInfo(upsertIndexConventionRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertIndexConventionWithHttpInfo(upsertIndexConventionRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2909,8 +3229,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertIndexConventionRequest">The Index Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertIndexConventionWithHttpInfo(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertIndexConventionWithHttpInfo(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertIndexConventionRequest' is set
             if (upsertIndexConventionRequest == null)
@@ -2919,6 +3240,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2989,10 +3320,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertIndexConventionRequest">The Index Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertIndexConventionAsync(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertIndexConventionAsync(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertIndexConventionWithHttpInfoAsync(upsertIndexConventionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertIndexConventionWithHttpInfoAsync(upsertIndexConventionRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3003,8 +3335,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertIndexConventionRequest">The Index Conventions to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertIndexConventionWithHttpInfoAsync(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertIndexConventionWithHttpInfoAsync(UpsertIndexConventionRequest upsertIndexConventionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertIndexConventionRequest' is set
             if (upsertIndexConventionRequest == null)
@@ -3014,6 +3347,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

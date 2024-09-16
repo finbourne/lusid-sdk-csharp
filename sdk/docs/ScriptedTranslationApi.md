@@ -51,6 +51,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScriptedTranslationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScriptedTranslationApi>();
             var scope = "scope_example";  // string | The scope of the dialect.
             var vendor = "vendor_example";  // string | The vendor of the dialect, the entity that created it. e.g. ISDA, FINBOURNE.
@@ -62,6 +70,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dialect result = apiInstance.GetTranslationDialect(scope, vendor, sourceSystem, entityType, serialisationFormat, version, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetTranslationDialect: Get a dialect.
                 Dialect result = apiInstance.GetTranslationDialect(scope, vendor, sourceSystem, entityType, serialisationFormat, version, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -166,6 +177,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScriptedTranslationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScriptedTranslationApi>();
             var scope = "scope_example";  // string | Scope of the translation script.
             var code = "code_example";  // string | Code of the translation script.
@@ -174,6 +193,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TranslationScript result = apiInstance.GetTranslationScript(scope, code, version, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetTranslationScript: Retrieve a translation script by its identifier.
                 TranslationScript result = apiInstance.GetTranslationScript(scope, code, version, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -275,6 +297,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScriptedTranslationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScriptedTranslationApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the dialects.              Defaults to return the latest version of the dialect if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional) 
@@ -283,6 +313,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfDialectId result = apiInstance.ListDialectIds(asAt, page, limit, filter, opts: opts);
+
                 // [EARLY ACCESS] ListDialectIds: List dialect identifiers matching an optional filter.
                 PagedResourceListOfDialectId result = apiInstance.ListDialectIds(asAt, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -384,6 +417,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScriptedTranslationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScriptedTranslationApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the script identifiers. Defaults to latest. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
@@ -392,6 +433,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfTranslationScriptId result = apiInstance.ListTranslationScriptIds(asAt, limit, filter, page, opts: opts);
+
                 // [EARLY ACCESS] ListTranslationScriptIds: List translation script identifiers.
                 PagedResourceListOfTranslationScriptId result = apiInstance.ListTranslationScriptIds(asAt, limit, filter, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -493,11 +537,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScriptedTranslationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScriptedTranslationApi>();
             var translateEntitiesRequest = new TranslateEntitiesRequest(); // TranslateEntitiesRequest | The entities to translate, along with identifiers for the script and (optional) dialect to use.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TranslateEntitiesResponse result = apiInstance.TranslateEntities(translateEntitiesRequest, opts: opts);
+
                 // [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script.
                 TranslateEntitiesResponse result = apiInstance.TranslateEntities(translateEntitiesRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -596,11 +651,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScriptedTranslationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScriptedTranslationApi>();
             var translateEntitiesInlinedRequest = new TranslateEntitiesInlinedRequest(); // TranslateEntitiesInlinedRequest | The entities to translate, along with the script to use and an optional schema for validation.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TranslateEntitiesResponse result = apiInstance.TranslateEntitiesInlined(translateEntitiesInlinedRequest, opts: opts);
+
                 // [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script.
                 TranslateEntitiesResponse result = apiInstance.TranslateEntitiesInlined(translateEntitiesInlinedRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -699,11 +765,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScriptedTranslationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScriptedTranslationApi>();
             var upsertDialectRequest = new UpsertDialectRequest(); // UpsertDialectRequest | The dialect to upsert.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dialect result = apiInstance.UpsertTranslationDialect(upsertDialectRequest, opts: opts);
+
                 // [EARLY ACCESS] UpsertTranslationDialect: Upsert a Dialect.
                 Dialect result = apiInstance.UpsertTranslationDialect(upsertDialectRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -802,11 +879,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScriptedTranslationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScriptedTranslationApi>();
             var upsertTranslationScriptRequest = new UpsertTranslationScriptRequest(); // UpsertTranslationScriptRequest | The translation script to be upserted.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TranslationScript result = apiInstance.UpsertTranslationScript(upsertTranslationScriptRequest, opts: opts);
+
                 // [EARLY ACCESS] UpsertTranslationScript: Upsert a translation script.
                 TranslationScript result = apiInstance.UpsertTranslationScript(upsertTranslationScriptRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

@@ -49,12 +49,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FeeTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FeeTypesApi>();
             var scope = "scope_example";  // string | The scope of the FeeType.
             var feeTypeRequest = new FeeTypeRequest(); // FeeTypeRequest | The contents of the FeeType.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // FeeType result = apiInstance.CreateFeeType(scope, feeTypeRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateFeeType: Create a FeeType.
                 FeeType result = apiInstance.CreateFeeType(scope, feeTypeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -154,12 +165,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FeeTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FeeTypesApi>();
             var scope = "scope_example";  // string | The scope of the FeeType.
             var code = "code_example";  // string | The code of the fee type
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteFeeType(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteFeeType: Delete a FeeType.
                 DeletedEntityResponse result = apiInstance.DeleteFeeType(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -259,10 +281,21 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FeeTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FeeTypesApi>();
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // FeeTransactionTemplateSpecification result = apiInstance.GetFeeTemplateSpecifications(opts: opts);
+
                 // [EXPERIMENTAL] GetFeeTemplateSpecifications: Get FeeTemplateSpecifications used in the FeeType.
                 FeeTransactionTemplateSpecification result = apiInstance.GetFeeTemplateSpecifications();
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -356,6 +389,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FeeTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FeeTypesApi>();
             var scope = "scope_example";  // string | The scope of the FeeType
             var code = "code_example";  // string | The code of the FeeType
@@ -363,6 +404,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // FeeType result = apiInstance.GetFeeType(scope, code, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetFeeType: Get a FeeType
                 FeeType result = apiInstance.GetFeeType(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -463,6 +507,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FeeTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FeeTypesApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the FeeTypes. Defaults to returning the latest version of each FeeType if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing FeeTypes; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
@@ -472,6 +524,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfFeeType result = apiInstance.ListFeeTypes(asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EXPERIMENTAL] ListFeeTypes: List FeeTypes
                 PagedResourceListOfFeeType result = apiInstance.ListFeeTypes(asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -574,6 +629,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FeeTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FeeTypesApi>();
             var scope = "scope_example";  // string | The scope of the FeeType.
             var code = "code_example";  // string | The code of the fee type
@@ -581,6 +644,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // FeeType result = apiInstance.UpdateFeeType(scope, code, updateFeeTypeRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdateFeeType: Update a FeeType.
                 FeeType result = apiInstance.UpdateFeeType(scope, code, updateFeeTypeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

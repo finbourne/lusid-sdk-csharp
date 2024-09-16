@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -39,8 +40,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateInstrumentDefinitionsRequest">The definitions of the instruments to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TranslateInstrumentDefinitionsResponse</returns>
-        TranslateInstrumentDefinitionsResponse TranslateInstrumentDefinitions(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0);
+        TranslateInstrumentDefinitionsResponse TranslateInstrumentDefinitions(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] TranslateInstrumentDefinitions: Translate instruments
@@ -51,8 +53,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateInstrumentDefinitionsRequest">The definitions of the instruments to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslateInstrumentDefinitionsResponse</returns>
-        ApiResponse<TranslateInstrumentDefinitionsResponse> TranslateInstrumentDefinitionsWithHttpInfo(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0);
+        ApiResponse<TranslateInstrumentDefinitionsResponse> TranslateInstrumentDefinitionsWithHttpInfo(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] TranslateTradeTickets: Translate trade ticket
         /// </summary>
@@ -62,8 +65,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateTradeTicketRequest">The definitions of the trade ticket to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TranslateTradeTicketsResponse</returns>
-        TranslateTradeTicketsResponse TranslateTradeTickets(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0);
+        TranslateTradeTicketsResponse TranslateTradeTickets(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] TranslateTradeTickets: Translate trade ticket
@@ -74,8 +78,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateTradeTicketRequest">The definitions of the trade ticket to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslateTradeTicketsResponse</returns>
-        ApiResponse<TranslateTradeTicketsResponse> TranslateTradeTicketsWithHttpInfo(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0);
+        ApiResponse<TranslateTradeTicketsResponse> TranslateTradeTicketsWithHttpInfo(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -95,8 +100,9 @@ namespace Lusid.Sdk.Api
         /// <param name="translateInstrumentDefinitionsRequest">The definitions of the instruments to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TranslateInstrumentDefinitionsResponse</returns>
-        System.Threading.Tasks.Task<TranslateInstrumentDefinitionsResponse> TranslateInstrumentDefinitionsAsync(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TranslateInstrumentDefinitionsResponse> TranslateInstrumentDefinitionsAsync(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] TranslateInstrumentDefinitions: Translate instruments
@@ -108,8 +114,9 @@ namespace Lusid.Sdk.Api
         /// <param name="translateInstrumentDefinitionsRequest">The definitions of the instruments to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslateInstrumentDefinitionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TranslateInstrumentDefinitionsResponse>> TranslateInstrumentDefinitionsWithHttpInfoAsync(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TranslateInstrumentDefinitionsResponse>> TranslateInstrumentDefinitionsWithHttpInfoAsync(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] TranslateTradeTickets: Translate trade ticket
         /// </summary>
@@ -120,8 +127,9 @@ namespace Lusid.Sdk.Api
         /// <param name="translateTradeTicketRequest">The definitions of the trade ticket to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TranslateTradeTicketsResponse</returns>
-        System.Threading.Tasks.Task<TranslateTradeTicketsResponse> TranslateTradeTicketsAsync(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TranslateTradeTicketsResponse> TranslateTradeTicketsAsync(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] TranslateTradeTickets: Translate trade ticket
@@ -133,8 +141,9 @@ namespace Lusid.Sdk.Api
         /// <param name="translateTradeTicketRequest">The definitions of the trade ticket to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslateTradeTicketsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TranslateTradeTicketsResponse>> TranslateTradeTicketsWithHttpInfoAsync(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TranslateTradeTicketsResponse>> TranslateTradeTicketsWithHttpInfoAsync(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -167,9 +176,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public TranslationApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -258,10 +273,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateInstrumentDefinitionsRequest">The definitions of the instruments to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TranslateInstrumentDefinitionsResponse</returns>
-        public TranslateInstrumentDefinitionsResponse TranslateInstrumentDefinitions(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0)
+        public TranslateInstrumentDefinitionsResponse TranslateInstrumentDefinitions(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TranslateInstrumentDefinitionsResponse> localVarResponse = TranslateInstrumentDefinitionsWithHttpInfo(translateInstrumentDefinitionsRequest);
+            Lusid.Sdk.Client.ApiResponse<TranslateInstrumentDefinitionsResponse> localVarResponse = TranslateInstrumentDefinitionsWithHttpInfo(translateInstrumentDefinitionsRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -271,8 +287,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateInstrumentDefinitionsRequest">The definitions of the instruments to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslateInstrumentDefinitionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<TranslateInstrumentDefinitionsResponse> TranslateInstrumentDefinitionsWithHttpInfo(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TranslateInstrumentDefinitionsResponse> TranslateInstrumentDefinitionsWithHttpInfo(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'translateInstrumentDefinitionsRequest' is set
             if (translateInstrumentDefinitionsRequest == null)
@@ -281,6 +298,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -351,10 +378,11 @@ namespace Lusid.Sdk.Api
         /// <param name="translateInstrumentDefinitionsRequest">The definitions of the instruments to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TranslateInstrumentDefinitionsResponse</returns>
-        public async System.Threading.Tasks.Task<TranslateInstrumentDefinitionsResponse> TranslateInstrumentDefinitionsAsync(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TranslateInstrumentDefinitionsResponse> TranslateInstrumentDefinitionsAsync(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TranslateInstrumentDefinitionsResponse> localVarResponse = await TranslateInstrumentDefinitionsWithHttpInfoAsync(translateInstrumentDefinitionsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TranslateInstrumentDefinitionsResponse> localVarResponse = await TranslateInstrumentDefinitionsWithHttpInfoAsync(translateInstrumentDefinitionsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -365,8 +393,9 @@ namespace Lusid.Sdk.Api
         /// <param name="translateInstrumentDefinitionsRequest">The definitions of the instruments to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslateInstrumentDefinitionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslateInstrumentDefinitionsResponse>> TranslateInstrumentDefinitionsWithHttpInfoAsync(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslateInstrumentDefinitionsResponse>> TranslateInstrumentDefinitionsWithHttpInfoAsync(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'translateInstrumentDefinitionsRequest' is set
             if (translateInstrumentDefinitionsRequest == null)
@@ -376,6 +405,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -446,10 +485,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateTradeTicketRequest">The definitions of the trade ticket to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TranslateTradeTicketsResponse</returns>
-        public TranslateTradeTicketsResponse TranslateTradeTickets(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0)
+        public TranslateTradeTicketsResponse TranslateTradeTickets(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TranslateTradeTicketsResponse> localVarResponse = TranslateTradeTicketsWithHttpInfo(translateTradeTicketRequest);
+            Lusid.Sdk.Client.ApiResponse<TranslateTradeTicketsResponse> localVarResponse = TranslateTradeTicketsWithHttpInfo(translateTradeTicketRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -459,8 +499,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateTradeTicketRequest">The definitions of the trade ticket to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslateTradeTicketsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<TranslateTradeTicketsResponse> TranslateTradeTicketsWithHttpInfo(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TranslateTradeTicketsResponse> TranslateTradeTicketsWithHttpInfo(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'translateTradeTicketRequest' is set
             if (translateTradeTicketRequest == null)
@@ -469,6 +510,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -539,10 +590,11 @@ namespace Lusid.Sdk.Api
         /// <param name="translateTradeTicketRequest">The definitions of the trade ticket to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TranslateTradeTicketsResponse</returns>
-        public async System.Threading.Tasks.Task<TranslateTradeTicketsResponse> TranslateTradeTicketsAsync(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TranslateTradeTicketsResponse> TranslateTradeTicketsAsync(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TranslateTradeTicketsResponse> localVarResponse = await TranslateTradeTicketsWithHttpInfoAsync(translateTradeTicketRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TranslateTradeTicketsResponse> localVarResponse = await TranslateTradeTicketsWithHttpInfoAsync(translateTradeTicketRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -553,8 +605,9 @@ namespace Lusid.Sdk.Api
         /// <param name="translateTradeTicketRequest">The definitions of the trade ticket to translate along with the target dialect.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslateTradeTicketsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslateTradeTicketsResponse>> TranslateTradeTicketsWithHttpInfoAsync(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslateTradeTicketsResponse>> TranslateTradeTicketsWithHttpInfoAsync(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'translateTradeTicketRequest' is set
             if (translateTradeTicketRequest == null)
@@ -564,6 +617,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

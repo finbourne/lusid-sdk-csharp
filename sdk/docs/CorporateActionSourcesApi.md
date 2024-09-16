@@ -52,6 +52,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CorporateActionSourcesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CorporateActionSourcesApi>();
             var scope = "scope_example";  // string | The scope of corporate action source
             var code = "code_example";  // string | The code of the corporate action source
@@ -59,6 +67,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertCorporateActionsResponse result = apiInstance.BatchUpsertCorporateActions(scope, code, upsertCorporateActionRequest, opts: opts);
+
                 // [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.
                 UpsertCorporateActionsResponse result = apiInstance.BatchUpsertCorporateActions(scope, code, upsertCorporateActionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -159,11 +170,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CorporateActionSourcesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CorporateActionSourcesApi>();
             var createCorporateActionSourceRequest = new CreateCorporateActionSourceRequest(); // CreateCorporateActionSourceRequest | The corporate action source definition
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CorporateActionSource result = apiInstance.CreateCorporateActionSource(createCorporateActionSourceRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateCorporateActionSource: Create corporate action source
                 CorporateActionSource result = apiInstance.CreateCorporateActionSource(createCorporateActionSourceRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -262,12 +284,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CorporateActionSourcesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CorporateActionSourcesApi>();
             var scope = "scope_example";  // string | The scope of the corporate action source to be deleted
             var code = "code_example";  // string | The code of the corporate action source to be deleted
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteCorporateActionSource(scope, code, opts: opts);
+
                 // [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
                 DeletedEntityResponse result = apiInstance.DeleteCorporateActionSource(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -367,6 +400,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CorporateActionSourcesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CorporateActionSourcesApi>();
             var scope = "scope_example";  // string | The scope of the corporate action source
             var code = "code_example";  // string | The code of the corporate action source
@@ -374,6 +415,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteCorporateActions(scope, code, corporateActionIds, opts: opts);
+
                 // [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
                 DeletedEntityResponse result = apiInstance.DeleteCorporateActions(scope, code, corporateActionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -474,6 +518,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CorporateActionSourcesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CorporateActionSourcesApi>();
             var scope = "scope_example";  // string | The scope of the corporate action source
             var code = "code_example";  // string | The code of the corporate action source
@@ -481,6 +533,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteInstrumentEvents(scope, code, instrumentEventIds, opts: opts);
+
                 // [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
                 DeletedEntityResponse result = apiInstance.DeleteInstrumentEvents(scope, code, instrumentEventIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -581,6 +636,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CorporateActionSourcesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CorporateActionSourcesApi>();
             var scope = "scope_example";  // string | The scope of the corporate action source.
             var code = "code_example";  // string | The code of the corporate action source.
@@ -593,6 +656,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfCorporateAction result = apiInstance.GetCorporateActions(scope, code, fromEffectiveAt, toEffectiveAt, asAt, sortBy, limit, filter, opts: opts);
+
                 // [EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source.
                 ResourceListOfCorporateAction result = apiInstance.GetCorporateActions(scope, code, fromEffectiveAt, toEffectiveAt, asAt, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -698,6 +764,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CorporateActionSourcesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CorporateActionSourcesApi>();
             var scope = "scope_example";  // string | The scope of the corporate action source.
             var code = "code_example";  // string | The code of the corporate action source.
@@ -708,6 +782,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfInstrumentEventHolder result = apiInstance.GetInstrumentEvents(scope, code, asAt, limit, page, filter, opts: opts);
+
                 // [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
                 PagedResourceListOfInstrumentEventHolder result = apiInstance.GetInstrumentEvents(scope, code, asAt, limit, page, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -811,6 +888,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CorporateActionSourcesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CorporateActionSourcesApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
             var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
@@ -820,6 +905,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfCorporateActionSource result = apiInstance.ListCorporateActionSources(asAt, sortBy, limit, filter, page, opts: opts);
+
                 // [EARLY ACCESS] ListCorporateActionSources: List corporate action sources
                 PagedResourceListOfCorporateActionSource result = apiInstance.ListCorporateActionSources(asAt, sortBy, limit, filter, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -922,6 +1010,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CorporateActionSourcesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CorporateActionSourcesApi>();
             var scope = "scope_example";  // string | The scope of the corporate action source.
             var code = "code_example";  // string | The code of the corporate action source.
@@ -929,6 +1025,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertInstrumentEventsResponse result = apiInstance.UpsertInstrumentEvents(scope, code, upsertInstrumentEventRequest, opts: opts);
+
                 // [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
                 UpsertInstrumentEventsResponse result = apiInstance.UpsertInstrumentEvents(scope, code, upsertInstrumentEventRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

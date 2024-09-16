@@ -45,6 +45,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScopesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScopesApi>();
             var entityType = "entityType_example";  // string | The entity type to list scopes for.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional) 
@@ -53,6 +61,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfScopeDefinition result = apiInstance.ListEntityScopes(entityType, asAt, page, limit, opts: opts);
+
                 // ListEntityScopes: List Entity Scopes
                 ResourceListOfScopeDefinition result = apiInstance.ListEntityScopes(entityType, asAt, page, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -154,11 +165,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScopesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScopesApi>();
             var filter = "filter_example";  // string? | Expression to filter the result set.              For example, to filter on the Scope, use \"scope eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfScopeDefinition result = apiInstance.ListScopes(filter, opts: opts);
+
                 // ListScopes: List Scopes
                 ResourceListOfScopeDefinition result = apiInstance.ListScopes(filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

@@ -46,6 +46,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderGraphApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderGraphApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional) 
             var paginationToken = "paginationToken_example";  // string? | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional) 
@@ -57,6 +65,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfOrderGraphBlock result = apiInstance.ListOrderGraphBlocks(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2, opts: opts);
+
                 // [EARLY ACCESS] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
                 PagedResourceListOfOrderGraphBlock result = apiInstance.ListOrderGraphBlocks(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -161,6 +172,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderGraphApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderGraphApi>();
             var scope = "scope_example";  // string | The parent placement's scope
             var code = "code_example";  // string | The parent placement's code
@@ -172,6 +191,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfOrderGraphPlacement result = apiInstance.ListOrderGraphPlacementChildren(scope, code, asAt, paginationToken, sortBy, limit, propertyKeys, opts: opts);
+
                 // [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
                 PagedResourceListOfOrderGraphPlacement result = apiInstance.ListOrderGraphPlacementChildren(scope, code, asAt, paginationToken, sortBy, limit, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -276,6 +298,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderGraphApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderGraphApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional) 
             var paginationToken = "paginationToken_example";  // string? | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional) 
@@ -286,6 +316,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfOrderGraphPlacement result = apiInstance.ListOrderGraphPlacements(asAt, paginationToken, sortBy, limit, filter, propertyKeys, opts: opts);
+
                 // [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
                 PagedResourceListOfOrderGraphPlacement result = apiInstance.ListOrderGraphPlacements(asAt, paginationToken, sortBy, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

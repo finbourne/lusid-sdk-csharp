@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe to delete.</param>
         /// <param name="code">The Configuration Recipe to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        AnnulSingleStructuredDataResponse DeleteConfigurationRecipe(string scope, string code, int operationIndex = 0);
+        AnnulSingleStructuredDataResponse DeleteConfigurationRecipe(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present.
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe to delete.</param>
         /// <param name="code">The Configuration Recipe to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        ApiResponse<AnnulSingleStructuredDataResponse> DeleteConfigurationRecipeWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<AnnulSingleStructuredDataResponse> DeleteConfigurationRecipeWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
         /// </summary>
@@ -65,8 +68,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Recipe Composer to delete.</param>
         /// <param name="code">The Recipe Composer to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        AnnulSingleStructuredDataResponse DeleteRecipeComposer(string scope, string code, int operationIndex = 0);
+        AnnulSingleStructuredDataResponse DeleteRecipeComposer(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
@@ -78,8 +82,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Recipe Composer to delete.</param>
         /// <param name="code">The Recipe Composer to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        ApiResponse<AnnulSingleStructuredDataResponse> DeleteRecipeComposerWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<AnnulSingleStructuredDataResponse> DeleteRecipeComposerWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetConfigurationRecipe: Get Configuration Recipe
         /// </summary>
@@ -91,8 +96,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the recipe to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeResponse</returns>
-        GetRecipeResponse GetConfigurationRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        GetRecipeResponse GetConfigurationRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetConfigurationRecipe: Get Configuration Recipe
@@ -105,8 +111,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the recipe to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeResponse</returns>
-        ApiResponse<GetRecipeResponse> GetConfigurationRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<GetRecipeResponse> GetConfigurationRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
         /// </summary>
@@ -118,8 +125,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeResponse</returns>
-        GetRecipeResponse GetDerivedRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        GetRecipeResponse GetDerivedRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
@@ -132,8 +140,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeResponse</returns>
-        ApiResponse<GetRecipeResponse> GetDerivedRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<GetRecipeResponse> GetDerivedRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
         /// </summary>
@@ -145,8 +154,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Recipe Composer to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeComposerResponse</returns>
-        GetRecipeComposerResponse GetRecipeComposer(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        GetRecipeComposerResponse GetRecipeComposer(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
@@ -159,8 +169,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Recipe Composer to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeComposerResponse</returns>
-        ApiResponse<GetRecipeComposerResponse> GetRecipeComposerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<GetRecipeComposerResponse> GetRecipeComposerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
         /// </summary>
@@ -170,8 +181,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">Recipe composer used to expand into the Configuration Recipe.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeResponse</returns>
-        GetRecipeResponse GetRecipeComposerResolvedInline(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0);
+        GetRecipeResponse GetRecipeComposerResolvedInline(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
@@ -182,8 +194,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">Recipe composer used to expand into the Configuration Recipe.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeResponse</returns>
-        ApiResponse<GetRecipeResponse> GetRecipeComposerResolvedInlineWithHttpInfo(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0);
+        ApiResponse<GetRecipeResponse> GetRecipeComposerResolvedInlineWithHttpInfo(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListConfigurationRecipes: List the set of Configuration Recipes
         /// </summary>
@@ -194,8 +207,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetRecipeResponse</returns>
-        ResourceListOfGetRecipeResponse ListConfigurationRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0);
+        ResourceListOfGetRecipeResponse ListConfigurationRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListConfigurationRecipes: List the set of Configuration Recipes
@@ -207,8 +221,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetRecipeResponse</returns>
-        ApiResponse<ResourceListOfGetRecipeResponse> ListConfigurationRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<ResourceListOfGetRecipeResponse> ListConfigurationRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
         /// </summary>
@@ -219,8 +234,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetRecipeResponse</returns>
-        ResourceListOfGetRecipeResponse ListDerivedRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0);
+        ResourceListOfGetRecipeResponse ListDerivedRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
@@ -232,8 +248,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetRecipeResponse</returns>
-        ApiResponse<ResourceListOfGetRecipeResponse> ListDerivedRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<ResourceListOfGetRecipeResponse> ListDerivedRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
         /// </summary>
@@ -244,8 +261,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetRecipeComposerResponse</returns>
-        ResourceListOfGetRecipeComposerResponse ListRecipeComposers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0);
+        ResourceListOfGetRecipeComposerResponse ListRecipeComposers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
@@ -257,8 +275,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetRecipeComposerResponse</returns>
-        ApiResponse<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.
         /// </summary>
@@ -268,8 +287,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeRequest">The Configuration Recipe to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        UpsertSingleStructuredDataResponse UpsertConfigurationRecipe(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0);
+        UpsertSingleStructuredDataResponse UpsertConfigurationRecipe(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.
@@ -280,8 +300,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeRequest">The Configuration Recipe to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        ApiResponse<UpsertSingleStructuredDataResponse> UpsertConfigurationRecipeWithHttpInfo(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0);
+        ApiResponse<UpsertSingleStructuredDataResponse> UpsertConfigurationRecipeWithHttpInfo(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
         /// </summary>
@@ -291,8 +312,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">The Recipe Composer to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        UpsertSingleStructuredDataResponse UpsertRecipeComposer(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0);
+        UpsertSingleStructuredDataResponse UpsertRecipeComposer(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
@@ -303,8 +325,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">The Recipe Composer to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        ApiResponse<UpsertSingleStructuredDataResponse> UpsertRecipeComposerWithHttpInfo(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0);
+        ApiResponse<UpsertSingleStructuredDataResponse> UpsertRecipeComposerWithHttpInfo(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -325,8 +348,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Configuration Recipe to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteConfigurationRecipeAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteConfigurationRecipeAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present.
@@ -339,8 +363,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Configuration Recipe to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteConfigurationRecipeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteConfigurationRecipeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
         /// </summary>
@@ -352,8 +377,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Recipe Composer to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteRecipeComposerAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteRecipeComposerAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
@@ -366,8 +392,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Recipe Composer to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteRecipeComposerWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteRecipeComposerWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetConfigurationRecipe: Get Configuration Recipe
         /// </summary>
@@ -380,8 +407,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeResponse</returns>
-        System.Threading.Tasks.Task<GetRecipeResponse> GetConfigurationRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetRecipeResponse> GetConfigurationRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetConfigurationRecipe: Get Configuration Recipe
@@ -395,8 +423,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetRecipeResponse>> GetConfigurationRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetRecipeResponse>> GetConfigurationRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
         /// </summary>
@@ -409,8 +438,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeResponse</returns>
-        System.Threading.Tasks.Task<GetRecipeResponse> GetDerivedRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetRecipeResponse> GetDerivedRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
@@ -424,8 +454,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetRecipeResponse>> GetDerivedRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetRecipeResponse>> GetDerivedRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
         /// </summary>
@@ -438,8 +469,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeComposerResponse</returns>
-        System.Threading.Tasks.Task<GetRecipeComposerResponse> GetRecipeComposerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetRecipeComposerResponse> GetRecipeComposerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
@@ -453,8 +485,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeComposerResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetRecipeComposerResponse>> GetRecipeComposerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetRecipeComposerResponse>> GetRecipeComposerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
         /// </summary>
@@ -465,8 +498,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertRecipeComposerRequest">Recipe composer used to expand into the Configuration Recipe.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeResponse</returns>
-        System.Threading.Tasks.Task<GetRecipeResponse> GetRecipeComposerResolvedInlineAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetRecipeResponse> GetRecipeComposerResolvedInlineAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
@@ -478,8 +512,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertRecipeComposerRequest">Recipe composer used to expand into the Configuration Recipe.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetRecipeResponse>> GetRecipeComposerResolvedInlineWithHttpInfoAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetRecipeResponse>> GetRecipeComposerResolvedInlineWithHttpInfoAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListConfigurationRecipes: List the set of Configuration Recipes
         /// </summary>
@@ -491,8 +526,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetRecipeResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListConfigurationRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListConfigurationRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListConfigurationRecipes: List the set of Configuration Recipes
@@ -505,8 +541,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetRecipeResponse>> ListConfigurationRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetRecipeResponse>> ListConfigurationRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
         /// </summary>
@@ -518,8 +555,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetRecipeResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListDerivedRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListDerivedRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
@@ -532,8 +570,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetRecipeResponse>> ListDerivedRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetRecipeResponse>> ListDerivedRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
         /// </summary>
@@ -545,8 +584,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetRecipeComposerResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
@@ -559,8 +599,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeComposerResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetRecipeComposerResponse>> ListRecipeComposersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetRecipeComposerResponse>> ListRecipeComposersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.
         /// </summary>
@@ -571,8 +612,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertRecipeRequest">The Configuration Recipe to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertConfigurationRecipeAsync(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertConfigurationRecipeAsync(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.
@@ -584,8 +626,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertRecipeRequest">The Configuration Recipe to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertConfigurationRecipeWithHttpInfoAsync(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertConfigurationRecipeWithHttpInfoAsync(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
         /// </summary>
@@ -596,8 +639,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertRecipeComposerRequest">The Recipe Composer to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertRecipeComposerAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertRecipeComposerAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
@@ -609,8 +653,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertRecipeComposerRequest">The Recipe Composer to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertRecipeComposerWithHttpInfoAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertRecipeComposerWithHttpInfoAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -643,9 +688,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public ConfigurationRecipeApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -735,10 +786,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe to delete.</param>
         /// <param name="code">The Configuration Recipe to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        public AnnulSingleStructuredDataResponse DeleteConfigurationRecipe(string scope, string code, int operationIndex = 0)
+        public AnnulSingleStructuredDataResponse DeleteConfigurationRecipe(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteConfigurationRecipeWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteConfigurationRecipeWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -749,8 +801,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe to delete.</param>
         /// <param name="code">The Configuration Recipe to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteConfigurationRecipeWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteConfigurationRecipeWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -765,6 +818,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -833,10 +896,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Configuration Recipe to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteConfigurationRecipeAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteConfigurationRecipeAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteConfigurationRecipeWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteConfigurationRecipeWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -848,8 +912,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Configuration Recipe to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteConfigurationRecipeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteConfigurationRecipeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -865,6 +930,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -933,10 +1008,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Recipe Composer to delete.</param>
         /// <param name="code">The Recipe Composer to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        public AnnulSingleStructuredDataResponse DeleteRecipeComposer(string scope, string code, int operationIndex = 0)
+        public AnnulSingleStructuredDataResponse DeleteRecipeComposer(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteRecipeComposerWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteRecipeComposerWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -947,8 +1023,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Recipe Composer to delete.</param>
         /// <param name="code">The Recipe Composer to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteRecipeComposerWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteRecipeComposerWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -963,6 +1040,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1031,10 +1118,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Recipe Composer to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteRecipeComposerAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteRecipeComposerAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteRecipeComposerWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteRecipeComposerWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1046,8 +1134,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Recipe Composer to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteRecipeComposerWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteRecipeComposerWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1063,6 +1152,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1132,10 +1231,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the recipe to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeResponse</returns>
-        public GetRecipeResponse GetConfigurationRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public GetRecipeResponse GetConfigurationRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = GetConfigurationRecipeWithHttpInfo(scope, code, asAt);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = GetConfigurationRecipeWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1147,8 +1247,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the recipe to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetConfigurationRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetConfigurationRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1163,6 +1264,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1236,10 +1347,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeResponse</returns>
-        public async System.Threading.Tasks.Task<GetRecipeResponse> GetConfigurationRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetRecipeResponse> GetConfigurationRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = await GetConfigurationRecipeWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = await GetConfigurationRecipeWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1252,8 +1364,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetConfigurationRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetConfigurationRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1269,6 +1382,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1342,10 +1465,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeResponse</returns>
-        public GetRecipeResponse GetDerivedRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public GetRecipeResponse GetDerivedRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = GetDerivedRecipeWithHttpInfo(scope, code, asAt);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = GetDerivedRecipeWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1357,8 +1481,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetDerivedRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetDerivedRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1373,6 +1498,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1446,10 +1581,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeResponse</returns>
-        public async System.Threading.Tasks.Task<GetRecipeResponse> GetDerivedRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetRecipeResponse> GetDerivedRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = await GetDerivedRecipeWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = await GetDerivedRecipeWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1462,8 +1598,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetDerivedRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetDerivedRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1479,6 +1616,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1552,10 +1699,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Recipe Composer to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeComposerResponse</returns>
-        public GetRecipeComposerResponse GetRecipeComposer(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public GetRecipeComposerResponse GetRecipeComposer(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> localVarResponse = GetRecipeComposerWithHttpInfo(scope, code, asAt);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> localVarResponse = GetRecipeComposerWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1567,8 +1715,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Recipe Composer to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeComposerResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> GetRecipeComposerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> GetRecipeComposerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1583,6 +1732,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1656,10 +1815,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeComposerResponse</returns>
-        public async System.Threading.Tasks.Task<GetRecipeComposerResponse> GetRecipeComposerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetRecipeComposerResponse> GetRecipeComposerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> localVarResponse = await GetRecipeComposerWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> localVarResponse = await GetRecipeComposerWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1672,8 +1832,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeComposerResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse>> GetRecipeComposerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse>> GetRecipeComposerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1689,6 +1850,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1760,10 +1931,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">Recipe composer used to expand into the Configuration Recipe.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeResponse</returns>
-        public GetRecipeResponse GetRecipeComposerResolvedInline(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0)
+        public GetRecipeResponse GetRecipeComposerResolvedInline(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = GetRecipeComposerResolvedInlineWithHttpInfo(upsertRecipeComposerRequest);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = GetRecipeComposerResolvedInlineWithHttpInfo(upsertRecipeComposerRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1773,8 +1945,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">Recipe composer used to expand into the Configuration Recipe.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetRecipeComposerResolvedInlineWithHttpInfo(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetRecipeComposerResolvedInlineWithHttpInfo(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertRecipeComposerRequest' is set
             if (upsertRecipeComposerRequest == null)
@@ -1783,6 +1956,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1853,10 +2036,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertRecipeComposerRequest">Recipe composer used to expand into the Configuration Recipe.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeResponse</returns>
-        public async System.Threading.Tasks.Task<GetRecipeResponse> GetRecipeComposerResolvedInlineAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetRecipeResponse> GetRecipeComposerResolvedInlineAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = await GetRecipeComposerResolvedInlineWithHttpInfoAsync(upsertRecipeComposerRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = await GetRecipeComposerResolvedInlineWithHttpInfoAsync(upsertRecipeComposerRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1867,8 +2051,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertRecipeComposerRequest">Recipe composer used to expand into the Configuration Recipe.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetRecipeComposerResolvedInlineWithHttpInfoAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetRecipeComposerResolvedInlineWithHttpInfoAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertRecipeComposerRequest' is set
             if (upsertRecipeComposerRequest == null)
@@ -1878,6 +2063,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1949,10 +2144,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetRecipeResponse</returns>
-        public ResourceListOfGetRecipeResponse ListConfigurationRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0)
+        public ResourceListOfGetRecipeResponse ListConfigurationRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = ListConfigurationRecipesWithHttpInfo(asAt, filter);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = ListConfigurationRecipesWithHttpInfo(asAt, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1963,10 +2159,21 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetRecipeResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListConfigurationRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListConfigurationRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2041,10 +2248,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetRecipeResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListConfigurationRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListConfigurationRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = await ListConfigurationRecipesWithHttpInfoAsync(asAt, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = await ListConfigurationRecipesWithHttpInfoAsync(asAt, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2056,11 +2264,22 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListConfigurationRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListConfigurationRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2135,10 +2354,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetRecipeResponse</returns>
-        public ResourceListOfGetRecipeResponse ListDerivedRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0)
+        public ResourceListOfGetRecipeResponse ListDerivedRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = ListDerivedRecipesWithHttpInfo(asAt, filter);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = ListDerivedRecipesWithHttpInfo(asAt, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2149,10 +2369,21 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetRecipeResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListDerivedRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListDerivedRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2227,10 +2458,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetRecipeResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListDerivedRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListDerivedRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = await ListDerivedRecipesWithHttpInfoAsync(asAt, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = await ListDerivedRecipesWithHttpInfoAsync(asAt, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2242,11 +2474,22 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListDerivedRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListDerivedRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2321,10 +2564,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetRecipeComposerResponse</returns>
-        public ResourceListOfGetRecipeComposerResponse ListRecipeComposers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0)
+        public ResourceListOfGetRecipeComposerResponse ListRecipeComposers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> localVarResponse = ListRecipeComposersWithHttpInfo(asAt, filter);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> localVarResponse = ListRecipeComposersWithHttpInfo(asAt, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2335,10 +2579,21 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetRecipeComposerResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2413,10 +2668,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetRecipeComposerResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> localVarResponse = await ListRecipeComposersWithHttpInfoAsync(asAt, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> localVarResponse = await ListRecipeComposersWithHttpInfoAsync(asAt, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2428,11 +2684,22 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeComposerResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse>> ListRecipeComposersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse>> ListRecipeComposersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2506,10 +2773,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeRequest">The Configuration Recipe to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        public UpsertSingleStructuredDataResponse UpsertConfigurationRecipe(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0)
+        public UpsertSingleStructuredDataResponse UpsertConfigurationRecipe(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertConfigurationRecipeWithHttpInfo(upsertRecipeRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertConfigurationRecipeWithHttpInfo(upsertRecipeRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2519,8 +2787,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeRequest">The Configuration Recipe to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertConfigurationRecipeWithHttpInfo(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertConfigurationRecipeWithHttpInfo(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertRecipeRequest' is set
             if (upsertRecipeRequest == null)
@@ -2529,6 +2798,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2599,10 +2878,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertRecipeRequest">The Configuration Recipe to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertConfigurationRecipeAsync(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertConfigurationRecipeAsync(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertConfigurationRecipeWithHttpInfoAsync(upsertRecipeRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertConfigurationRecipeWithHttpInfoAsync(upsertRecipeRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2613,8 +2893,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertRecipeRequest">The Configuration Recipe to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertConfigurationRecipeWithHttpInfoAsync(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertConfigurationRecipeWithHttpInfoAsync(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertRecipeRequest' is set
             if (upsertRecipeRequest == null)
@@ -2624,6 +2905,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2694,10 +2985,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">The Recipe Composer to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        public UpsertSingleStructuredDataResponse UpsertRecipeComposer(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0)
+        public UpsertSingleStructuredDataResponse UpsertRecipeComposer(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertRecipeComposerWithHttpInfo(upsertRecipeComposerRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertRecipeComposerWithHttpInfo(upsertRecipeComposerRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2707,8 +2999,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">The Recipe Composer to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertRecipeComposerWithHttpInfo(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertRecipeComposerWithHttpInfo(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertRecipeComposerRequest' is set
             if (upsertRecipeComposerRequest == null)
@@ -2717,6 +3010,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2787,10 +3090,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertRecipeComposerRequest">The Recipe Composer to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertRecipeComposerAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertRecipeComposerAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertRecipeComposerWithHttpInfoAsync(upsertRecipeComposerRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertRecipeComposerWithHttpInfoAsync(upsertRecipeComposerRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2801,8 +3105,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertRecipeComposerRequest">The Recipe Composer to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertRecipeComposerWithHttpInfoAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertRecipeComposerWithHttpInfoAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertRecipeComposerRequest' is set
             if (upsertRecipeComposerRequest == null)
@@ -2812,6 +3117,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

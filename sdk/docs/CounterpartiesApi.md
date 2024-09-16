@@ -51,12 +51,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CounterpartiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CounterpartiesApi>();
             var scope = "scope_example";  // string | The scope of the Counterparty Agreement to delete.
             var code = "code_example";  // string | The Counterparty Agreement to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AnnulSingleStructuredDataResponse result = apiInstance.DeleteCounterpartyAgreement(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code
                 AnnulSingleStructuredDataResponse result = apiInstance.DeleteCounterpartyAgreement(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -156,12 +167,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CounterpartiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CounterpartiesApi>();
             var scope = "scope_example";  // string | The scope of the Credit Support Annex to delete.
             var code = "code_example";  // string | The Credit Support Annex to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AnnulSingleStructuredDataResponse result = apiInstance.DeleteCreditSupportAnnex(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
                 AnnulSingleStructuredDataResponse result = apiInstance.DeleteCreditSupportAnnex(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -261,6 +283,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CounterpartiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CounterpartiesApi>();
             var scope = "scope_example";  // string | The scope of the Counterparty Agreement to retrieve.
             var code = "code_example";  // string | The name of the Counterparty Agreement to retrieve the data for.
@@ -268,6 +298,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetCounterpartyAgreementResponse result = apiInstance.GetCounterpartyAgreement(scope, code, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement
                 GetCounterpartyAgreementResponse result = apiInstance.GetCounterpartyAgreement(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -368,6 +401,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CounterpartiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CounterpartiesApi>();
             var scope = "scope_example";  // string | The scope of the Credit Support Annex to retrieve.
             var code = "code_example";  // string | The name of the Credit Support Annex to retrieve the data for.
@@ -375,6 +416,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetCreditSupportAnnexResponse result = apiInstance.GetCreditSupportAnnex(scope, code, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex
                 GetCreditSupportAnnexResponse result = apiInstance.GetCreditSupportAnnex(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -475,11 +519,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CounterpartiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CounterpartiesApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfGetCounterpartyAgreementResponse result = apiInstance.ListCounterpartyAgreements(asAt, opts: opts);
+
                 // [EARLY ACCESS] ListCounterpartyAgreements: List the set of Counterparty Agreements
                 ResourceListOfGetCounterpartyAgreementResponse result = apiInstance.ListCounterpartyAgreements(asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -578,11 +633,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CounterpartiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CounterpartiesApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfGetCreditSupportAnnexResponse result = apiInstance.ListCreditSupportAnnexes(asAt, opts: opts);
+
                 // [EARLY ACCESS] ListCreditSupportAnnexes: List the set of Credit Support Annexes
                 ResourceListOfGetCreditSupportAnnexResponse result = apiInstance.ListCreditSupportAnnexes(asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -681,11 +747,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CounterpartiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CounterpartiesApi>();
             var upsertCounterpartyAgreementRequest = new UpsertCounterpartyAgreementRequest(); // UpsertCounterpartyAgreementRequest | The Counterparty Agreement to update or insert
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertSingleStructuredDataResponse result = apiInstance.UpsertCounterpartyAgreement(upsertCounterpartyAgreementRequest, opts: opts);
+
                 // [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
                 UpsertSingleStructuredDataResponse result = apiInstance.UpsertCounterpartyAgreement(upsertCounterpartyAgreementRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -784,11 +861,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CounterpartiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CounterpartiesApi>();
             var upsertCreditSupportAnnexRequest = new UpsertCreditSupportAnnexRequest(); // UpsertCreditSupportAnnexRequest | The Credit Support Annex to update or insert
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertSingleStructuredDataResponse result = apiInstance.UpsertCreditSupportAnnex(upsertCreditSupportAnnexRequest, opts: opts);
+
                 // [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
                 UpsertSingleStructuredDataResponse result = apiInstance.UpsertCreditSupportAnnex(upsertCreditSupportAnnexRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

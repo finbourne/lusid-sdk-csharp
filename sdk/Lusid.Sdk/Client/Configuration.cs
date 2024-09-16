@@ -26,6 +26,16 @@ namespace Lusid.Sdk.Client
     public class Configuration : IReadableConfiguration
     {
         #region Constants
+        
+        /// <summary>
+        /// This default will be used if a timeout is not set anywhere else
+        /// </summary>
+        public const int DefaultTimeoutMs = 1800_000;
+        
+        /// <summary>
+        /// This default will be used if the rate limit retries are not set anywhere else
+        /// </summary>
+        public const int DefaultRateLimitRetries = 2;
 
         /// <summary>
         /// Version of the package.
@@ -131,8 +141,8 @@ namespace Lusid.Sdk.Client
             {
             };
 
-            // Setting Timeout has side effects (forces ApiClient creation).
-            Timeout = 100000;
+            TimeoutMs = DefaultTimeoutMs;
+            RateLimitRetries = DefaultRateLimitRetries;
         }
 
         /// <summary>
@@ -201,14 +211,36 @@ namespace Lusid.Sdk.Client
         }
 
         /// <summary>
+        /// Exists for backwards compatibility, use TimeoutMs instead
+        /// </summary>
+        public virtual int Timeout
+        {
+            get => TimeoutMs;
+            set => TimeoutMs = value;
+        }
+
+        /// <summary>
         /// Gets or sets the default headers.
         /// </summary>
         public virtual IDictionary<string, string> DefaultHeaders { get; set; }
 
+        private int _timeoutMs;
+
         /// <summary>
-        /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
+        /// Gets or sets the HTTP timeout (milliseconds) of the client. Defaults to <see cref="DefaultTimeoutMs"/>
         /// </summary>
-        public virtual int Timeout { get; set; }
+        /// <exception cref="ArgumentException"></exception>
+        public virtual int TimeoutMs
+        {
+            get => _timeoutMs;
+            set {
+                if (value < 1)
+                {
+                    throw new ArgumentException($"{nameof(TimeoutMs)} must be a positive integer between 1 and {int.MaxValue}");
+                }
+                _timeoutMs = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the proxy
@@ -532,6 +564,24 @@ namespace Lusid.Sdk.Client
             return url;
         }
 
+        private int _rateLimitRetries;
+
+        /// <summary>
+        /// The number of retries when being rate limited. Defaults to <see cref="DefaultRateLimitRetries"/>
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
+        public virtual int RateLimitRetries
+        {
+            get => _rateLimitRetries;
+            set {
+                if (value < 0)
+                {
+                    throw new ArgumentException($"{nameof(RateLimitRetries)} must be a positive integer between 0 and {int.MaxValue}");
+                }
+                _rateLimitRetries = value;
+            }
+        }
+
         #endregion Properties
 
         #region Methods
@@ -598,7 +648,7 @@ namespace Lusid.Sdk.Client
                 ApiKeyPrefix = apiKeyPrefix,
                 DefaultHeaders = defaultHeaders,
                 BasePath = second.BasePath ?? first.BasePath,
-                Timeout = second.Timeout,
+                TimeoutMs = second.TimeoutMs,
                 Proxy = second.Proxy ?? first.Proxy,
                 UserAgent = second.UserAgent ?? first.UserAgent,
                 Username = second.Username ?? first.Username,
@@ -611,6 +661,7 @@ namespace Lusid.Sdk.Client
                 TempFolderPath = second.TempFolderPath ?? first.TempFolderPath,
                 DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat,
                 ClientCertificates = second.ClientCertificates ?? first.ClientCertificates,
+                RateLimitRetries = second.RateLimitRetries
             };
             return config;
         }

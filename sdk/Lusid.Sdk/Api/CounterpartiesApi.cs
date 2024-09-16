@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Counterparty Agreement to delete.</param>
         /// <param name="code">The Counterparty Agreement to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        AnnulSingleStructuredDataResponse DeleteCounterpartyAgreement(string scope, string code, int operationIndex = 0);
+        AnnulSingleStructuredDataResponse DeleteCounterpartyAgreement(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Counterparty Agreement to delete.</param>
         /// <param name="code">The Counterparty Agreement to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        ApiResponse<AnnulSingleStructuredDataResponse> DeleteCounterpartyAgreementWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<AnnulSingleStructuredDataResponse> DeleteCounterpartyAgreementWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
         /// </summary>
@@ -65,8 +68,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Credit Support Annex to delete.</param>
         /// <param name="code">The Credit Support Annex to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        AnnulSingleStructuredDataResponse DeleteCreditSupportAnnex(string scope, string code, int operationIndex = 0);
+        AnnulSingleStructuredDataResponse DeleteCreditSupportAnnex(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
@@ -78,8 +82,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Credit Support Annex to delete.</param>
         /// <param name="code">The Credit Support Annex to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        ApiResponse<AnnulSingleStructuredDataResponse> DeleteCreditSupportAnnexWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<AnnulSingleStructuredDataResponse> DeleteCreditSupportAnnexWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement
         /// </summary>
@@ -91,8 +96,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Counterparty Agreement to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetCounterpartyAgreementResponse</returns>
-        GetCounterpartyAgreementResponse GetCounterpartyAgreement(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        GetCounterpartyAgreementResponse GetCounterpartyAgreement(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement
@@ -105,8 +111,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Counterparty Agreement to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetCounterpartyAgreementResponse</returns>
-        ApiResponse<GetCounterpartyAgreementResponse> GetCounterpartyAgreementWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<GetCounterpartyAgreementResponse> GetCounterpartyAgreementWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex
         /// </summary>
@@ -118,8 +125,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Credit Support Annex to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetCreditSupportAnnexResponse</returns>
-        GetCreditSupportAnnexResponse GetCreditSupportAnnex(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        GetCreditSupportAnnexResponse GetCreditSupportAnnex(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex
@@ -132,8 +140,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Credit Support Annex to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetCreditSupportAnnexResponse</returns>
-        ApiResponse<GetCreditSupportAnnexResponse> GetCreditSupportAnnexWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<GetCreditSupportAnnexResponse> GetCreditSupportAnnexWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListCounterpartyAgreements: List the set of Counterparty Agreements
         /// </summary>
@@ -143,8 +152,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetCounterpartyAgreementResponse</returns>
-        ResourceListOfGetCounterpartyAgreementResponse ListCounterpartyAgreements(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ResourceListOfGetCounterpartyAgreementResponse ListCounterpartyAgreements(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListCounterpartyAgreements: List the set of Counterparty Agreements
@@ -155,8 +165,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetCounterpartyAgreementResponse</returns>
-        ApiResponse<ResourceListOfGetCounterpartyAgreementResponse> ListCounterpartyAgreementsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ResourceListOfGetCounterpartyAgreementResponse> ListCounterpartyAgreementsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListCreditSupportAnnexes: List the set of Credit Support Annexes
         /// </summary>
@@ -166,8 +177,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetCreditSupportAnnexResponse</returns>
-        ResourceListOfGetCreditSupportAnnexResponse ListCreditSupportAnnexes(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ResourceListOfGetCreditSupportAnnexResponse ListCreditSupportAnnexes(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListCreditSupportAnnexes: List the set of Credit Support Annexes
@@ -178,8 +190,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetCreditSupportAnnexResponse</returns>
-        ApiResponse<ResourceListOfGetCreditSupportAnnexResponse> ListCreditSupportAnnexesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ResourceListOfGetCreditSupportAnnexResponse> ListCreditSupportAnnexesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
         /// </summary>
@@ -189,8 +202,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        UpsertSingleStructuredDataResponse UpsertCounterpartyAgreement(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0);
+        UpsertSingleStructuredDataResponse UpsertCounterpartyAgreement(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
@@ -201,8 +215,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        ApiResponse<UpsertSingleStructuredDataResponse> UpsertCounterpartyAgreementWithHttpInfo(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0);
+        ApiResponse<UpsertSingleStructuredDataResponse> UpsertCounterpartyAgreementWithHttpInfo(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
         /// </summary>
@@ -212,8 +227,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        UpsertSingleStructuredDataResponse UpsertCreditSupportAnnex(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0);
+        UpsertSingleStructuredDataResponse UpsertCreditSupportAnnex(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
@@ -224,8 +240,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        ApiResponse<UpsertSingleStructuredDataResponse> UpsertCreditSupportAnnexWithHttpInfo(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0);
+        ApiResponse<UpsertSingleStructuredDataResponse> UpsertCreditSupportAnnexWithHttpInfo(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -246,8 +263,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Counterparty Agreement to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteCounterpartyAgreementAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteCounterpartyAgreementAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code
@@ -260,8 +278,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Counterparty Agreement to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteCounterpartyAgreementWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteCounterpartyAgreementWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
         /// </summary>
@@ -273,8 +292,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Credit Support Annex to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteCreditSupportAnnexAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteCreditSupportAnnexAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
@@ -287,8 +307,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Credit Support Annex to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteCreditSupportAnnexWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AnnulSingleStructuredDataResponse>> DeleteCreditSupportAnnexWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement
         /// </summary>
@@ -301,8 +322,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetCounterpartyAgreementResponse</returns>
-        System.Threading.Tasks.Task<GetCounterpartyAgreementResponse> GetCounterpartyAgreementAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetCounterpartyAgreementResponse> GetCounterpartyAgreementAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement
@@ -316,8 +338,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetCounterpartyAgreementResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetCounterpartyAgreementResponse>> GetCounterpartyAgreementWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetCounterpartyAgreementResponse>> GetCounterpartyAgreementWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex
         /// </summary>
@@ -330,8 +353,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetCreditSupportAnnexResponse</returns>
-        System.Threading.Tasks.Task<GetCreditSupportAnnexResponse> GetCreditSupportAnnexAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetCreditSupportAnnexResponse> GetCreditSupportAnnexAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex
@@ -345,8 +369,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetCreditSupportAnnexResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetCreditSupportAnnexResponse>> GetCreditSupportAnnexWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetCreditSupportAnnexResponse>> GetCreditSupportAnnexWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListCounterpartyAgreements: List the set of Counterparty Agreements
         /// </summary>
@@ -357,8 +382,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetCounterpartyAgreementResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfGetCounterpartyAgreementResponse> ListCounterpartyAgreementsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfGetCounterpartyAgreementResponse> ListCounterpartyAgreementsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListCounterpartyAgreements: List the set of Counterparty Agreements
@@ -370,8 +396,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetCounterpartyAgreementResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetCounterpartyAgreementResponse>> ListCounterpartyAgreementsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetCounterpartyAgreementResponse>> ListCounterpartyAgreementsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListCreditSupportAnnexes: List the set of Credit Support Annexes
         /// </summary>
@@ -382,8 +409,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetCreditSupportAnnexResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfGetCreditSupportAnnexResponse> ListCreditSupportAnnexesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfGetCreditSupportAnnexResponse> ListCreditSupportAnnexesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListCreditSupportAnnexes: List the set of Credit Support Annexes
@@ -395,8 +423,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetCreditSupportAnnexResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetCreditSupportAnnexResponse>> ListCreditSupportAnnexesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfGetCreditSupportAnnexResponse>> ListCreditSupportAnnexesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
         /// </summary>
@@ -407,8 +436,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertCounterpartyAgreementAsync(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertCounterpartyAgreementAsync(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
@@ -420,8 +450,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertCounterpartyAgreementWithHttpInfoAsync(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertCounterpartyAgreementWithHttpInfoAsync(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
         /// </summary>
@@ -432,8 +463,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertCreditSupportAnnexAsync(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertCreditSupportAnnexAsync(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
@@ -445,8 +477,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertCreditSupportAnnexWithHttpInfoAsync(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertSingleStructuredDataResponse>> UpsertCreditSupportAnnexWithHttpInfoAsync(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -479,9 +512,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public CounterpartiesApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -571,10 +610,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Counterparty Agreement to delete.</param>
         /// <param name="code">The Counterparty Agreement to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        public AnnulSingleStructuredDataResponse DeleteCounterpartyAgreement(string scope, string code, int operationIndex = 0)
+        public AnnulSingleStructuredDataResponse DeleteCounterpartyAgreement(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteCounterpartyAgreementWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteCounterpartyAgreementWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -585,8 +625,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Counterparty Agreement to delete.</param>
         /// <param name="code">The Counterparty Agreement to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteCounterpartyAgreementWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteCounterpartyAgreementWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -601,6 +642,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -669,10 +720,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Counterparty Agreement to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteCounterpartyAgreementAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteCounterpartyAgreementAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteCounterpartyAgreementWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteCounterpartyAgreementWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -684,8 +736,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Counterparty Agreement to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteCounterpartyAgreementWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteCounterpartyAgreementWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -701,6 +754,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -769,10 +832,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Credit Support Annex to delete.</param>
         /// <param name="code">The Credit Support Annex to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulSingleStructuredDataResponse</returns>
-        public AnnulSingleStructuredDataResponse DeleteCreditSupportAnnex(string scope, string code, int operationIndex = 0)
+        public AnnulSingleStructuredDataResponse DeleteCreditSupportAnnex(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteCreditSupportAnnexWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = DeleteCreditSupportAnnexWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -783,8 +847,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Credit Support Annex to delete.</param>
         /// <param name="code">The Credit Support Annex to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteCreditSupportAnnexWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteCreditSupportAnnexWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -799,6 +864,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -867,10 +942,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Credit Support Annex to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteCreditSupportAnnexAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteCreditSupportAnnexAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteCreditSupportAnnexWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> localVarResponse = await DeleteCreditSupportAnnexWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -882,8 +958,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The Credit Support Annex to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteCreditSupportAnnexWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteCreditSupportAnnexWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -899,6 +976,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -968,10 +1055,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Counterparty Agreement to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetCounterpartyAgreementResponse</returns>
-        public GetCounterpartyAgreementResponse GetCounterpartyAgreement(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public GetCounterpartyAgreementResponse GetCounterpartyAgreement(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetCounterpartyAgreementResponse> localVarResponse = GetCounterpartyAgreementWithHttpInfo(scope, code, asAt);
+            Lusid.Sdk.Client.ApiResponse<GetCounterpartyAgreementResponse> localVarResponse = GetCounterpartyAgreementWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -983,8 +1071,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Counterparty Agreement to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetCounterpartyAgreementResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetCounterpartyAgreementResponse> GetCounterpartyAgreementWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetCounterpartyAgreementResponse> GetCounterpartyAgreementWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -999,6 +1088,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1072,10 +1171,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetCounterpartyAgreementResponse</returns>
-        public async System.Threading.Tasks.Task<GetCounterpartyAgreementResponse> GetCounterpartyAgreementAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetCounterpartyAgreementResponse> GetCounterpartyAgreementAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetCounterpartyAgreementResponse> localVarResponse = await GetCounterpartyAgreementWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetCounterpartyAgreementResponse> localVarResponse = await GetCounterpartyAgreementWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1088,8 +1188,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetCounterpartyAgreementResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetCounterpartyAgreementResponse>> GetCounterpartyAgreementWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetCounterpartyAgreementResponse>> GetCounterpartyAgreementWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1105,6 +1206,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1178,10 +1289,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Credit Support Annex to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetCreditSupportAnnexResponse</returns>
-        public GetCreditSupportAnnexResponse GetCreditSupportAnnex(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public GetCreditSupportAnnexResponse GetCreditSupportAnnex(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetCreditSupportAnnexResponse> localVarResponse = GetCreditSupportAnnexWithHttpInfo(scope, code, asAt);
+            Lusid.Sdk.Client.ApiResponse<GetCreditSupportAnnexResponse> localVarResponse = GetCreditSupportAnnexWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1193,8 +1305,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The name of the Credit Support Annex to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetCreditSupportAnnexResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetCreditSupportAnnexResponse> GetCreditSupportAnnexWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetCreditSupportAnnexResponse> GetCreditSupportAnnexWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1209,6 +1322,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1282,10 +1405,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetCreditSupportAnnexResponse</returns>
-        public async System.Threading.Tasks.Task<GetCreditSupportAnnexResponse> GetCreditSupportAnnexAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetCreditSupportAnnexResponse> GetCreditSupportAnnexAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetCreditSupportAnnexResponse> localVarResponse = await GetCreditSupportAnnexWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetCreditSupportAnnexResponse> localVarResponse = await GetCreditSupportAnnexWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1298,8 +1422,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetCreditSupportAnnexResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetCreditSupportAnnexResponse>> GetCreditSupportAnnexWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetCreditSupportAnnexResponse>> GetCreditSupportAnnexWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1315,6 +1440,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1386,10 +1521,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetCounterpartyAgreementResponse</returns>
-        public ResourceListOfGetCounterpartyAgreementResponse ListCounterpartyAgreements(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public ResourceListOfGetCounterpartyAgreementResponse ListCounterpartyAgreements(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCounterpartyAgreementResponse> localVarResponse = ListCounterpartyAgreementsWithHttpInfo(asAt);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCounterpartyAgreementResponse> localVarResponse = ListCounterpartyAgreementsWithHttpInfo(asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1399,10 +1535,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetCounterpartyAgreementResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCounterpartyAgreementResponse> ListCounterpartyAgreementsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCounterpartyAgreementResponse> ListCounterpartyAgreementsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1472,10 +1619,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetCounterpartyAgreementResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfGetCounterpartyAgreementResponse> ListCounterpartyAgreementsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfGetCounterpartyAgreementResponse> ListCounterpartyAgreementsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCounterpartyAgreementResponse> localVarResponse = await ListCounterpartyAgreementsWithHttpInfoAsync(asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCounterpartyAgreementResponse> localVarResponse = await ListCounterpartyAgreementsWithHttpInfoAsync(asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1486,11 +1634,22 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetCounterpartyAgreementResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCounterpartyAgreementResponse>> ListCounterpartyAgreementsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCounterpartyAgreementResponse>> ListCounterpartyAgreementsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1560,10 +1719,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetCreditSupportAnnexResponse</returns>
-        public ResourceListOfGetCreditSupportAnnexResponse ListCreditSupportAnnexes(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public ResourceListOfGetCreditSupportAnnexResponse ListCreditSupportAnnexes(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCreditSupportAnnexResponse> localVarResponse = ListCreditSupportAnnexesWithHttpInfo(asAt);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCreditSupportAnnexResponse> localVarResponse = ListCreditSupportAnnexesWithHttpInfo(asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1573,10 +1733,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetCreditSupportAnnexResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCreditSupportAnnexResponse> ListCreditSupportAnnexesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCreditSupportAnnexResponse> ListCreditSupportAnnexesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1646,10 +1817,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetCreditSupportAnnexResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfGetCreditSupportAnnexResponse> ListCreditSupportAnnexesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfGetCreditSupportAnnexResponse> ListCreditSupportAnnexesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCreditSupportAnnexResponse> localVarResponse = await ListCreditSupportAnnexesWithHttpInfoAsync(asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCreditSupportAnnexResponse> localVarResponse = await ListCreditSupportAnnexesWithHttpInfoAsync(asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1660,11 +1832,22 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetCreditSupportAnnexResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCreditSupportAnnexResponse>> ListCreditSupportAnnexesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetCreditSupportAnnexResponse>> ListCreditSupportAnnexesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1734,10 +1917,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        public UpsertSingleStructuredDataResponse UpsertCounterpartyAgreement(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0)
+        public UpsertSingleStructuredDataResponse UpsertCounterpartyAgreement(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertCounterpartyAgreementWithHttpInfo(upsertCounterpartyAgreementRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertCounterpartyAgreementWithHttpInfo(upsertCounterpartyAgreementRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1747,8 +1931,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertCounterpartyAgreementWithHttpInfo(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertCounterpartyAgreementWithHttpInfo(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertCounterpartyAgreementRequest' is set
             if (upsertCounterpartyAgreementRequest == null)
@@ -1757,6 +1942,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1827,10 +2022,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertCounterpartyAgreementAsync(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertCounterpartyAgreementAsync(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertCounterpartyAgreementWithHttpInfoAsync(upsertCounterpartyAgreementRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertCounterpartyAgreementWithHttpInfoAsync(upsertCounterpartyAgreementRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1841,8 +2037,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertCounterpartyAgreementWithHttpInfoAsync(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertCounterpartyAgreementWithHttpInfoAsync(UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertCounterpartyAgreementRequest' is set
             if (upsertCounterpartyAgreementRequest == null)
@@ -1852,6 +2049,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1922,10 +2129,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        public UpsertSingleStructuredDataResponse UpsertCreditSupportAnnex(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0)
+        public UpsertSingleStructuredDataResponse UpsertCreditSupportAnnex(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertCreditSupportAnnexWithHttpInfo(upsertCreditSupportAnnexRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertCreditSupportAnnexWithHttpInfo(upsertCreditSupportAnnexRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1935,8 +2143,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertCreditSupportAnnexWithHttpInfo(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertCreditSupportAnnexWithHttpInfo(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertCreditSupportAnnexRequest' is set
             if (upsertCreditSupportAnnexRequest == null)
@@ -1945,6 +2154,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2015,10 +2234,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertCreditSupportAnnexAsync(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertCreditSupportAnnexAsync(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertCreditSupportAnnexWithHttpInfoAsync(upsertCreditSupportAnnexRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertCreditSupportAnnexWithHttpInfoAsync(upsertCreditSupportAnnexRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2029,8 +2249,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertCreditSupportAnnexWithHttpInfoAsync(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertCreditSupportAnnexWithHttpInfoAsync(UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'upsertCreditSupportAnnexRequest' is set
             if (upsertCreditSupportAnnexRequest == null)
@@ -2040,6 +2261,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

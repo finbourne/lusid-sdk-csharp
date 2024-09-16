@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">Scope of the sequence.</param>
         /// <param name="createSequenceRequest">Request to create sequence</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>SequenceDefinition</returns>
-        SequenceDefinition CreateSequence(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0);
+        SequenceDefinition CreateSequence(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateSequence: Create a new sequence
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">Scope of the sequence.</param>
         /// <param name="createSequenceRequest">Request to create sequence</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of SequenceDefinition</returns>
-        ApiResponse<SequenceDefinition> CreateSequenceWithHttpInfo(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0);
+        ApiResponse<SequenceDefinition> CreateSequenceWithHttpInfo(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetSequence: Get a specified sequence
         /// </summary>
@@ -65,8 +68,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">Scope of the sequence.</param>
         /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>SequenceDefinition</returns>
-        SequenceDefinition GetSequence(string scope, string code, int operationIndex = 0);
+        SequenceDefinition GetSequence(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetSequence: Get a specified sequence
@@ -78,8 +82,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">Scope of the sequence.</param>
         /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of SequenceDefinition</returns>
-        ApiResponse<SequenceDefinition> GetSequenceWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<SequenceDefinition> GetSequenceWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListSequences: List Sequences
         /// </summary>
@@ -91,8 +96,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfSequenceDefinition</returns>
-        PagedResourceListOfSequenceDefinition ListSequences(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        PagedResourceListOfSequenceDefinition ListSequences(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListSequences: List Sequences
@@ -105,8 +111,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfSequenceDefinition</returns>
-        ApiResponse<PagedResourceListOfSequenceDefinition> ListSequencesWithHttpInfo(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfSequenceDefinition> ListSequencesWithHttpInfo(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] Next: Get next values from sequence
         /// </summary>
@@ -118,8 +125,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>NextValueInSequenceResponse</returns>
-        NextValueInSequenceResponse Next(string scope, string code, int? batch = default(int?), int operationIndex = 0);
+        NextValueInSequenceResponse Next(string scope, string code, int? batch = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] Next: Get next values from sequence
@@ -132,8 +140,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of NextValueInSequenceResponse</returns>
-        ApiResponse<NextValueInSequenceResponse> NextWithHttpInfo(string scope, string code, int? batch = default(int?), int operationIndex = 0);
+        ApiResponse<NextValueInSequenceResponse> NextWithHttpInfo(string scope, string code, int? batch = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -154,8 +163,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createSequenceRequest">Request to create sequence</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of SequenceDefinition</returns>
-        System.Threading.Tasks.Task<SequenceDefinition> CreateSequenceAsync(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SequenceDefinition> CreateSequenceAsync(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateSequence: Create a new sequence
@@ -168,8 +178,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createSequenceRequest">Request to create sequence</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (SequenceDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SequenceDefinition>> CreateSequenceWithHttpInfoAsync(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SequenceDefinition>> CreateSequenceWithHttpInfoAsync(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetSequence: Get a specified sequence
         /// </summary>
@@ -181,8 +192,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of SequenceDefinition</returns>
-        System.Threading.Tasks.Task<SequenceDefinition> GetSequenceAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SequenceDefinition> GetSequenceAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetSequence: Get a specified sequence
@@ -195,8 +207,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (SequenceDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SequenceDefinition>> GetSequenceWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SequenceDefinition>> GetSequenceWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListSequences: List Sequences
         /// </summary>
@@ -209,8 +222,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfSequenceDefinition</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfSequenceDefinition> ListSequencesAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfSequenceDefinition> ListSequencesAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListSequences: List Sequences
@@ -224,8 +238,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfSequenceDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfSequenceDefinition>> ListSequencesWithHttpInfoAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfSequenceDefinition>> ListSequencesWithHttpInfoAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] Next: Get next values from sequence
         /// </summary>
@@ -238,8 +253,9 @@ namespace Lusid.Sdk.Api
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of NextValueInSequenceResponse</returns>
-        System.Threading.Tasks.Task<NextValueInSequenceResponse> NextAsync(string scope, string code, int? batch = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<NextValueInSequenceResponse> NextAsync(string scope, string code, int? batch = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] Next: Get next values from sequence
@@ -253,8 +269,9 @@ namespace Lusid.Sdk.Api
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (NextValueInSequenceResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NextValueInSequenceResponse>> NextWithHttpInfoAsync(string scope, string code, int? batch = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<NextValueInSequenceResponse>> NextWithHttpInfoAsync(string scope, string code, int? batch = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -287,9 +304,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public SequencesApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -379,10 +402,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">Scope of the sequence.</param>
         /// <param name="createSequenceRequest">Request to create sequence</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>SequenceDefinition</returns>
-        public SequenceDefinition CreateSequence(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0)
+        public SequenceDefinition CreateSequence(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<SequenceDefinition> localVarResponse = CreateSequenceWithHttpInfo(scope, createSequenceRequest);
+            Lusid.Sdk.Client.ApiResponse<SequenceDefinition> localVarResponse = CreateSequenceWithHttpInfo(scope, createSequenceRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -393,8 +417,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">Scope of the sequence.</param>
         /// <param name="createSequenceRequest">Request to create sequence</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of SequenceDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<SequenceDefinition> CreateSequenceWithHttpInfo(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<SequenceDefinition> CreateSequenceWithHttpInfo(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -409,6 +434,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -481,10 +516,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createSequenceRequest">Request to create sequence</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of SequenceDefinition</returns>
-        public async System.Threading.Tasks.Task<SequenceDefinition> CreateSequenceAsync(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SequenceDefinition> CreateSequenceAsync(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<SequenceDefinition> localVarResponse = await CreateSequenceWithHttpInfoAsync(scope, createSequenceRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<SequenceDefinition> localVarResponse = await CreateSequenceWithHttpInfoAsync(scope, createSequenceRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -496,8 +532,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createSequenceRequest">Request to create sequence</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (SequenceDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<SequenceDefinition>> CreateSequenceWithHttpInfoAsync(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<SequenceDefinition>> CreateSequenceWithHttpInfoAsync(string scope, CreateSequenceRequest createSequenceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -513,6 +550,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -585,10 +632,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">Scope of the sequence.</param>
         /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>SequenceDefinition</returns>
-        public SequenceDefinition GetSequence(string scope, string code, int operationIndex = 0)
+        public SequenceDefinition GetSequence(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<SequenceDefinition> localVarResponse = GetSequenceWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<SequenceDefinition> localVarResponse = GetSequenceWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -599,8 +647,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">Scope of the sequence.</param>
         /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of SequenceDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<SequenceDefinition> GetSequenceWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<SequenceDefinition> GetSequenceWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -615,6 +664,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -683,10 +742,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of SequenceDefinition</returns>
-        public async System.Threading.Tasks.Task<SequenceDefinition> GetSequenceAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SequenceDefinition> GetSequenceAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<SequenceDefinition> localVarResponse = await GetSequenceWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<SequenceDefinition> localVarResponse = await GetSequenceWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -698,8 +758,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (SequenceDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<SequenceDefinition>> GetSequenceWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<SequenceDefinition>> GetSequenceWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -715,6 +776,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -784,10 +855,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfSequenceDefinition</returns>
-        public PagedResourceListOfSequenceDefinition ListSequences(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public PagedResourceListOfSequenceDefinition ListSequences(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfSequenceDefinition> localVarResponse = ListSequencesWithHttpInfo(page, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfSequenceDefinition> localVarResponse = ListSequencesWithHttpInfo(page, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -799,10 +871,21 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfSequenceDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfSequenceDefinition> ListSequencesWithHttpInfo(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfSequenceDefinition> ListSequencesWithHttpInfo(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -882,10 +965,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfSequenceDefinition</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfSequenceDefinition> ListSequencesAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfSequenceDefinition> ListSequencesAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfSequenceDefinition> localVarResponse = await ListSequencesWithHttpInfoAsync(page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfSequenceDefinition> localVarResponse = await ListSequencesWithHttpInfoAsync(page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -898,11 +982,22 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfSequenceDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfSequenceDefinition>> ListSequencesWithHttpInfoAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfSequenceDefinition>> ListSequencesWithHttpInfoAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -982,10 +1077,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>NextValueInSequenceResponse</returns>
-        public NextValueInSequenceResponse Next(string scope, string code, int? batch = default(int?), int operationIndex = 0)
+        public NextValueInSequenceResponse Next(string scope, string code, int? batch = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<NextValueInSequenceResponse> localVarResponse = NextWithHttpInfo(scope, code, batch);
+            Lusid.Sdk.Client.ApiResponse<NextValueInSequenceResponse> localVarResponse = NextWithHttpInfo(scope, code, batch, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -997,8 +1093,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of NextValueInSequenceResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<NextValueInSequenceResponse> NextWithHttpInfo(string scope, string code, int? batch = default(int?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<NextValueInSequenceResponse> NextWithHttpInfo(string scope, string code, int? batch = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1013,6 +1110,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1086,10 +1193,11 @@ namespace Lusid.Sdk.Api
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of NextValueInSequenceResponse</returns>
-        public async System.Threading.Tasks.Task<NextValueInSequenceResponse> NextAsync(string scope, string code, int? batch = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NextValueInSequenceResponse> NextAsync(string scope, string code, int? batch = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<NextValueInSequenceResponse> localVarResponse = await NextWithHttpInfoAsync(scope, code, batch, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<NextValueInSequenceResponse> localVarResponse = await NextWithHttpInfoAsync(scope, code, batch, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1102,8 +1210,9 @@ namespace Lusid.Sdk.Api
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (NextValueInSequenceResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<NextValueInSequenceResponse>> NextWithHttpInfoAsync(string scope, string code, int? batch = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<NextValueInSequenceResponse>> NextWithHttpInfoAsync(string scope, string code, int? batch = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1119,6 +1228,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

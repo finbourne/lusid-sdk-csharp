@@ -47,12 +47,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ExecutionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ExecutionsApi>();
             var scope = "scope_example";  // string | The execution scope.
             var code = "code_example";  // string | The execution's code. This, together with the scope uniquely identifies the execution to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteExecution(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeleteExecution: Delete execution
                 DeletedEntityResponse result = apiInstance.DeleteExecution(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -152,6 +163,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ExecutionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ExecutionsApi>();
             var scope = "scope_example";  // string | The scope to which the execution belongs.
             var code = "code_example";  // string | The execution's unique identifier.
@@ -160,6 +179,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Execution result = apiInstance.GetExecution(scope, code, asAt, propertyKeys, opts: opts);
+
                 // [EARLY ACCESS] GetExecution: Get Execution
                 Execution result = apiInstance.GetExecution(scope, code, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -261,6 +283,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ExecutionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ExecutionsApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the execution. Defaults to return the latest version of the execution if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing execution from a previous call to list executions.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
@@ -271,6 +301,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfExecution result = apiInstance.ListExecutions(asAt, page, sortBy, limit, filter, propertyKeys, opts: opts);
+
                 // ListExecutions: List Executions
                 PagedResourceListOfExecution result = apiInstance.ListExecutions(asAt, page, sortBy, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -374,11 +407,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ExecutionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ExecutionsApi>();
             var executionSetRequest = new ExecutionSetRequest?(); // ExecutionSetRequest? | The collection of execution requests. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfExecution result = apiInstance.UpsertExecutions(executionSetRequest, opts: opts);
+
                 // UpsertExecutions: Upsert Execution
                 ResourceListOfExecution result = apiInstance.UpsertExecutions(executionSetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

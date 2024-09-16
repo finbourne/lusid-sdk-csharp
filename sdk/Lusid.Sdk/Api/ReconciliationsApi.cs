@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the reconciliation</param>
         /// <param name="createReconciliationRequest">The definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Reconciliation</returns>
-        Reconciliation CreateScheduledReconciliation(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0);
+        Reconciliation CreateScheduledReconciliation(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateScheduledReconciliation: Create a scheduled reconciliation
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the reconciliation</param>
         /// <param name="createReconciliationRequest">The definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Reconciliation</returns>
-        ApiResponse<Reconciliation> CreateScheduledReconciliationWithHttpInfo(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0);
+        ApiResponse<Reconciliation> CreateScheduledReconciliationWithHttpInfo(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteReconciliation: Delete scheduled reconciliation
         /// </summary>
@@ -65,8 +68,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the scheduled reconciliation</param>
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteReconciliation(string scope, string code, int operationIndex = 0);
+        DeletedEntityResponse DeleteReconciliation(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteReconciliation: Delete scheduled reconciliation
@@ -78,8 +82,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the scheduled reconciliation</param>
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteReconciliationWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteReconciliationWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteReconciliationMapping: Delete a mapping
         /// </summary>
@@ -90,8 +95,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the mapping.</param>
         /// <param name="code">The code fof the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string DeleteReconciliationMapping(string scope, string code, int operationIndex = 0);
+        string DeleteReconciliationMapping(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteReconciliationMapping: Delete a mapping
@@ -103,8 +109,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the mapping.</param>
         /// <param name="code">The code fof the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> DeleteReconciliationMappingWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<string> DeleteReconciliationMappingWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetReconciliation: Get scheduled reconciliation
         /// </summary>
@@ -118,8 +125,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Reconciliation</returns>
-        Reconciliation GetReconciliation(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        Reconciliation GetReconciliation(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetReconciliation: Get scheduled reconciliation
@@ -134,8 +142,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Reconciliation</returns>
-        ApiResponse<Reconciliation> GetReconciliationWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ApiResponse<Reconciliation> GetReconciliationWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetReconciliationMapping: Get a mapping
         /// </summary>
@@ -146,8 +155,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the mapping.</param>
         /// <param name="code">The code of the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Mapping</returns>
-        Mapping GetReconciliationMapping(string scope, string code, int operationIndex = 0);
+        Mapping GetReconciliationMapping(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetReconciliationMapping: Get a mapping
@@ -159,8 +169,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the mapping.</param>
         /// <param name="code">The code of the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Mapping</returns>
-        ApiResponse<Mapping> GetReconciliationMappingWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<Mapping> GetReconciliationMappingWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings
         /// </summary>
@@ -170,8 +181,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfMapping</returns>
-        ResourceListOfMapping ListReconciliationMappings(string? reconciliationType = default(string?), int operationIndex = 0);
+        ResourceListOfMapping ListReconciliationMappings(string? reconciliationType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings
@@ -182,8 +194,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfMapping</returns>
-        ApiResponse<ResourceListOfMapping> ListReconciliationMappingsWithHttpInfo(string? reconciliationType = default(string?), int operationIndex = 0);
+        ApiResponse<ResourceListOfMapping> ListReconciliationMappingsWithHttpInfo(string? reconciliationType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations
         /// </summary>
@@ -198,8 +211,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfReconciliation</returns>
-        PagedResourceListOfReconciliation ListReconciliations(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfReconciliation ListReconciliations(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations
@@ -215,8 +229,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfReconciliation</returns>
-        ApiResponse<PagedResourceListOfReconciliation> ListReconciliationsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfReconciliation> ListReconciliationsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero.
         /// </summary>
@@ -226,8 +241,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ReconciliationResponse</returns>
-        ReconciliationResponse ReconcileGeneric(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0);
+        ReconciliationResponse ReconcileGeneric(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero.
@@ -238,8 +254,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ReconciliationResponse</returns>
-        ApiResponse<ReconciliationResponse> ReconcileGenericWithHttpInfo(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0);
+        ApiResponse<ReconciliationResponse> ReconcileGenericWithHttpInfo(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
         /// </summary>
@@ -252,8 +269,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfReconciliationBreak</returns>
-        ResourceListOfReconciliationBreak ReconcileHoldings(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0);
+        ResourceListOfReconciliationBreak ReconcileHoldings(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
@@ -267,8 +285,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        ApiResponse<ResourceListOfReconciliationBreak> ReconcileHoldingsWithHttpInfo(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0);
+        ApiResponse<ResourceListOfReconciliationBreak> ReconcileHoldingsWithHttpInfo(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
         /// </summary>
@@ -278,8 +297,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineValuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ListAggregationReconciliation</returns>
-        ListAggregationReconciliation ReconcileInline(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0);
+        ListAggregationReconciliation ReconcileInline(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
@@ -290,8 +310,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineValuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ListAggregationReconciliation</returns>
-        ApiResponse<ListAggregationReconciliation> ReconcileInlineWithHttpInfo(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0);
+        ApiResponse<ListAggregationReconciliation> ReconcileInlineWithHttpInfo(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
         /// </summary>
@@ -301,8 +322,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionsReconciliationsResponse</returns>
-        TransactionsReconciliationsResponse ReconcileTransactions(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0);
+        TransactionsReconciliationsResponse ReconcileTransactions(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
@@ -313,8 +335,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionsReconciliationsResponse</returns>
-        ApiResponse<TransactionsReconciliationsResponse> ReconcileTransactionsWithHttpInfo(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0);
+        ApiResponse<TransactionsReconciliationsResponse> ReconcileTransactionsWithHttpInfo(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation.
         /// </summary>
@@ -324,8 +347,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ReconciliationResponse</returns>
-        ReconciliationResponse ReconcileTransactionsV2(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0);
+        ReconciliationResponse ReconcileTransactionsV2(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation.
@@ -336,8 +360,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ReconciliationResponse</returns>
-        ApiResponse<ReconciliationResponse> ReconcileTransactionsV2WithHttpInfo(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0);
+        ApiResponse<ReconciliationResponse> ReconcileTransactionsV2WithHttpInfo(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
         /// </summary>
@@ -347,8 +372,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="valuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ListAggregationReconciliation</returns>
-        ListAggregationReconciliation ReconcileValuation(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0);
+        ListAggregationReconciliation ReconcileValuation(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
@@ -359,8 +385,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="valuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ListAggregationReconciliation</returns>
-        ApiResponse<ListAggregationReconciliation> ReconcileValuationWithHttpInfo(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0);
+        ApiResponse<ListAggregationReconciliation> ReconcileValuationWithHttpInfo(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateReconciliation: Update scheduled reconciliation
         /// </summary>
@@ -372,8 +399,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the reconciliation to be updated</param>
         /// <param name="updateReconciliationRequest">The updated definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Reconciliation</returns>
-        Reconciliation UpdateReconciliation(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0);
+        Reconciliation UpdateReconciliation(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateReconciliation: Update scheduled reconciliation
@@ -386,8 +414,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the reconciliation to be updated</param>
         /// <param name="updateReconciliationRequest">The updated definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Reconciliation</returns>
-        ApiResponse<Reconciliation> UpdateReconciliationWithHttpInfo(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0);
+        ApiResponse<Reconciliation> UpdateReconciliationWithHttpInfo(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
         /// </summary>
@@ -397,8 +426,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Mapping</returns>
-        Mapping UpsertReconciliationMapping(Mapping? mapping = default(Mapping?), int operationIndex = 0);
+        Mapping UpsertReconciliationMapping(Mapping? mapping = default(Mapping?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
@@ -409,8 +439,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Mapping</returns>
-        ApiResponse<Mapping> UpsertReconciliationMappingWithHttpInfo(Mapping? mapping = default(Mapping?), int operationIndex = 0);
+        ApiResponse<Mapping> UpsertReconciliationMappingWithHttpInfo(Mapping? mapping = default(Mapping?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -431,8 +462,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createReconciliationRequest">The definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Reconciliation</returns>
-        System.Threading.Tasks.Task<Reconciliation> CreateScheduledReconciliationAsync(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Reconciliation> CreateScheduledReconciliationAsync(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateScheduledReconciliation: Create a scheduled reconciliation
@@ -445,8 +477,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createReconciliationRequest">The definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Reconciliation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Reconciliation>> CreateScheduledReconciliationWithHttpInfoAsync(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Reconciliation>> CreateScheduledReconciliationWithHttpInfoAsync(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteReconciliation: Delete scheduled reconciliation
         /// </summary>
@@ -458,8 +491,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteReconciliationAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteReconciliationAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteReconciliation: Delete scheduled reconciliation
@@ -472,8 +506,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteReconciliationWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteReconciliationWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteReconciliationMapping: Delete a mapping
         /// </summary>
@@ -485,8 +520,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code fof the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> DeleteReconciliationMappingAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> DeleteReconciliationMappingAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteReconciliationMapping: Delete a mapping
@@ -499,8 +535,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code fof the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> DeleteReconciliationMappingWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> DeleteReconciliationMappingWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetReconciliation: Get scheduled reconciliation
         /// </summary>
@@ -515,8 +552,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Reconciliation</returns>
-        System.Threading.Tasks.Task<Reconciliation> GetReconciliationAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Reconciliation> GetReconciliationAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetReconciliation: Get scheduled reconciliation
@@ -532,8 +570,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Reconciliation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Reconciliation>> GetReconciliationWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Reconciliation>> GetReconciliationWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetReconciliationMapping: Get a mapping
         /// </summary>
@@ -545,8 +584,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Mapping</returns>
-        System.Threading.Tasks.Task<Mapping> GetReconciliationMappingAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Mapping> GetReconciliationMappingAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetReconciliationMapping: Get a mapping
@@ -559,8 +599,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Mapping)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Mapping>> GetReconciliationMappingWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Mapping>> GetReconciliationMappingWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings
         /// </summary>
@@ -571,8 +612,9 @@ namespace Lusid.Sdk.Api
         /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfMapping</returns>
-        System.Threading.Tasks.Task<ResourceListOfMapping> ListReconciliationMappingsAsync(string? reconciliationType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfMapping> ListReconciliationMappingsAsync(string? reconciliationType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings
@@ -584,8 +626,9 @@ namespace Lusid.Sdk.Api
         /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfMapping)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfMapping>> ListReconciliationMappingsWithHttpInfoAsync(string? reconciliationType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfMapping>> ListReconciliationMappingsWithHttpInfoAsync(string? reconciliationType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations
         /// </summary>
@@ -601,8 +644,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfReconciliation</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfReconciliation> ListReconciliationsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfReconciliation> ListReconciliationsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations
@@ -619,8 +663,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfReconciliation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfReconciliation>> ListReconciliationsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfReconciliation>> ListReconciliationsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero.
         /// </summary>
@@ -631,8 +676,9 @@ namespace Lusid.Sdk.Api
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ReconciliationResponse</returns>
-        System.Threading.Tasks.Task<ReconciliationResponse> ReconcileGenericAsync(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ReconciliationResponse> ReconcileGenericAsync(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero.
@@ -644,8 +690,9 @@ namespace Lusid.Sdk.Api
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ReconciliationResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ReconciliationResponse>> ReconcileGenericWithHttpInfoAsync(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ReconciliationResponse>> ReconcileGenericWithHttpInfoAsync(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
         /// </summary>
@@ -659,8 +706,9 @@ namespace Lusid.Sdk.Api
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
@@ -675,8 +723,9 @@ namespace Lusid.Sdk.Api
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsWithHttpInfoAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsWithHttpInfoAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
         /// </summary>
@@ -687,8 +736,9 @@ namespace Lusid.Sdk.Api
         /// <param name="inlineValuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ListAggregationReconciliation</returns>
-        System.Threading.Tasks.Task<ListAggregationReconciliation> ReconcileInlineAsync(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListAggregationReconciliation> ReconcileInlineAsync(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
@@ -700,8 +750,9 @@ namespace Lusid.Sdk.Api
         /// <param name="inlineValuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ListAggregationReconciliation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListAggregationReconciliation>> ReconcileInlineWithHttpInfoAsync(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListAggregationReconciliation>> ReconcileInlineWithHttpInfoAsync(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
         /// </summary>
@@ -712,8 +763,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionReconciliationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionsReconciliationsResponse</returns>
-        System.Threading.Tasks.Task<TransactionsReconciliationsResponse> ReconcileTransactionsAsync(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionsReconciliationsResponse> ReconcileTransactionsAsync(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
@@ -725,8 +777,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionReconciliationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionsReconciliationsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionsReconciliationsResponse>> ReconcileTransactionsWithHttpInfoAsync(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionsReconciliationsResponse>> ReconcileTransactionsWithHttpInfoAsync(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation.
         /// </summary>
@@ -737,8 +790,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ReconciliationResponse</returns>
-        System.Threading.Tasks.Task<ReconciliationResponse> ReconcileTransactionsV2Async(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ReconciliationResponse> ReconcileTransactionsV2Async(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation.
@@ -750,8 +804,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ReconciliationResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ReconciliationResponse>> ReconcileTransactionsV2WithHttpInfoAsync(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ReconciliationResponse>> ReconcileTransactionsV2WithHttpInfoAsync(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
         /// </summary>
@@ -762,8 +817,9 @@ namespace Lusid.Sdk.Api
         /// <param name="valuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ListAggregationReconciliation</returns>
-        System.Threading.Tasks.Task<ListAggregationReconciliation> ReconcileValuationAsync(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListAggregationReconciliation> ReconcileValuationAsync(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
@@ -775,8 +831,9 @@ namespace Lusid.Sdk.Api
         /// <param name="valuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ListAggregationReconciliation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListAggregationReconciliation>> ReconcileValuationWithHttpInfoAsync(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListAggregationReconciliation>> ReconcileValuationWithHttpInfoAsync(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateReconciliation: Update scheduled reconciliation
         /// </summary>
@@ -789,8 +846,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateReconciliationRequest">The updated definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Reconciliation</returns>
-        System.Threading.Tasks.Task<Reconciliation> UpdateReconciliationAsync(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Reconciliation> UpdateReconciliationAsync(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateReconciliation: Update scheduled reconciliation
@@ -804,8 +862,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateReconciliationRequest">The updated definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Reconciliation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Reconciliation>> UpdateReconciliationWithHttpInfoAsync(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Reconciliation>> UpdateReconciliationWithHttpInfoAsync(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
         /// </summary>
@@ -816,8 +875,9 @@ namespace Lusid.Sdk.Api
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Mapping</returns>
-        System.Threading.Tasks.Task<Mapping> UpsertReconciliationMappingAsync(Mapping? mapping = default(Mapping?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Mapping> UpsertReconciliationMappingAsync(Mapping? mapping = default(Mapping?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
@@ -829,8 +889,9 @@ namespace Lusid.Sdk.Api
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Mapping)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Mapping>> UpsertReconciliationMappingWithHttpInfoAsync(Mapping? mapping = default(Mapping?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Mapping>> UpsertReconciliationMappingWithHttpInfoAsync(Mapping? mapping = default(Mapping?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -863,9 +924,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public ReconciliationsApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -955,10 +1022,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the reconciliation</param>
         /// <param name="createReconciliationRequest">The definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Reconciliation</returns>
-        public Reconciliation CreateScheduledReconciliation(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0)
+        public Reconciliation CreateScheduledReconciliation(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Reconciliation> localVarResponse = CreateScheduledReconciliationWithHttpInfo(scope, createReconciliationRequest);
+            Lusid.Sdk.Client.ApiResponse<Reconciliation> localVarResponse = CreateScheduledReconciliationWithHttpInfo(scope, createReconciliationRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -969,8 +1037,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the reconciliation</param>
         /// <param name="createReconciliationRequest">The definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Reconciliation</returns>
-        public Lusid.Sdk.Client.ApiResponse<Reconciliation> CreateScheduledReconciliationWithHttpInfo(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Reconciliation> CreateScheduledReconciliationWithHttpInfo(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -979,6 +1048,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1051,10 +1130,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createReconciliationRequest">The definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Reconciliation</returns>
-        public async System.Threading.Tasks.Task<Reconciliation> CreateScheduledReconciliationAsync(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Reconciliation> CreateScheduledReconciliationAsync(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Reconciliation> localVarResponse = await CreateScheduledReconciliationWithHttpInfoAsync(scope, createReconciliationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Reconciliation> localVarResponse = await CreateScheduledReconciliationWithHttpInfoAsync(scope, createReconciliationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1066,8 +1146,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createReconciliationRequest">The definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Reconciliation)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Reconciliation>> CreateScheduledReconciliationWithHttpInfoAsync(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Reconciliation>> CreateScheduledReconciliationWithHttpInfoAsync(string scope, CreateReconciliationRequest? createReconciliationRequest = default(CreateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1077,6 +1158,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1149,10 +1240,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the scheduled reconciliation</param>
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteReconciliation(string scope, string code, int operationIndex = 0)
+        public DeletedEntityResponse DeleteReconciliation(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteReconciliationWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteReconciliationWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1163,8 +1255,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the scheduled reconciliation</param>
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteReconciliationWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteReconciliationWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1179,6 +1272,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1247,10 +1350,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteReconciliationAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteReconciliationAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteReconciliationWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteReconciliationWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1262,8 +1366,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteReconciliationWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteReconciliationWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1279,6 +1384,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1347,10 +1462,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the mapping.</param>
         /// <param name="code">The code fof the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string DeleteReconciliationMapping(string scope, string code, int operationIndex = 0)
+        public string DeleteReconciliationMapping(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<string> localVarResponse = DeleteReconciliationMappingWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<string> localVarResponse = DeleteReconciliationMappingWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1361,8 +1477,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the mapping.</param>
         /// <param name="code">The code fof the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Lusid.Sdk.Client.ApiResponse<string> DeleteReconciliationMappingWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<string> DeleteReconciliationMappingWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1377,6 +1494,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1445,10 +1572,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code fof the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> DeleteReconciliationMappingAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> DeleteReconciliationMappingAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<string> localVarResponse = await DeleteReconciliationMappingWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<string> localVarResponse = await DeleteReconciliationMappingWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1460,8 +1588,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code fof the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<string>> DeleteReconciliationMappingWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<string>> DeleteReconciliationMappingWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1477,6 +1606,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1548,10 +1687,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Reconciliation</returns>
-        public Reconciliation GetReconciliation(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Reconciliation GetReconciliation(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Reconciliation> localVarResponse = GetReconciliationWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
+            Lusid.Sdk.Client.ApiResponse<Reconciliation> localVarResponse = GetReconciliationWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1565,8 +1705,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Reconciliation</returns>
-        public Lusid.Sdk.Client.ApiResponse<Reconciliation> GetReconciliationWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Reconciliation> GetReconciliationWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1581,6 +1722,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1664,10 +1815,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Reconciliation</returns>
-        public async System.Threading.Tasks.Task<Reconciliation> GetReconciliationAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Reconciliation> GetReconciliationAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Reconciliation> localVarResponse = await GetReconciliationWithHttpInfoAsync(scope, code, effectiveAt, asAt, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Reconciliation> localVarResponse = await GetReconciliationWithHttpInfoAsync(scope, code, effectiveAt, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1682,8 +1834,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Reconciliation)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Reconciliation>> GetReconciliationWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Reconciliation>> GetReconciliationWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1699,6 +1852,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1779,10 +1942,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the mapping.</param>
         /// <param name="code">The code of the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Mapping</returns>
-        public Mapping GetReconciliationMapping(string scope, string code, int operationIndex = 0)
+        public Mapping GetReconciliationMapping(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Mapping> localVarResponse = GetReconciliationMappingWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<Mapping> localVarResponse = GetReconciliationMappingWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1793,8 +1957,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the mapping.</param>
         /// <param name="code">The code of the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Mapping</returns>
-        public Lusid.Sdk.Client.ApiResponse<Mapping> GetReconciliationMappingWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Mapping> GetReconciliationMappingWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1809,6 +1974,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1877,10 +2052,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Mapping</returns>
-        public async System.Threading.Tasks.Task<Mapping> GetReconciliationMappingAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mapping> GetReconciliationMappingAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Mapping> localVarResponse = await GetReconciliationMappingWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Mapping> localVarResponse = await GetReconciliationMappingWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1892,8 +2068,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the mapping.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Mapping)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Mapping>> GetReconciliationMappingWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Mapping>> GetReconciliationMappingWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1909,6 +2086,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1976,10 +2163,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfMapping</returns>
-        public ResourceListOfMapping ListReconciliationMappings(string? reconciliationType = default(string?), int operationIndex = 0)
+        public ResourceListOfMapping ListReconciliationMappings(string? reconciliationType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfMapping> localVarResponse = ListReconciliationMappingsWithHttpInfo(reconciliationType);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfMapping> localVarResponse = ListReconciliationMappingsWithHttpInfo(reconciliationType, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1989,10 +2177,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfMapping</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfMapping> ListReconciliationMappingsWithHttpInfo(string? reconciliationType = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfMapping> ListReconciliationMappingsWithHttpInfo(string? reconciliationType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2062,10 +2261,11 @@ namespace Lusid.Sdk.Api
         /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfMapping</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfMapping> ListReconciliationMappingsAsync(string? reconciliationType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfMapping> ListReconciliationMappingsAsync(string? reconciliationType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfMapping> localVarResponse = await ListReconciliationMappingsWithHttpInfoAsync(reconciliationType, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfMapping> localVarResponse = await ListReconciliationMappingsWithHttpInfoAsync(reconciliationType, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2076,11 +2276,22 @@ namespace Lusid.Sdk.Api
         /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfMapping)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfMapping>> ListReconciliationMappingsWithHttpInfoAsync(string? reconciliationType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfMapping>> ListReconciliationMappingsWithHttpInfoAsync(string? reconciliationType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2155,10 +2366,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfReconciliation</returns>
-        public PagedResourceListOfReconciliation ListReconciliations(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfReconciliation ListReconciliations(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfReconciliation> localVarResponse = ListReconciliationsWithHttpInfo(effectiveAt, asAt, page, limit, filter, propertyKeys);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfReconciliation> localVarResponse = ListReconciliationsWithHttpInfo(effectiveAt, asAt, page, limit, filter, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2173,10 +2385,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfReconciliation</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfReconciliation> ListReconciliationsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfReconciliation> ListReconciliationsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2271,10 +2494,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfReconciliation</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfReconciliation> ListReconciliationsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfReconciliation> ListReconciliationsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfReconciliation> localVarResponse = await ListReconciliationsWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfReconciliation> localVarResponse = await ListReconciliationsWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2290,11 +2514,22 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfReconciliation)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfReconciliation>> ListReconciliationsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfReconciliation>> ListReconciliationsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2384,10 +2619,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ReconciliationResponse</returns>
-        public ReconciliationResponse ReconcileGeneric(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0)
+        public ReconciliationResponse ReconcileGeneric(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ReconciliationResponse> localVarResponse = ReconcileGenericWithHttpInfo(reconciliationRequest);
+            Lusid.Sdk.Client.ApiResponse<ReconciliationResponse> localVarResponse = ReconcileGenericWithHttpInfo(reconciliationRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2397,10 +2633,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ReconciliationResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ReconciliationResponse> ReconcileGenericWithHttpInfo(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ReconciliationResponse> ReconcileGenericWithHttpInfo(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2471,10 +2718,11 @@ namespace Lusid.Sdk.Api
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ReconciliationResponse</returns>
-        public async System.Threading.Tasks.Task<ReconciliationResponse> ReconcileGenericAsync(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ReconciliationResponse> ReconcileGenericAsync(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ReconciliationResponse> localVarResponse = await ReconcileGenericWithHttpInfoAsync(reconciliationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ReconciliationResponse> localVarResponse = await ReconcileGenericWithHttpInfoAsync(reconciliationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2485,11 +2733,22 @@ namespace Lusid.Sdk.Api
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ReconciliationResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ReconciliationResponse>> ReconcileGenericWithHttpInfoAsync(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ReconciliationResponse>> ReconcileGenericWithHttpInfoAsync(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2563,10 +2822,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfReconciliationBreak</returns>
-        public ResourceListOfReconciliationBreak ReconcileHoldings(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0)
+        public ResourceListOfReconciliationBreak ReconcileHoldings(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = ReconcileHoldingsWithHttpInfo(sortBy, limit, filter, portfoliosReconciliationRequest);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = ReconcileHoldingsWithHttpInfo(sortBy, limit, filter, portfoliosReconciliationRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2579,10 +2839,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfReconciliationBreak> ReconcileHoldingsWithHttpInfo(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfReconciliationBreak> ReconcileHoldingsWithHttpInfo(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2668,10 +2939,11 @@ namespace Lusid.Sdk.Api
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = await ReconcileHoldingsWithHttpInfoAsync(sortBy, limit, filter, portfoliosReconciliationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = await ReconcileHoldingsWithHttpInfoAsync(sortBy, limit, filter, portfoliosReconciliationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2685,11 +2957,22 @@ namespace Lusid.Sdk.Api
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsWithHttpInfoAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsWithHttpInfoAsync(List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), PortfoliosReconciliationRequest? portfoliosReconciliationRequest = default(PortfoliosReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2772,10 +3055,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineValuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ListAggregationReconciliation</returns>
-        public ListAggregationReconciliation ReconcileInline(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0)
+        public ListAggregationReconciliation ReconcileInline(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation> localVarResponse = ReconcileInlineWithHttpInfo(inlineValuationsReconciliationRequest);
+            Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation> localVarResponse = ReconcileInlineWithHttpInfo(inlineValuationsReconciliationRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2785,10 +3069,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineValuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ListAggregationReconciliation</returns>
-        public Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation> ReconcileInlineWithHttpInfo(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation> ReconcileInlineWithHttpInfo(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2859,10 +3154,11 @@ namespace Lusid.Sdk.Api
         /// <param name="inlineValuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ListAggregationReconciliation</returns>
-        public async System.Threading.Tasks.Task<ListAggregationReconciliation> ReconcileInlineAsync(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListAggregationReconciliation> ReconcileInlineAsync(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation> localVarResponse = await ReconcileInlineWithHttpInfoAsync(inlineValuationsReconciliationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation> localVarResponse = await ReconcileInlineWithHttpInfoAsync(inlineValuationsReconciliationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2873,11 +3169,22 @@ namespace Lusid.Sdk.Api
         /// <param name="inlineValuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ListAggregationReconciliation)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation>> ReconcileInlineWithHttpInfoAsync(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation>> ReconcileInlineWithHttpInfoAsync(InlineValuationsReconciliationRequest? inlineValuationsReconciliationRequest = default(InlineValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2948,10 +3255,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionsReconciliationsResponse</returns>
-        public TransactionsReconciliationsResponse ReconcileTransactions(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0)
+        public TransactionsReconciliationsResponse ReconcileTransactions(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionsReconciliationsResponse> localVarResponse = ReconcileTransactionsWithHttpInfo(transactionReconciliationRequest);
+            Lusid.Sdk.Client.ApiResponse<TransactionsReconciliationsResponse> localVarResponse = ReconcileTransactionsWithHttpInfo(transactionReconciliationRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2961,10 +3269,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionsReconciliationsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionsReconciliationsResponse> ReconcileTransactionsWithHttpInfo(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionsReconciliationsResponse> ReconcileTransactionsWithHttpInfo(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3035,10 +3354,11 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionReconciliationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionsReconciliationsResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionsReconciliationsResponse> ReconcileTransactionsAsync(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionsReconciliationsResponse> ReconcileTransactionsAsync(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionsReconciliationsResponse> localVarResponse = await ReconcileTransactionsWithHttpInfoAsync(transactionReconciliationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionsReconciliationsResponse> localVarResponse = await ReconcileTransactionsWithHttpInfoAsync(transactionReconciliationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3049,11 +3369,22 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionReconciliationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionsReconciliationsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionsReconciliationsResponse>> ReconcileTransactionsWithHttpInfoAsync(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionsReconciliationsResponse>> ReconcileTransactionsWithHttpInfoAsync(TransactionReconciliationRequest? transactionReconciliationRequest = default(TransactionReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -3124,10 +3455,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ReconciliationResponse</returns>
-        public ReconciliationResponse ReconcileTransactionsV2(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0)
+        public ReconciliationResponse ReconcileTransactionsV2(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ReconciliationResponse> localVarResponse = ReconcileTransactionsV2WithHttpInfo(transactionReconciliationRequestV2);
+            Lusid.Sdk.Client.ApiResponse<ReconciliationResponse> localVarResponse = ReconcileTransactionsV2WithHttpInfo(transactionReconciliationRequestV2, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3137,10 +3469,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ReconciliationResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ReconciliationResponse> ReconcileTransactionsV2WithHttpInfo(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ReconciliationResponse> ReconcileTransactionsV2WithHttpInfo(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3211,10 +3554,11 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ReconciliationResponse</returns>
-        public async System.Threading.Tasks.Task<ReconciliationResponse> ReconcileTransactionsV2Async(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ReconciliationResponse> ReconcileTransactionsV2Async(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ReconciliationResponse> localVarResponse = await ReconcileTransactionsV2WithHttpInfoAsync(transactionReconciliationRequestV2, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ReconciliationResponse> localVarResponse = await ReconcileTransactionsV2WithHttpInfoAsync(transactionReconciliationRequestV2, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3225,11 +3569,22 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ReconciliationResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ReconciliationResponse>> ReconcileTransactionsV2WithHttpInfoAsync(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ReconciliationResponse>> ReconcileTransactionsV2WithHttpInfoAsync(TransactionReconciliationRequestV2? transactionReconciliationRequestV2 = default(TransactionReconciliationRequestV2?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -3300,10 +3655,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="valuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ListAggregationReconciliation</returns>
-        public ListAggregationReconciliation ReconcileValuation(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0)
+        public ListAggregationReconciliation ReconcileValuation(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation> localVarResponse = ReconcileValuationWithHttpInfo(valuationsReconciliationRequest);
+            Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation> localVarResponse = ReconcileValuationWithHttpInfo(valuationsReconciliationRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3313,10 +3669,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="valuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ListAggregationReconciliation</returns>
-        public Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation> ReconcileValuationWithHttpInfo(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation> ReconcileValuationWithHttpInfo(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3387,10 +3754,11 @@ namespace Lusid.Sdk.Api
         /// <param name="valuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ListAggregationReconciliation</returns>
-        public async System.Threading.Tasks.Task<ListAggregationReconciliation> ReconcileValuationAsync(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListAggregationReconciliation> ReconcileValuationAsync(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation> localVarResponse = await ReconcileValuationWithHttpInfoAsync(valuationsReconciliationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation> localVarResponse = await ReconcileValuationWithHttpInfoAsync(valuationsReconciliationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3401,11 +3769,22 @@ namespace Lusid.Sdk.Api
         /// <param name="valuationsReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ListAggregationReconciliation)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation>> ReconcileValuationWithHttpInfoAsync(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationReconciliation>> ReconcileValuationWithHttpInfoAsync(ValuationsReconciliationRequest? valuationsReconciliationRequest = default(ValuationsReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -3478,10 +3857,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the reconciliation to be updated</param>
         /// <param name="updateReconciliationRequest">The updated definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Reconciliation</returns>
-        public Reconciliation UpdateReconciliation(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0)
+        public Reconciliation UpdateReconciliation(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Reconciliation> localVarResponse = UpdateReconciliationWithHttpInfo(scope, code, updateReconciliationRequest);
+            Lusid.Sdk.Client.ApiResponse<Reconciliation> localVarResponse = UpdateReconciliationWithHttpInfo(scope, code, updateReconciliationRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3493,8 +3873,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the reconciliation to be updated</param>
         /// <param name="updateReconciliationRequest">The updated definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Reconciliation</returns>
-        public Lusid.Sdk.Client.ApiResponse<Reconciliation> UpdateReconciliationWithHttpInfo(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Reconciliation> UpdateReconciliationWithHttpInfo(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3509,6 +3890,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3583,10 +3974,11 @@ namespace Lusid.Sdk.Api
         /// <param name="updateReconciliationRequest">The updated definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Reconciliation</returns>
-        public async System.Threading.Tasks.Task<Reconciliation> UpdateReconciliationAsync(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Reconciliation> UpdateReconciliationAsync(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Reconciliation> localVarResponse = await UpdateReconciliationWithHttpInfoAsync(scope, code, updateReconciliationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Reconciliation> localVarResponse = await UpdateReconciliationWithHttpInfoAsync(scope, code, updateReconciliationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3599,8 +3991,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateReconciliationRequest">The updated definition of the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Reconciliation)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Reconciliation>> UpdateReconciliationWithHttpInfoAsync(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Reconciliation>> UpdateReconciliationWithHttpInfoAsync(string scope, string code, UpdateReconciliationRequest? updateReconciliationRequest = default(UpdateReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3616,6 +4009,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -3688,10 +4091,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Mapping</returns>
-        public Mapping UpsertReconciliationMapping(Mapping? mapping = default(Mapping?), int operationIndex = 0)
+        public Mapping UpsertReconciliationMapping(Mapping? mapping = default(Mapping?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Mapping> localVarResponse = UpsertReconciliationMappingWithHttpInfo(mapping);
+            Lusid.Sdk.Client.ApiResponse<Mapping> localVarResponse = UpsertReconciliationMappingWithHttpInfo(mapping, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3701,10 +4105,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Mapping</returns>
-        public Lusid.Sdk.Client.ApiResponse<Mapping> UpsertReconciliationMappingWithHttpInfo(Mapping? mapping = default(Mapping?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Mapping> UpsertReconciliationMappingWithHttpInfo(Mapping? mapping = default(Mapping?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3775,10 +4190,11 @@ namespace Lusid.Sdk.Api
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Mapping</returns>
-        public async System.Threading.Tasks.Task<Mapping> UpsertReconciliationMappingAsync(Mapping? mapping = default(Mapping?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mapping> UpsertReconciliationMappingAsync(Mapping? mapping = default(Mapping?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Mapping> localVarResponse = await UpsertReconciliationMappingWithHttpInfoAsync(mapping, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Mapping> localVarResponse = await UpsertReconciliationMappingWithHttpInfoAsync(mapping, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3789,11 +4205,22 @@ namespace Lusid.Sdk.Api
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Mapping)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Mapping>> UpsertReconciliationMappingWithHttpInfoAsync(Mapping? mapping = default(Mapping?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Mapping>> UpsertReconciliationMappingWithHttpInfoAsync(Mapping? mapping = default(Mapping?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

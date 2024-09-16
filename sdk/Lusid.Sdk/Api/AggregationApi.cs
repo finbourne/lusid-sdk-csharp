@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -41,8 +42,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio</param>
         /// <param name="createRecipeRequest">The request specifying the parameters to generating the recipe (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationRecipe</returns>
-        ConfigurationRecipe GenerateConfigurationRecipe(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0);
+        ConfigurationRecipe GenerateConfigurationRecipe(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GenerateConfigurationRecipe: Generates a recipe sufficient to perform valuations for the given portfolio.
@@ -55,8 +57,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio</param>
         /// <param name="createRecipeRequest">The request specifying the parameters to generating the recipe (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationRecipe</returns>
-        ApiResponse<ConfigurationRecipe> GenerateConfigurationRecipeWithHttpInfo(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0);
+        ApiResponse<ConfigurationRecipe> GenerateConfigurationRecipeWithHttpInfo(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetQueryableKeys: Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint.
         /// </summary>
@@ -68,8 +71,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfAggregationQuery</returns>
-        ResourceListOfAggregationQuery GetQueryableKeys(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ResourceListOfAggregationQuery GetQueryableKeys(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetQueryableKeys: Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint.
@@ -82,8 +86,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfAggregationQuery</returns>
-        ApiResponse<ResourceListOfAggregationQuery> GetQueryableKeysWithHttpInfo(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<ResourceListOfAggregationQuery> GetQueryableKeysWithHttpInfo(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetValuation: Perform valuation for a list of portfolios and/or portfolio groups
         /// </summary>
@@ -93,8 +98,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="valuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ListAggregationResponse</returns>
-        ListAggregationResponse GetValuation(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0);
+        ListAggregationResponse GetValuation(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetValuation: Perform valuation for a list of portfolios and/or portfolio groups
@@ -105,8 +111,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="valuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ListAggregationResponse</returns>
-        ApiResponse<ListAggregationResponse> GetValuationWithHttpInfo(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0);
+        ApiResponse<ListAggregationResponse> GetValuationWithHttpInfo(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio
         /// </summary>
@@ -116,8 +123,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineValuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ListAggregationResponse</returns>
-        ListAggregationResponse GetValuationOfWeightedInstruments(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0);
+        ListAggregationResponse GetValuationOfWeightedInstruments(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio
@@ -128,8 +136,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineValuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ListAggregationResponse</returns>
-        ApiResponse<ListAggregationResponse> GetValuationOfWeightedInstrumentsWithHttpInfo(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0);
+        ApiResponse<ListAggregationResponse> GetValuationOfWeightedInstrumentsWithHttpInfo(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -151,8 +160,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createRecipeRequest">The request specifying the parameters to generating the recipe (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationRecipe</returns>
-        System.Threading.Tasks.Task<ConfigurationRecipe> GenerateConfigurationRecipeAsync(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConfigurationRecipe> GenerateConfigurationRecipeAsync(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GenerateConfigurationRecipe: Generates a recipe sufficient to perform valuations for the given portfolio.
@@ -166,8 +176,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createRecipeRequest">The request specifying the parameters to generating the recipe (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationRecipe)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationRecipe>> GenerateConfigurationRecipeWithHttpInfoAsync(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConfigurationRecipe>> GenerateConfigurationRecipeWithHttpInfoAsync(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetQueryableKeys: Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint.
         /// </summary>
@@ -180,8 +191,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfAggregationQuery</returns>
-        System.Threading.Tasks.Task<ResourceListOfAggregationQuery> GetQueryableKeysAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfAggregationQuery> GetQueryableKeysAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetQueryableKeys: Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint.
@@ -195,8 +207,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfAggregationQuery)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfAggregationQuery>> GetQueryableKeysWithHttpInfoAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfAggregationQuery>> GetQueryableKeysWithHttpInfoAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetValuation: Perform valuation for a list of portfolios and/or portfolio groups
         /// </summary>
@@ -207,8 +220,9 @@ namespace Lusid.Sdk.Api
         /// <param name="valuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ListAggregationResponse</returns>
-        System.Threading.Tasks.Task<ListAggregationResponse> GetValuationAsync(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListAggregationResponse> GetValuationAsync(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetValuation: Perform valuation for a list of portfolios and/or portfolio groups
@@ -220,8 +234,9 @@ namespace Lusid.Sdk.Api
         /// <param name="valuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListAggregationResponse>> GetValuationWithHttpInfoAsync(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListAggregationResponse>> GetValuationWithHttpInfoAsync(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio
         /// </summary>
@@ -232,8 +247,9 @@ namespace Lusid.Sdk.Api
         /// <param name="inlineValuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ListAggregationResponse</returns>
-        System.Threading.Tasks.Task<ListAggregationResponse> GetValuationOfWeightedInstrumentsAsync(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListAggregationResponse> GetValuationOfWeightedInstrumentsAsync(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio
@@ -245,8 +261,9 @@ namespace Lusid.Sdk.Api
         /// <param name="inlineValuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListAggregationResponse>> GetValuationOfWeightedInstrumentsWithHttpInfoAsync(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListAggregationResponse>> GetValuationOfWeightedInstrumentsWithHttpInfoAsync(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -279,9 +296,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public AggregationApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -372,10 +395,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio</param>
         /// <param name="createRecipeRequest">The request specifying the parameters to generating the recipe (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationRecipe</returns>
-        public ConfigurationRecipe GenerateConfigurationRecipe(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0)
+        public ConfigurationRecipe GenerateConfigurationRecipe(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ConfigurationRecipe> localVarResponse = GenerateConfigurationRecipeWithHttpInfo(scope, code, createRecipeRequest);
+            Lusid.Sdk.Client.ApiResponse<ConfigurationRecipe> localVarResponse = GenerateConfigurationRecipeWithHttpInfo(scope, code, createRecipeRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -387,8 +411,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio</param>
         /// <param name="createRecipeRequest">The request specifying the parameters to generating the recipe (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationRecipe</returns>
-        public Lusid.Sdk.Client.ApiResponse<ConfigurationRecipe> GenerateConfigurationRecipeWithHttpInfo(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ConfigurationRecipe> GenerateConfigurationRecipeWithHttpInfo(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -403,6 +428,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -477,10 +512,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createRecipeRequest">The request specifying the parameters to generating the recipe (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationRecipe</returns>
-        public async System.Threading.Tasks.Task<ConfigurationRecipe> GenerateConfigurationRecipeAsync(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConfigurationRecipe> GenerateConfigurationRecipeAsync(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ConfigurationRecipe> localVarResponse = await GenerateConfigurationRecipeWithHttpInfoAsync(scope, code, createRecipeRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ConfigurationRecipe> localVarResponse = await GenerateConfigurationRecipeWithHttpInfoAsync(scope, code, createRecipeRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -493,8 +529,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createRecipeRequest">The request specifying the parameters to generating the recipe (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationRecipe)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ConfigurationRecipe>> GenerateConfigurationRecipeWithHttpInfoAsync(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ConfigurationRecipe>> GenerateConfigurationRecipeWithHttpInfoAsync(string scope, string code, CreateRecipeRequest? createRecipeRequest = default(CreateRecipeRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -510,6 +547,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -584,10 +631,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfAggregationQuery</returns>
-        public ResourceListOfAggregationQuery GetQueryableKeys(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public ResourceListOfAggregationQuery GetQueryableKeys(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfAggregationQuery> localVarResponse = GetQueryableKeysWithHttpInfo(page, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfAggregationQuery> localVarResponse = GetQueryableKeysWithHttpInfo(page, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -599,10 +647,21 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfAggregationQuery</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfAggregationQuery> GetQueryableKeysWithHttpInfo(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfAggregationQuery> GetQueryableKeysWithHttpInfo(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -682,10 +741,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfAggregationQuery</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfAggregationQuery> GetQueryableKeysAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfAggregationQuery> GetQueryableKeysAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfAggregationQuery> localVarResponse = await GetQueryableKeysWithHttpInfoAsync(page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfAggregationQuery> localVarResponse = await GetQueryableKeysWithHttpInfoAsync(page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -698,11 +758,22 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfAggregationQuery)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfAggregationQuery>> GetQueryableKeysWithHttpInfoAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfAggregationQuery>> GetQueryableKeysWithHttpInfoAsync(string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -780,10 +851,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="valuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ListAggregationResponse</returns>
-        public ListAggregationResponse GetValuation(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0)
+        public ListAggregationResponse GetValuation(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> localVarResponse = GetValuationWithHttpInfo(valuationRequest);
+            Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> localVarResponse = GetValuationWithHttpInfo(valuationRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -793,10 +865,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="valuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ListAggregationResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> GetValuationWithHttpInfo(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> GetValuationWithHttpInfo(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -867,10 +950,11 @@ namespace Lusid.Sdk.Api
         /// <param name="valuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ListAggregationResponse</returns>
-        public async System.Threading.Tasks.Task<ListAggregationResponse> GetValuationAsync(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListAggregationResponse> GetValuationAsync(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> localVarResponse = await GetValuationWithHttpInfoAsync(valuationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> localVarResponse = await GetValuationWithHttpInfoAsync(valuationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -881,11 +965,22 @@ namespace Lusid.Sdk.Api
         /// <param name="valuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationResponse>> GetValuationWithHttpInfoAsync(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationResponse>> GetValuationWithHttpInfoAsync(ValuationRequest? valuationRequest = default(ValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -956,10 +1051,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineValuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ListAggregationResponse</returns>
-        public ListAggregationResponse GetValuationOfWeightedInstruments(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0)
+        public ListAggregationResponse GetValuationOfWeightedInstruments(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> localVarResponse = GetValuationOfWeightedInstrumentsWithHttpInfo(inlineValuationRequest);
+            Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> localVarResponse = GetValuationOfWeightedInstrumentsWithHttpInfo(inlineValuationRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -969,10 +1065,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineValuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ListAggregationResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> GetValuationOfWeightedInstrumentsWithHttpInfo(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> GetValuationOfWeightedInstrumentsWithHttpInfo(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1043,10 +1150,11 @@ namespace Lusid.Sdk.Api
         /// <param name="inlineValuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ListAggregationResponse</returns>
-        public async System.Threading.Tasks.Task<ListAggregationResponse> GetValuationOfWeightedInstrumentsAsync(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListAggregationResponse> GetValuationOfWeightedInstrumentsAsync(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> localVarResponse = await GetValuationOfWeightedInstrumentsWithHttpInfoAsync(inlineValuationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ListAggregationResponse> localVarResponse = await GetValuationOfWeightedInstrumentsWithHttpInfoAsync(inlineValuationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1057,11 +1165,22 @@ namespace Lusid.Sdk.Api
         /// <param name="inlineValuationRequest">The request specifying the set of portfolios and dates on which to calculate a set of valuation metrics (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationResponse>> GetValuationOfWeightedInstrumentsWithHttpInfoAsync(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ListAggregationResponse>> GetValuationOfWeightedInstrumentsWithHttpInfoAsync(InlineValuationRequest? inlineValuationRequest = default(InlineValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

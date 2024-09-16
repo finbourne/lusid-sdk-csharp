@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -45,8 +46,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphBlock</returns>
-        PagedResourceListOfOrderGraphBlock ListOrderGraphBlocks(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0);
+        PagedResourceListOfOrderGraphBlock ListOrderGraphBlocks(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
@@ -63,8 +65,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphBlock</returns>
-        ApiResponse<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
         /// </summary>
@@ -80,8 +83,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphPlacement</returns>
-        PagedResourceListOfOrderGraphPlacement ListOrderGraphPlacementChildren(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfOrderGraphPlacement ListOrderGraphPlacementChildren(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
@@ -98,8 +102,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphPlacement</returns>
-        ApiResponse<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementChildrenWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementChildrenWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
         /// </summary>
@@ -114,8 +119,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphPlacement</returns>
-        PagedResourceListOfOrderGraphPlacement ListOrderGraphPlacements(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfOrderGraphPlacement ListOrderGraphPlacements(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
@@ -131,8 +137,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphPlacement</returns>
-        ApiResponse<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -158,8 +165,9 @@ namespace Lusid.Sdk.Api
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfOrderGraphBlock</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
@@ -177,8 +185,9 @@ namespace Lusid.Sdk.Api
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfOrderGraphBlock)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfOrderGraphBlock>> ListOrderGraphBlocksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfOrderGraphBlock>> ListOrderGraphBlocksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
         /// </summary>
@@ -195,8 +204,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfOrderGraphPlacement</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementChildrenAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementChildrenAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
@@ -214,8 +224,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfOrderGraphPlacement)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfOrderGraphPlacement>> ListOrderGraphPlacementChildrenWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfOrderGraphPlacement>> ListOrderGraphPlacementChildrenWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
         /// </summary>
@@ -231,8 +242,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfOrderGraphPlacement</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
@@ -249,8 +261,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfOrderGraphPlacement)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfOrderGraphPlacement>> ListOrderGraphPlacementsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfOrderGraphPlacement>> ListOrderGraphPlacementsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -283,9 +296,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public OrderGraphApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -380,10 +399,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphBlock</returns>
-        public PagedResourceListOfOrderGraphBlock ListOrderGraphBlocks(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0)
+        public PagedResourceListOfOrderGraphBlock ListOrderGraphBlocks(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> localVarResponse = ListOrderGraphBlocksWithHttpInfo(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> localVarResponse = ListOrderGraphBlocksWithHttpInfo(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -399,10 +419,21 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphBlock</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -502,10 +533,11 @@ namespace Lusid.Sdk.Api
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfOrderGraphBlock</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> localVarResponse = await ListOrderGraphBlocksWithHttpInfoAsync(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock> localVarResponse = await ListOrderGraphBlocksWithHttpInfoAsync(asAt, paginationToken, sortBy, limit, filter, propertyKeys, useComplianceV2, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -522,11 +554,22 @@ namespace Lusid.Sdk.Api
         /// <param name="useComplianceV2">Whether to use the V2 compliance engine when deriving compliance statuses for orders. (default: false) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfOrderGraphBlock)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock>> ListOrderGraphBlocksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphBlock>> ListOrderGraphBlocksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -626,10 +669,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphPlacement</returns>
-        public PagedResourceListOfOrderGraphPlacement ListOrderGraphPlacementChildren(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfOrderGraphPlacement ListOrderGraphPlacementChildren(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement> localVarResponse = ListOrderGraphPlacementChildrenWithHttpInfo(scope, code, asAt, paginationToken, sortBy, limit, propertyKeys);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement> localVarResponse = ListOrderGraphPlacementChildrenWithHttpInfo(scope, code, asAt, paginationToken, sortBy, limit, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -645,8 +689,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphPlacement</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementChildrenWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementChildrenWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -661,6 +706,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -754,10 +809,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfOrderGraphPlacement</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementChildrenAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementChildrenAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement> localVarResponse = await ListOrderGraphPlacementChildrenWithHttpInfoAsync(scope, code, asAt, paginationToken, sortBy, limit, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement> localVarResponse = await ListOrderGraphPlacementChildrenWithHttpInfoAsync(scope, code, asAt, paginationToken, sortBy, limit, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -774,8 +830,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfOrderGraphPlacement)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement>> ListOrderGraphPlacementChildrenWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement>> ListOrderGraphPlacementChildrenWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -791,6 +848,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -883,10 +950,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrderGraphPlacement</returns>
-        public PagedResourceListOfOrderGraphPlacement ListOrderGraphPlacements(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfOrderGraphPlacement ListOrderGraphPlacements(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement> localVarResponse = ListOrderGraphPlacementsWithHttpInfo(asAt, paginationToken, sortBy, limit, filter, propertyKeys);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement> localVarResponse = ListOrderGraphPlacementsWithHttpInfo(asAt, paginationToken, sortBy, limit, filter, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -901,10 +969,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphPlacement</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -999,10 +1078,11 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfOrderGraphPlacement</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement> localVarResponse = await ListOrderGraphPlacementsWithHttpInfoAsync(asAt, paginationToken, sortBy, limit, filter, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement> localVarResponse = await ListOrderGraphPlacementsWithHttpInfoAsync(asAt, paginationToken, sortBy, limit, filter, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1018,11 +1098,22 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfOrderGraphPlacement)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement>> ListOrderGraphPlacementsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderGraphPlacement>> ListOrderGraphPlacementsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

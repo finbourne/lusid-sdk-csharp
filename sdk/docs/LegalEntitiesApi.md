@@ -61,6 +61,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | The scope of the legal entity identifier type.
             var idTypeCode = "idTypeCode_example";  // string | The code of the legal entity identifier type.
@@ -68,6 +76,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteLegalEntity(idTypeScope, idTypeCode, code, opts: opts);
+
                 // DeleteLegalEntity: Delete Legal Entity
                 DeletedEntityResponse result = apiInstance.DeleteLegalEntity(idTypeScope, idTypeCode, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -168,6 +179,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the Legal Entity identifier.
             var idTypeCode = "idTypeCode_example";  // string | Code of the Legal Entity identifier.
@@ -178,6 +197,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteLegalEntityAccessMetadata(idTypeScope, idTypeCode, code, metadataKey, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] DeleteLegalEntityAccessMetadata: Delete a Legal Entity Access Metadata entry
                 DeletedEntityResponse result = apiInstance.DeleteLegalEntityAccessMetadata(idTypeScope, idTypeCode, code, metadataKey, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -281,6 +303,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the legal entity identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the legal entity identifier type.
@@ -290,6 +320,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteLegalEntityIdentifiers(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, opts: opts);
+
                 // [EARLY ACCESS] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers
                 DeletedEntityResponse result = apiInstance.DeleteLegalEntityIdentifiers(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -392,6 +425,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the legal entity identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the legal entity identifier type.
@@ -401,6 +442,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteLegalEntityProperties(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, opts: opts);
+
                 // [EARLY ACCESS] DeleteLegalEntityProperties: Delete Legal Entity Properties
                 DeletedEntityResponse result = apiInstance.DeleteLegalEntityProperties(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -503,6 +547,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the Legal Entity identifier.
             var idTypeCode = "idTypeCode_example";  // string | Code of the Legal Entity identifier.
@@ -512,6 +564,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, List<AccessMetadataValue>> result = apiInstance.GetAllLegalEntityAccessMetadata(idTypeScope, idTypeCode, code, effectiveAt, asAt, opts: opts);
+
                 // GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
                 Dictionary<string, List<AccessMetadataValue>> result = apiInstance.GetAllLegalEntityAccessMetadata(idTypeScope, idTypeCode, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -614,6 +669,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the legal entity identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the legal entity identifier type.
@@ -625,6 +688,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // LegalEntity result = apiInstance.GetLegalEntity(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds, opts: opts);
+
                 // GetLegalEntity: Get Legal Entity
                 LegalEntity result = apiInstance.GetLegalEntity(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -729,6 +795,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the Legal Entity identifier.
             var idTypeCode = "idTypeCode_example";  // string | Code of the Legal Entity identifier.
@@ -739,6 +813,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<AccessMetadataValue> result = apiInstance.GetLegalEntityAccessMetadataByKey(idTypeScope, idTypeCode, code, metadataKey, effectiveAt, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetLegalEntityAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Legal Entity
                 List<AccessMetadataValue> result = apiInstance.GetLegalEntityAccessMetadataByKey(idTypeScope, idTypeCode, code, metadataKey, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -842,6 +919,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the legal entity identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the legal entity identifier type.
@@ -854,6 +939,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPropertyInterval result = apiInstance.GetLegalEntityPropertyTimeSeries(idTypeScope, idTypeCode, code, propertyKey, asAt, filter, page, limit, opts: opts);
+
                 // GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series
                 ResourceListOfPropertyInterval result = apiInstance.GetLegalEntityPropertyTimeSeries(idTypeScope, idTypeCode, code, propertyKey, asAt, filter, page, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -959,6 +1047,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the legal entity identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the legal entity identifier type.
@@ -970,6 +1066,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfRelation result = apiInstance.GetLegalEntityRelations(idTypeScope, idTypeCode, code, effectiveAt, asAt, filter, identifierTypes, opts: opts);
+
                 // GetLegalEntityRelations: Get Relations for Legal Entity
                 ResourceListOfRelation result = apiInstance.GetLegalEntityRelations(idTypeScope, idTypeCode, code, effectiveAt, asAt, filter, identifierTypes);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1074,6 +1173,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the legal entity's identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the legal entity's identifier type.
@@ -1085,6 +1192,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfRelationship result = apiInstance.GetLegalEntityRelationships(idTypeScope, idTypeCode, code, effectiveAt, asAt, filter, identifierTypes, opts: opts);
+
                 // GetLegalEntityRelationships: Get Relationships for Legal Entity
                 ResourceListOfRelationship result = apiInstance.GetLegalEntityRelationships(idTypeScope, idTypeCode, code, effectiveAt, asAt, filter, identifierTypes);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1189,6 +1299,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the legal entities. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the legal entities. Defaults to return the latest version              of each legal entities if not specified. (optional) 
@@ -1201,6 +1319,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfLegalEntity result = apiInstance.ListAllLegalEntities(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, relationshipDefinitionIds, opts: opts);
+
                 // ListAllLegalEntities: List Legal Entities
                 ResourceListOfLegalEntity result = apiInstance.ListAllLegalEntities(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1306,6 +1427,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the legal entity identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the legal entity identifier type.
@@ -1320,6 +1449,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfLegalEntity result = apiInstance.ListLegalEntities(idTypeScope, idTypeCode, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, relationshipDefinitionIds, opts: opts);
+
                 // ListLegalEntities: List Legal Entities
                 PagedResourceListOfLegalEntity result = apiInstance.ListLegalEntities(idTypeScope, idTypeCode, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1427,6 +1559,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the Legal Entity identifier.
             var idTypeCode = "idTypeCode_example";  // string | Code of the Legal Entity identifier.
@@ -1437,6 +1577,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, List<AccessMetadataValue>> result = apiInstance.PatchLegalEntityAccessMetadata(idTypeScope, idTypeCode, code, accessMetadataOperation, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] PatchLegalEntityAccessMetadata: Patch Access Metadata rules for a Legal Entity.
                 Dictionary<string, List<AccessMetadataValue>> result = apiInstance.PatchLegalEntityAccessMetadata(idTypeScope, idTypeCode, code, accessMetadataOperation, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1540,6 +1683,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the legal entity identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the legal entity identifier type.
@@ -1548,6 +1699,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // LegalEntity result = apiInstance.SetLegalEntityIdentifiers(idTypeScope, idTypeCode, code, setLegalEntityIdentifiersRequest, opts: opts);
+
                 // [EARLY ACCESS] SetLegalEntityIdentifiers: Set Legal Entity Identifiers
                 LegalEntity result = apiInstance.SetLegalEntityIdentifiers(idTypeScope, idTypeCode, code, setLegalEntityIdentifiersRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1649,6 +1803,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the legal entity identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the legal entity identifier type.
@@ -1657,6 +1819,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // LegalEntity result = apiInstance.SetLegalEntityProperties(idTypeScope, idTypeCode, code, setLegalEntityPropertiesRequest, opts: opts);
+
                 // SetLegalEntityProperties: Set Legal Entity Properties
                 LegalEntity result = apiInstance.SetLegalEntityProperties(idTypeScope, idTypeCode, code, setLegalEntityPropertiesRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1758,12 +1923,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var successMode = "successMode_example";  // string | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial
             var requestBody = new Dictionary<string, UpsertLegalEntityRequest>(); // Dictionary<string, UpsertLegalEntityRequest> | A collection of requests to create or update Legal Entities.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertLegalEntitiesResponse result = apiInstance.UpsertLegalEntities(successMode, requestBody, opts: opts);
+
                 // [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities
                 UpsertLegalEntitiesResponse result = apiInstance.UpsertLegalEntities(successMode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1863,11 +2039,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var upsertLegalEntityRequest = new UpsertLegalEntityRequest(); // UpsertLegalEntityRequest | Request to create or update a legal entity.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // LegalEntity result = apiInstance.UpsertLegalEntity(upsertLegalEntityRequest, opts: opts);
+
                 // UpsertLegalEntity: Upsert Legal Entity
                 LegalEntity result = apiInstance.UpsertLegalEntity(upsertLegalEntityRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1966,6 +2153,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegalEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegalEntitiesApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the Legal Entity identifier.
             var idTypeCode = "idTypeCode_example";  // string | Code of the Legal Entity identifier.
@@ -1977,6 +2172,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfAccessMetadataValueOf result = apiInstance.UpsertLegalEntityAccessMetadata(idTypeScope, idTypeCode, code, metadataKey, upsertLegalEntityAccessMetadataRequest, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] UpsertLegalEntityAccessMetadata: Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
                 ResourceListOfAccessMetadataValueOf result = apiInstance.UpsertLegalEntityAccessMetadata(idTypeScope, idTypeCode, code, metadataKey, upsertLegalEntityAccessMetadataRequest, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

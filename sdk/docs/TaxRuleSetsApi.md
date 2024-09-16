@@ -48,12 +48,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TaxRuleSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TaxRuleSetsApi>();
             var createTaxRuleSetRequest = new CreateTaxRuleSetRequest(); // CreateTaxRuleSetRequest | The contents of the rule set.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TaxRuleSet result = apiInstance.CreateTaxRuleSet(createTaxRuleSetRequest, effectiveAt, opts: opts);
+
                 // [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set.
                 TaxRuleSet result = apiInstance.CreateTaxRuleSet(createTaxRuleSetRequest, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -153,12 +164,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TaxRuleSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TaxRuleSetsApi>();
             var scope = "scope_example";  // string | The rule set scope.
             var code = "code_example";  // string | The rule set code.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteTaxRuleSet(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set.
                 DeletedEntityResponse result = apiInstance.DeleteTaxRuleSet(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -258,6 +280,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TaxRuleSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TaxRuleSetsApi>();
             var scope = "scope_example";  // string | The rule set scope.
             var code = "code_example";  // string | The rule set code.
@@ -266,6 +296,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TaxRuleSet result = apiInstance.GetTaxRuleSet(scope, code, effectiveAt, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetTaxRuleSet: Retrieve the definition of single tax rule set.
                 TaxRuleSet result = apiInstance.GetTaxRuleSet(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -367,12 +400,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TaxRuleSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TaxRuleSetsApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfTaxRuleSet result = apiInstance.ListTaxRuleSets(effectiveAt, asAt, opts: opts);
+
                 // [EXPERIMENTAL] ListTaxRuleSets: List tax rule sets.
                 ResourceListOfTaxRuleSet result = apiInstance.ListTaxRuleSets(effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -472,6 +516,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TaxRuleSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TaxRuleSetsApi>();
             var scope = "scope_example";  // string | The rule set scope.
             var code = "code_example";  // string | The rule set code.
@@ -480,6 +532,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TaxRuleSet result = apiInstance.UpdateTaxRuleSet(scope, code, updateTaxRuleSetRequest, effectiveAt, opts: opts);
+
                 // [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set.
                 TaxRuleSet result = apiInstance.UpdateTaxRuleSet(scope, code, updateTaxRuleSetRequest, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

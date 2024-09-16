@@ -15,9 +15,9 @@ namespace Lusid.Sdk.Extensions
         /// <summary>
         /// Create an IApiFactory using the specified configuration file.  
         /// </summary>
-        public static IApiFactory Build(string apiSecretsFilename)
+        public static IApiFactory Build(string apiSecretsFilename, ConfigurationOptions? opts = null)
         {
-            var apiConfig = ApiConfigurationBuilder.Build(apiSecretsFilename);
+            var apiConfig = ApiConfigurationBuilder.Build(apiSecretsFilename, opts);
             return new ApiFactory(apiConfig);
         }
 

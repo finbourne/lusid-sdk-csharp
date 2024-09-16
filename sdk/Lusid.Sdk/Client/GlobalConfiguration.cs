@@ -23,7 +23,7 @@ namespace Lusid.Sdk.Client
         #region Private Members
 
         private static readonly object GlobalConfigSync = new { };
-        private static IReadableConfiguration _globalConfiguration;
+        private static IReadableConfiguration? _globalConfiguration;
 
         #endregion Private Members
 
@@ -39,14 +39,18 @@ namespace Lusid.Sdk.Client
         {
         }
 
-        static GlobalConfiguration()
-        {
-            Instance = new GlobalConfiguration();
-            Instance.DefaultHeaders.Add("X-LUSID-Sdk-Language", "C#");
-            Instance.DefaultHeaders.Add("X-LUSID-Sdk-Version", Version);
-        }
-
         #endregion Constructors
+
+        /// <summary>
+        /// Set the static instance to the default global configuration
+        /// </summary>
+        public static void SetDefaultInstance()
+        {
+            var globalConfiguration = new GlobalConfiguration();
+            globalConfiguration.DefaultHeaders.Add("X-LUSID-Sdk-Language", "C#");
+            globalConfiguration.DefaultHeaders.Add("X-LUSID-Sdk-Version", Version);
+            Instance = globalConfiguration;
+        }
 
         /// <summary>
         /// Gets or sets the default Configuration.
@@ -54,7 +58,14 @@ namespace Lusid.Sdk.Client
         /// <value>Configuration.</value>
         public static IReadableConfiguration Instance
         {
-            get { return _globalConfiguration; }
+            get
+            {
+                if (_globalConfiguration == null)
+                {
+                    SetDefaultInstance();
+                }
+                return _globalConfiguration!;
+            }
             set
             {
                 lock (GlobalConfigSync)

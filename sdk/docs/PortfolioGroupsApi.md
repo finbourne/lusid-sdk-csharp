@@ -69,6 +69,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group to add a portfolio to.
             var code = "code_example";  // string | The code of the portfolio group to add a portfolio to. Together with the scope this uniquely identifies the portfolio group.
@@ -77,6 +85,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioGroup result = apiInstance.AddPortfolioToGroup(scope, code, effectiveAt, resourceId, opts: opts);
+
                 // [EARLY ACCESS] AddPortfolioToGroup: Add portfolio to group
                 PortfolioGroup result = apiInstance.AddPortfolioToGroup(scope, code, effectiveAt, resourceId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -178,6 +189,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group to add a portfolio group to.
             var code = "code_example";  // string | The code of the portfolio group to add a portfolio group to. Together with the scope this uniquely identifies the portfolio group.
@@ -186,6 +205,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioGroup result = apiInstance.AddSubGroupToGroup(scope, code, effectiveAt, resourceId, opts: opts);
+
                 // [EARLY ACCESS] AddSubGroupToGroup: Add sub group to group
                 PortfolioGroup result = apiInstance.AddSubGroupToGroup(scope, code, effectiveAt, resourceId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -287,6 +309,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group.
             var code = "code_example";  // string | The code of the portfolio group. Together with the scope this uniquely identifies               the portfolio group.
@@ -299,6 +329,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactionsForPortfolioGroup(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, opts: opts);
+
                 // BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
                 VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactionsForPortfolioGroup(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -404,12 +437,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope that the portfolio group will be created in.
             var createPortfolioGroupRequest = new CreatePortfolioGroupRequest?(); // CreatePortfolioGroupRequest? | The definition and details of the portfolio group. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioGroup result = apiInstance.CreatePortfolioGroup(scope, createPortfolioGroupRequest, opts: opts);
+
                 // CreatePortfolioGroup: Create portfolio group
                 PortfolioGroup result = apiInstance.CreatePortfolioGroup(scope, createPortfolioGroupRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -509,6 +553,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the group to delete properties from.
             var code = "code_example";  // string | The code of the group to delete properties from. Together with the scope this uniquely identifies the group.
@@ -517,6 +569,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteGroupProperties(scope, code, requestBody, effectiveAt, opts: opts);
+
                 // [EARLY ACCESS] DeleteGroupProperties: Delete group properties
                 DeletedEntityResponse result = apiInstance.DeleteGroupProperties(scope, code, requestBody, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -618,6 +673,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio Group
             var code = "code_example";  // string | The Portfolio Group code
@@ -627,6 +690,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteKeyFromPortfolioGroupAccessMetadata(scope, code, metadataKey, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry
                 DeletedEntityResponse result = apiInstance.DeleteKeyFromPortfolioGroupAccessMetadata(scope, code, metadataKey, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -729,6 +795,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group to remove the portfolio from.
             var code = "code_example";  // string | The code of the portfolio group to remove the portfolio from. Together with the scope this uniquely identifies the portfolio group.
@@ -738,6 +812,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioGroup result = apiInstance.DeletePortfolioFromGroup(scope, code, portfolioScope, portfolioCode, effectiveAt, opts: opts);
+
                 // [EARLY ACCESS] DeletePortfolioFromGroup: Delete portfolio from group
                 PortfolioGroup result = apiInstance.DeletePortfolioFromGroup(scope, code, portfolioScope, portfolioCode, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -840,12 +917,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group to delete.
             var code = "code_example";  // string | The code of the portfolio group to delete. Together with the scope this uniquely identifies the portfolio group to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePortfolioGroup(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeletePortfolioGroup: Delete portfolio group
                 DeletedEntityResponse result = apiInstance.DeletePortfolioGroup(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -945,6 +1033,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group to remove the sub group from.
             var code = "code_example";  // string | The code of the portfolio group to remove the sub group from. Together with the scope this uniquely identifies the portfolio group.
@@ -954,6 +1050,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioGroup result = apiInstance.DeleteSubGroupFromGroup(scope, code, subgroupScope, subgroupCode, effectiveAt, opts: opts);
+
                 // [EARLY ACCESS] DeleteSubGroupFromGroup: Delete sub group from group
                 PortfolioGroup result = apiInstance.DeleteSubGroupFromGroup(scope, code, subgroupScope, subgroupCode, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1056,6 +1155,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the group to retrieve the A2B report for.
             var code = "code_example";  // string | The code of the group to retrieve the A2B report for. Together with the scope this              uniquely identifies the portfolio group.
@@ -1069,6 +1176,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfA2BDataRecord result = apiInstance.GetA2BDataForPortfolioGroup(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, opts: opts);
+
                 // [EARLY ACCESS] GetA2BDataForPortfolioGroup: Get A2B data for a Portfolio Group
                 VersionedResourceListOfA2BDataRecord result = apiInstance.GetA2BDataForPortfolioGroup(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1175,6 +1285,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the group to list the properties for.
             var code = "code_example";  // string | The code of the group to list the properties for. Together with the scope this uniquely identifies the group.
@@ -1183,6 +1301,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioGroupProperties result = apiInstance.GetGroupProperties(scope, code, effectiveAt, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetGroupProperties: Get group properties
                 PortfolioGroupProperties result = apiInstance.GetGroupProperties(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1284,6 +1405,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group.
             var code = "code_example";  // string | The code of the portfolio group. Together with the scope this uniquely identifies              the portfolio group.
@@ -1296,6 +1425,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfPortfolioHolding result = apiInstance.GetHoldingsForPortfolioGroup(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, includeSettlementEventsAfterDays, opts: opts);
+
                 // GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group
                 VersionedResourceListOfPortfolioHolding result = apiInstance.GetHoldingsForPortfolioGroup(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, includeSettlementEventsAfterDays);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1401,6 +1533,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group to retrieve the definition for.
             var code = "code_example";  // string | The code of the portfolio group to retrieve the definition for. Together with the scope              this uniquely identifies the portfolio group.
@@ -1411,6 +1551,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioGroup result = apiInstance.GetPortfolioGroup(scope, code, effectiveAt, asAt, relatedEntityPropertyKeys, relationshipDefinitionIds, opts: opts);
+
                 // GetPortfolioGroup: Get portfolio group
                 PortfolioGroup result = apiInstance.GetPortfolioGroup(scope, code, effectiveAt, asAt, relatedEntityPropertyKeys, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1514,6 +1657,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio Group
             var code = "code_example";  // string | The Portfolio Group code
@@ -1523,6 +1674,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<AccessMetadataValue> result = apiInstance.GetPortfolioGroupAccessMetadataByKey(scope, code, metadataKey, effectiveAt, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
                 List<AccessMetadataValue> result = apiInstance.GetPortfolioGroupAccessMetadataByKey(scope, code, metadataKey, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1625,6 +1779,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group to retrieve the commands for.
             var code = "code_example";  // string | The code of the portfolio group to retrieve the commands for. Together with the scope this uniquely identifies the portfolio group.
@@ -1634,6 +1796,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfProcessedCommand result = apiInstance.GetPortfolioGroupCommands(scope, code, fromAsAt, toAsAt, filter, opts: opts);
+
                 // GetPortfolioGroupCommands: Get portfolio group commands
                 ResourceListOfProcessedCommand result = apiInstance.GetPortfolioGroupCommands(scope, code, fromAsAt, toAsAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1736,6 +1901,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group to expand.
             var code = "code_example";  // string | The code of the portfolio group to expand. Together with the scope this uniquely identifies the portfolio              group to expand.
@@ -1745,6 +1918,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ExpandedGroup result = apiInstance.GetPortfolioGroupExpansion(scope, code, effectiveAt, asAt, propertyFilter, opts: opts);
+
                 // [EARLY ACCESS] GetPortfolioGroupExpansion: Get portfolio group expansion
                 ExpandedGroup result = apiInstance.GetPortfolioGroupExpansion(scope, code, effectiveAt, asAt, propertyFilter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1847,6 +2023,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio Group
             var code = "code_example";  // string | The Portfolio Group code
@@ -1855,6 +2039,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, List<AccessMetadataValue>> result = apiInstance.GetPortfolioGroupMetadata(scope, code, effectiveAt, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
                 Dictionary<string, List<AccessMetadataValue>> result = apiInstance.GetPortfolioGroupMetadata(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1956,6 +2143,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the group.
             var code = "code_example";  // string | The code of the group. Together with the scope this uniquely identifies              the portfolio group.
@@ -1968,6 +2163,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPropertyInterval result = apiInstance.GetPortfolioGroupPropertyTimeSeries(scope, code, propertyKey, portfolioGroupEffectiveAt, asAt, filter, page, limit, opts: opts);
+
                 // [EARLY ACCESS] GetPortfolioGroupPropertyTimeSeries: Get the time series of a portfolio group property
                 ResourceListOfPropertyInterval result = apiInstance.GetPortfolioGroupPropertyTimeSeries(scope, code, propertyKey, portfolioGroupEffectiveAt, asAt, filter, page, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2073,6 +2271,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group.
             var code = "code_example";  // string | The code of the portfolio group. Together with the scope this uniquely identifies              the portfolio group.
@@ -2083,6 +2289,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfRelation result = apiInstance.GetPortfolioGroupRelations(scope, code, effectiveAt, asAt, filter, identifierTypes, opts: opts);
+
                 // [EXPERIMENTAL] GetPortfolioGroupRelations: Get Relations for Portfolio Group
                 ResourceListOfRelation result = apiInstance.GetPortfolioGroupRelations(scope, code, effectiveAt, asAt, filter, identifierTypes);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2186,6 +2395,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group.
             var code = "code_example";  // string | The code of the portfolio group. Together with the scope this uniquely identifies              the portfolio group.
@@ -2196,6 +2413,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfRelationship result = apiInstance.GetPortfolioGroupRelationships(scope, code, effectiveAt, asAt, filter, identifierTypes, opts: opts);
+
                 // [EARLY ACCESS] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
                 ResourceListOfRelationship result = apiInstance.GetPortfolioGroupRelationships(scope, code, effectiveAt, asAt, filter, identifierTypes);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2299,6 +2519,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group.
             var code = "code_example";  // string | The code of the portfolio group. Together with the scope this uniquely identifies               the portfolio group.
@@ -2314,6 +2542,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListOfTransaction result = apiInstance.GetTransactionsForPortfolioGroup(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy, opts: opts);
+
                 // GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
                 VersionedResourceListOfTransaction result = apiInstance.GetTransactionsForPortfolioGroup(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2422,6 +2653,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope to list the portfolio groups in.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the portfolio groups. Defaults to the current LUSID system datetime if not specified. (optional) 
@@ -2435,6 +2674,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfPortfolioGroup result = apiInstance.ListPortfolioGroups(scope, effectiveAt, asAt, page, limit, filter, sortBy, relatedEntityPropertyKeys, relationshipDefinitionIds, opts: opts);
+
                 // ListPortfolioGroups: List portfolio groups
                 PagedResourceListOfPortfolioGroup result = apiInstance.ListPortfolioGroups(scope, effectiveAt, asAt, page, limit, filter, sortBy, relatedEntityPropertyKeys, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2541,6 +2783,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio Group
             var code = "code_example";  // string | The Portfolio Group code
@@ -2550,6 +2800,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, List<AccessMetadataValue>> result = apiInstance.PatchPortfolioGroupAccessMetadata(scope, code, accessMetadataOperation, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] PatchPortfolioGroupAccessMetadata: Patch Access Metadata rules for a Portfolio Group.
                 Dictionary<string, List<AccessMetadataValue>> result = apiInstance.PatchPortfolioGroupAccessMetadata(scope, code, accessMetadataOperation, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2652,6 +2905,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the portfolio group to update the definition for.
             var code = "code_example";  // string | The code of the portfolio group to update the definition for. Together with the scope this uniquely identifies the portfolio group.
@@ -2660,6 +2921,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioGroup result = apiInstance.UpdatePortfolioGroup(scope, code, effectiveAt, updatePortfolioGroupRequest, opts: opts);
+
                 // [EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
                 PortfolioGroup result = apiInstance.UpdatePortfolioGroup(scope, code, effectiveAt, updatePortfolioGroupRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2761,6 +3025,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the group to update or insert the properties onto.
             var code = "code_example";  // string | The code of the group to update or insert the properties onto. Together with the scope this uniquely identifies the group.
@@ -2768,6 +3040,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioGroupProperties result = apiInstance.UpsertGroupProperties(scope, code, requestBody, opts: opts);
+
                 // [EARLY ACCESS] UpsertGroupProperties: Upsert group properties
                 PortfolioGroupProperties result = apiInstance.UpsertGroupProperties(scope, code, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2868,6 +3143,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfolioGroupsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfolioGroupsApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio Group
             var code = "code_example";  // string | The Portfolio Group code
@@ -2878,6 +3161,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfAccessMetadataValueOf result = apiInstance.UpsertPortfolioGroupAccessMetadata(scope, code, metadataKey, upsertPortfolioGroupAccessMetadataRequest, effectiveAt, effectiveUntil, opts: opts);
+
                 // UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
                 ResourceListOfAccessMetadataValueOf result = apiInstance.UpsertPortfolioGroupAccessMetadata(scope, code, metadataKey, upsertPortfolioGroupAccessMetadataRequest, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

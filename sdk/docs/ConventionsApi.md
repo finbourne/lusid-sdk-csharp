@@ -55,12 +55,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConventionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConventionsApi>();
             var scope = "scope_example";  // string | The scope of the CDS Flow Conventions to delete.
             var code = "code_example";  // string | The CDS Flow Conventions to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AnnulSingleStructuredDataResponse result = apiInstance.DeleteCdsFlowConventions(scope, code, opts: opts);
+
                 // [BETA] DeleteCdsFlowConventions: Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
                 AnnulSingleStructuredDataResponse result = apiInstance.DeleteCdsFlowConventions(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -160,12 +171,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConventionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConventionsApi>();
             var scope = "scope_example";  // string | The scope of the Flow Conventions to delete.
             var code = "code_example";  // string | The Flow Conventions to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AnnulSingleStructuredDataResponse result = apiInstance.DeleteFlowConventions(scope, code, opts: opts);
+
                 // [BETA] DeleteFlowConventions: Delete the Flow Conventions of given scope and code, assuming that it is present.
                 AnnulSingleStructuredDataResponse result = apiInstance.DeleteFlowConventions(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -265,12 +287,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConventionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConventionsApi>();
             var scope = "scope_example";  // string | The scope of the Index Convention to delete.
             var code = "code_example";  // string | The Index Convention to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AnnulSingleStructuredDataResponse result = apiInstance.DeleteIndexConvention(scope, code, opts: opts);
+
                 // [BETA] DeleteIndexConvention: Delete the Index Convention of given scope and code, assuming that it is present.
                 AnnulSingleStructuredDataResponse result = apiInstance.DeleteIndexConvention(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -370,6 +403,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConventionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConventionsApi>();
             var scope = "scope_example";  // string | The scope of the CDS Flow Conventions to retrieve.
             var code = "code_example";  // string | The name of the CDS Flow Conventions to retrieve the data for.
@@ -377,6 +418,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetCdsFlowConventionsResponse result = apiInstance.GetCdsFlowConventions(scope, code, asAt, opts: opts);
+
                 // [BETA] GetCdsFlowConventions: Get CDS Flow Conventions
                 GetCdsFlowConventionsResponse result = apiInstance.GetCdsFlowConventions(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -477,6 +521,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConventionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConventionsApi>();
             var scope = "scope_example";  // string | The scope of the Flow Conventions to retrieve.
             var code = "code_example";  // string | The name of the Flow Conventions to retrieve the data for.
@@ -484,6 +536,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetFlowConventionsResponse result = apiInstance.GetFlowConventions(scope, code, asAt, opts: opts);
+
                 // [BETA] GetFlowConventions: Get Flow Conventions
                 GetFlowConventionsResponse result = apiInstance.GetFlowConventions(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -584,6 +639,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConventionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConventionsApi>();
             var scope = "scope_example";  // string | The scope of the Index Convention to retrieve.
             var code = "code_example";  // string | The name of the Index Convention to retrieve the data for.
@@ -591,6 +654,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetIndexConventionResponse result = apiInstance.GetIndexConvention(scope, code, asAt, opts: opts);
+
                 // [BETA] GetIndexConvention: Get Index Convention
                 GetIndexConventionResponse result = apiInstance.GetIndexConvention(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -691,11 +757,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConventionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConventionsApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfGetCdsFlowConventionsResponse result = apiInstance.ListCdsFlowConventions(asAt, opts: opts);
+
                 // [BETA] ListCdsFlowConventions: List the set of CDS Flow Conventions
                 ResourceListOfGetCdsFlowConventionsResponse result = apiInstance.ListCdsFlowConventions(asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -794,11 +871,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConventionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConventionsApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfGetFlowConventionsResponse result = apiInstance.ListFlowConventions(asAt, opts: opts);
+
                 // [BETA] ListFlowConventions: List the set of Flow Conventions
                 ResourceListOfGetFlowConventionsResponse result = apiInstance.ListFlowConventions(asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -897,11 +985,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConventionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConventionsApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the conventions. Defaults to latest if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfGetIndexConventionResponse result = apiInstance.ListIndexConvention(asAt, opts: opts);
+
                 // [BETA] ListIndexConvention: List the set of Index Conventions
                 ResourceListOfGetIndexConventionResponse result = apiInstance.ListIndexConvention(asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1000,11 +1099,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConventionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConventionsApi>();
             var upsertCdsFlowConventionsRequest = new UpsertCdsFlowConventionsRequest(); // UpsertCdsFlowConventionsRequest | The CDS Flow Conventions to update or insert
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertSingleStructuredDataResponse result = apiInstance.UpsertCdsFlowConventions(upsertCdsFlowConventionsRequest, opts: opts);
+
                 // [BETA] UpsertCdsFlowConventions: Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
                 UpsertSingleStructuredDataResponse result = apiInstance.UpsertCdsFlowConventions(upsertCdsFlowConventionsRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1103,11 +1213,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConventionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConventionsApi>();
             var upsertFlowConventionsRequest = new UpsertFlowConventionsRequest(); // UpsertFlowConventionsRequest | The Flow Conventions to update or insert
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertSingleStructuredDataResponse result = apiInstance.UpsertFlowConventions(upsertFlowConventionsRequest, opts: opts);
+
                 // [BETA] UpsertFlowConventions: Upsert Flow Conventions. This creates or updates the data in Lusid.
                 UpsertSingleStructuredDataResponse result = apiInstance.UpsertFlowConventions(upsertFlowConventionsRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1206,11 +1327,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConventionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConventionsApi>();
             var upsertIndexConventionRequest = new UpsertIndexConventionRequest(); // UpsertIndexConventionRequest | The Index Conventions to update or insert
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertSingleStructuredDataResponse result = apiInstance.UpsertIndexConvention(upsertIndexConventionRequest, opts: opts);
+
                 // [BETA] UpsertIndexConvention: Upsert a set of Index Convention. This creates or updates the data in Lusid.
                 UpsertSingleStructuredDataResponse result = apiInstance.UpsertIndexConvention(upsertIndexConventionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

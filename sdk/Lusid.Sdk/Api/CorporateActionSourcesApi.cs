@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -41,8 +42,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source</param>
         /// <param name="upsertCorporateActionRequest">The corporate action definitions (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertCorporateActionsResponse</returns>
-        UpsertCorporateActionsResponse BatchUpsertCorporateActions(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0);
+        UpsertCorporateActionsResponse BatchUpsertCorporateActions(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.
@@ -55,8 +57,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source</param>
         /// <param name="upsertCorporateActionRequest">The corporate action definitions (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertCorporateActionsResponse</returns>
-        ApiResponse<UpsertCorporateActionsResponse> BatchUpsertCorporateActionsWithHttpInfo(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0);
+        ApiResponse<UpsertCorporateActionsResponse> BatchUpsertCorporateActionsWithHttpInfo(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateCorporateActionSource: Create corporate action source
         /// </summary>
@@ -66,8 +69,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCorporateActionSourceRequest">The corporate action source definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CorporateActionSource</returns>
-        CorporateActionSource CreateCorporateActionSource(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0);
+        CorporateActionSource CreateCorporateActionSource(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateCorporateActionSource: Create corporate action source
@@ -78,8 +82,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCorporateActionSourceRequest">The corporate action source definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CorporateActionSource</returns>
-        ApiResponse<CorporateActionSource> CreateCorporateActionSourceWithHttpInfo(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0);
+        ApiResponse<CorporateActionSource> CreateCorporateActionSourceWithHttpInfo(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
         /// </summary>
@@ -90,8 +95,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the corporate action source to be deleted</param>
         /// <param name="code">The code of the corporate action source to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteCorporateActionSource(string scope, string code, int operationIndex = 0);
+        DeletedEntityResponse DeleteCorporateActionSource(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
@@ -103,8 +109,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the corporate action source to be deleted</param>
         /// <param name="code">The code of the corporate action source to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteCorporateActionSourceWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteCorporateActionSourceWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
         /// </summary>
@@ -116,8 +123,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source</param>
         /// <param name="corporateActionIds">The IDs of the corporate actions to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteCorporateActions(string scope, string code, List<string> corporateActionIds, int operationIndex = 0);
+        DeletedEntityResponse DeleteCorporateActions(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
@@ -130,8 +138,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source</param>
         /// <param name="corporateActionIds">The IDs of the corporate actions to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteCorporateActionsWithHttpInfo(string scope, string code, List<string> corporateActionIds, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteCorporateActionsWithHttpInfo(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
         /// </summary>
@@ -143,8 +152,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source</param>
         /// <param name="instrumentEventIds">The IDs of the instrument events to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteInstrumentEvents(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0);
+        DeletedEntityResponse DeleteInstrumentEvents(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
@@ -157,8 +167,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source</param>
         /// <param name="instrumentEventIds">The IDs of the instrument events to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteInstrumentEventsWithHttpInfo(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteInstrumentEventsWithHttpInfo(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source.
         /// </summary>
@@ -175,8 +186,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the results to this number. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfCorporateAction</returns>
-        ResourceListOfCorporateAction GetCorporateActions(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ResourceListOfCorporateAction GetCorporateActions(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source.
@@ -194,8 +206,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the results to this number. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfCorporateAction</returns>
-        ApiResponse<ResourceListOfCorporateAction> GetCorporateActionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<ResourceListOfCorporateAction> GetCorporateActionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
         /// </summary>
@@ -210,8 +223,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfInstrumentEventHolder</returns>
-        PagedResourceListOfInstrumentEventHolder GetInstrumentEvents(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0);
+        PagedResourceListOfInstrumentEventHolder GetInstrumentEvents(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
@@ -227,8 +241,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfInstrumentEventHolder</returns>
-        ApiResponse<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListCorporateActionSources: List corporate action sources
         /// </summary>
@@ -242,8 +257,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCorporateActionSource</returns>
-        PagedResourceListOfCorporateActionSource ListCorporateActionSources(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0);
+        PagedResourceListOfCorporateActionSource ListCorporateActionSources(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListCorporateActionSources: List corporate action sources
@@ -258,8 +274,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCorporateActionSource</returns>
-        ApiResponse<PagedResourceListOfCorporateActionSource> ListCorporateActionSourcesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfCorporateActionSource> ListCorporateActionSourcesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
         /// </summary>
@@ -271,8 +288,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source.</param>
         /// <param name="upsertInstrumentEventRequest">The instrument event definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertInstrumentEventsResponse</returns>
-        UpsertInstrumentEventsResponse UpsertInstrumentEvents(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0);
+        UpsertInstrumentEventsResponse UpsertInstrumentEvents(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
@@ -285,8 +303,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source.</param>
         /// <param name="upsertInstrumentEventRequest">The instrument event definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertInstrumentEventsResponse</returns>
-        ApiResponse<UpsertInstrumentEventsResponse> UpsertInstrumentEventsWithHttpInfo(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0);
+        ApiResponse<UpsertInstrumentEventsResponse> UpsertInstrumentEventsWithHttpInfo(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -308,8 +327,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCorporateActionRequest">The corporate action definitions (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertCorporateActionsResponse</returns>
-        System.Threading.Tasks.Task<UpsertCorporateActionsResponse> BatchUpsertCorporateActionsAsync(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertCorporateActionsResponse> BatchUpsertCorporateActionsAsync(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.
@@ -323,8 +343,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCorporateActionRequest">The corporate action definitions (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertCorporateActionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertCorporateActionsResponse>> BatchUpsertCorporateActionsWithHttpInfoAsync(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertCorporateActionsResponse>> BatchUpsertCorporateActionsWithHttpInfoAsync(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateCorporateActionSource: Create corporate action source
         /// </summary>
@@ -335,8 +356,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createCorporateActionSourceRequest">The corporate action source definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CorporateActionSource</returns>
-        System.Threading.Tasks.Task<CorporateActionSource> CreateCorporateActionSourceAsync(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CorporateActionSource> CreateCorporateActionSourceAsync(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateCorporateActionSource: Create corporate action source
@@ -348,8 +370,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createCorporateActionSourceRequest">The corporate action source definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CorporateActionSource)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CorporateActionSource>> CreateCorporateActionSourceWithHttpInfoAsync(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CorporateActionSource>> CreateCorporateActionSourceWithHttpInfoAsync(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
         /// </summary>
@@ -361,8 +384,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionSourceAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionSourceAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
@@ -375,8 +399,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteCorporateActionSourceWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteCorporateActionSourceWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
         /// </summary>
@@ -389,8 +414,9 @@ namespace Lusid.Sdk.Api
         /// <param name="corporateActionIds">The IDs of the corporate actions to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionsAsync(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionsAsync(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
@@ -404,8 +430,9 @@ namespace Lusid.Sdk.Api
         /// <param name="corporateActionIds">The IDs of the corporate actions to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteCorporateActionsWithHttpInfoAsync(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteCorporateActionsWithHttpInfoAsync(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
         /// </summary>
@@ -418,8 +445,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentEventIds">The IDs of the instrument events to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteInstrumentEventsAsync(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteInstrumentEventsAsync(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
@@ -433,8 +461,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentEventIds">The IDs of the instrument events to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteInstrumentEventsWithHttpInfoAsync(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteInstrumentEventsWithHttpInfoAsync(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source.
         /// </summary>
@@ -452,8 +481,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfCorporateAction</returns>
-        System.Threading.Tasks.Task<ResourceListOfCorporateAction> GetCorporateActionsAsync(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfCorporateAction> GetCorporateActionsAsync(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source.
@@ -472,8 +502,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfCorporateAction)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfCorporateAction>> GetCorporateActionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfCorporateAction>> GetCorporateActionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
         /// </summary>
@@ -489,8 +520,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfInstrumentEventHolder</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
@@ -507,8 +539,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfInstrumentEventHolder)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfInstrumentEventHolder>> GetInstrumentEventsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfInstrumentEventHolder>> GetInstrumentEventsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListCorporateActionSources: List corporate action sources
         /// </summary>
@@ -523,8 +556,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfCorporateActionSource</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfCorporateActionSource> ListCorporateActionSourcesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfCorporateActionSource> ListCorporateActionSourcesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListCorporateActionSources: List corporate action sources
@@ -540,8 +574,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCorporateActionSource)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCorporateActionSource>> ListCorporateActionSourcesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCorporateActionSource>> ListCorporateActionSourcesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
         /// </summary>
@@ -554,8 +589,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertInstrumentEventRequest">The instrument event definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertInstrumentEventsResponse</returns>
-        System.Threading.Tasks.Task<UpsertInstrumentEventsResponse> UpsertInstrumentEventsAsync(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertInstrumentEventsResponse> UpsertInstrumentEventsAsync(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
@@ -569,8 +605,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertInstrumentEventRequest">The instrument event definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertInstrumentEventsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertInstrumentEventsResponse>> UpsertInstrumentEventsWithHttpInfoAsync(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertInstrumentEventsResponse>> UpsertInstrumentEventsWithHttpInfoAsync(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -603,9 +640,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public CorporateActionSourcesApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -696,10 +739,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source</param>
         /// <param name="upsertCorporateActionRequest">The corporate action definitions (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertCorporateActionsResponse</returns>
-        public UpsertCorporateActionsResponse BatchUpsertCorporateActions(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0)
+        public UpsertCorporateActionsResponse BatchUpsertCorporateActions(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertCorporateActionsResponse> localVarResponse = BatchUpsertCorporateActionsWithHttpInfo(scope, code, upsertCorporateActionRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertCorporateActionsResponse> localVarResponse = BatchUpsertCorporateActionsWithHttpInfo(scope, code, upsertCorporateActionRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -711,8 +755,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source</param>
         /// <param name="upsertCorporateActionRequest">The corporate action definitions (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertCorporateActionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertCorporateActionsResponse> BatchUpsertCorporateActionsWithHttpInfo(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertCorporateActionsResponse> BatchUpsertCorporateActionsWithHttpInfo(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -727,6 +772,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -801,10 +856,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCorporateActionRequest">The corporate action definitions (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertCorporateActionsResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertCorporateActionsResponse> BatchUpsertCorporateActionsAsync(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertCorporateActionsResponse> BatchUpsertCorporateActionsAsync(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertCorporateActionsResponse> localVarResponse = await BatchUpsertCorporateActionsWithHttpInfoAsync(scope, code, upsertCorporateActionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertCorporateActionsResponse> localVarResponse = await BatchUpsertCorporateActionsWithHttpInfoAsync(scope, code, upsertCorporateActionRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -817,8 +873,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertCorporateActionRequest">The corporate action definitions (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertCorporateActionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertCorporateActionsResponse>> BatchUpsertCorporateActionsWithHttpInfoAsync(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertCorporateActionsResponse>> BatchUpsertCorporateActionsWithHttpInfoAsync(string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = default(List<UpsertCorporateActionRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -834,6 +891,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -906,10 +973,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCorporateActionSourceRequest">The corporate action source definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CorporateActionSource</returns>
-        public CorporateActionSource CreateCorporateActionSource(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0)
+        public CorporateActionSource CreateCorporateActionSource(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CorporateActionSource> localVarResponse = CreateCorporateActionSourceWithHttpInfo(createCorporateActionSourceRequest);
+            Lusid.Sdk.Client.ApiResponse<CorporateActionSource> localVarResponse = CreateCorporateActionSourceWithHttpInfo(createCorporateActionSourceRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -919,8 +987,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCorporateActionSourceRequest">The corporate action source definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CorporateActionSource</returns>
-        public Lusid.Sdk.Client.ApiResponse<CorporateActionSource> CreateCorporateActionSourceWithHttpInfo(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CorporateActionSource> CreateCorporateActionSourceWithHttpInfo(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'createCorporateActionSourceRequest' is set
             if (createCorporateActionSourceRequest == null)
@@ -929,6 +998,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -999,10 +1078,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createCorporateActionSourceRequest">The corporate action source definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CorporateActionSource</returns>
-        public async System.Threading.Tasks.Task<CorporateActionSource> CreateCorporateActionSourceAsync(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CorporateActionSource> CreateCorporateActionSourceAsync(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CorporateActionSource> localVarResponse = await CreateCorporateActionSourceWithHttpInfoAsync(createCorporateActionSourceRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CorporateActionSource> localVarResponse = await CreateCorporateActionSourceWithHttpInfoAsync(createCorporateActionSourceRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1013,8 +1093,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createCorporateActionSourceRequest">The corporate action source definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CorporateActionSource)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CorporateActionSource>> CreateCorporateActionSourceWithHttpInfoAsync(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CorporateActionSource>> CreateCorporateActionSourceWithHttpInfoAsync(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'createCorporateActionSourceRequest' is set
             if (createCorporateActionSourceRequest == null)
@@ -1024,6 +1105,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1095,10 +1186,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the corporate action source to be deleted</param>
         /// <param name="code">The code of the corporate action source to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteCorporateActionSource(string scope, string code, int operationIndex = 0)
+        public DeletedEntityResponse DeleteCorporateActionSource(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteCorporateActionSourceWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteCorporateActionSourceWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1109,8 +1201,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the corporate action source to be deleted</param>
         /// <param name="code">The code of the corporate action source to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCorporateActionSourceWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCorporateActionSourceWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1125,6 +1218,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1193,10 +1296,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionSourceAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionSourceAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteCorporateActionSourceWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteCorporateActionSourceWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1208,8 +1312,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCorporateActionSourceWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCorporateActionSourceWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1225,6 +1330,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1294,10 +1409,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source</param>
         /// <param name="corporateActionIds">The IDs of the corporate actions to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteCorporateActions(string scope, string code, List<string> corporateActionIds, int operationIndex = 0)
+        public DeletedEntityResponse DeleteCorporateActions(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteCorporateActionsWithHttpInfo(scope, code, corporateActionIds);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteCorporateActionsWithHttpInfo(scope, code, corporateActionIds, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1309,8 +1425,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source</param>
         /// <param name="corporateActionIds">The IDs of the corporate actions to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCorporateActionsWithHttpInfo(string scope, string code, List<string> corporateActionIds, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCorporateActionsWithHttpInfo(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1331,6 +1448,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1401,10 +1528,11 @@ namespace Lusid.Sdk.Api
         /// <param name="corporateActionIds">The IDs of the corporate actions to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionsAsync(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionsAsync(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteCorporateActionsWithHttpInfoAsync(scope, code, corporateActionIds, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteCorporateActionsWithHttpInfoAsync(scope, code, corporateActionIds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1417,8 +1545,9 @@ namespace Lusid.Sdk.Api
         /// <param name="corporateActionIds">The IDs of the corporate actions to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCorporateActionsWithHttpInfoAsync(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCorporateActionsWithHttpInfoAsync(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1440,6 +1569,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1510,10 +1649,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source</param>
         /// <param name="instrumentEventIds">The IDs of the instrument events to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteInstrumentEvents(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0)
+        public DeletedEntityResponse DeleteInstrumentEvents(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteInstrumentEventsWithHttpInfo(scope, code, instrumentEventIds);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteInstrumentEventsWithHttpInfo(scope, code, instrumentEventIds, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1525,8 +1665,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source</param>
         /// <param name="instrumentEventIds">The IDs of the instrument events to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteInstrumentEventsWithHttpInfo(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteInstrumentEventsWithHttpInfo(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1547,6 +1688,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1617,10 +1768,11 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentEventIds">The IDs of the instrument events to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteInstrumentEventsAsync(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteInstrumentEventsAsync(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteInstrumentEventsWithHttpInfoAsync(scope, code, instrumentEventIds, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteInstrumentEventsWithHttpInfoAsync(scope, code, instrumentEventIds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1633,8 +1785,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentEventIds">The IDs of the instrument events to delete</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteInstrumentEventsWithHttpInfoAsync(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteInstrumentEventsWithHttpInfoAsync(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1656,6 +1809,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1731,10 +1894,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the results to this number. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfCorporateAction</returns>
-        public ResourceListOfCorporateAction GetCorporateActions(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public ResourceListOfCorporateAction GetCorporateActions(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfCorporateAction> localVarResponse = GetCorporateActionsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, sortBy, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfCorporateAction> localVarResponse = GetCorporateActionsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, sortBy, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1751,8 +1915,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the results to this number. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfCorporateAction</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfCorporateAction> GetCorporateActionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfCorporateAction> GetCorporateActionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1767,6 +1932,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1865,10 +2040,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfCorporateAction</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfCorporateAction> GetCorporateActionsAsync(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfCorporateAction> GetCorporateActionsAsync(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfCorporateAction> localVarResponse = await GetCorporateActionsWithHttpInfoAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAt, sortBy, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfCorporateAction> localVarResponse = await GetCorporateActionsWithHttpInfoAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAt, sortBy, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1886,8 +2062,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfCorporateAction)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfCorporateAction>> GetCorporateActionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfCorporateAction>> GetCorporateActionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1903,6 +2080,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1999,10 +2186,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfInstrumentEventHolder</returns>
-        public PagedResourceListOfInstrumentEventHolder GetInstrumentEvents(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0)
+        public PagedResourceListOfInstrumentEventHolder GetInstrumentEvents(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> localVarResponse = GetInstrumentEventsWithHttpInfo(scope, code, asAt, limit, page, filter);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> localVarResponse = GetInstrumentEventsWithHttpInfo(scope, code, asAt, limit, page, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2017,8 +2205,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfInstrumentEventHolder</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2033,6 +2222,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2121,10 +2320,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfInstrumentEventHolder</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> localVarResponse = await GetInstrumentEventsWithHttpInfoAsync(scope, code, asAt, limit, page, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> localVarResponse = await GetInstrumentEventsWithHttpInfoAsync(scope, code, asAt, limit, page, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2140,8 +2340,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfInstrumentEventHolder)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder>> GetInstrumentEventsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder>> GetInstrumentEventsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2157,6 +2358,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2244,10 +2455,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCorporateActionSource</returns>
-        public PagedResourceListOfCorporateActionSource ListCorporateActionSources(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0)
+        public PagedResourceListOfCorporateActionSource ListCorporateActionSources(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCorporateActionSource> localVarResponse = ListCorporateActionSourcesWithHttpInfo(asAt, sortBy, limit, filter, page);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCorporateActionSource> localVarResponse = ListCorporateActionSourcesWithHttpInfo(asAt, sortBy, limit, filter, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2261,10 +2473,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCorporateActionSource</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCorporateActionSource> ListCorporateActionSourcesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCorporateActionSource> ListCorporateActionSourcesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2354,10 +2577,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfCorporateActionSource</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfCorporateActionSource> ListCorporateActionSourcesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfCorporateActionSource> ListCorporateActionSourcesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCorporateActionSource> localVarResponse = await ListCorporateActionSourcesWithHttpInfoAsync(asAt, sortBy, limit, filter, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCorporateActionSource> localVarResponse = await ListCorporateActionSourcesWithHttpInfoAsync(asAt, sortBy, limit, filter, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2372,11 +2596,22 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCorporateActionSource)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCorporateActionSource>> ListCorporateActionSourcesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCorporateActionSource>> ListCorporateActionSourcesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2464,10 +2699,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source.</param>
         /// <param name="upsertInstrumentEventRequest">The instrument event definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertInstrumentEventsResponse</returns>
-        public UpsertInstrumentEventsResponse UpsertInstrumentEvents(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0)
+        public UpsertInstrumentEventsResponse UpsertInstrumentEvents(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertInstrumentEventsResponse> localVarResponse = UpsertInstrumentEventsWithHttpInfo(scope, code, upsertInstrumentEventRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertInstrumentEventsResponse> localVarResponse = UpsertInstrumentEventsWithHttpInfo(scope, code, upsertInstrumentEventRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2479,8 +2715,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the corporate action source.</param>
         /// <param name="upsertInstrumentEventRequest">The instrument event definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertInstrumentEventsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertInstrumentEventsResponse> UpsertInstrumentEventsWithHttpInfo(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertInstrumentEventsResponse> UpsertInstrumentEventsWithHttpInfo(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2495,6 +2732,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2569,10 +2816,11 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertInstrumentEventRequest">The instrument event definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertInstrumentEventsResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertInstrumentEventsResponse> UpsertInstrumentEventsAsync(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertInstrumentEventsResponse> UpsertInstrumentEventsAsync(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertInstrumentEventsResponse> localVarResponse = await UpsertInstrumentEventsWithHttpInfoAsync(scope, code, upsertInstrumentEventRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertInstrumentEventsResponse> localVarResponse = await UpsertInstrumentEventsWithHttpInfoAsync(scope, code, upsertInstrumentEventRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2585,8 +2833,9 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertInstrumentEventRequest">The instrument event definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertInstrumentEventsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertInstrumentEventsResponse>> UpsertInstrumentEventsWithHttpInfoAsync(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertInstrumentEventsResponse>> UpsertInstrumentEventsWithHttpInfoAsync(string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = default(List<UpsertInstrumentEventRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2602,6 +2851,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

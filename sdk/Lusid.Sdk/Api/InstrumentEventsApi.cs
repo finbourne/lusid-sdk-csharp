@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -42,8 +43,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfApplicableInstrumentEvent</returns>
-        ResourceListOfApplicableInstrumentEvent QueryApplicableInstrumentEvents(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0);
+        ResourceListOfApplicableInstrumentEvent QueryApplicableInstrumentEvents(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
@@ -57,8 +59,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfApplicableInstrumentEvent</returns>
-        ApiResponse<ResourceListOfApplicableInstrumentEvent> QueryApplicableInstrumentEventsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0);
+        ApiResponse<ResourceListOfApplicableInstrumentEvent> QueryApplicableInstrumentEventsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -68,8 +71,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryBucketedCashFlowsRequest">The Query Information. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BucketedCashFlowResponse</returns>
-        BucketedCashFlowResponse QueryBucketedCashFlows(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0);
+        BucketedCashFlowResponse QueryBucketedCashFlows(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
@@ -80,8 +84,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryBucketedCashFlowsRequest">The Query Information. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BucketedCashFlowResponse</returns>
-        ApiResponse<BucketedCashFlowResponse> QueryBucketedCashFlowsWithHttpInfo(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0);
+        ApiResponse<BucketedCashFlowResponse> QueryBucketedCashFlowsWithHttpInfo(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -93,8 +98,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfInstrumentCashFlow</returns>
-        ResourceListOfInstrumentCashFlow QueryCashFlows(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0);
+        ResourceListOfInstrumentCashFlow QueryCashFlows(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
@@ -107,8 +113,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfInstrumentCashFlow</returns>
-        ApiResponse<ResourceListOfInstrumentCashFlow> QueryCashFlowsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0);
+        ApiResponse<ResourceListOfInstrumentCashFlow> QueryCashFlowsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -120,8 +127,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfInstrumentEventHolder</returns>
-        ResourceListOfInstrumentEventHolder QueryInstrumentEvents(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0);
+        ResourceListOfInstrumentEventHolder QueryInstrumentEvents(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
@@ -134,8 +142,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfInstrumentEventHolder</returns>
-        ApiResponse<ResourceListOfInstrumentEventHolder> QueryInstrumentEventsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0);
+        ApiResponse<ResourceListOfInstrumentEventHolder> QueryInstrumentEventsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -147,8 +156,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPortfolioTradeTicket</returns>
-        ResourceListOfPortfolioTradeTicket QueryTradeTickets(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0);
+        ResourceListOfPortfolioTradeTicket QueryTradeTickets(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
@@ -161,8 +171,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPortfolioTradeTicket</returns>
-        ApiResponse<ResourceListOfPortfolioTradeTicket> QueryTradeTicketsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0);
+        ApiResponse<ResourceListOfPortfolioTradeTicket> QueryTradeTicketsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -185,8 +196,9 @@ namespace Lusid.Sdk.Api
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfApplicableInstrumentEvent</returns>
-        System.Threading.Tasks.Task<ResourceListOfApplicableInstrumentEvent> QueryApplicableInstrumentEventsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfApplicableInstrumentEvent> QueryApplicableInstrumentEventsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
@@ -201,8 +213,9 @@ namespace Lusid.Sdk.Api
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfApplicableInstrumentEvent)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfApplicableInstrumentEvent>> QueryApplicableInstrumentEventsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfApplicableInstrumentEvent>> QueryApplicableInstrumentEventsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -213,8 +226,9 @@ namespace Lusid.Sdk.Api
         /// <param name="queryBucketedCashFlowsRequest">The Query Information. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BucketedCashFlowResponse</returns>
-        System.Threading.Tasks.Task<BucketedCashFlowResponse> QueryBucketedCashFlowsAsync(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BucketedCashFlowResponse> QueryBucketedCashFlowsAsync(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
@@ -226,8 +240,9 @@ namespace Lusid.Sdk.Api
         /// <param name="queryBucketedCashFlowsRequest">The Query Information. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BucketedCashFlowResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BucketedCashFlowResponse>> QueryBucketedCashFlowsWithHttpInfoAsync(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BucketedCashFlowResponse>> QueryBucketedCashFlowsWithHttpInfoAsync(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -240,8 +255,9 @@ namespace Lusid.Sdk.Api
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfInstrumentCashFlow</returns>
-        System.Threading.Tasks.Task<ResourceListOfInstrumentCashFlow> QueryCashFlowsAsync(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfInstrumentCashFlow> QueryCashFlowsAsync(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
@@ -255,8 +271,9 @@ namespace Lusid.Sdk.Api
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfInstrumentCashFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrumentCashFlow>> QueryCashFlowsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrumentCashFlow>> QueryCashFlowsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -269,8 +286,9 @@ namespace Lusid.Sdk.Api
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfInstrumentEventHolder</returns>
-        System.Threading.Tasks.Task<ResourceListOfInstrumentEventHolder> QueryInstrumentEventsAsync(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfInstrumentEventHolder> QueryInstrumentEventsAsync(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
@@ -284,8 +302,9 @@ namespace Lusid.Sdk.Api
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfInstrumentEventHolder)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrumentEventHolder>> QueryInstrumentEventsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrumentEventHolder>> QueryInstrumentEventsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -298,8 +317,9 @@ namespace Lusid.Sdk.Api
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfPortfolioTradeTicket</returns>
-        System.Threading.Tasks.Task<ResourceListOfPortfolioTradeTicket> QueryTradeTicketsAsync(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfPortfolioTradeTicket> QueryTradeTicketsAsync(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
@@ -313,8 +333,9 @@ namespace Lusid.Sdk.Api
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPortfolioTradeTicket)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolioTradeTicket>> QueryTradeTicketsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolioTradeTicket>> QueryTradeTicketsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -347,9 +368,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public InstrumentEventsApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -441,10 +468,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfApplicableInstrumentEvent</returns>
-        public ResourceListOfApplicableInstrumentEvent QueryApplicableInstrumentEvents(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0)
+        public ResourceListOfApplicableInstrumentEvent QueryApplicableInstrumentEvents(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfApplicableInstrumentEvent> localVarResponse = QueryApplicableInstrumentEventsWithHttpInfo(asAt, limit, page, queryApplicableInstrumentEventsRequest);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfApplicableInstrumentEvent> localVarResponse = QueryApplicableInstrumentEventsWithHttpInfo(asAt, limit, page, queryApplicableInstrumentEventsRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -457,10 +485,21 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfApplicableInstrumentEvent</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfApplicableInstrumentEvent> QueryApplicableInstrumentEventsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfApplicableInstrumentEvent> QueryApplicableInstrumentEventsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -546,10 +585,11 @@ namespace Lusid.Sdk.Api
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfApplicableInstrumentEvent</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfApplicableInstrumentEvent> QueryApplicableInstrumentEventsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfApplicableInstrumentEvent> QueryApplicableInstrumentEventsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfApplicableInstrumentEvent> localVarResponse = await QueryApplicableInstrumentEventsWithHttpInfoAsync(asAt, limit, page, queryApplicableInstrumentEventsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfApplicableInstrumentEvent> localVarResponse = await QueryApplicableInstrumentEventsWithHttpInfoAsync(asAt, limit, page, queryApplicableInstrumentEventsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -563,11 +603,22 @@ namespace Lusid.Sdk.Api
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfApplicableInstrumentEvent)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfApplicableInstrumentEvent>> QueryApplicableInstrumentEventsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfApplicableInstrumentEvent>> QueryApplicableInstrumentEventsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -650,10 +701,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryBucketedCashFlowsRequest">The Query Information. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BucketedCashFlowResponse</returns>
-        public BucketedCashFlowResponse QueryBucketedCashFlows(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0)
+        public BucketedCashFlowResponse QueryBucketedCashFlows(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BucketedCashFlowResponse> localVarResponse = QueryBucketedCashFlowsWithHttpInfo(queryBucketedCashFlowsRequest);
+            Lusid.Sdk.Client.ApiResponse<BucketedCashFlowResponse> localVarResponse = QueryBucketedCashFlowsWithHttpInfo(queryBucketedCashFlowsRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -663,10 +715,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryBucketedCashFlowsRequest">The Query Information. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BucketedCashFlowResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<BucketedCashFlowResponse> QueryBucketedCashFlowsWithHttpInfo(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<BucketedCashFlowResponse> QueryBucketedCashFlowsWithHttpInfo(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -737,10 +800,11 @@ namespace Lusid.Sdk.Api
         /// <param name="queryBucketedCashFlowsRequest">The Query Information. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BucketedCashFlowResponse</returns>
-        public async System.Threading.Tasks.Task<BucketedCashFlowResponse> QueryBucketedCashFlowsAsync(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BucketedCashFlowResponse> QueryBucketedCashFlowsAsync(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BucketedCashFlowResponse> localVarResponse = await QueryBucketedCashFlowsWithHttpInfoAsync(queryBucketedCashFlowsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<BucketedCashFlowResponse> localVarResponse = await QueryBucketedCashFlowsWithHttpInfoAsync(queryBucketedCashFlowsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -751,11 +815,22 @@ namespace Lusid.Sdk.Api
         /// <param name="queryBucketedCashFlowsRequest">The Query Information. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BucketedCashFlowResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BucketedCashFlowResponse>> QueryBucketedCashFlowsWithHttpInfoAsync(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BucketedCashFlowResponse>> QueryBucketedCashFlowsWithHttpInfoAsync(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -828,10 +903,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfInstrumentCashFlow</returns>
-        public ResourceListOfInstrumentCashFlow QueryCashFlows(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0)
+        public ResourceListOfInstrumentCashFlow QueryCashFlows(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> localVarResponse = QueryCashFlowsWithHttpInfo(limit, page, queryCashFlowsRequest);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> localVarResponse = QueryCashFlowsWithHttpInfo(limit, page, queryCashFlowsRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -843,10 +919,21 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfInstrumentCashFlow</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> QueryCashFlowsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> QueryCashFlowsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -927,10 +1014,11 @@ namespace Lusid.Sdk.Api
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfInstrumentCashFlow</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfInstrumentCashFlow> QueryCashFlowsAsync(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfInstrumentCashFlow> QueryCashFlowsAsync(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> localVarResponse = await QueryCashFlowsWithHttpInfoAsync(limit, page, queryCashFlowsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> localVarResponse = await QueryCashFlowsWithHttpInfoAsync(limit, page, queryCashFlowsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -943,11 +1031,22 @@ namespace Lusid.Sdk.Api
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfInstrumentCashFlow)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow>> QueryCashFlowsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow>> QueryCashFlowsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1028,10 +1127,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfInstrumentEventHolder</returns>
-        public ResourceListOfInstrumentEventHolder QueryInstrumentEvents(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0)
+        public ResourceListOfInstrumentEventHolder QueryInstrumentEvents(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentEventHolder> localVarResponse = QueryInstrumentEventsWithHttpInfo(limit, page, queryInstrumentEventsRequest);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentEventHolder> localVarResponse = QueryInstrumentEventsWithHttpInfo(limit, page, queryInstrumentEventsRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1043,10 +1143,21 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfInstrumentEventHolder</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentEventHolder> QueryInstrumentEventsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentEventHolder> QueryInstrumentEventsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1127,10 +1238,11 @@ namespace Lusid.Sdk.Api
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfInstrumentEventHolder</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfInstrumentEventHolder> QueryInstrumentEventsAsync(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfInstrumentEventHolder> QueryInstrumentEventsAsync(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentEventHolder> localVarResponse = await QueryInstrumentEventsWithHttpInfoAsync(limit, page, queryInstrumentEventsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentEventHolder> localVarResponse = await QueryInstrumentEventsWithHttpInfoAsync(limit, page, queryInstrumentEventsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1143,11 +1255,22 @@ namespace Lusid.Sdk.Api
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfInstrumentEventHolder)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentEventHolder>> QueryInstrumentEventsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentEventHolder>> QueryInstrumentEventsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1228,10 +1351,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPortfolioTradeTicket</returns>
-        public ResourceListOfPortfolioTradeTicket QueryTradeTickets(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0)
+        public ResourceListOfPortfolioTradeTicket QueryTradeTickets(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioTradeTicket> localVarResponse = QueryTradeTicketsWithHttpInfo(limit, page, queryTradeTicketsRequest);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioTradeTicket> localVarResponse = QueryTradeTicketsWithHttpInfo(limit, page, queryTradeTicketsRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1243,10 +1367,21 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPortfolioTradeTicket</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioTradeTicket> QueryTradeTicketsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioTradeTicket> QueryTradeTicketsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1327,10 +1462,11 @@ namespace Lusid.Sdk.Api
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfPortfolioTradeTicket</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfPortfolioTradeTicket> QueryTradeTicketsAsync(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfPortfolioTradeTicket> QueryTradeTicketsAsync(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioTradeTicket> localVarResponse = await QueryTradeTicketsWithHttpInfoAsync(limit, page, queryTradeTicketsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioTradeTicket> localVarResponse = await QueryTradeTicketsWithHttpInfoAsync(limit, page, queryTradeTicketsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1343,11 +1479,22 @@ namespace Lusid.Sdk.Api
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPortfolioTradeTicket)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioTradeTicket>> QueryTradeTicketsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioTradeTicket>> QueryTradeTicketsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

@@ -54,11 +54,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var createDerivedPropertyDefinitionRequest = new CreateDerivedPropertyDefinitionRequest(); // CreateDerivedPropertyDefinitionRequest | The definition of the new derived property.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PropertyDefinition result = apiInstance.CreateDerivedPropertyDefinition(createDerivedPropertyDefinitionRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateDerivedPropertyDefinition: Create derived property definition
                 PropertyDefinition result = apiInstance.CreateDerivedPropertyDefinition(createDerivedPropertyDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -157,11 +168,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var createPropertyDefinitionRequest = new CreatePropertyDefinitionRequest(); // CreatePropertyDefinitionRequest | The definition of the new property.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PropertyDefinition result = apiInstance.CreatePropertyDefinition(createPropertyDefinitionRequest, opts: opts);
+
                 // CreatePropertyDefinition: Create property definition
                 PropertyDefinition result = apiInstance.CreatePropertyDefinition(createPropertyDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -260,6 +282,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var domain = "NotDefined";  // string | The domain of the property to be deleted.
             var scope = "scope_example";  // string | The scope of the property to be deleted.
@@ -267,6 +297,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePropertyDefinition(domain, scope, code, opts: opts);
+
                 // DeletePropertyDefinition: Delete property definition
                 DeletedEntityResponse result = apiInstance.DeletePropertyDefinition(domain, scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -367,6 +400,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var domain = "NotDefined";  // string | The domain of the property definition to delete properties from.
             var scope = "scope_example";  // string | The scope of the property definition to delete properties from.
@@ -376,6 +417,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePropertyDefinitionProperties(domain, scope, code, requestBody, effectiveAt, opts: opts);
+
                 // [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties
                 DeletedEntityResponse result = apiInstance.DeletePropertyDefinitionProperties(domain, scope, code, requestBody, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -478,6 +522,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var propertyKeys = new List<string>(); // List<string> | One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. 'Portfolio/Manager/Id'.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. (optional) 
@@ -486,6 +538,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPropertyDefinition result = apiInstance.GetMultiplePropertyDefinitions(propertyKeys, asAt, filter, effectiveAt, opts: opts);
+
                 // GetMultiplePropertyDefinitions: Get multiple property definitions
                 ResourceListOfPropertyDefinition result = apiInstance.GetMultiplePropertyDefinitions(propertyKeys, asAt, filter, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -587,6 +642,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var domain = "NotDefined";  // string | The domain of the specified property.
             var scope = "scope_example";  // string | The scope of the specified property.
@@ -596,6 +659,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PropertyDefinition result = apiInstance.GetPropertyDefinition(domain, scope, code, asAt, effectiveAt, opts: opts);
+
                 // GetPropertyDefinition: Get property definition
                 PropertyDefinition result = apiInstance.GetPropertyDefinition(domain, scope, code, asAt, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -698,6 +764,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var domain = "NotDefined";  // string | The domain of the property definition to which the property is attached
             var scope = "scope_example";  // string | The scope of the property definition to which the property is attached
@@ -710,6 +784,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPropertyInterval result = apiInstance.GetPropertyDefinitionPropertyTimeSeries(domain, scope, code, propertyKey, asAt, filter, page, limit, opts: opts);
+
                 // [EARLY ACCESS] GetPropertyDefinitionPropertyTimeSeries: Get Property Definition Property Time Series
                 ResourceListOfPropertyInterval result = apiInstance.GetPropertyDefinitionPropertyTimeSeries(domain, scope, code, propertyKey, asAt, filter, page, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -815,6 +892,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the property definitions. Defaults to returning the latest version              of each property definition if not specified. (optional) 
@@ -826,6 +911,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfPropertyDefinition result = apiInstance.ListPropertyDefinitions(effectiveAt, asAt, propertyKeys, page, limit, filter, sortBy, opts: opts);
+
                 // ListPropertyDefinitions: List property definitions
                 PagedResourceListOfPropertyDefinition result = apiInstance.ListPropertyDefinitions(effectiveAt, asAt, propertyKeys, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -930,6 +1018,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var domain = "NotDefined";  // string | Domain of the property definition
             var scope = "scope_example";  // string | Scope of the property definition
@@ -938,6 +1034,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PropertyDefinition result = apiInstance.UpdateDerivedPropertyDefinition(domain, scope, code, updateDerivedPropertyDefinitionRequest, opts: opts);
+
                 // [EARLY ACCESS] UpdateDerivedPropertyDefinition: Update a pre-existing derived property definition
                 PropertyDefinition result = apiInstance.UpdateDerivedPropertyDefinition(domain, scope, code, updateDerivedPropertyDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1039,6 +1138,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var domain = "NotDefined";  // string | The domain of the property being updated.
             var scope = "scope_example";  // string | The scope of the property being updated.
@@ -1047,6 +1154,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PropertyDefinition result = apiInstance.UpdatePropertyDefinition(domain, scope, code, updatePropertyDefinitionRequest, opts: opts);
+
                 // UpdatePropertyDefinition: Update property definition
                 PropertyDefinition result = apiInstance.UpdatePropertyDefinition(domain, scope, code, updatePropertyDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1148,6 +1258,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var domain = "NotDefined";  // string | The domain of the specified property.
             var scope = "scope_example";  // string | The scope of the specified property.
@@ -1157,6 +1275,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BatchUpsertPropertyDefinitionPropertiesResponse result = apiInstance.UpsertPropertyDefinitionProperties(domain, scope, code, requestBody, successMode, opts: opts);
+
                 // UpsertPropertyDefinitionProperties: Upsert properties to a property definition
                 BatchUpsertPropertyDefinitionPropertiesResponse result = apiInstance.UpsertPropertyDefinitionProperties(domain, scope, code, requestBody, successMode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

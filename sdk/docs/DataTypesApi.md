@@ -51,11 +51,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<DataTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DataTypesApi>();
             var createDataTypeRequest = new CreateDataTypeRequest?(); // CreateDataTypeRequest? | The definition of the new data type (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DataType result = apiInstance.CreateDataType(createDataTypeRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateDataType: Create data type definition
                 DataType result = apiInstance.CreateDataType(createDataTypeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -154,12 +165,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<DataTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DataTypesApi>();
             var scope = "scope_example";  // string | The scope of the data type
             var code = "code_example";  // string | The code of the data type
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteDataType(scope, code, opts: opts);
+
                 // DeleteDataType: Delete a data type definition.
                 DeletedEntityResponse result = apiInstance.DeleteDataType(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -259,6 +281,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<DataTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DataTypesApi>();
             var scope = "scope_example";  // string | The scope of the data type
             var code = "code_example";  // string | The code of the data type
@@ -266,6 +296,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DataType result = apiInstance.GetDataType(scope, code, asAt, opts: opts);
+
                 // GetDataType: Get data type definition
                 DataType result = apiInstance.GetDataType(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -366,6 +399,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<DataTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DataTypesApi>();
             var scope = "scope_example";  // string | The scope of the data type
             var code = "code_example";  // string | The code of the data type
@@ -375,6 +416,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfIUnitDefinitionDto result = apiInstance.GetUnitsFromDataType(scope, code, units, filter, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
                 ResourceListOfIUnitDefinitionDto result = apiInstance.GetUnitsFromDataType(scope, code, units, filter, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -477,6 +521,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<DataTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DataTypesApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. (optional) 
@@ -486,6 +538,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfDataTypeSummary result = apiInstance.ListDataTypeSummaries(asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
                 PagedResourceListOfDataTypeSummary result = apiInstance.ListDataTypeSummaries(asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -588,6 +643,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<DataTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DataTypesApi>();
             var scope = "scope_example";  // string | The requested scope of the data types
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The as at of the requested data types (optional) 
@@ -598,6 +661,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfDataType result = apiInstance.ListDataTypes(scope, asAt, includeSystem, sortBy, limit, filter, opts: opts);
+
                 // ListDataTypes: List data types
                 ResourceListOfDataType result = apiInstance.ListDataTypes(scope, asAt, includeSystem, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -701,6 +767,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<DataTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DataTypesApi>();
             var scope = "scope_example";  // string | The scope of the data type
             var code = "code_example";  // string | The code of the data type
@@ -708,6 +782,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DataType result = apiInstance.UpdateDataType(scope, code, updateDataTypeRequest, opts: opts);
+
                 // [EARLY ACCESS] UpdateDataType: Update data type definition
                 DataType result = apiInstance.UpdateDataType(scope, code, updateDataTypeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -808,6 +885,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<DataTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DataTypesApi>();
             var scope = "scope_example";  // string | The scope of the data type
             var code = "code_example";  // string | The code of the data type
@@ -815,6 +900,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DataType result = apiInstance.UpdateReferenceValues(scope, code, fieldValue, opts: opts);
+
                 // [EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type
                 DataType result = apiInstance.UpdateReferenceValues(scope, code, fieldValue);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

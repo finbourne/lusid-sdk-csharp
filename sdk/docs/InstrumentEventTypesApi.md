@@ -50,6 +50,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentEventTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var instrumentEventType = "instrumentEventType_example";  // string | The type of instrument events that the template is applied to.
             var instrumentType = "instrumentType_example";  // string | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template
@@ -58,6 +66,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionTemplate result = apiInstance.CreateTransactionTemplate(instrumentEventType, instrumentType, scope, transactionTemplateRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
                 TransactionTemplate result = apiInstance.CreateTransactionTemplate(instrumentEventType, instrumentType, scope, transactionTemplateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -159,6 +170,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentEventTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var instrumentEventType = "instrumentEventType_example";  // string | The type of instrument events that the template is applied to.
             var instrumentType = "instrumentType_example";  // string | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template
@@ -166,6 +185,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DateTimeOffset result = apiInstance.DeleteTransactionTemplate(instrumentEventType, instrumentType, scope, opts: opts);
+
                 // [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
                 DateTimeOffset result = apiInstance.DeleteTransactionTemplate(instrumentEventType, instrumentType, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -266,6 +288,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentEventTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var instrumentEventType = "instrumentEventType_example";  // string | The instrument event type of the transaction template
             var instrumentType = "instrumentType_example";  // string | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template
@@ -274,6 +304,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionTemplate result = apiInstance.GetTransactionTemplate(instrumentEventType, instrumentType, scope, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
                 TransactionTemplate result = apiInstance.GetTransactionTemplate(instrumentEventType, instrumentType, scope, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -375,11 +408,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentEventTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var instrumentEventType = "instrumentEventType_example";  // string | The requested instrument event type.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionTemplateSpecification result = apiInstance.GetTransactionTemplateSpecification(instrumentEventType, opts: opts);
+
                 // [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
                 TransactionTemplateSpecification result = apiInstance.GetTransactionTemplateSpecification(instrumentEventType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -478,6 +522,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentEventTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | AsAt of the request (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing Transaction Template Specifications from              a previous call to list Transaction Template Specifications.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt              fields must not have changed since the original request. (optional) 
@@ -487,6 +539,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfTransactionTemplateSpecification result = apiInstance.ListTransactionTemplateSpecifications(asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
                 PagedResourceListOfTransactionTemplateSpecification result = apiInstance.ListTransactionTemplateSpecifications(asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -589,6 +644,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentEventTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt time at which to retrieve the Transaction Templates (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields              must not have changed since the original request. (optional) 
@@ -598,6 +661,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfTransactionTemplate result = apiInstance.ListTransactionTemplates(asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates
                 PagedResourceListOfTransactionTemplate result = apiInstance.ListTransactionTemplates(asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -700,6 +766,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentEventTypesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var instrumentEventType = "instrumentEventType_example";  // string | The type of instrument events that the template is applied to.
             var instrumentType = "instrumentType_example";  // string | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template
@@ -708,6 +782,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionTemplate result = apiInstance.UpdateTransactionTemplate(instrumentEventType, instrumentType, scope, transactionTemplateRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template
                 TransactionTemplate result = apiInstance.UpdateTransactionTemplate(instrumentEventType, instrumentType, scope, transactionTemplateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

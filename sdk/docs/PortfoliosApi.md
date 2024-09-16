@@ -74,6 +74,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var requestBody = new Dictionary<string, BatchUpsertPortfolioAccessMetadataRequest>(); // Dictionary<string, BatchUpsertPortfolioAccessMetadataRequest> | The Access Metadata Rules to upsert and the Portfolio identifiers to upsert for
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The date these rules will be effective from (optional) 
@@ -81,6 +89,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BatchUpsertPortfolioAccessMetadataResponse result = apiInstance.BatchUpsertPortfolioAccessMetadata(requestBody, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios
                 BatchUpsertPortfolioAccessMetadataResponse result = apiInstance.BatchUpsertPortfolioAccessMetadata(requestBody, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -181,6 +192,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -189,6 +208,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteInstrumentEventInstruction(scope, code, instrumentEventInstructionId, portfolioEffectiveAt, opts: opts);
+
                 // [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction
                 DeletedEntityResponse result = apiInstance.DeleteInstrumentEventInstruction(scope, code, instrumentEventInstructionId, portfolioEffectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -290,6 +312,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Quote Access Metadata Rule to retrieve.
             var code = "code_example";  // string | Portfolio code
@@ -299,6 +329,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteKeyFromPortfolioAccessMetadata(scope, code, metadataKey, effectiveAt, effectiveUntil, opts: opts);
+
                 // DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
                 DeletedEntityResponse result = apiInstance.DeleteKeyFromPortfolioAccessMetadata(scope, code, metadataKey, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -401,12 +434,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePortfolio(scope, code, opts: opts);
+
                 // DeletePortfolio: Delete portfolio
                 DeletedEntityResponse result = apiInstance.DeletePortfolio(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -506,6 +550,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -514,6 +566,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePortfolioProperties(scope, code, propertyKeys, effectiveAt, opts: opts);
+
                 // DeletePortfolioProperties: Delete portfolio properties
                 DeletedEntityResponse result = apiInstance.DeletePortfolioProperties(scope, code, propertyKeys, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -615,6 +670,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio.
             var code = "code_example";  // string | The code of the  Portfolio.
@@ -626,6 +689,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePortfolioReturns(scope, code, returnScope, returnCode, fromEffectiveAt, toEffectiveAt, period, opts: opts);
+
                 // [EARLY ACCESS] DeletePortfolioReturns: Delete Returns
                 DeletedEntityResponse result = apiInstance.DeletePortfolioReturns(scope, code, returnScope, returnCode, fromEffectiveAt, toEffectiveAt, period);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -730,6 +796,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio.
             var code = "code_example";  // string | The code of the  Portfolio.
@@ -738,6 +812,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CompositeDispersionResponse result = apiInstance.GetAggregatedReturnsDispersionMetrics(scope, code, aggregatedReturnsDispersionRequest, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric
                 CompositeDispersionResponse result = apiInstance.GetAggregatedReturnsDispersionMetrics(scope, code, aggregatedReturnsDispersionRequest, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -839,6 +916,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio.
             var code = "code_example";  // string | The code of the  Portfolio.
@@ -849,6 +934,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CompositeBreakdownResponse result = apiInstance.GetCompositeBreakdown(scope, code, compositeBreakdownRequest, fromEffectiveAt, toEffectiveAt, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetCompositeBreakdown: Get the Composite Breakdown on how the composite Returns are calculated
                 CompositeBreakdownResponse result = apiInstance.GetCompositeBreakdown(scope, code, compositeBreakdownRequest, fromEffectiveAt, toEffectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -952,6 +1040,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -961,6 +1057,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // InstrumentEventInstruction result = apiInstance.GetInstrumentEventInstruction(scope, code, instrumentEventInstructionId, portfolioEffectiveAt, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction
                 InstrumentEventInstruction result = apiInstance.GetInstrumentEventInstruction(scope, code, instrumentEventInstructionId, portfolioEffectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1063,6 +1162,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -1073,6 +1180,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Portfolio result = apiInstance.GetPortfolio(scope, code, effectiveAt, asAt, propertyKeys, relationshipDefinitionIds, opts: opts);
+
                 // GetPortfolio: Get portfolio
                 Portfolio result = apiInstance.GetPortfolio(scope, code, effectiveAt, asAt, propertyKeys, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1176,6 +1286,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio.
             var code = "code_example";  // string | The code of the  Portfolio.
@@ -1194,6 +1312,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfAggregatedReturn result = apiInstance.GetPortfolioAggregateReturns(scope, code, returnScope, returnCode, recipeIdScope, recipeIdCode, fromEffectiveAt, toEffectiveAt, compositeMethod, period, outputFrequency, metrics, asAt, alternativeIncDate, opts: opts);
+
                 // [DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
                 ResourceListOfAggregatedReturn result = apiInstance.GetPortfolioAggregateReturns(scope, code, returnScope, returnCode, recipeIdScope, recipeIdCode, fromEffectiveAt, toEffectiveAt, compositeMethod, period, outputFrequency, metrics, asAt, alternativeIncDate);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1305,6 +1426,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio.
             var code = "code_example";  // string | The code of the  Portfolio.
@@ -1315,6 +1444,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AggregatedReturnsResponse result = apiInstance.GetPortfolioAggregatedReturns(scope, code, aggregatedReturnsRequest, fromEffectiveAt, toEffectiveAt, asAt, opts: opts);
+
                 // GetPortfolioAggregatedReturns: Aggregated Returns
                 AggregatedReturnsResponse result = apiInstance.GetPortfolioAggregatedReturns(scope, code, aggregatedReturnsRequest, fromEffectiveAt, toEffectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1418,6 +1550,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -1429,6 +1569,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfProcessedCommand result = apiInstance.GetPortfolioCommands(scope, code, fromAsAt, toAsAt, filter, page, limit, opts: opts);
+
                 // GetPortfolioCommands: Get portfolio commands
                 ResourceListOfProcessedCommand result = apiInstance.GetPortfolioCommands(scope, code, fromAsAt, toAsAt, filter, page, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1533,6 +1676,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio Access Metadata Rule to retrieve.
             var code = "code_example";  // string | Portfolio code
@@ -1541,6 +1692,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, List<AccessMetadataValue>> result = apiInstance.GetPortfolioMetadata(scope, code, effectiveAt, asAt, opts: opts);
+
                 // GetPortfolioMetadata: Get access metadata rules for a portfolio
                 Dictionary<string, List<AccessMetadataValue>> result = apiInstance.GetPortfolioMetadata(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1642,6 +1796,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -1650,6 +1812,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioProperties result = apiInstance.GetPortfolioProperties(scope, code, effectiveAt, asAt, opts: opts);
+
                 // GetPortfolioProperties: Get portfolio properties
                 PortfolioProperties result = apiInstance.GetPortfolioProperties(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1751,6 +1916,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -1763,6 +1936,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPropertyInterval result = apiInstance.GetPortfolioPropertyTimeSeries(scope, code, propertyKey, portfolioEffectiveAt, asAt, filter, page, limit, opts: opts);
+
                 // GetPortfolioPropertyTimeSeries: Get portfolio property time series
                 ResourceListOfPropertyInterval result = apiInstance.GetPortfolioPropertyTimeSeries(scope, code, propertyKey, portfolioEffectiveAt, asAt, filter, page, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1868,6 +2044,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -1878,6 +2062,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfRelation result = apiInstance.GetPortfolioRelations(scope, code, effectiveAt, asAt, filter, identifierTypes, opts: opts);
+
                 // [EXPERIMENTAL] GetPortfolioRelations: Get portfolio relations
                 ResourceListOfRelation result = apiInstance.GetPortfolioRelations(scope, code, effectiveAt, asAt, filter, identifierTypes);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1981,6 +2168,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -1991,6 +2186,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfRelationship result = apiInstance.GetPortfolioRelationships(scope, code, effectiveAt, asAt, filter, identifierTypes, opts: opts);
+
                 // GetPortfolioRelationships: Get portfolio relationships
                 ResourceListOfRelationship result = apiInstance.GetPortfolioRelationships(scope, code, effectiveAt, asAt, filter, identifierTypes);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2094,6 +2292,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio.
             var code = "code_example";  // string | The code of the  Portfolio.
@@ -2106,6 +2312,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPerformanceReturn result = apiInstance.GetPortfolioReturns(scope, code, returnScope, returnCode, fromEffectiveAt, toEffectiveAt, period, asAt, opts: opts);
+
                 // GetPortfolioReturns: Get Returns
                 ResourceListOfPerformanceReturn result = apiInstance.GetPortfolioReturns(scope, code, returnScope, returnCode, fromEffectiveAt, toEffectiveAt, period, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2211,6 +2420,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio Access Metadata Rule to retrieve.
             var code = "code_example";  // string | The code of the portfolio
@@ -2220,6 +2437,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<AccessMetadataValue> result = apiInstance.GetPortfoliosAccessMetadataByKey(scope, code, metadataKey, effectiveAt, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
                 List<AccessMetadataValue> result = apiInstance.GetPortfoliosAccessMetadataByKey(scope, code, metadataKey, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2322,6 +2542,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -2334,6 +2562,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfInstrumentEventInstruction result = apiInstance.ListInstrumentEventInstructions(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EARLY ACCESS] ListInstrumentEventInstructions: List Instrument Event Instructions
                 PagedResourceListOfInstrumentEventInstruction result = apiInstance.ListInstrumentEventInstructions(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2439,6 +2670,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -2449,6 +2688,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfProperty result = apiInstance.ListPortfolioProperties(scope, code, effectiveAt, asAt, page, limit, opts: opts);
+
                 // [EARLY ACCESS] ListPortfolioProperties: Get portfolio properties
                 ResourceListOfProperty result = apiInstance.ListPortfolioProperties(scope, code, effectiveAt, asAt, page, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2552,6 +2794,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional) 
@@ -2565,6 +2815,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, limit, filter, sortBy, query, propertyKeys, relationshipDefinitionIds, opts: opts);
+
                 // ListPortfolios: List portfolios
                 ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, limit, filter, sortBy, query, propertyKeys, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2671,6 +2924,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope whose portfolios to list.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
@@ -2684,6 +2945,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPortfolio result = apiInstance.ListPortfoliosForScope(scope, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, relationshipDefinitionIds, opts: opts);
+
                 // ListPortfoliosForScope: List portfolios for scope
                 ResourceListOfPortfolio result = apiInstance.ListPortfoliosForScope(scope, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2790,6 +3054,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.
@@ -2797,6 +3069,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Portfolio result = apiInstance.PatchPortfolio(scope, code, operation, opts: opts);
+
                 // PatchPortfolio: Patch portfolio.
                 Portfolio result = apiInstance.PatchPortfolio(scope, code, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2897,6 +3172,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio Access Metadata Rule.
             var code = "code_example";  // string | Portfolio code
@@ -2906,6 +3189,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, List<AccessMetadataValue>> result = apiInstance.PatchPortfolioAccessMetadata(scope, code, accessMetadataOperation, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.
                 Dictionary<string, List<AccessMetadataValue>> result = apiInstance.PatchPortfolioAccessMetadata(scope, code, accessMetadataOperation, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3008,6 +3294,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -3016,6 +3310,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Portfolio result = apiInstance.UpdatePortfolio(scope, code, updatePortfolioRequest, effectiveAt, opts: opts);
+
                 // UpdatePortfolio: Update portfolio
                 Portfolio result = apiInstance.UpdatePortfolio(scope, code, updatePortfolioRequest, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3117,6 +3414,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -3126,6 +3431,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // InstrumentEventInstructionsResponse result = apiInstance.UpsertInstrumentEventInstructions(scope, code, successMode, requestBody, portfolioEffectiveAt, opts: opts);
+
                 // [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions
                 InstrumentEventInstructionsResponse result = apiInstance.UpsertInstrumentEventInstructions(scope, code, successMode, requestBody, portfolioEffectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3228,6 +3536,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope to use when updating or inserting the Portfolio Access Metadata Rule.
             var code = "code_example";  // string | Portfolio code
@@ -3238,6 +3554,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfAccessMetadataValueOf result = apiInstance.UpsertPortfolioAccessMetadata(scope, code, metadataKey, upsertPortfolioAccessMetadataRequest, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
                 ResourceListOfAccessMetadataValueOf result = apiInstance.UpsertPortfolioAccessMetadata(scope, code, metadataKey, upsertPortfolioAccessMetadataRequest, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3341,6 +3660,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
@@ -3348,6 +3675,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PortfolioProperties result = apiInstance.UpsertPortfolioProperties(scope, code, requestBody, opts: opts);
+
                 // UpsertPortfolioProperties: Upsert portfolio properties
                 PortfolioProperties result = apiInstance.UpsertPortfolioProperties(scope, code, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3448,6 +3778,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the Portfolio.
             var code = "code_example";  // string | The code of the  Portfolio.
@@ -3457,6 +3795,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertReturnsResponse result = apiInstance.UpsertPortfolioReturns(scope, code, returnScope, returnCode, performanceReturn, opts: opts);
+
                 // UpsertPortfolioReturns: Upsert Returns
                 UpsertReturnsResponse result = apiInstance.UpsertPortfolioReturns(scope, code, returnScope, returnCode, performanceReturn);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

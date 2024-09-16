@@ -47,12 +47,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplexMarketDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplexMarketDataApi>();
             var scope = "scope_example";  // string | The scope of the complex market data to delete.
             var requestBody = new Dictionary<string, ComplexMarketDataId>(); // Dictionary<string, ComplexMarketDataId> | The complex market data Ids to delete, each keyed by a unique correlation id.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AnnulStructuredDataResponse result = apiInstance.DeleteComplexMarketData(scope, requestBody, opts: opts);
+
                 // [EARLY ACCESS] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
                 AnnulStructuredDataResponse result = apiInstance.DeleteComplexMarketData(scope, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -152,6 +163,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplexMarketDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplexMarketDataApi>();
             var scope = "scope_example";  // string | The scope of the complex market data to retrieve.
             var requestBody = new Dictionary<string, ComplexMarketDataId>(); // Dictionary<string, ComplexMarketDataId> | The time invariant set of complex data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
@@ -161,6 +180,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetComplexMarketDataResponse result = apiInstance.GetComplexMarketData(scope, requestBody, effectiveAt, asAt, maxAge, opts: opts);
+
                 // [EARLY ACCESS] GetComplexMarketData: Get complex market data
                 GetComplexMarketDataResponse result = apiInstance.GetComplexMarketData(scope, requestBody, effectiveAt, asAt, maxAge);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -263,11 +285,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplexMarketDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplexMarketDataApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfListComplexMarketDataWithMetaDataResponse result = apiInstance.ListComplexMarketData(asAt, opts: opts);
+
                 // [EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
                 ResourceListOfListComplexMarketDataWithMetaDataResponse result = apiInstance.ListComplexMarketData(asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -366,12 +399,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplexMarketDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplexMarketDataApi>();
             var scope = "scope_example";  // string | The scope to use when updating or inserting the complex market data.
             var requestBody = new Dictionary<string, UpsertComplexMarketDataRequest>(); // Dictionary<string, UpsertComplexMarketDataRequest> | The set of complex market data items to update or insert keyed by a unique correlation id.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertStructuredDataResponse result = apiInstance.UpsertComplexMarketData(scope, requestBody, opts: opts);
+
                 // UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.
                 UpsertStructuredDataResponse result = apiInstance.UpsertComplexMarketData(scope, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

@@ -53,12 +53,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var bookTransactionsRequest = new BookTransactionsRequest(); // BookTransactionsRequest | The allocations to create transactions for
             var applyFeesAndCommission = true;  // bool? | Whether to apply fees and commissions to transactions (default: true) (optional)  (default to true)
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BookTransactionsResponse result = apiInstance.BookTransactions(bookTransactionsRequest, applyFeesAndCommission, opts: opts);
+
                 // [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
                 BookTransactionsResponse result = apiInstance.BookTransactions(bookTransactionsRequest, applyFeesAndCommission);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -158,11 +169,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var requestBody = new Dictionary<string, ResourceId>(); // Dictionary<string, ResourceId> | The request containing the ids of the orders to be cancelled.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CancelOrdersResponse result = apiInstance.CancelOrders(requestBody, opts: opts);
+
                 // [EARLY ACCESS] CancelOrders: Cancel existing orders
                 CancelOrdersResponse result = apiInstance.CancelOrders(requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -261,11 +283,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var requestBody = new Dictionary<string, ResourceId>(); // Dictionary<string, ResourceId> | The request containing the ids of the placements to be cancelled.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CancelPlacementsResponse result = apiInstance.CancelPlacements(requestBody, opts: opts);
+
                 // [EARLY ACCESS] CancelPlacements: Cancel existing placements
                 CancelPlacementsResponse result = apiInstance.CancelPlacements(requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -364,11 +397,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var blockAndOrdersCreateRequest = new BlockAndOrdersCreateRequest(); // BlockAndOrdersCreateRequest | The collection of block and orders requests.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfBlockAndOrders result = apiInstance.CreateOrders(blockAndOrdersCreateRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
                 ResourceListOfBlockAndOrders result = apiInstance.CreateOrders(blockAndOrdersCreateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -467,6 +511,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var scope = "scope_example";  // string | The scope of the order.
             var code = "code_example";  // string | The code of the order.
@@ -474,6 +526,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfChangeIntervalWithOrderManagementDetail result = apiInstance.GetOrderHistory(scope, code, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
                 ResourceListOfChangeIntervalWithOrderManagementDetail result = apiInstance.GetOrderHistory(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -575,11 +630,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var moveOrdersToDifferentBlocksRequest = new MoveOrdersToDifferentBlocksRequest(); // MoveOrdersToDifferentBlocksRequest | The collection of order and destination block ids.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfMovedOrderToDifferentBlockResponse result = apiInstance.MoveOrders(moveOrdersToDifferentBlocksRequest, opts: opts);
+
                 // [EARLY ACCESS] MoveOrders: Move orders to new or existing block
                 ResourceListOfMovedOrderToDifferentBlockResponse result = apiInstance.MoveOrders(moveOrdersToDifferentBlocksRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -678,11 +744,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var placeBlocksRequest = new PlaceBlocksRequest?(); // PlaceBlocksRequest? | The request containing the blocks to the placed. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPlacement result = apiInstance.PlaceBlocks(placeBlocksRequest, opts: opts);
+
                 // [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
                 ResourceListOfPlacement result = apiInstance.PlaceBlocks(placeBlocksRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -781,12 +858,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var resourceId = new List<ResourceId>(); // List<ResourceId> | The List of Placement IDs for which you wish to allocate executions.
             var allocationAlgorithm = "allocationAlgorithm_example";  // string? | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \"PR-FIFO\".  This defaults to \"PR-FIFO\". (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AllocationServiceRunResponse result = apiInstance.RunAllocationService(resourceId, allocationAlgorithm, opts: opts);
+
                 // [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
                 AllocationServiceRunResponse result = apiInstance.RunAllocationService(resourceId, allocationAlgorithm);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -886,11 +974,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var requestBody = new Dictionary<string, OrderUpdateRequest>(); // Dictionary<string, OrderUpdateRequest> | The request containing the orders to be updated.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpdateOrdersResponse result = apiInstance.UpdateOrders(requestBody, opts: opts);
+
                 // [EARLY ACCESS] UpdateOrders: Update existing orders
                 UpdateOrdersResponse result = apiInstance.UpdateOrders(requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -989,11 +1088,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var requestBody = new Dictionary<string, PlacementUpdateRequest>(); // Dictionary<string, PlacementUpdateRequest> | The request containing the placements to be updated.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpdatePlacementsResponse result = apiInstance.UpdatePlacements(requestBody, opts: opts);
+
                 // [EARLY ACCESS] UpdatePlacements: Update existing placements
                 UpdatePlacementsResponse result = apiInstance.UpdatePlacements(requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

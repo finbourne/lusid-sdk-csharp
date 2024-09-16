@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -39,8 +40,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionConfigurationDataRequest">A transaction type definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSetConfigurationData</returns>
-        TransactionSetConfigurationData CreateConfigurationTransactionType(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0);
+        TransactionSetConfigurationData CreateConfigurationTransactionType(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateConfigurationTransactionType: Create transaction type
@@ -51,8 +53,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionConfigurationDataRequest">A transaction type definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSetConfigurationData</returns>
-        ApiResponse<TransactionSetConfigurationData> CreateConfigurationTransactionTypeWithHttpInfo(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0);
+        ApiResponse<TransactionSetConfigurationData> CreateConfigurationTransactionTypeWithHttpInfo(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateSideDefinition: Create side definition
         /// </summary>
@@ -62,8 +65,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sideConfigurationDataRequest">The definition of the side. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSetConfigurationData</returns>
-        TransactionSetConfigurationData CreateSideDefinition(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0);
+        TransactionSetConfigurationData CreateSideDefinition(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateSideDefinition: Create side definition
@@ -74,8 +78,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sideConfigurationDataRequest">The definition of the side. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSetConfigurationData</returns>
-        ApiResponse<TransactionSetConfigurationData> CreateSideDefinitionWithHttpInfo(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0);
+        ApiResponse<TransactionSetConfigurationData> CreateSideDefinitionWithHttpInfo(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTransactionConfigurationSource: Delete all transaction configurations for a source
         /// </summary>
@@ -85,8 +90,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to delete transaction configurations for</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteTransactionConfigurationSource(string source, int operationIndex = 0);
+        DeletedEntityResponse DeleteTransactionConfigurationSource(string source, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteTransactionConfigurationSource: Delete all transaction configurations for a source
@@ -97,8 +103,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to delete transaction configurations for</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteTransactionConfigurationSourceWithHttpInfo(string source, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteTransactionConfigurationSourceWithHttpInfo(string source, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionConfigurationSource: Get all transaction configurations for a source
         /// </summary>
@@ -109,8 +116,9 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source for which to retrieve transaction configurations</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSetConfigurationData</returns>
-        TransactionSetConfigurationData GetTransactionConfigurationSource(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        TransactionSetConfigurationData GetTransactionConfigurationSource(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionConfigurationSource: Get all transaction configurations for a source
@@ -122,8 +130,9 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source for which to retrieve transaction configurations</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSetConfigurationData</returns>
-        ApiResponse<TransactionSetConfigurationData> GetTransactionConfigurationSourceWithHttpInfo(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<TransactionSetConfigurationData> GetTransactionConfigurationSourceWithHttpInfo(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types
         /// </summary>
@@ -133,8 +142,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSetConfigurationData</returns>
-        TransactionSetConfigurationData ListConfigurationTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        TransactionSetConfigurationData ListConfigurationTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types
@@ -145,8 +155,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSetConfigurationData</returns>
-        ApiResponse<TransactionSetConfigurationData> ListConfigurationTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<TransactionSetConfigurationData> ListConfigurationTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetConfigurationTransactionTypes: Set transaction types
         /// </summary>
@@ -156,8 +167,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionSetConfigurationDataRequest">The complete set of transaction type definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSetConfigurationData</returns>
-        TransactionSetConfigurationData SetConfigurationTransactionTypes(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0);
+        TransactionSetConfigurationData SetConfigurationTransactionTypes(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetConfigurationTransactionTypes: Set transaction types
@@ -168,8 +180,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionSetConfigurationDataRequest">The complete set of transaction type definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSetConfigurationData</returns>
-        ApiResponse<TransactionSetConfigurationData> SetConfigurationTransactionTypesWithHttpInfo(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0);
+        ApiResponse<TransactionSetConfigurationData> SetConfigurationTransactionTypesWithHttpInfo(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetTransactionConfigurationSource: Set transaction types for a source
         /// </summary>
@@ -180,8 +193,9 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source to set the transaction configurations for</param>
         /// <param name="setTransactionConfigurationSourceRequest">The set of transaction configurations</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSetConfigurationData</returns>
-        TransactionSetConfigurationData SetTransactionConfigurationSource(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0);
+        TransactionSetConfigurationData SetTransactionConfigurationSource(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetTransactionConfigurationSource: Set transaction types for a source
@@ -193,8 +207,9 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source to set the transaction configurations for</param>
         /// <param name="setTransactionConfigurationSourceRequest">The set of transaction configurations</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSetConfigurationData</returns>
-        ApiResponse<TransactionSetConfigurationData> SetTransactionConfigurationSourceWithHttpInfo(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0);
+        ApiResponse<TransactionSetConfigurationData> SetTransactionConfigurationSourceWithHttpInfo(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -214,8 +229,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionConfigurationDataRequest">A transaction type definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSetConfigurationData</returns>
-        System.Threading.Tasks.Task<TransactionSetConfigurationData> CreateConfigurationTransactionTypeAsync(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionSetConfigurationData> CreateConfigurationTransactionTypeAsync(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateConfigurationTransactionType: Create transaction type
@@ -227,8 +243,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionConfigurationDataRequest">A transaction type definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSetConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionSetConfigurationData>> CreateConfigurationTransactionTypeWithHttpInfoAsync(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionSetConfigurationData>> CreateConfigurationTransactionTypeWithHttpInfoAsync(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateSideDefinition: Create side definition
         /// </summary>
@@ -239,8 +256,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sideConfigurationDataRequest">The definition of the side. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSetConfigurationData</returns>
-        System.Threading.Tasks.Task<TransactionSetConfigurationData> CreateSideDefinitionAsync(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionSetConfigurationData> CreateSideDefinitionAsync(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateSideDefinition: Create side definition
@@ -252,8 +270,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sideConfigurationDataRequest">The definition of the side. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSetConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionSetConfigurationData>> CreateSideDefinitionWithHttpInfoAsync(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionSetConfigurationData>> CreateSideDefinitionWithHttpInfoAsync(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTransactionConfigurationSource: Delete all transaction configurations for a source
         /// </summary>
@@ -264,8 +283,9 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source to delete transaction configurations for</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionConfigurationSourceAsync(string source, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionConfigurationSourceAsync(string source, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteTransactionConfigurationSource: Delete all transaction configurations for a source
@@ -277,8 +297,9 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source to delete transaction configurations for</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTransactionConfigurationSourceWithHttpInfoAsync(string source, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTransactionConfigurationSourceWithHttpInfoAsync(string source, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionConfigurationSource: Get all transaction configurations for a source
         /// </summary>
@@ -290,8 +311,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSetConfigurationData</returns>
-        System.Threading.Tasks.Task<TransactionSetConfigurationData> GetTransactionConfigurationSourceAsync(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionSetConfigurationData> GetTransactionConfigurationSourceAsync(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionConfigurationSource: Get all transaction configurations for a source
@@ -304,8 +326,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSetConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionSetConfigurationData>> GetTransactionConfigurationSourceWithHttpInfoAsync(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionSetConfigurationData>> GetTransactionConfigurationSourceWithHttpInfoAsync(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types
         /// </summary>
@@ -316,8 +339,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSetConfigurationData</returns>
-        System.Threading.Tasks.Task<TransactionSetConfigurationData> ListConfigurationTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionSetConfigurationData> ListConfigurationTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types
@@ -329,8 +353,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSetConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionSetConfigurationData>> ListConfigurationTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionSetConfigurationData>> ListConfigurationTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetConfigurationTransactionTypes: Set transaction types
         /// </summary>
@@ -341,8 +366,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionSetConfigurationDataRequest">The complete set of transaction type definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSetConfigurationData</returns>
-        System.Threading.Tasks.Task<TransactionSetConfigurationData> SetConfigurationTransactionTypesAsync(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionSetConfigurationData> SetConfigurationTransactionTypesAsync(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetConfigurationTransactionTypes: Set transaction types
@@ -354,8 +380,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionSetConfigurationDataRequest">The complete set of transaction type definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSetConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionSetConfigurationData>> SetConfigurationTransactionTypesWithHttpInfoAsync(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionSetConfigurationData>> SetConfigurationTransactionTypesWithHttpInfoAsync(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetTransactionConfigurationSource: Set transaction types for a source
         /// </summary>
@@ -367,8 +394,9 @@ namespace Lusid.Sdk.Api
         /// <param name="setTransactionConfigurationSourceRequest">The set of transaction configurations</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSetConfigurationData</returns>
-        System.Threading.Tasks.Task<TransactionSetConfigurationData> SetTransactionConfigurationSourceAsync(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionSetConfigurationData> SetTransactionConfigurationSourceAsync(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetTransactionConfigurationSource: Set transaction types for a source
@@ -381,8 +409,9 @@ namespace Lusid.Sdk.Api
         /// <param name="setTransactionConfigurationSourceRequest">The set of transaction configurations</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSetConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionSetConfigurationData>> SetTransactionConfigurationSourceWithHttpInfoAsync(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionSetConfigurationData>> SetTransactionConfigurationSourceWithHttpInfoAsync(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -415,9 +444,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public SystemConfigurationApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -506,10 +541,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionConfigurationDataRequest">A transaction type definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSetConfigurationData</returns>
-        public TransactionSetConfigurationData CreateConfigurationTransactionType(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0)
+        public TransactionSetConfigurationData CreateConfigurationTransactionType(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = CreateConfigurationTransactionTypeWithHttpInfo(transactionConfigurationDataRequest);
+            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = CreateConfigurationTransactionTypeWithHttpInfo(transactionConfigurationDataRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -519,10 +555,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionConfigurationDataRequest">A transaction type definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSetConfigurationData</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> CreateConfigurationTransactionTypeWithHttpInfo(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> CreateConfigurationTransactionTypeWithHttpInfo(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -593,10 +640,11 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionConfigurationDataRequest">A transaction type definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSetConfigurationData</returns>
-        public async System.Threading.Tasks.Task<TransactionSetConfigurationData> CreateConfigurationTransactionTypeAsync(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionSetConfigurationData> CreateConfigurationTransactionTypeAsync(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = await CreateConfigurationTransactionTypeWithHttpInfoAsync(transactionConfigurationDataRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = await CreateConfigurationTransactionTypeWithHttpInfoAsync(transactionConfigurationDataRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -607,11 +655,22 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionConfigurationDataRequest">A transaction type definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSetConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData>> CreateConfigurationTransactionTypeWithHttpInfoAsync(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData>> CreateConfigurationTransactionTypeWithHttpInfoAsync(TransactionConfigurationDataRequest? transactionConfigurationDataRequest = default(TransactionConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -682,10 +741,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sideConfigurationDataRequest">The definition of the side. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSetConfigurationData</returns>
-        public TransactionSetConfigurationData CreateSideDefinition(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0)
+        public TransactionSetConfigurationData CreateSideDefinition(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = CreateSideDefinitionWithHttpInfo(sideConfigurationDataRequest);
+            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = CreateSideDefinitionWithHttpInfo(sideConfigurationDataRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -695,10 +755,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sideConfigurationDataRequest">The definition of the side. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSetConfigurationData</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> CreateSideDefinitionWithHttpInfo(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> CreateSideDefinitionWithHttpInfo(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -769,10 +840,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sideConfigurationDataRequest">The definition of the side. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSetConfigurationData</returns>
-        public async System.Threading.Tasks.Task<TransactionSetConfigurationData> CreateSideDefinitionAsync(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionSetConfigurationData> CreateSideDefinitionAsync(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = await CreateSideDefinitionWithHttpInfoAsync(sideConfigurationDataRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = await CreateSideDefinitionWithHttpInfoAsync(sideConfigurationDataRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -783,11 +855,22 @@ namespace Lusid.Sdk.Api
         /// <param name="sideConfigurationDataRequest">The definition of the side. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSetConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData>> CreateSideDefinitionWithHttpInfoAsync(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData>> CreateSideDefinitionWithHttpInfoAsync(SideConfigurationDataRequest? sideConfigurationDataRequest = default(SideConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -858,10 +941,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to delete transaction configurations for</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteTransactionConfigurationSource(string source, int operationIndex = 0)
+        public DeletedEntityResponse DeleteTransactionConfigurationSource(string source, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteTransactionConfigurationSourceWithHttpInfo(source);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteTransactionConfigurationSourceWithHttpInfo(source, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -871,8 +955,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to delete transaction configurations for</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransactionConfigurationSourceWithHttpInfo(string source, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransactionConfigurationSourceWithHttpInfo(string source, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -881,6 +966,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -947,10 +1042,11 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source to delete transaction configurations for</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionConfigurationSourceAsync(string source, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionConfigurationSourceAsync(string source, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteTransactionConfigurationSourceWithHttpInfoAsync(source, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteTransactionConfigurationSourceWithHttpInfoAsync(source, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -961,8 +1057,9 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source to delete transaction configurations for</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransactionConfigurationSourceWithHttpInfoAsync(string source, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransactionConfigurationSourceWithHttpInfoAsync(string source, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -972,6 +1069,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1039,10 +1146,11 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source for which to retrieve transaction configurations</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSetConfigurationData</returns>
-        public TransactionSetConfigurationData GetTransactionConfigurationSource(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public TransactionSetConfigurationData GetTransactionConfigurationSource(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = GetTransactionConfigurationSourceWithHttpInfo(source, asAt);
+            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = GetTransactionConfigurationSourceWithHttpInfo(source, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1053,8 +1161,9 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source for which to retrieve transaction configurations</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSetConfigurationData</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> GetTransactionConfigurationSourceWithHttpInfo(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> GetTransactionConfigurationSourceWithHttpInfo(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -1063,6 +1172,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1134,10 +1253,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSetConfigurationData</returns>
-        public async System.Threading.Tasks.Task<TransactionSetConfigurationData> GetTransactionConfigurationSourceAsync(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionSetConfigurationData> GetTransactionConfigurationSourceAsync(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = await GetTransactionConfigurationSourceWithHttpInfoAsync(source, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = await GetTransactionConfigurationSourceWithHttpInfoAsync(source, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1149,8 +1269,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSetConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData>> GetTransactionConfigurationSourceWithHttpInfoAsync(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData>> GetTransactionConfigurationSourceWithHttpInfoAsync(string source, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -1160,6 +1281,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1230,10 +1361,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSetConfigurationData</returns>
-        public TransactionSetConfigurationData ListConfigurationTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public TransactionSetConfigurationData ListConfigurationTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = ListConfigurationTransactionTypesWithHttpInfo(asAt);
+            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = ListConfigurationTransactionTypesWithHttpInfo(asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1243,10 +1375,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSetConfigurationData</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> ListConfigurationTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> ListConfigurationTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1316,10 +1459,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSetConfigurationData</returns>
-        public async System.Threading.Tasks.Task<TransactionSetConfigurationData> ListConfigurationTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionSetConfigurationData> ListConfigurationTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = await ListConfigurationTransactionTypesWithHttpInfoAsync(asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = await ListConfigurationTransactionTypesWithHttpInfoAsync(asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1330,11 +1474,22 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSetConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData>> ListConfigurationTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData>> ListConfigurationTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1404,10 +1559,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionSetConfigurationDataRequest">The complete set of transaction type definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSetConfigurationData</returns>
-        public TransactionSetConfigurationData SetConfigurationTransactionTypes(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0)
+        public TransactionSetConfigurationData SetConfigurationTransactionTypes(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = SetConfigurationTransactionTypesWithHttpInfo(transactionSetConfigurationDataRequest);
+            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = SetConfigurationTransactionTypesWithHttpInfo(transactionSetConfigurationDataRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1417,10 +1573,21 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionSetConfigurationDataRequest">The complete set of transaction type definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSetConfigurationData</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> SetConfigurationTransactionTypesWithHttpInfo(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> SetConfigurationTransactionTypesWithHttpInfo(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1491,10 +1658,11 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionSetConfigurationDataRequest">The complete set of transaction type definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSetConfigurationData</returns>
-        public async System.Threading.Tasks.Task<TransactionSetConfigurationData> SetConfigurationTransactionTypesAsync(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionSetConfigurationData> SetConfigurationTransactionTypesAsync(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = await SetConfigurationTransactionTypesWithHttpInfoAsync(transactionSetConfigurationDataRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = await SetConfigurationTransactionTypesWithHttpInfoAsync(transactionSetConfigurationDataRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1505,11 +1673,22 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionSetConfigurationDataRequest">The complete set of transaction type definitions. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSetConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData>> SetConfigurationTransactionTypesWithHttpInfoAsync(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData>> SetConfigurationTransactionTypesWithHttpInfoAsync(TransactionSetConfigurationDataRequest? transactionSetConfigurationDataRequest = default(TransactionSetConfigurationDataRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1581,10 +1760,11 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source to set the transaction configurations for</param>
         /// <param name="setTransactionConfigurationSourceRequest">The set of transaction configurations</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSetConfigurationData</returns>
-        public TransactionSetConfigurationData SetTransactionConfigurationSource(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0)
+        public TransactionSetConfigurationData SetTransactionConfigurationSource(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = SetTransactionConfigurationSourceWithHttpInfo(source, setTransactionConfigurationSourceRequest);
+            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = SetTransactionConfigurationSourceWithHttpInfo(source, setTransactionConfigurationSourceRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1595,8 +1775,9 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source to set the transaction configurations for</param>
         /// <param name="setTransactionConfigurationSourceRequest">The set of transaction configurations</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSetConfigurationData</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> SetTransactionConfigurationSourceWithHttpInfo(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> SetTransactionConfigurationSourceWithHttpInfo(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -1611,6 +1792,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1683,10 +1874,11 @@ namespace Lusid.Sdk.Api
         /// <param name="setTransactionConfigurationSourceRequest">The set of transaction configurations</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSetConfigurationData</returns>
-        public async System.Threading.Tasks.Task<TransactionSetConfigurationData> SetTransactionConfigurationSourceAsync(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionSetConfigurationData> SetTransactionConfigurationSourceAsync(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = await SetTransactionConfigurationSourceWithHttpInfoAsync(source, setTransactionConfigurationSourceRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData> localVarResponse = await SetTransactionConfigurationSourceWithHttpInfoAsync(source, setTransactionConfigurationSourceRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1698,8 +1890,9 @@ namespace Lusid.Sdk.Api
         /// <param name="setTransactionConfigurationSourceRequest">The set of transaction configurations</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSetConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData>> SetTransactionConfigurationSourceWithHttpInfoAsync(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSetConfigurationData>> SetTransactionConfigurationSourceWithHttpInfoAsync(string source, List<SetTransactionConfigurationSourceRequest> setTransactionConfigurationSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -1715,6 +1908,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

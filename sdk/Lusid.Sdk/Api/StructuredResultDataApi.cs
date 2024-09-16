@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create or update data maps.</param>
         /// <param name="requestBody">Individual data map creation requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertStructuredDataResponse</returns>
-        UpsertStructuredDataResponse CreateDataMap(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0);
+        UpsertStructuredDataResponse CreateDataMap(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CreateDataMap: Create data map
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create or update data maps.</param>
         /// <param name="requestBody">Individual data map creation requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertStructuredDataResponse</returns>
-        ApiResponse<UpsertStructuredDataResponse> CreateDataMapWithHttpInfo(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0);
+        ApiResponse<UpsertStructuredDataResponse> CreateDataMapWithHttpInfo(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
         /// </summary>
@@ -65,8 +68,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope from which to delete data items.</param>
         /// <param name="requestBody">The data IDs to delete, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulStructuredDataResponse</returns>
-        AnnulStructuredDataResponse DeleteStructuredResultData(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0);
+        AnnulStructuredDataResponse DeleteStructuredResultData(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
@@ -78,8 +82,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope from which to delete data items.</param>
         /// <param name="requestBody">The data IDs to delete, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulStructuredDataResponse</returns>
-        ApiResponse<AnnulStructuredDataResponse> DeleteStructuredResultDataWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0);
+        ApiResponse<AnnulStructuredDataResponse> DeleteStructuredResultDataWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetAddressKeyDefinitionsForDocument: Get AddressKeyDefinitions for a virtual document.
         /// </summary>
@@ -94,8 +99,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfAddressKeyDefinition</returns>
-        ResourceListOfAddressKeyDefinition GetAddressKeyDefinitionsForDocument(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ResourceListOfAddressKeyDefinition GetAddressKeyDefinitionsForDocument(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetAddressKeyDefinitionsForDocument: Get AddressKeyDefinitions for a virtual document.
@@ -111,8 +117,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfAddressKeyDefinition</returns>
-        ApiResponse<ResourceListOfAddressKeyDefinition> GetAddressKeyDefinitionsForDocumentWithHttpInfo(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ResourceListOfAddressKeyDefinition> GetAddressKeyDefinitionsForDocumentWithHttpInfo(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetDataMap: Get data map
         /// </summary>
@@ -123,8 +130,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope from which to retrieve data maps.</param>
         /// <param name="requestBody">The data map keys to look up, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetDataMapResponse</returns>
-        GetDataMapResponse GetDataMap(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0);
+        GetDataMapResponse GetDataMap(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetDataMap: Get data map
@@ -136,8 +144,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope from which to retrieve data maps.</param>
         /// <param name="requestBody">The data map keys to look up, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetDataMapResponse</returns>
-        ApiResponse<GetDataMapResponse> GetDataMapWithHttpInfo(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0);
+        ApiResponse<GetDataMapResponse> GetDataMapWithHttpInfo(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetStructuredResultData: Get structured result data
         /// </summary>
@@ -150,8 +159,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="maxAge">The duration of the look-back window in ISO8601 time interval format, for example &#39;P1Y2M3DT4H30M&#39; (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetStructuredResultDataResponse</returns>
-        GetStructuredResultDataResponse GetStructuredResultData(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0);
+        GetStructuredResultDataResponse GetStructuredResultData(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetStructuredResultData: Get structured result data
@@ -165,8 +175,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="maxAge">The duration of the look-back window in ISO8601 time interval format, for example &#39;P1Y2M3DT4H30M&#39; (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetStructuredResultDataResponse</returns>
-        ApiResponse<GetStructuredResultDataResponse> GetStructuredResultDataWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0);
+        ApiResponse<GetStructuredResultDataResponse> GetStructuredResultDataWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetVirtualDocument: Get Virtual Documents
         /// </summary>
@@ -178,8 +189,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetVirtualDocumentResponse</returns>
-        GetVirtualDocumentResponse GetVirtualDocument(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        GetVirtualDocumentResponse GetVirtualDocument(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetVirtualDocument: Get Virtual Documents
@@ -192,8 +204,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetVirtualDocumentResponse</returns>
-        ApiResponse<GetVirtualDocumentResponse> GetVirtualDocumentWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<GetVirtualDocumentResponse> GetVirtualDocumentWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows
         /// </summary>
@@ -211,8 +224,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfVirtualRow</returns>
-        PagedResourceListOfVirtualRow GetVirtualDocumentRows(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        PagedResourceListOfVirtualRow GetVirtualDocumentRows(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows
@@ -231,8 +245,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfVirtualRow</returns>
-        ApiResponse<PagedResourceListOfVirtualRow> GetVirtualDocumentRowsWithHttpInfo(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfVirtualRow> GetVirtualDocumentRowsWithHttpInfo(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertResultValue: Upsert result value
         /// </summary>
@@ -243,8 +258,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to construct the virtual documents.</param>
         /// <param name="requestBody">The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertStructuredDataResponse</returns>
-        UpsertStructuredDataResponse UpsertResultValue(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0);
+        UpsertStructuredDataResponse UpsertResultValue(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpsertResultValue: Upsert result value
@@ -256,8 +272,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to construct the virtual documents.</param>
         /// <param name="requestBody">The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertStructuredDataResponse</returns>
-        ApiResponse<UpsertStructuredDataResponse> UpsertResultValueWithHttpInfo(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0);
+        ApiResponse<UpsertStructuredDataResponse> UpsertResultValueWithHttpInfo(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertStructuredResultData: Upsert structured result data
         /// </summary>
@@ -268,8 +285,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create or update data items.</param>
         /// <param name="requestBody">The set of data items to create or update, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertStructuredDataResponse</returns>
-        UpsertStructuredDataResponse UpsertStructuredResultData(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0);
+        UpsertStructuredDataResponse UpsertStructuredResultData(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertStructuredResultData: Upsert structured result data
@@ -281,8 +299,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create or update data items.</param>
         /// <param name="requestBody">The set of data items to create or update, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertStructuredDataResponse</returns>
-        ApiResponse<UpsertStructuredDataResponse> UpsertStructuredResultDataWithHttpInfo(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0);
+        ApiResponse<UpsertStructuredDataResponse> UpsertStructuredResultDataWithHttpInfo(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -303,8 +322,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">Individual data map creation requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<UpsertStructuredDataResponse> CreateDataMapAsync(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertStructuredDataResponse> CreateDataMapAsync(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CreateDataMap: Create data map
@@ -317,8 +337,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">Individual data map creation requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertStructuredDataResponse>> CreateDataMapWithHttpInfoAsync(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertStructuredDataResponse>> CreateDataMapWithHttpInfoAsync(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
         /// </summary>
@@ -330,8 +351,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The data IDs to delete, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<AnnulStructuredDataResponse> DeleteStructuredResultDataAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AnnulStructuredDataResponse> DeleteStructuredResultDataAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
@@ -344,8 +366,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The data IDs to delete, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnnulStructuredDataResponse>> DeleteStructuredResultDataWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AnnulStructuredDataResponse>> DeleteStructuredResultDataWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetAddressKeyDefinitionsForDocument: Get AddressKeyDefinitions for a virtual document.
         /// </summary>
@@ -361,8 +384,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfAddressKeyDefinition</returns>
-        System.Threading.Tasks.Task<ResourceListOfAddressKeyDefinition> GetAddressKeyDefinitionsForDocumentAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfAddressKeyDefinition> GetAddressKeyDefinitionsForDocumentAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetAddressKeyDefinitionsForDocument: Get AddressKeyDefinitions for a virtual document.
@@ -379,8 +403,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfAddressKeyDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfAddressKeyDefinition>> GetAddressKeyDefinitionsForDocumentWithHttpInfoAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfAddressKeyDefinition>> GetAddressKeyDefinitionsForDocumentWithHttpInfoAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetDataMap: Get data map
         /// </summary>
@@ -392,8 +417,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The data map keys to look up, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetDataMapResponse</returns>
-        System.Threading.Tasks.Task<GetDataMapResponse> GetDataMapAsync(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetDataMapResponse> GetDataMapAsync(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetDataMap: Get data map
@@ -406,8 +432,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The data map keys to look up, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetDataMapResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetDataMapResponse>> GetDataMapWithHttpInfoAsync(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetDataMapResponse>> GetDataMapWithHttpInfoAsync(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetStructuredResultData: Get structured result data
         /// </summary>
@@ -421,8 +448,9 @@ namespace Lusid.Sdk.Api
         /// <param name="maxAge">The duration of the look-back window in ISO8601 time interval format, for example &#39;P1Y2M3DT4H30M&#39; (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetStructuredResultDataResponse</returns>
-        System.Threading.Tasks.Task<GetStructuredResultDataResponse> GetStructuredResultDataAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetStructuredResultDataResponse> GetStructuredResultDataAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetStructuredResultData: Get structured result data
@@ -437,8 +465,9 @@ namespace Lusid.Sdk.Api
         /// <param name="maxAge">The duration of the look-back window in ISO8601 time interval format, for example &#39;P1Y2M3DT4H30M&#39; (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetStructuredResultDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetStructuredResultDataResponse>> GetStructuredResultDataWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetStructuredResultDataResponse>> GetStructuredResultDataWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetVirtualDocument: Get Virtual Documents
         /// </summary>
@@ -451,8 +480,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetVirtualDocumentResponse</returns>
-        System.Threading.Tasks.Task<GetVirtualDocumentResponse> GetVirtualDocumentAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetVirtualDocumentResponse> GetVirtualDocumentAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetVirtualDocument: Get Virtual Documents
@@ -466,8 +496,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetVirtualDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetVirtualDocumentResponse>> GetVirtualDocumentWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetVirtualDocumentResponse>> GetVirtualDocumentWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows
         /// </summary>
@@ -486,8 +517,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfVirtualRow</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfVirtualRow> GetVirtualDocumentRowsAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfVirtualRow> GetVirtualDocumentRowsAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows
@@ -507,8 +539,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfVirtualRow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfVirtualRow>> GetVirtualDocumentRowsWithHttpInfoAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfVirtualRow>> GetVirtualDocumentRowsWithHttpInfoAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertResultValue: Upsert result value
         /// </summary>
@@ -520,8 +553,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<UpsertStructuredDataResponse> UpsertResultValueAsync(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertStructuredDataResponse> UpsertResultValueAsync(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpsertResultValue: Upsert result value
@@ -534,8 +568,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertStructuredDataResponse>> UpsertResultValueWithHttpInfoAsync(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertStructuredDataResponse>> UpsertResultValueWithHttpInfoAsync(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertStructuredResultData: Upsert structured result data
         /// </summary>
@@ -547,8 +582,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The set of data items to create or update, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<UpsertStructuredDataResponse> UpsertStructuredResultDataAsync(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertStructuredDataResponse> UpsertStructuredResultDataAsync(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertStructuredResultData: Upsert structured result data
@@ -561,8 +597,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The set of data items to create or update, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertStructuredDataResponse>> UpsertStructuredResultDataWithHttpInfoAsync(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertStructuredDataResponse>> UpsertStructuredResultDataWithHttpInfoAsync(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -595,9 +632,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public StructuredResultDataApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -687,10 +730,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create or update data maps.</param>
         /// <param name="requestBody">Individual data map creation requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertStructuredDataResponse</returns>
-        public UpsertStructuredDataResponse CreateDataMap(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0)
+        public UpsertStructuredDataResponse CreateDataMap(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = CreateDataMapWithHttpInfo(scope, requestBody);
+            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = CreateDataMapWithHttpInfo(scope, requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -701,8 +745,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create or update data maps.</param>
         /// <param name="requestBody">Individual data map creation requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> CreateDataMapWithHttpInfo(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> CreateDataMapWithHttpInfo(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -717,6 +762,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -789,10 +844,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">Individual data map creation requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertStructuredDataResponse> CreateDataMapAsync(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertStructuredDataResponse> CreateDataMapAsync(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = await CreateDataMapWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = await CreateDataMapWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -804,8 +860,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">Individual data map creation requests.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse>> CreateDataMapWithHttpInfoAsync(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse>> CreateDataMapWithHttpInfoAsync(string scope, Dictionary<string, CreateDataMapRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -821,6 +878,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -893,10 +960,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope from which to delete data items.</param>
         /// <param name="requestBody">The data IDs to delete, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AnnulStructuredDataResponse</returns>
-        public AnnulStructuredDataResponse DeleteStructuredResultData(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0)
+        public AnnulStructuredDataResponse DeleteStructuredResultData(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse> localVarResponse = DeleteStructuredResultDataWithHttpInfo(scope, requestBody);
+            Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse> localVarResponse = DeleteStructuredResultDataWithHttpInfo(scope, requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -907,8 +975,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope from which to delete data items.</param>
         /// <param name="requestBody">The data IDs to delete, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse> DeleteStructuredResultDataWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse> DeleteStructuredResultDataWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -923,6 +992,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -995,10 +1074,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The data IDs to delete, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AnnulStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<AnnulStructuredDataResponse> DeleteStructuredResultDataAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AnnulStructuredDataResponse> DeleteStructuredResultDataAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse> localVarResponse = await DeleteStructuredResultDataWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse> localVarResponse = await DeleteStructuredResultDataWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1010,8 +1090,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The data IDs to delete, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse>> DeleteStructuredResultDataWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulStructuredDataResponse>> DeleteStructuredResultDataWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1027,6 +1108,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1103,10 +1194,11 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfAddressKeyDefinition</returns>
-        public ResourceListOfAddressKeyDefinition GetAddressKeyDefinitionsForDocument(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public ResourceListOfAddressKeyDefinition GetAddressKeyDefinitionsForDocument(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfAddressKeyDefinition> localVarResponse = GetAddressKeyDefinitionsForDocumentWithHttpInfo(scope, code, source, resultType, effectiveAt, asAt);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfAddressKeyDefinition> localVarResponse = GetAddressKeyDefinitionsForDocumentWithHttpInfo(scope, code, source, resultType, effectiveAt, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1121,8 +1213,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfAddressKeyDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfAddressKeyDefinition> GetAddressKeyDefinitionsForDocumentWithHttpInfo(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfAddressKeyDefinition> GetAddressKeyDefinitionsForDocumentWithHttpInfo(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1149,6 +1242,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1231,10 +1334,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfAddressKeyDefinition</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfAddressKeyDefinition> GetAddressKeyDefinitionsForDocumentAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfAddressKeyDefinition> GetAddressKeyDefinitionsForDocumentAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfAddressKeyDefinition> localVarResponse = await GetAddressKeyDefinitionsForDocumentWithHttpInfoAsync(scope, code, source, resultType, effectiveAt, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfAddressKeyDefinition> localVarResponse = await GetAddressKeyDefinitionsForDocumentWithHttpInfoAsync(scope, code, source, resultType, effectiveAt, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1250,8 +1354,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfAddressKeyDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfAddressKeyDefinition>> GetAddressKeyDefinitionsForDocumentWithHttpInfoAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfAddressKeyDefinition>> GetAddressKeyDefinitionsForDocumentWithHttpInfoAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1279,6 +1384,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1357,10 +1472,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope from which to retrieve data maps.</param>
         /// <param name="requestBody">The data map keys to look up, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetDataMapResponse</returns>
-        public GetDataMapResponse GetDataMap(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0)
+        public GetDataMapResponse GetDataMap(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetDataMapResponse> localVarResponse = GetDataMapWithHttpInfo(scope, requestBody);
+            Lusid.Sdk.Client.ApiResponse<GetDataMapResponse> localVarResponse = GetDataMapWithHttpInfo(scope, requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1371,8 +1487,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope from which to retrieve data maps.</param>
         /// <param name="requestBody">The data map keys to look up, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetDataMapResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetDataMapResponse> GetDataMapWithHttpInfo(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetDataMapResponse> GetDataMapWithHttpInfo(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1387,6 +1504,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1459,10 +1586,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The data map keys to look up, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetDataMapResponse</returns>
-        public async System.Threading.Tasks.Task<GetDataMapResponse> GetDataMapAsync(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetDataMapResponse> GetDataMapAsync(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetDataMapResponse> localVarResponse = await GetDataMapWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetDataMapResponse> localVarResponse = await GetDataMapWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1474,8 +1602,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The data map keys to look up, each keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetDataMapResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetDataMapResponse>> GetDataMapWithHttpInfoAsync(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetDataMapResponse>> GetDataMapWithHttpInfoAsync(string scope, Dictionary<string, DataMapKey> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1491,6 +1620,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1565,10 +1704,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="maxAge">The duration of the look-back window in ISO8601 time interval format, for example &#39;P1Y2M3DT4H30M&#39; (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetStructuredResultDataResponse</returns>
-        public GetStructuredResultDataResponse GetStructuredResultData(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0)
+        public GetStructuredResultDataResponse GetStructuredResultData(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetStructuredResultDataResponse> localVarResponse = GetStructuredResultDataWithHttpInfo(scope, requestBody, asAt, maxAge);
+            Lusid.Sdk.Client.ApiResponse<GetStructuredResultDataResponse> localVarResponse = GetStructuredResultDataWithHttpInfo(scope, requestBody, asAt, maxAge, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1581,8 +1721,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="maxAge">The duration of the look-back window in ISO8601 time interval format, for example &#39;P1Y2M3DT4H30M&#39; (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetStructuredResultDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetStructuredResultDataResponse> GetStructuredResultDataWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetStructuredResultDataResponse> GetStructuredResultDataWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1597,6 +1738,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1679,10 +1830,11 @@ namespace Lusid.Sdk.Api
         /// <param name="maxAge">The duration of the look-back window in ISO8601 time interval format, for example &#39;P1Y2M3DT4H30M&#39; (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetStructuredResultDataResponse</returns>
-        public async System.Threading.Tasks.Task<GetStructuredResultDataResponse> GetStructuredResultDataAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetStructuredResultDataResponse> GetStructuredResultDataAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetStructuredResultDataResponse> localVarResponse = await GetStructuredResultDataWithHttpInfoAsync(scope, requestBody, asAt, maxAge, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetStructuredResultDataResponse> localVarResponse = await GetStructuredResultDataWithHttpInfoAsync(scope, requestBody, asAt, maxAge, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1696,8 +1848,9 @@ namespace Lusid.Sdk.Api
         /// <param name="maxAge">The duration of the look-back window in ISO8601 time interval format, for example &#39;P1Y2M3DT4H30M&#39; (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetStructuredResultDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetStructuredResultDataResponse>> GetStructuredResultDataWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetStructuredResultDataResponse>> GetStructuredResultDataWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1713,6 +1866,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1794,10 +1957,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>GetVirtualDocumentResponse</returns>
-        public GetVirtualDocumentResponse GetVirtualDocument(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public GetVirtualDocumentResponse GetVirtualDocument(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetVirtualDocumentResponse> localVarResponse = GetVirtualDocumentWithHttpInfo(scope, requestBody, asAt);
+            Lusid.Sdk.Client.ApiResponse<GetVirtualDocumentResponse> localVarResponse = GetVirtualDocumentWithHttpInfo(scope, requestBody, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1809,8 +1973,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetVirtualDocumentResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetVirtualDocumentResponse> GetVirtualDocumentWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GetVirtualDocumentResponse> GetVirtualDocumentWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1825,6 +1990,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1902,10 +2077,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetVirtualDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<GetVirtualDocumentResponse> GetVirtualDocumentAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetVirtualDocumentResponse> GetVirtualDocumentAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetVirtualDocumentResponse> localVarResponse = await GetVirtualDocumentWithHttpInfoAsync(scope, requestBody, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetVirtualDocumentResponse> localVarResponse = await GetVirtualDocumentWithHttpInfoAsync(scope, requestBody, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1918,8 +2094,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetVirtualDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetVirtualDocumentResponse>> GetVirtualDocumentWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetVirtualDocumentResponse>> GetVirtualDocumentWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1935,6 +2112,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2018,10 +2205,11 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfVirtualRow</returns>
-        public PagedResourceListOfVirtualRow GetVirtualDocumentRows(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public PagedResourceListOfVirtualRow GetVirtualDocumentRows(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVirtualRow> localVarResponse = GetVirtualDocumentRowsWithHttpInfo(scope, code, source, resultType, effectiveAt, asAt, page, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVirtualRow> localVarResponse = GetVirtualDocumentRowsWithHttpInfo(scope, code, source, resultType, effectiveAt, asAt, page, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2039,8 +2227,9 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfVirtualRow</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVirtualRow> GetVirtualDocumentRowsWithHttpInfo(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVirtualRow> GetVirtualDocumentRowsWithHttpInfo(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2073,6 +2262,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2167,10 +2366,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfVirtualRow</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfVirtualRow> GetVirtualDocumentRowsAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfVirtualRow> GetVirtualDocumentRowsAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVirtualRow> localVarResponse = await GetVirtualDocumentRowsWithHttpInfoAsync(scope, code, source, resultType, effectiveAt, asAt, page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVirtualRow> localVarResponse = await GetVirtualDocumentRowsWithHttpInfoAsync(scope, code, source, resultType, effectiveAt, asAt, page, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2189,8 +2389,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfVirtualRow)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVirtualRow>> GetVirtualDocumentRowsWithHttpInfoAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVirtualRow>> GetVirtualDocumentRowsWithHttpInfoAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2224,6 +2425,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2311,10 +2522,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to construct the virtual documents.</param>
         /// <param name="requestBody">The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertStructuredDataResponse</returns>
-        public UpsertStructuredDataResponse UpsertResultValue(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0)
+        public UpsertStructuredDataResponse UpsertResultValue(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = UpsertResultValueWithHttpInfo(scope, requestBody);
+            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = UpsertResultValueWithHttpInfo(scope, requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2325,8 +2537,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to construct the virtual documents.</param>
         /// <param name="requestBody">The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> UpsertResultValueWithHttpInfo(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> UpsertResultValueWithHttpInfo(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2341,6 +2554,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2413,10 +2636,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertStructuredDataResponse> UpsertResultValueAsync(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertStructuredDataResponse> UpsertResultValueAsync(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = await UpsertResultValueWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = await UpsertResultValueWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2428,8 +2652,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse>> UpsertResultValueWithHttpInfoAsync(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse>> UpsertResultValueWithHttpInfoAsync(string scope, Dictionary<string, UpsertResultValuesDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2445,6 +2670,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2517,10 +2752,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create or update data items.</param>
         /// <param name="requestBody">The set of data items to create or update, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertStructuredDataResponse</returns>
-        public UpsertStructuredDataResponse UpsertStructuredResultData(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0)
+        public UpsertStructuredDataResponse UpsertStructuredResultData(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = UpsertStructuredResultDataWithHttpInfo(scope, requestBody);
+            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = UpsertStructuredResultDataWithHttpInfo(scope, requestBody, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2531,8 +2767,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create or update data items.</param>
         /// <param name="requestBody">The set of data items to create or update, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> UpsertStructuredResultDataWithHttpInfo(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> UpsertStructuredResultDataWithHttpInfo(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2547,6 +2784,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2619,10 +2866,11 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The set of data items to create or update, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertStructuredDataResponse> UpsertStructuredResultDataAsync(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertStructuredDataResponse> UpsertStructuredResultDataAsync(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = await UpsertStructuredResultDataWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse> localVarResponse = await UpsertStructuredResultDataWithHttpInfoAsync(scope, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2634,8 +2882,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The set of data items to create or update, keyed by a unique, ephemeral correlation ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse>> UpsertStructuredResultDataWithHttpInfoAsync(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertStructuredDataResponse>> UpsertStructuredResultDataWithHttpInfoAsync(string scope, Dictionary<string, UpsertStructuredResultDataRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2651,6 +2900,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

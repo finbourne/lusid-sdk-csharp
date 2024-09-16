@@ -69,10 +69,27 @@ namespace Lusid.Sdk.Extensions
         /// Configurable via FBN_ACCESS_TOKEN env variable - get the value from LUSID web 'Your Profile'->'Personal access tokens'.
         /// Takes precedence over other authentication factors if set.
         /// </summary>
+        [ConfigurationKeyName("accessToken")]
         public string PersonalAccessToken { get; set; }
+        
+        /// <summary>
+        /// Exists for backwards compatibility - please use PersonalAccessToken instead (field name 'accessToken' in config)
+        /// </summary>
+        [ConfigurationKeyName("personalAccessToken")]
+        public string AccessTokenOldName { get; set; }
+        
+        /// <summary>
+        /// The client timeout in milliseconds. If left unset the default timeout will be used
+        /// </summary>
+        public int? TimeoutMs { get; set; }
+        
+        /// <summary>
+        /// The number of retries when being rate limited. If left unset the default number of rate limit retries will be used
+        /// </summary>
+        public int? RateLimitRetries { get; set; }
 
         internal bool MissingPersonalAccessTokenVariables =>
-            string.IsNullOrWhiteSpace(PersonalAccessToken) ||
+            (string.IsNullOrWhiteSpace(PersonalAccessToken) && string.IsNullOrWhiteSpace(AccessTokenOldName)) ||
             (string.IsNullOrWhiteSpace(BaseUrl) && string.IsNullOrWhiteSpace(SnakeCaseBaseUrl) && string.IsNullOrWhiteSpace(LowerCaseBaseUrl));
 
         internal bool MissingSecretVariables =>
@@ -100,7 +117,7 @@ namespace Lusid.Sdk.Extensions
         {
             var missingConfig = new List<string>();
 
-            if (!string.IsNullOrWhiteSpace(PersonalAccessToken))
+            if (!string.IsNullOrWhiteSpace(PersonalAccessToken) || !string.IsNullOrWhiteSpace(AccessTokenOldName))
             {
                 if (MissingPersonalAccessTokenVariables)
                 {

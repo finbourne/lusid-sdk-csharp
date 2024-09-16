@@ -58,12 +58,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var scope = "scope_example";  // string | The scope of the reconciliation
             var createReconciliationRequest = new CreateReconciliationRequest?(); // CreateReconciliationRequest? | The definition of the reconciliation (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Reconciliation result = apiInstance.CreateScheduledReconciliation(scope, createReconciliationRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateScheduledReconciliation: Create a scheduled reconciliation
                 Reconciliation result = apiInstance.CreateScheduledReconciliation(scope, createReconciliationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -163,12 +174,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var scope = "scope_example";  // string | The scope of the scheduled reconciliation
             var code = "code_example";  // string | The code of the scheduled reconciliation
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteReconciliation(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteReconciliation: Delete scheduled reconciliation
                 DeletedEntityResponse result = apiInstance.DeleteReconciliation(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -268,12 +290,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var scope = "scope_example";  // string | The scope of the mapping.
             var code = "code_example";  // string | The code fof the mapping.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.DeleteReconciliationMapping(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeleteReconciliationMapping: Delete a mapping
                 string result = apiInstance.DeleteReconciliationMapping(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -373,6 +406,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var scope = "scope_example";  // string | The scope of the scheduled reconciliation
             var code = "code_example";  // string | The code of the scheduled reconciliation
@@ -382,6 +423,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Reconciliation result = apiInstance.GetReconciliation(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] GetReconciliation: Get scheduled reconciliation
                 Reconciliation result = apiInstance.GetReconciliation(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -484,12 +528,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var scope = "scope_example";  // string | The scope of the mapping.
             var code = "code_example";  // string | The code of the mapping.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Mapping result = apiInstance.GetReconciliationMapping(scope, code, opts: opts);
+
                 // [EARLY ACCESS] GetReconciliationMapping: Get a mapping
                 Mapping result = apiInstance.GetReconciliationMapping(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -589,11 +644,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var reconciliationType = "reconciliationType_example";  // string? | Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfMapping result = apiInstance.ListReconciliationMappings(reconciliationType, opts: opts);
+
                 // [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings
                 ResourceListOfMapping result = apiInstance.ListReconciliationMappings(reconciliationType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -692,6 +758,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. (optional) 
@@ -702,6 +776,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfReconciliation result = apiInstance.ListReconciliations(effectiveAt, asAt, page, limit, filter, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations
                 PagedResourceListOfReconciliation result = apiInstance.ListReconciliations(effectiveAt, asAt, page, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -805,11 +882,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var reconciliationRequest = new ReconciliationRequest?(); // ReconciliationRequest? | The specifications of the inputs to the reconciliation (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ReconciliationResponse result = apiInstance.ReconcileGeneric(reconciliationRequest, opts: opts);
+
                 // ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are 'empty' or null or zero.
                 ReconciliationResponse result = apiInstance.ReconcileGeneric(reconciliationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -908,6 +996,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
@@ -916,6 +1012,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfReconciliationBreak result = apiInstance.ReconcileHoldings(sortBy, limit, filter, portfoliosReconciliationRequest, opts: opts);
+
                 // [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
                 ResourceListOfReconciliationBreak result = apiInstance.ReconcileHoldings(sortBy, limit, filter, portfoliosReconciliationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1017,11 +1116,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var inlineValuationsReconciliationRequest = new InlineValuationsReconciliationRequest?(); // InlineValuationsReconciliationRequest? | The specifications of the inputs to the reconciliation (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ListAggregationReconciliation result = apiInstance.ReconcileInline(inlineValuationsReconciliationRequest, opts: opts);
+
                 // ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
                 ListAggregationReconciliation result = apiInstance.ReconcileInline(inlineValuationsReconciliationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1120,11 +1230,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var transactionReconciliationRequest = new TransactionReconciliationRequest?(); // TransactionReconciliationRequest? |  (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionsReconciliationsResponse result = apiInstance.ReconcileTransactions(transactionReconciliationRequest, opts: opts);
+
                 // [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
                 TransactionsReconciliationsResponse result = apiInstance.ReconcileTransactions(transactionReconciliationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1223,11 +1344,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var transactionReconciliationRequestV2 = new TransactionReconciliationRequestV2?(); // TransactionReconciliationRequestV2? |  (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ReconciliationResponse result = apiInstance.ReconcileTransactionsV2(transactionReconciliationRequestV2, opts: opts);
+
                 // [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation.
                 ReconciliationResponse result = apiInstance.ReconcileTransactionsV2(transactionReconciliationRequestV2);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1326,11 +1458,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var valuationsReconciliationRequest = new ValuationsReconciliationRequest?(); // ValuationsReconciliationRequest? | The specifications of the inputs to the reconciliation (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ListAggregationReconciliation result = apiInstance.ReconcileValuation(valuationsReconciliationRequest, opts: opts);
+
                 // ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
                 ListAggregationReconciliation result = apiInstance.ReconcileValuation(valuationsReconciliationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1429,6 +1572,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var scope = "scope_example";  // string | The scope of the reconciliation to be updated
             var code = "code_example";  // string | The code of the reconciliation to be updated
@@ -1436,6 +1587,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Reconciliation result = apiInstance.UpdateReconciliation(scope, code, updateReconciliationRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdateReconciliation: Update scheduled reconciliation
                 Reconciliation result = apiInstance.UpdateReconciliation(scope, code, updateReconciliationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1536,11 +1690,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var mapping = new Mapping?(); // Mapping? | The mapping to be created / updated. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Mapping result = apiInstance.UpsertReconciliationMapping(mapping, opts: opts);
+
                 // [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
                 Mapping result = apiInstance.UpsertReconciliationMapping(mapping);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

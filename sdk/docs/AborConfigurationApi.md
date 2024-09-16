@@ -48,12 +48,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborConfigurationApi>();
             var scope = "scope_example";  // string | The scope of the AborConfiguration.
             var aborConfigurationRequest = new AborConfigurationRequest(); // AborConfigurationRequest | The definition of the AborConfiguration.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AborConfiguration result = apiInstance.CreateAborConfiguration(scope, aborConfigurationRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateAborConfiguration: Create an AborConfiguration.
                 AborConfiguration result = apiInstance.CreateAborConfiguration(scope, aborConfigurationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -153,12 +164,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborConfigurationApi>();
             var scope = "scope_example";  // string | The scope of the AborConfiguration to be deleted.
             var code = "code_example";  // string | The code of the AborConfiguration to be deleted. Together with the scope this uniquely identifies the AborConfiguration.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteAborConfiguration(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteAborConfiguration: Delete an AborConfiguration.
                 DeletedEntityResponse result = apiInstance.DeleteAborConfiguration(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -258,6 +280,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborConfigurationApi>();
             var scope = "scope_example";  // string | The scope of the AborConfiguration.
             var code = "code_example";  // string | The code of the AborConfiguration. Together with the scope this uniquely identifies the AborConfiguration.
@@ -267,6 +297,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AborConfiguration result = apiInstance.GetAborConfiguration(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] GetAborConfiguration: Get AborConfiguration.
                 AborConfiguration result = apiInstance.GetAborConfiguration(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -369,6 +402,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborConfigurationApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the AborConfiguration. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the AborConfiguration. Defaults to returning the latest version of each AAborConfigurationbor if not specified. (optional) 
@@ -380,6 +421,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfAborConfiguration result = apiInstance.ListAborConfigurations(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] ListAborConfigurations: List AborConfiguration.
                 PagedResourceListOfAborConfiguration result = apiInstance.ListAborConfigurations(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -484,6 +528,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborConfigurationApi>();
             var scope = "scope_example";  // string | The scope of the AborConfiguration to update or insert the properties onto.
             var code = "code_example";  // string | The code of the AborConfiguration to update or insert the properties onto. Together with the scope this uniquely identifies the AborConfiguration.
@@ -491,6 +543,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AborConfigurationProperties result = apiInstance.UpsertAborConfigurationProperties(scope, code, requestBody, opts: opts);
+
                 // [EXPERIMENTAL] UpsertAborConfigurationProperties: Upsert AborConfiguration properties
                 AborConfigurationProperties result = apiInstance.UpsertAborConfigurationProperties(scope, code, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

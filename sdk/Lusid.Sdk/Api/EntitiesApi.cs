@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -42,8 +43,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Custom Entity. Defaults to returning the latest version of the Custom Entity if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CustomEntityEntity</returns>
-        CustomEntityEntity GetCustomEntityByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0);
+        CustomEntityEntity GetCustomEntityByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
@@ -57,8 +59,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Custom Entity. Defaults to returning the latest version of the Custom Entity if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomEntityEntity</returns>
-        ApiResponse<CustomEntityEntity> GetCustomEntityByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0);
+        ApiResponse<CustomEntityEntity> GetCustomEntityByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
         /// </summary>
@@ -70,8 +73,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the DataType definition. Defaults to returning the latest version of the DataType definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DataTypeEntity</returns>
-        DataTypeEntity GetDataTypeByEntityUniqueId(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0);
+        DataTypeEntity GetDataTypeByEntityUniqueId(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
@@ -84,8 +88,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the DataType definition. Defaults to returning the latest version of the DataType definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataTypeEntity</returns>
-        ApiResponse<DataTypeEntity> GetDataTypeByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0);
+        ApiResponse<DataTypeEntity> GetDataTypeByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
         /// </summary>
@@ -98,8 +103,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definition. Defaults to returning the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>InstrumentEntity</returns>
-        InstrumentEntity GetInstrumentByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0);
+        InstrumentEntity GetInstrumentByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
@@ -113,8 +119,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definition. Defaults to returning the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of InstrumentEntity</returns>
-        ApiResponse<InstrumentEntity> GetInstrumentByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0);
+        ApiResponse<InstrumentEntity> GetInstrumentByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
         /// </summary>
@@ -127,8 +134,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PortfolioEntity</returns>
-        PortfolioEntity GetPortfolioByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0);
+        PortfolioEntity GetPortfolioByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
@@ -142,8 +150,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PortfolioEntity</returns>
-        ApiResponse<PortfolioEntity> GetPortfolioByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PortfolioEntity> GetPortfolioByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
         /// </summary>
@@ -155,8 +164,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective date of the origin.</param>
         /// <param name="asAt">The as-at date of the origin. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfChange</returns>
-        ResourceListOfChange GetPortfolioChanges(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ResourceListOfChange GetPortfolioChanges(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
@@ -169,8 +179,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective date of the origin.</param>
         /// <param name="asAt">The as-at date of the origin. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfChange</returns>
-        ApiResponse<ResourceListOfChange> GetPortfolioChangesWithHttpInfo(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ResourceListOfChange> GetPortfolioChangesWithHttpInfo(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
         /// </summary>
@@ -183,8 +194,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to returning the latest version of the property definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinitionEntity</returns>
-        PropertyDefinitionEntity GetPropertyDefinitionByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0);
+        PropertyDefinitionEntity GetPropertyDefinitionByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
@@ -198,8 +210,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to returning the latest version of the property definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinitionEntity</returns>
-        ApiResponse<PropertyDefinitionEntity> GetPropertyDefinitionByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PropertyDefinitionEntity> GetPropertyDefinitionByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -222,8 +235,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomEntityEntity</returns>
-        System.Threading.Tasks.Task<CustomEntityEntity> GetCustomEntityByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomEntityEntity> GetCustomEntityByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
@@ -238,8 +252,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomEntityEntity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomEntityEntity>> GetCustomEntityByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomEntityEntity>> GetCustomEntityByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
         /// </summary>
@@ -252,8 +267,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DataTypeEntity</returns>
-        System.Threading.Tasks.Task<DataTypeEntity> GetDataTypeByEntityUniqueIdAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DataTypeEntity> GetDataTypeByEntityUniqueIdAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
@@ -267,8 +283,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DataTypeEntity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataTypeEntity>> GetDataTypeByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DataTypeEntity>> GetDataTypeByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
         /// </summary>
@@ -282,8 +299,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of InstrumentEntity</returns>
-        System.Threading.Tasks.Task<InstrumentEntity> GetInstrumentByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InstrumentEntity> GetInstrumentByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
@@ -298,8 +316,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (InstrumentEntity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InstrumentEntity>> GetInstrumentByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InstrumentEntity>> GetInstrumentByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
         /// </summary>
@@ -313,8 +332,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PortfolioEntity</returns>
-        System.Threading.Tasks.Task<PortfolioEntity> GetPortfolioByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PortfolioEntity> GetPortfolioByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
@@ -329,8 +349,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PortfolioEntity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PortfolioEntity>> GetPortfolioByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PortfolioEntity>> GetPortfolioByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
         /// </summary>
@@ -343,8 +364,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The as-at date of the origin. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfChange</returns>
-        System.Threading.Tasks.Task<ResourceListOfChange> GetPortfolioChangesAsync(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfChange> GetPortfolioChangesAsync(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
@@ -358,8 +380,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The as-at date of the origin. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfChange)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfChange>> GetPortfolioChangesWithHttpInfoAsync(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfChange>> GetPortfolioChangesWithHttpInfoAsync(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
         /// </summary>
@@ -373,8 +396,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertyDefinitionEntity</returns>
-        System.Threading.Tasks.Task<PropertyDefinitionEntity> GetPropertyDefinitionByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PropertyDefinitionEntity> GetPropertyDefinitionByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
@@ -389,8 +413,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertyDefinitionEntity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PropertyDefinitionEntity>> GetPropertyDefinitionByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PropertyDefinitionEntity>> GetPropertyDefinitionByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -423,9 +448,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public EntitiesApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -517,10 +548,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Custom Entity. Defaults to returning the latest version of the Custom Entity if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CustomEntityEntity</returns>
-        public CustomEntityEntity GetCustomEntityByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0)
+        public CustomEntityEntity GetCustomEntityByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomEntityEntity> localVarResponse = GetCustomEntityByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews);
+            Lusid.Sdk.Client.ApiResponse<CustomEntityEntity> localVarResponse = GetCustomEntityByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -533,8 +565,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Custom Entity. Defaults to returning the latest version of the Custom Entity if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomEntityEntity</returns>
-        public Lusid.Sdk.Client.ApiResponse<CustomEntityEntity> GetCustomEntityByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CustomEntityEntity> GetCustomEntityByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityUniqueId' is set
             if (entityUniqueId == null)
@@ -543,6 +576,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -624,10 +667,11 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomEntityEntity</returns>
-        public async System.Threading.Tasks.Task<CustomEntityEntity> GetCustomEntityByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomEntityEntity> GetCustomEntityByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomEntityEntity> localVarResponse = await GetCustomEntityByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, effectiveAt, asAt, previews, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CustomEntityEntity> localVarResponse = await GetCustomEntityByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, effectiveAt, asAt, previews, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -641,8 +685,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomEntityEntity)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomEntityEntity>> GetCustomEntityByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomEntityEntity>> GetCustomEntityByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityUniqueId' is set
             if (entityUniqueId == null)
@@ -652,6 +697,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -732,10 +787,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the DataType definition. Defaults to returning the latest version of the DataType definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DataTypeEntity</returns>
-        public DataTypeEntity GetDataTypeByEntityUniqueId(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0)
+        public DataTypeEntity GetDataTypeByEntityUniqueId(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DataTypeEntity> localVarResponse = GetDataTypeByEntityUniqueIdWithHttpInfo(entityUniqueId, asAt, previews);
+            Lusid.Sdk.Client.ApiResponse<DataTypeEntity> localVarResponse = GetDataTypeByEntityUniqueIdWithHttpInfo(entityUniqueId, asAt, previews, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -747,8 +803,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the DataType definition. Defaults to returning the latest version of the DataType definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataTypeEntity</returns>
-        public Lusid.Sdk.Client.ApiResponse<DataTypeEntity> GetDataTypeByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DataTypeEntity> GetDataTypeByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityUniqueId' is set
             if (entityUniqueId == null)
@@ -757,6 +814,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -833,10 +900,11 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DataTypeEntity</returns>
-        public async System.Threading.Tasks.Task<DataTypeEntity> GetDataTypeByEntityUniqueIdAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DataTypeEntity> GetDataTypeByEntityUniqueIdAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DataTypeEntity> localVarResponse = await GetDataTypeByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, asAt, previews, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DataTypeEntity> localVarResponse = await GetDataTypeByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, asAt, previews, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -849,8 +917,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DataTypeEntity)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataTypeEntity>> GetDataTypeByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataTypeEntity>> GetDataTypeByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityUniqueId' is set
             if (entityUniqueId == null)
@@ -860,6 +929,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -937,10 +1016,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definition. Defaults to returning the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>InstrumentEntity</returns>
-        public InstrumentEntity GetInstrumentByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0)
+        public InstrumentEntity GetInstrumentByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<InstrumentEntity> localVarResponse = GetInstrumentByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews);
+            Lusid.Sdk.Client.ApiResponse<InstrumentEntity> localVarResponse = GetInstrumentByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -953,8 +1033,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definition. Defaults to returning the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of InstrumentEntity</returns>
-        public Lusid.Sdk.Client.ApiResponse<InstrumentEntity> GetInstrumentByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<InstrumentEntity> GetInstrumentByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityUniqueId' is set
             if (entityUniqueId == null)
@@ -963,6 +1044,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1044,10 +1135,11 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of InstrumentEntity</returns>
-        public async System.Threading.Tasks.Task<InstrumentEntity> GetInstrumentByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InstrumentEntity> GetInstrumentByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<InstrumentEntity> localVarResponse = await GetInstrumentByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, effectiveAt, asAt, previews, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<InstrumentEntity> localVarResponse = await GetInstrumentByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, effectiveAt, asAt, previews, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1061,8 +1153,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (InstrumentEntity)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InstrumentEntity>> GetInstrumentByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InstrumentEntity>> GetInstrumentByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityUniqueId' is set
             if (entityUniqueId == null)
@@ -1072,6 +1165,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1153,10 +1256,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PortfolioEntity</returns>
-        public PortfolioEntity GetPortfolioByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0)
+        public PortfolioEntity GetPortfolioByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PortfolioEntity> localVarResponse = GetPortfolioByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews);
+            Lusid.Sdk.Client.ApiResponse<PortfolioEntity> localVarResponse = GetPortfolioByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1169,8 +1273,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PortfolioEntity</returns>
-        public Lusid.Sdk.Client.ApiResponse<PortfolioEntity> GetPortfolioByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PortfolioEntity> GetPortfolioByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityUniqueId' is set
             if (entityUniqueId == null)
@@ -1179,6 +1284,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1260,10 +1375,11 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PortfolioEntity</returns>
-        public async System.Threading.Tasks.Task<PortfolioEntity> GetPortfolioByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PortfolioEntity> GetPortfolioByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PortfolioEntity> localVarResponse = await GetPortfolioByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, effectiveAt, asAt, previews, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PortfolioEntity> localVarResponse = await GetPortfolioByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, effectiveAt, asAt, previews, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1277,8 +1393,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PortfolioEntity)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioEntity>> GetPortfolioByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioEntity>> GetPortfolioByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityUniqueId' is set
             if (entityUniqueId == null)
@@ -1288,6 +1405,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1368,10 +1495,11 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective date of the origin.</param>
         /// <param name="asAt">The as-at date of the origin. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfChange</returns>
-        public ResourceListOfChange GetPortfolioChanges(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public ResourceListOfChange GetPortfolioChanges(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfChange> localVarResponse = GetPortfolioChangesWithHttpInfo(scope, effectiveAt, asAt);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfChange> localVarResponse = GetPortfolioChangesWithHttpInfo(scope, effectiveAt, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1383,8 +1511,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective date of the origin.</param>
         /// <param name="asAt">The as-at date of the origin. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfChange</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfChange> GetPortfolioChangesWithHttpInfo(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfChange> GetPortfolioChangesWithHttpInfo(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1399,6 +1528,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1472,10 +1611,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The as-at date of the origin. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfChange</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfChange> GetPortfolioChangesAsync(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfChange> GetPortfolioChangesAsync(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfChange> localVarResponse = await GetPortfolioChangesWithHttpInfoAsync(scope, effectiveAt, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfChange> localVarResponse = await GetPortfolioChangesWithHttpInfoAsync(scope, effectiveAt, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1488,8 +1628,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The as-at date of the origin. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfChange)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfChange>> GetPortfolioChangesWithHttpInfoAsync(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfChange>> GetPortfolioChangesWithHttpInfoAsync(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1505,6 +1646,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1579,10 +1730,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to returning the latest version of the property definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinitionEntity</returns>
-        public PropertyDefinitionEntity GetPropertyDefinitionByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0)
+        public PropertyDefinitionEntity GetPropertyDefinitionByEntityUniqueId(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertyDefinitionEntity> localVarResponse = GetPropertyDefinitionByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews);
+            Lusid.Sdk.Client.ApiResponse<PropertyDefinitionEntity> localVarResponse = GetPropertyDefinitionByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1595,8 +1747,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to returning the latest version of the property definition if not specified. (optional)</param>
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinitionEntity</returns>
-        public Lusid.Sdk.Client.ApiResponse<PropertyDefinitionEntity> GetPropertyDefinitionByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PropertyDefinitionEntity> GetPropertyDefinitionByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityUniqueId' is set
             if (entityUniqueId == null)
@@ -1605,6 +1758,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1686,10 +1849,11 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PropertyDefinitionEntity</returns>
-        public async System.Threading.Tasks.Task<PropertyDefinitionEntity> GetPropertyDefinitionByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PropertyDefinitionEntity> GetPropertyDefinitionByEntityUniqueIdAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PropertyDefinitionEntity> localVarResponse = await GetPropertyDefinitionByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, effectiveAt, asAt, previews, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PropertyDefinitionEntity> localVarResponse = await GetPropertyDefinitionByEntityUniqueIdWithHttpInfoAsync(entityUniqueId, effectiveAt, asAt, previews, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1703,8 +1867,9 @@ namespace Lusid.Sdk.Api
         /// <param name="previews">The ids of the staged modifications to be previewed in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PropertyDefinitionEntity)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertyDefinitionEntity>> GetPropertyDefinitionByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PropertyDefinitionEntity>> GetPropertyDefinitionByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityUniqueId' is set
             if (entityUniqueId == null)
@@ -1714,6 +1879,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

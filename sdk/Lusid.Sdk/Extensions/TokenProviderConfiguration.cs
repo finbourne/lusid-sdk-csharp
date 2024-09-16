@@ -61,7 +61,6 @@ namespace Lusid.Sdk.Extensions
             config.ApiKeyPrefix = apiKeyPrefix;
             config.DefaultHeaders = defaultHeaders;
             config.BasePath = config.BasePath ?? global.BasePath;
-            config.Timeout = config.Timeout;
             config.Proxy = config.Proxy ?? global.Proxy;
             config.UserAgent = config.UserAgent ?? global.UserAgent;
             config.Username = config.Username ?? global.Username;

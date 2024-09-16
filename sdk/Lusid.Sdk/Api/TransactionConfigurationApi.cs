@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="side">The label to uniquely identify the side.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteSideDefinition(string side, string? scope = default(string?), int operationIndex = 0);
+        DeletedEntityResponse DeleteSideDefinition(string side, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// DeleteSideDefinition: Delete the given side definition
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="side">The label to uniquely identify the side.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteSideDefinitionWithHttpInfo(string side, string? scope = default(string?), int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteSideDefinitionWithHttpInfo(string side, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteTransactionType: Delete a transaction type
         /// </summary>
@@ -66,8 +69,9 @@ namespace Lusid.Sdk.Api
         /// <param name="type">One of the type&#39;s aliases</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteTransactionType(string source, string type, string? scope = default(string?), int operationIndex = 0);
+        DeletedEntityResponse DeleteTransactionType(string source, string type, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// DeleteTransactionType: Delete a transaction type
@@ -80,8 +84,9 @@ namespace Lusid.Sdk.Api
         /// <param name="type">One of the type&#39;s aliases</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteTransactionTypeWithHttpInfo(string source, string type, string? scope = default(string?), int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteTransactionTypeWithHttpInfo(string source, string type, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
         /// </summary>
@@ -92,8 +97,9 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source to set the transaction types for.</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteTransactionTypeSource(string source, string? scope = default(string?), int operationIndex = 0);
+        DeletedEntityResponse DeleteTransactionTypeSource(string source, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
@@ -105,8 +111,9 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source to set the transaction types for.</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteTransactionTypeSourceWithHttpInfo(string source, string? scope = default(string?), int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteTransactionTypeSourceWithHttpInfo(string source, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetSideDefinition: Get the side definition for a given side name( or label)
         /// </summary>
@@ -118,8 +125,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>SideDefinition</returns>
-        SideDefinition GetSideDefinition(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        SideDefinition GetSideDefinition(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetSideDefinition: Get the side definition for a given side name( or label)
@@ -132,8 +140,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of SideDefinition</returns>
-        ApiResponse<SideDefinition> GetSideDefinitionWithHttpInfo(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<SideDefinition> GetSideDefinitionWithHttpInfo(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetTransactionType: Get a single transaction configuration type
         /// </summary>
@@ -146,8 +155,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionType</returns>
-        TransactionType GetTransactionType(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
+        TransactionType GetTransactionType(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetTransactionType: Get a single transaction configuration type
@@ -161,8 +171,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionType</returns>
-        ApiResponse<TransactionType> GetTransactionTypeWithHttpInfo(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
+        ApiResponse<TransactionType> GetTransactionTypeWithHttpInfo(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListSideDefinitions: List the side definitions
         /// </summary>
@@ -173,8 +184,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfSideDefinition</returns>
-        ResourceListOfSideDefinition ListSideDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
+        ResourceListOfSideDefinition ListSideDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListSideDefinitions: List the side definitions
@@ -186,8 +198,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfSideDefinition</returns>
-        ApiResponse<ResourceListOfSideDefinition> ListSideDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
+        ApiResponse<ResourceListOfSideDefinition> ListSideDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListTransactionTypes: List transaction types
         /// </summary>
@@ -198,8 +211,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
-        Dictionary<string, List<TransactionType>> ListTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
+        Dictionary<string, List<TransactionType>> ListTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListTransactionTypes: List transaction types
@@ -211,8 +225,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
-        ApiResponse<Dictionary<string, List<TransactionType>>> ListTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
+        ApiResponse<Dictionary<string, List<TransactionType>>> ListTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// SetSideDefinition: Set a side definition
         /// </summary>
@@ -224,8 +239,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sideDefinitionRequest">The side definition to create or replace.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>SideDefinition</returns>
-        SideDefinition SetSideDefinition(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0);
+        SideDefinition SetSideDefinition(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SetSideDefinition: Set a side definition
@@ -238,8 +254,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sideDefinitionRequest">The side definition to create or replace.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of SideDefinition</returns>
-        ApiResponse<SideDefinition> SetSideDefinitionWithHttpInfo(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0);
+        ApiResponse<SideDefinition> SetSideDefinitionWithHttpInfo(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// SetSideDefinitions: Set the given side definitions
         /// </summary>
@@ -250,8 +267,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfSideDefinition</returns>
-        ResourceListOfSideDefinition SetSideDefinitions(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0);
+        ResourceListOfSideDefinition SetSideDefinitions(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SetSideDefinitions: Set the given side definitions
@@ -263,8 +281,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfSideDefinition</returns>
-        ApiResponse<ResourceListOfSideDefinition> SetSideDefinitionsWithHttpInfo(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0);
+        ApiResponse<ResourceListOfSideDefinition> SetSideDefinitionsWithHttpInfo(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// SetTransactionType: Set a specific transaction type
         /// </summary>
@@ -277,8 +296,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTypeRequest">The transaction configuration to set</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionType</returns>
-        TransactionType SetTransactionType(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0);
+        TransactionType SetTransactionType(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SetTransactionType: Set a specific transaction type
@@ -292,8 +312,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTypeRequest">The transaction configuration to set</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionType</returns>
-        ApiResponse<TransactionType> SetTransactionTypeWithHttpInfo(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0);
+        ApiResponse<TransactionType> SetTransactionTypeWithHttpInfo(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// SetTransactionTypeSource: Set the transaction types for the given source and scope
         /// </summary>
@@ -305,8 +326,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTypeRequest">The set of transaction types.</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfTransactionType</returns>
-        ResourceListOfTransactionType SetTransactionTypeSource(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0);
+        ResourceListOfTransactionType SetTransactionTypeSource(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SetTransactionTypeSource: Set the transaction types for the given source and scope
@@ -319,8 +341,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTypeRequest">The set of transaction types.</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfTransactionType</returns>
-        ApiResponse<ResourceListOfTransactionType> SetTransactionTypeSourceWithHttpInfo(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0);
+        ApiResponse<ResourceListOfTransactionType> SetTransactionTypeSourceWithHttpInfo(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -341,8 +364,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSideDefinitionAsync(string side, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSideDefinitionAsync(string side, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// DeleteSideDefinition: Delete the given side definition
@@ -355,8 +379,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteTransactionType: Delete a transaction type
         /// </summary>
@@ -369,8 +394,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionTypeAsync(string source, string type, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionTypeAsync(string source, string type, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// DeleteTransactionType: Delete a transaction type
@@ -384,8 +410,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTransactionTypeWithHttpInfoAsync(string source, string type, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTransactionTypeWithHttpInfoAsync(string source, string type, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
         /// </summary>
@@ -397,8 +424,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionTypeSourceAsync(string source, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionTypeSourceAsync(string source, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
@@ -411,8 +439,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTransactionTypeSourceWithHttpInfoAsync(string source, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTransactionTypeSourceWithHttpInfoAsync(string source, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetSideDefinition: Get the side definition for a given side name( or label)
         /// </summary>
@@ -425,8 +454,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of SideDefinition</returns>
-        System.Threading.Tasks.Task<SideDefinition> GetSideDefinitionAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SideDefinition> GetSideDefinitionAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetSideDefinition: Get the side definition for a given side name( or label)
@@ -440,8 +470,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (SideDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SideDefinition>> GetSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SideDefinition>> GetSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetTransactionType: Get a single transaction configuration type
         /// </summary>
@@ -455,8 +486,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionType</returns>
-        System.Threading.Tasks.Task<TransactionType> GetTransactionTypeAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionType> GetTransactionTypeAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetTransactionType: Get a single transaction configuration type
@@ -471,8 +503,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionType>> GetTransactionTypeWithHttpInfoAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionType>> GetTransactionTypeWithHttpInfoAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListSideDefinitions: List the side definitions
         /// </summary>
@@ -484,8 +517,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfSideDefinition</returns>
-        System.Threading.Tasks.Task<ResourceListOfSideDefinition> ListSideDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfSideDefinition> ListSideDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListSideDefinitions: List the side definitions
@@ -498,8 +532,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfSideDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfSideDefinition>> ListSideDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfSideDefinition>> ListSideDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListTransactionTypes: List transaction types
         /// </summary>
@@ -511,8 +546,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
-        System.Threading.Tasks.Task<Dictionary<string, List<TransactionType>>> ListTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Dictionary<string, List<TransactionType>>> ListTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListTransactionTypes: List transaction types
@@ -525,8 +561,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;TransactionType&gt;&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, List<TransactionType>>>> ListTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, List<TransactionType>>>> ListTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// SetSideDefinition: Set a side definition
         /// </summary>
@@ -539,8 +576,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of SideDefinition</returns>
-        System.Threading.Tasks.Task<SideDefinition> SetSideDefinitionAsync(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SideDefinition> SetSideDefinitionAsync(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SetSideDefinition: Set a side definition
@@ -554,8 +592,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (SideDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SideDefinition>> SetSideDefinitionWithHttpInfoAsync(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SideDefinition>> SetSideDefinitionWithHttpInfoAsync(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// SetSideDefinitions: Set the given side definitions
         /// </summary>
@@ -567,8 +606,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfSideDefinition</returns>
-        System.Threading.Tasks.Task<ResourceListOfSideDefinition> SetSideDefinitionsAsync(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfSideDefinition> SetSideDefinitionsAsync(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SetSideDefinitions: Set the given side definitions
@@ -581,8 +621,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfSideDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfSideDefinition>> SetSideDefinitionsWithHttpInfoAsync(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfSideDefinition>> SetSideDefinitionsWithHttpInfoAsync(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// SetTransactionType: Set a specific transaction type
         /// </summary>
@@ -596,8 +637,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionType</returns>
-        System.Threading.Tasks.Task<TransactionType> SetTransactionTypeAsync(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionType> SetTransactionTypeAsync(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SetTransactionType: Set a specific transaction type
@@ -612,8 +654,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionType>> SetTransactionTypeWithHttpInfoAsync(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionType>> SetTransactionTypeWithHttpInfoAsync(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// SetTransactionTypeSource: Set the transaction types for the given source and scope
         /// </summary>
@@ -626,8 +669,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfTransactionType</returns>
-        System.Threading.Tasks.Task<ResourceListOfTransactionType> SetTransactionTypeSourceAsync(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfTransactionType> SetTransactionTypeSourceAsync(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SetTransactionTypeSource: Set the transaction types for the given source and scope
@@ -641,8 +685,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfTransactionType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionType>> SetTransactionTypeSourceWithHttpInfoAsync(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionType>> SetTransactionTypeSourceWithHttpInfoAsync(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -675,9 +720,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public TransactionConfigurationApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -767,10 +818,11 @@ namespace Lusid.Sdk.Api
         /// <param name="side">The label to uniquely identify the side.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteSideDefinition(string side, string? scope = default(string?), int operationIndex = 0)
+        public DeletedEntityResponse DeleteSideDefinition(string side, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteSideDefinitionWithHttpInfo(side, scope);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteSideDefinitionWithHttpInfo(side, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -781,8 +833,9 @@ namespace Lusid.Sdk.Api
         /// <param name="side">The label to uniquely identify the side.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteSideDefinitionWithHttpInfo(string side, string? scope = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteSideDefinitionWithHttpInfo(string side, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'side' is set
             if (side == null)
@@ -791,6 +844,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -862,10 +925,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSideDefinitionAsync(string side, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSideDefinitionAsync(string side, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteSideDefinitionWithHttpInfoAsync(side, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteSideDefinitionWithHttpInfoAsync(side, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -877,8 +941,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'side' is set
             if (side == null)
@@ -888,6 +953,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -960,10 +1035,11 @@ namespace Lusid.Sdk.Api
         /// <param name="type">One of the type&#39;s aliases</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteTransactionType(string source, string type, string? scope = default(string?), int operationIndex = 0)
+        public DeletedEntityResponse DeleteTransactionType(string source, string type, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteTransactionTypeWithHttpInfo(source, type, scope);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteTransactionTypeWithHttpInfo(source, type, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -975,8 +1051,9 @@ namespace Lusid.Sdk.Api
         /// <param name="type">One of the type&#39;s aliases</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransactionTypeWithHttpInfo(string source, string type, string? scope = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransactionTypeWithHttpInfo(string source, string type, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -991,6 +1068,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1064,10 +1151,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionTypeAsync(string source, string type, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionTypeAsync(string source, string type, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteTransactionTypeWithHttpInfoAsync(source, type, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteTransactionTypeWithHttpInfoAsync(source, type, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1080,8 +1168,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransactionTypeWithHttpInfoAsync(string source, string type, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransactionTypeWithHttpInfoAsync(string source, string type, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -1097,6 +1186,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1169,10 +1268,11 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source to set the transaction types for.</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteTransactionTypeSource(string source, string? scope = default(string?), int operationIndex = 0)
+        public DeletedEntityResponse DeleteTransactionTypeSource(string source, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteTransactionTypeSourceWithHttpInfo(source, scope);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteTransactionTypeSourceWithHttpInfo(source, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1183,8 +1283,9 @@ namespace Lusid.Sdk.Api
         /// <param name="source">The source to set the transaction types for.</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransactionTypeSourceWithHttpInfo(string source, string? scope = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransactionTypeSourceWithHttpInfo(string source, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -1193,6 +1294,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1264,10 +1375,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionTypeSourceAsync(string source, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionTypeSourceAsync(string source, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteTransactionTypeSourceWithHttpInfoAsync(source, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteTransactionTypeSourceWithHttpInfoAsync(source, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1279,8 +1391,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransactionTypeSourceWithHttpInfoAsync(string source, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransactionTypeSourceWithHttpInfoAsync(string source, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -1290,6 +1403,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1362,10 +1485,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>SideDefinition</returns>
-        public SideDefinition GetSideDefinition(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public SideDefinition GetSideDefinition(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<SideDefinition> localVarResponse = GetSideDefinitionWithHttpInfo(side, scope, asAt);
+            Lusid.Sdk.Client.ApiResponse<SideDefinition> localVarResponse = GetSideDefinitionWithHttpInfo(side, scope, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1377,8 +1501,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of SideDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<SideDefinition> GetSideDefinitionWithHttpInfo(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<SideDefinition> GetSideDefinitionWithHttpInfo(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'side' is set
             if (side == null)
@@ -1387,6 +1512,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1463,10 +1598,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of SideDefinition</returns>
-        public async System.Threading.Tasks.Task<SideDefinition> GetSideDefinitionAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SideDefinition> GetSideDefinitionAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<SideDefinition> localVarResponse = await GetSideDefinitionWithHttpInfoAsync(side, scope, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<SideDefinition> localVarResponse = await GetSideDefinitionWithHttpInfoAsync(side, scope, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1479,8 +1615,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (SideDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<SideDefinition>> GetSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<SideDefinition>> GetSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'side' is set
             if (side == null)
@@ -1490,6 +1627,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1567,10 +1714,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionType</returns>
-        public TransactionType GetTransactionType(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0)
+        public TransactionType GetTransactionType(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionType> localVarResponse = GetTransactionTypeWithHttpInfo(source, type, asAt, scope);
+            Lusid.Sdk.Client.ApiResponse<TransactionType> localVarResponse = GetTransactionTypeWithHttpInfo(source, type, asAt, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1583,8 +1731,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionType</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionType> GetTransactionTypeWithHttpInfo(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionType> GetTransactionTypeWithHttpInfo(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -1599,6 +1748,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1677,10 +1836,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionType</returns>
-        public async System.Threading.Tasks.Task<TransactionType> GetTransactionTypeAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionType> GetTransactionTypeAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionType> localVarResponse = await GetTransactionTypeWithHttpInfoAsync(source, type, asAt, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionType> localVarResponse = await GetTransactionTypeWithHttpInfoAsync(source, type, asAt, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1694,8 +1854,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionType)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionType>> GetTransactionTypeWithHttpInfoAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionType>> GetTransactionTypeWithHttpInfoAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -1711,6 +1872,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1787,10 +1958,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfSideDefinition</returns>
-        public ResourceListOfSideDefinition ListSideDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0)
+        public ResourceListOfSideDefinition ListSideDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> localVarResponse = ListSideDefinitionsWithHttpInfo(asAt, scope);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> localVarResponse = ListSideDefinitionsWithHttpInfo(asAt, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1801,10 +1973,21 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfSideDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> ListSideDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> ListSideDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1879,10 +2062,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfSideDefinition</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfSideDefinition> ListSideDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfSideDefinition> ListSideDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> localVarResponse = await ListSideDefinitionsWithHttpInfoAsync(asAt, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> localVarResponse = await ListSideDefinitionsWithHttpInfoAsync(asAt, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1894,11 +2078,22 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfSideDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition>> ListSideDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition>> ListSideDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1973,10 +2168,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
-        public Dictionary<string, List<TransactionType>> ListTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0)
+        public Dictionary<string, List<TransactionType>> ListTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> localVarResponse = ListTransactionTypesWithHttpInfo(asAt, scope);
+            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> localVarResponse = ListTransactionTypesWithHttpInfo(asAt, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1987,10 +2183,21 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
-        public Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> ListTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> ListTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2065,10 +2272,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
-        public async System.Threading.Tasks.Task<Dictionary<string, List<TransactionType>>> ListTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dictionary<string, List<TransactionType>>> ListTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> localVarResponse = await ListTransactionTypesWithHttpInfoAsync(asAt, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>> localVarResponse = await ListTransactionTypesWithHttpInfoAsync(asAt, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2080,11 +2288,22 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;TransactionType&gt;&gt;)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>>> ListTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<TransactionType>>>> ListTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2160,10 +2379,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sideDefinitionRequest">The side definition to create or replace.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>SideDefinition</returns>
-        public SideDefinition SetSideDefinition(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0)
+        public SideDefinition SetSideDefinition(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<SideDefinition> localVarResponse = SetSideDefinitionWithHttpInfo(side, sideDefinitionRequest, scope);
+            Lusid.Sdk.Client.ApiResponse<SideDefinition> localVarResponse = SetSideDefinitionWithHttpInfo(side, sideDefinitionRequest, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2175,8 +2395,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sideDefinitionRequest">The side definition to create or replace.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of SideDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<SideDefinition> SetSideDefinitionWithHttpInfo(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<SideDefinition> SetSideDefinitionWithHttpInfo(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'side' is set
             if (side == null)
@@ -2191,6 +2412,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2268,10 +2499,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of SideDefinition</returns>
-        public async System.Threading.Tasks.Task<SideDefinition> SetSideDefinitionAsync(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SideDefinition> SetSideDefinitionAsync(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<SideDefinition> localVarResponse = await SetSideDefinitionWithHttpInfoAsync(side, sideDefinitionRequest, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<SideDefinition> localVarResponse = await SetSideDefinitionWithHttpInfoAsync(side, sideDefinitionRequest, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2284,8 +2516,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (SideDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<SideDefinition>> SetSideDefinitionWithHttpInfoAsync(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<SideDefinition>> SetSideDefinitionWithHttpInfoAsync(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'side' is set
             if (side == null)
@@ -2301,6 +2534,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2377,10 +2620,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfSideDefinition</returns>
-        public ResourceListOfSideDefinition SetSideDefinitions(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0)
+        public ResourceListOfSideDefinition SetSideDefinitions(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> localVarResponse = SetSideDefinitionsWithHttpInfo(sidesDefinitionRequest, scope);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> localVarResponse = SetSideDefinitionsWithHttpInfo(sidesDefinitionRequest, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2391,8 +2635,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfSideDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> SetSideDefinitionsWithHttpInfo(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> SetSideDefinitionsWithHttpInfo(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'sidesDefinitionRequest' is set
             if (sidesDefinitionRequest == null)
@@ -2401,6 +2646,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2476,10 +2731,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfSideDefinition</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfSideDefinition> SetSideDefinitionsAsync(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfSideDefinition> SetSideDefinitionsAsync(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> localVarResponse = await SetSideDefinitionsWithHttpInfoAsync(sidesDefinitionRequest, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition> localVarResponse = await SetSideDefinitionsWithHttpInfoAsync(sidesDefinitionRequest, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2491,8 +2747,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfSideDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition>> SetSideDefinitionsWithHttpInfoAsync(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfSideDefinition>> SetSideDefinitionsWithHttpInfoAsync(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'sidesDefinitionRequest' is set
             if (sidesDefinitionRequest == null)
@@ -2502,6 +2759,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2579,10 +2846,11 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTypeRequest">The transaction configuration to set</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionType</returns>
-        public TransactionType SetTransactionType(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0)
+        public TransactionType SetTransactionType(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionType> localVarResponse = SetTransactionTypeWithHttpInfo(source, type, transactionTypeRequest, scope);
+            Lusid.Sdk.Client.ApiResponse<TransactionType> localVarResponse = SetTransactionTypeWithHttpInfo(source, type, transactionTypeRequest, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2595,8 +2863,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTypeRequest">The transaction configuration to set</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionType</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionType> SetTransactionTypeWithHttpInfo(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionType> SetTransactionTypeWithHttpInfo(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -2617,6 +2886,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2696,10 +2975,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionType</returns>
-        public async System.Threading.Tasks.Task<TransactionType> SetTransactionTypeAsync(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionType> SetTransactionTypeAsync(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionType> localVarResponse = await SetTransactionTypeWithHttpInfoAsync(source, type, transactionTypeRequest, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionType> localVarResponse = await SetTransactionTypeWithHttpInfoAsync(source, type, transactionTypeRequest, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2713,8 +2993,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionType)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionType>> SetTransactionTypeWithHttpInfoAsync(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionType>> SetTransactionTypeWithHttpInfoAsync(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -2736,6 +3017,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2814,10 +3105,11 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTypeRequest">The set of transaction types.</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfTransactionType</returns>
-        public ResourceListOfTransactionType SetTransactionTypeSource(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0)
+        public ResourceListOfTransactionType SetTransactionTypeSource(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionType> localVarResponse = SetTransactionTypeSourceWithHttpInfo(source, transactionTypeRequest, scope);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionType> localVarResponse = SetTransactionTypeSourceWithHttpInfo(source, transactionTypeRequest, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2829,8 +3121,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTypeRequest">The set of transaction types.</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfTransactionType</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionType> SetTransactionTypeSourceWithHttpInfo(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionType> SetTransactionTypeSourceWithHttpInfo(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -2845,6 +3138,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2922,10 +3225,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfTransactionType</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfTransactionType> SetTransactionTypeSourceAsync(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfTransactionType> SetTransactionTypeSourceAsync(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionType> localVarResponse = await SetTransactionTypeSourceWithHttpInfoAsync(source, transactionTypeRequest, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionType> localVarResponse = await SetTransactionTypeSourceWithHttpInfoAsync(source, transactionTypeRequest, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2938,8 +3242,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfTransactionType)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionType>> SetTransactionTypeSourceWithHttpInfoAsync(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionType>> SetTransactionTypeSourceWithHttpInfoAsync(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'source' is set
             if (source == null)
@@ -2955,6 +3260,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

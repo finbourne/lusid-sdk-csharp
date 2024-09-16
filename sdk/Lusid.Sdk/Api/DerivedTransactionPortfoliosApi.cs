@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create the derived transaction portfolio.</param>
         /// <param name="createDerivedTransactionPortfolioRequest">The definition of the derived transaction portfolio. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Portfolio</returns>
-        Portfolio CreateDerivedPortfolio(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0);
+        Portfolio CreateDerivedPortfolio(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CreateDerivedPortfolio: Create derived portfolio
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create the derived transaction portfolio.</param>
         /// <param name="createDerivedTransactionPortfolioRequest">The definition of the derived transaction portfolio. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Portfolio</returns>
-        ApiResponse<Portfolio> CreateDerivedPortfolioWithHttpInfo(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0);
+        ApiResponse<Portfolio> CreateDerivedPortfolioWithHttpInfo(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
         /// </summary>
@@ -66,8 +69,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.</param>
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteDerivedPortfolioDetails(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
+        DeletedEntityResponse DeleteDerivedPortfolioDetails(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
@@ -80,8 +84,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.</param>
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteDerivedPortfolioDetailsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteDerivedPortfolioDetailsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -102,8 +107,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createDerivedTransactionPortfolioRequest">The definition of the derived transaction portfolio. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Portfolio</returns>
-        System.Threading.Tasks.Task<Portfolio> CreateDerivedPortfolioAsync(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Portfolio> CreateDerivedPortfolioAsync(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CreateDerivedPortfolio: Create derived portfolio
@@ -116,8 +122,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createDerivedTransactionPortfolioRequest">The definition of the derived transaction portfolio. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Portfolio)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Portfolio>> CreateDerivedPortfolioWithHttpInfoAsync(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Portfolio>> CreateDerivedPortfolioWithHttpInfoAsync(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
         /// </summary>
@@ -130,8 +137,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDerivedPortfolioDetailsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDerivedPortfolioDetailsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
@@ -145,8 +153,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteDerivedPortfolioDetailsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteDerivedPortfolioDetailsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -179,9 +188,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public DerivedTransactionPortfoliosApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -271,10 +286,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create the derived transaction portfolio.</param>
         /// <param name="createDerivedTransactionPortfolioRequest">The definition of the derived transaction portfolio. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Portfolio</returns>
-        public Portfolio CreateDerivedPortfolio(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0)
+        public Portfolio CreateDerivedPortfolio(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Portfolio> localVarResponse = CreateDerivedPortfolioWithHttpInfo(scope, createDerivedTransactionPortfolioRequest);
+            Lusid.Sdk.Client.ApiResponse<Portfolio> localVarResponse = CreateDerivedPortfolioWithHttpInfo(scope, createDerivedTransactionPortfolioRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -285,8 +301,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which to create the derived transaction portfolio.</param>
         /// <param name="createDerivedTransactionPortfolioRequest">The definition of the derived transaction portfolio. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Portfolio</returns>
-        public Lusid.Sdk.Client.ApiResponse<Portfolio> CreateDerivedPortfolioWithHttpInfo(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<Portfolio> CreateDerivedPortfolioWithHttpInfo(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -295,6 +312,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -367,10 +394,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createDerivedTransactionPortfolioRequest">The definition of the derived transaction portfolio. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Portfolio</returns>
-        public async System.Threading.Tasks.Task<Portfolio> CreateDerivedPortfolioAsync(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Portfolio> CreateDerivedPortfolioAsync(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Portfolio> localVarResponse = await CreateDerivedPortfolioWithHttpInfoAsync(scope, createDerivedTransactionPortfolioRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Portfolio> localVarResponse = await CreateDerivedPortfolioWithHttpInfoAsync(scope, createDerivedTransactionPortfolioRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -382,8 +410,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createDerivedTransactionPortfolioRequest">The definition of the derived transaction portfolio. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Portfolio)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Portfolio>> CreateDerivedPortfolioWithHttpInfoAsync(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Portfolio>> CreateDerivedPortfolioWithHttpInfoAsync(string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = default(CreateDerivedTransactionPortfolioRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -393,6 +422,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -466,10 +505,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.</param>
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteDerivedPortfolioDetails(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0)
+        public DeletedEntityResponse DeleteDerivedPortfolioDetails(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteDerivedPortfolioDetailsWithHttpInfo(scope, code, effectiveAt);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteDerivedPortfolioDetailsWithHttpInfo(scope, code, effectiveAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -481,8 +521,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.</param>
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteDerivedPortfolioDetailsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteDerivedPortfolioDetailsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -497,6 +538,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -570,10 +621,11 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDerivedPortfolioDetailsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDerivedPortfolioDetailsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteDerivedPortfolioDetailsWithHttpInfoAsync(scope, code, effectiveAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteDerivedPortfolioDetailsWithHttpInfoAsync(scope, code, effectiveAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -586,8 +638,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteDerivedPortfolioDetailsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteDerivedPortfolioDetailsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -603,6 +656,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -42,8 +43,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionTemplate</returns>
-        TransactionTemplate CreateTransactionTemplate(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0);
+        TransactionTemplate CreateTransactionTemplate(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
@@ -57,8 +59,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionTemplate</returns>
-        ApiResponse<TransactionTemplate> CreateTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0);
+        ApiResponse<TransactionTemplate> CreateTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
         /// </summary>
@@ -70,8 +73,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DateTimeOffset</returns>
-        DateTimeOffset DeleteTransactionTemplate(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0);
+        DateTimeOffset DeleteTransactionTemplate(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
@@ -84,8 +88,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DateTimeOffset</returns>
-        ApiResponse<DateTimeOffset> DeleteTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0);
+        ApiResponse<DateTimeOffset> DeleteTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
         /// </summary>
@@ -98,8 +103,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the template lies. When not supplied the scope is &#39;default&#39;.</param>
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionTemplate</returns>
-        TransactionTemplate GetTransactionTemplate(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        TransactionTemplate GetTransactionTemplate(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
@@ -113,8 +119,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the template lies. When not supplied the scope is &#39;default&#39;.</param>
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionTemplate</returns>
-        ApiResponse<TransactionTemplate> GetTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<TransactionTemplate> GetTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
         /// </summary>
@@ -124,8 +131,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionTemplateSpecification</returns>
-        TransactionTemplateSpecification GetTransactionTemplateSpecification(string instrumentEventType, int operationIndex = 0);
+        TransactionTemplateSpecification GetTransactionTemplateSpecification(string instrumentEventType, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
@@ -136,8 +144,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionTemplateSpecification</returns>
-        ApiResponse<TransactionTemplateSpecification> GetTransactionTemplateSpecificationWithHttpInfo(string instrumentEventType, int operationIndex = 0);
+        ApiResponse<TransactionTemplateSpecification> GetTransactionTemplateSpecificationWithHttpInfo(string instrumentEventType, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
         /// </summary>
@@ -151,8 +160,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTransactionTemplateSpecification</returns>
-        PagedResourceListOfTransactionTemplateSpecification ListTransactionTemplateSpecifications(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfTransactionTemplateSpecification ListTransactionTemplateSpecifications(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
@@ -167,8 +177,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTransactionTemplateSpecification</returns>
-        ApiResponse<PagedResourceListOfTransactionTemplateSpecification> ListTransactionTemplateSpecificationsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfTransactionTemplateSpecification> ListTransactionTemplateSpecificationsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates
         /// </summary>
@@ -182,8 +193,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTransactionTemplate</returns>
-        PagedResourceListOfTransactionTemplate ListTransactionTemplates(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfTransactionTemplate ListTransactionTemplates(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates
@@ -198,8 +210,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTransactionTemplate</returns>
-        ApiResponse<PagedResourceListOfTransactionTemplate> ListTransactionTemplatesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfTransactionTemplate> ListTransactionTemplatesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template
         /// </summary>
@@ -212,8 +225,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionTemplate</returns>
-        TransactionTemplate UpdateTransactionTemplate(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0);
+        TransactionTemplate UpdateTransactionTemplate(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template
@@ -227,8 +241,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionTemplate</returns>
-        ApiResponse<TransactionTemplate> UpdateTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0);
+        ApiResponse<TransactionTemplate> UpdateTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -251,8 +266,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionTemplate</returns>
-        System.Threading.Tasks.Task<TransactionTemplate> CreateTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionTemplate> CreateTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
@@ -267,8 +283,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionTemplate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionTemplate>> CreateTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionTemplate>> CreateTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
         /// </summary>
@@ -281,8 +298,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DateTimeOffset</returns>
-        System.Threading.Tasks.Task<DateTimeOffset> DeleteTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DateTimeOffset> DeleteTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
@@ -296,8 +314,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DateTimeOffset)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DateTimeOffset>> DeleteTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DateTimeOffset>> DeleteTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
         /// </summary>
@@ -311,8 +330,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionTemplate</returns>
-        System.Threading.Tasks.Task<TransactionTemplate> GetTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionTemplate> GetTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
@@ -327,8 +347,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionTemplate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionTemplate>> GetTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionTemplate>> GetTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
         /// </summary>
@@ -339,8 +360,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionTemplateSpecification</returns>
-        System.Threading.Tasks.Task<TransactionTemplateSpecification> GetTransactionTemplateSpecificationAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionTemplateSpecification> GetTransactionTemplateSpecificationAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
@@ -352,8 +374,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionTemplateSpecification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionTemplateSpecification>> GetTransactionTemplateSpecificationWithHttpInfoAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionTemplateSpecification>> GetTransactionTemplateSpecificationWithHttpInfoAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
         /// </summary>
@@ -368,8 +391,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfTransactionTemplateSpecification</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfTransactionTemplateSpecification> ListTransactionTemplateSpecificationsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfTransactionTemplateSpecification> ListTransactionTemplateSpecificationsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
@@ -385,8 +409,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTransactionTemplateSpecification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfTransactionTemplateSpecification>> ListTransactionTemplateSpecificationsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfTransactionTemplateSpecification>> ListTransactionTemplateSpecificationsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates
         /// </summary>
@@ -401,8 +426,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfTransactionTemplate</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfTransactionTemplate> ListTransactionTemplatesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfTransactionTemplate> ListTransactionTemplatesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates
@@ -418,8 +444,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTransactionTemplate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfTransactionTemplate>> ListTransactionTemplatesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfTransactionTemplate>> ListTransactionTemplatesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template
         /// </summary>
@@ -433,8 +460,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionTemplate</returns>
-        System.Threading.Tasks.Task<TransactionTemplate> UpdateTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionTemplate> UpdateTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template
@@ -449,8 +477,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionTemplate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionTemplate>> UpdateTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionTemplate>> UpdateTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -483,9 +512,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public InstrumentEventTypesApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -577,10 +612,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionTemplate</returns>
-        public TransactionTemplate CreateTransactionTemplate(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0)
+        public TransactionTemplate CreateTransactionTemplate(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionTemplate> localVarResponse = CreateTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope, transactionTemplateRequest);
+            Lusid.Sdk.Client.ApiResponse<TransactionTemplate> localVarResponse = CreateTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope, transactionTemplateRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -593,8 +629,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionTemplate</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionTemplate> CreateTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionTemplate> CreateTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instrumentEventType' is set
             if (instrumentEventType == null)
@@ -621,6 +658,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -697,10 +744,11 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionTemplate</returns>
-        public async System.Threading.Tasks.Task<TransactionTemplate> CreateTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionTemplate> CreateTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionTemplate> localVarResponse = await CreateTransactionTemplateWithHttpInfoAsync(instrumentEventType, instrumentType, scope, transactionTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionTemplate> localVarResponse = await CreateTransactionTemplateWithHttpInfoAsync(instrumentEventType, instrumentType, scope, transactionTemplateRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -714,8 +762,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionTemplate)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplate>> CreateTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplate>> CreateTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instrumentEventType' is set
             if (instrumentEventType == null)
@@ -743,6 +792,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -818,10 +877,11 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DateTimeOffset</returns>
-        public DateTimeOffset DeleteTransactionTemplate(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0)
+        public DateTimeOffset DeleteTransactionTemplate(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DateTimeOffset> localVarResponse = DeleteTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope);
+            Lusid.Sdk.Client.ApiResponse<DateTimeOffset> localVarResponse = DeleteTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -833,8 +893,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DateTimeOffset</returns>
-        public Lusid.Sdk.Client.ApiResponse<DateTimeOffset> DeleteTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DateTimeOffset> DeleteTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instrumentEventType' is set
             if (instrumentEventType == null)
@@ -855,6 +916,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -925,10 +996,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DateTimeOffset</returns>
-        public async System.Threading.Tasks.Task<DateTimeOffset> DeleteTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DateTimeOffset> DeleteTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DateTimeOffset> localVarResponse = await DeleteTransactionTemplateWithHttpInfoAsync(instrumentEventType, instrumentType, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DateTimeOffset> localVarResponse = await DeleteTransactionTemplateWithHttpInfoAsync(instrumentEventType, instrumentType, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -941,8 +1013,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DateTimeOffset)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DateTimeOffset>> DeleteTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DateTimeOffset>> DeleteTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instrumentEventType' is set
             if (instrumentEventType == null)
@@ -964,6 +1037,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1035,10 +1118,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the template lies. When not supplied the scope is &#39;default&#39;.</param>
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionTemplate</returns>
-        public TransactionTemplate GetTransactionTemplate(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public TransactionTemplate GetTransactionTemplate(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionTemplate> localVarResponse = GetTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope, asAt);
+            Lusid.Sdk.Client.ApiResponse<TransactionTemplate> localVarResponse = GetTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1051,8 +1135,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the template lies. When not supplied the scope is &#39;default&#39;.</param>
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionTemplate</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionTemplate> GetTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionTemplate> GetTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instrumentEventType' is set
             if (instrumentEventType == null)
@@ -1073,6 +1158,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1148,10 +1243,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionTemplate</returns>
-        public async System.Threading.Tasks.Task<TransactionTemplate> GetTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionTemplate> GetTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionTemplate> localVarResponse = await GetTransactionTemplateWithHttpInfoAsync(instrumentEventType, instrumentType, scope, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionTemplate> localVarResponse = await GetTransactionTemplateWithHttpInfoAsync(instrumentEventType, instrumentType, scope, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1165,8 +1261,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionTemplate)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplate>> GetTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplate>> GetTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instrumentEventType' is set
             if (instrumentEventType == null)
@@ -1188,6 +1285,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1260,10 +1367,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionTemplateSpecification</returns>
-        public TransactionTemplateSpecification GetTransactionTemplateSpecification(string instrumentEventType, int operationIndex = 0)
+        public TransactionTemplateSpecification GetTransactionTemplateSpecification(string instrumentEventType, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> localVarResponse = GetTransactionTemplateSpecificationWithHttpInfo(instrumentEventType);
+            Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> localVarResponse = GetTransactionTemplateSpecificationWithHttpInfo(instrumentEventType, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1273,8 +1381,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionTemplateSpecification</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> GetTransactionTemplateSpecificationWithHttpInfo(string instrumentEventType, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> GetTransactionTemplateSpecificationWithHttpInfo(string instrumentEventType, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instrumentEventType' is set
             if (instrumentEventType == null)
@@ -1283,6 +1392,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1349,10 +1468,11 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionTemplateSpecification</returns>
-        public async System.Threading.Tasks.Task<TransactionTemplateSpecification> GetTransactionTemplateSpecificationAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionTemplateSpecification> GetTransactionTemplateSpecificationAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> localVarResponse = await GetTransactionTemplateSpecificationWithHttpInfoAsync(instrumentEventType, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> localVarResponse = await GetTransactionTemplateSpecificationWithHttpInfoAsync(instrumentEventType, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1363,8 +1483,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionTemplateSpecification)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification>> GetTransactionTemplateSpecificationWithHttpInfoAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification>> GetTransactionTemplateSpecificationWithHttpInfoAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instrumentEventType' is set
             if (instrumentEventType == null)
@@ -1374,6 +1495,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1444,10 +1575,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTransactionTemplateSpecification</returns>
-        public PagedResourceListOfTransactionTemplateSpecification ListTransactionTemplateSpecifications(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfTransactionTemplateSpecification ListTransactionTemplateSpecifications(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplateSpecification> localVarResponse = ListTransactionTemplateSpecificationsWithHttpInfo(asAt, page, limit, filter, sortBy);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplateSpecification> localVarResponse = ListTransactionTemplateSpecificationsWithHttpInfo(asAt, page, limit, filter, sortBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1461,10 +1593,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTransactionTemplateSpecification</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplateSpecification> ListTransactionTemplateSpecificationsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplateSpecification> ListTransactionTemplateSpecificationsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1554,10 +1697,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfTransactionTemplateSpecification</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfTransactionTemplateSpecification> ListTransactionTemplateSpecificationsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfTransactionTemplateSpecification> ListTransactionTemplateSpecificationsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplateSpecification> localVarResponse = await ListTransactionTemplateSpecificationsWithHttpInfoAsync(asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplateSpecification> localVarResponse = await ListTransactionTemplateSpecificationsWithHttpInfoAsync(asAt, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1572,11 +1716,22 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTransactionTemplateSpecification)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplateSpecification>> ListTransactionTemplateSpecificationsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplateSpecification>> ListTransactionTemplateSpecificationsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1666,10 +1821,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTransactionTemplate</returns>
-        public PagedResourceListOfTransactionTemplate ListTransactionTemplates(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfTransactionTemplate ListTransactionTemplates(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplate> localVarResponse = ListTransactionTemplatesWithHttpInfo(asAt, page, limit, filter, sortBy);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplate> localVarResponse = ListTransactionTemplatesWithHttpInfo(asAt, page, limit, filter, sortBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1683,10 +1839,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTransactionTemplate</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplate> ListTransactionTemplatesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplate> ListTransactionTemplatesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1776,10 +1943,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfTransactionTemplate</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfTransactionTemplate> ListTransactionTemplatesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfTransactionTemplate> ListTransactionTemplatesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplate> localVarResponse = await ListTransactionTemplatesWithHttpInfoAsync(asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplate> localVarResponse = await ListTransactionTemplatesWithHttpInfoAsync(asAt, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1794,11 +1962,22 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTransactionTemplate)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplate>> ListTransactionTemplatesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplate>> ListTransactionTemplatesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1887,10 +2066,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionTemplate</returns>
-        public TransactionTemplate UpdateTransactionTemplate(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0)
+        public TransactionTemplate UpdateTransactionTemplate(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionTemplate> localVarResponse = UpdateTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope, transactionTemplateRequest);
+            Lusid.Sdk.Client.ApiResponse<TransactionTemplate> localVarResponse = UpdateTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope, transactionTemplateRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1903,8 +2083,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionTemplate</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionTemplate> UpdateTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionTemplate> UpdateTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instrumentEventType' is set
             if (instrumentEventType == null)
@@ -1931,6 +2112,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2007,10 +2198,11 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionTemplate</returns>
-        public async System.Threading.Tasks.Task<TransactionTemplate> UpdateTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionTemplate> UpdateTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionTemplate> localVarResponse = await UpdateTransactionTemplateWithHttpInfoAsync(instrumentEventType, instrumentType, scope, transactionTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionTemplate> localVarResponse = await UpdateTransactionTemplateWithHttpInfoAsync(instrumentEventType, instrumentType, scope, transactionTemplateRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2024,8 +2216,9 @@ namespace Lusid.Sdk.Api
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionTemplate)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplate>> UpdateTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplate>> UpdateTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instrumentEventType' is set
             if (instrumentEventType == null)
@@ -2053,6 +2246,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

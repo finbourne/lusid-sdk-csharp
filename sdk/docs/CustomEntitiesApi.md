@@ -54,6 +54,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntitiesApi>();
             var entityType = "entityType_example";  // string | The type of Custom Entity to remove.
             var identifierType = "identifierType_example";  // string | An identifier type attached to the Custom Entity instance.
@@ -62,6 +70,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteCustomEntity(entityType, identifierType, identifierValue, identifierScope, opts: opts);
+
                 // [EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance.
                 DeletedEntityResponse result = apiInstance.DeleteCustomEntity(entityType, identifierType, identifierValue, identifierScope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -163,6 +174,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntitiesApi>();
             var entityType = "entityType_example";  // string | The type of the Custom Entity.
             var identifierType = "identifierType_example";  // string | An identifier type attached to the Custom Entity instance.
@@ -174,6 +193,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteCustomEntityAccessMetadata(entityType, identifierType, identifierValue, metadataKey, identifierScope, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] DeleteCustomEntityAccessMetadata: Delete a Custom Entity Access Metadata entry
                 DeletedEntityResponse result = apiInstance.DeleteCustomEntityAccessMetadata(entityType, identifierType, identifierValue, metadataKey, identifierScope, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -278,6 +300,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntitiesApi>();
             var entityType = "entityType_example";  // string | The type of the Custom Entity.
             var identifierType = "identifierType_example";  // string | An identifier type attached to the Custom Entity instance.
@@ -288,6 +318,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, List<AccessMetadataValue>> result = apiInstance.GetAllCustomEntityAccessMetadata(entityType, identifierType, identifierValue, identifierScope, effectiveAt, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetAllCustomEntityAccessMetadata: Get all the Access Metadata rules for a Custom Entity
                 Dictionary<string, List<AccessMetadataValue>> result = apiInstance.GetAllCustomEntityAccessMetadata(entityType, identifierType, identifierValue, identifierScope, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -391,6 +424,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntitiesApi>();
             var entityType = "entityType_example";  // string | The type of Custom Entity to retrieve. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.
             var identifierType = "identifierType_example";  // string | An identifier type attached to the Custom Entity instance.
@@ -403,6 +444,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CustomEntityResponse result = apiInstance.GetCustomEntity(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, relatedEntityPropertyKeys, relationshipDefinitionIds, opts: opts);
+
                 // GetCustomEntity: Get a Custom Entity instance.
                 CustomEntityResponse result = apiInstance.GetCustomEntity(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, relatedEntityPropertyKeys, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -508,6 +552,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntitiesApi>();
             var entityType = "entityType_example";  // string | The type of the Custom Entity.
             var identifierType = "identifierType_example";  // string | An identifier type attached to the Custom Entity instance.
@@ -519,6 +571,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<AccessMetadataValue> result = apiInstance.GetCustomEntityAccessMetadataByKey(entityType, identifierType, identifierValue, metadataKey, identifierScope, effectiveAt, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetCustomEntityAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Custom Entity
                 List<AccessMetadataValue> result = apiInstance.GetCustomEntityAccessMetadataByKey(entityType, identifierType, identifierValue, metadataKey, identifierScope, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -623,6 +678,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntitiesApi>();
             var entityType = "entityType_example";  // string | The type of entity get relationships for.
             var identifierScope = "identifierScope_example";  // string | The identifier scope.
@@ -635,6 +698,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfRelationship result = apiInstance.GetCustomEntityRelationships(entityType, identifierScope, identifierType, identifierValue, effectiveAt, asAt, filter, identifierTypes, opts: opts);
+
                 // [EARLY ACCESS] GetCustomEntityRelationships: Get Relationships for Custom Entity
                 ResourceListOfRelationship result = apiInstance.GetCustomEntityRelationships(entityType, identifierScope, identifierType, identifierValue, effectiveAt, asAt, filter, identifierTypes);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -740,6 +806,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntitiesApi>();
             var entityType = "entityType_example";  // string | The type of Custom Entity to list.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the entities. Defaults to the current LUSID              system datetime if not specified. (optional) 
@@ -753,6 +827,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfCustomEntityResponse result = apiInstance.ListCustomEntities(entityType, effectiveAt, asAt, limit, filter, sortBy, page, relatedEntityPropertyKeys, relationshipDefinitionIds, opts: opts);
+
                 // ListCustomEntities: List Custom Entities of the specified entityType.
                 PagedResourceListOfCustomEntityResponse result = apiInstance.ListCustomEntities(entityType, effectiveAt, asAt, limit, filter, sortBy, page, relatedEntityPropertyKeys, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -859,6 +936,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntitiesApi>();
             var entityType = "entityType_example";  // string | The type of the Custom Entity.
             var identifierType = "identifierType_example";  // string | An identifier type attached to the Custom Entity instance.
@@ -870,6 +955,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, List<AccessMetadataValue>> result = apiInstance.PatchCustomEntityAccessMetadata(entityType, identifierType, identifierValue, identifierScope, accessMetadataOperation, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] PatchCustomEntityAccessMetadata: Patch Access Metadata rules for a Custom Entity.
                 Dictionary<string, List<AccessMetadataValue>> result = apiInstance.PatchCustomEntityAccessMetadata(entityType, identifierType, identifierValue, identifierScope, accessMetadataOperation, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -974,6 +1062,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntitiesApi>();
             var entityType = "entityType_example";  // string | The type of the Custom Entity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.
             var successMode = "successMode_example";  // string | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial
@@ -981,6 +1077,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertCustomEntitiesResponse result = apiInstance.UpsertCustomEntities(entityType, successMode, requestBody, opts: opts);
+
                 // [EARLY ACCESS] UpsertCustomEntities: Batch upsert instances of Custom Entities
                 UpsertCustomEntitiesResponse result = apiInstance.UpsertCustomEntities(entityType, successMode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1081,12 +1180,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntitiesApi>();
             var entityType = "entityType_example";  // string | The type of the Custom Entity to be created. An entityType can be created using the \"CreateCustomEntityDefinition\" endpoint for CustomEntityDefinitions.
             var customEntityRequest = new CustomEntityRequest(); // CustomEntityRequest | The payload describing the Custom Entity instance.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CustomEntityResponse result = apiInstance.UpsertCustomEntity(entityType, customEntityRequest, opts: opts);
+
                 // UpsertCustomEntity: Upsert a Custom Entity instance
                 CustomEntityResponse result = apiInstance.UpsertCustomEntity(entityType, customEntityRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1186,6 +1296,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntitiesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntitiesApi>();
             var entityType = "entityType_example";  // string | The type of the Custom Entity.
             var identifierType = "identifierType_example";  // string | An identifier type attached to the Custom Entity instance.
@@ -1198,6 +1316,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<AccessMetadataValue> result = apiInstance.UpsertCustomEntityAccessMetadata(entityType, identifierType, identifierValue, metadataKey, identifierScope, upsertCustomEntityAccessMetadataRequest, effectiveAt, effectiveUntil, opts: opts);
+
                 // [EARLY ACCESS] UpsertCustomEntityAccessMetadata: Upsert a Custom Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
                 List<AccessMetadataValue> result = apiInstance.UpsertCustomEntityAccessMetadata(entityType, identifierType, identifierValue, metadataKey, identifierScope, upsertCustomEntityAccessMetadataRequest, effectiveAt, effectiveUntil);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

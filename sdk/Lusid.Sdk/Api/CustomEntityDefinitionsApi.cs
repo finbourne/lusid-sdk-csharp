@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -39,8 +40,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CustomEntityDefinition</returns>
-        CustomEntityDefinition CreateCustomEntityDefinition(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0);
+        CustomEntityDefinition CreateCustomEntityDefinition(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateCustomEntityDefinition: Define a new Custom Entity type.
@@ -51,8 +53,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomEntityDefinition</returns>
-        ApiResponse<CustomEntityDefinition> CreateCustomEntityDefinitionWithHttpInfo(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0);
+        ApiResponse<CustomEntityDefinition> CreateCustomEntityDefinitionWithHttpInfo(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetDefinition: Get a Custom Entity type definition.
         /// </summary>
@@ -63,8 +66,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation.</param>
         /// <param name="asAt">The AsAt datetime at which to retrieve the definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CustomEntityDefinition</returns>
-        CustomEntityDefinition GetDefinition(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        CustomEntityDefinition GetDefinition(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetDefinition: Get a Custom Entity type definition.
@@ -76,8 +80,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation.</param>
         /// <param name="asAt">The AsAt datetime at which to retrieve the definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomEntityDefinition</returns>
-        ApiResponse<CustomEntityDefinition> GetDefinitionWithHttpInfo(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<CustomEntityDefinition> GetDefinitionWithHttpInfo(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListCustomEntityDefinitions: List the Custom Entity type definitions
         /// </summary>
@@ -90,8 +95,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, limit              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCustomEntityDefinition</returns>
-        PagedResourceListOfCustomEntityDefinition ListCustomEntityDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0);
+        PagedResourceListOfCustomEntityDefinition ListCustomEntityDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListCustomEntityDefinitions: List the Custom Entity type definitions
@@ -105,8 +111,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, limit              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCustomEntityDefinition</returns>
-        ApiResponse<PagedResourceListOfCustomEntityDefinition> ListCustomEntityDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfCustomEntityDefinition> ListCustomEntityDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateCustomEntityDefinition: Modify an existing Custom Entity type.
         /// </summary>
@@ -117,8 +124,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation.</param>
         /// <param name="updateCustomEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CustomEntityDefinition</returns>
-        CustomEntityDefinition UpdateCustomEntityDefinition(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0);
+        CustomEntityDefinition UpdateCustomEntityDefinition(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateCustomEntityDefinition: Modify an existing Custom Entity type.
@@ -130,8 +138,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation.</param>
         /// <param name="updateCustomEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomEntityDefinition</returns>
-        ApiResponse<CustomEntityDefinition> UpdateCustomEntityDefinitionWithHttpInfo(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0);
+        ApiResponse<CustomEntityDefinition> UpdateCustomEntityDefinitionWithHttpInfo(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -151,8 +160,9 @@ namespace Lusid.Sdk.Api
         /// <param name="customEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomEntityDefinition</returns>
-        System.Threading.Tasks.Task<CustomEntityDefinition> CreateCustomEntityDefinitionAsync(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomEntityDefinition> CreateCustomEntityDefinitionAsync(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateCustomEntityDefinition: Define a new Custom Entity type.
@@ -164,8 +174,9 @@ namespace Lusid.Sdk.Api
         /// <param name="customEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomEntityDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomEntityDefinition>> CreateCustomEntityDefinitionWithHttpInfoAsync(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomEntityDefinition>> CreateCustomEntityDefinitionWithHttpInfoAsync(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetDefinition: Get a Custom Entity type definition.
         /// </summary>
@@ -177,8 +188,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The AsAt datetime at which to retrieve the definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomEntityDefinition</returns>
-        System.Threading.Tasks.Task<CustomEntityDefinition> GetDefinitionAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomEntityDefinition> GetDefinitionAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetDefinition: Get a Custom Entity type definition.
@@ -191,8 +203,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The AsAt datetime at which to retrieve the definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomEntityDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomEntityDefinition>> GetDefinitionWithHttpInfoAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomEntityDefinition>> GetDefinitionWithHttpInfoAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListCustomEntityDefinitions: List the Custom Entity type definitions
         /// </summary>
@@ -206,8 +219,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, limit              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfCustomEntityDefinition</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfCustomEntityDefinition> ListCustomEntityDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfCustomEntityDefinition> ListCustomEntityDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListCustomEntityDefinitions: List the Custom Entity type definitions
@@ -222,8 +236,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, limit              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCustomEntityDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCustomEntityDefinition>> ListCustomEntityDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCustomEntityDefinition>> ListCustomEntityDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateCustomEntityDefinition: Modify an existing Custom Entity type.
         /// </summary>
@@ -235,8 +250,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateCustomEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomEntityDefinition</returns>
-        System.Threading.Tasks.Task<CustomEntityDefinition> UpdateCustomEntityDefinitionAsync(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomEntityDefinition> UpdateCustomEntityDefinitionAsync(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateCustomEntityDefinition: Modify an existing Custom Entity type.
@@ -249,8 +265,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateCustomEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomEntityDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomEntityDefinition>> UpdateCustomEntityDefinitionWithHttpInfoAsync(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomEntityDefinition>> UpdateCustomEntityDefinitionWithHttpInfoAsync(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -283,9 +300,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public CustomEntityDefinitionsApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -374,10 +397,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CustomEntityDefinition</returns>
-        public CustomEntityDefinition CreateCustomEntityDefinition(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0)
+        public CustomEntityDefinition CreateCustomEntityDefinition(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> localVarResponse = CreateCustomEntityDefinitionWithHttpInfo(customEntityDefinitionRequest);
+            Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> localVarResponse = CreateCustomEntityDefinitionWithHttpInfo(customEntityDefinitionRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -387,8 +411,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomEntityDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> CreateCustomEntityDefinitionWithHttpInfo(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> CreateCustomEntityDefinitionWithHttpInfo(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'customEntityDefinitionRequest' is set
             if (customEntityDefinitionRequest == null)
@@ -397,6 +422,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -467,10 +502,11 @@ namespace Lusid.Sdk.Api
         /// <param name="customEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomEntityDefinition</returns>
-        public async System.Threading.Tasks.Task<CustomEntityDefinition> CreateCustomEntityDefinitionAsync(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomEntityDefinition> CreateCustomEntityDefinitionAsync(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> localVarResponse = await CreateCustomEntityDefinitionWithHttpInfoAsync(customEntityDefinitionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> localVarResponse = await CreateCustomEntityDefinitionWithHttpInfoAsync(customEntityDefinitionRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -481,8 +517,9 @@ namespace Lusid.Sdk.Api
         /// <param name="customEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomEntityDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition>> CreateCustomEntityDefinitionWithHttpInfoAsync(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition>> CreateCustomEntityDefinitionWithHttpInfoAsync(CustomEntityDefinitionRequest customEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'customEntityDefinitionRequest' is set
             if (customEntityDefinitionRequest == null)
@@ -492,6 +529,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -563,10 +610,11 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation.</param>
         /// <param name="asAt">The AsAt datetime at which to retrieve the definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CustomEntityDefinition</returns>
-        public CustomEntityDefinition GetDefinition(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public CustomEntityDefinition GetDefinition(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> localVarResponse = GetDefinitionWithHttpInfo(entityType, asAt);
+            Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> localVarResponse = GetDefinitionWithHttpInfo(entityType, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -577,8 +625,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation.</param>
         /// <param name="asAt">The AsAt datetime at which to retrieve the definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomEntityDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> GetDefinitionWithHttpInfo(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> GetDefinitionWithHttpInfo(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -587,6 +636,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -658,10 +717,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The AsAt datetime at which to retrieve the definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomEntityDefinition</returns>
-        public async System.Threading.Tasks.Task<CustomEntityDefinition> GetDefinitionAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomEntityDefinition> GetDefinitionAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> localVarResponse = await GetDefinitionWithHttpInfoAsync(entityType, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> localVarResponse = await GetDefinitionWithHttpInfoAsync(entityType, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -673,8 +733,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The AsAt datetime at which to retrieve the definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomEntityDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition>> GetDefinitionWithHttpInfoAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition>> GetDefinitionWithHttpInfoAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -684,6 +745,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -757,10 +828,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, limit              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCustomEntityDefinition</returns>
-        public PagedResourceListOfCustomEntityDefinition ListCustomEntityDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0)
+        public PagedResourceListOfCustomEntityDefinition ListCustomEntityDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityDefinition> localVarResponse = ListCustomEntityDefinitionsWithHttpInfo(asAt, limit, filter, page);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityDefinition> localVarResponse = ListCustomEntityDefinitionsWithHttpInfo(asAt, limit, filter, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -773,10 +845,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, limit              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCustomEntityDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityDefinition> ListCustomEntityDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityDefinition> ListCustomEntityDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -861,10 +944,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, limit              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfCustomEntityDefinition</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfCustomEntityDefinition> ListCustomEntityDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfCustomEntityDefinition> ListCustomEntityDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityDefinition> localVarResponse = await ListCustomEntityDefinitionsWithHttpInfoAsync(asAt, limit, filter, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityDefinition> localVarResponse = await ListCustomEntityDefinitionsWithHttpInfoAsync(asAt, limit, filter, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -878,11 +962,22 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, limit              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCustomEntityDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityDefinition>> ListCustomEntityDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityDefinition>> ListCustomEntityDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -965,10 +1060,11 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation.</param>
         /// <param name="updateCustomEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CustomEntityDefinition</returns>
-        public CustomEntityDefinition UpdateCustomEntityDefinition(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0)
+        public CustomEntityDefinition UpdateCustomEntityDefinition(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> localVarResponse = UpdateCustomEntityDefinitionWithHttpInfo(entityType, updateCustomEntityDefinitionRequest);
+            Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> localVarResponse = UpdateCustomEntityDefinitionWithHttpInfo(entityType, updateCustomEntityDefinitionRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -979,8 +1075,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation.</param>
         /// <param name="updateCustomEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomEntityDefinition</returns>
-        public Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> UpdateCustomEntityDefinitionWithHttpInfo(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> UpdateCustomEntityDefinitionWithHttpInfo(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -995,6 +1092,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1067,10 +1174,11 @@ namespace Lusid.Sdk.Api
         /// <param name="updateCustomEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomEntityDefinition</returns>
-        public async System.Threading.Tasks.Task<CustomEntityDefinition> UpdateCustomEntityDefinitionAsync(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomEntityDefinition> UpdateCustomEntityDefinitionAsync(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> localVarResponse = await UpdateCustomEntityDefinitionWithHttpInfoAsync(entityType, updateCustomEntityDefinitionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition> localVarResponse = await UpdateCustomEntityDefinitionWithHttpInfoAsync(entityType, updateCustomEntityDefinitionRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1082,8 +1190,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateCustomEntityDefinitionRequest">The payload containing the description of the Custom Entity type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomEntityDefinition)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition>> UpdateCustomEntityDefinitionWithHttpInfoAsync(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomEntityDefinition>> UpdateCustomEntityDefinitionWithHttpInfoAsync(string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -1099,6 +1208,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

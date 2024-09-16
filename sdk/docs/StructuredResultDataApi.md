@@ -52,12 +52,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StructuredResultDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StructuredResultDataApi>();
             var scope = "scope_example";  // string | The scope in which to create or update data maps.
             var requestBody = new Dictionary<string, CreateDataMapRequest>(); // Dictionary<string, CreateDataMapRequest> | Individual data map creation requests.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertStructuredDataResponse result = apiInstance.CreateDataMap(scope, requestBody, opts: opts);
+
                 // CreateDataMap: Create data map
                 UpsertStructuredDataResponse result = apiInstance.CreateDataMap(scope, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -157,12 +168,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StructuredResultDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StructuredResultDataApi>();
             var scope = "scope_example";  // string | The scope from which to delete data items.
             var requestBody = new Dictionary<string, StructuredResultDataId>(); // Dictionary<string, StructuredResultDataId> | The data IDs to delete, each keyed by a unique, ephemeral correlation ID.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AnnulStructuredDataResponse result = apiInstance.DeleteStructuredResultData(scope, requestBody, opts: opts);
+
                 // [EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
                 AnnulStructuredDataResponse result = apiInstance.DeleteStructuredResultData(scope, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -262,6 +284,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StructuredResultDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StructuredResultDataApi>();
             var scope = "scope_example";  // string | The scope of the document for which address key definitions are retrieved.
             var code = "code_example";  // string | The code of the document for which address key definitions are retrieved.
@@ -272,6 +302,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfAddressKeyDefinition result = apiInstance.GetAddressKeyDefinitionsForDocument(scope, code, source, resultType, effectiveAt, asAt, opts: opts);
+
                 // [EARLY ACCESS] GetAddressKeyDefinitionsForDocument: Get AddressKeyDefinitions for a virtual document.
                 ResourceListOfAddressKeyDefinition result = apiInstance.GetAddressKeyDefinitionsForDocument(scope, code, source, resultType, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -375,12 +408,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StructuredResultDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StructuredResultDataApi>();
             var scope = "scope_example";  // string | The scope from which to retrieve data maps.
             var requestBody = new Dictionary<string, DataMapKey>(); // Dictionary<string, DataMapKey> | The data map keys to look up, each keyed by a unique, ephemeral correlation ID.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetDataMapResponse result = apiInstance.GetDataMap(scope, requestBody, opts: opts);
+
                 // [EXPERIMENTAL] GetDataMap: Get data map
                 GetDataMapResponse result = apiInstance.GetDataMap(scope, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -480,6 +524,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StructuredResultDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StructuredResultDataApi>();
             var scope = "scope_example";  // string | The scope from which to retrieve data items.
             var requestBody = new Dictionary<string, StructuredResultDataId>(); // Dictionary<string, StructuredResultDataId> | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
@@ -488,6 +540,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetStructuredResultDataResponse result = apiInstance.GetStructuredResultData(scope, requestBody, asAt, maxAge, opts: opts);
+
                 // GetStructuredResultData: Get structured result data
                 GetStructuredResultDataResponse result = apiInstance.GetStructuredResultData(scope, requestBody, asAt, maxAge);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -589,6 +644,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StructuredResultDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StructuredResultDataApi>();
             var scope = "scope_example";  // string | The scope in which to construct the virtual documents.
             var requestBody = new Dictionary<string, StructuredResultDataId>(); // Dictionary<string, StructuredResultDataId> | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
@@ -596,6 +659,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetVirtualDocumentResponse result = apiInstance.GetVirtualDocument(scope, requestBody, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetVirtualDocument: Get Virtual Documents
                 GetVirtualDocumentResponse result = apiInstance.GetVirtualDocument(scope, requestBody, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -696,6 +762,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StructuredResultDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StructuredResultDataApi>();
             var scope = "scope_example";  // string | The scope in which to retrieve the virtual document.
             var code = "code_example";  // string | The code of the virtual document to retrieve.
@@ -709,6 +783,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfVirtualRow result = apiInstance.GetVirtualDocumentRows(scope, code, source, resultType, effectiveAt, asAt, page, limit, filter, opts: opts);
+
                 // [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows
                 PagedResourceListOfVirtualRow result = apiInstance.GetVirtualDocumentRows(scope, code, source, resultType, effectiveAt, asAt, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -815,12 +892,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StructuredResultDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StructuredResultDataApi>();
             var scope = "scope_example";  // string | The scope in which to construct the virtual documents.
             var requestBody = new Dictionary<string, UpsertResultValuesDataRequest>(); // Dictionary<string, UpsertResultValuesDataRequest> | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertStructuredDataResponse result = apiInstance.UpsertResultValue(scope, requestBody, opts: opts);
+
                 // [EXPERIMENTAL] UpsertResultValue: Upsert result value
                 UpsertStructuredDataResponse result = apiInstance.UpsertResultValue(scope, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -920,12 +1008,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StructuredResultDataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StructuredResultDataApi>();
             var scope = "scope_example";  // string | The scope in which to create or update data items.
             var requestBody = new Dictionary<string, UpsertStructuredResultDataRequest>(); // Dictionary<string, UpsertStructuredResultDataRequest> | The set of data items to create or update, keyed by a unique, ephemeral correlation ID.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // UpsertStructuredDataResponse result = apiInstance.UpsertStructuredResultData(scope, requestBody, opts: opts);
+
                 // UpsertStructuredResultData: Upsert structured result data
                 UpsertStructuredDataResponse result = apiInstance.UpsertStructuredResultData(scope, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

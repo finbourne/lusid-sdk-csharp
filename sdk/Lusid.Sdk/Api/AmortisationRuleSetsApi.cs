@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the rule set.</param>
         /// <param name="createAmortisationRuleSetRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AmortisationRuleSet</returns>
-        AmortisationRuleSet CreateAmortisationRuleSet(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0);
+        AmortisationRuleSet CreateAmortisationRuleSet(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set.
@@ -53,8 +55,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the rule set.</param>
         /// <param name="createAmortisationRuleSetRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AmortisationRuleSet</returns>
-        ApiResponse<AmortisationRuleSet> CreateAmortisationRuleSetWithHttpInfo(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0);
+        ApiResponse<AmortisationRuleSet> CreateAmortisationRuleSetWithHttpInfo(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
         /// </summary>
@@ -65,8 +68,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteAmortisationRuleset(string scope, string code, int operationIndex = 0);
+        DeletedEntityResponse DeleteAmortisationRuleset(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
@@ -78,8 +82,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteAmortisationRulesetWithHttpInfo(string scope, string code, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteAmortisationRulesetWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetAmortisationRuleSet: Retrieve the definition of a single amortisation rule set
         /// </summary>
@@ -92,8 +97,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AmortisationRuleSet</returns>
-        AmortisationRuleSet GetAmortisationRuleSet(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        AmortisationRuleSet GetAmortisationRuleSet(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetAmortisationRuleSet: Retrieve the definition of a single amortisation rule set
@@ -107,8 +113,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AmortisationRuleSet</returns>
-        ApiResponse<AmortisationRuleSet> GetAmortisationRuleSetWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<AmortisationRuleSet> GetAmortisationRuleSetWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListAmortisationRuleSets: List amortisation rule sets.
         /// </summary>
@@ -123,8 +130,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfAmortisationRuleSet</returns>
-        PagedResourceListOfAmortisationRuleSet ListAmortisationRuleSets(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfAmortisationRuleSet ListAmortisationRuleSets(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListAmortisationRuleSets: List amortisation rule sets.
@@ -140,8 +148,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfAmortisationRuleSet</returns>
-        ApiResponse<PagedResourceListOfAmortisationRuleSet> ListAmortisationRuleSetsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfAmortisationRuleSet> ListAmortisationRuleSetsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set.
         /// </summary>
@@ -153,8 +162,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The rule set code.</param>
         /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AmortisationRuleSet</returns>
-        AmortisationRuleSet SetAmortisationRules(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0);
+        AmortisationRuleSet SetAmortisationRules(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set.
@@ -167,8 +177,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The rule set code.</param>
         /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AmortisationRuleSet</returns>
-        ApiResponse<AmortisationRuleSet> SetAmortisationRulesWithHttpInfo(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0);
+        ApiResponse<AmortisationRuleSet> SetAmortisationRulesWithHttpInfo(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateAmortisationRuleSetDetails: Update an amortisation rule set.
         /// </summary>
@@ -180,8 +191,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The rule set code.</param>
         /// <param name="updateAmortisationRuleSetDetailsRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AmortisationRuleSet</returns>
-        AmortisationRuleSet UpdateAmortisationRuleSetDetails(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0);
+        AmortisationRuleSet UpdateAmortisationRuleSetDetails(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateAmortisationRuleSetDetails: Update an amortisation rule set.
@@ -194,8 +206,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The rule set code.</param>
         /// <param name="updateAmortisationRuleSetDetailsRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AmortisationRuleSet</returns>
-        ApiResponse<AmortisationRuleSet> UpdateAmortisationRuleSetDetailsWithHttpInfo(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0);
+        ApiResponse<AmortisationRuleSet> UpdateAmortisationRuleSetDetailsWithHttpInfo(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -216,8 +229,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createAmortisationRuleSetRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AmortisationRuleSet</returns>
-        System.Threading.Tasks.Task<AmortisationRuleSet> CreateAmortisationRuleSetAsync(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AmortisationRuleSet> CreateAmortisationRuleSetAsync(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set.
@@ -230,8 +244,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createAmortisationRuleSetRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AmortisationRuleSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AmortisationRuleSet>> CreateAmortisationRuleSetWithHttpInfoAsync(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AmortisationRuleSet>> CreateAmortisationRuleSetWithHttpInfoAsync(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
         /// </summary>
@@ -243,8 +258,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The rule set code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteAmortisationRulesetAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteAmortisationRulesetAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
@@ -257,8 +273,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The rule set code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteAmortisationRulesetWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteAmortisationRulesetWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetAmortisationRuleSet: Retrieve the definition of a single amortisation rule set
         /// </summary>
@@ -272,8 +289,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AmortisationRuleSet</returns>
-        System.Threading.Tasks.Task<AmortisationRuleSet> GetAmortisationRuleSetAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AmortisationRuleSet> GetAmortisationRuleSetAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetAmortisationRuleSet: Retrieve the definition of a single amortisation rule set
@@ -288,8 +306,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AmortisationRuleSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AmortisationRuleSet>> GetAmortisationRuleSetWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AmortisationRuleSet>> GetAmortisationRuleSetWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListAmortisationRuleSets: List amortisation rule sets.
         /// </summary>
@@ -305,8 +324,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfAmortisationRuleSet</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfAmortisationRuleSet> ListAmortisationRuleSetsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfAmortisationRuleSet> ListAmortisationRuleSetsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListAmortisationRuleSets: List amortisation rule sets.
@@ -323,8 +343,9 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfAmortisationRuleSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfAmortisationRuleSet>> ListAmortisationRuleSetsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfAmortisationRuleSet>> ListAmortisationRuleSetsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set.
         /// </summary>
@@ -337,8 +358,9 @@ namespace Lusid.Sdk.Api
         /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AmortisationRuleSet</returns>
-        System.Threading.Tasks.Task<AmortisationRuleSet> SetAmortisationRulesAsync(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AmortisationRuleSet> SetAmortisationRulesAsync(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set.
@@ -352,8 +374,9 @@ namespace Lusid.Sdk.Api
         /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AmortisationRuleSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AmortisationRuleSet>> SetAmortisationRulesWithHttpInfoAsync(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AmortisationRuleSet>> SetAmortisationRulesWithHttpInfoAsync(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateAmortisationRuleSetDetails: Update an amortisation rule set.
         /// </summary>
@@ -366,8 +389,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateAmortisationRuleSetDetailsRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AmortisationRuleSet</returns>
-        System.Threading.Tasks.Task<AmortisationRuleSet> UpdateAmortisationRuleSetDetailsAsync(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AmortisationRuleSet> UpdateAmortisationRuleSetDetailsAsync(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateAmortisationRuleSetDetails: Update an amortisation rule set.
@@ -381,8 +405,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateAmortisationRuleSetDetailsRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AmortisationRuleSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AmortisationRuleSet>> UpdateAmortisationRuleSetDetailsWithHttpInfoAsync(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AmortisationRuleSet>> UpdateAmortisationRuleSetDetailsWithHttpInfoAsync(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -415,9 +440,15 @@ namespace Lusid.Sdk.Api
         /// <returns></returns>
         public AmortisationRuleSetsApi(string basePath)
         {
+            var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Lusid.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -507,10 +538,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the rule set.</param>
         /// <param name="createAmortisationRuleSetRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AmortisationRuleSet</returns>
-        public AmortisationRuleSet CreateAmortisationRuleSet(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0)
+        public AmortisationRuleSet CreateAmortisationRuleSet(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = CreateAmortisationRuleSetWithHttpInfo(scope, createAmortisationRuleSetRequest);
+            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = CreateAmortisationRuleSetWithHttpInfo(scope, createAmortisationRuleSetRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -521,8 +553,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the rule set.</param>
         /// <param name="createAmortisationRuleSetRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AmortisationRuleSet</returns>
-        public Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> CreateAmortisationRuleSetWithHttpInfo(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> CreateAmortisationRuleSetWithHttpInfo(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -537,6 +570,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -609,10 +652,11 @@ namespace Lusid.Sdk.Api
         /// <param name="createAmortisationRuleSetRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AmortisationRuleSet</returns>
-        public async System.Threading.Tasks.Task<AmortisationRuleSet> CreateAmortisationRuleSetAsync(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AmortisationRuleSet> CreateAmortisationRuleSetAsync(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = await CreateAmortisationRuleSetWithHttpInfoAsync(scope, createAmortisationRuleSetRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = await CreateAmortisationRuleSetWithHttpInfoAsync(scope, createAmortisationRuleSetRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -624,8 +668,9 @@ namespace Lusid.Sdk.Api
         /// <param name="createAmortisationRuleSetRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AmortisationRuleSet)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet>> CreateAmortisationRuleSetWithHttpInfoAsync(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet>> CreateAmortisationRuleSetWithHttpInfoAsync(string scope, CreateAmortisationRuleSetRequest createAmortisationRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -641,6 +686,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -713,10 +768,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteAmortisationRuleset(string scope, string code, int operationIndex = 0)
+        public DeletedEntityResponse DeleteAmortisationRuleset(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteAmortisationRulesetWithHttpInfo(scope, code);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteAmortisationRulesetWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -727,8 +783,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteAmortisationRulesetWithHttpInfo(string scope, string code, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteAmortisationRulesetWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -743,6 +800,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -811,10 +878,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The rule set code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteAmortisationRulesetAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteAmortisationRulesetAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteAmortisationRulesetWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteAmortisationRulesetWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -826,8 +894,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The rule set code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteAmortisationRulesetWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteAmortisationRulesetWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -843,6 +912,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -913,10 +992,11 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AmortisationRuleSet</returns>
-        public AmortisationRuleSet GetAmortisationRuleSet(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public AmortisationRuleSet GetAmortisationRuleSet(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = GetAmortisationRuleSetWithHttpInfo(scope, code, effectiveAt, asAt);
+            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = GetAmortisationRuleSetWithHttpInfo(scope, code, effectiveAt, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -929,8 +1009,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AmortisationRuleSet</returns>
-        public Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> GetAmortisationRuleSetWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> GetAmortisationRuleSetWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -945,6 +1026,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1023,10 +1114,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AmortisationRuleSet</returns>
-        public async System.Threading.Tasks.Task<AmortisationRuleSet> GetAmortisationRuleSetAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AmortisationRuleSet> GetAmortisationRuleSetAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = await GetAmortisationRuleSetWithHttpInfoAsync(scope, code, effectiveAt, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = await GetAmortisationRuleSetWithHttpInfoAsync(scope, code, effectiveAt, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1040,8 +1132,9 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AmortisationRuleSet)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet>> GetAmortisationRuleSetWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet>> GetAmortisationRuleSetWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1057,6 +1150,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1137,10 +1240,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfAmortisationRuleSet</returns>
-        public PagedResourceListOfAmortisationRuleSet ListAmortisationRuleSets(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfAmortisationRuleSet ListAmortisationRuleSets(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAmortisationRuleSet> localVarResponse = ListAmortisationRuleSetsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAmortisationRuleSet> localVarResponse = ListAmortisationRuleSetsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1155,10 +1259,21 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the results.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfAmortisationRuleSet</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAmortisationRuleSet> ListAmortisationRuleSetsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAmortisationRuleSet> ListAmortisationRuleSetsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1253,10 +1368,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfAmortisationRuleSet</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfAmortisationRuleSet> ListAmortisationRuleSetsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfAmortisationRuleSet> ListAmortisationRuleSetsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAmortisationRuleSet> localVarResponse = await ListAmortisationRuleSetsWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAmortisationRuleSet> localVarResponse = await ListAmortisationRuleSetsWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1272,11 +1388,22 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfAmortisationRuleSet)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAmortisationRuleSet>> ListAmortisationRuleSetsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfAmortisationRuleSet>> ListAmortisationRuleSetsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1368,10 +1495,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The rule set code.</param>
         /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AmortisationRuleSet</returns>
-        public AmortisationRuleSet SetAmortisationRules(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0)
+        public AmortisationRuleSet SetAmortisationRules(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = SetAmortisationRulesWithHttpInfo(scope, code, setAmortisationRulesRequest);
+            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = SetAmortisationRulesWithHttpInfo(scope, code, setAmortisationRulesRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1383,8 +1511,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The rule set code.</param>
         /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AmortisationRuleSet</returns>
-        public Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> SetAmortisationRulesWithHttpInfo(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> SetAmortisationRulesWithHttpInfo(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1405,6 +1534,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1479,10 +1618,11 @@ namespace Lusid.Sdk.Api
         /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AmortisationRuleSet</returns>
-        public async System.Threading.Tasks.Task<AmortisationRuleSet> SetAmortisationRulesAsync(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AmortisationRuleSet> SetAmortisationRulesAsync(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = await SetAmortisationRulesWithHttpInfoAsync(scope, code, setAmortisationRulesRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = await SetAmortisationRulesWithHttpInfoAsync(scope, code, setAmortisationRulesRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1495,8 +1635,9 @@ namespace Lusid.Sdk.Api
         /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AmortisationRuleSet)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet>> SetAmortisationRulesWithHttpInfoAsync(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet>> SetAmortisationRulesWithHttpInfoAsync(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1518,6 +1659,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1592,10 +1743,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The rule set code.</param>
         /// <param name="updateAmortisationRuleSetDetailsRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AmortisationRuleSet</returns>
-        public AmortisationRuleSet UpdateAmortisationRuleSetDetails(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0)
+        public AmortisationRuleSet UpdateAmortisationRuleSetDetails(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = UpdateAmortisationRuleSetDetailsWithHttpInfo(scope, code, updateAmortisationRuleSetDetailsRequest);
+            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = UpdateAmortisationRuleSetDetailsWithHttpInfo(scope, code, updateAmortisationRuleSetDetailsRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1607,8 +1759,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The rule set code.</param>
         /// <param name="updateAmortisationRuleSetDetailsRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AmortisationRuleSet</returns>
-        public Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> UpdateAmortisationRuleSetDetailsWithHttpInfo(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> UpdateAmortisationRuleSetDetailsWithHttpInfo(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1629,6 +1782,16 @@ namespace Lusid.Sdk.Api
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1703,10 +1866,11 @@ namespace Lusid.Sdk.Api
         /// <param name="updateAmortisationRuleSetDetailsRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AmortisationRuleSet</returns>
-        public async System.Threading.Tasks.Task<AmortisationRuleSet> UpdateAmortisationRuleSetDetailsAsync(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AmortisationRuleSet> UpdateAmortisationRuleSetDetailsAsync(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = await UpdateAmortisationRuleSetDetailsWithHttpInfoAsync(scope, code, updateAmortisationRuleSetDetailsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = await UpdateAmortisationRuleSetDetailsWithHttpInfoAsync(scope, code, updateAmortisationRuleSetDetailsRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1719,8 +1883,9 @@ namespace Lusid.Sdk.Api
         /// <param name="updateAmortisationRuleSetDetailsRequest">The contents of the rule set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AmortisationRuleSet)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet>> UpdateAmortisationRuleSetDetailsWithHttpInfoAsync(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet>> UpdateAmortisationRuleSetDetailsWithHttpInfoAsync(string scope, string code, UpdateAmortisationRuleSetDetailsRequest updateAmortisationRuleSetDetailsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1742,6 +1907,16 @@ namespace Lusid.Sdk.Api
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

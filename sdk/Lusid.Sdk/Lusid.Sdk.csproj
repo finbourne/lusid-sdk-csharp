@@ -36,7 +36,8 @@
 
   <PropertyGroup>
     <WarningsAsErrors></WarningsAsErrors>
-    <NoWarn>1701;1702;CS0472;CS1573;CS0108;CS8073</NoWarn>
+    <!-- REMOVE NU1902 ONCE CTOOLS-333 complete -->
+    <NoWarn>1701;1702;CS0472;CS1573;CS0108;CS8073;NU1902</NoWarn>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 

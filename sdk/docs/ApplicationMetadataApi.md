@@ -46,11 +46,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ApplicationMetadataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ApplicationMetadataApi>();
             var version = "version_example";  // string? | The requested version of the Excel plugin (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // FileResponse result = apiInstance.GetExcelAddin(version, opts: opts);
+
                 // GetExcelAddin: Download Excel Addin
                 FileResponse result = apiInstance.GetExcelAddin(version);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -149,10 +160,21 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ApplicationMetadataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ApplicationMetadataApi>();
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // VersionSummaryDto result = apiInstance.GetLusidVersions(opts: opts);
+
                 // GetLusidVersions: Get LUSID versions
                 VersionSummaryDto result = apiInstance.GetLusidVersions();
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -246,11 +268,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ApplicationMetadataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ApplicationMetadataApi>();
             var filter = "filter_example";  // string? | Optional. Expression to filter the result set.               For example, to filter on the Application, use \"application eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfAccessControlledResource result = apiInstance.ListAccessControlledResources(filter, opts: opts);
+
                 // ListAccessControlledResources: Get resources available for access control
                 ResourceListOfAccessControlledResource result = apiInstance.ListAccessControlledResources(filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

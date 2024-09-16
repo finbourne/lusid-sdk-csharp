@@ -47,12 +47,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PackagesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PackagesApi>();
             var scope = "scope_example";  // string | The package scope.
             var code = "code_example";  // string | The package's code. This, together with the scope uniquely identifies the package to delete.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePackage(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeletePackage: Delete package
                 DeletedEntityResponse result = apiInstance.DeletePackage(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -152,6 +163,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PackagesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PackagesApi>();
             var scope = "scope_example";  // string | The scope to which the package belongs.
             var code = "code_example";  // string | The package's unique identifier.
@@ -160,6 +179,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Package result = apiInstance.GetPackage(scope, code, asAt, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] GetPackage: Get Package
                 Package result = apiInstance.GetPackage(scope, code, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -261,6 +283,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PackagesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PackagesApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the package. Defaults to return the latest version of the package if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing packages from a previous call to list packages.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
@@ -271,6 +301,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfPackage result = apiInstance.ListPackages(asAt, page, sortBy, limit, filter, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] ListPackages: List Packages
                 PagedResourceListOfPackage result = apiInstance.ListPackages(asAt, page, sortBy, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -374,11 +407,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PackagesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PackagesApi>();
             var packageSetRequest = new PackageSetRequest?(); // PackageSetRequest? | The collection of package requests. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPackage result = apiInstance.UpsertPackages(packageSetRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpsertPackages: Upsert Package
                 ResourceListOfPackage result = apiInstance.UpsertPackages(packageSetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

@@ -74,12 +74,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var chartOfAccountsRequest = new ChartOfAccountsRequest(); // ChartOfAccountsRequest | The definition of the Chart of Accounts.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ChartOfAccounts result = apiInstance.CreateChartOfAccounts(scope, chartOfAccountsRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateChartOfAccounts: Create a Chart of Accounts
                 ChartOfAccounts result = apiInstance.CreateChartOfAccounts(scope, chartOfAccountsRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -179,6 +190,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -186,6 +205,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CleardownModuleResponse result = apiInstance.CreateCleardownModule(scope, code, cleardownModuleRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateCleardownModule: Create a Cleardown Module
                 CleardownModuleResponse result = apiInstance.CreateCleardownModule(scope, code, cleardownModuleRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -286,6 +308,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts.
@@ -293,6 +323,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GeneralLedgerProfileResponse result = apiInstance.CreateGeneralLedgerProfile(scope, code, generalLedgerProfileRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
                 GeneralLedgerProfileResponse result = apiInstance.CreateGeneralLedgerProfile(scope, code, generalLedgerProfileRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -393,6 +426,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -400,6 +441,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PostingModuleResponse result = apiInstance.CreatePostingModule(scope, code, postingModuleRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
                 PostingModuleResponse result = apiInstance.CreatePostingModule(scope, code, postingModuleRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -500,6 +544,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.
@@ -508,6 +560,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeleteAccountsResponse result = apiInstance.DeleteAccounts(scope, code, requestBody, deleteMode, opts: opts);
+
                 // [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
                 DeleteAccountsResponse result = apiInstance.DeleteAccounts(scope, code, requestBody, deleteMode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -609,12 +664,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts to be deleted.
             var code = "code_example";  // string | The code of the Chart of Accounts to be deleted. Together with the scope this uniquely identifies the Chart of Accounts.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteChartOfAccounts(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteChartOfAccounts: Delete a Chart of Accounts
                 DeletedEntityResponse result = apiInstance.DeleteChartOfAccounts(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -714,6 +780,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -721,6 +795,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteCleardownModule(scope, code, cleardownModuleCode, opts: opts);
+
                 // [EXPERIMENTAL] DeleteCleardownModule: Delete a Cleardown Module.
                 DeletedEntityResponse result = apiInstance.DeleteCleardownModule(scope, code, cleardownModuleCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -821,6 +898,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts for the General Ledger Profile.
             var code = "code_example";  // string | The code of the Chart of Accounts for the General Ledger Profile.
@@ -828,6 +913,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteGeneralLedgerProfile(scope, code, generalLedgerProfileCode, opts: opts);
+
                 // [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
                 DeletedEntityResponse result = apiInstance.DeleteGeneralLedgerProfile(scope, code, generalLedgerProfileCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -928,6 +1016,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -935,6 +1031,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeletePostingModule(scope, code, postingModuleCode, opts: opts);
+
                 // [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
                 DeletedEntityResponse result = apiInstance.DeletePostingModule(scope, code, postingModuleCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1035,6 +1134,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -1045,6 +1152,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Account result = apiInstance.GetAccount(scope, code, accountCode, effectiveAt, asAt, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] GetAccount: Get Account
                 Account result = apiInstance.GetAccount(scope, code, accountCode, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1148,6 +1258,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -1157,6 +1275,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ChartOfAccounts result = apiInstance.GetChartOfAccounts(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] GetChartOfAccounts: Get ChartOfAccounts
                 ChartOfAccounts result = apiInstance.GetChartOfAccounts(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1259,6 +1380,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -1267,6 +1396,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CleardownModuleResponse result = apiInstance.GetCleardownModule(scope, code, cleardownModuleCode, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
                 CleardownModuleResponse result = apiInstance.GetCleardownModule(scope, code, cleardownModuleCode, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1368,6 +1500,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts for the General Ledger Profile.
             var code = "code_example";  // string | The code of the Chart of Accounts for the General Ledger Profile.
@@ -1376,6 +1516,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GeneralLedgerProfileResponse result = apiInstance.GetGeneralLedgerProfile(scope, code, generalLedgerProfileCode, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
                 GeneralLedgerProfileResponse result = apiInstance.GetGeneralLedgerProfile(scope, code, generalLedgerProfileCode, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1477,6 +1620,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -1485,6 +1636,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PostingModuleResponse result = apiInstance.GetPostingModule(scope, code, postingModuleCode, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetPostingModule: Get a Posting Module
                 PostingModuleResponse result = apiInstance.GetPostingModule(scope, code, postingModuleCode, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1586,6 +1740,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.
@@ -1598,6 +1760,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfAccount result = apiInstance.ListAccounts(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] ListAccounts: List Accounts
                 PagedResourceListOfAccount result = apiInstance.ListAccounts(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1703,6 +1868,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each Chart of Accounts if not specified. (optional) 
@@ -1714,6 +1887,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfChartOfAccounts result = apiInstance.ListChartsOfAccounts(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
+
                 // [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
                 PagedResourceListOfChartOfAccounts result = apiInstance.ListChartsOfAccounts(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1818,6 +1994,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -1829,6 +2013,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfCleardownModuleRule result = apiInstance.ListCleardownModuleRules(scope, code, cleardownModuleCode, asAt, page, limit, filter, opts: opts);
+
                 // [EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules
                 PagedResourceListOfCleardownModuleRule result = apiInstance.ListCleardownModuleRules(scope, code, cleardownModuleCode, asAt, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1933,6 +2120,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -1944,6 +2139,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfCleardownModuleResponse result = apiInstance.ListCleardownModules(scope, code, asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EXPERIMENTAL] ListCleardownModules: List Cleardown Modules
                 PagedResourceListOfCleardownModuleResponse result = apiInstance.ListCleardownModules(scope, code, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2048,6 +2246,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts
             var code = "code_example";  // string | The code of the Chart of Accounts
@@ -2059,6 +2265,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfGeneralLedgerProfileResponse result = apiInstance.ListGeneralLedgerProfiles(scope, code, asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
                 PagedResourceListOfGeneralLedgerProfileResponse result = apiInstance.ListGeneralLedgerProfiles(scope, code, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2163,6 +2372,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -2174,6 +2391,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfPostingModuleRule result = apiInstance.ListPostingModuleRules(scope, code, postingModuleCode, asAt, page, limit, filter, opts: opts);
+
                 // [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
                 PagedResourceListOfPostingModuleRule result = apiInstance.ListPostingModuleRules(scope, code, postingModuleCode, asAt, page, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2278,6 +2498,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -2289,6 +2517,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfPostingModuleResponse result = apiInstance.ListPostingModules(scope, code, asAt, page, limit, filter, sortBy, opts: opts);
+
                 // [EXPERIMENTAL] ListPostingModules: List Posting Modules
                 PagedResourceListOfPostingModuleResponse result = apiInstance.ListPostingModules(scope, code, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2393,6 +2624,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -2401,6 +2640,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CleardownModuleResponse result = apiInstance.PatchCleardownModule(scope, code, cleardownModuleCode, operation, opts: opts);
+
                 // [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
                 CleardownModuleResponse result = apiInstance.PatchCleardownModule(scope, code, cleardownModuleCode, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2502,6 +2744,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -2510,6 +2760,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PostingModuleResponse result = apiInstance.PatchPostingModule(scope, code, postingModuleCode, operation, opts: opts);
+
                 // [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
                 PostingModuleResponse result = apiInstance.PatchPostingModule(scope, code, postingModuleCode, operation);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2611,6 +2864,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -2619,6 +2880,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CleardownModuleResponse result = apiInstance.SetCleardownModuleDetails(scope, code, cleardownModuleCode, cleardownModuleDetails, opts: opts);
+
                 // [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
                 CleardownModuleResponse result = apiInstance.SetCleardownModuleDetails(scope, code, cleardownModuleCode, cleardownModuleDetails);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2720,6 +2984,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -2728,6 +3000,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CleardownModuleRulesUpdatedResponse result = apiInstance.SetCleardownModuleRules(scope, code, cleardownModuleCode, cleardownModuleRule, opts: opts);
+
                 // [EXPERIMENTAL] SetCleardownModuleRules: Set the rules of a Cleardown Module
                 CleardownModuleRulesUpdatedResponse result = apiInstance.SetCleardownModuleRules(scope, code, cleardownModuleCode, cleardownModuleRule);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2829,6 +3104,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts.
@@ -2837,6 +3120,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GeneralLedgerProfileResponse result = apiInstance.SetGeneralLedgerProfileMappings(scope, code, generalLedgerProfileCode, generalLedgerProfileMapping, opts: opts);
+
                 // [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
                 GeneralLedgerProfileResponse result = apiInstance.SetGeneralLedgerProfileMappings(scope, code, generalLedgerProfileCode, generalLedgerProfileMapping);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -2938,6 +3224,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -2946,6 +3240,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PostingModuleResponse result = apiInstance.SetPostingModuleDetails(scope, code, postingModuleCode, postingModuleDetails, opts: opts);
+
                 // [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
                 PostingModuleResponse result = apiInstance.SetPostingModuleDetails(scope, code, postingModuleCode, postingModuleDetails);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3047,6 +3344,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -3055,6 +3360,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PostingModuleRulesUpdatedResponse result = apiInstance.SetPostingModuleRules(scope, code, postingModuleCode, postingModuleRule, opts: opts);
+
                 // [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
                 PostingModuleRulesUpdatedResponse result = apiInstance.SetPostingModuleRules(scope, code, postingModuleCode, postingModuleRule);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3156,6 +3464,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts to update or insert the properties onto.
             var code = "code_example";  // string | The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -3164,6 +3480,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AccountProperties result = apiInstance.UpsertAccountProperties(scope, code, accountCode, requestBody, opts: opts);
+
                 // [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
                 AccountProperties result = apiInstance.UpsertAccountProperties(scope, code, accountCode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3265,6 +3584,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.
@@ -3272,6 +3599,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AccountsUpsertResponse result = apiInstance.UpsertAccounts(scope, code, account, opts: opts);
+
                 // [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
                 AccountsUpsertResponse result = apiInstance.UpsertAccounts(scope, code, account);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -3372,6 +3702,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ChartOfAccountsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ChartOfAccountsApi>();
             var scope = "scope_example";  // string | The scope of the Chart of Accounts to update or insert the properties onto.
             var code = "code_example";  // string | The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.
@@ -3379,6 +3717,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ChartOfAccountsProperties result = apiInstance.UpsertChartOfAccountsProperties(scope, code, requestBody, opts: opts);
+
                 // [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
                 ChartOfAccountsProperties result = apiInstance.UpsertChartOfAccountsProperties(scope, code, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

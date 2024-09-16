@@ -55,12 +55,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope within which to search for the calendars
             var addBusinessDaysToDateRequest = new AddBusinessDaysToDateRequest(); // AddBusinessDaysToDateRequest | Request Details: start date, number of days to add (which can be negative, but not zero), calendar codes and optionally an AsAt date for searching the calendar store
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AddBusinessDaysToDateResponse result = apiInstance.AddBusinessDaysToDate(scope, addBusinessDaysToDateRequest, opts: opts);
+
                 // [EARLY ACCESS] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date.
                 AddBusinessDaysToDateResponse result = apiInstance.AddBusinessDaysToDate(scope, addBusinessDaysToDateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -160,6 +171,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope of the calendar
             var code = "code_example";  // string | Code of the calendar
@@ -167,6 +186,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CalendarDate result = apiInstance.AddDateToCalendar(scope, code, createDateRequest, opts: opts);
+
                 // AddDateToCalendar: Add a date to a calendar
                 CalendarDate result = apiInstance.AddDateToCalendar(scope, code, createDateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -267,11 +289,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var createCalendarRequest = new CreateCalendarRequest(); // CreateCalendarRequest | A request to create the calendar
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Calendar result = apiInstance.CreateCalendar(createCalendarRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateCalendar: Create a calendar in its generic form
                 Calendar result = apiInstance.CreateCalendar(createCalendarRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -370,12 +403,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope of the calendar
             var code = "code_example";  // string | Code of the calendar
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Calendar result = apiInstance.DeleteCalendar(scope, code, opts: opts);
+
                 // [EARLY ACCESS] DeleteCalendar: Delete a calendar
                 Calendar result = apiInstance.DeleteCalendar(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -475,6 +519,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope of the calendar
             var code = "code_example";  // string | Code of the calendar
@@ -482,6 +534,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CalendarDate result = apiInstance.DeleteDateFromCalendar(scope, code, dateId, opts: opts);
+
                 // [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar
                 CalendarDate result = apiInstance.DeleteDateFromCalendar(scope, code, dateId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -582,6 +637,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope of the calendars to use
             var valuationSchedule = new ValuationSchedule(); // ValuationSchedule | The ValuationSchedule to generate schedule dates from
@@ -589,6 +652,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<DateTimeOffset> result = apiInstance.GenerateSchedule(scope, valuationSchedule, asAt, opts: opts);
+
                 // [EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates.
                 List<DateTimeOffset> result = apiInstance.GenerateSchedule(scope, valuationSchedule, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -689,6 +755,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope of the calendar identifier
             var code = "code_example";  // string | Code of the calendar identifier
@@ -697,6 +771,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Calendar result = apiInstance.GetCalendar(scope, code, propertyKeys, asAt, opts: opts);
+
                 // GetCalendar: Get a calendar in its generic form
                 Calendar result = apiInstance.GetCalendar(scope, code, propertyKeys, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -798,6 +875,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope of the calendar
             var code = "code_example";  // string | Code of the calendar
@@ -808,6 +893,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfCalendarDate result = apiInstance.GetDates(scope, code, fromEffectiveAt, toEffectiveAt, asAt, idFilter, opts: opts);
+
                 // [EARLY ACCESS] GetDates: Get dates for a specific calendar
                 ResourceListOfCalendarDate result = apiInstance.GetDates(scope, code, fromEffectiveAt, toEffectiveAt, asAt, idFilter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -911,6 +999,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var dateTime = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset | DateTime to check - This DateTime must be UTC
             var scope = "scope_example";  // string | Scope of the calendar
@@ -919,6 +1015,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // IsBusinessDayResponse result = apiInstance.IsBusinessDateTime(dateTime, scope, code, asAt, opts: opts);
+
                 // [EARLY ACCESS] IsBusinessDateTime: Check whether a DateTime is a \"Business DateTime\"
                 IsBusinessDayResponse result = apiInstance.IsBusinessDateTime(dateTime, scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1020,6 +1119,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendars (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
@@ -1029,6 +1136,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfCalendar result = apiInstance.ListCalendars(asAt, page, limit, propertyKeys, filter, opts: opts);
+
                 // [EARLY ACCESS] ListCalendars: List Calendars
                 PagedResourceListOfCalendar result = apiInstance.ListCalendars(asAt, page, limit, propertyKeys, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1131,6 +1241,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope of the calendars
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendars (optional) 
@@ -1141,6 +1259,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfCalendar result = apiInstance.ListCalendarsInScope(scope, asAt, page, limit, propertyKeys, filter, opts: opts);
+
                 // ListCalendarsInScope: List all calenders in a specified scope
                 PagedResourceListOfCalendar result = apiInstance.ListCalendarsInScope(scope, asAt, page, limit, propertyKeys, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1244,6 +1365,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope of the request
             var code = "code_example";  // string | Code of the request
@@ -1251,6 +1380,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Calendar result = apiInstance.UpdateCalendar(scope, code, updateCalendarRequest, opts: opts);
+
                 // [EARLY ACCESS] UpdateCalendar: Update a calendar
                 Calendar result = apiInstance.UpdateCalendar(scope, code, updateCalendarRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

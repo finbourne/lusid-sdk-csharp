@@ -54,12 +54,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var side = "side_example";  // string | The label to uniquely identify the side.
             var scope = "\"default\"";  // string? | The scope in which the side exists. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteSideDefinition(side, scope, opts: opts);
+
                 // DeleteSideDefinition: Delete the given side definition
                 DeletedEntityResponse result = apiInstance.DeleteSideDefinition(side, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -159,6 +170,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var source = "source_example";  // string | The source that the type is in
             var type = "type_example";  // string | One of the type's aliases
@@ -166,6 +185,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteTransactionType(source, type, scope, opts: opts);
+
                 // DeleteTransactionType: Delete a transaction type
                 DeletedEntityResponse result = apiInstance.DeleteTransactionType(source, type, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -266,12 +288,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var source = "source_example";  // string | The source to set the transaction types for.
             var scope = "\"default\"";  // string? | The scope in which the transaction types exists. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteTransactionTypeSource(source, scope, opts: opts);
+
                 // DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
                 DeletedEntityResponse result = apiInstance.DeleteTransactionTypeSource(source, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -371,6 +404,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var side = "side_example";  // string | The label to uniquely identify the side.
             var scope = "\"default\"";  // string? | The scope in which the side exists. When not supplied the scope is 'default'. (optional)  (default to "default")
@@ -378,6 +419,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // SideDefinition result = apiInstance.GetSideDefinition(side, scope, asAt, opts: opts);
+
                 // GetSideDefinition: Get the side definition for a given side name( or label)
                 SideDefinition result = apiInstance.GetSideDefinition(side, scope, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -478,6 +522,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var source = "source_example";  // string | The source that the type is in
             var type = "type_example";  // string | One of the type's aliases
@@ -486,6 +538,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionType result = apiInstance.GetTransactionType(source, type, asAt, scope, opts: opts);
+
                 // GetTransactionType: Get a single transaction configuration type
                 TransactionType result = apiInstance.GetTransactionType(source, type, asAt, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -587,12 +642,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional) 
             var scope = "\"default\"";  // string? | The scope in which the side exists. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfSideDefinition result = apiInstance.ListSideDefinitions(asAt, scope, opts: opts);
+
                 // ListSideDefinitions: List the side definitions
                 ResourceListOfSideDefinition result = apiInstance.ListSideDefinitions(asAt, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -692,12 +758,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional) 
             var scope = "\"default\"";  // string? | The scope in which the side exists. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, List<TransactionType>> result = apiInstance.ListTransactionTypes(asAt, scope, opts: opts);
+
                 // ListTransactionTypes: List transaction types
                 Dictionary<string, List<TransactionType>> result = apiInstance.ListTransactionTypes(asAt, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -797,6 +874,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var side = "side_example";  // string | The label to uniquely identify the side.
             var sideDefinitionRequest = new SideDefinitionRequest(); // SideDefinitionRequest | The side definition to create or replace.
@@ -804,6 +889,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // SideDefinition result = apiInstance.SetSideDefinition(side, sideDefinitionRequest, scope, opts: opts);
+
                 // SetSideDefinition: Set a side definition
                 SideDefinition result = apiInstance.SetSideDefinition(side, sideDefinitionRequest, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -904,12 +992,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var sidesDefinitionRequest = new List<SidesDefinitionRequest>(); // List<SidesDefinitionRequest> | The list of side definitions to create, or replace.
             var scope = "\"default\"";  // string? | The scope in which the side exists. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfSideDefinition result = apiInstance.SetSideDefinitions(sidesDefinitionRequest, scope, opts: opts);
+
                 // SetSideDefinitions: Set the given side definitions
                 ResourceListOfSideDefinition result = apiInstance.SetSideDefinitions(sidesDefinitionRequest, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1009,6 +1108,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var source = "source_example";  // string | The source to set the transaction configuration for
             var type = "type_example";  // string | One of the transaction configuration alias types to uniquely identify the configuration. If this type does not exist, then a new transaction type is created using the body of the request in the given source, without including this type
@@ -1017,6 +1124,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // TransactionType result = apiInstance.SetTransactionType(source, type, transactionTypeRequest, scope, opts: opts);
+
                 // SetTransactionType: Set a specific transaction type
                 TransactionType result = apiInstance.SetTransactionType(source, type, transactionTypeRequest, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1118,6 +1228,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionConfigurationApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var source = "source_example";  // string | The source to set the transaction types for.
             var transactionTypeRequest = new List<TransactionTypeRequest>(); // List<TransactionTypeRequest> | The set of transaction types.
@@ -1125,6 +1243,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfTransactionType result = apiInstance.SetTransactionTypeSource(source, transactionTypeRequest, scope, opts: opts);
+
                 // SetTransactionTypeSource: Set the transaction types for the given source and scope
                 ResourceListOfTransactionType result = apiInstance.SetTransactionTypeSource(source, transactionTypeRequest, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
