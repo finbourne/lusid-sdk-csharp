@@ -27,7 +27,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**GetPortfolioCashFlows**](TransactionPortfoliosApi.md#getportfoliocashflows) | **GET** /api/transactionportfolios/{scope}/{code}/cashflows | GetPortfolioCashFlows: Get portfolio cash flows |
 | [**GetPortfolioCashLadder**](TransactionPortfoliosApi.md#getportfoliocashladder) | **GET** /api/transactionportfolios/{scope}/{code}/cashladder | GetPortfolioCashLadder: Get portfolio cash ladder |
 | [**GetPortfolioCashStatement**](TransactionPortfoliosApi.md#getportfoliocashstatement) | **GET** /api/transactionportfolios/{scope}/{code}/cashstatement | GetPortfolioCashStatement: Get portfolio cash statement |
-| [**GetTransactionHistory**](TransactionPortfoliosApi.md#gettransactionhistory) | **GET** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/history | [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction |
+| [**GetTransactionHistory**](TransactionPortfoliosApi.md#gettransactionhistory) | **GET** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/history | GetTransactionHistory: Get the history of a transaction |
 | [**GetTransactions**](TransactionPortfoliosApi.md#gettransactions) | **GET** /api/transactionportfolios/{scope}/{code}/transactions | GetTransactions: Get transactions |
 | [**GetUpsertablePortfolioCashFlows**](TransactionPortfoliosApi.md#getupsertableportfoliocashflows) | **GET** /api/transactionportfolios/{scope}/{code}/upsertablecashflows | GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows. |
 | [**ListCustodianAccounts**](TransactionPortfoliosApi.md#listcustodianaccounts) | **GET** /api/transactionportfolios/{scope}/{code}/custodianaccounts | [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts |
@@ -2899,7 +2899,7 @@ catch (ApiException e)
 # **GetTransactionHistory**
 > ResourceListOfChangeHistory GetTransactionHistory (string scope, string code, string transactionId, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetTransactionHistory: Get the history of a transaction
+GetTransactionHistory: Get the history of a transaction
 
 Get all of the changes that have happened to a transaction.
 
@@ -2952,7 +2952,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfChangeHistory result = apiInstance.GetTransactionHistory(scope, code, transactionId, asAt, opts: opts);
 
-                // [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction
+                // GetTransactionHistory: Get the history of a transaction
                 ResourceListOfChangeHistory result = apiInstance.GetTransactionHistory(scope, code, transactionId, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2973,7 +2973,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction
+    // GetTransactionHistory: Get the history of a transaction
     ApiResponse<ResourceListOfChangeHistory> response = apiInstance.GetTransactionHistoryWithHttpInfo(scope, code, transactionId, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

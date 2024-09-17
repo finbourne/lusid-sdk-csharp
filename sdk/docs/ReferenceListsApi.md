@@ -5,7 +5,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**DeleteReferenceList**](ReferenceListsApi.md#deletereferencelist) | **DELETE** /api/referencelists/{scope}/{code} | [EARLY ACCESS] DeleteReferenceList: Delete Reference List |
-| [**GetReferenceList**](ReferenceListsApi.md#getreferencelist) | **GET** /api/referencelists/{scope}/{code} | [EARLY ACCESS] GetReferenceList: Get Reference List |
+| [**GetReferenceList**](ReferenceListsApi.md#getreferencelist) | **GET** /api/referencelists/{scope}/{code} | GetReferenceList: Get Reference List |
 | [**ListReferenceLists**](ReferenceListsApi.md#listreferencelists) | **GET** /api/referencelists | [EARLY ACCESS] ListReferenceLists: List Reference Lists |
 | [**UpsertReferenceList**](ReferenceListsApi.md#upsertreferencelist) | **POST** /api/referencelists | [EARLY ACCESS] UpsertReferenceList: Upsert Reference List |
 
@@ -129,7 +129,7 @@ catch (ApiException e)
 # **GetReferenceList**
 > ReferenceListResponse GetReferenceList (string scope, string code, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetReferenceList: Get Reference List
+GetReferenceList: Get Reference List
 
 Retrieve a Reference List instance at a point in AsAt time.
 
@@ -181,7 +181,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ReferenceListResponse result = apiInstance.GetReferenceList(scope, code, asAt, opts: opts);
 
-                // [EARLY ACCESS] GetReferenceList: Get Reference List
+                // GetReferenceList: Get Reference List
                 ReferenceListResponse result = apiInstance.GetReferenceList(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -202,7 +202,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetReferenceList: Get Reference List
+    // GetReferenceList: Get Reference List
     ApiResponse<ReferenceListResponse> response = apiInstance.GetReferenceListWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

@@ -53,7 +53,8 @@ namespace Lusid.Sdk.Model
         /// <param name="orderId">orderId.</param>
         /// <param name="allocationId">allocationId.</param>
         /// <param name="custodianAccountId">custodianAccountId.</param>
-        public TransactionRequest(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOrCutLabel transactionDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel settlementDate = default(DateTimeOrCutLabel), decimal units = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), ResourceId custodianAccountId = default(ResourceId))
+        /// <param name="transactionGroupId">The identifier for grouping economic events across multiple transactions.</param>
+        public TransactionRequest(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOrCutLabel transactionDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel settlementDate = default(DateTimeOrCutLabel), decimal units = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), ResourceId custodianAccountId = default(ResourceId), string transactionGroupId = default(string))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -102,6 +103,7 @@ namespace Lusid.Sdk.Model
             this.OrderId = orderId;
             this.AllocationId = allocationId;
             this.CustodianAccountId = custodianAccountId;
+            this.TransactionGroupId = transactionGroupId;
         }
 
         /// <summary>
@@ -218,6 +220,13 @@ namespace Lusid.Sdk.Model
         public ResourceId CustodianAccountId { get; set; }
 
         /// <summary>
+        /// The identifier for grouping economic events across multiple transactions
+        /// </summary>
+        /// <value>The identifier for grouping economic events across multiple transactions</value>
+        [DataMember(Name = "transactionGroupId", EmitDefaultValue = true)]
+        public string TransactionGroupId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -242,6 +251,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  AllocationId: ").Append(AllocationId).Append("\n");
             sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
+            sb.Append("  TransactionGroupId: ").Append(TransactionGroupId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -362,6 +372,11 @@ namespace Lusid.Sdk.Model
                     this.CustodianAccountId == input.CustodianAccountId ||
                     (this.CustodianAccountId != null &&
                     this.CustodianAccountId.Equals(input.CustodianAccountId))
+                ) && 
+                (
+                    this.TransactionGroupId == input.TransactionGroupId ||
+                    (this.TransactionGroupId != null &&
+                    this.TransactionGroupId.Equals(input.TransactionGroupId))
                 );
         }
 
@@ -439,6 +454,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CustodianAccountId.GetHashCode();
                 }
+                if (this.TransactionGroupId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionGroupId.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -472,6 +491,18 @@ namespace Lusid.Sdk.Model
             if (this.SettlementDate != null && this.SettlementDate.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementDate, length must be greater than 1.", new [] { "SettlementDate" });
+            }
+
+            // TransactionGroupId (string) maxLength
+            if (this.TransactionGroupId != null && this.TransactionGroupId.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionGroupId, length must be less than 64.", new [] { "TransactionGroupId" });
+            }
+
+            // TransactionGroupId (string) minLength
+            if (this.TransactionGroupId != null && this.TransactionGroupId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionGroupId, length must be greater than 1.", new [] { "TransactionGroupId" });
             }
 
             yield break;

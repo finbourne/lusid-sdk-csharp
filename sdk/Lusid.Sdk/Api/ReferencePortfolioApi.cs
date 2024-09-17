@@ -125,6 +125,35 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfConstituentsAdjustmentHeader</returns>
         ApiResponse<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
+        /// </summary>
+        /// <remarks>
+        /// Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
+        /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>UpsertReferencePortfolioConstituentPropertiesResponse</returns>
+        UpsertReferencePortfolioConstituentPropertiesResponse UpsertReferencePortfolioConstituentProperties(string scope, string code, UpsertReferencePortfolioConstituentPropertiesRequest upsertReferencePortfolioConstituentPropertiesRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
+        /// </summary>
+        /// <remarks>
+        /// Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
+        /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of UpsertReferencePortfolioConstituentPropertiesResponse</returns>
+        ApiResponse<UpsertReferencePortfolioConstituentPropertiesResponse> UpsertReferencePortfolioConstituentPropertiesWithHttpInfo(string scope, string code, UpsertReferencePortfolioConstituentPropertiesRequest upsertReferencePortfolioConstituentPropertiesRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents
         /// </summary>
         /// <remarks>
@@ -261,6 +290,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfConstituentsAdjustmentHeader)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfConstituentsAdjustmentHeader>> ListConstituentsAdjustmentsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
+        /// </summary>
+        /// <remarks>
+        /// Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
+        /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of UpsertReferencePortfolioConstituentPropertiesResponse</returns>
+        System.Threading.Tasks.Task<UpsertReferencePortfolioConstituentPropertiesResponse> UpsertReferencePortfolioConstituentPropertiesAsync(string scope, string code, UpsertReferencePortfolioConstituentPropertiesRequest upsertReferencePortfolioConstituentPropertiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
+        /// </summary>
+        /// <remarks>
+        /// Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
+        /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (UpsertReferencePortfolioConstituentPropertiesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpsertReferencePortfolioConstituentPropertiesResponse>> UpsertReferencePortfolioConstituentPropertiesWithHttpInfoAsync(string scope, string code, UpsertReferencePortfolioConstituentPropertiesRequest upsertReferencePortfolioConstituentPropertiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents
         /// </summary>
@@ -1164,6 +1224,254 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListConstituentsAdjustments", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
+        /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>UpsertReferencePortfolioConstituentPropertiesResponse</returns>
+        public UpsertReferencePortfolioConstituentPropertiesResponse UpsertReferencePortfolioConstituentProperties(string scope, string code, UpsertReferencePortfolioConstituentPropertiesRequest upsertReferencePortfolioConstituentPropertiesRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<UpsertReferencePortfolioConstituentPropertiesResponse> localVarResponse = UpsertReferencePortfolioConstituentPropertiesWithHttpInfo(scope, code, upsertReferencePortfolioConstituentPropertiesRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
+        /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of UpsertReferencePortfolioConstituentPropertiesResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<UpsertReferencePortfolioConstituentPropertiesResponse> UpsertReferencePortfolioConstituentPropertiesWithHttpInfo(string scope, string code, UpsertReferencePortfolioConstituentPropertiesRequest upsertReferencePortfolioConstituentPropertiesRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ReferencePortfolioApi->UpsertReferencePortfolioConstituentProperties");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ReferencePortfolioApi->UpsertReferencePortfolioConstituentProperties");
+            }
+
+            // verify the required parameter 'upsertReferencePortfolioConstituentPropertiesRequest' is set
+            if (upsertReferencePortfolioConstituentPropertiesRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'upsertReferencePortfolioConstituentPropertiesRequest' when calling ReferencePortfolioApi->UpsertReferencePortfolioConstituentProperties");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = upsertReferencePortfolioConstituentPropertiesRequest;
+
+            localVarRequestOptions.Operation = "ReferencePortfolioApi.UpsertReferencePortfolioConstituentProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<UpsertReferencePortfolioConstituentPropertiesResponse>("/api/referenceportfolios/{scope}/{code}/constituents/properties", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertReferencePortfolioConstituentProperties", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
+        /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of UpsertReferencePortfolioConstituentPropertiesResponse</returns>
+        public async System.Threading.Tasks.Task<UpsertReferencePortfolioConstituentPropertiesResponse> UpsertReferencePortfolioConstituentPropertiesAsync(string scope, string code, UpsertReferencePortfolioConstituentPropertiesRequest upsertReferencePortfolioConstituentPropertiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<UpsertReferencePortfolioConstituentPropertiesResponse> localVarResponse = await UpsertReferencePortfolioConstituentPropertiesWithHttpInfoAsync(scope, code, upsertReferencePortfolioConstituentPropertiesRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
+        /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (UpsertReferencePortfolioConstituentPropertiesResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertReferencePortfolioConstituentPropertiesResponse>> UpsertReferencePortfolioConstituentPropertiesWithHttpInfoAsync(string scope, string code, UpsertReferencePortfolioConstituentPropertiesRequest upsertReferencePortfolioConstituentPropertiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ReferencePortfolioApi->UpsertReferencePortfolioConstituentProperties");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ReferencePortfolioApi->UpsertReferencePortfolioConstituentProperties");
+            }
+
+            // verify the required parameter 'upsertReferencePortfolioConstituentPropertiesRequest' is set
+            if (upsertReferencePortfolioConstituentPropertiesRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'upsertReferencePortfolioConstituentPropertiesRequest' when calling ReferencePortfolioApi->UpsertReferencePortfolioConstituentProperties");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = upsertReferencePortfolioConstituentPropertiesRequest;
+
+            localVarRequestOptions.Operation = "ReferencePortfolioApi.UpsertReferencePortfolioConstituentProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<UpsertReferencePortfolioConstituentPropertiesResponse>("/api/referenceportfolios/{scope}/{code}/constituents/properties", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertReferencePortfolioConstituentProperties", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

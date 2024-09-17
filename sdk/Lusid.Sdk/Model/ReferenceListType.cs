@@ -68,7 +68,13 @@ namespace Lusid.Sdk.Model
         /// Enum PropertyList for value: PropertyList
         /// </summary>
         [EnumMember(Value = "PropertyList")]
-        PropertyList = 7
+        PropertyList = 7,
+
+        /// <summary>
+        /// Enum FundIdList for value: FundIdList
+        /// </summary>
+        [EnumMember(Value = "FundIdList")]
+        FundIdList = 8
 
     }
 

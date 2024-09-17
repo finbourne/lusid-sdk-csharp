@@ -32,7 +32,7 @@ Class | Method | HTTP request | Description
 *AggregationApi* | [**GetValuationOfWeightedInstruments**](docs/AggregationApi.md#getvaluationofweightedinstruments) | **POST** /api/aggregation/$valuationinlined | GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio
 *AllocationsApi* | [**DeleteAllocation**](docs/AllocationsApi.md#deleteallocation) | **DELETE** /api/allocations/{scope}/{code} | [EARLY ACCESS] DeleteAllocation: Delete allocation
 *AllocationsApi* | [**GetAllocation**](docs/AllocationsApi.md#getallocation) | **GET** /api/allocations/{scope}/{code} | [EARLY ACCESS] GetAllocation: Get Allocation
-*AllocationsApi* | [**ListAllocations**](docs/AllocationsApi.md#listallocations) | **GET** /api/allocations | [EARLY ACCESS] ListAllocations: List Allocations
+*AllocationsApi* | [**ListAllocations**](docs/AllocationsApi.md#listallocations) | **GET** /api/allocations | ListAllocations: List Allocations
 *AllocationsApi* | [**UpsertAllocations**](docs/AllocationsApi.md#upsertallocations) | **POST** /api/allocations | UpsertAllocations: Upsert Allocations
 *AmortisationRuleSetsApi* | [**CreateAmortisationRuleSet**](docs/AmortisationRuleSetsApi.md#createamortisationruleset) | **POST** /api/amortisation/rulesets/{scope} | [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set.
 *AmortisationRuleSetsApi* | [**DeleteAmortisationRuleset**](docs/AmortisationRuleSetsApi.md#deleteamortisationruleset) | **DELETE** /api/amortisation/rulesets/{scope}/{code} | [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
@@ -80,6 +80,7 @@ Class | Method | HTTP request | Description
 *ChartOfAccountsApi* | [**ListGeneralLedgerProfiles**](docs/ChartOfAccountsApi.md#listgeneralledgerprofiles) | **GET** /api/chartofaccounts/{scope}/{code}/generalledgerprofile | [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
 *ChartOfAccountsApi* | [**ListPostingModuleRules**](docs/ChartOfAccountsApi.md#listpostingmodulerules) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}/postingrules | [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
 *ChartOfAccountsApi* | [**ListPostingModules**](docs/ChartOfAccountsApi.md#listpostingmodules) | **GET** /api/chartofaccounts/{scope}/{code}/postingmodules | [EXPERIMENTAL] ListPostingModules: List Posting Modules
+*ChartOfAccountsApi* | [**PatchChartOfAccounts**](docs/ChartOfAccountsApi.md#patchchartofaccounts) | **PATCH** /api/chartofaccounts/{scope}/{code} | [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts.
 *ChartOfAccountsApi* | [**PatchCleardownModule**](docs/ChartOfAccountsApi.md#patchcleardownmodule) | **PATCH** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode} | [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
 *ChartOfAccountsApi* | [**PatchPostingModule**](docs/ChartOfAccountsApi.md#patchpostingmodule) | **PATCH** /api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode} | [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
 *ChartOfAccountsApi* | [**SetCleardownModuleDetails**](docs/ChartOfAccountsApi.md#setcleardownmoduledetails) | **PUT** /api/chartofaccounts/{scope}/{code}/cleardownmodules/{cleardownModuleCode} | [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
@@ -149,7 +150,7 @@ Class | Method | HTTP request | Description
 *CounterpartiesApi* | [**ListCreditSupportAnnexes**](docs/CounterpartiesApi.md#listcreditsupportannexes) | **GET** /api/counterparties/creditsupportannexes | [EARLY ACCESS] ListCreditSupportAnnexes: List the set of Credit Support Annexes
 *CounterpartiesApi* | [**UpsertCounterpartyAgreement**](docs/CounterpartiesApi.md#upsertcounterpartyagreement) | **POST** /api/counterparties/counterpartyagreements | [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
 *CounterpartiesApi* | [**UpsertCreditSupportAnnex**](docs/CounterpartiesApi.md#upsertcreditsupportannex) | **POST** /api/counterparties/creditsupportannexes | [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
-*CustomEntitiesApi* | [**DeleteCustomEntity**](docs/CustomEntitiesApi.md#deletecustomentity) | **DELETE** /api/customentities/{entityType}/{identifierType}/{identifierValue} | [EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance.
+*CustomEntitiesApi* | [**DeleteCustomEntity**](docs/CustomEntitiesApi.md#deletecustomentity) | **DELETE** /api/customentities/{entityType}/{identifierType}/{identifierValue} | DeleteCustomEntity: Delete a Custom Entity instance.
 *CustomEntitiesApi* | [**DeleteCustomEntityAccessMetadata**](docs/CustomEntitiesApi.md#deletecustomentityaccessmetadata) | **DELETE** /api/customentities/{entityType}/{identifierType}/{identifierValue}/metadata/{metadataKey} | [EARLY ACCESS] DeleteCustomEntityAccessMetadata: Delete a Custom Entity Access Metadata entry
 *CustomEntitiesApi* | [**GetAllCustomEntityAccessMetadata**](docs/CustomEntitiesApi.md#getallcustomentityaccessmetadata) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/metadata | [EARLY ACCESS] GetAllCustomEntityAccessMetadata: Get all the Access Metadata rules for a Custom Entity
 *CustomEntitiesApi* | [**GetCustomEntity**](docs/CustomEntitiesApi.md#getcustomentity) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue} | GetCustomEntity: Get a Custom Entity instance.
@@ -199,11 +200,11 @@ Class | Method | HTTP request | Description
 *FeeTypesApi* | [**GetFeeType**](docs/FeeTypesApi.md#getfeetype) | **GET** /api/feetypes/{scope}/{code} | [EXPERIMENTAL] GetFeeType: Get a FeeType
 *FeeTypesApi* | [**ListFeeTypes**](docs/FeeTypesApi.md#listfeetypes) | **GET** /api/feetypes | [EXPERIMENTAL] ListFeeTypes: List FeeTypes
 *FeeTypesApi* | [**UpdateFeeType**](docs/FeeTypesApi.md#updatefeetype) | **PUT** /api/feetypes/{scope}/{code} | [EXPERIMENTAL] UpdateFeeType: Update a FeeType.
-*FundConfigurationsApi* | [**CreateFundConfiguration**](docs/FundConfigurationsApi.md#createfundconfiguration) | **POST** /api/fundconfigurations/{scope} | [EXPERIMENTAL] CreateFundConfiguration: Create a FundConfiguration.
-*FundConfigurationsApi* | [**DeleteFundConfiguration**](docs/FundConfigurationsApi.md#deletefundconfiguration) | **DELETE** /api/fundconfigurations/{scope}/{code} | [EXPERIMENTAL] DeleteFundConfiguration: Delete a FundConfiguration.
-*FundConfigurationsApi* | [**GetFundConfiguration**](docs/FundConfigurationsApi.md#getfundconfiguration) | **GET** /api/fundconfigurations/{scope}/{code} | [EXPERIMENTAL] GetFundConfiguration: Get FundConfiguration.
-*FundConfigurationsApi* | [**ListFundConfigurations**](docs/FundConfigurationsApi.md#listfundconfigurations) | **GET** /api/fundconfigurations | [EXPERIMENTAL] ListFundConfigurations: List FundConfiguration.
-*FundConfigurationsApi* | [**UpsertFundConfigurationProperties**](docs/FundConfigurationsApi.md#upsertfundconfigurationproperties) | **POST** /api/fundconfigurations/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundConfigurationProperties: Upsert FundConfiguration properties
+*FundConfigurationEntitiesApi* | [**CreateFundConfiguration**](docs/FundConfigurationEntitiesApi.md#createfundconfiguration) | **POST** /api/fundconfigurations/{scope} | [EXPERIMENTAL] CreateFundConfiguration: Create a FundConfiguration.
+*FundConfigurationEntitiesApi* | [**DeleteFundConfiguration**](docs/FundConfigurationEntitiesApi.md#deletefundconfiguration) | **DELETE** /api/fundconfigurations/{scope}/{code} | [EXPERIMENTAL] DeleteFundConfiguration: Delete a FundConfiguration.
+*FundConfigurationEntitiesApi* | [**GetFundConfiguration**](docs/FundConfigurationEntitiesApi.md#getfundconfiguration) | **GET** /api/fundconfigurations/{scope}/{code} | [EXPERIMENTAL] GetFundConfiguration: Get FundConfiguration.
+*FundConfigurationEntitiesApi* | [**ListFundConfigurations**](docs/FundConfigurationEntitiesApi.md#listfundconfigurations) | **GET** /api/fundconfigurations | [EXPERIMENTAL] ListFundConfigurations: List FundConfiguration.
+*FundConfigurationEntitiesApi* | [**UpsertFundConfigurationProperties**](docs/FundConfigurationEntitiesApi.md#upsertfundconfigurationproperties) | **POST** /api/fundconfigurations/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundConfigurationProperties: Upsert FundConfiguration properties
 *FundsApi* | [**AcceptEstimateValuationPoint**](docs/FundsApi.md#acceptestimatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$acceptestimate | [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
 *FundsApi* | [**CreateFee**](docs/FundsApi.md#createfee) | **POST** /api/funds/{scope}/{code}/fees | [EXPERIMENTAL] CreateFee: Create a Fee.
 *FundsApi* | [**CreateFund**](docs/FundsApi.md#createfund) | **POST** /api/funds/{scope} | [EXPERIMENTAL] CreateFund: Create a Fund.
@@ -223,8 +224,15 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**UpsertFeeProperties**](docs/FundsApi.md#upsertfeeproperties) | **POST** /api/funds/{scope}/{code}/fees/{feeCode}/properties/$upsert | [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
 *FundsApi* | [**UpsertFundProperties**](docs/FundsApi.md#upsertfundproperties) | **POST** /api/funds/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties.
 *GroupReconciliationsApi* | [**CreateComparisonRuleset**](docs/GroupReconciliationsApi.md#createcomparisonruleset) | **POST** /api/reconciliations/comparisonrulesets | [EXPERIMENTAL] CreateComparisonRuleset: Create a Group Reconciliation Comparison Ruleset
+*GroupReconciliationsApi* | [**CreateGroupReconciliationDefinition**](docs/GroupReconciliationsApi.md#creategroupreconciliationdefinition) | **POST** /api/reconciliations/groupreconciliationdefinitions | [EXPERIMENTAL] CreateGroupReconciliationDefinition: Create Group Reconciliation Definition
 *GroupReconciliationsApi* | [**DeleteComparisonRuleset**](docs/GroupReconciliationsApi.md#deletecomparisonruleset) | **DELETE** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset
+*GroupReconciliationsApi* | [**DeleteGroupReconciliationDefinition**](docs/GroupReconciliationsApi.md#deletegroupreconciliationdefinition) | **DELETE** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code} | [EXPERIMENTAL] DeleteGroupReconciliationDefinition: Delete Group Reconciliation Definition
 *GroupReconciliationsApi* | [**GetComparisonRuleset**](docs/GroupReconciliationsApi.md#getcomparisonruleset) | **GET** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] GetComparisonRuleset: Get a single Group Reconciliation Comparison Ruleset by scope and code
+*GroupReconciliationsApi* | [**GetGroupReconciliationDefinition**](docs/GroupReconciliationsApi.md#getgroupreconciliationdefinition) | **GET** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code} | [EXPERIMENTAL] GetGroupReconciliationDefinition: Get group reconciliation definition
+*GroupReconciliationsApi* | [**ListComparisonRulesets**](docs/GroupReconciliationsApi.md#listcomparisonrulesets) | **GET** /api/reconciliations/comparisonrulesets | [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets
+*GroupReconciliationsApi* | [**ListGroupReconciliationDefinitions**](docs/GroupReconciliationsApi.md#listgroupreconciliationdefinitions) | **GET** /api/reconciliations/groupreconciliationdefinitions | [EXPERIMENTAL] ListGroupReconciliationDefinitions: List group reconciliation definitions
+*GroupReconciliationsApi* | [**UpdateComparisonRuleset**](docs/GroupReconciliationsApi.md#updatecomparisonruleset) | **PUT** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code
+*GroupReconciliationsApi* | [**UpdateGroupReconciliationDefinition**](docs/GroupReconciliationsApi.md#updategroupreconciliationdefinition) | **PUT** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateGroupReconciliationDefinition: Update group reconciliation definition
 *InstrumentEventTypesApi* | [**CreateTransactionTemplate**](docs/InstrumentEventTypesApi.md#createtransactiontemplate) | **POST** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
 *InstrumentEventTypesApi* | [**DeleteTransactionTemplate**](docs/InstrumentEventTypesApi.md#deletetransactiontemplate) | **DELETE** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
 *InstrumentEventTypesApi* | [**GetTransactionTemplate**](docs/InstrumentEventTypesApi.md#gettransactiontemplate) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
@@ -237,7 +245,7 @@ Class | Method | HTTP request | Description
 *InstrumentEventsApi* | [**QueryCashFlows**](docs/InstrumentEventsApi.md#querycashflows) | **POST** /api/instrumentevents/$queryCashFlows | [EXPERIMENTAL] QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
 *InstrumentEventsApi* | [**QueryInstrumentEvents**](docs/InstrumentEventsApi.md#queryinstrumentevents) | **POST** /api/instrumentevents/$query | [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
 *InstrumentEventsApi* | [**QueryTradeTickets**](docs/InstrumentEventsApi.md#querytradetickets) | **POST** /api/instrumentevents/$queryTradeTickets | [EXPERIMENTAL] QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
-*InstrumentsApi* | [**BatchUpsertInstrumentProperties**](docs/InstrumentsApi.md#batchupsertinstrumentproperties) | **POST** /api/instruments/$batchupsertproperties | [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
+*InstrumentsApi* | [**BatchUpsertInstrumentProperties**](docs/InstrumentsApi.md#batchupsertinstrumentproperties) | **POST** /api/instruments/$batchupsertproperties | BatchUpsertInstrumentProperties: Batch upsert instruments properties
 *InstrumentsApi* | [**DeleteInstrument**](docs/InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | DeleteInstrument: Soft delete a single instrument
 *InstrumentsApi* | [**DeleteInstrumentProperties**](docs/InstrumentsApi.md#deleteinstrumentproperties) | **POST** /api/instruments/{identifierType}/{identifier}/properties/$delete | [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
 *InstrumentsApi* | [**DeleteInstruments**](docs/InstrumentsApi.md#deleteinstruments) | **POST** /api/instruments/$delete | DeleteInstruments: Soft or hard delete multiple instruments
@@ -247,8 +255,8 @@ Class | Method | HTTP request | Description
 *InstrumentsApi* | [**GetInstrument**](docs/InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | GetInstrument: Get instrument
 *InstrumentsApi* | [**GetInstrumentIdentifierTypes**](docs/InstrumentsApi.md#getinstrumentidentifiertypes) | **GET** /api/instruments/identifierTypes | GetInstrumentIdentifierTypes: Get instrument identifier types
 *InstrumentsApi* | [**GetInstrumentPaymentDiary**](docs/InstrumentsApi.md#getinstrumentpaymentdiary) | **GET** /api/instruments/{identifierType}/{identifier}/paymentdiary | [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
-*InstrumentsApi* | [**GetInstrumentProperties**](docs/InstrumentsApi.md#getinstrumentproperties) | **GET** /api/instruments/{identifierType}/{identifier}/properties | [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
-*InstrumentsApi* | [**GetInstrumentPropertyTimeSeries**](docs/InstrumentsApi.md#getinstrumentpropertytimeseries) | **GET** /api/instruments/{identifierType}/{identifier}/properties/time-series | [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
+*InstrumentsApi* | [**GetInstrumentProperties**](docs/InstrumentsApi.md#getinstrumentproperties) | **GET** /api/instruments/{identifierType}/{identifier}/properties | GetInstrumentProperties: Get instrument properties
+*InstrumentsApi* | [**GetInstrumentPropertyTimeSeries**](docs/InstrumentsApi.md#getinstrumentpropertytimeseries) | **GET** /api/instruments/{identifierType}/{identifier}/properties/time-series | GetInstrumentPropertyTimeSeries: Get instrument property time series
 *InstrumentsApi* | [**GetInstrumentRelationships**](docs/InstrumentsApi.md#getinstrumentrelationships) | **GET** /api/instruments/{identifierType}/{identifier}/relationships | [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
 *InstrumentsApi* | [**GetInstruments**](docs/InstrumentsApi.md#getinstruments) | **POST** /api/instruments/$get | GetInstruments: Get instruments
 *InstrumentsApi* | [**ListInstrumentProperties**](docs/InstrumentsApi.md#listinstrumentproperties) | **GET** /api/instruments/{identifierType}/{identifier}/properties/list | [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
@@ -266,7 +274,7 @@ Class | Method | HTTP request | Description
 *LegacyComplianceApi* | [**RunLegacyCompliance**](docs/LegacyComplianceApi.md#runlegacycompliance) | **POST** /api/legacy/compliance/runs | [EXPERIMENTAL] RunLegacyCompliance: Kick off the compliance check process
 *LegacyComplianceApi* | [**UpsertLegacyComplianceRules**](docs/LegacyComplianceApi.md#upsertlegacycompliancerules) | **POST** /api/legacy/compliance/rules | [EXPERIMENTAL] UpsertLegacyComplianceRules: Upsert compliance rules.
 *LegalEntitiesApi* | [**DeleteLegalEntity**](docs/LegalEntitiesApi.md#deletelegalentity) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | DeleteLegalEntity: Delete Legal Entity
-*LegalEntitiesApi* | [**DeleteLegalEntityAccessMetadata**](docs/LegalEntitiesApi.md#deletelegalentityaccessmetadata) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeleteLegalEntityAccessMetadata: Delete a Legal Entity Access Metadata entry
+*LegalEntitiesApi* | [**DeleteLegalEntityAccessMetadata**](docs/LegalEntitiesApi.md#deletelegalentityaccessmetadata) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | DeleteLegalEntityAccessMetadata: Delete a Legal Entity Access Metadata entry
 *LegalEntitiesApi* | [**DeleteLegalEntityIdentifiers**](docs/LegalEntitiesApi.md#deletelegalentityidentifiers) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EARLY ACCESS] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers
 *LegalEntitiesApi* | [**DeleteLegalEntityProperties**](docs/LegalEntitiesApi.md#deletelegalentityproperties) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties | [EARLY ACCESS] DeleteLegalEntityProperties: Delete Legal Entity Properties
 *LegalEntitiesApi* | [**GetAllLegalEntityAccessMetadata**](docs/LegalEntitiesApi.md#getalllegalentityaccessmetadata) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata | GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
@@ -282,10 +290,10 @@ Class | Method | HTTP request | Description
 *LegalEntitiesApi* | [**SetLegalEntityProperties**](docs/LegalEntitiesApi.md#setlegalentityproperties) | **POST** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties | SetLegalEntityProperties: Set Legal Entity Properties
 *LegalEntitiesApi* | [**UpsertLegalEntities**](docs/LegalEntitiesApi.md#upsertlegalentities) | **POST** /api/legalentities/$batchUpsert | [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities
 *LegalEntitiesApi* | [**UpsertLegalEntity**](docs/LegalEntitiesApi.md#upsertlegalentity) | **POST** /api/legalentities | UpsertLegalEntity: Upsert Legal Entity
-*LegalEntitiesApi* | [**UpsertLegalEntityAccessMetadata**](docs/LegalEntitiesApi.md#upsertlegalentityaccessmetadata) | **PUT** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertLegalEntityAccessMetadata: Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
-*OrderGraphApi* | [**ListOrderGraphBlocks**](docs/OrderGraphApi.md#listordergraphblocks) | **GET** /api/ordergraph/blocks | [EARLY ACCESS] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
+*LegalEntitiesApi* | [**UpsertLegalEntityAccessMetadata**](docs/LegalEntitiesApi.md#upsertlegalentityaccessmetadata) | **PUT** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | UpsertLegalEntityAccessMetadata: Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+*OrderGraphApi* | [**ListOrderGraphBlocks**](docs/OrderGraphApi.md#listordergraphblocks) | **GET** /api/ordergraph/blocks | ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
 *OrderGraphApi* | [**ListOrderGraphPlacementChildren**](docs/OrderGraphApi.md#listordergraphplacementchildren) | **GET** /api/ordergraph/placementchildren/{scope}/{code} | [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
-*OrderGraphApi* | [**ListOrderGraphPlacements**](docs/OrderGraphApi.md#listordergraphplacements) | **GET** /api/ordergraph/placements | [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
+*OrderGraphApi* | [**ListOrderGraphPlacements**](docs/OrderGraphApi.md#listordergraphplacements) | **GET** /api/ordergraph/placements | ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
 *OrderInstructionsApi* | [**DeleteOrderInstruction**](docs/OrderInstructionsApi.md#deleteorderinstruction) | **DELETE** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
 *OrderInstructionsApi* | [**GetOrderInstruction**](docs/OrderInstructionsApi.md#getorderinstruction) | **GET** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
 *OrderInstructionsApi* | [**ListOrderInstructions**](docs/OrderInstructionsApi.md#listorderinstructions) | **GET** /api/orderinstructions | [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
@@ -388,7 +396,7 @@ Class | Method | HTTP request | Description
 *PortfoliosApi* | [**PatchPortfolioAccessMetadata**](docs/PortfoliosApi.md#patchportfolioaccessmetadata) | **PATCH** /api/portfolios/{scope}/{code}/metadata | [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.
 *PortfoliosApi* | [**UpdatePortfolio**](docs/PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | UpdatePortfolio: Update portfolio
 *PortfoliosApi* | [**UpsertInstrumentEventInstructions**](docs/PortfoliosApi.md#upsertinstrumenteventinstructions) | **POST** /api/portfolios/{scope}/{code}/instrumenteventinstructions | [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions
-*PortfoliosApi* | [**UpsertPortfolioAccessMetadata**](docs/PortfoliosApi.md#upsertportfolioaccessmetadata) | **PUT** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
+*PortfoliosApi* | [**UpsertPortfolioAccessMetadata**](docs/PortfoliosApi.md#upsertportfolioaccessmetadata) | **PUT** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
 *PortfoliosApi* | [**UpsertPortfolioProperties**](docs/PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | UpsertPortfolioProperties: Upsert portfolio properties
 *PortfoliosApi* | [**UpsertPortfolioReturns**](docs/PortfoliosApi.md#upsertportfolioreturns) | **POST** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | UpsertPortfolioReturns: Upsert Returns
 *PropertyDefinitionsApi* | [**CreateDerivedPropertyDefinition**](docs/PropertyDefinitionsApi.md#createderivedpropertydefinition) | **POST** /api/propertydefinitions/derived | [EARLY ACCESS] CreateDerivedPropertyDefinition: Create derived property definition
@@ -428,12 +436,13 @@ Class | Method | HTTP request | Description
 *ReconciliationsApi* | [**UpdateReconciliation**](docs/ReconciliationsApi.md#updatereconciliation) | **POST** /api/portfolios/$scheduledReconciliations/{scope}/{code} | [EXPERIMENTAL] UpdateReconciliation: Update scheduled reconciliation
 *ReconciliationsApi* | [**UpsertReconciliationMapping**](docs/ReconciliationsApi.md#upsertreconciliationmapping) | **POST** /api/portfolios/mapping | [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
 *ReferenceListsApi* | [**DeleteReferenceList**](docs/ReferenceListsApi.md#deletereferencelist) | **DELETE** /api/referencelists/{scope}/{code} | [EARLY ACCESS] DeleteReferenceList: Delete Reference List
-*ReferenceListsApi* | [**GetReferenceList**](docs/ReferenceListsApi.md#getreferencelist) | **GET** /api/referencelists/{scope}/{code} | [EARLY ACCESS] GetReferenceList: Get Reference List
+*ReferenceListsApi* | [**GetReferenceList**](docs/ReferenceListsApi.md#getreferencelist) | **GET** /api/referencelists/{scope}/{code} | GetReferenceList: Get Reference List
 *ReferenceListsApi* | [**ListReferenceLists**](docs/ReferenceListsApi.md#listreferencelists) | **GET** /api/referencelists | [EARLY ACCESS] ListReferenceLists: List Reference Lists
 *ReferenceListsApi* | [**UpsertReferenceList**](docs/ReferenceListsApi.md#upsertreferencelist) | **POST** /api/referencelists | [EARLY ACCESS] UpsertReferenceList: Upsert Reference List
 *ReferencePortfolioApi* | [**CreateReferencePortfolio**](docs/ReferencePortfolioApi.md#createreferenceportfolio) | **POST** /api/referenceportfolios/{scope} | CreateReferencePortfolio: Create reference portfolio
 *ReferencePortfolioApi* | [**GetReferencePortfolioConstituents**](docs/ReferencePortfolioApi.md#getreferenceportfolioconstituents) | **GET** /api/referenceportfolios/{scope}/{code}/constituents | GetReferencePortfolioConstituents: Get reference portfolio constituents
 *ReferencePortfolioApi* | [**ListConstituentsAdjustments**](docs/ReferencePortfolioApi.md#listconstituentsadjustments) | **GET** /api/referenceportfolios/{scope}/{code}/constituentsadjustments | ListConstituentsAdjustments: List constituents adjustments
+*ReferencePortfolioApi* | [**UpsertReferencePortfolioConstituentProperties**](docs/ReferencePortfolioApi.md#upsertreferenceportfolioconstituentproperties) | **POST** /api/referenceportfolios/{scope}/{code}/constituents/properties | [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
 *ReferencePortfolioApi* | [**UpsertReferencePortfolioConstituents**](docs/ReferencePortfolioApi.md#upsertreferenceportfolioconstituents) | **POST** /api/referenceportfolios/{scope}/{code}/constituents | UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents
 *RelationDefinitionsApi* | [**CreateRelationDefinition**](docs/RelationDefinitionsApi.md#createrelationdefinition) | **POST** /api/relationdefinitions | [EXPERIMENTAL] CreateRelationDefinition: Create a relation definition
 *RelationDefinitionsApi* | [**DeleteRelationDefinition**](docs/RelationDefinitionsApi.md#deleterelationdefinition) | **DELETE** /api/relationdefinitions/{scope}/{code} | [EXPERIMENTAL] DeleteRelationDefinition: Delete relation definition
@@ -538,7 +547,7 @@ Class | Method | HTTP request | Description
 *TransactionPortfoliosApi* | [**GetPortfolioCashFlows**](docs/TransactionPortfoliosApi.md#getportfoliocashflows) | **GET** /api/transactionportfolios/{scope}/{code}/cashflows | GetPortfolioCashFlows: Get portfolio cash flows
 *TransactionPortfoliosApi* | [**GetPortfolioCashLadder**](docs/TransactionPortfoliosApi.md#getportfoliocashladder) | **GET** /api/transactionportfolios/{scope}/{code}/cashladder | GetPortfolioCashLadder: Get portfolio cash ladder
 *TransactionPortfoliosApi* | [**GetPortfolioCashStatement**](docs/TransactionPortfoliosApi.md#getportfoliocashstatement) | **GET** /api/transactionportfolios/{scope}/{code}/cashstatement | GetPortfolioCashStatement: Get portfolio cash statement
-*TransactionPortfoliosApi* | [**GetTransactionHistory**](docs/TransactionPortfoliosApi.md#gettransactionhistory) | **GET** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/history | [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction
+*TransactionPortfoliosApi* | [**GetTransactionHistory**](docs/TransactionPortfoliosApi.md#gettransactionhistory) | **GET** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/history | GetTransactionHistory: Get the history of a transaction
 *TransactionPortfoliosApi* | [**GetTransactions**](docs/TransactionPortfoliosApi.md#gettransactions) | **GET** /api/transactionportfolios/{scope}/{code}/transactions | GetTransactions: Get transactions
 *TransactionPortfoliosApi* | [**GetUpsertablePortfolioCashFlows**](docs/TransactionPortfoliosApi.md#getupsertableportfoliocashflows) | **GET** /api/transactionportfolios/{scope}/{code}/upsertablecashflows | GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
 *TransactionPortfoliosApi* | [**ListCustodianAccounts**](docs/TransactionPortfoliosApi.md#listcustodianaccounts) | **GET** /api/transactionportfolios/{scope}/{code}/custodianaccounts | [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts
@@ -636,6 +645,7 @@ Class | Method | HTTP request | Description
  - [AmortisationEventAllOf](docs/AmortisationEventAllOf.md)
  - [AmortisationRule](docs/AmortisationRule.md)
  - [AmortisationRuleSet](docs/AmortisationRuleSet.md)
+ - [Amount](docs/Amount.md)
  - [AnnulQuotesResponse](docs/AnnulQuotesResponse.md)
  - [AnnulSingleStructuredDataResponse](docs/AnnulSingleStructuredDataResponse.md)
  - [AnnulStructuredDataResponse](docs/AnnulStructuredDataResponse.md)
@@ -681,6 +691,7 @@ Class | Method | HTTP request | Description
  - [BranchStepAllOf](docs/BranchStepAllOf.md)
  - [BranchStepRequest](docs/BranchStepRequest.md)
  - [BranchStepRequestAllOf](docs/BranchStepRequestAllOf.md)
+ - [BreakCodeSource](docs/BreakCodeSource.md)
  - [BucketedCashFlowRequest](docs/BucketedCashFlowRequest.md)
  - [BucketedCashFlowResponse](docs/BucketedCashFlowResponse.md)
  - [BucketingSchedule](docs/BucketingSchedule.md)
@@ -779,7 +790,6 @@ Class | Method | HTTP request | Description
  - [ComplianceTemplateVariationDto](docs/ComplianceTemplateVariationDto.md)
  - [ComplianceTemplateVariationRequest](docs/ComplianceTemplateVariationRequest.md)
  - [ComponentFilter](docs/ComponentFilter.md)
- - [ComponentRule](docs/ComponentRule.md)
  - [ComponentTransaction](docs/ComponentTransaction.md)
  - [CompositeBreakdown](docs/CompositeBreakdown.md)
  - [CompositeBreakdownRequest](docs/CompositeBreakdownRequest.md)
@@ -815,6 +825,7 @@ Class | Method | HTTP request | Description
  - [CreateDerivedPropertyDefinitionRequest](docs/CreateDerivedPropertyDefinitionRequest.md)
  - [CreateDerivedTransactionPortfolioRequest](docs/CreateDerivedTransactionPortfolioRequest.md)
  - [CreateGroupReconciliationComparisonRulesetRequest](docs/CreateGroupReconciliationComparisonRulesetRequest.md)
+ - [CreateGroupReconciliationDefinitionRequest](docs/CreateGroupReconciliationDefinitionRequest.md)
  - [CreatePortfolioDetails](docs/CreatePortfolioDetails.md)
  - [CreatePortfolioGroupRequest](docs/CreatePortfolioGroupRequest.md)
  - [CreatePropertyDefinitionRequest](docs/CreatePropertyDefinitionRequest.md)
@@ -988,6 +999,8 @@ Class | Method | HTTP request | Description
  - [FundConfigurationProperties](docs/FundConfigurationProperties.md)
  - [FundConfigurationRequest](docs/FundConfigurationRequest.md)
  - [FundDetails](docs/FundDetails.md)
+ - [FundIdList](docs/FundIdList.md)
+ - [FundIdListAllOf](docs/FundIdListAllOf.md)
  - [FundPnlBreakdown](docs/FundPnlBreakdown.md)
  - [FundPreviousNAV](docs/FundPreviousNAV.md)
  - [FundProperties](docs/FundProperties.md)
@@ -1071,6 +1084,11 @@ Class | Method | HTTP request | Description
  - [GroupReconciliationComparisonRuleset](docs/GroupReconciliationComparisonRuleset.md)
  - [GroupReconciliationCoreAttributeRule](docs/GroupReconciliationCoreAttributeRule.md)
  - [GroupReconciliationCoreComparisonRuleOperand](docs/GroupReconciliationCoreComparisonRuleOperand.md)
+ - [GroupReconciliationDefinition](docs/GroupReconciliationDefinition.md)
+ - [GroupReconciliationDefinitionComparisonRulesetIds](docs/GroupReconciliationDefinitionComparisonRulesetIds.md)
+ - [GroupReconciliationDefinitionCurrencies](docs/GroupReconciliationDefinitionCurrencies.md)
+ - [GroupReconciliationDefinitionPortfolioEntityIds](docs/GroupReconciliationDefinitionPortfolioEntityIds.md)
+ - [GroupReconciliationDefinitionRecipeIds](docs/GroupReconciliationDefinitionRecipeIds.md)
  - [GroupedResultOfAddressKey](docs/GroupedResultOfAddressKey.md)
  - [HoldingAdjustment](docs/HoldingAdjustment.md)
  - [HoldingAdjustmentWithDate](docs/HoldingAdjustmentWithDate.md)
@@ -1278,6 +1296,8 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfFund](docs/PagedResourceListOfFund.md)
  - [PagedResourceListOfFundConfiguration](docs/PagedResourceListOfFundConfiguration.md)
  - [PagedResourceListOfGeneralLedgerProfileResponse](docs/PagedResourceListOfGeneralLedgerProfileResponse.md)
+ - [PagedResourceListOfGroupReconciliationComparisonRuleset](docs/PagedResourceListOfGroupReconciliationComparisonRuleset.md)
+ - [PagedResourceListOfGroupReconciliationDefinition](docs/PagedResourceListOfGroupReconciliationDefinition.md)
  - [PagedResourceListOfInstrument](docs/PagedResourceListOfInstrument.md)
  - [PagedResourceListOfInstrumentEventHolder](docs/PagedResourceListOfInstrumentEventHolder.md)
  - [PagedResourceListOfInstrumentEventInstruction](docs/PagedResourceListOfInstrumentEventInstruction.md)
@@ -1337,7 +1357,6 @@ Class | Method | HTTP request | Description
  - [PortfolioGroup](docs/PortfolioGroup.md)
  - [PortfolioGroupIdComplianceParameter](docs/PortfolioGroupIdComplianceParameter.md)
  - [PortfolioGroupIdList](docs/PortfolioGroupIdList.md)
- - [PortfolioGroupIdListAllOf](docs/PortfolioGroupIdListAllOf.md)
  - [PortfolioGroupIdListComplianceParameter](docs/PortfolioGroupIdListComplianceParameter.md)
  - [PortfolioGroupProperties](docs/PortfolioGroupProperties.md)
  - [PortfolioGroupSearchResult](docs/PortfolioGroupSearchResult.md)
@@ -1570,6 +1589,7 @@ Class | Method | HTTP request | Description
  - [SetShareClassInstrumentsRequest](docs/SetShareClassInstrumentsRequest.md)
  - [SetTransactionConfigurationAlias](docs/SetTransactionConfigurationAlias.md)
  - [SetTransactionConfigurationSourceRequest](docs/SetTransactionConfigurationSourceRequest.md)
+ - [SettlementCycle](docs/SettlementCycle.md)
  - [SettlementSchedule](docs/SettlementSchedule.md)
  - [ShareClassAmount](docs/ShareClassAmount.md)
  - [ShareClassBreakdown](docs/ShareClassBreakdown.md)
@@ -1640,6 +1660,7 @@ Class | Method | HTTP request | Description
  - [TransactionConfigurationMovementDataRequest](docs/TransactionConfigurationMovementDataRequest.md)
  - [TransactionConfigurationTypeAlias](docs/TransactionConfigurationTypeAlias.md)
  - [TransactionCurrencyAndAmount](docs/TransactionCurrencyAndAmount.md)
+ - [TransactionDateWindows](docs/TransactionDateWindows.md)
  - [TransactionDiagnostics](docs/TransactionDiagnostics.md)
  - [TransactionFieldMap](docs/TransactionFieldMap.md)
  - [TransactionPrice](docs/TransactionPrice.md)
@@ -1699,6 +1720,8 @@ Class | Method | HTTP request | Description
  - [UpdateDataTypeRequest](docs/UpdateDataTypeRequest.md)
  - [UpdateDerivedPropertyDefinitionRequest](docs/UpdateDerivedPropertyDefinitionRequest.md)
  - [UpdateFeeTypeRequest](docs/UpdateFeeTypeRequest.md)
+ - [UpdateGroupReconciliationComparisonRulesetRequest](docs/UpdateGroupReconciliationComparisonRulesetRequest.md)
+ - [UpdateGroupReconciliationDefinitionRequest](docs/UpdateGroupReconciliationDefinitionRequest.md)
  - [UpdateInstrumentIdentifierRequest](docs/UpdateInstrumentIdentifierRequest.md)
  - [UpdateOrdersResponse](docs/UpdateOrdersResponse.md)
  - [UpdatePlacementsResponse](docs/UpdatePlacementsResponse.md)
@@ -1743,6 +1766,8 @@ Class | Method | HTTP request | Description
  - [UpsertQuotesResponse](docs/UpsertQuotesResponse.md)
  - [UpsertRecipeComposerRequest](docs/UpsertRecipeComposerRequest.md)
  - [UpsertRecipeRequest](docs/UpsertRecipeRequest.md)
+ - [UpsertReferencePortfolioConstituentPropertiesRequest](docs/UpsertReferencePortfolioConstituentPropertiesRequest.md)
+ - [UpsertReferencePortfolioConstituentPropertiesResponse](docs/UpsertReferencePortfolioConstituentPropertiesResponse.md)
  - [UpsertReferencePortfolioConstituentsRequest](docs/UpsertReferencePortfolioConstituentsRequest.md)
  - [UpsertReferencePortfolioConstituentsResponse](docs/UpsertReferencePortfolioConstituentsResponse.md)
  - [UpsertResultValuesDataRequest](docs/UpsertResultValuesDataRequest.md)

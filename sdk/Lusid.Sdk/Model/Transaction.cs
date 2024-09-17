@@ -92,7 +92,8 @@ namespace Lusid.Sdk.Model
         /// <param name="orderId">orderId.</param>
         /// <param name="allocationId">allocationId.</param>
         /// <param name="custodianAccount">custodianAccount.</param>
-        public Transaction(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), DateTimeOffset entryDateTime = default(DateTimeOffset), OtcConfirmation otcConfirmation = default(OtcConfirmation), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), CustodianAccount custodianAccount = default(CustodianAccount))
+        /// <param name="transactionGroupId">The identifier for grouping economic events across multiple transactions.</param>
+        public Transaction(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), DateTimeOffset entryDateTime = default(DateTimeOffset), OtcConfirmation otcConfirmation = default(OtcConfirmation), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -136,6 +137,7 @@ namespace Lusid.Sdk.Model
             this.OrderId = orderId;
             this.AllocationId = allocationId;
             this.CustodianAccount = custodianAccount;
+            this.TransactionGroupId = transactionGroupId;
         }
 
         /// <summary>
@@ -280,6 +282,13 @@ namespace Lusid.Sdk.Model
         public CustodianAccount CustodianAccount { get; set; }
 
         /// <summary>
+        /// The identifier for grouping economic events across multiple transactions
+        /// </summary>
+        /// <value>The identifier for grouping economic events across multiple transactions</value>
+        [DataMember(Name = "transactionGroupId", EmitDefaultValue = true)]
+        public string TransactionGroupId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -309,6 +318,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  AllocationId: ").Append(AllocationId).Append("\n");
             sb.Append("  CustodianAccount: ").Append(CustodianAccount).Append("\n");
+            sb.Append("  TransactionGroupId: ").Append(TransactionGroupId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -453,6 +463,11 @@ namespace Lusid.Sdk.Model
                     this.CustodianAccount == input.CustodianAccount ||
                     (this.CustodianAccount != null &&
                     this.CustodianAccount.Equals(input.CustodianAccount))
+                ) && 
+                (
+                    this.TransactionGroupId == input.TransactionGroupId ||
+                    (this.TransactionGroupId != null &&
+                    this.TransactionGroupId.Equals(input.TransactionGroupId))
                 );
         }
 
@@ -546,6 +561,10 @@ namespace Lusid.Sdk.Model
                 if (this.CustodianAccount != null)
                 {
                     hashCode = (hashCode * 59) + this.CustodianAccount.GetHashCode();
+                }
+                if (this.TransactionGroupId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionGroupId.GetHashCode();
                 }
                 return hashCode;
             }

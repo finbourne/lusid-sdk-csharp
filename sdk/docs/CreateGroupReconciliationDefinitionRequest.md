@@ -1,0 +1,18 @@
+# Lusid.Sdk.Model.CreateGroupReconciliationDefinitionRequest
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**DisplayName** | **string** | The name of the Group Reconciliation Definition | 
+**Description** | **string** | The description of the Group Reconciliation Definition | 
+**PortfolioEntityIds** | [**GroupReconciliationDefinitionPortfolioEntityIds**](GroupReconciliationDefinitionPortfolioEntityIds.md) |  | 
+**RecipeIds** | [**GroupReconciliationDefinitionRecipeIds**](GroupReconciliationDefinitionRecipeIds.md) |  | [optional] 
+**Currencies** | [**GroupReconciliationDefinitionCurrencies**](GroupReconciliationDefinitionCurrencies.md) |  | [optional] 
+**TransactionDateWindows** | [**TransactionDateWindows**](TransactionDateWindows.md) |  | [optional] 
+**ComparisonRulesetIds** | [**GroupReconciliationDefinitionComparisonRulesetIds**](GroupReconciliationDefinitionComparisonRulesetIds.md) |  | [optional] 
+**BreakCodeSource** | [**BreakCodeSource**](BreakCodeSource.md) |  | 
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+

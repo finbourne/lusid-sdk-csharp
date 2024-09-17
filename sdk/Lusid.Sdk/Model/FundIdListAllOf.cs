@@ -23,15 +23,15 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PortfolioGroupIdListAllOf
+    /// FundIdListAllOf
     /// </summary>
-    [DataContract(Name = "PortfolioGroupIdList_allOf")]
-    public partial class PortfolioGroupIdListAllOf : IEquatable<PortfolioGroupIdListAllOf>, IValidatableObject
+    [DataContract(Name = "FundIdList_allOf")]
+    public partial class FundIdListAllOf : IEquatable<FundIdListAllOf>, IValidatableObject
     {
         /// <summary>
-        /// The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList
+        /// The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList
         /// </summary>
-        /// <value>The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList</value>
+        /// <value>The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ReferenceListTypeEnum
         {
@@ -75,33 +75,39 @@ namespace Lusid.Sdk.Model
             /// Enum PropertyList for value: PropertyList
             /// </summary>
             [EnumMember(Value = "PropertyList")]
-            PropertyList = 7
+            PropertyList = 7,
+
+            /// <summary>
+            /// Enum FundIdList for value: FundIdList
+            /// </summary>
+            [EnumMember(Value = "FundIdList")]
+            FundIdList = 8
 
         }
 
 
         /// <summary>
-        /// The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList
+        /// The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList
         /// </summary>
-        /// <value>The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList</value>
+        /// <value>The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList</value>
         [DataMember(Name = "referenceListType", IsRequired = true, EmitDefaultValue = true)]
         public ReferenceListTypeEnum ReferenceListType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioGroupIdListAllOf" /> class.
+        /// Initializes a new instance of the <see cref="FundIdListAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PortfolioGroupIdListAllOf() { }
+        protected FundIdListAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioGroupIdListAllOf" /> class.
+        /// Initializes a new instance of the <see cref="FundIdListAllOf" /> class.
         /// </summary>
         /// <param name="values">values (required).</param>
-        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList (required).</param>
-        public PortfolioGroupIdListAllOf(List<ResourceId> values = default(List<ResourceId>), ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum))
+        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList (required).</param>
+        public FundIdListAllOf(List<ResourceId> values = default(List<ResourceId>), ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum))
         {
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for PortfolioGroupIdListAllOf and cannot be null");
+                throw new ArgumentNullException("values is a required property for FundIdListAllOf and cannot be null");
             }
             this.Values = values;
             this.ReferenceListType = referenceListType;
@@ -120,7 +126,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PortfolioGroupIdListAllOf {\n");
+            sb.Append("class FundIdListAllOf {\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  ReferenceListType: ").Append(ReferenceListType).Append("\n");
             sb.Append("}\n");
@@ -143,15 +149,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PortfolioGroupIdListAllOf);
+            return this.Equals(input as FundIdListAllOf);
         }
 
         /// <summary>
-        /// Returns true if PortfolioGroupIdListAllOf instances are equal
+        /// Returns true if FundIdListAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of PortfolioGroupIdListAllOf to be compared</param>
+        /// <param name="input">Instance of FundIdListAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PortfolioGroupIdListAllOf input)
+        public bool Equals(FundIdListAllOf input)
         {
             if (input == null)
             {

@@ -260,9 +260,11 @@ namespace Lusid.Sdk.Model
         /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate. (required).</param>
         /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
         /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
+        /// <param name="fractionalUnitsCashPrice">The cash price paid in lieu of fractionalUnits..</param>
+        /// <param name="fractionalUnitsCashCurrency">The currency of the cash paid in lieu of fractionalUnits..</param>
         /// <param name="unitsRatio">unitsRatio (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent (required).</param>
-        public StockDividendEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), UnitsRatio unitsRatio = default(UnitsRatio), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public StockDividendEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), UnitsRatio unitsRatio = default(UnitsRatio), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
             this.ExDate = exDate;
             this.PaymentDate = paymentDate;
@@ -275,6 +277,8 @@ namespace Lusid.Sdk.Model
             this.InstrumentEventType = instrumentEventType;
             this.AnnouncementDate = announcementDate;
             this.RecordDate = recordDate;
+            this.FractionalUnitsCashPrice = fractionalUnitsCashPrice;
+            this.FractionalUnitsCashCurrency = fractionalUnitsCashCurrency;
         }
 
         /// <summary>
@@ -306,6 +310,20 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? RecordDate { get; set; }
 
         /// <summary>
+        /// The cash price paid in lieu of fractionalUnits.
+        /// </summary>
+        /// <value>The cash price paid in lieu of fractionalUnits.</value>
+        [DataMember(Name = "fractionalUnitsCashPrice", EmitDefaultValue = true)]
+        public decimal? FractionalUnitsCashPrice { get; set; }
+
+        /// <summary>
+        /// The currency of the cash paid in lieu of fractionalUnits.
+        /// </summary>
+        /// <value>The currency of the cash paid in lieu of fractionalUnits.</value>
+        [DataMember(Name = "fractionalUnitsCashCurrency", EmitDefaultValue = true)]
+        public string FractionalUnitsCashCurrency { get; set; }
+
+        /// <summary>
         /// Gets or Sets UnitsRatio
         /// </summary>
         [DataMember(Name = "unitsRatio", IsRequired = true, EmitDefaultValue = true)]
@@ -323,6 +341,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
+            sb.Append("  FractionalUnitsCashPrice: ").Append(FractionalUnitsCashPrice).Append("\n");
+            sb.Append("  FractionalUnitsCashCurrency: ").Append(FractionalUnitsCashCurrency).Append("\n");
             sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
@@ -381,6 +401,16 @@ namespace Lusid.Sdk.Model
                     this.RecordDate.Equals(input.RecordDate))
                 ) && 
                 (
+                    this.FractionalUnitsCashPrice == input.FractionalUnitsCashPrice ||
+                    (this.FractionalUnitsCashPrice != null &&
+                    this.FractionalUnitsCashPrice.Equals(input.FractionalUnitsCashPrice))
+                ) && 
+                (
+                    this.FractionalUnitsCashCurrency == input.FractionalUnitsCashCurrency ||
+                    (this.FractionalUnitsCashCurrency != null &&
+                    this.FractionalUnitsCashCurrency.Equals(input.FractionalUnitsCashCurrency))
+                ) && 
+                (
                     this.UnitsRatio == input.UnitsRatio ||
                     (this.UnitsRatio != null &&
                     this.UnitsRatio.Equals(input.UnitsRatio))
@@ -415,6 +445,14 @@ namespace Lusid.Sdk.Model
                 if (this.RecordDate != null)
                 {
                     hashCode = (hashCode * 59) + this.RecordDate.GetHashCode();
+                }
+                if (this.FractionalUnitsCashPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.FractionalUnitsCashPrice.GetHashCode();
+                }
+                if (this.FractionalUnitsCashCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.FractionalUnitsCashCurrency.GetHashCode();
                 }
                 if (this.UnitsRatio != null)
                 {

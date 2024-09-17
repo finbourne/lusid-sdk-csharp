@@ -30,6 +30,7 @@ namespace Lusid.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "ReferenceListType")]
     [JsonSubtypes.KnownSubType(typeof(AddressKeyList), "AddressKeyList")]
     [JsonSubtypes.KnownSubType(typeof(DecimalList), "DecimalList")]
+    [JsonSubtypes.KnownSubType(typeof(FundIdList), "FundIdList")]
     [JsonSubtypes.KnownSubType(typeof(InstrumentList), "InstrumentList")]
     [JsonSubtypes.KnownSubType(typeof(PortfolioGroupIdList), "PortfolioGroupIdList")]
     [JsonSubtypes.KnownSubType(typeof(PortfolioIdList), "PortfolioIdList")]
@@ -38,9 +39,9 @@ namespace Lusid.Sdk.Model
     public partial class ReferenceList : IEquatable<ReferenceList>, IValidatableObject
     {
         /// <summary>
-        /// The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList
+        /// The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList
         /// </summary>
-        /// <value>The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList</value>
+        /// <value>The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ReferenceListTypeEnum
         {
@@ -84,15 +85,21 @@ namespace Lusid.Sdk.Model
             /// Enum PropertyList for value: PropertyList
             /// </summary>
             [EnumMember(Value = "PropertyList")]
-            PropertyList = 7
+            PropertyList = 7,
+
+            /// <summary>
+            /// Enum FundIdList for value: FundIdList
+            /// </summary>
+            [EnumMember(Value = "FundIdList")]
+            FundIdList = 8
 
         }
 
 
         /// <summary>
-        /// The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList
+        /// The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList
         /// </summary>
-        /// <value>The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList</value>
+        /// <value>The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList</value>
         [DataMember(Name = "referenceListType", IsRequired = true, EmitDefaultValue = true)]
         public ReferenceListTypeEnum ReferenceListType { get; set; }
         /// <summary>
@@ -103,7 +110,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferenceList" /> class.
         /// </summary>
-        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList (required).</param>
+        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList (required).</param>
         public ReferenceList(ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum))
         {
             this.ReferenceListType = referenceListType;

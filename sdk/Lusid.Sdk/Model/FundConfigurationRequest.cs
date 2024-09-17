@@ -39,11 +39,11 @@ namespace Lusid.Sdk.Model
         /// <param name="code">code (required).</param>
         /// <param name="displayName">The name of the Fund..</param>
         /// <param name="description">A description for the Fund..</param>
-        /// <param name="dealingRule">dealingRule (required).</param>
-        /// <param name="pnlRule">pnlRule (required).</param>
-        /// <param name="backOutRule">backOutRule (required).</param>
+        /// <param name="dealingFilters">The set of filters used to decide which JE lines are included in the dealing. (required).</param>
+        /// <param name="pnlFilters">The set of filters used to decide which JE lines are included in the PnL. (required).</param>
+        /// <param name="backOutFilters">The set of filters used to decide which JE lines are included in the back outs. (required).</param>
         /// <param name="properties">A set of properties for the Fund Configuration..</param>
-        public FundConfigurationRequest(string code = default(string), string displayName = default(string), string description = default(string), ComponentRule dealingRule = default(ComponentRule), ComponentRule pnlRule = default(ComponentRule), ComponentRule backOutRule = default(ComponentRule), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public FundConfigurationRequest(string code = default(string), string displayName = default(string), string description = default(string), List<ComponentFilter> dealingFilters = default(List<ComponentFilter>), List<ComponentFilter> pnlFilters = default(List<ComponentFilter>), List<ComponentFilter> backOutFilters = default(List<ComponentFilter>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -51,24 +51,24 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("code is a required property for FundConfigurationRequest and cannot be null");
             }
             this.Code = code;
-            // to ensure "dealingRule" is required (not null)
-            if (dealingRule == null)
+            // to ensure "dealingFilters" is required (not null)
+            if (dealingFilters == null)
             {
-                throw new ArgumentNullException("dealingRule is a required property for FundConfigurationRequest and cannot be null");
+                throw new ArgumentNullException("dealingFilters is a required property for FundConfigurationRequest and cannot be null");
             }
-            this.DealingRule = dealingRule;
-            // to ensure "pnlRule" is required (not null)
-            if (pnlRule == null)
+            this.DealingFilters = dealingFilters;
+            // to ensure "pnlFilters" is required (not null)
+            if (pnlFilters == null)
             {
-                throw new ArgumentNullException("pnlRule is a required property for FundConfigurationRequest and cannot be null");
+                throw new ArgumentNullException("pnlFilters is a required property for FundConfigurationRequest and cannot be null");
             }
-            this.PnlRule = pnlRule;
-            // to ensure "backOutRule" is required (not null)
-            if (backOutRule == null)
+            this.PnlFilters = pnlFilters;
+            // to ensure "backOutFilters" is required (not null)
+            if (backOutFilters == null)
             {
-                throw new ArgumentNullException("backOutRule is a required property for FundConfigurationRequest and cannot be null");
+                throw new ArgumentNullException("backOutFilters is a required property for FundConfigurationRequest and cannot be null");
             }
-            this.BackOutRule = backOutRule;
+            this.BackOutFilters = backOutFilters;
             this.DisplayName = displayName;
             this.Description = description;
             this.Properties = properties;
@@ -95,22 +95,25 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets DealingRule
+        /// The set of filters used to decide which JE lines are included in the dealing.
         /// </summary>
-        [DataMember(Name = "dealingRule", IsRequired = true, EmitDefaultValue = true)]
-        public ComponentRule DealingRule { get; set; }
+        /// <value>The set of filters used to decide which JE lines are included in the dealing.</value>
+        [DataMember(Name = "dealingFilters", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComponentFilter> DealingFilters { get; set; }
 
         /// <summary>
-        /// Gets or Sets PnlRule
+        /// The set of filters used to decide which JE lines are included in the PnL.
         /// </summary>
-        [DataMember(Name = "pnlRule", IsRequired = true, EmitDefaultValue = true)]
-        public ComponentRule PnlRule { get; set; }
+        /// <value>The set of filters used to decide which JE lines are included in the PnL.</value>
+        [DataMember(Name = "pnlFilters", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComponentFilter> PnlFilters { get; set; }
 
         /// <summary>
-        /// Gets or Sets BackOutRule
+        /// The set of filters used to decide which JE lines are included in the back outs.
         /// </summary>
-        [DataMember(Name = "backOutRule", IsRequired = true, EmitDefaultValue = true)]
-        public ComponentRule BackOutRule { get; set; }
+        /// <value>The set of filters used to decide which JE lines are included in the back outs.</value>
+        [DataMember(Name = "backOutFilters", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComponentFilter> BackOutFilters { get; set; }
 
         /// <summary>
         /// A set of properties for the Fund Configuration.
@@ -130,9 +133,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  DealingRule: ").Append(DealingRule).Append("\n");
-            sb.Append("  PnlRule: ").Append(PnlRule).Append("\n");
-            sb.Append("  BackOutRule: ").Append(BackOutRule).Append("\n");
+            sb.Append("  DealingFilters: ").Append(DealingFilters).Append("\n");
+            sb.Append("  PnlFilters: ").Append(PnlFilters).Append("\n");
+            sb.Append("  BackOutFilters: ").Append(BackOutFilters).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -185,19 +188,22 @@ namespace Lusid.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.DealingRule == input.DealingRule ||
-                    (this.DealingRule != null &&
-                    this.DealingRule.Equals(input.DealingRule))
+                    this.DealingFilters == input.DealingFilters ||
+                    this.DealingFilters != null &&
+                    input.DealingFilters != null &&
+                    this.DealingFilters.SequenceEqual(input.DealingFilters)
                 ) && 
                 (
-                    this.PnlRule == input.PnlRule ||
-                    (this.PnlRule != null &&
-                    this.PnlRule.Equals(input.PnlRule))
+                    this.PnlFilters == input.PnlFilters ||
+                    this.PnlFilters != null &&
+                    input.PnlFilters != null &&
+                    this.PnlFilters.SequenceEqual(input.PnlFilters)
                 ) && 
                 (
-                    this.BackOutRule == input.BackOutRule ||
-                    (this.BackOutRule != null &&
-                    this.BackOutRule.Equals(input.BackOutRule))
+                    this.BackOutFilters == input.BackOutFilters ||
+                    this.BackOutFilters != null &&
+                    input.BackOutFilters != null &&
+                    this.BackOutFilters.SequenceEqual(input.BackOutFilters)
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -228,17 +234,17 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this.DealingRule != null)
+                if (this.DealingFilters != null)
                 {
-                    hashCode = (hashCode * 59) + this.DealingRule.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DealingFilters.GetHashCode();
                 }
-                if (this.PnlRule != null)
+                if (this.PnlFilters != null)
                 {
-                    hashCode = (hashCode * 59) + this.PnlRule.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PnlFilters.GetHashCode();
                 }
-                if (this.BackOutRule != null)
+                if (this.BackOutFilters != null)
                 {
-                    hashCode = (hashCode * 59) + this.BackOutRule.GetHashCode();
+                    hashCode = (hashCode * 59) + this.BackOutFilters.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

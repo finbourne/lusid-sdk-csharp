@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
+        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties
         /// </summary>
         /// <remarks>
         /// Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Api
         BatchUpsertInstrumentPropertiesResponse BatchUpsertInstrumentProperties(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
+        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties
         /// </summary>
         /// <remarks>
         /// Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -348,7 +348,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of InstrumentPaymentDiary</returns>
         ApiResponse<InstrumentPaymentDiary> GetInstrumentPaymentDiaryWithHttpInfo(string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
+        /// GetInstrumentProperties: Get instrument properties
         /// </summary>
         /// <remarks>
         /// List all the properties of a particular instrument, as identified by a particular unique identifier.
@@ -365,7 +365,7 @@ namespace Lusid.Sdk.Api
         InstrumentProperties GetInstrumentProperties(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
+        /// GetInstrumentProperties: Get instrument properties
         /// </summary>
         /// <remarks>
         /// List all the properties of a particular instrument, as identified by a particular unique identifier.
@@ -381,7 +381,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of InstrumentProperties</returns>
         ApiResponse<InstrumentProperties> GetInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
+        /// GetInstrumentPropertyTimeSeries: Get instrument property time series
         /// </summary>
         /// <remarks>
         /// Retrieve the complete time series (history) for a particular property of an instrument.
@@ -402,7 +402,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfPropertyInterval GetInstrumentPropertyTimeSeries(string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
+        /// GetInstrumentPropertyTimeSeries: Get instrument property time series
         /// </summary>
         /// <remarks>
         /// Retrieve the complete time series (history) for a particular property of an instrument.
@@ -695,7 +695,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
+        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties
         /// </summary>
         /// <remarks>
         /// Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -712,7 +712,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<BatchUpsertInstrumentPropertiesResponse> BatchUpsertInstrumentPropertiesAsync(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
+        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties
         /// </summary>
         /// <remarks>
         /// Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -1031,7 +1031,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (InstrumentPaymentDiary)</returns>
         System.Threading.Tasks.Task<ApiResponse<InstrumentPaymentDiary>> GetInstrumentPaymentDiaryWithHttpInfoAsync(string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
+        /// GetInstrumentProperties: Get instrument properties
         /// </summary>
         /// <remarks>
         /// List all the properties of a particular instrument, as identified by a particular unique identifier.
@@ -1049,7 +1049,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<InstrumentProperties> GetInstrumentPropertiesAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
+        /// GetInstrumentProperties: Get instrument properties
         /// </summary>
         /// <remarks>
         /// List all the properties of a particular instrument, as identified by a particular unique identifier.
@@ -1066,7 +1066,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (InstrumentProperties)</returns>
         System.Threading.Tasks.Task<ApiResponse<InstrumentProperties>> GetInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
+        /// GetInstrumentPropertyTimeSeries: Get instrument property time series
         /// </summary>
         /// <remarks>
         /// Retrieve the complete time series (history) for a particular property of an instrument.
@@ -1088,7 +1088,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfPropertyInterval> GetInstrumentPropertyTimeSeriesAsync(string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
+        /// GetInstrumentPropertyTimeSeries: Get instrument property time series
         /// </summary>
         /// <remarks>
         /// Retrieve the complete time series (history) for a particular property of an instrument.
@@ -1512,7 +1512,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
@@ -1529,7 +1529,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
@@ -1634,7 +1634,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
@@ -1652,7 +1652,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
@@ -4008,7 +4008,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentProperties: Get instrument properties List all the properties of a particular instrument, as identified by a particular unique identifier.
+        /// GetInstrumentProperties: Get instrument properties List all the properties of a particular instrument, as identified by a particular unique identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -4026,7 +4026,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentProperties: Get instrument properties List all the properties of a particular instrument, as identified by a particular unique identifier.
+        /// GetInstrumentProperties: Get instrument properties List all the properties of a particular instrument, as identified by a particular unique identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -4135,7 +4135,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentProperties: Get instrument properties List all the properties of a particular instrument, as identified by a particular unique identifier.
+        /// GetInstrumentProperties: Get instrument properties List all the properties of a particular instrument, as identified by a particular unique identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -4154,7 +4154,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentProperties: Get instrument properties List all the properties of a particular instrument, as identified by a particular unique identifier.
+        /// GetInstrumentProperties: Get instrument properties List all the properties of a particular instrument, as identified by a particular unique identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -4266,7 +4266,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series Retrieve the complete time series (history) for a particular property of an instrument.
+        /// GetInstrumentPropertyTimeSeries: Get instrument property time series Retrieve the complete time series (history) for a particular property of an instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -4288,7 +4288,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series Retrieve the complete time series (history) for a particular property of an instrument.
+        /// GetInstrumentPropertyTimeSeries: Get instrument property time series Retrieve the complete time series (history) for a particular property of an instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -4420,7 +4420,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series Retrieve the complete time series (history) for a particular property of an instrument.
+        /// GetInstrumentPropertyTimeSeries: Get instrument property time series Retrieve the complete time series (history) for a particular property of an instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -4443,7 +4443,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series Retrieve the complete time series (history) for a particular property of an instrument.
+        /// GetInstrumentPropertyTimeSeries: Get instrument property time series Retrieve the complete time series (history) for a particular property of an instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>

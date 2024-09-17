@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **DisplayName** | **string** | The name of the FundConfiguration. | [optional] 
 **Description** | **string** | A description for the FundConfiguration. | [optional] 
-**DealingRule** | [**ComponentRule**](ComponentRule.md) |  | [optional] 
-**PnlRule** | [**ComponentRule**](ComponentRule.md) |  | [optional] 
-**BackOutRule** | [**ComponentRule**](ComponentRule.md) |  | [optional] 
+**DealingFilters** | [**List&lt;ComponentFilter&gt;**](ComponentFilter.md) | The set of filters used to decide which JE lines are included in the dealing. | [optional] 
+**PnlFilters** | [**List&lt;ComponentFilter&gt;**](ComponentFilter.md) | The set of filters used to decide which JE lines are included in the PnL. | [optional] 
+**BackOutFilters** | [**List&lt;ComponentFilter&gt;**](ComponentFilter.md) | The set of filters used to decide which JE lines are included in the back outs. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund Configuration. | [optional] 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 

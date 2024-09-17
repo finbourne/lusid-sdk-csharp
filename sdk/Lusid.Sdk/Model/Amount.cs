@@ -23,25 +23,25 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ComponentRule
+    /// Amount
     /// </summary>
-    [DataContract(Name = "ComponentRule")]
-    public partial class ComponentRule : IEquatable<ComponentRule>, IValidatableObject
+    [DataContract(Name = "Amount")]
+    public partial class Amount : IEquatable<Amount>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ComponentRule" /> class.
+        /// Initializes a new instance of the <see cref="Amount" /> class.
         /// </summary>
-        /// <param name="components">components.</param>
-        public ComponentRule(List<ComponentFilter> components = default(List<ComponentFilter>))
+        /// <param name="value">value.</param>
+        public Amount(decimal value = default(decimal))
         {
-            this.Components = components;
+            this.Value = value;
         }
 
         /// <summary>
-        /// Gets or Sets Components
+        /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "components", EmitDefaultValue = false)]
-        public List<ComponentFilter> Components { get; set; }
+        [DataMember(Name = "value", EmitDefaultValue = true)]
+        public decimal Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -50,8 +50,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ComponentRule {\n");
-            sb.Append("  Components: ").Append(Components).Append("\n");
+            sb.Append("class Amount {\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -72,15 +72,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ComponentRule);
+            return this.Equals(input as Amount);
         }
 
         /// <summary>
-        /// Returns true if ComponentRule instances are equal
+        /// Returns true if Amount instances are equal
         /// </summary>
-        /// <param name="input">Instance of ComponentRule to be compared</param>
+        /// <param name="input">Instance of Amount to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ComponentRule input)
+        public bool Equals(Amount input)
         {
             if (input == null)
             {
@@ -88,10 +88,8 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Components == input.Components ||
-                    this.Components != null &&
-                    input.Components != null &&
-                    this.Components.SequenceEqual(input.Components)
+                    this.Value == input.Value ||
+                    this.Value.Equals(input.Value)
                 );
         }
 
@@ -104,10 +102,7 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Components != null)
-                {
-                    hashCode = (hashCode * 59) + this.Components.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 return hashCode;
             }
         }

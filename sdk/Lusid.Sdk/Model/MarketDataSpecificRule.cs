@@ -165,7 +165,8 @@ namespace Lusid.Sdk.Model
         /// <param name="mask">Allows for partial or complete override of the market asset resolved for a dependency  Either a named override or a dot separated string (A.B.C.D.*).  e.g. for Rates curve &#39;EUR.*&#39; will replace the resolve MarketAsset &#39;GBP/12M&#39;, &#39;GBP/3M&#39; with the EUR equivalent, if there  are no wildcards in the mask, the mask is taken as the MarketAsset for any dependency matching the rule..</param>
         /// <param name="dependencySourceFilter">dependencySourceFilter (required).</param>
         /// <param name="sourceSystem">Determines from where LUSID should attempt to find the data. Optional and, if omitted, will default to \&quot;Lusid\&quot;.  This means that data will be retrieved from the Quotes store and the ComplexMarketData store.  These can be populated using the Quotes and ComplexMarketData endpoints..</param>
-        public MarketDataSpecificRule(string key = default(string), string supplier = default(string), string dataScope = default(string), QuoteTypeEnum quoteType = default(QuoteTypeEnum), string field = default(string), string quoteInterval = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string priceSource = default(string), string mask = default(string), DependencySourceFilter dependencySourceFilter = default(DependencySourceFilter), string sourceSystem = default(string))
+        /// <param name="fallThroughOnAccessDenied">When a user attempts to use a rule to access data to which they are not entitled,  the rule will fail to resolve any market data.  By default, such an access denied failure will stop any further attempts to resolve market data.  This is so that differently entitled users always receive the same market data from market data resolution,  if they have sufficient entitlements to retrieve the required data.  If set to true, then an access denied failure will not stop further market data resolution,  and resolution will continue with the next specified MarketDataKeyRule.  Optional, and defaults to false..</param>
+        public MarketDataSpecificRule(string key = default(string), string supplier = default(string), string dataScope = default(string), QuoteTypeEnum quoteType = default(QuoteTypeEnum), string field = default(string), string quoteInterval = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string priceSource = default(string), string mask = default(string), DependencySourceFilter dependencySourceFilter = default(DependencySourceFilter), string sourceSystem = default(string), bool fallThroughOnAccessDenied = default(bool))
         {
             // to ensure "key" is required (not null)
             if (key == null)
@@ -203,6 +204,7 @@ namespace Lusid.Sdk.Model
             this.PriceSource = priceSource;
             this.Mask = mask;
             this.SourceSystem = sourceSystem;
+            this.FallThroughOnAccessDenied = fallThroughOnAccessDenied;
         }
 
         /// <summary>
@@ -275,6 +277,13 @@ namespace Lusid.Sdk.Model
         public string SourceSystem { get; set; }
 
         /// <summary>
+        /// When a user attempts to use a rule to access data to which they are not entitled,  the rule will fail to resolve any market data.  By default, such an access denied failure will stop any further attempts to resolve market data.  This is so that differently entitled users always receive the same market data from market data resolution,  if they have sufficient entitlements to retrieve the required data.  If set to true, then an access denied failure will not stop further market data resolution,  and resolution will continue with the next specified MarketDataKeyRule.  Optional, and defaults to false.
+        /// </summary>
+        /// <value>When a user attempts to use a rule to access data to which they are not entitled,  the rule will fail to resolve any market data.  By default, such an access denied failure will stop any further attempts to resolve market data.  This is so that differently entitled users always receive the same market data from market data resolution,  if they have sufficient entitlements to retrieve the required data.  If set to true, then an access denied failure will not stop further market data resolution,  and resolution will continue with the next specified MarketDataKeyRule.  Optional, and defaults to false.</value>
+        [DataMember(Name = "fallThroughOnAccessDenied", EmitDefaultValue = true)]
+        public bool FallThroughOnAccessDenied { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -293,6 +302,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Mask: ").Append(Mask).Append("\n");
             sb.Append("  DependencySourceFilter: ").Append(DependencySourceFilter).Append("\n");
             sb.Append("  SourceSystem: ").Append(SourceSystem).Append("\n");
+            sb.Append("  FallThroughOnAccessDenied: ").Append(FallThroughOnAccessDenied).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -381,6 +391,10 @@ namespace Lusid.Sdk.Model
                     this.SourceSystem == input.SourceSystem ||
                     (this.SourceSystem != null &&
                     this.SourceSystem.Equals(input.SourceSystem))
+                ) && 
+                (
+                    this.FallThroughOnAccessDenied == input.FallThroughOnAccessDenied ||
+                    this.FallThroughOnAccessDenied.Equals(input.FallThroughOnAccessDenied)
                 );
         }
 
@@ -434,6 +448,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SourceSystem.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.FallThroughOnAccessDenied.GetHashCode();
                 return hashCode;
             }
         }

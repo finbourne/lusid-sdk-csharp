@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **OrderId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AllocationId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **CustodianAccount** | [**CustodianAccount**](CustodianAccount.md) |  | [optional] 
+**TransactionGroupId** | **string** | The identifier for grouping economic events across multiple transactions | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

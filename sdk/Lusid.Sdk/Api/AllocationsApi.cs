@@ -90,7 +90,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Allocation</returns>
         ApiResponse<Allocation> GetAllocationWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] ListAllocations: List Allocations
+        /// ListAllocations: List Allocations
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
@@ -108,7 +108,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfAllocation ListAllocations(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] ListAllocations: List Allocations
+        /// ListAllocations: List Allocations
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
@@ -221,7 +221,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Allocation)</returns>
         System.Threading.Tasks.Task<ApiResponse<Allocation>> GetAllocationWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] ListAllocations: List Allocations
+        /// ListAllocations: List Allocations
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
@@ -240,7 +240,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfAllocation> ListAllocationsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] ListAllocations: List Allocations
+        /// ListAllocations: List Allocations
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
@@ -876,7 +876,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListAllocations: List Allocations Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
+        /// ListAllocations: List Allocations Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
@@ -895,7 +895,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListAllocations: List Allocations Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
+        /// ListAllocations: List Allocations Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
@@ -1003,7 +1003,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListAllocations: List Allocations Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
+        /// ListAllocations: List Allocations Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
@@ -1023,7 +1023,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListAllocations: List Allocations Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
+        /// ListAllocations: List Allocations Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>

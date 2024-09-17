@@ -7,6 +7,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**CreateReferencePortfolio**](ReferencePortfolioApi.md#createreferenceportfolio) | **POST** /api/referenceportfolios/{scope} | CreateReferencePortfolio: Create reference portfolio |
 | [**GetReferencePortfolioConstituents**](ReferencePortfolioApi.md#getreferenceportfolioconstituents) | **GET** /api/referenceportfolios/{scope}/{code}/constituents | GetReferencePortfolioConstituents: Get reference portfolio constituents |
 | [**ListConstituentsAdjustments**](ReferencePortfolioApi.md#listconstituentsadjustments) | **GET** /api/referenceportfolios/{scope}/{code}/constituentsadjustments | ListConstituentsAdjustments: List constituents adjustments |
+| [**UpsertReferencePortfolioConstituentProperties**](ReferencePortfolioApi.md#upsertreferenceportfolioconstituentproperties) | **POST** /api/referenceportfolios/{scope}/{code}/constituents/properties | [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties |
 | [**UpsertReferencePortfolioConstituents**](ReferencePortfolioApi.md#upsertreferenceportfolioconstituents) | **POST** /api/referenceportfolios/{scope}/{code}/constituents | UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents |
 
 <a id="createreferenceportfolio"></a>
@@ -357,6 +358,124 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="upsertreferenceportfolioconstituentproperties"></a>
+# **UpsertReferencePortfolioConstituentProperties**
+> UpsertReferencePortfolioConstituentPropertiesResponse UpsertReferencePortfolioConstituentProperties (string scope, string code, UpsertReferencePortfolioConstituentPropertiesRequest upsertReferencePortfolioConstituentPropertiesRequest)
+
+[EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
+
+Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReferencePortfolioApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReferencePortfolioApi>();
+            var scope = "scope_example";  // string | The scope of the reference portfolio.
+            var code = "code_example";  // string | The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.
+            var upsertReferencePortfolioConstituentPropertiesRequest = new UpsertReferencePortfolioConstituentPropertiesRequest(); // UpsertReferencePortfolioConstituentPropertiesRequest | The request to modify properties for the constituent.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // UpsertReferencePortfolioConstituentPropertiesResponse result = apiInstance.UpsertReferencePortfolioConstituentProperties(scope, code, upsertReferencePortfolioConstituentPropertiesRequest, opts: opts);
+
+                // [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
+                UpsertReferencePortfolioConstituentPropertiesResponse result = apiInstance.UpsertReferencePortfolioConstituentProperties(scope, code, upsertReferencePortfolioConstituentPropertiesRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ReferencePortfolioApi.UpsertReferencePortfolioConstituentProperties: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpsertReferencePortfolioConstituentPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
+    ApiResponse<UpsertReferencePortfolioConstituentPropertiesResponse> response = apiInstance.UpsertReferencePortfolioConstituentPropertiesWithHttpInfo(scope, code, upsertReferencePortfolioConstituentPropertiesRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ReferencePortfolioApi.UpsertReferencePortfolioConstituentPropertiesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the reference portfolio. |  |
+| **code** | **string** | The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio. |  |
+| **upsertReferencePortfolioConstituentPropertiesRequest** | [**UpsertReferencePortfolioConstituentPropertiesRequest**](UpsertReferencePortfolioConstituentPropertiesRequest.md) | The request to modify properties for the constituent. |  |
+
+### Return type
+
+[**UpsertReferencePortfolioConstituentPropertiesResponse**](UpsertReferencePortfolioConstituentPropertiesResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

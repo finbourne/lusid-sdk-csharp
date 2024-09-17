@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance.
+        /// DeleteCustomEntity: Delete a Custom Entity instance.
         /// </summary>
         /// <remarks>
         /// Delete a Custom Entity instance by a specific entity type.
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteCustomEntity(string entityType, string identifierType, string identifierValue, string identifierScope, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance.
+        /// DeleteCustomEntity: Delete a Custom Entity instance.
         /// </summary>
         /// <remarks>
         /// Delete a Custom Entity instance by a specific entity type.
@@ -432,7 +432,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance.
+        /// DeleteCustomEntity: Delete a Custom Entity instance.
         /// </summary>
         /// <remarks>
         /// Delete a Custom Entity instance by a specific entity type.
@@ -449,7 +449,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCustomEntityAsync(string entityType, string identifierType, string identifierValue, string identifierScope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance.
+        /// DeleteCustomEntity: Delete a Custom Entity instance.
         /// </summary>
         /// <remarks>
         /// Delete a Custom Entity instance by a specific entity type.
@@ -968,7 +968,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance. Delete a Custom Entity instance by a specific entity type.
+        /// DeleteCustomEntity: Delete a Custom Entity instance. Delete a Custom Entity instance by a specific entity type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of Custom Entity to remove.</param>
@@ -985,7 +985,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance. Delete a Custom Entity instance by a specific entity type.
+        /// DeleteCustomEntity: Delete a Custom Entity instance. Delete a Custom Entity instance by a specific entity type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of Custom Entity to remove.</param>
@@ -1095,7 +1095,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance. Delete a Custom Entity instance by a specific entity type.
+        /// DeleteCustomEntity: Delete a Custom Entity instance. Delete a Custom Entity instance by a specific entity type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of Custom Entity to remove.</param>
@@ -1113,7 +1113,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCustomEntity: Delete a Custom Entity instance. Delete a Custom Entity instance by a specific entity type.
+        /// DeleteCustomEntity: Delete a Custom Entity instance. Delete a Custom Entity instance by a specific entity type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of Custom Entity to remove.</param>

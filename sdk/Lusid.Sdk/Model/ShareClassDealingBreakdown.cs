@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="classDealing">Bucket of detail for any &#39;Dealing&#39; specific to the share class that has occured inside the queried period. (required).</param>
         /// <param name="classDealingUnits">Bucket of detail for any &#39;Dealing&#39; units specific to the share class that has occured inside the queried period. (required).</param>
-        public ShareClassDealingBreakdown(Dictionary<string, ShareClassAmount> classDealing = default(Dictionary<string, ShareClassAmount>), Dictionary<string, ShareClassAmount> classDealingUnits = default(Dictionary<string, ShareClassAmount>))
+        public ShareClassDealingBreakdown(Dictionary<string, ShareClassAmount> classDealing = default(Dictionary<string, ShareClassAmount>), Dictionary<string, Amount> classDealingUnits = default(Dictionary<string, Amount>))
         {
             // to ensure "classDealing" is required (not null)
             if (classDealing == null)
@@ -66,7 +66,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>Bucket of detail for any &#39;Dealing&#39; units specific to the share class that has occured inside the queried period.</value>
         [DataMember(Name = "classDealingUnits", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, ShareClassAmount> ClassDealingUnits { get; set; }
+        public Dictionary<string, Amount> ClassDealingUnits { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Set of unique instrument properties and associated values to store with the instrument. Each property must be from the &#39;Instrument&#39; domain..</param>
         /// <param name="lookThroughPortfolioId">lookThroughPortfolioId.</param>
         /// <param name="definition">definition.</param>
-        public InstrumentDefinition(string name = default(string), Dictionary<string, InstrumentIdValue> identifiers = default(Dictionary<string, InstrumentIdValue>), List<Property> properties = default(List<Property>), ResourceId lookThroughPortfolioId = default(ResourceId), LusidInstrument definition = default(LusidInstrument))
+        /// <param name="settlementCycle">settlementCycle.</param>
+        public InstrumentDefinition(string name = default(string), Dictionary<string, InstrumentIdValue> identifiers = default(Dictionary<string, InstrumentIdValue>), List<Property> properties = default(List<Property>), ResourceId lookThroughPortfolioId = default(ResourceId), LusidInstrument definition = default(LusidInstrument), SettlementCycle settlementCycle = default(SettlementCycle))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -58,6 +59,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.LookThroughPortfolioId = lookThroughPortfolioId;
             this.Definition = definition;
+            this.SettlementCycle = settlementCycle;
         }
 
         /// <summary>
@@ -94,6 +96,12 @@ namespace Lusid.Sdk.Model
         public LusidInstrument Definition { get; set; }
 
         /// <summary>
+        /// Gets or Sets SettlementCycle
+        /// </summary>
+        [DataMember(Name = "settlementCycle", EmitDefaultValue = false)]
+        public SettlementCycle SettlementCycle { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -106,6 +114,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  LookThroughPortfolioId: ").Append(LookThroughPortfolioId).Append("\n");
             sb.Append("  Definition: ").Append(Definition).Append("\n");
+            sb.Append("  SettlementCycle: ").Append(SettlementCycle).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,6 +176,11 @@ namespace Lusid.Sdk.Model
                     this.Definition == input.Definition ||
                     (this.Definition != null &&
                     this.Definition.Equals(input.Definition))
+                ) && 
+                (
+                    this.SettlementCycle == input.SettlementCycle ||
+                    (this.SettlementCycle != null &&
+                    this.SettlementCycle.Equals(input.SettlementCycle))
                 );
         }
 
@@ -198,6 +212,10 @@ namespace Lusid.Sdk.Model
                 if (this.Definition != null)
                 {
                     hashCode = (hashCode * 59) + this.Definition.GetHashCode();
+                }
+                if (this.SettlementCycle != null)
+                {
+                    hashCode = (hashCode * 59) + this.SettlementCycle.GetHashCode();
                 }
                 return hashCode;
             }

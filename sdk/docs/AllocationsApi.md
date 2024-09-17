@@ -6,7 +6,7 @@ All URIs are relative to *https://www.lusid.com/api*
 |--------|--------------|-------------|
 | [**DeleteAllocation**](AllocationsApi.md#deleteallocation) | **DELETE** /api/allocations/{scope}/{code} | [EARLY ACCESS] DeleteAllocation: Delete allocation |
 | [**GetAllocation**](AllocationsApi.md#getallocation) | **GET** /api/allocations/{scope}/{code} | [EARLY ACCESS] GetAllocation: Get Allocation |
-| [**ListAllocations**](AllocationsApi.md#listallocations) | **GET** /api/allocations | [EARLY ACCESS] ListAllocations: List Allocations |
+| [**ListAllocations**](AllocationsApi.md#listallocations) | **GET** /api/allocations | ListAllocations: List Allocations |
 | [**UpsertAllocations**](AllocationsApi.md#upsertallocations) | **POST** /api/allocations | UpsertAllocations: Upsert Allocations |
 
 <a id="deleteallocation"></a>
@@ -249,7 +249,7 @@ catch (ApiException e)
 # **ListAllocations**
 > PagedResourceListOfAllocation ListAllocations (DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null)
 
-[EARLY ACCESS] ListAllocations: List Allocations
+ListAllocations: List Allocations
 
 Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
 
@@ -304,7 +304,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfAllocation result = apiInstance.ListAllocations(asAt, page, sortBy, limit, filter, propertyKeys, opts: opts);
 
-                // [EARLY ACCESS] ListAllocations: List Allocations
+                // ListAllocations: List Allocations
                 PagedResourceListOfAllocation result = apiInstance.ListAllocations(asAt, page, sortBy, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -325,7 +325,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListAllocations: List Allocations
+    // ListAllocations: List Allocations
     ApiResponse<PagedResourceListOfAllocation> response = apiInstance.ListAllocationsWithHttpInfo(asAt, page, sortBy, limit, filter, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

@@ -1,14 +1,14 @@
-# Lusid.Sdk.Api.FundConfigurationsApi
+# Lusid.Sdk.Api.FundConfigurationEntitiesApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateFundConfiguration**](FundConfigurationsApi.md#createfundconfiguration) | **POST** /api/fundconfigurations/{scope} | [EXPERIMENTAL] CreateFundConfiguration: Create a FundConfiguration. |
-| [**DeleteFundConfiguration**](FundConfigurationsApi.md#deletefundconfiguration) | **DELETE** /api/fundconfigurations/{scope}/{code} | [EXPERIMENTAL] DeleteFundConfiguration: Delete a FundConfiguration. |
-| [**GetFundConfiguration**](FundConfigurationsApi.md#getfundconfiguration) | **GET** /api/fundconfigurations/{scope}/{code} | [EXPERIMENTAL] GetFundConfiguration: Get FundConfiguration. |
-| [**ListFundConfigurations**](FundConfigurationsApi.md#listfundconfigurations) | **GET** /api/fundconfigurations | [EXPERIMENTAL] ListFundConfigurations: List FundConfiguration. |
-| [**UpsertFundConfigurationProperties**](FundConfigurationsApi.md#upsertfundconfigurationproperties) | **POST** /api/fundconfigurations/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundConfigurationProperties: Upsert FundConfiguration properties |
+| [**CreateFundConfiguration**](FundConfigurationEntitiesApi.md#createfundconfiguration) | **POST** /api/fundconfigurations/{scope} | [EXPERIMENTAL] CreateFundConfiguration: Create a FundConfiguration. |
+| [**DeleteFundConfiguration**](FundConfigurationEntitiesApi.md#deletefundconfiguration) | **DELETE** /api/fundconfigurations/{scope}/{code} | [EXPERIMENTAL] DeleteFundConfiguration: Delete a FundConfiguration. |
+| [**GetFundConfiguration**](FundConfigurationEntitiesApi.md#getfundconfiguration) | **GET** /api/fundconfigurations/{scope}/{code} | [EXPERIMENTAL] GetFundConfiguration: Get FundConfiguration. |
+| [**ListFundConfigurations**](FundConfigurationEntitiesApi.md#listfundconfigurations) | **GET** /api/fundconfigurations | [EXPERIMENTAL] ListFundConfigurations: List FundConfiguration. |
+| [**UpsertFundConfigurationProperties**](FundConfigurationEntitiesApi.md#upsertfundconfigurationproperties) | **POST** /api/fundconfigurations/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundConfigurationProperties: Upsert FundConfiguration properties |
 
 <a id="createfundconfiguration"></a>
 # **CreateFundConfiguration**
@@ -54,9 +54,9 @@ namespace Examples
             // opts.TimeoutMs = 30_000;
 
             // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundConfigurationsApi>();
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundConfigurationEntitiesApi>();
 
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundConfigurationsApi>();
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundConfigurationEntitiesApi>();
             var scope = "scope_example";  // string | The scope of the FundConfiguration.
             var fundConfigurationRequest = new FundConfigurationRequest(); // FundConfigurationRequest | The definition of the FundConfiguration.
 
@@ -71,7 +71,7 @@ namespace Examples
             }
             catch (ApiException e)
             {
-                Console.WriteLine("Exception when calling FundConfigurationsApi.CreateFundConfiguration: " + e.Message);
+                Console.WriteLine("Exception when calling FundConfigurationEntitiesApi.CreateFundConfiguration: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -94,7 +94,7 @@ try
 }
 catch (ApiException e)
 {
-    Console.WriteLine("Exception when calling FundConfigurationsApi.CreateFundConfigurationWithHttpInfo: " + e.Message);
+    Console.WriteLine("Exception when calling FundConfigurationEntitiesApi.CreateFundConfigurationWithHttpInfo: " + e.Message);
     Console.WriteLine("Status Code: " + e.ErrorCode);
     Console.WriteLine(e.StackTrace);
 }
@@ -170,9 +170,9 @@ namespace Examples
             // opts.TimeoutMs = 30_000;
 
             // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundConfigurationsApi>();
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundConfigurationEntitiesApi>();
 
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundConfigurationsApi>();
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundConfigurationEntitiesApi>();
             var scope = "scope_example";  // string | The scope of the FundConfiguration to be deleted.
             var code = "code_example";  // string | The code of the FundConfiguration to be deleted.               Together with the scope this uniquely identifies the FundConfiguration.
 
@@ -187,7 +187,7 @@ namespace Examples
             }
             catch (ApiException e)
             {
-                Console.WriteLine("Exception when calling FundConfigurationsApi.DeleteFundConfiguration: " + e.Message);
+                Console.WriteLine("Exception when calling FundConfigurationEntitiesApi.DeleteFundConfiguration: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -210,7 +210,7 @@ try
 }
 catch (ApiException e)
 {
-    Console.WriteLine("Exception when calling FundConfigurationsApi.DeleteFundConfigurationWithHttpInfo: " + e.Message);
+    Console.WriteLine("Exception when calling FundConfigurationEntitiesApi.DeleteFundConfigurationWithHttpInfo: " + e.Message);
     Console.WriteLine("Status Code: " + e.ErrorCode);
     Console.WriteLine(e.StackTrace);
 }
@@ -286,9 +286,9 @@ namespace Examples
             // opts.TimeoutMs = 30_000;
 
             // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundConfigurationsApi>();
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundConfigurationEntitiesApi>();
 
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundConfigurationsApi>();
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundConfigurationEntitiesApi>();
             var scope = "scope_example";  // string | The scope of the FundConfiguration.
             var code = "code_example";  // string | The code of the FundConfiguration. Together with the scope this uniquely identifies the FundConfiguration.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the FundConfiguration properties. Defaults to the current LUSID system datetime if not specified. (optional) 
@@ -306,7 +306,7 @@ namespace Examples
             }
             catch (ApiException e)
             {
-                Console.WriteLine("Exception when calling FundConfigurationsApi.GetFundConfiguration: " + e.Message);
+                Console.WriteLine("Exception when calling FundConfigurationEntitiesApi.GetFundConfiguration: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -329,7 +329,7 @@ try
 }
 catch (ApiException e)
 {
-    Console.WriteLine("Exception when calling FundConfigurationsApi.GetFundConfigurationWithHttpInfo: " + e.Message);
+    Console.WriteLine("Exception when calling FundConfigurationEntitiesApi.GetFundConfigurationWithHttpInfo: " + e.Message);
     Console.WriteLine("Status Code: " + e.ErrorCode);
     Console.WriteLine(e.StackTrace);
 }
@@ -408,9 +408,9 @@ namespace Examples
             // opts.TimeoutMs = 30_000;
 
             // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundConfigurationsApi>();
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundConfigurationEntitiesApi>();
 
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundConfigurationsApi>();
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundConfigurationEntitiesApi>();
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the FundConfiguration.              Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the FundConfiguration. Defaults to returning the latest version of each FundConfiguration if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing FundConfiguration; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
@@ -430,7 +430,7 @@ namespace Examples
             }
             catch (ApiException e)
             {
-                Console.WriteLine("Exception when calling FundConfigurationsApi.ListFundConfigurations: " + e.Message);
+                Console.WriteLine("Exception when calling FundConfigurationEntitiesApi.ListFundConfigurations: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -453,7 +453,7 @@ try
 }
 catch (ApiException e)
 {
-    Console.WriteLine("Exception when calling FundConfigurationsApi.ListFundConfigurationsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Exception when calling FundConfigurationEntitiesApi.ListFundConfigurationsWithHttpInfo: " + e.Message);
     Console.WriteLine("Status Code: " + e.ErrorCode);
     Console.WriteLine(e.StackTrace);
 }
@@ -534,9 +534,9 @@ namespace Examples
             // opts.TimeoutMs = 30_000;
 
             // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundConfigurationsApi>();
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundConfigurationEntitiesApi>();
 
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundConfigurationsApi>();
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundConfigurationEntitiesApi>();
             var scope = "scope_example";  // string | The scope of the FundConfiguration to update or insert the properties onto.
             var code = "code_example";  // string | The code of the FundConfiguration to update or insert the properties onto. Together with the scope this uniquely identifies the FundConfiguration.
             var requestBody = new Dictionary<string, Property>?(); // Dictionary<string, Property>? | The properties to be updated or inserted onto the Fund Configuration. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"FundConfiguration/Manager/Id\". (optional) 
@@ -552,7 +552,7 @@ namespace Examples
             }
             catch (ApiException e)
             {
-                Console.WriteLine("Exception when calling FundConfigurationsApi.UpsertFundConfigurationProperties: " + e.Message);
+                Console.WriteLine("Exception when calling FundConfigurationEntitiesApi.UpsertFundConfigurationProperties: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -575,7 +575,7 @@ try
 }
 catch (ApiException e)
 {
-    Console.WriteLine("Exception when calling FundConfigurationsApi.UpsertFundConfigurationPropertiesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Exception when calling FundConfigurationEntitiesApi.UpsertFundConfigurationPropertiesWithHttpInfo: " + e.Message);
     Console.WriteLine("Status Code: " + e.ErrorCode);
     Console.WriteLine(e.StackTrace);
 }

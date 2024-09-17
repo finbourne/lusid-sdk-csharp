@@ -148,8 +148,9 @@ namespace Lusid.Sdk.Model
         /// <param name="assetClass">The nominal asset class of the instrument, e.g. InterestRates, FX, Inflation, Equities, Credit, Commodities, etc. The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.</param>
         /// <param name="domCcy">The domestic currency, meaning the currency in which the instrument would typically be expected to pay cashflows, e.g. a share in AAPL being USD..</param>
         /// <param name="relationships">A set of relationships associated to the instrument..</param>
+        /// <param name="settlementCycle">settlementCycle.</param>
         /// <param name="links">links.</param>
-        public Instrument(string href = default(string), string scope = default(string), string lusidInstrumentId = default(string), ModelVersion version = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), string name = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>), List<Property> properties = default(List<Property>), ResourceId lookthroughPortfolio = default(ResourceId), LusidInstrument instrumentDefinition = default(LusidInstrument), StateEnum state = default(StateEnum), AssetClassEnum? assetClass = default(AssetClassEnum?), string domCcy = default(string), List<Relationship> relationships = default(List<Relationship>), List<Link> links = default(List<Link>))
+        public Instrument(string href = default(string), string scope = default(string), string lusidInstrumentId = default(string), ModelVersion version = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), string name = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>), List<Property> properties = default(List<Property>), ResourceId lookthroughPortfolio = default(ResourceId), LusidInstrument instrumentDefinition = default(LusidInstrument), StateEnum state = default(StateEnum), AssetClassEnum? assetClass = default(AssetClassEnum?), string domCcy = default(string), List<Relationship> relationships = default(List<Relationship>), SettlementCycle settlementCycle = default(SettlementCycle), List<Link> links = default(List<Link>))
         {
             // to ensure "lusidInstrumentId" is required (not null)
             if (lusidInstrumentId == null)
@@ -185,6 +186,7 @@ namespace Lusid.Sdk.Model
             this.AssetClass = assetClass;
             this.DomCcy = domCcy;
             this.Relationships = relationships;
+            this.SettlementCycle = settlementCycle;
             this.Links = links;
         }
 
@@ -269,6 +271,12 @@ namespace Lusid.Sdk.Model
         public List<Relationship> Relationships { get; set; }
 
         /// <summary>
+        /// Gets or Sets SettlementCycle
+        /// </summary>
+        [DataMember(Name = "settlementCycle", EmitDefaultValue = false)]
+        public SettlementCycle SettlementCycle { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -296,6 +304,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AssetClass: ").Append(AssetClass).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
             sb.Append("  Relationships: ").Append(Relationships).Append("\n");
+            sb.Append("  SettlementCycle: ").Append(SettlementCycle).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -404,6 +413,11 @@ namespace Lusid.Sdk.Model
                     this.Relationships.SequenceEqual(input.Relationships)
                 ) && 
                 (
+                    this.SettlementCycle == input.SettlementCycle ||
+                    (this.SettlementCycle != null &&
+                    this.SettlementCycle.Equals(input.SettlementCycle))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -469,6 +483,10 @@ namespace Lusid.Sdk.Model
                 if (this.Relationships != null)
                 {
                     hashCode = (hashCode * 59) + this.Relationships.GetHashCode();
+                }
+                if (this.SettlementCycle != null)
+                {
+                    hashCode = (hashCode * 59) + this.SettlementCycle.GetHashCode();
                 }
                 if (this.Links != null)
                 {

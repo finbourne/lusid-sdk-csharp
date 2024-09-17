@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeleteReferenceListWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetReferenceList: Get Reference List
+        /// GetReferenceList: Get Reference List
         /// </summary>
         /// <remarks>
         /// Retrieve a Reference List instance at a point in AsAt time.
@@ -74,7 +74,7 @@ namespace Lusid.Sdk.Api
         ReferenceListResponse GetReferenceList(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetReferenceList: Get Reference List
+        /// GetReferenceList: Get Reference List
         /// </summary>
         /// <remarks>
         /// Retrieve a Reference List instance at a point in AsAt time.
@@ -182,7 +182,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteReferenceListWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetReferenceList: Get Reference List
+        /// GetReferenceList: Get Reference List
         /// </summary>
         /// <remarks>
         /// Retrieve a Reference List instance at a point in AsAt time.
@@ -198,7 +198,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ReferenceListResponse> GetReferenceListAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetReferenceList: Get Reference List
+        /// GetReferenceList: Get Reference List
         /// </summary>
         /// <remarks>
         /// Retrieve a Reference List instance at a point in AsAt time.
@@ -618,7 +618,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetReferenceList: Get Reference List Retrieve a Reference List instance at a point in AsAt time.
+        /// GetReferenceList: Get Reference List Retrieve a Reference List instance at a point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the Reference List belongs.</param>
@@ -634,7 +634,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetReferenceList: Get Reference List Retrieve a Reference List instance at a point in AsAt time.
+        /// GetReferenceList: Get Reference List Retrieve a Reference List instance at a point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the Reference List belongs.</param>
@@ -733,7 +733,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetReferenceList: Get Reference List Retrieve a Reference List instance at a point in AsAt time.
+        /// GetReferenceList: Get Reference List Retrieve a Reference List instance at a point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the Reference List belongs.</param>
@@ -750,7 +750,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetReferenceList: Get Reference List Retrieve a Reference List instance at a point in AsAt time.
+        /// GetReferenceList: Get Reference List Retrieve a Reference List instance at a point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the Reference List belongs.</param>

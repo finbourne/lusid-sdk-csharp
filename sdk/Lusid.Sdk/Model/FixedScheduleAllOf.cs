@@ -106,15 +106,15 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedScheduleAllOf" /> class.
         /// </summary>
-        /// <param name="startDate">Date to start generate from (required).</param>
-        /// <param name="maturityDate">Date to generate to (required).</param>
+        /// <param name="startDate">Date from which LUSID starts generating the payment schedule. (required).</param>
+        /// <param name="maturityDate">Last date of the payment generation schedule. May not necessarily be the maturity date  of the underlying instrument (e.g. in case the instrument has multiple payment schedules). (required).</param>
         /// <param name="flowConventions">flowConventions.</param>
         /// <param name="couponRate">Coupon rate given as a fraction..</param>
         /// <param name="conventionName">conventionName.</param>
         /// <param name="exDividendDays">Optional. Number of calendar days in the ex-dividend period.  If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative.  If set, this must be a non-negative number.  If not set, or set to 0, then there is no ex-dividend period.                NOTE: This field is deprecated.  If you wish to set the ExDividendDays on a bond, please use the ExDividendConfiguration..</param>
         /// <param name="notional">Scaling factor, the quantity outstanding on which the rate will be paid..</param>
         /// <param name="paymentCurrency">Payment currency. This does not have to be the same as the nominal bond or observation/reset currency. (required).</param>
-        /// <param name="stubType">StubType required of the schedule    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both]..</param>
+        /// <param name="stubType">When a payment schedule doesn&#39;t have regular payment intervals just because of the  first and/or last coupons of the schedule, we call those irregular coupons stubs.  This configuration specifies what type of stub is used when building the schedule  Supported values are:  None &#x3D; this is a regular payment schedule with no stubs. DO NOT use it with irregular schedules or you will get incorrect and unexpected behaviour.  ShortFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is shorter than the regular payment period.  ShortBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is shorter than the regular payment period.  LongFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is longer than the regular payment period.  LongBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is longer than the regular payment period.  Both &#x3D; this is an irregular payment schedule where both the first and the last coupons are irregular, and the length of these periods is calculated based on the first coupon payment date that should have been explicitly set..</param>
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
         /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid (required).</param>
         public FixedScheduleAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal couponRate = default(decimal), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), decimal notional = default(decimal), string paymentCurrency = default(string), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum))
@@ -138,16 +138,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Date to start generate from
+        /// Date from which LUSID starts generating the payment schedule.
         /// </summary>
-        /// <value>Date to start generate from</value>
+        /// <value>Date from which LUSID starts generating the payment schedule.</value>
         [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// Date to generate to
+        /// Last date of the payment generation schedule. May not necessarily be the maturity date  of the underlying instrument (e.g. in case the instrument has multiple payment schedules).
         /// </summary>
-        /// <value>Date to generate to</value>
+        /// <value>Last date of the payment generation schedule. May not necessarily be the maturity date  of the underlying instrument (e.g. in case the instrument has multiple payment schedules).</value>
         [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset MaturityDate { get; set; }
 
@@ -192,9 +192,9 @@ namespace Lusid.Sdk.Model
         public string PaymentCurrency { get; set; }
 
         /// <summary>
-        /// StubType required of the schedule    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both].
+        /// When a payment schedule doesn&#39;t have regular payment intervals just because of the  first and/or last coupons of the schedule, we call those irregular coupons stubs.  This configuration specifies what type of stub is used when building the schedule  Supported values are:  None &#x3D; this is a regular payment schedule with no stubs. DO NOT use it with irregular schedules or you will get incorrect and unexpected behaviour.  ShortFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is shorter than the regular payment period.  ShortBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is shorter than the regular payment period.  LongFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is longer than the regular payment period.  LongBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is longer than the regular payment period.  Both &#x3D; this is an irregular payment schedule where both the first and the last coupons are irregular, and the length of these periods is calculated based on the first coupon payment date that should have been explicitly set.
         /// </summary>
-        /// <value>StubType required of the schedule    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both].</value>
+        /// <value>When a payment schedule doesn&#39;t have regular payment intervals just because of the  first and/or last coupons of the schedule, we call those irregular coupons stubs.  This configuration specifies what type of stub is used when building the schedule  Supported values are:  None &#x3D; this is a regular payment schedule with no stubs. DO NOT use it with irregular schedules or you will get incorrect and unexpected behaviour.  ShortFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is shorter than the regular payment period.  ShortBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is shorter than the regular payment period.  LongFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is longer than the regular payment period.  LongBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is longer than the regular payment period.  Both &#x3D; this is an irregular payment schedule where both the first and the last coupons are irregular, and the length of these periods is calculated based on the first coupon payment date that should have been explicitly set.</value>
         [DataMember(Name = "stubType", EmitDefaultValue = true)]
         public string StubType { get; set; }
 

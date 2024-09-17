@@ -839,7 +839,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfPortfolioCashFlow</returns>
         ApiResponse<ResourceListOfPortfolioCashFlow> GetPortfolioCashStatementWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction
+        /// GetTransactionHistory: Get the history of a transaction
         /// </summary>
         /// <remarks>
         /// Get all of the changes that have happened to a transaction.
@@ -855,7 +855,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfChangeHistory GetTransactionHistory(string scope, string code, string transactionId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction
+        /// GetTransactionHistory: Get the history of a transaction
         /// </summary>
         /// <remarks>
         /// Get all of the changes that have happened to a transaction.
@@ -2148,7 +2148,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfPortfolioCashFlow)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolioCashFlow>> GetPortfolioCashStatementWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction
+        /// GetTransactionHistory: Get the history of a transaction
         /// </summary>
         /// <remarks>
         /// Get all of the changes that have happened to a transaction.
@@ -2165,7 +2165,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfChangeHistory> GetTransactionHistoryAsync(string scope, string code, string transactionId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction
+        /// GetTransactionHistory: Get the history of a transaction
         /// </summary>
         /// <remarks>
         /// Get all of the changes that have happened to a transaction.
@@ -9170,7 +9170,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction Get all of the changes that have happened to a transaction.
+        /// GetTransactionHistory: Get the history of a transaction Get all of the changes that have happened to a transaction.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9187,7 +9187,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction Get all of the changes that have happened to a transaction.
+        /// GetTransactionHistory: Get the history of a transaction Get all of the changes that have happened to a transaction.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9294,7 +9294,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction Get all of the changes that have happened to a transaction.
+        /// GetTransactionHistory: Get the history of a transaction Get all of the changes that have happened to a transaction.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9312,7 +9312,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionHistory: Get the history of a transaction Get all of the changes that have happened to a transaction.
+        /// GetTransactionHistory: Get the history of a transaction Get all of the changes that have happened to a transaction.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
