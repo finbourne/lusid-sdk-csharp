@@ -231,7 +231,19 @@ namespace Lusid.Sdk.Model
         /// Enum CdxCreditEvent for value: CdxCreditEvent
         /// </summary>
         [EnumMember(Value = "CdxCreditEvent")]
-        CdxCreditEvent = 34
+        CdxCreditEvent = 34,
+
+        /// <summary>
+        /// Enum MbsCouponEvent for value: MbsCouponEvent
+        /// </summary>
+        [EnumMember(Value = "MbsCouponEvent")]
+        MbsCouponEvent = 35,
+
+        /// <summary>
+        /// Enum MbsPrincipalEvent for value: MbsPrincipalEvent
+        /// </summary>
+        [EnumMember(Value = "MbsPrincipalEvent")]
+        MbsPrincipalEvent = 36
 
     }
 
