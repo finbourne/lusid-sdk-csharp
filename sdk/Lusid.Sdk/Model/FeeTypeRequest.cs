@@ -37,10 +37,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FeeTypeRequest" /> class.
         /// </summary>
         /// <param name="code">code (required).</param>
-        /// <param name="name">The name of the fee type. (required).</param>
+        /// <param name="displayName">The name of the fee type. (required).</param>
         /// <param name="description">The description of the fee type..</param>
         /// <param name="componentTransactions">A set of component transactions that relate to the fee type to be created. (required).</param>
-        public FeeTypeRequest(string code = default(string), string name = default(string), string description = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>))
+        public FeeTypeRequest(string code = default(string), string displayName = default(string), string description = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -48,12 +48,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("code is a required property for FeeTypeRequest and cannot be null");
             }
             this.Code = code;
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
             {
-                throw new ArgumentNullException("name is a required property for FeeTypeRequest and cannot be null");
+                throw new ArgumentNullException("displayName is a required property for FeeTypeRequest and cannot be null");
             }
-            this.Name = name;
+            this.DisplayName = displayName;
             // to ensure "componentTransactions" is required (not null)
             if (componentTransactions == null)
             {
@@ -73,8 +73,8 @@ namespace Lusid.Sdk.Model
         /// The name of the fee type.
         /// </summary>
         /// <value>The name of the fee type.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// The description of the fee type.
@@ -99,7 +99,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class FeeTypeRequest {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ComponentTransactions: ").Append(ComponentTransactions).Append("\n");
             sb.Append("}\n");
@@ -143,9 +143,9 @@ namespace Lusid.Sdk.Model
                     this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -173,9 +173,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
-                if (this.Name != null)
+                if (this.DisplayName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 if (this.Description != null)
                 {
@@ -215,16 +215,16 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
             }
 
-            // Name (string) maxLength
-            if (this.Name != null && this.Name.Length > 256)
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 256)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 256.", new [] { "DisplayName" });
             }
 
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
             }
 
             // Description (string) maxLength

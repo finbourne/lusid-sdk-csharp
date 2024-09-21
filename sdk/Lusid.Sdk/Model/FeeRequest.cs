@@ -37,8 +37,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FeeRequest" /> class.
         /// </summary>
         /// <param name="code">The code of the Fee. (required).</param>
-        /// <param name="feeType">feeType (required).</param>
-        /// <param name="name">The name of the Fee. (required).</param>
+        /// <param name="feeTypeId">feeTypeId (required).</param>
+        /// <param name="displayName">The name of the Fee. (required).</param>
         /// <param name="description">A description for the Fee..</param>
         /// <param name="origin">The origin or source of the Fee accrual..</param>
         /// <param name="calculationBase">The calculation base for the Fee that is calculated using a percentage. (TotalAnnualAccrualAmount and CalculationBase cannot both be present).</param>
@@ -53,7 +53,7 @@ namespace Lusid.Sdk.Model
         /// <param name="anchorDate">anchorDate.</param>
         /// <param name="properties">The Fee properties. These will be from the &#39;Fee&#39; domain..</param>
         /// <param name="portfolioId">portfolioId.</param>
-        public FeeRequest(string code = default(string), ResourceId feeType = default(ResourceId), string name = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset? endDate = default(DateTimeOffset?), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ResourceId portfolioId = default(ResourceId))
+        public FeeRequest(string code = default(string), ResourceId feeTypeId = default(ResourceId), string displayName = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset? endDate = default(DateTimeOffset?), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ResourceId portfolioId = default(ResourceId))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -61,18 +61,18 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("code is a required property for FeeRequest and cannot be null");
             }
             this.Code = code;
-            // to ensure "feeType" is required (not null)
-            if (feeType == null)
+            // to ensure "feeTypeId" is required (not null)
+            if (feeTypeId == null)
             {
-                throw new ArgumentNullException("feeType is a required property for FeeRequest and cannot be null");
+                throw new ArgumentNullException("feeTypeId is a required property for FeeRequest and cannot be null");
             }
-            this.FeeType = feeType;
-            // to ensure "name" is required (not null)
-            if (name == null)
+            this.FeeTypeId = feeTypeId;
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
             {
-                throw new ArgumentNullException("name is a required property for FeeRequest and cannot be null");
+                throw new ArgumentNullException("displayName is a required property for FeeRequest and cannot be null");
             }
-            this.Name = name;
+            this.DisplayName = displayName;
             // to ensure "accrualCurrency" is required (not null)
             if (accrualCurrency == null)
             {
@@ -117,17 +117,17 @@ namespace Lusid.Sdk.Model
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets FeeType
+        /// Gets or Sets FeeTypeId
         /// </summary>
-        [DataMember(Name = "feeType", IsRequired = true, EmitDefaultValue = true)]
-        public ResourceId FeeType { get; set; }
+        [DataMember(Name = "feeTypeId", IsRequired = true, EmitDefaultValue = true)]
+        public ResourceId FeeTypeId { get; set; }
 
         /// <summary>
         /// The name of the Fee.
         /// </summary>
         /// <value>The name of the Fee.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// A description for the Fee.
@@ -234,8 +234,8 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class FeeRequest {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  FeeType: ").Append(FeeType).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  FeeTypeId: ").Append(FeeTypeId).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Origin: ").Append(Origin).Append("\n");
             sb.Append("  CalculationBase: ").Append(CalculationBase).Append("\n");
@@ -291,14 +291,14 @@ namespace Lusid.Sdk.Model
                     this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.FeeType == input.FeeType ||
-                    (this.FeeType != null &&
-                    this.FeeType.Equals(input.FeeType))
+                    this.FeeTypeId == input.FeeTypeId ||
+                    (this.FeeTypeId != null &&
+                    this.FeeTypeId.Equals(input.FeeTypeId))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -386,13 +386,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
-                if (this.FeeType != null)
+                if (this.FeeTypeId != null)
                 {
-                    hashCode = (hashCode * 59) + this.FeeType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FeeTypeId.GetHashCode();
                 }
-                if (this.Name != null)
+                if (this.DisplayName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 if (this.Description != null)
                 {
@@ -480,16 +480,16 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
             }
 
-            // Name (string) maxLength
-            if (this.Name != null && this.Name.Length > 256)
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 256)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 256.", new [] { "DisplayName" });
             }
 
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
             }
 
             // Description (string) maxLength

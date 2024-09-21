@@ -11,6 +11,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**ListDataTypeSummaries**](DataTypesApi.md#listdatatypesummaries) | **GET** /api/datatypes | [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data |
 | [**ListDataTypes**](DataTypesApi.md#listdatatypes) | **GET** /api/datatypes/{scope} | ListDataTypes: List data types |
 | [**UpdateDataType**](DataTypesApi.md#updatedatatype) | **PUT** /api/datatypes/{scope}/{code} | [EARLY ACCESS] UpdateDataType: Update data type definition |
+| [**UpdateReferenceData**](DataTypesApi.md#updatereferencedata) | **PUT** /api/datatypes/{scope}/{code}/referencedata | [EARLY ACCESS] UpdateReferenceData: Update all reference data on a data type, includes the reference values, the field definitions, field values |
 | [**UpdateReferenceValues**](DataTypesApi.md#updatereferencevalues) | **PUT** /api/datatypes/{scope}/{code}/referencedatavalues | [EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type |
 
 <a id="createdatatype"></a>
@@ -827,6 +828,124 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the data type |  |
 | **code** | **string** | The code of the data type |  |
 | **updateDataTypeRequest** | [**UpdateDataTypeRequest**](UpdateDataTypeRequest.md) | The updated definition of the data type |  |
+
+### Return type
+
+[**DataType**](DataType.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="updatereferencedata"></a>
+# **UpdateReferenceData**
+> DataType UpdateReferenceData (string scope, string code, UpdateReferenceDataRequest updateReferenceDataRequest)
+
+[EARLY ACCESS] UpdateReferenceData: Update all reference data on a data type, includes the reference values, the field definitions, field values
+
+Replaces the whole set of reference data
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<DataTypesApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DataTypesApi>();
+            var scope = "scope_example";  // string | The scope of the data type
+            var code = "code_example";  // string | The code of the data type
+            var updateReferenceDataRequest = new UpdateReferenceDataRequest(); // UpdateReferenceDataRequest | The updated reference data
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // DataType result = apiInstance.UpdateReferenceData(scope, code, updateReferenceDataRequest, opts: opts);
+
+                // [EARLY ACCESS] UpdateReferenceData: Update all reference data on a data type, includes the reference values, the field definitions, field values
+                DataType result = apiInstance.UpdateReferenceData(scope, code, updateReferenceDataRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling DataTypesApi.UpdateReferenceData: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdateReferenceDataWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpdateReferenceData: Update all reference data on a data type, includes the reference values, the field definitions, field values
+    ApiResponse<DataType> response = apiInstance.UpdateReferenceDataWithHttpInfo(scope, code, updateReferenceDataRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling DataTypesApi.UpdateReferenceDataWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the data type |  |
+| **code** | **string** | The code of the data type |  |
+| **updateReferenceDataRequest** | [**UpdateReferenceDataRequest**](UpdateReferenceDataRequest.md) | The updated reference data |  |
 
 ### Return type
 

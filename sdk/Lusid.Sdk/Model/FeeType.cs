@@ -38,12 +38,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="id">id (required).</param>
-        /// <param name="name">The name of the fee type. (required).</param>
+        /// <param name="displayName">The name of the fee type. (required).</param>
         /// <param name="description">The description of the fee type. (required).</param>
-        /// <param name="componentTransactions">A set of component transactions that relate to the fee type. (required).</param>
+        /// <param name="componentTransactions">A set of component transactions that relate to the fee type to be created. (required).</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
-        public FeeType(string href = default(string), ResourceId id = default(ResourceId), string name = default(string), string description = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public FeeType(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -51,12 +51,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("id is a required property for FeeType and cannot be null");
             }
             this.Id = id;
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
             {
-                throw new ArgumentNullException("name is a required property for FeeType and cannot be null");
+                throw new ArgumentNullException("displayName is a required property for FeeType and cannot be null");
             }
-            this.Name = name;
+            this.DisplayName = displayName;
             // to ensure "description" is required (not null)
             if (description == null)
             {
@@ -91,8 +91,8 @@ namespace Lusid.Sdk.Model
         /// The name of the fee type.
         /// </summary>
         /// <value>The name of the fee type.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// The description of the fee type.
@@ -102,9 +102,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// A set of component transactions that relate to the fee type.
+        /// A set of component transactions that relate to the fee type to be created.
         /// </summary>
-        /// <value>A set of component transactions that relate to the fee type.</value>
+        /// <value>A set of component transactions that relate to the fee type to be created.</value>
         [DataMember(Name = "componentTransactions", IsRequired = true, EmitDefaultValue = true)]
         public List<ComponentTransaction> ComponentTransactions { get; set; }
 
@@ -130,7 +130,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class FeeType {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ComponentTransactions: ").Append(ComponentTransactions).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
@@ -181,9 +181,9 @@ namespace Lusid.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -226,9 +226,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.Name != null)
+                if (this.DisplayName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 if (this.Description != null)
                 {
@@ -257,10 +257,10 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
             }
 
             // Description (string) minLength

@@ -28,7 +28,7 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IFundConfigurationEntitiesApiSync : IApiAccessor
+    public interface IFundConfigurationApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -190,7 +190,7 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IFundConfigurationEntitiesApiAsync : IApiAccessor
+    public interface IFundConfigurationApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -362,7 +362,7 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IFundConfigurationEntitiesApi : IFundConfigurationEntitiesApiSync, IFundConfigurationEntitiesApiAsync
+    public interface IFundConfigurationApi : IFundConfigurationApiSync, IFundConfigurationApiAsync
     {
 
     }
@@ -370,23 +370,23 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class FundConfigurationEntitiesApi : IFundConfigurationEntitiesApi
+    public partial class FundConfigurationApi : IFundConfigurationApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundConfigurationEntitiesApi"/> class.
+        /// Initializes a new instance of the <see cref="FundConfigurationApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public FundConfigurationEntitiesApi() : this((string)null)
+        public FundConfigurationApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundConfigurationEntitiesApi"/> class.
+        /// Initializes a new instance of the <see cref="FundConfigurationApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public FundConfigurationEntitiesApi(string basePath)
+        public FundConfigurationApi(string basePath)
         {
             var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
@@ -404,12 +404,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundConfigurationEntitiesApi"/> class
+        /// Initializes a new instance of the <see cref="FundConfigurationApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public FundConfigurationEntitiesApi(Lusid.Sdk.Client.Configuration configuration)
+        public FundConfigurationApi(Lusid.Sdk.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -420,13 +420,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundConfigurationEntitiesApi"/> class
+        /// Initializes a new instance of the <see cref="FundConfigurationApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public FundConfigurationEntitiesApi(Lusid.Sdk.Client.ISynchronousClient client, Lusid.Sdk.Client.IAsynchronousClient asyncClient, Lusid.Sdk.Client.IReadableConfiguration configuration)
+        public FundConfigurationApi(Lusid.Sdk.Client.ISynchronousClient client, Lusid.Sdk.Client.IAsynchronousClient asyncClient, Lusid.Sdk.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -508,13 +508,13 @@ namespace Lusid.Sdk.Api
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationEntitiesApi->CreateFundConfiguration");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationApi->CreateFundConfiguration");
             }
 
             // verify the required parameter 'fundConfigurationRequest' is set
             if (fundConfigurationRequest == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'fundConfigurationRequest' when calling FundConfigurationEntitiesApi->CreateFundConfiguration");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'fundConfigurationRequest' when calling FundConfigurationApi->CreateFundConfiguration");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -558,7 +558,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.Data = fundConfigurationRequest;
 
-            localVarRequestOptions.Operation = "FundConfigurationEntitiesApi.CreateFundConfiguration";
+            localVarRequestOptions.Operation = "FundConfigurationApi.CreateFundConfiguration";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -623,13 +623,13 @@ namespace Lusid.Sdk.Api
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationEntitiesApi->CreateFundConfiguration");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationApi->CreateFundConfiguration");
             }
 
             // verify the required parameter 'fundConfigurationRequest' is set
             if (fundConfigurationRequest == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'fundConfigurationRequest' when calling FundConfigurationEntitiesApi->CreateFundConfiguration");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'fundConfigurationRequest' when calling FundConfigurationApi->CreateFundConfiguration");
             }
 
 
@@ -674,7 +674,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.Data = fundConfigurationRequest;
 
-            localVarRequestOptions.Operation = "FundConfigurationEntitiesApi.CreateFundConfiguration";
+            localVarRequestOptions.Operation = "FundConfigurationApi.CreateFundConfiguration";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -738,13 +738,13 @@ namespace Lusid.Sdk.Api
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationEntitiesApi->DeleteFundConfiguration");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationApi->DeleteFundConfiguration");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundConfigurationEntitiesApi->DeleteFundConfiguration");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundConfigurationApi->DeleteFundConfiguration");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -784,7 +784,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
 
-            localVarRequestOptions.Operation = "FundConfigurationEntitiesApi.DeleteFundConfiguration";
+            localVarRequestOptions.Operation = "FundConfigurationApi.DeleteFundConfiguration";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -849,13 +849,13 @@ namespace Lusid.Sdk.Api
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationEntitiesApi->DeleteFundConfiguration");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationApi->DeleteFundConfiguration");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundConfigurationEntitiesApi->DeleteFundConfiguration");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundConfigurationApi->DeleteFundConfiguration");
             }
 
 
@@ -896,7 +896,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
 
-            localVarRequestOptions.Operation = "FundConfigurationEntitiesApi.DeleteFundConfiguration";
+            localVarRequestOptions.Operation = "FundConfigurationApi.DeleteFundConfiguration";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -966,13 +966,13 @@ namespace Lusid.Sdk.Api
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationEntitiesApi->GetFundConfiguration");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationApi->GetFundConfiguration");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundConfigurationEntitiesApi->GetFundConfiguration");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundConfigurationApi->GetFundConfiguration");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1024,7 +1024,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
-            localVarRequestOptions.Operation = "FundConfigurationEntitiesApi.GetFundConfiguration";
+            localVarRequestOptions.Operation = "FundConfigurationApi.GetFundConfiguration";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1095,13 +1095,13 @@ namespace Lusid.Sdk.Api
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationEntitiesApi->GetFundConfiguration");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationApi->GetFundConfiguration");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundConfigurationEntitiesApi->GetFundConfiguration");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundConfigurationApi->GetFundConfiguration");
             }
 
 
@@ -1154,7 +1154,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
-            localVarRequestOptions.Operation = "FundConfigurationEntitiesApi.GetFundConfiguration";
+            localVarRequestOptions.Operation = "FundConfigurationApi.GetFundConfiguration";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1288,7 +1288,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
-            localVarRequestOptions.Operation = "FundConfigurationEntitiesApi.ListFundConfigurations";
+            localVarRequestOptions.Operation = "FundConfigurationApi.ListFundConfigurations";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1424,7 +1424,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
-            localVarRequestOptions.Operation = "FundConfigurationEntitiesApi.ListFundConfigurations";
+            localVarRequestOptions.Operation = "FundConfigurationApi.ListFundConfigurations";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1490,13 +1490,13 @@ namespace Lusid.Sdk.Api
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationEntitiesApi->UpsertFundConfigurationProperties");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationApi->UpsertFundConfigurationProperties");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundConfigurationEntitiesApi->UpsertFundConfigurationProperties");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundConfigurationApi->UpsertFundConfigurationProperties");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1541,7 +1541,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.Data = requestBody;
 
-            localVarRequestOptions.Operation = "FundConfigurationEntitiesApi.UpsertFundConfigurationProperties";
+            localVarRequestOptions.Operation = "FundConfigurationApi.UpsertFundConfigurationProperties";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1608,13 +1608,13 @@ namespace Lusid.Sdk.Api
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationEntitiesApi->UpsertFundConfigurationProperties");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundConfigurationApi->UpsertFundConfigurationProperties");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundConfigurationEntitiesApi->UpsertFundConfigurationProperties");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundConfigurationApi->UpsertFundConfigurationProperties");
             }
 
 
@@ -1660,7 +1660,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.Data = requestBody;
 
-            localVarRequestOptions.Operation = "FundConfigurationEntitiesApi.UpsertFundConfigurationProperties";
+            localVarRequestOptions.Operation = "FundConfigurationApi.UpsertFundConfigurationProperties";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required

@@ -268,15 +268,15 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CdxCreditEventAllOf" /> class.
         /// </summary>
-        /// <param name="defaultDate">The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation. (required).</param>
+        /// <param name="effectiveDate">The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation. (required).</param>
         /// <param name="auctionDate">The date of the credit event auction - i.e. date on which the defaulted debt is sold via auction, and a recovery rate determined..</param>
         /// <param name="recoveryRate">The fraction of the defaulted debt that can be recovered..</param>
         /// <param name="constituentWeight">The relative weight of the CDX constituent. (required).</param>
         /// <param name="constituentReference">Reference value used to identify the CDX constituent..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent (required).</param>
-        public CdxCreditEventAllOf(DateTimeOffset defaultDate = default(DateTimeOffset), DateTimeOffset? auctionDate = default(DateTimeOffset?), decimal? recoveryRate = default(decimal?), decimal constituentWeight = default(decimal), string constituentReference = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public CdxCreditEventAllOf(DateTimeOffset effectiveDate = default(DateTimeOffset), DateTimeOffset? auctionDate = default(DateTimeOffset?), decimal? recoveryRate = default(decimal?), decimal constituentWeight = default(decimal), string constituentReference = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            this.DefaultDate = defaultDate;
+            this.EffectiveDate = effectiveDate;
             this.ConstituentWeight = constituentWeight;
             this.InstrumentEventType = instrumentEventType;
             this.AuctionDate = auctionDate;
@@ -288,8 +288,8 @@ namespace Lusid.Sdk.Model
         /// The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation.
         /// </summary>
         /// <value>The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation.</value>
-        [DataMember(Name = "defaultDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset DefaultDate { get; set; }
+        [DataMember(Name = "effectiveDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset EffectiveDate { get; set; }
 
         /// <summary>
         /// The date of the credit event auction - i.e. date on which the defaulted debt is sold via auction, and a recovery rate determined.
@@ -327,7 +327,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class CdxCreditEventAllOf {\n");
-            sb.Append("  DefaultDate: ").Append(DefaultDate).Append("\n");
+            sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
             sb.Append("  AuctionDate: ").Append(AuctionDate).Append("\n");
             sb.Append("  RecoveryRate: ").Append(RecoveryRate).Append("\n");
             sb.Append("  ConstituentWeight: ").Append(ConstituentWeight).Append("\n");
@@ -369,9 +369,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.DefaultDate == input.DefaultDate ||
-                    (this.DefaultDate != null &&
-                    this.DefaultDate.Equals(input.DefaultDate))
+                    this.EffectiveDate == input.EffectiveDate ||
+                    (this.EffectiveDate != null &&
+                    this.EffectiveDate.Equals(input.EffectiveDate))
                 ) && 
                 (
                     this.AuctionDate == input.AuctionDate ||
@@ -407,9 +407,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DefaultDate != null)
+                if (this.EffectiveDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.DefaultDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.EffectiveDate.GetHashCode();
                 }
                 if (this.AuctionDate != null)
                 {

@@ -23,55 +23,46 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// UpsertCustomEntitiesResponse
+    /// BatchUpsertDatesForCalendarResponse
     /// </summary>
-    [DataContract(Name = "UpsertCustomEntitiesResponse")]
-    public partial class UpsertCustomEntitiesResponse : IEquatable<UpsertCustomEntitiesResponse>, IValidatableObject
+    [DataContract(Name = "BatchUpsertDatesForCalendarResponse")]
+    public partial class BatchUpsertDatesForCalendarResponse : IEquatable<BatchUpsertDatesForCalendarResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertCustomEntitiesResponse" /> class.
+        /// Initializes a new instance of the <see cref="BatchUpsertDatesForCalendarResponse" /> class.
         /// </summary>
-        /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
-        /// <param name="values">The custom-entities which have been successfully updated or created..</param>
-        /// <param name="staged">The custom-entities that have been staged for update or creation..</param>
-        /// <param name="failed">The custom-entities that could not be updated or created or were left unchanged without error along with a reason for their failure..</param>
+        /// <param name="values">The dates which have been successfully upserted..</param>
+        /// <param name="failed">The dates that could not be upserted along with a reason for their failure..</param>
+        /// <param name="metadata">Contains warnings related to the upserted dates.</param>
         /// <param name="links">links.</param>
-        public UpsertCustomEntitiesResponse(string href = default(string), Dictionary<string, CustomEntityResponse> values = default(Dictionary<string, CustomEntityResponse>), Dictionary<string, CustomEntityResponse> staged = default(Dictionary<string, CustomEntityResponse>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<Link> links = default(List<Link>))
+        public BatchUpsertDatesForCalendarResponse(Dictionary<string, CalendarDate> values = default(Dictionary<string, CalendarDate>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
         {
-            this.Href = href;
             this.Values = values;
-            this.Staged = staged;
             this.Failed = failed;
+            this.Metadata = metadata;
             this.Links = links;
         }
 
         /// <summary>
-        /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+        /// The dates which have been successfully upserted.
         /// </summary>
-        /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
-        [DataMember(Name = "href", EmitDefaultValue = true)]
-        public string Href { get; set; }
-
-        /// <summary>
-        /// The custom-entities which have been successfully updated or created.
-        /// </summary>
-        /// <value>The custom-entities which have been successfully updated or created.</value>
+        /// <value>The dates which have been successfully upserted.</value>
         [DataMember(Name = "values", EmitDefaultValue = true)]
-        public Dictionary<string, CustomEntityResponse> Values { get; set; }
+        public Dictionary<string, CalendarDate> Values { get; set; }
 
         /// <summary>
-        /// The custom-entities that have been staged for update or creation.
+        /// The dates that could not be upserted along with a reason for their failure.
         /// </summary>
-        /// <value>The custom-entities that have been staged for update or creation.</value>
-        [DataMember(Name = "staged", EmitDefaultValue = true)]
-        public Dictionary<string, CustomEntityResponse> Staged { get; set; }
-
-        /// <summary>
-        /// The custom-entities that could not be updated or created or were left unchanged without error along with a reason for their failure.
-        /// </summary>
-        /// <value>The custom-entities that could not be updated or created or were left unchanged without error along with a reason for their failure.</value>
+        /// <value>The dates that could not be upserted along with a reason for their failure.</value>
         [DataMember(Name = "failed", EmitDefaultValue = true)]
         public Dictionary<string, ErrorDetail> Failed { get; set; }
+
+        /// <summary>
+        /// Contains warnings related to the upserted dates
+        /// </summary>
+        /// <value>Contains warnings related to the upserted dates</value>
+        [DataMember(Name = "metadata", EmitDefaultValue = true)]
+        public Dictionary<string, List<ResponseMetaData>> Metadata { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -86,11 +77,10 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UpsertCustomEntitiesResponse {\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("class BatchUpsertDatesForCalendarResponse {\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
-            sb.Append("  Staged: ").Append(Staged).Append("\n");
             sb.Append("  Failed: ").Append(Failed).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -112,15 +102,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpsertCustomEntitiesResponse);
+            return this.Equals(input as BatchUpsertDatesForCalendarResponse);
         }
 
         /// <summary>
-        /// Returns true if UpsertCustomEntitiesResponse instances are equal
+        /// Returns true if BatchUpsertDatesForCalendarResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpsertCustomEntitiesResponse to be compared</param>
+        /// <param name="input">Instance of BatchUpsertDatesForCalendarResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpsertCustomEntitiesResponse input)
+        public bool Equals(BatchUpsertDatesForCalendarResponse input)
         {
             if (input == null)
             {
@@ -128,27 +118,22 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
-                ) && 
-                (
                     this.Values == input.Values ||
                     this.Values != null &&
                     input.Values != null &&
                     this.Values.SequenceEqual(input.Values)
                 ) && 
                 (
-                    this.Staged == input.Staged ||
-                    this.Staged != null &&
-                    input.Staged != null &&
-                    this.Staged.SequenceEqual(input.Staged)
-                ) && 
-                (
                     this.Failed == input.Failed ||
                     this.Failed != null &&
                     input.Failed != null &&
                     this.Failed.SequenceEqual(input.Failed)
+                ) && 
+                (
+                    this.Metadata == input.Metadata ||
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -167,21 +152,17 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Href != null)
-                {
-                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
-                }
                 if (this.Values != null)
                 {
                     hashCode = (hashCode * 59) + this.Values.GetHashCode();
                 }
-                if (this.Staged != null)
-                {
-                    hashCode = (hashCode * 59) + this.Staged.GetHashCode();
-                }
                 if (this.Failed != null)
                 {
                     hashCode = (hashCode * 59) + this.Failed.GetHashCode();
+                }
+                if (this.Metadata != null)
+                {
+                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
                 }
                 if (this.Links != null)
                 {

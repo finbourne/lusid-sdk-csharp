@@ -36,17 +36,17 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateFeeTypeRequest" /> class.
         /// </summary>
-        /// <param name="name">The name of the fee type. (required).</param>
+        /// <param name="displayName">The name of the fee type. (required).</param>
         /// <param name="description">The description of the fee type..</param>
-        /// <param name="componentTransactions">A set of component transactions that relate to the fee type to be updated. (required).</param>
-        public UpdateFeeTypeRequest(string name = default(string), string description = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>))
+        /// <param name="componentTransactions">A set of component transactions that relate to the fee type to be created. (required).</param>
+        public UpdateFeeTypeRequest(string displayName = default(string), string description = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
             {
-                throw new ArgumentNullException("name is a required property for UpdateFeeTypeRequest and cannot be null");
+                throw new ArgumentNullException("displayName is a required property for UpdateFeeTypeRequest and cannot be null");
             }
-            this.Name = name;
+            this.DisplayName = displayName;
             // to ensure "componentTransactions" is required (not null)
             if (componentTransactions == null)
             {
@@ -60,8 +60,8 @@ namespace Lusid.Sdk.Model
         /// The name of the fee type.
         /// </summary>
         /// <value>The name of the fee type.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// The description of the fee type.
@@ -71,9 +71,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// A set of component transactions that relate to the fee type to be updated.
+        /// A set of component transactions that relate to the fee type to be created.
         /// </summary>
-        /// <value>A set of component transactions that relate to the fee type to be updated.</value>
+        /// <value>A set of component transactions that relate to the fee type to be created.</value>
         [DataMember(Name = "componentTransactions", IsRequired = true, EmitDefaultValue = true)]
         public List<ComponentTransaction> ComponentTransactions { get; set; }
 
@@ -85,7 +85,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateFeeTypeRequest {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ComponentTransactions: ").Append(ComponentTransactions).Append("\n");
             sb.Append("}\n");
@@ -124,9 +124,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -150,9 +150,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
+                if (this.DisplayName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 if (this.Description != null)
                 {
@@ -173,16 +173,16 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) maxLength
-            if (this.Name != null && this.Name.Length > 256)
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 256)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 256.", new [] { "DisplayName" });
             }
 
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
             }
 
             // Description (string) maxLength

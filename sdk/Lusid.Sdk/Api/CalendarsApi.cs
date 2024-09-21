@@ -88,6 +88,37 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of CalendarDate</returns>
         ApiResponse<CalendarDate> AddDateToCalendarWithHttpInfo(string scope, string code, CreateDateRequest createDateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// BatchUpsertDatesForCalendar: Batch upsert dates to a calendar
+        /// </summary>
+        /// <remarks>
+        /// Create or update events in the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
+        /// <param name="requestBody">Create Date Requests of dates to upsert</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>BatchUpsertDatesForCalendarResponse</returns>
+        BatchUpsertDatesForCalendarResponse BatchUpsertDatesForCalendar(string scope, string code, string successMode, Dictionary<string, CreateDateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// BatchUpsertDatesForCalendar: Batch upsert dates to a calendar
+        /// </summary>
+        /// <remarks>
+        /// Create or update events in the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
+        /// <param name="requestBody">Create Date Requests of dates to upsert</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of BatchUpsertDatesForCalendarResponse</returns>
+        ApiResponse<BatchUpsertDatesForCalendarResponse> BatchUpsertDatesForCalendarWithHttpInfo(string scope, string code, string successMode, Dictionary<string, CreateDateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] CreateCalendar: Create a calendar in its generic form
         /// </summary>
         /// <remarks>
@@ -140,7 +171,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Calendar</returns>
         ApiResponse<Calendar> DeleteCalendarWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar
+        /// DeleteDateFromCalendar: Remove a date from a calendar
         /// </summary>
         /// <remarks>
         /// Remove a date from a calendar.
@@ -155,7 +186,7 @@ namespace Lusid.Sdk.Api
         CalendarDate DeleteDateFromCalendar(string scope, string code, string dateId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar
+        /// DeleteDateFromCalendar: Remove a date from a calendar
         /// </summary>
         /// <remarks>
         /// Remove a date from a calendar.
@@ -168,6 +199,35 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CalendarDate</returns>
         ApiResponse<CalendarDate> DeleteDateFromCalendarWithHttpInfo(string scope, string code, string dateId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// DeleteDatesFromCalendar: Delete dates from a calendar
+        /// </summary>
+        /// <remarks>
+        /// Delete dates from a calendar.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="requestBody">Identifiers of the dates to be removed</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Dictionary&lt;string, CalendarDate&gt;</returns>
+        Dictionary<string, CalendarDate> DeleteDatesFromCalendar(string scope, string code, List<string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// DeleteDatesFromCalendar: Delete dates from a calendar
+        /// </summary>
+        /// <remarks>
+        /// Delete dates from a calendar.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="requestBody">Identifiers of the dates to be removed</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, CalendarDate&gt;</returns>
+        ApiResponse<Dictionary<string, CalendarDate>> DeleteDatesFromCalendarWithHttpInfo(string scope, string code, List<string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates.
         /// </summary>
@@ -461,6 +521,39 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (CalendarDate)</returns>
         System.Threading.Tasks.Task<ApiResponse<CalendarDate>> AddDateToCalendarWithHttpInfoAsync(string scope, string code, CreateDateRequest createDateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// BatchUpsertDatesForCalendar: Batch upsert dates to a calendar
+        /// </summary>
+        /// <remarks>
+        /// Create or update events in the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
+        /// <param name="requestBody">Create Date Requests of dates to upsert</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of BatchUpsertDatesForCalendarResponse</returns>
+        System.Threading.Tasks.Task<BatchUpsertDatesForCalendarResponse> BatchUpsertDatesForCalendarAsync(string scope, string code, string successMode, Dictionary<string, CreateDateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// BatchUpsertDatesForCalendar: Batch upsert dates to a calendar
+        /// </summary>
+        /// <remarks>
+        /// Create or update events in the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
+        /// <param name="requestBody">Create Date Requests of dates to upsert</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (BatchUpsertDatesForCalendarResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BatchUpsertDatesForCalendarResponse>> BatchUpsertDatesForCalendarWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, CreateDateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] CreateCalendar: Create a calendar in its generic form
         /// </summary>
         /// <remarks>
@@ -517,7 +610,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Calendar)</returns>
         System.Threading.Tasks.Task<ApiResponse<Calendar>> DeleteCalendarWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar
+        /// DeleteDateFromCalendar: Remove a date from a calendar
         /// </summary>
         /// <remarks>
         /// Remove a date from a calendar.
@@ -533,7 +626,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<CalendarDate> DeleteDateFromCalendarAsync(string scope, string code, string dateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar
+        /// DeleteDateFromCalendar: Remove a date from a calendar
         /// </summary>
         /// <remarks>
         /// Remove a date from a calendar.
@@ -547,6 +640,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CalendarDate)</returns>
         System.Threading.Tasks.Task<ApiResponse<CalendarDate>> DeleteDateFromCalendarWithHttpInfoAsync(string scope, string code, string dateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// DeleteDatesFromCalendar: Delete dates from a calendar
+        /// </summary>
+        /// <remarks>
+        /// Delete dates from a calendar.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="requestBody">Identifiers of the dates to be removed</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of Dictionary&lt;string, CalendarDate&gt;</returns>
+        System.Threading.Tasks.Task<Dictionary<string, CalendarDate>> DeleteDatesFromCalendarAsync(string scope, string code, List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// DeleteDatesFromCalendar: Delete dates from a calendar
+        /// </summary>
+        /// <remarks>
+        /// Delete dates from a calendar.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="requestBody">Identifiers of the dates to be removed</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, CalendarDate&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, CalendarDate>>> DeleteDatesFromCalendarWithHttpInfoAsync(string scope, string code, List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates.
         /// </summary>
@@ -1386,6 +1510,272 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// BatchUpsertDatesForCalendar: Batch upsert dates to a calendar Create or update events in the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
+        /// <param name="requestBody">Create Date Requests of dates to upsert</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>BatchUpsertDatesForCalendarResponse</returns>
+        public BatchUpsertDatesForCalendarResponse BatchUpsertDatesForCalendar(string scope, string code, string successMode, Dictionary<string, CreateDateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertDatesForCalendarResponse> localVarResponse = BatchUpsertDatesForCalendarWithHttpInfo(scope, code, successMode, requestBody, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// BatchUpsertDatesForCalendar: Batch upsert dates to a calendar Create or update events in the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
+        /// <param name="requestBody">Create Date Requests of dates to upsert</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of BatchUpsertDatesForCalendarResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<BatchUpsertDatesForCalendarResponse> BatchUpsertDatesForCalendarWithHttpInfo(string scope, string code, string successMode, Dictionary<string, CreateDateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling CalendarsApi->BatchUpsertDatesForCalendar");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling CalendarsApi->BatchUpsertDatesForCalendar");
+            }
+
+            // verify the required parameter 'successMode' is set
+            if (successMode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'successMode' when calling CalendarsApi->BatchUpsertDatesForCalendar");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling CalendarsApi->BatchUpsertDatesForCalendar");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "CalendarsApi.BatchUpsertDatesForCalendar";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<BatchUpsertDatesForCalendarResponse>("/api/calendars/generic/{scope}/{code}/dates/$batchUpsert", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchUpsertDatesForCalendar", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// BatchUpsertDatesForCalendar: Batch upsert dates to a calendar Create or update events in the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
+        /// <param name="requestBody">Create Date Requests of dates to upsert</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of BatchUpsertDatesForCalendarResponse</returns>
+        public async System.Threading.Tasks.Task<BatchUpsertDatesForCalendarResponse> BatchUpsertDatesForCalendarAsync(string scope, string code, string successMode, Dictionary<string, CreateDateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertDatesForCalendarResponse> localVarResponse = await BatchUpsertDatesForCalendarWithHttpInfoAsync(scope, code, successMode, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// BatchUpsertDatesForCalendar: Batch upsert dates to a calendar Create or update events in the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
+        /// <param name="requestBody">Create Date Requests of dates to upsert</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (BatchUpsertDatesForCalendarResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertDatesForCalendarResponse>> BatchUpsertDatesForCalendarWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, CreateDateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling CalendarsApi->BatchUpsertDatesForCalendar");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling CalendarsApi->BatchUpsertDatesForCalendar");
+            }
+
+            // verify the required parameter 'successMode' is set
+            if (successMode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'successMode' when calling CalendarsApi->BatchUpsertDatesForCalendar");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling CalendarsApi->BatchUpsertDatesForCalendar");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "CalendarsApi.BatchUpsertDatesForCalendar";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<BatchUpsertDatesForCalendarResponse>("/api/calendars/generic/{scope}/{code}/dates/$batchUpsert", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchUpsertDatesForCalendar", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EARLY ACCESS] CreateCalendar: Create a calendar in its generic form Create a calendar in a generic form which can be used to store date events.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1820,7 +2210,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar Remove a date from a calendar.
+        /// DeleteDateFromCalendar: Remove a date from a calendar Remove a date from a calendar.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendar</param>
@@ -1836,7 +2226,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar Remove a date from a calendar.
+        /// DeleteDateFromCalendar: Remove a date from a calendar Remove a date from a calendar.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendar</param>
@@ -1938,7 +2328,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar Remove a date from a calendar.
+        /// DeleteDateFromCalendar: Remove a date from a calendar Remove a date from a calendar.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendar</param>
@@ -1955,7 +2345,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar Remove a date from a calendar.
+        /// DeleteDateFromCalendar: Remove a date from a calendar Remove a date from a calendar.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendar</param>
@@ -2050,6 +2440,254 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteDateFromCalendar", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// DeleteDatesFromCalendar: Delete dates from a calendar Delete dates from a calendar.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="requestBody">Identifiers of the dates to be removed</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Dictionary&lt;string, CalendarDate&gt;</returns>
+        public Dictionary<string, CalendarDate> DeleteDatesFromCalendar(string scope, string code, List<string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<Dictionary<string, CalendarDate>> localVarResponse = DeleteDatesFromCalendarWithHttpInfo(scope, code, requestBody, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// DeleteDatesFromCalendar: Delete dates from a calendar Delete dates from a calendar.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="requestBody">Identifiers of the dates to be removed</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, CalendarDate&gt;</returns>
+        public Lusid.Sdk.Client.ApiResponse<Dictionary<string, CalendarDate>> DeleteDatesFromCalendarWithHttpInfo(string scope, string code, List<string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling CalendarsApi->DeleteDatesFromCalendar");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling CalendarsApi->DeleteDatesFromCalendar");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling CalendarsApi->DeleteDatesFromCalendar");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "CalendarsApi.DeleteDatesFromCalendar";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Dictionary<string, CalendarDate>>("/api/calendars/generic/{scope}/{code}/dates/$delete", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteDatesFromCalendar", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// DeleteDatesFromCalendar: Delete dates from a calendar Delete dates from a calendar.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="requestBody">Identifiers of the dates to be removed</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of Dictionary&lt;string, CalendarDate&gt;</returns>
+        public async System.Threading.Tasks.Task<Dictionary<string, CalendarDate>> DeleteDatesFromCalendarAsync(string scope, string code, List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<Dictionary<string, CalendarDate>> localVarResponse = await DeleteDatesFromCalendarWithHttpInfoAsync(scope, code, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// DeleteDatesFromCalendar: Delete dates from a calendar Delete dates from a calendar.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the calendar</param>
+        /// <param name="code">Code of the calendar</param>
+        /// <param name="requestBody">Identifiers of the dates to be removed</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, CalendarDate&gt;)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, CalendarDate>>> DeleteDatesFromCalendarWithHttpInfoAsync(string scope, string code, List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling CalendarsApi->DeleteDatesFromCalendar");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling CalendarsApi->DeleteDatesFromCalendar");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling CalendarsApi->DeleteDatesFromCalendar");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "CalendarsApi.DeleteDatesFromCalendar";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Dictionary<string, CalendarDate>>("/api/calendars/generic/{scope}/{code}/dates/$delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteDatesFromCalendar", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
