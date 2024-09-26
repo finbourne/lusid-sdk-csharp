@@ -33,12 +33,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="lusidInstrumentId">LUSID&#39;s internal unique instrument identifier, resolved from the share class&#39; instrument identifiers.</param>
         /// <param name="instrumentScope">The scope in which the share class instrument lies..</param>
+        /// <param name="shortCode">The unique code within the fund for the share class instrument..</param>
         /// <param name="domCurrency">The domestic currency of the share class instrument.</param>
         /// <param name="instrumentActive">If the instrument of the share class is active..</param>
-        public ShareClassDetails(string lusidInstrumentId = default(string), string instrumentScope = default(string), string domCurrency = default(string), bool instrumentActive = default(bool))
+        public ShareClassDetails(string lusidInstrumentId = default(string), string instrumentScope = default(string), string shortCode = default(string), string domCurrency = default(string), bool instrumentActive = default(bool))
         {
             this.LusidInstrumentId = lusidInstrumentId;
             this.InstrumentScope = instrumentScope;
+            this.ShortCode = shortCode;
             this.DomCurrency = domCurrency;
             this.InstrumentActive = instrumentActive;
         }
@@ -56,6 +58,13 @@ namespace Lusid.Sdk.Model
         /// <value>The scope in which the share class instrument lies.</value>
         [DataMember(Name = "instrumentScope", EmitDefaultValue = true)]
         public string InstrumentScope { get; set; }
+
+        /// <summary>
+        /// The unique code within the fund for the share class instrument.
+        /// </summary>
+        /// <value>The unique code within the fund for the share class instrument.</value>
+        [DataMember(Name = "shortCode", EmitDefaultValue = true)]
+        public string ShortCode { get; set; }
 
         /// <summary>
         /// The domestic currency of the share class instrument
@@ -81,6 +90,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class ShareClassDetails {\n");
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
             sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
+            sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
             sb.Append("  DomCurrency: ").Append(DomCurrency).Append("\n");
             sb.Append("  InstrumentActive: ").Append(InstrumentActive).Append("\n");
             sb.Append("}\n");
@@ -129,6 +139,11 @@ namespace Lusid.Sdk.Model
                     this.InstrumentScope.Equals(input.InstrumentScope))
                 ) && 
                 (
+                    this.ShortCode == input.ShortCode ||
+                    (this.ShortCode != null &&
+                    this.ShortCode.Equals(input.ShortCode))
+                ) && 
+                (
                     this.DomCurrency == input.DomCurrency ||
                     (this.DomCurrency != null &&
                     this.DomCurrency.Equals(input.DomCurrency))
@@ -155,6 +170,10 @@ namespace Lusid.Sdk.Model
                 if (this.InstrumentScope != null)
                 {
                     hashCode = (hashCode * 59) + this.InstrumentScope.GetHashCode();
+                }
+                if (this.ShortCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
                 }
                 if (this.DomCurrency != null)
                 {
@@ -208,6 +227,25 @@ namespace Lusid.Sdk.Model
             if (false == regexInstrumentScope.Match(this.InstrumentScope).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentScope, must match a pattern of " + regexInstrumentScope, new [] { "InstrumentScope" });
+            }
+
+            // ShortCode (string) maxLength
+            if (this.ShortCode != null && this.ShortCode.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be less than 64.", new [] { "ShortCode" });
+            }
+
+            // ShortCode (string) minLength
+            if (this.ShortCode != null && this.ShortCode.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be greater than 1.", new [] { "ShortCode" });
+            }
+
+            // ShortCode (string) pattern
+            Regex regexShortCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexShortCode.Match(this.ShortCode).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, must match a pattern of " + regexShortCode, new [] { "ShortCode" });
             }
 
             yield break;

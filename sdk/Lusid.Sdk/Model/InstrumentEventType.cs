@@ -243,7 +243,13 @@ namespace Lusid.Sdk.Model
         /// Enum MbsPrincipalEvent for value: MbsPrincipalEvent
         /// </summary>
         [EnumMember(Value = "MbsPrincipalEvent")]
-        MbsPrincipalEvent = 36
+        MbsPrincipalEvent = 36,
+
+        /// <summary>
+        /// Enum BonusIssueEvent for value: BonusIssueEvent
+        /// </summary>
+        [EnumMember(Value = "BonusIssueEvent")]
+        BonusIssueEvent = 37
 
     }
 

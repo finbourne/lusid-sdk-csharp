@@ -31,16 +31,26 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ValuationPointDataQueryParameters" /> class.
         /// </summary>
-        /// <param name="end">end.</param>
+        [JsonConstructorAttribute]
+        protected ValuationPointDataQueryParameters() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValuationPointDataQueryParameters" /> class.
+        /// </summary>
+        /// <param name="end">end (required).</param>
         public ValuationPointDataQueryParameters(DateOrDiaryEntry end = default(DateOrDiaryEntry))
         {
+            // to ensure "end" is required (not null)
+            if (end == null)
+            {
+                throw new ArgumentNullException("end is a required property for ValuationPointDataQueryParameters and cannot be null");
+            }
             this.End = end;
         }
 
         /// <summary>
         /// Gets or Sets End
         /// </summary>
-        [DataMember(Name = "end", EmitDefaultValue = false)]
+        [DataMember(Name = "end", IsRequired = true, EmitDefaultValue = true)]
         public DateOrDiaryEntry End { get; set; }
 
         /// <summary>

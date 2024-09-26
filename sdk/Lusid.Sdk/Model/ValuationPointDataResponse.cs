@@ -52,7 +52,7 @@ namespace Lusid.Sdk.Model
         /// <param name="valuationPointCode">The code of the valuation point..</param>
         /// <param name="previousValuationPointCode">The code of the previous valuation point..</param>
         /// <param name="links">links.</param>
-        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), Dictionary<string, decimal> backout = default(Dictionary<string, decimal>), Dictionary<string, decimal> dealing = default(Dictionary<string, decimal>), Dictionary<string, decimal> pnL = default(Dictionary<string, decimal>), decimal gav = default(decimal), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), decimal nav = default(decimal), decimal previousNav = default(decimal), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), Dictionary<string, ShareClassData> shareClassData = default(Dictionary<string, ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<Link> links = default(List<Link>))
+        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), Dictionary<string, decimal> backout = default(Dictionary<string, decimal>), Dictionary<string, decimal> dealing = default(Dictionary<string, decimal>), Dictionary<string, decimal> pnL = default(Dictionary<string, decimal>), decimal gav = default(decimal), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), decimal nav = default(decimal), decimal previousNav = default(decimal), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), List<ShareClassData> shareClassData = default(List<ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -204,7 +204,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The data for all share classes in fund. Share classes are identified by their short codes.</value>
         [DataMember(Name = "shareClassData", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, ShareClassData> ShareClassData { get; set; }
+        public List<ShareClassData> ShareClassData { get; set; }
 
         /// <summary>
         /// The code of the valuation point.

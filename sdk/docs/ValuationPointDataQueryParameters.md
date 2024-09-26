@@ -5,7 +5,7 @@ The parameters used in getting the ValuationPointData.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**End** | [**DateOrDiaryEntry**](DateOrDiaryEntry.md) |  | [optional] 
+**End** | [**DateOrDiaryEntry**](DateOrDiaryEntry.md) |  | 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

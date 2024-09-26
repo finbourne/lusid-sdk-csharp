@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **InstrumentScope** | **string** | The scope of the instrument. | 
 **Description** | **string** | The description of the instrument event. | 
 **EventDateRange** | [**EventDateRange**](EventDateRange.md) |  | 
+**Completeness** | **string** | Is the event Economically Complete, or is it missing some DataDependent fields (Incomplete). | [optional] [readonly] 
 **InstrumentEvent** | [**InstrumentEvent**](InstrumentEvent.md) |  | 
 **Properties** | [**List&lt;PerpetualProperty&gt;**](PerpetualProperty.md) | The properties attached to this instrument event. | [optional] 
 **SequenceNumber** | **int** | The order of the instrument event relative others on the same date (0 being processed first). Must be non negative. | [optional] 

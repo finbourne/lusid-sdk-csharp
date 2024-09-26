@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="previousValue">previousValue.</param>
         /// <param name="newValue">newValue.</param>
         /// <param name="effectiveRange">effectiveRange.</param>
-        public ChangeIntervalWithOrderManagementDetail(Dictionary<string, string> detail = default(Dictionary<string, string>), string actionDescription = default(string), DateTimeOffset asAtModified = default(DateTimeOffset), string userIdModified = default(string), string requestIdModified = default(string), int asAtVersionNumber = default(int), string stagedModificationIdModified = default(string), string action = default(string), string attributeName = default(string), PropertyValue previousValue = default(PropertyValue), PropertyValue newValue = default(PropertyValue), StagedModificationEffectiveRange effectiveRange = default(StagedModificationEffectiveRange))
+        public ChangeIntervalWithOrderManagementDetail(Dictionary<string, string> detail = default(Dictionary<string, string>), string actionDescription = default(string), DateTimeOffset asAtModified = default(DateTimeOffset), string userIdModified = default(string), string requestIdModified = default(string), int asAtVersionNumber = default(int), string stagedModificationIdModified = default(string), string action = default(string), string attributeName = default(string), PropertyValue previousValue = default(PropertyValue), PropertyValue newValue = default(PropertyValue), EffectiveRange effectiveRange = default(EffectiveRange))
         {
             this.Detail = detail;
             this.ActionDescription = actionDescription;
@@ -138,7 +138,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets EffectiveRange
         /// </summary>
         [DataMember(Name = "effectiveRange", EmitDefaultValue = false)]
-        public StagedModificationEffectiveRange EffectiveRange { get; set; }
+        public EffectiveRange EffectiveRange { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

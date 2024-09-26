@@ -6,6 +6,7 @@ All URIs are relative to *https://www.lusid.com/api*
 |--------|--------------|-------------|
 | [**GetCustomEntityByEntityUniqueId**](EntitiesApi.md#getcustomentitybyentityuniqueid) | **GET** /api/entities/customentities/{entityUniqueId} | [EXPERIMENTAL] GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId |
 | [**GetDataTypeByEntityUniqueId**](EntitiesApi.md#getdatatypebyentityuniqueid) | **GET** /api/entities/datatypes/{entityUniqueId} | [EXPERIMENTAL] GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId |
+| [**GetEntityHistory**](EntitiesApi.md#getentityhistory) | **GET** /api/entities/{entityType}/{entityUniqueId}/history | [EXPERIMENTAL] GetEntityHistory: List an entity&#39;s history information |
 | [**GetInstrumentByEntityUniqueId**](EntitiesApi.md#getinstrumentbyentityuniqueid) | **GET** /api/entities/instruments/{entityUniqueId} | [EXPERIMENTAL] GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId |
 | [**GetPortfolioByEntityUniqueId**](EntitiesApi.md#getportfoliobyentityuniqueid) | **GET** /api/entities/portfolios/{entityUniqueId} | [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId |
 | [**GetPortfolioChanges**](EntitiesApi.md#getportfoliochanges) | **GET** /api/entities/changes/portfolios | GetPortfolioChanges: Get the next change to each portfolio in a scope. |
@@ -244,6 +245,132 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested DataType entity |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getentityhistory"></a>
+# **GetEntityHistory**
+> ResourceListOfChangeInterval GetEntityHistory (string entityType, string entityUniqueId, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
+
+[EXPERIMENTAL] GetEntityHistory: List an entity's history information
+
+Retrieve a page of an entity's change history up to a particular point in AsAt time.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EntitiesApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EntitiesApi>();
+            var entityType = "entityType_example";  // string | The type of the entity to list the change history for.
+            var entityUniqueId = "entityUniqueId_example";  // string | The universally unique identifier of the entity.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list change history information. Defaults to return the change history at the latest datetime if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing change history information from a previous call to list change              history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy              and asAt fields must not have changed since the original request. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names suffixed by \" ASC\" or \" DESC\" (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfChangeInterval result = apiInstance.GetEntityHistory(entityType, entityUniqueId, asAt, page, limit, filter, sortBy, opts: opts);
+
+                // [EXPERIMENTAL] GetEntityHistory: List an entity's history information
+                ResourceListOfChangeInterval result = apiInstance.GetEntityHistory(entityType, entityUniqueId, asAt, page, limit, filter, sortBy);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling EntitiesApi.GetEntityHistory: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetEntityHistoryWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetEntityHistory: List an entity's history information
+    ApiResponse<ResourceListOfChangeInterval> response = apiInstance.GetEntityHistoryWithHttpInfo(entityType, entityUniqueId, asAt, page, limit, filter, sortBy);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling EntitiesApi.GetEntityHistoryWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **entityType** | **string** | The type of the entity to list the change history for. |  |
+| **entityUniqueId** | **string** | The universally unique identifier of the entity. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list change history information. Defaults to return the change history at the latest datetime if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing change history information from a previous call to list change              history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy              and asAt fields must not have changed since the original request. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
+
+### Return type
+
+[**ResourceListOfChangeInterval**](ResourceListOfChangeInterval.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The change history of the provided entity. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

@@ -31,8 +31,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StagedModificationEffectiveRange" /> class.
         /// </summary>
-        /// <param name="fromDate">Time the decision request is made..</param>
-        /// <param name="untilDate">ID of user that approved the request..</param>
+        /// <param name="fromDate">The datetime that this requested change is effective from..</param>
+        /// <param name="untilDate">The datetime that this requested change is effective until..</param>
         public StagedModificationEffectiveRange(DateTimeOffset fromDate = default(DateTimeOffset), DateTimeOffset untilDate = default(DateTimeOffset))
         {
             this.FromDate = fromDate;
@@ -40,16 +40,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Time the decision request is made.
+        /// The datetime that this requested change is effective from.
         /// </summary>
-        /// <value>Time the decision request is made.</value>
+        /// <value>The datetime that this requested change is effective from.</value>
         [DataMember(Name = "fromDate", EmitDefaultValue = false)]
         public DateTimeOffset FromDate { get; set; }
 
         /// <summary>
-        /// ID of user that approved the request.
+        /// The datetime that this requested change is effective until.
         /// </summary>
-        /// <value>ID of user that approved the request.</value>
+        /// <value>The datetime that this requested change is effective until.</value>
         [DataMember(Name = "untilDate", EmitDefaultValue = false)]
         public DateTimeOffset UntilDate { get; set; }
 

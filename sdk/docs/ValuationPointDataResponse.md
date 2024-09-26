@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **PreviousNav** | **decimal** | DEPRECATED. The Net Asset Value of the Fund at the End of the last Period. | 
 **FundDetails** | [**FundDetails**](FundDetails.md) |  | 
 **FundValuationPointData** | [**FundValuationPointData**](FundValuationPointData.md) |  | 
-**ShareClassData** | [**Dictionary&lt;string, ShareClassData&gt;**](ShareClassData.md) | The data for all share classes in fund. Share classes are identified by their short codes. | 
+**ShareClassData** | [**List&lt;ShareClassData&gt;**](ShareClassData.md) | The data for all share classes in fund. Share classes are identified by their short codes. | 
 **ValuationPointCode** | **string** | The code of the valuation point. | [optional] 
 **PreviousValuationPointCode** | **string** | The code of the previous valuation point. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 

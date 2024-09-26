@@ -146,6 +146,21 @@ namespace Lusid.Sdk.Model
         public EventDateRange EventDateRange { get; set; }
 
         /// <summary>
+        /// Is the event Economically Complete, or is it missing some DataDependent fields (Incomplete).
+        /// </summary>
+        /// <value>Is the event Economically Complete, or is it missing some DataDependent fields (Incomplete).</value>
+        [DataMember(Name = "completeness", EmitDefaultValue = true)]
+        public string Completeness { get; private set; }
+
+        /// <summary>
+        /// Returns false as Completeness should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeCompleteness()
+        {
+            return false;
+        }
+        /// <summary>
         /// Gets or Sets InstrumentEvent
         /// </summary>
         [DataMember(Name = "instrumentEvent", IsRequired = true, EmitDefaultValue = true)]
@@ -187,6 +202,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  EventDateRange: ").Append(EventDateRange).Append("\n");
+            sb.Append("  Completeness: ").Append(Completeness).Append("\n");
             sb.Append("  InstrumentEvent: ").Append(InstrumentEvent).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  SequenceNumber: ").Append(SequenceNumber).Append("\n");
@@ -263,6 +279,11 @@ namespace Lusid.Sdk.Model
                     this.EventDateRange.Equals(input.EventDateRange))
                 ) && 
                 (
+                    this.Completeness == input.Completeness ||
+                    (this.Completeness != null &&
+                    this.Completeness.Equals(input.Completeness))
+                ) && 
+                (
                     this.InstrumentEvent == input.InstrumentEvent ||
                     (this.InstrumentEvent != null &&
                     this.InstrumentEvent.Equals(input.InstrumentEvent))
@@ -320,6 +341,10 @@ namespace Lusid.Sdk.Model
                 if (this.EventDateRange != null)
                 {
                     hashCode = (hashCode * 59) + this.EventDateRange.GetHashCode();
+                }
+                if (this.Completeness != null)
+                {
+                    hashCode = (hashCode * 59) + this.Completeness.GetHashCode();
                 }
                 if (this.InstrumentEvent != null)
                 {
