@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class PortfolioDetails : IEquatable<PortfolioDetails>, IValidatableObject
     {
         /// <summary>
-        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency
+        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency
         /// </summary>
-        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency</value>
+        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AccountingMethodEnum
         {
@@ -87,15 +87,57 @@ namespace Lusid.Sdk.Model
             /// Enum ProRateByCostPortfolioCurrency for value: ProRateByCostPortfolioCurrency
             /// </summary>
             [EnumMember(Value = "ProRateByCostPortfolioCurrency")]
-            ProRateByCostPortfolioCurrency = 9
+            ProRateByCostPortfolioCurrency = 9,
+
+            /// <summary>
+            /// Enum IntraDayThenFirstInFirstOut for value: IntraDayThenFirstInFirstOut
+            /// </summary>
+            [EnumMember(Value = "IntraDayThenFirstInFirstOut")]
+            IntraDayThenFirstInFirstOut = 10,
+
+            /// <summary>
+            /// Enum LongTermHighestCostFirst for value: LongTermHighestCostFirst
+            /// </summary>
+            [EnumMember(Value = "LongTermHighestCostFirst")]
+            LongTermHighestCostFirst = 11,
+
+            /// <summary>
+            /// Enum LongTermHighestCostFirstPortfolioCurrency for value: LongTermHighestCostFirstPortfolioCurrency
+            /// </summary>
+            [EnumMember(Value = "LongTermHighestCostFirstPortfolioCurrency")]
+            LongTermHighestCostFirstPortfolioCurrency = 12,
+
+            /// <summary>
+            /// Enum HighestCostFirstPortfolioCurrency for value: HighestCostFirstPortfolioCurrency
+            /// </summary>
+            [EnumMember(Value = "HighestCostFirstPortfolioCurrency")]
+            HighestCostFirstPortfolioCurrency = 13,
+
+            /// <summary>
+            /// Enum LowestCostFirstPortfolioCurrency for value: LowestCostFirstPortfolioCurrency
+            /// </summary>
+            [EnumMember(Value = "LowestCostFirstPortfolioCurrency")]
+            LowestCostFirstPortfolioCurrency = 14,
+
+            /// <summary>
+            /// Enum MaximumLossMinimumGain for value: MaximumLossMinimumGain
+            /// </summary>
+            [EnumMember(Value = "MaximumLossMinimumGain")]
+            MaximumLossMinimumGain = 15,
+
+            /// <summary>
+            /// Enum MaximumLossMinimumGainPortfolioCurrency for value: MaximumLossMinimumGainPortfolioCurrency
+            /// </summary>
+            [EnumMember(Value = "MaximumLossMinimumGainPortfolioCurrency")]
+            MaximumLossMinimumGainPortfolioCurrency = 16
 
         }
 
 
         /// <summary>
-        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency
+        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency
         /// </summary>
-        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency</value>
+        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency</value>
         [DataMember(Name = "accountingMethod", EmitDefaultValue = false)]
         public AccountingMethodEnum? AccountingMethod { get; set; }
         /// <summary>
@@ -113,7 +155,7 @@ namespace Lusid.Sdk.Model
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
         /// <param name="subHoldingKeys">subHoldingKeys.</param>
         /// <param name="instrumentScopes">The resolution strategy used to resolve instruments of transactions/holdings upserted to the transaction portfolio..</param>
-        /// <param name="accountingMethod">. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency.</param>
+        /// <param name="accountingMethod">. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.</param>
         /// <param name="amortisationMethod">The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.</param>
         /// <param name="transactionTypeScope">The scope of the transaction types..</param>
         /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate..</param>

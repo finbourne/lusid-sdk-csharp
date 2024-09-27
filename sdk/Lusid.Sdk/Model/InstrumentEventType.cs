@@ -249,7 +249,19 @@ namespace Lusid.Sdk.Model
         /// Enum BonusIssueEvent for value: BonusIssueEvent
         /// </summary>
         [EnumMember(Value = "BonusIssueEvent")]
-        BonusIssueEvent = 37
+        BonusIssueEvent = 37,
+
+        /// <summary>
+        /// Enum MbsPrincipalWriteOffEvent for value: MbsPrincipalWriteOffEvent
+        /// </summary>
+        [EnumMember(Value = "MbsPrincipalWriteOffEvent")]
+        MbsPrincipalWriteOffEvent = 38,
+
+        /// <summary>
+        /// Enum MbsInterestDeferralEvent for value: MbsInterestDeferralEvent
+        /// </summary>
+        [EnumMember(Value = "MbsInterestDeferralEvent")]
+        MbsInterestDeferralEvent = 39
 
     }
 

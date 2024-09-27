@@ -303,8 +303,9 @@ namespace Lusid.Sdk.Model
         /// <param name="distributionPaymentType">The tax treatment applied to any distributions calculated within the ShareClass. Can be either &#39;Net&#39; (Distribution Calculated net of tax) or &#39;Gross&#39; (Distribution calculated gross of tax).    Supported string (enumeration) values are: [Gross, Net]. (required).</param>
         /// <param name="hedging">A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of it&#39;s investment strategy.    Supported string (enumeration) values are: [Invalid, None, ApplyHedging]. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
+        /// <param name="roundingConventions">Rounding Convention used for the FundShareClass quotes.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument (required).</param>
-        public FundShareClassAllOf(string shortCode = default(string), string fundShareClassType = default(string), string distributionPaymentType = default(string), string hedging = default(string), string domCcy = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public FundShareClassAllOf(string shortCode = default(string), string fundShareClassType = default(string), string distributionPaymentType = default(string), string hedging = default(string), string domCcy = default(string), List<SimpleRoundingConvention> roundingConventions = default(List<SimpleRoundingConvention>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             // to ensure "shortCode" is required (not null)
             if (shortCode == null)
@@ -337,6 +338,7 @@ namespace Lusid.Sdk.Model
             }
             this.DomCcy = domCcy;
             this.InstrumentType = instrumentType;
+            this.RoundingConventions = roundingConventions;
         }
 
         /// <summary>
@@ -375,6 +377,13 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
+        /// Rounding Convention used for the FundShareClass quotes
+        /// </summary>
+        /// <value>Rounding Convention used for the FundShareClass quotes</value>
+        [DataMember(Name = "roundingConventions", EmitDefaultValue = true)]
+        public List<SimpleRoundingConvention> RoundingConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -387,6 +396,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DistributionPaymentType: ").Append(DistributionPaymentType).Append("\n");
             sb.Append("  Hedging: ").Append(Hedging).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
+            sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -449,6 +459,12 @@ namespace Lusid.Sdk.Model
                     this.DomCcy.Equals(input.DomCcy))
                 ) && 
                 (
+                    this.RoundingConventions == input.RoundingConventions ||
+                    this.RoundingConventions != null &&
+                    input.RoundingConventions != null &&
+                    this.RoundingConventions.SequenceEqual(input.RoundingConventions)
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -482,6 +498,10 @@ namespace Lusid.Sdk.Model
                 if (this.DomCcy != null)
                 {
                     hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
+                }
+                if (this.RoundingConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoundingConventions.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;

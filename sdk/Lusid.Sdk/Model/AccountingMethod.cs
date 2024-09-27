@@ -80,7 +80,49 @@ namespace Lusid.Sdk.Model
         /// Enum ProRateByCostPortfolioCurrency for value: ProRateByCostPortfolioCurrency
         /// </summary>
         [EnumMember(Value = "ProRateByCostPortfolioCurrency")]
-        ProRateByCostPortfolioCurrency = 9
+        ProRateByCostPortfolioCurrency = 9,
+
+        /// <summary>
+        /// Enum IntraDayThenFirstInFirstOut for value: IntraDayThenFirstInFirstOut
+        /// </summary>
+        [EnumMember(Value = "IntraDayThenFirstInFirstOut")]
+        IntraDayThenFirstInFirstOut = 10,
+
+        /// <summary>
+        /// Enum LongTermHighestCostFirst for value: LongTermHighestCostFirst
+        /// </summary>
+        [EnumMember(Value = "LongTermHighestCostFirst")]
+        LongTermHighestCostFirst = 11,
+
+        /// <summary>
+        /// Enum LongTermHighestCostFirstPortfolioCurrency for value: LongTermHighestCostFirstPortfolioCurrency
+        /// </summary>
+        [EnumMember(Value = "LongTermHighestCostFirstPortfolioCurrency")]
+        LongTermHighestCostFirstPortfolioCurrency = 12,
+
+        /// <summary>
+        /// Enum HighestCostFirstPortfolioCurrency for value: HighestCostFirstPortfolioCurrency
+        /// </summary>
+        [EnumMember(Value = "HighestCostFirstPortfolioCurrency")]
+        HighestCostFirstPortfolioCurrency = 13,
+
+        /// <summary>
+        /// Enum LowestCostFirstPortfolioCurrency for value: LowestCostFirstPortfolioCurrency
+        /// </summary>
+        [EnumMember(Value = "LowestCostFirstPortfolioCurrency")]
+        LowestCostFirstPortfolioCurrency = 14,
+
+        /// <summary>
+        /// Enum MaximumLossMinimumGain for value: MaximumLossMinimumGain
+        /// </summary>
+        [EnumMember(Value = "MaximumLossMinimumGain")]
+        MaximumLossMinimumGain = 15,
+
+        /// <summary>
+        /// Enum MaximumLossMinimumGainPortfolioCurrency for value: MaximumLossMinimumGainPortfolioCurrency
+        /// </summary>
+        [EnumMember(Value = "MaximumLossMinimumGainPortfolioCurrency")]
+        MaximumLossMinimumGainPortfolioCurrency = 16
 
     }
 
