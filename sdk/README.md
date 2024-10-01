@@ -224,6 +224,7 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**ListFunds**](docs/FundsApi.md#listfunds) | **GET** /api/funds | [EXPERIMENTAL] ListFunds: List Funds.
 *FundsApi* | [**ListValuationPointOverview**](docs/FundsApi.md#listvaluationpointoverview) | **GET** /api/funds/{scope}/{code}/valuationPointOverview | [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
 *FundsApi* | [**PatchFee**](docs/FundsApi.md#patchfee) | **PATCH** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] PatchFee: Patch Fee.
+*FundsApi* | [**PatchFund**](docs/FundsApi.md#patchfund) | **PATCH** /api/funds/{scope}/{code} | [EXPERIMENTAL] PatchFund: Patch a Fund.
 *FundsApi* | [**SetShareClassInstruments**](docs/FundsApi.md#setshareclassinstruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
 *FundsApi* | [**UpsertDiaryEntryTypeValuationPoint**](docs/FundsApi.md#upsertdiaryentrytypevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints | [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
 *FundsApi* | [**UpsertFeeProperties**](docs/FundsApi.md#upsertfeeproperties) | **POST** /api/funds/{scope}/{code}/fees/{feeCode}/properties/$upsert | [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
@@ -305,6 +306,7 @@ Class | Method | HTTP request | Description
 *OrderInstructionsApi* | [**UpsertOrderInstructions**](docs/OrderInstructionsApi.md#upsertorderinstructions) | **POST** /api/orderinstructions | [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
 *OrderManagementApi* | [**BookTransactions**](docs/OrderManagementApi.md#booktransactions) | **POST** /api/ordermanagement/booktransactions | [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
 *OrderManagementApi* | [**CancelOrders**](docs/OrderManagementApi.md#cancelorders) | **POST** /api/ordermanagement/cancelorders | [EARLY ACCESS] CancelOrders: Cancel existing orders
+*OrderManagementApi* | [**CancelOrdersAndMoveRemaining**](docs/OrderManagementApi.md#cancelordersandmoveremaining) | **POST** /api/ordermanagement/cancelordersandmoveremaining | [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks
 *OrderManagementApi* | [**CancelPlacements**](docs/OrderManagementApi.md#cancelplacements) | **POST** /api/ordermanagement/$cancelplacements | [EARLY ACCESS] CancelPlacements: Cancel existing placements
 *OrderManagementApi* | [**CreateOrders**](docs/OrderManagementApi.md#createorders) | **POST** /api/ordermanagement/createorders | [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
 *OrderManagementApi* | [**GetOrderHistory**](docs/OrderManagementApi.md#getorderhistory) | **GET** /api/ordermanagement/order/{scope}/{code}/$history | [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
@@ -708,6 +710,9 @@ Class | Method | HTTP request | Description
  - [CalendarDate](docs/CalendarDate.md)
  - [CalendarDependency](docs/CalendarDependency.md)
  - [CalendarDependencyAllOf](docs/CalendarDependencyAllOf.md)
+ - [CancelOrderAndMoveRemainingResult](docs/CancelOrderAndMoveRemainingResult.md)
+ - [CancelOrdersAndMoveRemainingRequest](docs/CancelOrdersAndMoveRemainingRequest.md)
+ - [CancelOrdersAndMoveRemainingResponse](docs/CancelOrdersAndMoveRemainingResponse.md)
  - [CancelOrdersResponse](docs/CancelOrdersResponse.md)
  - [CancelPlacementsResponse](docs/CancelPlacementsResponse.md)
  - [CancelledOrderResult](docs/CancelledOrderResult.md)

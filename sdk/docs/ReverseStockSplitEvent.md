@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **UnitsRatio** | [**UnitsRatio**](UnitsRatio.md) |  | 
 **RecordDate** | **DateTimeOffset?** | Date you have to be the holder of record in order to have their shares merged. | [optional] 
 **AnnouncementDate** | **DateTimeOffset?** | Date the reverse stock split was announced. | [optional] 
+**FractionalUnitsCashCurrency** | **string** | The currency of the cash paid in lieu of fractionalUnits. | [optional] 
+**FractionalUnitsCashPrice** | **decimal?** | The cash price paid in lieu of fractionalUnits. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
