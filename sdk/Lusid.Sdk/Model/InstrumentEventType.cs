@@ -261,7 +261,19 @@ namespace Lusid.Sdk.Model
         /// Enum MbsInterestDeferralEvent for value: MbsInterestDeferralEvent
         /// </summary>
         [EnumMember(Value = "MbsInterestDeferralEvent")]
-        MbsInterestDeferralEvent = 39
+        MbsInterestDeferralEvent = 39,
+
+        /// <summary>
+        /// Enum MbsInterestShortfallEvent for value: MbsInterestShortfallEvent
+        /// </summary>
+        [EnumMember(Value = "MbsInterestShortfallEvent")]
+        MbsInterestShortfallEvent = 40,
+
+        /// <summary>
+        /// Enum TenderEvent for value: TenderEvent
+        /// </summary>
+        [EnumMember(Value = "TenderEvent")]
+        TenderEvent = 41
 
     }
 
