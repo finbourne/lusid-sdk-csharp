@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ExoticInstrumentAllOf
+    /// LoanFacilityAllOf
     /// </summary>
-    [DataContract(Name = "ExoticInstrument_allOf")]
-    public partial class ExoticInstrumentAllOf : IEquatable<ExoticInstrumentAllOf>, IValidatableObject
+    [DataContract(Name = "LoanFacility_allOf")]
+    public partial class LoanFacilityAllOf : IEquatable<LoanFacilityAllOf>, IValidatableObject
     {
         /// <summary>
         /// The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility
@@ -297,45 +297,69 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentTypeEnum InstrumentType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExoticInstrumentAllOf" /> class.
+        /// Initializes a new instance of the <see cref="LoanFacilityAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ExoticInstrumentAllOf() { }
+        protected LoanFacilityAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExoticInstrumentAllOf" /> class.
+        /// Initializes a new instance of the <see cref="LoanFacilityAllOf" /> class.
         /// </summary>
-        /// <param name="instrumentFormat">instrumentFormat (required).</param>
-        /// <param name="content">The original document received into the system. This format could potentially be anything though is most likely to be either Json or Xml. In the case where no other  interface is supported it is possible to fall back onto this.  For example, a trade from an external client system. This may be recognized internally by Lusid or simply passed through to another vendor system. (required).</param>
+        /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
+        /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
+        /// <param name="facilityPortfolioScope">The Scope of the Transaction Portfolio to which the Loan Facility instrument is linked. (required).</param>
+        /// <param name="facilityPortfolioCode">The Code of the Transaction Portfolio to which the Loan Facility instrument is linked. (required).</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility (required).</param>
-        public ExoticInstrumentAllOf(InstrumentDefinitionFormat instrumentFormat = default(InstrumentDefinitionFormat), string content = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public LoanFacilityAllOf(DateTimeOffset startDate = default(DateTimeOffset), string domCcy = default(string), string facilityPortfolioScope = default(string), string facilityPortfolioCode = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
-            // to ensure "instrumentFormat" is required (not null)
-            if (instrumentFormat == null)
+            this.StartDate = startDate;
+            // to ensure "domCcy" is required (not null)
+            if (domCcy == null)
             {
-                throw new ArgumentNullException("instrumentFormat is a required property for ExoticInstrumentAllOf and cannot be null");
+                throw new ArgumentNullException("domCcy is a required property for LoanFacilityAllOf and cannot be null");
             }
-            this.InstrumentFormat = instrumentFormat;
-            // to ensure "content" is required (not null)
-            if (content == null)
+            this.DomCcy = domCcy;
+            // to ensure "facilityPortfolioScope" is required (not null)
+            if (facilityPortfolioScope == null)
             {
-                throw new ArgumentNullException("content is a required property for ExoticInstrumentAllOf and cannot be null");
+                throw new ArgumentNullException("facilityPortfolioScope is a required property for LoanFacilityAllOf and cannot be null");
             }
-            this.Content = content;
+            this.FacilityPortfolioScope = facilityPortfolioScope;
+            // to ensure "facilityPortfolioCode" is required (not null)
+            if (facilityPortfolioCode == null)
+            {
+                throw new ArgumentNullException("facilityPortfolioCode is a required property for LoanFacilityAllOf and cannot be null");
+            }
+            this.FacilityPortfolioCode = facilityPortfolioCode;
             this.InstrumentType = instrumentType;
         }
 
         /// <summary>
-        /// Gets or Sets InstrumentFormat
+        /// The start date of the instrument. This is normally synonymous with the trade-date.
         /// </summary>
-        [DataMember(Name = "instrumentFormat", IsRequired = true, EmitDefaultValue = true)]
-        public InstrumentDefinitionFormat InstrumentFormat { get; set; }
+        /// <value>The start date of the instrument. This is normally synonymous with the trade-date.</value>
+        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// The original document received into the system. This format could potentially be anything though is most likely to be either Json or Xml. In the case where no other  interface is supported it is possible to fall back onto this.  For example, a trade from an external client system. This may be recognized internally by Lusid or simply passed through to another vendor system.
+        /// The domestic currency of the instrument.
         /// </summary>
-        /// <value>The original document received into the system. This format could potentially be anything though is most likely to be either Json or Xml. In the case where no other  interface is supported it is possible to fall back onto this.  For example, a trade from an external client system. This may be recognized internally by Lusid or simply passed through to another vendor system.</value>
-        [DataMember(Name = "content", IsRequired = true, EmitDefaultValue = true)]
-        public string Content { get; set; }
+        /// <value>The domestic currency of the instrument.</value>
+        [DataMember(Name = "domCcy", IsRequired = true, EmitDefaultValue = true)]
+        public string DomCcy { get; set; }
+
+        /// <summary>
+        /// The Scope of the Transaction Portfolio to which the Loan Facility instrument is linked.
+        /// </summary>
+        /// <value>The Scope of the Transaction Portfolio to which the Loan Facility instrument is linked.</value>
+        [DataMember(Name = "facilityPortfolioScope", IsRequired = true, EmitDefaultValue = true)]
+        public string FacilityPortfolioScope { get; set; }
+
+        /// <summary>
+        /// The Code of the Transaction Portfolio to which the Loan Facility instrument is linked.
+        /// </summary>
+        /// <value>The Code of the Transaction Portfolio to which the Loan Facility instrument is linked.</value>
+        [DataMember(Name = "facilityPortfolioCode", IsRequired = true, EmitDefaultValue = true)]
+        public string FacilityPortfolioCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -344,9 +368,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ExoticInstrumentAllOf {\n");
-            sb.Append("  InstrumentFormat: ").Append(InstrumentFormat).Append("\n");
-            sb.Append("  Content: ").Append(Content).Append("\n");
+            sb.Append("class LoanFacilityAllOf {\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
+            sb.Append("  FacilityPortfolioScope: ").Append(FacilityPortfolioScope).Append("\n");
+            sb.Append("  FacilityPortfolioCode: ").Append(FacilityPortfolioCode).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -368,15 +394,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ExoticInstrumentAllOf);
+            return this.Equals(input as LoanFacilityAllOf);
         }
 
         /// <summary>
-        /// Returns true if ExoticInstrumentAllOf instances are equal
+        /// Returns true if LoanFacilityAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of ExoticInstrumentAllOf to be compared</param>
+        /// <param name="input">Instance of LoanFacilityAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ExoticInstrumentAllOf input)
+        public bool Equals(LoanFacilityAllOf input)
         {
             if (input == null)
             {
@@ -384,14 +410,24 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.InstrumentFormat == input.InstrumentFormat ||
-                    (this.InstrumentFormat != null &&
-                    this.InstrumentFormat.Equals(input.InstrumentFormat))
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
                 ) && 
                 (
-                    this.Content == input.Content ||
-                    (this.Content != null &&
-                    this.Content.Equals(input.Content))
+                    this.DomCcy == input.DomCcy ||
+                    (this.DomCcy != null &&
+                    this.DomCcy.Equals(input.DomCcy))
+                ) && 
+                (
+                    this.FacilityPortfolioScope == input.FacilityPortfolioScope ||
+                    (this.FacilityPortfolioScope != null &&
+                    this.FacilityPortfolioScope.Equals(input.FacilityPortfolioScope))
+                ) && 
+                (
+                    this.FacilityPortfolioCode == input.FacilityPortfolioCode ||
+                    (this.FacilityPortfolioCode != null &&
+                    this.FacilityPortfolioCode.Equals(input.FacilityPortfolioCode))
                 ) && 
                 (
                     this.InstrumentType == input.InstrumentType ||
@@ -408,13 +444,21 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.InstrumentFormat != null)
+                if (this.StartDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.InstrumentFormat.GetHashCode();
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
                 }
-                if (this.Content != null)
+                if (this.DomCcy != null)
                 {
-                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
+                }
+                if (this.FacilityPortfolioScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.FacilityPortfolioScope.GetHashCode();
+                }
+                if (this.FacilityPortfolioCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.FacilityPortfolioCode.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;
@@ -428,10 +472,28 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Content (string) minLength
-            if (this.Content != null && this.Content.Length < 1)
+            // FacilityPortfolioScope (string) maxLength
+            if (this.FacilityPortfolioScope != null && this.FacilityPortfolioScope.Length > 256)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Content, length must be greater than 1.", new [] { "Content" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FacilityPortfolioScope, length must be less than 256.", new [] { "FacilityPortfolioScope" });
+            }
+
+            // FacilityPortfolioScope (string) minLength
+            if (this.FacilityPortfolioScope != null && this.FacilityPortfolioScope.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FacilityPortfolioScope, length must be greater than 0.", new [] { "FacilityPortfolioScope" });
+            }
+
+            // FacilityPortfolioCode (string) maxLength
+            if (this.FacilityPortfolioCode != null && this.FacilityPortfolioCode.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FacilityPortfolioCode, length must be less than 256.", new [] { "FacilityPortfolioCode" });
+            }
+
+            // FacilityPortfolioCode (string) minLength
+            if (this.FacilityPortfolioCode != null && this.FacilityPortfolioCode.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FacilityPortfolioCode, length must be greater than 0.", new [] { "FacilityPortfolioCode" });
             }
 
             yield break;

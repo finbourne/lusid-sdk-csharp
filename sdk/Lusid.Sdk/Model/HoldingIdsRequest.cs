@@ -23,44 +23,36 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A list of transactions contributed to a holding.
+    /// HoldingIdsRequest
     /// </summary>
-    [DataContract(Name = "HoldingContributor")]
-    public partial class HoldingContributor : IEquatable<HoldingContributor>, IValidatableObject
+    [DataContract(Name = "HoldingIdsRequest")]
+    public partial class HoldingIdsRequest : IEquatable<HoldingIdsRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HoldingContributor" /> class.
+        /// Initializes a new instance of the <see cref="HoldingIdsRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected HoldingContributor() { }
+        protected HoldingIdsRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="HoldingContributor" /> class.
+        /// Initializes a new instance of the <see cref="HoldingIdsRequest" /> class.
         /// </summary>
-        /// <param name="transaction">transaction (required).</param>
-        /// <param name="holdingId">The unique holding identifier.</param>
-        public HoldingContributor(Transaction transaction = default(Transaction), long? holdingId = default(long?))
+        /// <param name="holdingIds">The array of unique holding identifiers (required).</param>
+        public HoldingIdsRequest(List<long> holdingIds = default(List<long>))
         {
-            // to ensure "transaction" is required (not null)
-            if (transaction == null)
+            // to ensure "holdingIds" is required (not null)
+            if (holdingIds == null)
             {
-                throw new ArgumentNullException("transaction is a required property for HoldingContributor and cannot be null");
+                throw new ArgumentNullException("holdingIds is a required property for HoldingIdsRequest and cannot be null");
             }
-            this.Transaction = transaction;
-            this.HoldingId = holdingId;
+            this.HoldingIds = holdingIds;
         }
 
         /// <summary>
-        /// Gets or Sets Transaction
+        /// The array of unique holding identifiers
         /// </summary>
-        [DataMember(Name = "transaction", IsRequired = true, EmitDefaultValue = true)]
-        public Transaction Transaction { get; set; }
-
-        /// <summary>
-        /// The unique holding identifier
-        /// </summary>
-        /// <value>The unique holding identifier</value>
-        [DataMember(Name = "holdingId", EmitDefaultValue = true)]
-        public long? HoldingId { get; set; }
+        /// <value>The array of unique holding identifiers</value>
+        [DataMember(Name = "holdingIds", IsRequired = true, EmitDefaultValue = true)]
+        public List<long> HoldingIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +61,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class HoldingContributor {\n");
-            sb.Append("  Transaction: ").Append(Transaction).Append("\n");
-            sb.Append("  HoldingId: ").Append(HoldingId).Append("\n");
+            sb.Append("class HoldingIdsRequest {\n");
+            sb.Append("  HoldingIds: ").Append(HoldingIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,15 +83,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as HoldingContributor);
+            return this.Equals(input as HoldingIdsRequest);
         }
 
         /// <summary>
-        /// Returns true if HoldingContributor instances are equal
+        /// Returns true if HoldingIdsRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of HoldingContributor to be compared</param>
+        /// <param name="input">Instance of HoldingIdsRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(HoldingContributor input)
+        public bool Equals(HoldingIdsRequest input)
         {
             if (input == null)
             {
@@ -108,14 +99,10 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Transaction == input.Transaction ||
-                    (this.Transaction != null &&
-                    this.Transaction.Equals(input.Transaction))
-                ) && 
-                (
-                    this.HoldingId == input.HoldingId ||
-                    (this.HoldingId != null &&
-                    this.HoldingId.Equals(input.HoldingId))
+                    this.HoldingIds == input.HoldingIds ||
+                    this.HoldingIds != null &&
+                    input.HoldingIds != null &&
+                    this.HoldingIds.SequenceEqual(input.HoldingIds)
                 );
         }
 
@@ -128,13 +115,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Transaction != null)
+                if (this.HoldingIds != null)
                 {
-                    hashCode = (hashCode * 59) + this.Transaction.GetHashCode();
-                }
-                if (this.HoldingId != null)
-                {
-                    hashCode = (hashCode * 59) + this.HoldingId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.HoldingIds.GetHashCode();
                 }
                 return hashCode;
             }

@@ -1,12 +1,10 @@
-# Lusid.Sdk.Model.HoldingContributor
-A list of transactions contributed to a holding.
+# Lusid.Sdk.Model.HoldingIdsRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Transaction** | [**Transaction**](Transaction.md) |  | 
-**HoldingId** | **long?** | The unique holding identifier | [optional] 
+**HoldingIds** | **List&lt;long&gt;** | The array of unique holding identifiers | 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

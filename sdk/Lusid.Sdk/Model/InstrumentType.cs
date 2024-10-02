@@ -272,7 +272,13 @@ namespace Lusid.Sdk.Model
         /// Enum MasteredInstrument for value: MasteredInstrument
         /// </summary>
         [EnumMember(Value = "MasteredInstrument")]
-        MasteredInstrument = 41
+        MasteredInstrument = 41,
+
+        /// <summary>
+        /// Enum LoanFacility for value: LoanFacility
+        /// </summary>
+        [EnumMember(Value = "LoanFacility")]
+        LoanFacility = 42
 
     }
 
