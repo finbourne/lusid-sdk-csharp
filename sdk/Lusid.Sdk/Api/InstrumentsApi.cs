@@ -63,6 +63,39 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BatchUpsertInstrumentPropertiesResponse</returns>
         ApiResponse<BatchUpsertInstrumentPropertiesResponse> BatchUpsertInstrumentPropertiesWithHttpInfo(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.
+        /// </summary>
+        /// <remarks>
+        /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">An identifier type attached to the Instrument.</param>
+        /// <param name="identifier">The identifier value.</param>
+        /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AddBusinessDaysToDateResponse</returns>
+        AddBusinessDaysToDateResponse CalculateSettlementDate(string identifierType, string identifier, DateTimeOrCutLabel? transactionDate = default(DateTimeOrCutLabel?), string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.
+        /// </summary>
+        /// <remarks>
+        /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">An identifier type attached to the Instrument.</param>
+        /// <param name="identifier">The identifier value.</param>
+        /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AddBusinessDaysToDateResponse</returns>
+        ApiResponse<AddBusinessDaysToDateResponse> CalculateSettlementDateWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel? transactionDate = default(DateTimeOrCutLabel?), string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// DeleteInstrument: Soft delete a single instrument
         /// </summary>
         /// <remarks>
@@ -727,6 +760,41 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertInstrumentPropertiesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BatchUpsertInstrumentPropertiesResponse>> BatchUpsertInstrumentPropertiesWithHttpInfoAsync(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.
+        /// </summary>
+        /// <remarks>
+        /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">An identifier type attached to the Instrument.</param>
+        /// <param name="identifier">The identifier value.</param>
+        /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AddBusinessDaysToDateResponse</returns>
+        System.Threading.Tasks.Task<AddBusinessDaysToDateResponse> CalculateSettlementDateAsync(string identifierType, string identifier, DateTimeOrCutLabel? transactionDate = default(DateTimeOrCutLabel?), string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.
+        /// </summary>
+        /// <remarks>
+        /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">An identifier type attached to the Instrument.</param>
+        /// <param name="identifier">The identifier value.</param>
+        /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AddBusinessDaysToDateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AddBusinessDaysToDateResponse>> CalculateSettlementDateWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel? transactionDate = default(DateTimeOrCutLabel?), string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteInstrument: Soft delete a single instrument
         /// </summary>
@@ -1750,6 +1818,264 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchUpsertInstrumentProperties", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">An identifier type attached to the Instrument.</param>
+        /// <param name="identifier">The identifier value.</param>
+        /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>AddBusinessDaysToDateResponse</returns>
+        public AddBusinessDaysToDateResponse CalculateSettlementDate(string identifierType, string identifier, DateTimeOrCutLabel? transactionDate = default(DateTimeOrCutLabel?), string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AddBusinessDaysToDateResponse> localVarResponse = CalculateSettlementDateWithHttpInfo(identifierType, identifier, transactionDate, scope, asAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">An identifier type attached to the Instrument.</param>
+        /// <param name="identifier">The identifier value.</param>
+        /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of AddBusinessDaysToDateResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<AddBusinessDaysToDateResponse> CalculateSettlementDateWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel? transactionDate = default(DateTimeOrCutLabel?), string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->CalculateSettlementDate");
+            }
+
+            // verify the required parameter 'identifier' is set
+            if (identifier == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->CalculateSettlementDate");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
+            if (transactionDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "transactionDate", transactionDate));
+            }
+            if (scope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "InstrumentsApi.CalculateSettlementDate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<AddBusinessDaysToDateResponse>("/api/instruments/{identifierType}/{identifier}/settlementdate", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CalculateSettlementDate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">An identifier type attached to the Instrument.</param>
+        /// <param name="identifier">The identifier value.</param>
+        /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of AddBusinessDaysToDateResponse</returns>
+        public async System.Threading.Tasks.Task<AddBusinessDaysToDateResponse> CalculateSettlementDateAsync(string identifierType, string identifier, DateTimeOrCutLabel? transactionDate = default(DateTimeOrCutLabel?), string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<AddBusinessDaysToDateResponse> localVarResponse = await CalculateSettlementDateWithHttpInfoAsync(identifierType, identifier, transactionDate, scope, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">An identifier type attached to the Instrument.</param>
+        /// <param name="identifier">The identifier value.</param>
+        /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (AddBusinessDaysToDateResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AddBusinessDaysToDateResponse>> CalculateSettlementDateWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel? transactionDate = default(DateTimeOrCutLabel?), string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->CalculateSettlementDate");
+            }
+
+            // verify the required parameter 'identifier' is set
+            if (identifier == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->CalculateSettlementDate");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
+            if (transactionDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "transactionDate", transactionDate));
+            }
+            if (scope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "InstrumentsApi.CalculateSettlementDate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<AddBusinessDaysToDateResponse>("/api/instruments/{identifierType}/{identifier}/settlementdate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CalculateSettlementDate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

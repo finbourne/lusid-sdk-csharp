@@ -50,7 +50,19 @@ namespace Lusid.Sdk.Model
         /// Enum CashFlowPerUnit for value: CashFlowPerUnit
         /// </summary>
         [EnumMember(Value = "CashFlowPerUnit")]
-        CashFlowPerUnit = 4
+        CashFlowPerUnit = 4,
+
+        /// <summary>
+        /// Enum CleanPrice for value: CleanPrice
+        /// </summary>
+        [EnumMember(Value = "CleanPrice")]
+        CleanPrice = 5,
+
+        /// <summary>
+        /// Enum DirtyPrice for value: DirtyPrice
+        /// </summary>
+        [EnumMember(Value = "DirtyPrice")]
+        DirtyPrice = 6
 
     }
 

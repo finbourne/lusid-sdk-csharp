@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class TransactionPrice : IEquatable<TransactionPrice>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: Price, Yield, Spread, CashFlowPerUnit
+        /// The available values are: Price, Yield, Spread, CashFlowPerUnit, CleanPrice, DirtyPrice
         /// </summary>
-        /// <value>The available values are: Price, Yield, Spread, CashFlowPerUnit</value>
+        /// <value>The available values are: Price, Yield, Spread, CashFlowPerUnit, CleanPrice, DirtyPrice</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -57,22 +57,34 @@ namespace Lusid.Sdk.Model
             /// Enum CashFlowPerUnit for value: CashFlowPerUnit
             /// </summary>
             [EnumMember(Value = "CashFlowPerUnit")]
-            CashFlowPerUnit = 4
+            CashFlowPerUnit = 4,
+
+            /// <summary>
+            /// Enum CleanPrice for value: CleanPrice
+            /// </summary>
+            [EnumMember(Value = "CleanPrice")]
+            CleanPrice = 5,
+
+            /// <summary>
+            /// Enum DirtyPrice for value: DirtyPrice
+            /// </summary>
+            [EnumMember(Value = "DirtyPrice")]
+            DirtyPrice = 6
 
         }
 
 
         /// <summary>
-        /// The available values are: Price, Yield, Spread, CashFlowPerUnit
+        /// The available values are: Price, Yield, Spread, CashFlowPerUnit, CleanPrice, DirtyPrice
         /// </summary>
-        /// <value>The available values are: Price, Yield, Spread, CashFlowPerUnit</value>
+        /// <value>The available values are: Price, Yield, Spread, CashFlowPerUnit, CleanPrice, DirtyPrice</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionPrice" /> class.
         /// </summary>
         /// <param name="price">price.</param>
-        /// <param name="type">The available values are: Price, Yield, Spread, CashFlowPerUnit.</param>
+        /// <param name="type">The available values are: Price, Yield, Spread, CashFlowPerUnit, CleanPrice, DirtyPrice.</param>
         public TransactionPrice(decimal price = default(decimal), TypeEnum? type = default(TypeEnum?))
         {
             this.Price = price;
