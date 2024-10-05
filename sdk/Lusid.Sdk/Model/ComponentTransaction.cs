@@ -40,7 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="condition">condition.</param>
         /// <param name="transactionFieldMap">transactionFieldMap (required).</param>
         /// <param name="transactionPropertyMap">transactionPropertyMap (required).</param>
-        public ComponentTransaction(string displayName = default(string), string condition = default(string), TransactionFieldMap transactionFieldMap = default(TransactionFieldMap), List<TransactionPropertyMap> transactionPropertyMap = default(List<TransactionPropertyMap>))
+        /// <param name="preserveTaxLotStructure">Controls if tax lot structure should be preserved when cost base is transferred to a new holding. For example in Spin Off instrument events..</param>
+        public ComponentTransaction(string displayName = default(string), string condition = default(string), TransactionFieldMap transactionFieldMap = default(TransactionFieldMap), List<TransactionPropertyMap> transactionPropertyMap = default(List<TransactionPropertyMap>), bool? preserveTaxLotStructure = default(bool?))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -61,6 +62,7 @@ namespace Lusid.Sdk.Model
             }
             this.TransactionPropertyMap = transactionPropertyMap;
             this.Condition = condition;
+            this.PreserveTaxLotStructure = preserveTaxLotStructure;
         }
 
         /// <summary>
@@ -88,6 +90,13 @@ namespace Lusid.Sdk.Model
         public List<TransactionPropertyMap> TransactionPropertyMap { get; set; }
 
         /// <summary>
+        /// Controls if tax lot structure should be preserved when cost base is transferred to a new holding. For example in Spin Off instrument events.
+        /// </summary>
+        /// <value>Controls if tax lot structure should be preserved when cost base is transferred to a new holding. For example in Spin Off instrument events.</value>
+        [DataMember(Name = "preserveTaxLotStructure", EmitDefaultValue = true)]
+        public bool? PreserveTaxLotStructure { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -99,6 +108,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Condition: ").Append(Condition).Append("\n");
             sb.Append("  TransactionFieldMap: ").Append(TransactionFieldMap).Append("\n");
             sb.Append("  TransactionPropertyMap: ").Append(TransactionPropertyMap).Append("\n");
+            sb.Append("  PreserveTaxLotStructure: ").Append(PreserveTaxLotStructure).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -154,6 +164,11 @@ namespace Lusid.Sdk.Model
                     this.TransactionPropertyMap != null &&
                     input.TransactionPropertyMap != null &&
                     this.TransactionPropertyMap.SequenceEqual(input.TransactionPropertyMap)
+                ) && 
+                (
+                    this.PreserveTaxLotStructure == input.PreserveTaxLotStructure ||
+                    (this.PreserveTaxLotStructure != null &&
+                    this.PreserveTaxLotStructure.Equals(input.PreserveTaxLotStructure))
                 );
         }
 
@@ -181,6 +196,10 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionPropertyMap != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionPropertyMap.GetHashCode();
+                }
+                if (this.PreserveTaxLotStructure != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreserveTaxLotStructure.GetHashCode();
                 }
                 return hashCode;
             }
