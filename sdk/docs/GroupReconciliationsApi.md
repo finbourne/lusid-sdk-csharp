@@ -8,8 +8,10 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**CreateGroupReconciliationDefinition**](GroupReconciliationsApi.md#creategroupreconciliationdefinition) | **POST** /api/reconciliations/groupreconciliationdefinitions | [EXPERIMENTAL] CreateGroupReconciliationDefinition: Create Group Reconciliation Definition |
 | [**DeleteComparisonRuleset**](GroupReconciliationsApi.md#deletecomparisonruleset) | **DELETE** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset |
 | [**DeleteGroupReconciliationDefinition**](GroupReconciliationsApi.md#deletegroupreconciliationdefinition) | **DELETE** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code} | [EXPERIMENTAL] DeleteGroupReconciliationDefinition: Delete Group Reconciliation Definition |
-| [**GetComparisonRuleset**](GroupReconciliationsApi.md#getcomparisonruleset) | **GET** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] GetComparisonRuleset: Get a single Group Reconciliation Comparison Ruleset by scope and code |
+| [**GetComparisonResult**](GroupReconciliationsApi.md#getcomparisonresult) | **GET** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code}/{resultId} | [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code. |
+| [**GetComparisonRuleset**](GroupReconciliationsApi.md#getcomparisonruleset) | **GET** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] GetComparisonRuleset: Get a single Group Reconciliation Comparison Ruleset by scope and code. |
 | [**GetGroupReconciliationDefinition**](GroupReconciliationsApi.md#getgroupreconciliationdefinition) | **GET** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code} | [EXPERIMENTAL] GetGroupReconciliationDefinition: Get group reconciliation definition |
+| [**ListComparisonResults**](GroupReconciliationsApi.md#listcomparisonresults) | **GET** /api/reconciliations/comparisonresults | [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results. |
 | [**ListComparisonRulesets**](GroupReconciliationsApi.md#listcomparisonrulesets) | **GET** /api/reconciliations/comparisonrulesets | [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets |
 | [**ListGroupReconciliationDefinitions**](GroupReconciliationsApi.md#listgroupreconciliationdefinitions) | **GET** /api/reconciliations/groupreconciliationdefinitions | [EXPERIMENTAL] ListGroupReconciliationDefinitions: List group reconciliation definitions |
 | [**UpdateComparisonRuleset**](GroupReconciliationsApi.md#updatecomparisonruleset) | **PUT** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code |
@@ -475,13 +477,133 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="getcomparisonresult"></a>
+# **GetComparisonResult**
+> GroupReconciliationComparisonResult GetComparisonResult (string scope, string code, string resultId, DateTimeOffset? asAt = null)
+
+[EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code.
+
+Retrieves one Group Reconciliation Comparison Result by scope and code  with the prior validation that its related reconciliation definition exists.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<GroupReconciliationsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<GroupReconciliationsApi>();
+            var scope = "scope_example";  // string | The scope of the specified comparison result and its related reconciliation definition.
+            var code = "code_example";  // string | The code of the reconciliation definition that was used to produce the reconciliation result.
+            var resultId = "resultId_example";  // string | The code of the specified reconciliation result. Together with the domain and scope this uniquely              identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the comparison result definition. Defaults to return              the latest version if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // GroupReconciliationComparisonResult result = apiInstance.GetComparisonResult(scope, code, resultId, asAt, opts: opts);
+
+                // [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code.
+                GroupReconciliationComparisonResult result = apiInstance.GetComparisonResult(scope, code, resultId, asAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling GroupReconciliationsApi.GetComparisonResult: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetComparisonResultWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code.
+    ApiResponse<GroupReconciliationComparisonResult> response = apiInstance.GetComparisonResultWithHttpInfo(scope, code, resultId, asAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling GroupReconciliationsApi.GetComparisonResultWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the specified comparison result and its related reconciliation definition. |  |
+| **code** | **string** | The code of the reconciliation definition that was used to produce the reconciliation result. |  |
+| **resultId** | **string** | The code of the specified reconciliation result. Together with the domain and scope this uniquely              identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the comparison result definition. Defaults to return              the latest version if not specified. | [optional]  |
+
+### Return type
+
+[**GroupReconciliationComparisonResult**](GroupReconciliationComparisonResult.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested comparison result |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="getcomparisonruleset"></a>
 # **GetComparisonRuleset**
 > GroupReconciliationComparisonRuleset GetComparisonRuleset (string scope, string code, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetComparisonRuleset: Get a single Group Reconciliation Comparison Ruleset by scope and code
+[EXPERIMENTAL] GetComparisonRuleset: Get a single Group Reconciliation Comparison Ruleset by scope and code.
 
-Retrieves one Group Reconciliation Comparison Ruleset by scope and code
+Retrieves one Group Reconciliation Comparison Ruleset by scope and code.
 
 ### Example
 ```csharp
@@ -531,7 +653,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // GroupReconciliationComparisonRuleset result = apiInstance.GetComparisonRuleset(scope, code, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetComparisonRuleset: Get a single Group Reconciliation Comparison Ruleset by scope and code
+                // [EXPERIMENTAL] GetComparisonRuleset: Get a single Group Reconciliation Comparison Ruleset by scope and code.
                 GroupReconciliationComparisonRuleset result = apiInstance.GetComparisonRuleset(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -552,7 +674,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetComparisonRuleset: Get a single Group Reconciliation Comparison Ruleset by scope and code
+    // [EXPERIMENTAL] GetComparisonRuleset: Get a single Group Reconciliation Comparison Ruleset by scope and code.
     ApiResponse<GroupReconciliationComparisonRuleset> response = apiInstance.GetComparisonRulesetWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -713,6 +835,128 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="listcomparisonresults"></a>
+# **ListComparisonResults**
+> PagedResourceListOfGroupReconciliationComparisonResult ListComparisonResults (DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
+
+[EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results.
+
+Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided.  Supports pagination.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<GroupReconciliationsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<GroupReconciliationsApi>();
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the comparison results. Defaults to return the latest              version of the comparison results if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing comparison results from a previous call to list              comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many per page. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfGroupReconciliationComparisonResult result = apiInstance.ListComparisonResults(asAt, page, sortBy, limit, filter, opts: opts);
+
+                // [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results.
+                PagedResourceListOfGroupReconciliationComparisonResult result = apiInstance.ListComparisonResults(asAt, page, sortBy, limit, filter);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling GroupReconciliationsApi.ListComparisonResults: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListComparisonResultsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results.
+    ApiResponse<PagedResourceListOfGroupReconciliationComparisonResult> response = apiInstance.ListComparisonResultsWithHttpInfo(asAt, page, sortBy, limit, filter);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling GroupReconciliationsApi.ListComparisonResultsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the comparison results. Defaults to return the latest              version of the comparison results if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing comparison results from a previous call to list              comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many per page. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfGroupReconciliationComparisonResult**](PagedResourceListOfGroupReconciliationComparisonResult.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested list of comparison results |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="listcomparisonrulesets"></a>
 # **ListComparisonRulesets**
 > PagedResourceListOfGroupReconciliationComparisonRuleset ListComparisonRulesets (DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
@@ -760,7 +1004,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<GroupReconciliationsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<GroupReconciliationsApi>();
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the staging rule sets. Defaults to return the latest              version of the staging rule sets if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest              version of the comparison rulesets if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing comparison rulesets from a previous call to list              comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many per page. (optional) 
@@ -810,7 +1054,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the staging rule sets. Defaults to return the latest              version of the staging rule sets if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest              version of the comparison rulesets if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing comparison rulesets from a previous call to list              comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many per page. | [optional]  |

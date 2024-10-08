@@ -1106,7 +1106,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PortfolioDetails</returns>
         ApiResponse<PortfolioDetails> PatchPortfolioDetailsWithHttpInfo(string scope, string code, List<Operation> operation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] ResolveInstrument: Resolve instrument
+        /// ResolveInstrument: Resolve instrument
         /// </summary>
         /// <remarks>
         /// Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
@@ -1125,7 +1125,7 @@ namespace Lusid.Sdk.Api
         UpsertPortfolioTransactionsResponse ResolveInstrument(string scope, string code, string instrumentIdentifierType, string instrumentIdentifierValue, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), bool? reResolve = default(bool?), Dictionary<string, string>? requestBody = default(Dictionary<string, string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] ResolveInstrument: Resolve instrument
+        /// ResolveInstrument: Resolve instrument
         /// </summary>
         /// <remarks>
         /// Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
@@ -2474,7 +2474,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PortfolioDetails)</returns>
         System.Threading.Tasks.Task<ApiResponse<PortfolioDetails>> PatchPortfolioDetailsWithHttpInfoAsync(string scope, string code, List<Operation> operation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] ResolveInstrument: Resolve instrument
+        /// ResolveInstrument: Resolve instrument
         /// </summary>
         /// <remarks>
         /// Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
@@ -2494,7 +2494,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<UpsertPortfolioTransactionsResponse> ResolveInstrumentAsync(string scope, string code, string instrumentIdentifierType, string instrumentIdentifierValue, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), bool? reResolve = default(bool?), Dictionary<string, string>? requestBody = default(Dictionary<string, string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] ResolveInstrument: Resolve instrument
+        /// ResolveInstrument: Resolve instrument
         /// </summary>
         /// <remarks>
         /// Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
@@ -11318,7 +11318,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ResolveInstrument: Resolve instrument Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
+        /// ResolveInstrument: Resolve instrument Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -11338,7 +11338,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ResolveInstrument: Resolve instrument Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
+        /// ResolveInstrument: Resolve instrument Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -11464,7 +11464,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ResolveInstrument: Resolve instrument Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
+        /// ResolveInstrument: Resolve instrument Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -11485,7 +11485,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ResolveInstrument: Resolve instrument Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
+        /// ResolveInstrument: Resolve instrument Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>

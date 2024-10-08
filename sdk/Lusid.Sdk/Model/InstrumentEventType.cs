@@ -273,7 +273,13 @@ namespace Lusid.Sdk.Model
         /// Enum TenderEvent for value: TenderEvent
         /// </summary>
         [EnumMember(Value = "TenderEvent")]
-        TenderEvent = 41
+        TenderEvent = 41,
+
+        /// <summary>
+        /// Enum CallOnIntermediateSecuritiesEvent for value: CallOnIntermediateSecuritiesEvent
+        /// </summary>
+        [EnumMember(Value = "CallOnIntermediateSecuritiesEvent")]
+        CallOnIntermediateSecuritiesEvent = 42
 
     }
 

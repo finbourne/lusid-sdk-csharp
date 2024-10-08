@@ -34,7 +34,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**ListCustodianAccounts**](TransactionPortfoliosApi.md#listcustodianaccounts) | **GET** /api/transactionportfolios/{scope}/{code}/custodianaccounts | [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts |
 | [**ListHoldingsAdjustments**](TransactionPortfoliosApi.md#listholdingsadjustments) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments | ListHoldingsAdjustments: List holdings adjustments |
 | [**PatchPortfolioDetails**](TransactionPortfoliosApi.md#patchportfoliodetails) | **PATCH** /api/transactionportfolios/{scope}/{code}/details | PatchPortfolioDetails: Patch portfolio details |
-| [**ResolveInstrument**](TransactionPortfoliosApi.md#resolveinstrument) | **POST** /api/transactionportfolios/{scope}/{code}/$resolve | [EARLY ACCESS] ResolveInstrument: Resolve instrument |
+| [**ResolveInstrument**](TransactionPortfoliosApi.md#resolveinstrument) | **POST** /api/transactionportfolios/{scope}/{code}/$resolve | ResolveInstrument: Resolve instrument |
 | [**SetHoldings**](TransactionPortfoliosApi.md#setholdings) | **PUT** /api/transactionportfolios/{scope}/{code}/holdings | SetHoldings: Set holdings |
 | [**UpsertCustodianAccounts**](TransactionPortfoliosApi.md#upsertcustodianaccounts) | **POST** /api/transactionportfolios/{scope}/{code}/custodianaccounts | [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts |
 | [**UpsertCustodianAccountsProperties**](TransactionPortfoliosApi.md#upsertcustodianaccountsproperties) | **POST** /api/transactionportfolios/{scope}/{code}/custodianaccounts/{custodianAccountScope}/{custodianAccountCode}/properties/$upsert | [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties |
@@ -3790,7 +3790,7 @@ catch (ApiException e)
 # **ResolveInstrument**
 > UpsertPortfolioTransactionsResponse ResolveInstrument (string scope, string code, string instrumentIdentifierType, string instrumentIdentifierValue, DateTimeOrCutLabel? fromEffectiveAt = null, bool? reResolve = null, Dictionary<string, string>? requestBody = null)
 
-[EARLY ACCESS] ResolveInstrument: Resolve instrument
+ResolveInstrument: Resolve instrument
 
 Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified  period of time. Also update the instrument identifiers with the given instrument identifiers collection.
 
@@ -3846,7 +3846,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // UpsertPortfolioTransactionsResponse result = apiInstance.ResolveInstrument(scope, code, instrumentIdentifierType, instrumentIdentifierValue, fromEffectiveAt, reResolve, requestBody, opts: opts);
 
-                // [EARLY ACCESS] ResolveInstrument: Resolve instrument
+                // ResolveInstrument: Resolve instrument
                 UpsertPortfolioTransactionsResponse result = apiInstance.ResolveInstrument(scope, code, instrumentIdentifierType, instrumentIdentifierValue, fromEffectiveAt, reResolve, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3867,7 +3867,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ResolveInstrument: Resolve instrument
+    // ResolveInstrument: Resolve instrument
     ApiResponse<UpsertPortfolioTransactionsResponse> response = apiInstance.ResolveInstrumentWithHttpInfo(scope, code, instrumentIdentifierType, instrumentIdentifierValue, fromEffectiveAt, reResolve, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
