@@ -23,15 +23,15 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// SpinOffEventAllOf
+    /// IntermediateSecuritiesDistributionEventAllOf
     /// </summary>
-    [DataContract(Name = "SpinOffEvent_allOf")]
-    public partial class SpinOffEventAllOf : IEquatable<SpinOffEventAllOf>, IValidatableObject
+    [DataContract(Name = "IntermediateSecuritiesDistributionEvent_allOf")]
+    public partial class IntermediateSecuritiesDistributionEventAllOf : IEquatable<IntermediateSecuritiesDistributionEventAllOf>, IValidatableObject
     {
         /// <summary>
-        /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent
+        /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent
         /// </summary>
-        /// <value>The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent</value>
+        /// <value>The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum InstrumentEventTypeEnum
         {
@@ -285,24 +285,30 @@ namespace Lusid.Sdk.Model
             /// Enum CallOnIntermediateSecuritiesEvent for value: CallOnIntermediateSecuritiesEvent
             /// </summary>
             [EnumMember(Value = "CallOnIntermediateSecuritiesEvent")]
-            CallOnIntermediateSecuritiesEvent = 42
+            CallOnIntermediateSecuritiesEvent = 42,
+
+            /// <summary>
+            /// Enum IntermediateSecuritiesDistributionEvent for value: IntermediateSecuritiesDistributionEvent
+            /// </summary>
+            [EnumMember(Value = "IntermediateSecuritiesDistributionEvent")]
+            IntermediateSecuritiesDistributionEvent = 43
 
         }
 
 
         /// <summary>
-        /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent
+        /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent
         /// </summary>
-        /// <value>The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent</value>
+        /// <value>The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent</value>
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SpinOffEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="IntermediateSecuritiesDistributionEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SpinOffEventAllOf() { }
+        protected IntermediateSecuritiesDistributionEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SpinOffEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="IntermediateSecuritiesDistributionEventAllOf" /> class.
         /// </summary>
         /// <param name="announcementDate">Optional.  The date the spin-off is announced..</param>
         /// <param name="exDate">The first date on which the holder of record has entitled ownership of the new shares. (required).</param>
@@ -313,21 +319,21 @@ namespace Lusid.Sdk.Model
         /// <param name="costFactor">Optional. The fraction of cost that is transferred from the existing shares to the new shares..</param>
         /// <param name="fractionalUnitsCashPrice">Optional. Used in calculating cash-in-lieu of fractional shares..</param>
         /// <param name="fractionalUnitsCashCurrency">Optional. Used in calculating cash-in-lieu of fractional shares..</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent (required).</param>
-        public SpinOffEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), UnitsRatio unitsRatio = default(UnitsRatio), decimal? costFactor = default(decimal?), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent (required).</param>
+        public IntermediateSecuritiesDistributionEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), UnitsRatio unitsRatio = default(UnitsRatio), decimal? costFactor = default(decimal?), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
             this.ExDate = exDate;
             this.PaymentDate = paymentDate;
             // to ensure "newInstrument" is required (not null)
             if (newInstrument == null)
             {
-                throw new ArgumentNullException("newInstrument is a required property for SpinOffEventAllOf and cannot be null");
+                throw new ArgumentNullException("newInstrument is a required property for IntermediateSecuritiesDistributionEventAllOf and cannot be null");
             }
             this.NewInstrument = newInstrument;
             // to ensure "unitsRatio" is required (not null)
             if (unitsRatio == null)
             {
-                throw new ArgumentNullException("unitsRatio is a required property for SpinOffEventAllOf and cannot be null");
+                throw new ArgumentNullException("unitsRatio is a required property for IntermediateSecuritiesDistributionEventAllOf and cannot be null");
             }
             this.UnitsRatio = unitsRatio;
             this.InstrumentEventType = instrumentEventType;
@@ -406,7 +412,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class SpinOffEventAllOf {\n");
+            sb.Append("class IntermediateSecuritiesDistributionEventAllOf {\n");
             sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
@@ -437,15 +443,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SpinOffEventAllOf);
+            return this.Equals(input as IntermediateSecuritiesDistributionEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if SpinOffEventAllOf instances are equal
+        /// Returns true if IntermediateSecuritiesDistributionEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of SpinOffEventAllOf to be compared</param>
+        /// <param name="input">Instance of IntermediateSecuritiesDistributionEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SpinOffEventAllOf input)
+        public bool Equals(IntermediateSecuritiesDistributionEventAllOf input)
         {
             if (input == null)
             {

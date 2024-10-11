@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Set of identifiers of an existing instrument that will be the subject of a SpinOffEvent.
+    /// Set of identifiers of an existing instrument that will be the subject or distribution of a corporate action.
     /// </summary>
     [DataContract(Name = "NewInstrument")]
     public partial class NewInstrument : IEquatable<NewInstrument>, IValidatableObject

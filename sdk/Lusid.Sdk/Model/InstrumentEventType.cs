@@ -279,7 +279,13 @@ namespace Lusid.Sdk.Model
         /// Enum CallOnIntermediateSecuritiesEvent for value: CallOnIntermediateSecuritiesEvent
         /// </summary>
         [EnumMember(Value = "CallOnIntermediateSecuritiesEvent")]
-        CallOnIntermediateSecuritiesEvent = 42
+        CallOnIntermediateSecuritiesEvent = 42,
+
+        /// <summary>
+        /// Enum IntermediateSecuritiesDistributionEvent for value: IntermediateSecuritiesDistributionEvent
+        /// </summary>
+        [EnumMember(Value = "IntermediateSecuritiesDistributionEvent")]
+        IntermediateSecuritiesDistributionEvent = 43
 
     }
 
