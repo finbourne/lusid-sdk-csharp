@@ -14,6 +14,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**ListComparisonResults**](GroupReconciliationsApi.md#listcomparisonresults) | **GET** /api/reconciliations/comparisonresults | [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results. |
 | [**ListComparisonRulesets**](GroupReconciliationsApi.md#listcomparisonrulesets) | **GET** /api/reconciliations/comparisonrulesets | [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets |
 | [**ListGroupReconciliationDefinitions**](GroupReconciliationsApi.md#listgroupreconciliationdefinitions) | **GET** /api/reconciliations/groupreconciliationdefinitions | [EXPERIMENTAL] ListGroupReconciliationDefinitions: List group reconciliation definitions |
+| [**RunReconciliation**](GroupReconciliationsApi.md#runreconciliation) | **POST** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code}/$run | [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation |
 | [**UpdateComparisonRuleset**](GroupReconciliationsApi.md#updatecomparisonruleset) | **PUT** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code |
 | [**UpdateGroupReconciliationDefinition**](GroupReconciliationsApi.md#updategroupreconciliationdefinition) | **PUT** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateGroupReconciliationDefinition: Update group reconciliation definition |
 
@@ -1198,6 +1199,124 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The group reconciliation definition in the specified scope |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="runreconciliation"></a>
+# **RunReconciliation**
+> GroupReconciliationRunResponse RunReconciliation (string scope, string code, GroupReconciliationRunRequest? groupReconciliationRunRequest = null)
+
+[EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
+
+Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<GroupReconciliationsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<GroupReconciliationsApi>();
+            var scope = "scope_example";  // string | The scope of the group reconciliation definition to use for the reconciliation.
+            var code = "code_example";  // string | The code of the group reconciliation definition to use for the reconciliation.
+            var groupReconciliationRunRequest = new GroupReconciliationRunRequest?(); // GroupReconciliationRunRequest? |  (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // GroupReconciliationRunResponse result = apiInstance.RunReconciliation(scope, code, groupReconciliationRunRequest, opts: opts);
+
+                // [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
+                GroupReconciliationRunResponse result = apiInstance.RunReconciliation(scope, code, groupReconciliationRunRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling GroupReconciliationsApi.RunReconciliation: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the RunReconciliationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
+    ApiResponse<GroupReconciliationRunResponse> response = apiInstance.RunReconciliationWithHttpInfo(scope, code, groupReconciliationRunRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling GroupReconciliationsApi.RunReconciliationWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the group reconciliation definition to use for the reconciliation. |  |
+| **code** | **string** | The code of the group reconciliation definition to use for the reconciliation. |  |
+| **groupReconciliationRunRequest** | [**GroupReconciliationRunRequest?**](GroupReconciliationRunRequest?.md) |  | [optional]  |
+
+### Return type
+
+[**GroupReconciliationRunResponse**](GroupReconciliationRunResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The results of the reconciliation run |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

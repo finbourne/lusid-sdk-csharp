@@ -239,6 +239,7 @@ Class | Method | HTTP request | Description
 *GroupReconciliationsApi* | [**ListComparisonResults**](docs/GroupReconciliationsApi.md#listcomparisonresults) | **GET** /api/reconciliations/comparisonresults | [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results.
 *GroupReconciliationsApi* | [**ListComparisonRulesets**](docs/GroupReconciliationsApi.md#listcomparisonrulesets) | **GET** /api/reconciliations/comparisonrulesets | [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets
 *GroupReconciliationsApi* | [**ListGroupReconciliationDefinitions**](docs/GroupReconciliationsApi.md#listgroupreconciliationdefinitions) | **GET** /api/reconciliations/groupreconciliationdefinitions | [EXPERIMENTAL] ListGroupReconciliationDefinitions: List group reconciliation definitions
+*GroupReconciliationsApi* | [**RunReconciliation**](docs/GroupReconciliationsApi.md#runreconciliation) | **POST** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code}/$run | [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
 *GroupReconciliationsApi* | [**UpdateComparisonRuleset**](docs/GroupReconciliationsApi.md#updatecomparisonruleset) | **PUT** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code
 *GroupReconciliationsApi* | [**UpdateGroupReconciliationDefinition**](docs/GroupReconciliationsApi.md#updategroupreconciliationdefinition) | **PUT** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateGroupReconciliationDefinition: Update group reconciliation definition
 *InstrumentEventTypesApi* | [**CreateTransactionTemplate**](docs/InstrumentEventTypesApi.md#createtransactiontemplate) | **POST** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
@@ -1118,6 +1119,13 @@ Class | Method | HTTP request | Description
  - [GroupReconciliationDefinitionPortfolioEntityIds](docs/GroupReconciliationDefinitionPortfolioEntityIds.md)
  - [GroupReconciliationDefinitionRecipeIds](docs/GroupReconciliationDefinitionRecipeIds.md)
  - [GroupReconciliationInstanceId](docs/GroupReconciliationInstanceId.md)
+ - [GroupReconciliationResultStatuses](docs/GroupReconciliationResultStatuses.md)
+ - [GroupReconciliationResultTypes](docs/GroupReconciliationResultTypes.md)
+ - [GroupReconciliationReviewStatuses](docs/GroupReconciliationReviewStatuses.md)
+ - [GroupReconciliationRunDetails](docs/GroupReconciliationRunDetails.md)
+ - [GroupReconciliationRunRequest](docs/GroupReconciliationRunRequest.md)
+ - [GroupReconciliationRunResponse](docs/GroupReconciliationRunResponse.md)
+ - [GroupReconciliationSummary](docs/GroupReconciliationSummary.md)
  - [GroupReconciliationUserReview](docs/GroupReconciliationUserReview.md)
  - [GroupReconciliationUserReviewBreakCode](docs/GroupReconciliationUserReviewBreakCode.md)
  - [GroupReconciliationUserReviewComment](docs/GroupReconciliationUserReviewComment.md)
