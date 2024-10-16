@@ -41,14 +41,16 @@ namespace Lusid.Sdk.Model
         /// <param name="asAt">The asAt datetime at which the deletion was committed to LUSID. (required).</param>
         /// <param name="entityType">The type of the entity that the deleted response applies to..</param>
         /// <param name="entityUniqueId">The unique Id of the entity that the deleted response applies to..</param>
+        /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="links">links.</param>
-        public DeletedEntityResponse(string href = default(string), DateTimeOffset? effectiveFrom = default(DateTimeOffset?), DateTimeOffset asAt = default(DateTimeOffset), string entityType = default(string), string entityUniqueId = default(string), List<Link> links = default(List<Link>))
+        public DeletedEntityResponse(string href = default(string), DateTimeOffset? effectiveFrom = default(DateTimeOffset?), DateTimeOffset asAt = default(DateTimeOffset), string entityType = default(string), string entityUniqueId = default(string), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
         {
             this.AsAt = asAt;
             this.Href = href;
             this.EffectiveFrom = effectiveFrom;
             this.EntityType = entityType;
             this.EntityUniqueId = entityUniqueId;
+            this.StagedModifications = stagedModifications;
             this.Links = links;
         }
 
@@ -88,6 +90,12 @@ namespace Lusid.Sdk.Model
         public string EntityUniqueId { get; set; }
 
         /// <summary>
+        /// Gets or Sets StagedModifications
+        /// </summary>
+        [DataMember(Name = "stagedModifications", EmitDefaultValue = false)]
+        public StagedModificationsInfo StagedModifications { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -106,6 +114,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
+            sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -168,6 +177,11 @@ namespace Lusid.Sdk.Model
                     this.EntityUniqueId.Equals(input.EntityUniqueId))
                 ) && 
                 (
+                    this.StagedModifications == input.StagedModifications ||
+                    (this.StagedModifications != null &&
+                    this.StagedModifications.Equals(input.StagedModifications))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -203,6 +217,10 @@ namespace Lusid.Sdk.Model
                 if (this.EntityUniqueId != null)
                 {
                     hashCode = (hashCode * 59) + this.EntityUniqueId.GetHashCode();
+                }
+                if (this.StagedModifications != null)
+                {
+                    hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
                 }
                 if (this.Links != null)
                 {

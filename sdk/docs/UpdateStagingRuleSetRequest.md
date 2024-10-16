@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DisplayName** | **string** | The name of the staging rule set. | [optional] 
+**DisplayName** | **string** | The name of the staging rule set. | 
 **Description** | **string** | A description for the staging rule set. | [optional] 
 **Rules** | [**List&lt;StagingRule&gt;**](StagingRule.md) | The list of staging rules that apply to a specific entity type. | 
 

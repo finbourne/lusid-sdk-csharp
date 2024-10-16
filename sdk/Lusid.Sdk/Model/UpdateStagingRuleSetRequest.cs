@@ -36,18 +36,23 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateStagingRuleSetRequest" /> class.
         /// </summary>
-        /// <param name="displayName">The name of the staging rule set..</param>
+        /// <param name="displayName">The name of the staging rule set. (required).</param>
         /// <param name="description">A description for the staging rule set..</param>
         /// <param name="rules">The list of staging rules that apply to a specific entity type. (required).</param>
         public UpdateStagingRuleSetRequest(string displayName = default(string), string description = default(string), List<StagingRule> rules = default(List<StagingRule>))
         {
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
+            {
+                throw new ArgumentNullException("displayName is a required property for UpdateStagingRuleSetRequest and cannot be null");
+            }
+            this.DisplayName = displayName;
             // to ensure "rules" is required (not null)
             if (rules == null)
             {
                 throw new ArgumentNullException("rules is a required property for UpdateStagingRuleSetRequest and cannot be null");
             }
             this.Rules = rules;
-            this.DisplayName = displayName;
             this.Description = description;
         }
 
@@ -55,7 +60,7 @@ namespace Lusid.Sdk.Model
         /// The name of the staging rule set.
         /// </summary>
         /// <value>The name of the staging rule set.</value>
-        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>

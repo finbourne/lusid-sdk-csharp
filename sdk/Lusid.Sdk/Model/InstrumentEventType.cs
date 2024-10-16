@@ -285,7 +285,19 @@ namespace Lusid.Sdk.Model
         /// Enum IntermediateSecuritiesDistributionEvent for value: IntermediateSecuritiesDistributionEvent
         /// </summary>
         [EnumMember(Value = "IntermediateSecuritiesDistributionEvent")]
-        IntermediateSecuritiesDistributionEvent = 43
+        IntermediateSecuritiesDistributionEvent = 43,
+
+        /// <summary>
+        /// Enum OptionExercisePhysicalEvent for value: OptionExercisePhysicalEvent
+        /// </summary>
+        [EnumMember(Value = "OptionExercisePhysicalEvent")]
+        OptionExercisePhysicalEvent = 44,
+
+        /// <summary>
+        /// Enum ProtectionPayoutCashFlowEvent for value: ProtectionPayoutCashFlowEvent
+        /// </summary>
+        [EnumMember(Value = "ProtectionPayoutCashFlowEvent")]
+        ProtectionPayoutCashFlowEvent = 45
 
     }
 
