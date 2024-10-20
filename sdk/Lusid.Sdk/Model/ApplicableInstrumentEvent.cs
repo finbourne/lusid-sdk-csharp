@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="generatedEvent">generatedEvent.</param>
         /// <param name="generatedEventDiagnostics">generatedEventDiagnostics.</param>
         /// <param name="loadedEvent">loadedEvent.</param>
-        /// <param name="appliedInstrumentEventInstructionId">appliedInstrumentEventInstructionId (required).</param>
+        /// <param name="appliedInstrumentEventInstructionId">appliedInstrumentEventInstructionId.</param>
         /// <param name="transactions">transactions.</param>
         /// <param name="transactionDiagnostics">transactionDiagnostics.</param>
         public ApplicableInstrumentEvent(ResourceId portfolioId = default(ResourceId), long holdingId = default(long), string lusidInstrumentId = default(string), string instrumentScope = default(string), string instrumentType = default(string), string instrumentEventType = default(string), string instrumentEventId = default(string), InstrumentEventHolder generatedEvent = default(InstrumentEventHolder), GeneratedEventDiagnostics generatedEventDiagnostics = default(GeneratedEventDiagnostics), InstrumentEventHolder loadedEvent = default(InstrumentEventHolder), string appliedInstrumentEventInstructionId = default(string), List<Transaction> transactions = default(List<Transaction>), TransactionDiagnostics transactionDiagnostics = default(TransactionDiagnostics))
@@ -88,15 +88,10 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instrumentEventId is a required property for ApplicableInstrumentEvent and cannot be null");
             }
             this.InstrumentEventId = instrumentEventId;
-            // to ensure "appliedInstrumentEventInstructionId" is required (not null)
-            if (appliedInstrumentEventInstructionId == null)
-            {
-                throw new ArgumentNullException("appliedInstrumentEventInstructionId is a required property for ApplicableInstrumentEvent and cannot be null");
-            }
-            this.AppliedInstrumentEventInstructionId = appliedInstrumentEventInstructionId;
             this.GeneratedEvent = generatedEvent;
             this.GeneratedEventDiagnostics = generatedEventDiagnostics;
             this.LoadedEvent = loadedEvent;
+            this.AppliedInstrumentEventInstructionId = appliedInstrumentEventInstructionId;
             this.Transactions = transactions;
             this.TransactionDiagnostics = transactionDiagnostics;
         }
@@ -164,7 +159,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets AppliedInstrumentEventInstructionId
         /// </summary>
-        [DataMember(Name = "appliedInstrumentEventInstructionId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "appliedInstrumentEventInstructionId", EmitDefaultValue = true)]
         public string AppliedInstrumentEventInstructionId { get; set; }
 
         /// <summary>
@@ -399,12 +394,6 @@ namespace Lusid.Sdk.Model
             if (this.InstrumentEventId != null && this.InstrumentEventId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentEventId, length must be greater than 1.", new [] { "InstrumentEventId" });
-            }
-
-            // AppliedInstrumentEventInstructionId (string) minLength
-            if (this.AppliedInstrumentEventInstructionId != null && this.AppliedInstrumentEventInstructionId.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AppliedInstrumentEventInstructionId, length must be greater than 1.", new [] { "AppliedInstrumentEventInstructionId" });
             }
 
             yield break;

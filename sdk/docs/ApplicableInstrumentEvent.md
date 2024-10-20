@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **GeneratedEvent** | [**InstrumentEventHolder**](InstrumentEventHolder.md) |  | [optional] 
 **GeneratedEventDiagnostics** | [**GeneratedEventDiagnostics**](GeneratedEventDiagnostics.md) |  | [optional] 
 **LoadedEvent** | [**InstrumentEventHolder**](InstrumentEventHolder.md) |  | [optional] 
-**AppliedInstrumentEventInstructionId** | **string** |  | 
+**AppliedInstrumentEventInstructionId** | **string** |  | [optional] 
 **Transactions** | [**List&lt;Transaction&gt;**](Transaction.md) |  | [optional] 
 **TransactionDiagnostics** | [**TransactionDiagnostics**](TransactionDiagnostics.md) |  | [optional] 
 

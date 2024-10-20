@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **DeliveryType** | **string** | The delivery type, cash or physical. An option on a future is physically settled if upon exercising the  holder receives a future.    Supported string (enumeration) values are: [Cash, Physical]. | 
 **Description** | **string** | Description of contract | 
 **ExchangeCode** | **string** | Exchange code for contract. This can be any string to uniquely identify the exchange (e.g. Exchange Name, MIC, BBG code). | 
-**ExerciseDate** | **DateTimeOffset** | Exercise Date. | 
+**ExerciseDate** | **DateTimeOffset** | The last exercise date of the option. | 
 **ExerciseType** | **string** | The exercise type, European, American or Bermudan.    Supported string (enumeration) values are: [European, Bermudan, American]. | 
 **OptionCode** | **string** | Option Contract Code, typically one or two letters, e.g. OG &#x3D;&gt; Option on Gold. | 
 **OptionType** | **string** | The option type, Call or Put.    Supported string (enumeration) values are: [Call, Put]. | 

@@ -317,8 +317,9 @@ namespace Lusid.Sdk.Model
         /// <param name="numberOfShares">The amount of shares to exchange if the option is exercised..</param>
         /// <param name="premium">premium.</param>
         /// <param name="exerciseType">Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American]..</param>
+        /// <param name="underlying">underlying.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility (required).</param>
-        public EquityOptionAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset optionMaturityDate = default(DateTimeOffset), DateTimeOffset optionSettlementDate = default(DateTimeOffset), string deliveryType = default(string), string optionType = default(string), decimal strike = default(decimal), string domCcy = default(string), string underlyingIdentifier = default(string), string code = default(string), string equityOptionType = default(string), decimal? numberOfShares = default(decimal?), Premium premium = default(Premium), string exerciseType = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public EquityOptionAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset optionMaturityDate = default(DateTimeOffset), DateTimeOffset optionSettlementDate = default(DateTimeOffset), string deliveryType = default(string), string optionType = default(string), decimal strike = default(decimal), string domCcy = default(string), string underlyingIdentifier = default(string), string code = default(string), string equityOptionType = default(string), decimal? numberOfShares = default(decimal?), Premium premium = default(Premium), string exerciseType = default(string), LusidInstrument underlying = default(LusidInstrument), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.OptionMaturityDate = optionMaturityDate;
@@ -359,6 +360,7 @@ namespace Lusid.Sdk.Model
             this.NumberOfShares = numberOfShares;
             this.Premium = premium;
             this.ExerciseType = exerciseType;
+            this.Underlying = underlying;
         }
 
         /// <summary>
@@ -452,6 +454,12 @@ namespace Lusid.Sdk.Model
         public string ExerciseType { get; set; }
 
         /// <summary>
+        /// Gets or Sets Underlying
+        /// </summary>
+        [DataMember(Name = "underlying", EmitDefaultValue = false)]
+        public LusidInstrument Underlying { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -472,6 +480,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  NumberOfShares: ").Append(NumberOfShares).Append("\n");
             sb.Append("  Premium: ").Append(Premium).Append("\n");
             sb.Append("  ExerciseType: ").Append(ExerciseType).Append("\n");
+            sb.Append("  Underlying: ").Append(Underlying).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -573,6 +582,11 @@ namespace Lusid.Sdk.Model
                     this.ExerciseType.Equals(input.ExerciseType))
                 ) && 
                 (
+                    this.Underlying == input.Underlying ||
+                    (this.Underlying != null &&
+                    this.Underlying.Equals(input.Underlying))
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -635,6 +649,10 @@ namespace Lusid.Sdk.Model
                 if (this.ExerciseType != null)
                 {
                     hashCode = (hashCode * 59) + this.ExerciseType.GetHashCode();
+                }
+                if (this.Underlying != null)
+                {
+                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;

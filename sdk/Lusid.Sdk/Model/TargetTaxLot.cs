@@ -42,7 +42,10 @@ namespace Lusid.Sdk.Model
         /// <param name="price">The purchase price of each unit of the instrument held in this tax-lot. This forms part of the unique key required for multiple tax-lots..</param>
         /// <param name="purchaseDate">The purchase date of this tax-lot. This forms part of the unique key required for multiple tax-lots..</param>
         /// <param name="settlementDate">The settlement date of the tax-lot&#39;s opening transaction..</param>
-        public TargetTaxLot(decimal units = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), decimal? portfolioCost = default(decimal?), decimal? price = default(decimal?), DateTimeOffset? purchaseDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?))
+        /// <param name="notionalCost">The notional cost of the tax-lot&#39;s opening transaction..</param>
+        /// <param name="variationMargin">The variation margin of the tax-lot&#39;s opening transaction..</param>
+        /// <param name="variationMarginPortfolioCcy">The variation margin in portfolio currency of the tax-lot&#39;s opening transaction..</param>
+        public TargetTaxLot(decimal units = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), decimal? portfolioCost = default(decimal?), decimal? price = default(decimal?), DateTimeOffset? purchaseDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?), decimal? notionalCost = default(decimal?), decimal? variationMargin = default(decimal?), decimal? variationMarginPortfolioCcy = default(decimal?))
         {
             this.Units = units;
             this.Cost = cost;
@@ -50,6 +53,9 @@ namespace Lusid.Sdk.Model
             this.Price = price;
             this.PurchaseDate = purchaseDate;
             this.SettlementDate = settlementDate;
+            this.NotionalCost = notionalCost;
+            this.VariationMargin = variationMargin;
+            this.VariationMarginPortfolioCcy = variationMarginPortfolioCcy;
         }
 
         /// <summary>
@@ -94,6 +100,27 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? SettlementDate { get; set; }
 
         /// <summary>
+        /// The notional cost of the tax-lot&#39;s opening transaction.
+        /// </summary>
+        /// <value>The notional cost of the tax-lot&#39;s opening transaction.</value>
+        [DataMember(Name = "notionalCost", EmitDefaultValue = true)]
+        public decimal? NotionalCost { get; set; }
+
+        /// <summary>
+        /// The variation margin of the tax-lot&#39;s opening transaction.
+        /// </summary>
+        /// <value>The variation margin of the tax-lot&#39;s opening transaction.</value>
+        [DataMember(Name = "variationMargin", EmitDefaultValue = true)]
+        public decimal? VariationMargin { get; set; }
+
+        /// <summary>
+        /// The variation margin in portfolio currency of the tax-lot&#39;s opening transaction.
+        /// </summary>
+        /// <value>The variation margin in portfolio currency of the tax-lot&#39;s opening transaction.</value>
+        [DataMember(Name = "variationMarginPortfolioCcy", EmitDefaultValue = true)]
+        public decimal? VariationMarginPortfolioCcy { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -107,6 +134,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  PurchaseDate: ").Append(PurchaseDate).Append("\n");
             sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
+            sb.Append("  NotionalCost: ").Append(NotionalCost).Append("\n");
+            sb.Append("  VariationMargin: ").Append(VariationMargin).Append("\n");
+            sb.Append("  VariationMarginPortfolioCcy: ").Append(VariationMarginPortfolioCcy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,6 +200,21 @@ namespace Lusid.Sdk.Model
                     this.SettlementDate == input.SettlementDate ||
                     (this.SettlementDate != null &&
                     this.SettlementDate.Equals(input.SettlementDate))
+                ) && 
+                (
+                    this.NotionalCost == input.NotionalCost ||
+                    (this.NotionalCost != null &&
+                    this.NotionalCost.Equals(input.NotionalCost))
+                ) && 
+                (
+                    this.VariationMargin == input.VariationMargin ||
+                    (this.VariationMargin != null &&
+                    this.VariationMargin.Equals(input.VariationMargin))
+                ) && 
+                (
+                    this.VariationMarginPortfolioCcy == input.VariationMarginPortfolioCcy ||
+                    (this.VariationMarginPortfolioCcy != null &&
+                    this.VariationMarginPortfolioCcy.Equals(input.VariationMarginPortfolioCcy))
                 );
         }
 
@@ -202,6 +247,18 @@ namespace Lusid.Sdk.Model
                 if (this.SettlementDate != null)
                 {
                     hashCode = (hashCode * 59) + this.SettlementDate.GetHashCode();
+                }
+                if (this.NotionalCost != null)
+                {
+                    hashCode = (hashCode * 59) + this.NotionalCost.GetHashCode();
+                }
+                if (this.VariationMargin != null)
+                {
+                    hashCode = (hashCode * 59) + this.VariationMargin.GetHashCode();
+                }
+                if (this.VariationMarginPortfolioCcy != null)
+                {
+                    hashCode = (hashCode * 59) + this.VariationMarginPortfolioCcy.GetHashCode();
                 }
                 return hashCode;
             }

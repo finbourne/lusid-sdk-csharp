@@ -11,6 +11,9 @@ Name | Type | Description | Notes
 **Price** | **decimal?** | The purchase price of each unit of the instrument held in this tax-lot. This forms part of the unique key required for multiple tax-lots. | [optional] 
 **PurchaseDate** | **DateTimeOffset?** | The purchase date of this tax-lot. This forms part of the unique key required for multiple tax-lots. | [optional] 
 **SettlementDate** | **DateTimeOffset?** | The settlement date of the tax-lot&#39;s opening transaction. | [optional] 
+**NotionalCost** | **decimal?** | The notional cost of the tax-lot&#39;s opening transaction. | [optional] 
+**VariationMargin** | **decimal?** | The variation margin of the tax-lot&#39;s opening transaction. | [optional] 
+**VariationMarginPortfolioCcy** | **decimal?** | The variation margin in portfolio currency of the tax-lot&#39;s opening transaction. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
