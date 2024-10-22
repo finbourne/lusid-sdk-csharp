@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Fee. (required).</param>
         /// <param name="description">A description for the Fee..</param>
         /// <param name="origin">The origin or source of the Fee accrual..</param>
-        /// <param name="calculationBase">The calculation base for the Fee that is calculated using a percentage. (TotalAnnualAccrualAmount and CalculationBase cannot both be present).</param>
+        /// <param name="calculationBase">The calculation base for a Fee that is calculated using a percentage (TotalAnnualAccrualAmount and CalculationBase cannot both be present). When the Fee is a ShareClass Fee (i.e: when ShareClasses contains at least one value), each of the following would be a valid CalculationBase: \&quot;10000.00\&quot;, \&quot;ShareClass.GAV\&quot;, \&quot;ShareClass.GAV - ShareClass.Fees[ShareClassFeeCode1].Amount\&quot;, \&quot;ShareClass.Fees[ShareClassFeeCode1].CalculationBase\&quot;. When the Fee is a NonShareClassSpecific Fee (i.e: when ShareClasses contains no values), each of the following would be a valid CalculationBase: \&quot;10000.00\&quot;, \&quot;GAV\&quot;, \&quot;GAV - Fees[NonClassSpecificFeeCode1].Amount\&quot;, \&quot;Fees[NonClassSpecificFeeCode1].CalculationBase\&quot;. .</param>
         /// <param name="accrualCurrency">The accrual currency. (required).</param>
         /// <param name="treatment">The accrual period of the Fee; &#39;Monthly&#39; or &#39;Daily&#39;. (required).</param>
         /// <param name="totalAnnualAccrualAmount">The total annual accrued amount for the Fee. (TotalAnnualAccrualAmount and CalculationBase cannot both be present).</param>
@@ -53,7 +53,8 @@ namespace Lusid.Sdk.Model
         /// <param name="anchorDate">anchorDate.</param>
         /// <param name="properties">The Fee properties. These will be from the &#39;Fee&#39; domain..</param>
         /// <param name="portfolioId">portfolioId.</param>
-        public FeeRequest(string code = default(string), ResourceId feeTypeId = default(ResourceId), string displayName = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset? endDate = default(DateTimeOffset?), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ResourceId portfolioId = default(ResourceId))
+        /// <param name="shareClasses">The short codes of the ShareClasses that the Fee should be applied to. Optional: if this is null or empty, then the Fee will be divided between all the ShareClasses of the Fund according to the capital ratio..</param>
+        public FeeRequest(string code = default(string), ResourceId feeTypeId = default(ResourceId), string displayName = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset? endDate = default(DateTimeOffset?), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ResourceId portfolioId = default(ResourceId), List<string> shareClasses = default(List<string>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -107,6 +108,7 @@ namespace Lusid.Sdk.Model
             this.AnchorDate = anchorDate;
             this.Properties = properties;
             this.PortfolioId = portfolioId;
+            this.ShareClasses = shareClasses;
         }
 
         /// <summary>
@@ -144,9 +146,9 @@ namespace Lusid.Sdk.Model
         public string Origin { get; set; }
 
         /// <summary>
-        /// The calculation base for the Fee that is calculated using a percentage. (TotalAnnualAccrualAmount and CalculationBase cannot both be present)
+        /// The calculation base for a Fee that is calculated using a percentage (TotalAnnualAccrualAmount and CalculationBase cannot both be present). When the Fee is a ShareClass Fee (i.e: when ShareClasses contains at least one value), each of the following would be a valid CalculationBase: \&quot;10000.00\&quot;, \&quot;ShareClass.GAV\&quot;, \&quot;ShareClass.GAV - ShareClass.Fees[ShareClassFeeCode1].Amount\&quot;, \&quot;ShareClass.Fees[ShareClassFeeCode1].CalculationBase\&quot;. When the Fee is a NonShareClassSpecific Fee (i.e: when ShareClasses contains no values), each of the following would be a valid CalculationBase: \&quot;10000.00\&quot;, \&quot;GAV\&quot;, \&quot;GAV - Fees[NonClassSpecificFeeCode1].Amount\&quot;, \&quot;Fees[NonClassSpecificFeeCode1].CalculationBase\&quot;. 
         /// </summary>
-        /// <value>The calculation base for the Fee that is calculated using a percentage. (TotalAnnualAccrualAmount and CalculationBase cannot both be present)</value>
+        /// <value>The calculation base for a Fee that is calculated using a percentage (TotalAnnualAccrualAmount and CalculationBase cannot both be present). When the Fee is a ShareClass Fee (i.e: when ShareClasses contains at least one value), each of the following would be a valid CalculationBase: \&quot;10000.00\&quot;, \&quot;ShareClass.GAV\&quot;, \&quot;ShareClass.GAV - ShareClass.Fees[ShareClassFeeCode1].Amount\&quot;, \&quot;ShareClass.Fees[ShareClassFeeCode1].CalculationBase\&quot;. When the Fee is a NonShareClassSpecific Fee (i.e: when ShareClasses contains no values), each of the following would be a valid CalculationBase: \&quot;10000.00\&quot;, \&quot;GAV\&quot;, \&quot;GAV - Fees[NonClassSpecificFeeCode1].Amount\&quot;, \&quot;Fees[NonClassSpecificFeeCode1].CalculationBase\&quot;. </value>
         [DataMember(Name = "calculationBase", EmitDefaultValue = true)]
         public string CalculationBase { get; set; }
 
@@ -226,6 +228,13 @@ namespace Lusid.Sdk.Model
         public ResourceId PortfolioId { get; set; }
 
         /// <summary>
+        /// The short codes of the ShareClasses that the Fee should be applied to. Optional: if this is null or empty, then the Fee will be divided between all the ShareClasses of the Fund according to the capital ratio.
+        /// </summary>
+        /// <value>The short codes of the ShareClasses that the Fee should be applied to. Optional: if this is null or empty, then the Fee will be divided between all the ShareClasses of the Fund according to the capital ratio.</value>
+        [DataMember(Name = "shareClasses", EmitDefaultValue = true)]
+        public List<string> ShareClasses { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -250,6 +259,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AnchorDate: ").Append(AnchorDate).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
+            sb.Append("  ShareClasses: ").Append(ShareClasses).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -370,6 +380,12 @@ namespace Lusid.Sdk.Model
                     this.PortfolioId == input.PortfolioId ||
                     (this.PortfolioId != null &&
                     this.PortfolioId.Equals(input.PortfolioId))
+                ) && 
+                (
+                    this.ShareClasses == input.ShareClasses ||
+                    this.ShareClasses != null &&
+                    input.ShareClasses != null &&
+                    this.ShareClasses.SequenceEqual(input.ShareClasses)
                 );
         }
 
@@ -449,6 +465,10 @@ namespace Lusid.Sdk.Model
                 if (this.PortfolioId != null)
                 {
                     hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
+                }
+                if (this.ShareClasses != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShareClasses.GetHashCode();
                 }
                 return hashCode;
             }

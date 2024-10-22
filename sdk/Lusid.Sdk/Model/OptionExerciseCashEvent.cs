@@ -24,73 +24,68 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Event for physical option exercises.
+    /// Event for cash option exercises.
     /// </summary>
-    [DataContract(Name = "OptionExercisePhysicalEvent")]
+    [DataContract(Name = "OptionExerciseCashEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class OptionExercisePhysicalEvent : InstrumentEvent, IEquatable<OptionExercisePhysicalEvent>, IValidatableObject
+    public partial class OptionExerciseCashEvent : InstrumentEvent, IEquatable<OptionExerciseCashEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptionExercisePhysicalEvent" /> class.
+        /// Initializes a new instance of the <see cref="OptionExerciseCashEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected OptionExercisePhysicalEvent() { }
+        protected OptionExerciseCashEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptionExercisePhysicalEvent" /> class.
+        /// Initializes a new instance of the <see cref="OptionExerciseCashEvent" /> class.
         /// </summary>
+        /// <param name="cashFlowPerUnit">The cashflow per unit.</param>
         /// <param name="exerciseDate">The exercise date of the option..</param>
         /// <param name="exerciseType">The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American]. (required).</param>
         /// <param name="maturityDate">The maturity date of the option. (required).</param>
         /// <param name="moneyness">The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney]..</param>
-        /// <param name="newInstrument">newInstrument (required).</param>
         /// <param name="optionExerciseElections">Option exercise election for this OptionExercisePhysicalEvent..</param>
         /// <param name="optionType">Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put]. (required).</param>
-        /// <param name="startDate">The trade date of the option. (required).</param>
+        /// <param name="startDate">The start date of the option. (required).</param>
         /// <param name="strikeCurrency">The strike currency of the equity option. (required).</param>
         /// <param name="strikePerUnit">The strike of the equity option times the number of shares to exchange if exercised. (required).</param>
         /// <param name="underlyingValuePerUnit">The underlying price times the number of shares to exchange if exercised..</param>
-        /// <param name="unitsRatio">unitsRatio (required).</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent (required) (default to &quot;OptionExercisePhysicalEvent&quot;).</param>
-        public OptionExercisePhysicalEvent(DateTimeOffset? exerciseDate = default(DateTimeOffset?), string exerciseType = default(string), DateTimeOffset maturityDate = default(DateTimeOffset), string moneyness = default(string), NewInstrument newInstrument = default(NewInstrument), List<OptionExerciseElection> optionExerciseElections = default(List<OptionExerciseElection>), string optionType = default(string), DateTimeOffset startDate = default(DateTimeOffset), string strikeCurrency = default(string), decimal strikePerUnit = default(decimal), decimal? underlyingValuePerUnit = default(decimal?), UnitsRatio unitsRatio = default(UnitsRatio), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent (required) (default to &quot;OptionExerciseCashEvent&quot;).</param>
+        public OptionExerciseCashEvent(decimal? cashFlowPerUnit = default(decimal?), DateTimeOffset? exerciseDate = default(DateTimeOffset?), string exerciseType = default(string), DateTimeOffset maturityDate = default(DateTimeOffset), string moneyness = default(string), List<OptionExerciseElection> optionExerciseElections = default(List<OptionExerciseElection>), string optionType = default(string), DateTimeOffset startDate = default(DateTimeOffset), string strikeCurrency = default(string), decimal strikePerUnit = default(decimal), decimal? underlyingValuePerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "exerciseType" is required (not null)
             if (exerciseType == null)
             {
-                throw new ArgumentNullException("exerciseType is a required property for OptionExercisePhysicalEvent and cannot be null");
+                throw new ArgumentNullException("exerciseType is a required property for OptionExerciseCashEvent and cannot be null");
             }
             this.ExerciseType = exerciseType;
             this.MaturityDate = maturityDate;
-            // to ensure "newInstrument" is required (not null)
-            if (newInstrument == null)
-            {
-                throw new ArgumentNullException("newInstrument is a required property for OptionExercisePhysicalEvent and cannot be null");
-            }
-            this.NewInstrument = newInstrument;
             // to ensure "optionType" is required (not null)
             if (optionType == null)
             {
-                throw new ArgumentNullException("optionType is a required property for OptionExercisePhysicalEvent and cannot be null");
+                throw new ArgumentNullException("optionType is a required property for OptionExerciseCashEvent and cannot be null");
             }
             this.OptionType = optionType;
             this.StartDate = startDate;
             // to ensure "strikeCurrency" is required (not null)
             if (strikeCurrency == null)
             {
-                throw new ArgumentNullException("strikeCurrency is a required property for OptionExercisePhysicalEvent and cannot be null");
+                throw new ArgumentNullException("strikeCurrency is a required property for OptionExerciseCashEvent and cannot be null");
             }
             this.StrikeCurrency = strikeCurrency;
             this.StrikePerUnit = strikePerUnit;
-            // to ensure "unitsRatio" is required (not null)
-            if (unitsRatio == null)
-            {
-                throw new ArgumentNullException("unitsRatio is a required property for OptionExercisePhysicalEvent and cannot be null");
-            }
-            this.UnitsRatio = unitsRatio;
+            this.CashFlowPerUnit = cashFlowPerUnit;
             this.ExerciseDate = exerciseDate;
             this.Moneyness = moneyness;
             this.OptionExerciseElections = optionExerciseElections;
             this.UnderlyingValuePerUnit = underlyingValuePerUnit;
         }
+
+        /// <summary>
+        /// The cashflow per unit
+        /// </summary>
+        /// <value>The cashflow per unit</value>
+        [DataMember(Name = "cashFlowPerUnit", EmitDefaultValue = true)]
+        public decimal? CashFlowPerUnit { get; set; }
 
         /// <summary>
         /// The exercise date of the option.
@@ -121,12 +116,6 @@ namespace Lusid.Sdk.Model
         public string Moneyness { get; set; }
 
         /// <summary>
-        /// Gets or Sets NewInstrument
-        /// </summary>
-        [DataMember(Name = "newInstrument", IsRequired = true, EmitDefaultValue = true)]
-        public NewInstrument NewInstrument { get; set; }
-
-        /// <summary>
         /// Option exercise election for this OptionExercisePhysicalEvent.
         /// </summary>
         /// <value>Option exercise election for this OptionExercisePhysicalEvent.</value>
@@ -141,9 +130,9 @@ namespace Lusid.Sdk.Model
         public string OptionType { get; set; }
 
         /// <summary>
-        /// The trade date of the option.
+        /// The start date of the option.
         /// </summary>
-        /// <value>The trade date of the option.</value>
+        /// <value>The start date of the option.</value>
         [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset StartDate { get; set; }
 
@@ -169,32 +158,25 @@ namespace Lusid.Sdk.Model
         public decimal? UnderlyingValuePerUnit { get; set; }
 
         /// <summary>
-        /// Gets or Sets UnitsRatio
-        /// </summary>
-        [DataMember(Name = "unitsRatio", IsRequired = true, EmitDefaultValue = true)]
-        public UnitsRatio UnitsRatio { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class OptionExercisePhysicalEvent {\n");
+            sb.Append("class OptionExerciseCashEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  CashFlowPerUnit: ").Append(CashFlowPerUnit).Append("\n");
             sb.Append("  ExerciseDate: ").Append(ExerciseDate).Append("\n");
             sb.Append("  ExerciseType: ").Append(ExerciseType).Append("\n");
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
             sb.Append("  Moneyness: ").Append(Moneyness).Append("\n");
-            sb.Append("  NewInstrument: ").Append(NewInstrument).Append("\n");
             sb.Append("  OptionExerciseElections: ").Append(OptionExerciseElections).Append("\n");
             sb.Append("  OptionType: ").Append(OptionType).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  StrikeCurrency: ").Append(StrikeCurrency).Append("\n");
             sb.Append("  StrikePerUnit: ").Append(StrikePerUnit).Append("\n");
             sb.Append("  UnderlyingValuePerUnit: ").Append(UnderlyingValuePerUnit).Append("\n");
-            sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,21 +197,26 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OptionExercisePhysicalEvent);
+            return this.Equals(input as OptionExerciseCashEvent);
         }
 
         /// <summary>
-        /// Returns true if OptionExercisePhysicalEvent instances are equal
+        /// Returns true if OptionExerciseCashEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of OptionExercisePhysicalEvent to be compared</param>
+        /// <param name="input">Instance of OptionExerciseCashEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OptionExercisePhysicalEvent input)
+        public bool Equals(OptionExerciseCashEvent input)
         {
             if (input == null)
             {
                 return false;
             }
             return base.Equals(input) && 
+                (
+                    this.CashFlowPerUnit == input.CashFlowPerUnit ||
+                    (this.CashFlowPerUnit != null &&
+                    this.CashFlowPerUnit.Equals(input.CashFlowPerUnit))
+                ) && base.Equals(input) && 
                 (
                     this.ExerciseDate == input.ExerciseDate ||
                     (this.ExerciseDate != null &&
@@ -249,11 +236,6 @@ namespace Lusid.Sdk.Model
                     this.Moneyness == input.Moneyness ||
                     (this.Moneyness != null &&
                     this.Moneyness.Equals(input.Moneyness))
-                ) && base.Equals(input) && 
-                (
-                    this.NewInstrument == input.NewInstrument ||
-                    (this.NewInstrument != null &&
-                    this.NewInstrument.Equals(input.NewInstrument))
                 ) && base.Equals(input) && 
                 (
                     this.OptionExerciseElections == input.OptionExerciseElections ||
@@ -284,11 +266,6 @@ namespace Lusid.Sdk.Model
                     this.UnderlyingValuePerUnit == input.UnderlyingValuePerUnit ||
                     (this.UnderlyingValuePerUnit != null &&
                     this.UnderlyingValuePerUnit.Equals(input.UnderlyingValuePerUnit))
-                ) && base.Equals(input) && 
-                (
-                    this.UnitsRatio == input.UnitsRatio ||
-                    (this.UnitsRatio != null &&
-                    this.UnitsRatio.Equals(input.UnitsRatio))
                 );
         }
 
@@ -301,6 +278,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                if (this.CashFlowPerUnit != null)
+                {
+                    hashCode = (hashCode * 59) + this.CashFlowPerUnit.GetHashCode();
+                }
                 if (this.ExerciseDate != null)
                 {
                     hashCode = (hashCode * 59) + this.ExerciseDate.GetHashCode();
@@ -316,10 +297,6 @@ namespace Lusid.Sdk.Model
                 if (this.Moneyness != null)
                 {
                     hashCode = (hashCode * 59) + this.Moneyness.GetHashCode();
-                }
-                if (this.NewInstrument != null)
-                {
-                    hashCode = (hashCode * 59) + this.NewInstrument.GetHashCode();
                 }
                 if (this.OptionExerciseElections != null)
                 {
@@ -341,10 +318,6 @@ namespace Lusid.Sdk.Model
                 if (this.UnderlyingValuePerUnit != null)
                 {
                     hashCode = (hashCode * 59) + this.UnderlyingValuePerUnit.GetHashCode();
-                }
-                if (this.UnitsRatio != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnitsRatio.GetHashCode();
                 }
                 return hashCode;
             }

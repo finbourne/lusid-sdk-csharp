@@ -41,9 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="exDate">The ex date (entitlement date) of the principal payment, usually several weeks prior to the payment date (required).</param>
         /// <param name="paymentDate">The payment date of the principal that is written off (required).</param>
         /// <param name="currency">The currency in which the principal write off is notated (required).</param>
-        /// <param name="principalPerUnit">The principal amount to be written off for each unit of the instrument held on the ex date (required).</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, ProtectionPayoutCashFlowEvent (required) (default to &quot;MbsPrincipalWriteOffEvent&quot;).</param>
-        public MbsPrincipalWriteOffEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal principalPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="principalPerUnit">The principal amount to be written off for each unit of the instrument held on the ex date.</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent (required) (default to &quot;MbsPrincipalWriteOffEvent&quot;).</param>
+        public MbsPrincipalWriteOffEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal? principalPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.ExDate = exDate;
             this.PaymentDate = paymentDate;
@@ -81,8 +81,8 @@ namespace Lusid.Sdk.Model
         /// The principal amount to be written off for each unit of the instrument held on the ex date
         /// </summary>
         /// <value>The principal amount to be written off for each unit of the instrument held on the ex date</value>
-        [DataMember(Name = "principalPerUnit", IsRequired = true, EmitDefaultValue = true)]
-        public decimal PrincipalPerUnit { get; set; }
+        [DataMember(Name = "principalPerUnit", EmitDefaultValue = true)]
+        public decimal? PrincipalPerUnit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -149,7 +149,8 @@ namespace Lusid.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.PrincipalPerUnit == input.PrincipalPerUnit ||
-                    this.PrincipalPerUnit.Equals(input.PrincipalPerUnit)
+                    (this.PrincipalPerUnit != null &&
+                    this.PrincipalPerUnit.Equals(input.PrincipalPerUnit))
                 );
         }
 
@@ -174,7 +175,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PrincipalPerUnit.GetHashCode();
+                if (this.PrincipalPerUnit != null)
+                {
+                    hashCode = (hashCode * 59) + this.PrincipalPerUnit.GetHashCode();
+                }
                 return hashCode;
             }
         }

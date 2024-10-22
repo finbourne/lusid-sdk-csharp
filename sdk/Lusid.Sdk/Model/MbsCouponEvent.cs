@@ -41,9 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="exDate">The ex date (entitlement date) of the coupon (required).</param>
         /// <param name="paymentDate">The payment date of the coupon (required).</param>
         /// <param name="currency">The currency in which the coupon is paid (required).</param>
-        /// <param name="couponPerUnit">The coupon amount received for each unit of the instrument held on the ex date (required).</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, ProtectionPayoutCashFlowEvent (required) (default to &quot;MbsCouponEvent&quot;).</param>
-        public MbsCouponEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal couponPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="couponPerUnit">The coupon amount received for each unit of the instrument held on the ex date.</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent (required) (default to &quot;MbsCouponEvent&quot;).</param>
+        public MbsCouponEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal? couponPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.ExDate = exDate;
             this.PaymentDate = paymentDate;
@@ -81,8 +81,8 @@ namespace Lusid.Sdk.Model
         /// The coupon amount received for each unit of the instrument held on the ex date
         /// </summary>
         /// <value>The coupon amount received for each unit of the instrument held on the ex date</value>
-        [DataMember(Name = "couponPerUnit", IsRequired = true, EmitDefaultValue = true)]
-        public decimal CouponPerUnit { get; set; }
+        [DataMember(Name = "couponPerUnit", EmitDefaultValue = true)]
+        public decimal? CouponPerUnit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -149,7 +149,8 @@ namespace Lusid.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.CouponPerUnit == input.CouponPerUnit ||
-                    this.CouponPerUnit.Equals(input.CouponPerUnit)
+                    (this.CouponPerUnit != null &&
+                    this.CouponPerUnit.Equals(input.CouponPerUnit))
                 );
         }
 
@@ -174,7 +175,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.CouponPerUnit.GetHashCode();
+                if (this.CouponPerUnit != null)
+                {
+                    hashCode = (hashCode * 59) + this.CouponPerUnit.GetHashCode();
+                }
                 return hashCode;
             }
         }

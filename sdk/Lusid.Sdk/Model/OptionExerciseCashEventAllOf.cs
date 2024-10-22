@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// MbsCouponEventAllOf
+    /// OptionExerciseCashEventAllOf
     /// </summary>
-    [DataContract(Name = "MbsCouponEvent_allOf")]
-    public partial class MbsCouponEventAllOf : IEquatable<MbsCouponEventAllOf>, IValidatableObject
+    [DataContract(Name = "OptionExerciseCashEvent_allOf")]
+    public partial class OptionExerciseCashEventAllOf : IEquatable<OptionExerciseCashEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent
@@ -321,59 +321,132 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MbsCouponEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="OptionExerciseCashEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MbsCouponEventAllOf() { }
+        protected OptionExerciseCashEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MbsCouponEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="OptionExerciseCashEventAllOf" /> class.
         /// </summary>
-        /// <param name="exDate">The ex date (entitlement date) of the coupon (required).</param>
-        /// <param name="paymentDate">The payment date of the coupon (required).</param>
-        /// <param name="currency">The currency in which the coupon is paid (required).</param>
-        /// <param name="couponPerUnit">The coupon amount received for each unit of the instrument held on the ex date.</param>
+        /// <param name="cashFlowPerUnit">The cashflow per unit.</param>
+        /// <param name="exerciseDate">The exercise date of the option..</param>
+        /// <param name="exerciseType">The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American]. (required).</param>
+        /// <param name="maturityDate">The maturity date of the option. (required).</param>
+        /// <param name="moneyness">The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney]..</param>
+        /// <param name="optionExerciseElections">Option exercise election for this OptionExercisePhysicalEvent..</param>
+        /// <param name="optionType">Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put]. (required).</param>
+        /// <param name="startDate">The start date of the option. (required).</param>
+        /// <param name="strikeCurrency">The strike currency of the equity option. (required).</param>
+        /// <param name="strikePerUnit">The strike of the equity option times the number of shares to exchange if exercised. (required).</param>
+        /// <param name="underlyingValuePerUnit">The underlying price times the number of shares to exchange if exercised..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent (required).</param>
-        public MbsCouponEventAllOf(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal? couponPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public OptionExerciseCashEventAllOf(decimal? cashFlowPerUnit = default(decimal?), DateTimeOffset? exerciseDate = default(DateTimeOffset?), string exerciseType = default(string), DateTimeOffset maturityDate = default(DateTimeOffset), string moneyness = default(string), List<OptionExerciseElection> optionExerciseElections = default(List<OptionExerciseElection>), string optionType = default(string), DateTimeOffset startDate = default(DateTimeOffset), string strikeCurrency = default(string), decimal strikePerUnit = default(decimal), decimal? underlyingValuePerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            this.ExDate = exDate;
-            this.PaymentDate = paymentDate;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
+            // to ensure "exerciseType" is required (not null)
+            if (exerciseType == null)
             {
-                throw new ArgumentNullException("currency is a required property for MbsCouponEventAllOf and cannot be null");
+                throw new ArgumentNullException("exerciseType is a required property for OptionExerciseCashEventAllOf and cannot be null");
             }
-            this.Currency = currency;
+            this.ExerciseType = exerciseType;
+            this.MaturityDate = maturityDate;
+            // to ensure "optionType" is required (not null)
+            if (optionType == null)
+            {
+                throw new ArgumentNullException("optionType is a required property for OptionExerciseCashEventAllOf and cannot be null");
+            }
+            this.OptionType = optionType;
+            this.StartDate = startDate;
+            // to ensure "strikeCurrency" is required (not null)
+            if (strikeCurrency == null)
+            {
+                throw new ArgumentNullException("strikeCurrency is a required property for OptionExerciseCashEventAllOf and cannot be null");
+            }
+            this.StrikeCurrency = strikeCurrency;
+            this.StrikePerUnit = strikePerUnit;
             this.InstrumentEventType = instrumentEventType;
-            this.CouponPerUnit = couponPerUnit;
+            this.CashFlowPerUnit = cashFlowPerUnit;
+            this.ExerciseDate = exerciseDate;
+            this.Moneyness = moneyness;
+            this.OptionExerciseElections = optionExerciseElections;
+            this.UnderlyingValuePerUnit = underlyingValuePerUnit;
         }
 
         /// <summary>
-        /// The ex date (entitlement date) of the coupon
+        /// The cashflow per unit
         /// </summary>
-        /// <value>The ex date (entitlement date) of the coupon</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset ExDate { get; set; }
+        /// <value>The cashflow per unit</value>
+        [DataMember(Name = "cashFlowPerUnit", EmitDefaultValue = true)]
+        public decimal? CashFlowPerUnit { get; set; }
 
         /// <summary>
-        /// The payment date of the coupon
+        /// The exercise date of the option.
         /// </summary>
-        /// <value>The payment date of the coupon</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset PaymentDate { get; set; }
+        /// <value>The exercise date of the option.</value>
+        [DataMember(Name = "exerciseDate", EmitDefaultValue = true)]
+        public DateTimeOffset? ExerciseDate { get; set; }
 
         /// <summary>
-        /// The currency in which the coupon is paid
+        /// The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American].
         /// </summary>
-        /// <value>The currency in which the coupon is paid</value>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
-        public string Currency { get; set; }
+        /// <value>The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American].</value>
+        [DataMember(Name = "exerciseType", IsRequired = true, EmitDefaultValue = true)]
+        public string ExerciseType { get; set; }
 
         /// <summary>
-        /// The coupon amount received for each unit of the instrument held on the ex date
+        /// The maturity date of the option.
         /// </summary>
-        /// <value>The coupon amount received for each unit of the instrument held on the ex date</value>
-        [DataMember(Name = "couponPerUnit", EmitDefaultValue = true)]
-        public decimal? CouponPerUnit { get; set; }
+        /// <value>The maturity date of the option.</value>
+        [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset MaturityDate { get; set; }
+
+        /// <summary>
+        /// The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney].
+        /// </summary>
+        /// <value>The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney].</value>
+        [DataMember(Name = "moneyness", EmitDefaultValue = true)]
+        public string Moneyness { get; set; }
+
+        /// <summary>
+        /// Option exercise election for this OptionExercisePhysicalEvent.
+        /// </summary>
+        /// <value>Option exercise election for this OptionExercisePhysicalEvent.</value>
+        [DataMember(Name = "optionExerciseElections", EmitDefaultValue = true)]
+        public List<OptionExerciseElection> OptionExerciseElections { get; set; }
+
+        /// <summary>
+        /// Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put].
+        /// </summary>
+        /// <value>Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put].</value>
+        [DataMember(Name = "optionType", IsRequired = true, EmitDefaultValue = true)]
+        public string OptionType { get; set; }
+
+        /// <summary>
+        /// The start date of the option.
+        /// </summary>
+        /// <value>The start date of the option.</value>
+        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset StartDate { get; set; }
+
+        /// <summary>
+        /// The strike currency of the equity option.
+        /// </summary>
+        /// <value>The strike currency of the equity option.</value>
+        [DataMember(Name = "strikeCurrency", IsRequired = true, EmitDefaultValue = true)]
+        public string StrikeCurrency { get; set; }
+
+        /// <summary>
+        /// The strike of the equity option times the number of shares to exchange if exercised.
+        /// </summary>
+        /// <value>The strike of the equity option times the number of shares to exchange if exercised.</value>
+        [DataMember(Name = "strikePerUnit", IsRequired = true, EmitDefaultValue = true)]
+        public decimal StrikePerUnit { get; set; }
+
+        /// <summary>
+        /// The underlying price times the number of shares to exchange if exercised.
+        /// </summary>
+        /// <value>The underlying price times the number of shares to exchange if exercised.</value>
+        [DataMember(Name = "underlyingValuePerUnit", EmitDefaultValue = true)]
+        public decimal? UnderlyingValuePerUnit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -382,11 +455,18 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class MbsCouponEventAllOf {\n");
-            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
-            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  CouponPerUnit: ").Append(CouponPerUnit).Append("\n");
+            sb.Append("class OptionExerciseCashEventAllOf {\n");
+            sb.Append("  CashFlowPerUnit: ").Append(CashFlowPerUnit).Append("\n");
+            sb.Append("  ExerciseDate: ").Append(ExerciseDate).Append("\n");
+            sb.Append("  ExerciseType: ").Append(ExerciseType).Append("\n");
+            sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
+            sb.Append("  Moneyness: ").Append(Moneyness).Append("\n");
+            sb.Append("  OptionExerciseElections: ").Append(OptionExerciseElections).Append("\n");
+            sb.Append("  OptionType: ").Append(OptionType).Append("\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  StrikeCurrency: ").Append(StrikeCurrency).Append("\n");
+            sb.Append("  StrikePerUnit: ").Append(StrikePerUnit).Append("\n");
+            sb.Append("  UnderlyingValuePerUnit: ").Append(UnderlyingValuePerUnit).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -408,15 +488,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MbsCouponEventAllOf);
+            return this.Equals(input as OptionExerciseCashEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if MbsCouponEventAllOf instances are equal
+        /// Returns true if OptionExerciseCashEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of MbsCouponEventAllOf to be compared</param>
+        /// <param name="input">Instance of OptionExerciseCashEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MbsCouponEventAllOf input)
+        public bool Equals(OptionExerciseCashEventAllOf input)
         {
             if (input == null)
             {
@@ -424,24 +504,59 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.ExDate == input.ExDate ||
-                    (this.ExDate != null &&
-                    this.ExDate.Equals(input.ExDate))
+                    this.CashFlowPerUnit == input.CashFlowPerUnit ||
+                    (this.CashFlowPerUnit != null &&
+                    this.CashFlowPerUnit.Equals(input.CashFlowPerUnit))
                 ) && 
                 (
-                    this.PaymentDate == input.PaymentDate ||
-                    (this.PaymentDate != null &&
-                    this.PaymentDate.Equals(input.PaymentDate))
+                    this.ExerciseDate == input.ExerciseDate ||
+                    (this.ExerciseDate != null &&
+                    this.ExerciseDate.Equals(input.ExerciseDate))
                 ) && 
                 (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
+                    this.ExerciseType == input.ExerciseType ||
+                    (this.ExerciseType != null &&
+                    this.ExerciseType.Equals(input.ExerciseType))
                 ) && 
                 (
-                    this.CouponPerUnit == input.CouponPerUnit ||
-                    (this.CouponPerUnit != null &&
-                    this.CouponPerUnit.Equals(input.CouponPerUnit))
+                    this.MaturityDate == input.MaturityDate ||
+                    (this.MaturityDate != null &&
+                    this.MaturityDate.Equals(input.MaturityDate))
+                ) && 
+                (
+                    this.Moneyness == input.Moneyness ||
+                    (this.Moneyness != null &&
+                    this.Moneyness.Equals(input.Moneyness))
+                ) && 
+                (
+                    this.OptionExerciseElections == input.OptionExerciseElections ||
+                    this.OptionExerciseElections != null &&
+                    input.OptionExerciseElections != null &&
+                    this.OptionExerciseElections.SequenceEqual(input.OptionExerciseElections)
+                ) && 
+                (
+                    this.OptionType == input.OptionType ||
+                    (this.OptionType != null &&
+                    this.OptionType.Equals(input.OptionType))
+                ) && 
+                (
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
+                ) && 
+                (
+                    this.StrikeCurrency == input.StrikeCurrency ||
+                    (this.StrikeCurrency != null &&
+                    this.StrikeCurrency.Equals(input.StrikeCurrency))
+                ) && 
+                (
+                    this.StrikePerUnit == input.StrikePerUnit ||
+                    this.StrikePerUnit.Equals(input.StrikePerUnit)
+                ) && 
+                (
+                    this.UnderlyingValuePerUnit == input.UnderlyingValuePerUnit ||
+                    (this.UnderlyingValuePerUnit != null &&
+                    this.UnderlyingValuePerUnit.Equals(input.UnderlyingValuePerUnit))
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -458,21 +573,46 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ExDate != null)
+                if (this.CashFlowPerUnit != null)
                 {
-                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.CashFlowPerUnit.GetHashCode();
                 }
-                if (this.PaymentDate != null)
+                if (this.ExerciseDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ExerciseDate.GetHashCode();
                 }
-                if (this.Currency != null)
+                if (this.ExerciseType != null)
                 {
-                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ExerciseType.GetHashCode();
                 }
-                if (this.CouponPerUnit != null)
+                if (this.MaturityDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.CouponPerUnit.GetHashCode();
+                    hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
+                }
+                if (this.Moneyness != null)
+                {
+                    hashCode = (hashCode * 59) + this.Moneyness.GetHashCode();
+                }
+                if (this.OptionExerciseElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.OptionExerciseElections.GetHashCode();
+                }
+                if (this.OptionType != null)
+                {
+                    hashCode = (hashCode * 59) + this.OptionType.GetHashCode();
+                }
+                if (this.StartDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
+                if (this.StrikeCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.StrikeCurrency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.StrikePerUnit.GetHashCode();
+                if (this.UnderlyingValuePerUnit != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnderlyingValuePerUnit.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
@@ -486,6 +626,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ExerciseType (string) minLength
+            if (this.ExerciseType != null && this.ExerciseType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExerciseType, length must be greater than 1.", new [] { "ExerciseType" });
+            }
+
+            // OptionType (string) minLength
+            if (this.OptionType != null && this.OptionType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OptionType, length must be greater than 1.", new [] { "OptionType" });
+            }
+
             yield break;
         }
     }

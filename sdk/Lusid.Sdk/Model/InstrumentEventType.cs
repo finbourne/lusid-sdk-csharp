@@ -294,10 +294,16 @@ namespace Lusid.Sdk.Model
         OptionExercisePhysicalEvent = 44,
 
         /// <summary>
+        /// Enum OptionExerciseCashEvent for value: OptionExerciseCashEvent
+        /// </summary>
+        [EnumMember(Value = "OptionExerciseCashEvent")]
+        OptionExerciseCashEvent = 45,
+
+        /// <summary>
         /// Enum ProtectionPayoutCashFlowEvent for value: ProtectionPayoutCashFlowEvent
         /// </summary>
         [EnumMember(Value = "ProtectionPayoutCashFlowEvent")]
-        ProtectionPayoutCashFlowEvent = 45
+        ProtectionPayoutCashFlowEvent = 46
 
     }
 

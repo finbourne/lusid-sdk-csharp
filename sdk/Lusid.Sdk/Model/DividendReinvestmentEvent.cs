@@ -42,11 +42,11 @@ namespace Lusid.Sdk.Model
         /// <param name="cashElections">CashElection for this DividendReinvestmentEvent (required).</param>
         /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate. (required).</param>
         /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
-        /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender. (required).</param>
+        /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
         /// <param name="securityElections">SecurityElection for this DividendReinvestmentEvent (required).</param>
         /// <param name="securitySettlementDate">The settlement date of the additional units.  Equal to the PaymentDate if not provided..</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, ProtectionPayoutCashFlowEvent (required) (default to &quot;DividendReinvestmentEvent&quot;).</param>
-        public DividendReinvestmentEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset recordDate = default(DateTimeOffset), List<SecurityElection> securityElections = default(List<SecurityElection>), DateTimeOffset securitySettlementDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent (required) (default to &quot;DividendReinvestmentEvent&quot;).</param>
+        public DividendReinvestmentEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), List<SecurityElection> securityElections = default(List<SecurityElection>), DateTimeOffset securitySettlementDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "cashElections" is required (not null)
             if (cashElections == null)
@@ -56,7 +56,6 @@ namespace Lusid.Sdk.Model
             this.CashElections = cashElections;
             this.ExDate = exDate;
             this.PaymentDate = paymentDate;
-            this.RecordDate = recordDate;
             // to ensure "securityElections" is required (not null)
             if (securityElections == null)
             {
@@ -64,6 +63,7 @@ namespace Lusid.Sdk.Model
             }
             this.SecurityElections = securityElections;
             this.AnnouncementDate = announcementDate;
+            this.RecordDate = recordDate;
             this.SecuritySettlementDate = securitySettlementDate;
         }
 
@@ -99,8 +99,8 @@ namespace Lusid.Sdk.Model
         /// Date you have to be the holder of record in order to participate in the tender.
         /// </summary>
         /// <value>Date you have to be the holder of record in order to participate in the tender.</value>
-        [DataMember(Name = "recordDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset RecordDate { get; set; }
+        [DataMember(Name = "recordDate", EmitDefaultValue = true)]
+        public DateTimeOffset? RecordDate { get; set; }
 
         /// <summary>
         /// SecurityElection for this DividendReinvestmentEvent

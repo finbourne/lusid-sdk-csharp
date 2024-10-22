@@ -41,9 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="exDate">The ex date (entitlement date) of the interest payment, usually several weeks prior to the payment date (required).</param>
         /// <param name="paymentDate">The payment date of the interest (required).</param>
         /// <param name="currency">The currency in which the interest amount is notated (required).</param>
-        /// <param name="interestPerUnit">The amount by which the coupon amount will fall short for each unit of the instrument held on the ex date (required).</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, ProtectionPayoutCashFlowEvent (required) (default to &quot;MbsInterestShortfallEvent&quot;).</param>
-        public MbsInterestShortfallEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal interestPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="interestPerUnit">The amount by which the coupon amount will fall short for each unit of the instrument held on the ex date.</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent (required) (default to &quot;MbsInterestShortfallEvent&quot;).</param>
+        public MbsInterestShortfallEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal? interestPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.ExDate = exDate;
             this.PaymentDate = paymentDate;
@@ -81,8 +81,8 @@ namespace Lusid.Sdk.Model
         /// The amount by which the coupon amount will fall short for each unit of the instrument held on the ex date
         /// </summary>
         /// <value>The amount by which the coupon amount will fall short for each unit of the instrument held on the ex date</value>
-        [DataMember(Name = "interestPerUnit", IsRequired = true, EmitDefaultValue = true)]
-        public decimal InterestPerUnit { get; set; }
+        [DataMember(Name = "interestPerUnit", EmitDefaultValue = true)]
+        public decimal? InterestPerUnit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -149,7 +149,8 @@ namespace Lusid.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.InterestPerUnit == input.InterestPerUnit ||
-                    this.InterestPerUnit.Equals(input.InterestPerUnit)
+                    (this.InterestPerUnit != null &&
+                    this.InterestPerUnit.Equals(input.InterestPerUnit))
                 );
         }
 
@@ -174,7 +175,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.InterestPerUnit.GetHashCode();
+                if (this.InterestPerUnit != null)
+                {
+                    hashCode = (hashCode * 59) + this.InterestPerUnit.GetHashCode();
+                }
                 return hashCode;
             }
         }
