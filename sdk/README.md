@@ -1636,6 +1636,7 @@ Class | Method | HTTP request | Description
  - [ResultValueString](docs/ResultValueString.md)
  - [ResultValueStringAllOf](docs/ResultValueStringAllOf.md)
  - [ResultValueType](docs/ResultValueType.md)
+ - [ReturnZeroPvOptions](docs/ReturnZeroPvOptions.md)
  - [ReverseStockSplitEvent](docs/ReverseStockSplitEvent.md)
  - [ReverseStockSplitEventAllOf](docs/ReverseStockSplitEventAllOf.md)
  - [RoundingConfiguration](docs/RoundingConfiguration.md)

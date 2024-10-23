@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="useChildSubHoldingKeysForPortfolioExpansion">Should fund constituents inherit subholding keys from the parent subholding keyb.</param>
         /// <param name="validateDomesticAndQuoteCurrenciesAreConsistent">Do we validate that the instrument domestic currency matches the quote currency (unless unknown/zzz) when using lookup pricing..</param>
         /// <param name="conservedQuantityForLookthroughExpansion">When performing lookthrough portfolio expansion with ScalingMethodology set to \&quot;Sum\&quot; or \&quot;AbsoluteSum\&quot;,  the quantity specified here will be conserved and apportioned to lookthrough constituents.  For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity.  When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity.  The number of units of each equity held is then implied.  Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.                Allowed values are: \&quot;PV\&quot; (default), \&quot;Exposure\&quot;..</param>
-        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), bool produceSeparateResultForLinearOtcLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), string conservedQuantityForLookthroughExpansion = default(string))
+        /// <param name="returnZeroPv">returnZeroPv.</param>
+        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), bool produceSeparateResultForLinearOtcLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions))
         {
             this.ModelSelection = modelSelection;
             this.UseInstrumentTypeToDeterminePricer = useInstrumentTypeToDeterminePricer;
@@ -55,6 +56,7 @@ namespace Lusid.Sdk.Model
             this.UseChildSubHoldingKeysForPortfolioExpansion = useChildSubHoldingKeysForPortfolioExpansion;
             this.ValidateDomesticAndQuoteCurrenciesAreConsistent = validateDomesticAndQuoteCurrenciesAreConsistent;
             this.ConservedQuantityForLookthroughExpansion = conservedQuantityForLookthroughExpansion;
+            this.ReturnZeroPv = returnZeroPv;
         }
 
         /// <summary>
@@ -134,6 +136,12 @@ namespace Lusid.Sdk.Model
         public string ConservedQuantityForLookthroughExpansion { get; set; }
 
         /// <summary>
+        /// Gets or Sets ReturnZeroPv
+        /// </summary>
+        [DataMember(Name = "returnZeroPv", EmitDefaultValue = false)]
+        public ReturnZeroPvOptions ReturnZeroPv { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -152,6 +160,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  UseChildSubHoldingKeysForPortfolioExpansion: ").Append(UseChildSubHoldingKeysForPortfolioExpansion).Append("\n");
             sb.Append("  ValidateDomesticAndQuoteCurrenciesAreConsistent: ").Append(ValidateDomesticAndQuoteCurrenciesAreConsistent).Append("\n");
             sb.Append("  ConservedQuantityForLookthroughExpansion: ").Append(ConservedQuantityForLookthroughExpansion).Append("\n");
+            sb.Append("  ReturnZeroPv: ").Append(ReturnZeroPv).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -232,6 +241,11 @@ namespace Lusid.Sdk.Model
                     this.ConservedQuantityForLookthroughExpansion == input.ConservedQuantityForLookthroughExpansion ||
                     (this.ConservedQuantityForLookthroughExpansion != null &&
                     this.ConservedQuantityForLookthroughExpansion.Equals(input.ConservedQuantityForLookthroughExpansion))
+                ) && 
+                (
+                    this.ReturnZeroPv == input.ReturnZeroPv ||
+                    (this.ReturnZeroPv != null &&
+                    this.ReturnZeroPv.Equals(input.ReturnZeroPv))
                 );
         }
 
@@ -260,6 +274,10 @@ namespace Lusid.Sdk.Model
                 if (this.ConservedQuantityForLookthroughExpansion != null)
                 {
                     hashCode = (hashCode * 59) + this.ConservedQuantityForLookthroughExpansion.GetHashCode();
+                }
+                if (this.ReturnZeroPv != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReturnZeroPv.GetHashCode();
                 }
                 return hashCode;
             }

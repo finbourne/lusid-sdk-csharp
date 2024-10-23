@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **UseChildSubHoldingKeysForPortfolioExpansion** | **bool** | Should fund constituents inherit subholding keys from the parent subholding keyb | [optional] 
 **ValidateDomesticAndQuoteCurrenciesAreConsistent** | **bool** | Do we validate that the instrument domestic currency matches the quote currency (unless unknown/zzz) when using lookup pricing. | [optional] 
 **ConservedQuantityForLookthroughExpansion** | **string** | When performing lookthrough portfolio expansion with ScalingMethodology set to \&quot;Sum\&quot; or \&quot;AbsoluteSum\&quot;,  the quantity specified here will be conserved and apportioned to lookthrough constituents.  For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity.  When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity.  The number of units of each equity held is then implied.  Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.                Allowed values are: \&quot;PV\&quot; (default), \&quot;Exposure\&quot;. | [optional] 
+**ReturnZeroPv** | [**ReturnZeroPvOptions**](ReturnZeroPvOptions.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
