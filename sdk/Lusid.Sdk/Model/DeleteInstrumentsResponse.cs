@@ -61,6 +61,21 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset AsAt { get; set; }
 
         /// <summary>
+        /// Information about the pending staged modifications for the current entity.
+        /// </summary>
+        /// <value>Information about the pending staged modifications for the current entity.</value>
+        [DataMember(Name = "staged", EmitDefaultValue = true)]
+        public Dictionary<string, StagedModificationsInfo> Staged { get; private set; }
+
+        /// <summary>
+        /// Returns false as Staged should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeStaged()
+        {
+            return false;
+        }
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -76,6 +91,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class DeleteInstrumentsResponse {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
+            sb.Append("  Staged: ").Append(Staged).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -123,6 +139,12 @@ namespace Lusid.Sdk.Model
                     this.AsAt.Equals(input.AsAt))
                 ) && 
                 (
+                    this.Staged == input.Staged ||
+                    this.Staged != null &&
+                    input.Staged != null &&
+                    this.Staged.SequenceEqual(input.Staged)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -146,6 +168,10 @@ namespace Lusid.Sdk.Model
                 if (this.AsAt != null)
                 {
                     hashCode = (hashCode * 59) + this.AsAt.GetHashCode();
+                }
+                if (this.Staged != null)
+                {
+                    hashCode = (hashCode * 59) + this.Staged.GetHashCode();
                 }
                 if (this.Links != null)
                 {

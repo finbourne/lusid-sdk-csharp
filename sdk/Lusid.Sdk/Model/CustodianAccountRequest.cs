@@ -332,9 +332,9 @@ namespace Lusid.Sdk.Model
             }
 
             // Scope (string) minLength
-            if (this.Scope != null && this.Scope.Length < 1)
+            if (this.Scope != null && this.Scope.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, length must be greater than 1.", new [] { "Scope" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, length must be greater than 0.", new [] { "Scope" });
             }
 
             // Scope (string) pattern
