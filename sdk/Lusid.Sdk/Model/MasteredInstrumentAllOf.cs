@@ -325,21 +325,6 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, string> Identifiers { get; set; }
 
         /// <summary>
-        /// Asset class of the mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].
-        /// </summary>
-        /// <value>Asset class of the mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].</value>
-        [DataMember(Name = "assetClass", EmitDefaultValue = true)]
-        public string AssetClass { get; private set; }
-
-        /// <summary>
-        /// Returns false as AssetClass should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeAssetClass()
-        {
-            return false;
-        }
-        /// <summary>
         /// DomCcy of the Instrument that Mastered Instrument points to - read only field
         /// </summary>
         /// <value>DomCcy of the Instrument that Mastered Instrument points to - read only field</value>
@@ -415,6 +400,21 @@ namespace Lusid.Sdk.Model
             return false;
         }
         /// <summary>
+        /// Asset class of the underlying mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].
+        /// </summary>
+        /// <value>Asset class of the underlying mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].</value>
+        [DataMember(Name = "masteredAssetClass", EmitDefaultValue = true)]
+        public string MasteredAssetClass { get; private set; }
+
+        /// <summary>
+        /// Returns false as MasteredAssetClass should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeMasteredAssetClass()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -423,12 +423,12 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class MasteredInstrumentAllOf {\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
-            sb.Append("  AssetClass: ").Append(AssetClass).Append("\n");
             sb.Append("  MasteredDomCcy: ").Append(MasteredDomCcy).Append("\n");
             sb.Append("  MasteredInstrumentType: ").Append(MasteredInstrumentType).Append("\n");
             sb.Append("  MasteredLusidInstrumentId: ").Append(MasteredLusidInstrumentId).Append("\n");
             sb.Append("  MasteredName: ").Append(MasteredName).Append("\n");
             sb.Append("  MasteredScope: ").Append(MasteredScope).Append("\n");
+            sb.Append("  MasteredAssetClass: ").Append(MasteredAssetClass).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -472,11 +472,6 @@ namespace Lusid.Sdk.Model
                     this.Identifiers.SequenceEqual(input.Identifiers)
                 ) && 
                 (
-                    this.AssetClass == input.AssetClass ||
-                    (this.AssetClass != null &&
-                    this.AssetClass.Equals(input.AssetClass))
-                ) && 
-                (
                     this.MasteredDomCcy == input.MasteredDomCcy ||
                     (this.MasteredDomCcy != null &&
                     this.MasteredDomCcy.Equals(input.MasteredDomCcy))
@@ -502,6 +497,11 @@ namespace Lusid.Sdk.Model
                     this.MasteredScope.Equals(input.MasteredScope))
                 ) && 
                 (
+                    this.MasteredAssetClass == input.MasteredAssetClass ||
+                    (this.MasteredAssetClass != null &&
+                    this.MasteredAssetClass.Equals(input.MasteredAssetClass))
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -519,10 +519,6 @@ namespace Lusid.Sdk.Model
                 if (this.Identifiers != null)
                 {
                     hashCode = (hashCode * 59) + this.Identifiers.GetHashCode();
-                }
-                if (this.AssetClass != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssetClass.GetHashCode();
                 }
                 if (this.MasteredDomCcy != null)
                 {
@@ -543,6 +539,10 @@ namespace Lusid.Sdk.Model
                 if (this.MasteredScope != null)
                 {
                     hashCode = (hashCode * 59) + this.MasteredScope.GetHashCode();
+                }
+                if (this.MasteredAssetClass != null)
+                {
+                    hashCode = (hashCode * 59) + this.MasteredAssetClass.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;

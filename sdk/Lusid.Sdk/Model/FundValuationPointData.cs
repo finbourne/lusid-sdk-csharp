@@ -42,10 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="gav">The Gross Asset Value of the Fund or Share Class at the Valuation Point. This is effectively a summation of all Trial balance entries linked to accounts of types &#39;Asset&#39; and &#39;Liabilities&#39;. (required).</param>
         /// <param name="fees">Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period. (required).</param>
         /// <param name="nav">The Net Asset Value of the Fund or Share Class at the Valuation Point. This represents the GAV with any fees applied in the period. (required).</param>
-        /// <param name="unitisation">unitisation.</param>
         /// <param name="miscellaneous">Not used directly by the LUSID engines but serves as a holding area for any custom derived data points that may be useful in, for example, fee calculations)..</param>
         /// <param name="previousValuationPointData">previousValuationPointData.</param>
-        public FundValuationPointData(Dictionary<string, FundAmount> backOut = default(Dictionary<string, FundAmount>), Dictionary<string, FundAmount> dealing = default(Dictionary<string, FundAmount>), FundPnlBreakdown pnL = default(FundPnlBreakdown), decimal gav = default(decimal), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), decimal nav = default(decimal), UnitisationData unitisation = default(UnitisationData), Dictionary<string, FundAmount> miscellaneous = default(Dictionary<string, FundAmount>), PreviousFundValuationPointData previousValuationPointData = default(PreviousFundValuationPointData))
+        public FundValuationPointData(Dictionary<string, FundAmount> backOut = default(Dictionary<string, FundAmount>), Dictionary<string, FundAmount> dealing = default(Dictionary<string, FundAmount>), FundPnlBreakdown pnL = default(FundPnlBreakdown), decimal gav = default(decimal), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), decimal nav = default(decimal), Dictionary<string, FundAmount> miscellaneous = default(Dictionary<string, FundAmount>), PreviousFundValuationPointData previousValuationPointData = default(PreviousFundValuationPointData))
         {
             // to ensure "backOut" is required (not null)
             if (backOut == null)
@@ -73,7 +72,6 @@ namespace Lusid.Sdk.Model
             }
             this.Fees = fees;
             this.Nav = nav;
-            this.Unitisation = unitisation;
             this.Miscellaneous = miscellaneous;
             this.PreviousValuationPointData = previousValuationPointData;
         }
@@ -120,12 +118,6 @@ namespace Lusid.Sdk.Model
         public decimal Nav { get; set; }
 
         /// <summary>
-        /// Gets or Sets Unitisation
-        /// </summary>
-        [DataMember(Name = "unitisation", EmitDefaultValue = false)]
-        public UnitisationData Unitisation { get; set; }
-
-        /// <summary>
         /// Not used directly by the LUSID engines but serves as a holding area for any custom derived data points that may be useful in, for example, fee calculations).
         /// </summary>
         /// <value>Not used directly by the LUSID engines but serves as a holding area for any custom derived data points that may be useful in, for example, fee calculations).</value>
@@ -152,7 +144,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Gav: ").Append(Gav).Append("\n");
             sb.Append("  Fees: ").Append(Fees).Append("\n");
             sb.Append("  Nav: ").Append(Nav).Append("\n");
-            sb.Append("  Unitisation: ").Append(Unitisation).Append("\n");
             sb.Append("  Miscellaneous: ").Append(Miscellaneous).Append("\n");
             sb.Append("  PreviousValuationPointData: ").Append(PreviousValuationPointData).Append("\n");
             sb.Append("}\n");
@@ -222,11 +213,6 @@ namespace Lusid.Sdk.Model
                     this.Nav.Equals(input.Nav)
                 ) && 
                 (
-                    this.Unitisation == input.Unitisation ||
-                    (this.Unitisation != null &&
-                    this.Unitisation.Equals(input.Unitisation))
-                ) && 
-                (
                     this.Miscellaneous == input.Miscellaneous ||
                     this.Miscellaneous != null &&
                     input.Miscellaneous != null &&
@@ -266,10 +252,6 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Fees.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Nav.GetHashCode();
-                if (this.Unitisation != null)
-                {
-                    hashCode = (hashCode * 59) + this.Unitisation.GetHashCode();
-                }
                 if (this.Miscellaneous != null)
                 {
                     hashCode = (hashCode * 59) + this.Miscellaneous.GetHashCode();

@@ -37,8 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PreviousFundValuationPointData" /> class.
         /// </summary>
         /// <param name="nav">nav (required).</param>
-        /// <param name="unitisation">unitisation.</param>
-        public PreviousFundValuationPointData(FundPreviousNAV nav = default(FundPreviousNAV), UnitisationData unitisation = default(UnitisationData))
+        public PreviousFundValuationPointData(FundPreviousNAV nav = default(FundPreviousNAV))
         {
             // to ensure "nav" is required (not null)
             if (nav == null)
@@ -46,7 +45,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("nav is a required property for PreviousFundValuationPointData and cannot be null");
             }
             this.Nav = nav;
-            this.Unitisation = unitisation;
         }
 
         /// <summary>
@@ -54,12 +52,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "nav", IsRequired = true, EmitDefaultValue = true)]
         public FundPreviousNAV Nav { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Unitisation
-        /// </summary>
-        [DataMember(Name = "unitisation", EmitDefaultValue = false)]
-        public UnitisationData Unitisation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,7 +62,6 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PreviousFundValuationPointData {\n");
             sb.Append("  Nav: ").Append(Nav).Append("\n");
-            sb.Append("  Unitisation: ").Append(Unitisation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,11 +101,6 @@ namespace Lusid.Sdk.Model
                     this.Nav == input.Nav ||
                     (this.Nav != null &&
                     this.Nav.Equals(input.Nav))
-                ) && 
-                (
-                    this.Unitisation == input.Unitisation ||
-                    (this.Unitisation != null &&
-                    this.Unitisation.Equals(input.Unitisation))
                 );
         }
 
@@ -130,10 +116,6 @@ namespace Lusid.Sdk.Model
                 if (this.Nav != null)
                 {
                     hashCode = (hashCode * 59) + this.Nav.GetHashCode();
-                }
-                if (this.Unitisation != null)
-                {
-                    hashCode = (hashCode * 59) + this.Unitisation.GetHashCode();
                 }
                 return hashCode;
             }
