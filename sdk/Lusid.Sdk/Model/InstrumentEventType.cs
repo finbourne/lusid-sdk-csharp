@@ -303,7 +303,19 @@ namespace Lusid.Sdk.Model
         /// Enum ProtectionPayoutCashFlowEvent for value: ProtectionPayoutCashFlowEvent
         /// </summary>
         [EnumMember(Value = "ProtectionPayoutCashFlowEvent")]
-        ProtectionPayoutCashFlowEvent = 46
+        ProtectionPayoutCashFlowEvent = 46,
+
+        /// <summary>
+        /// Enum TermDepositInterestEvent for value: TermDepositInterestEvent
+        /// </summary>
+        [EnumMember(Value = "TermDepositInterestEvent")]
+        TermDepositInterestEvent = 47,
+
+        /// <summary>
+        /// Enum TermDepositPrincipalEvent for value: TermDepositPrincipalEvent
+        /// </summary>
+        [EnumMember(Value = "TermDepositPrincipalEvent")]
+        TermDepositPrincipalEvent = 48
 
     }
 
