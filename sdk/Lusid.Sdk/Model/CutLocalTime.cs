@@ -33,10 +33,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="hours">hours.</param>
         /// <param name="minutes">minutes.</param>
-        public CutLocalTime(int hours = default(int), int minutes = default(int))
+        /// <param name="seconds">seconds.</param>
+        public CutLocalTime(int hours = default(int), int minutes = default(int), decimal seconds = default(decimal))
         {
             this.Hours = hours;
             this.Minutes = minutes;
+            this.Seconds = seconds;
         }
 
         /// <summary>
@@ -52,6 +54,12 @@ namespace Lusid.Sdk.Model
         public int Minutes { get; set; }
 
         /// <summary>
+        /// Gets or Sets Seconds
+        /// </summary>
+        [DataMember(Name = "seconds", EmitDefaultValue = true)]
+        public decimal Seconds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,6 +69,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class CutLocalTime {\n");
             sb.Append("  Hours: ").Append(Hours).Append("\n");
             sb.Append("  Minutes: ").Append(Minutes).Append("\n");
+            sb.Append("  Seconds: ").Append(Seconds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,6 +112,10 @@ namespace Lusid.Sdk.Model
                 (
                     this.Minutes == input.Minutes ||
                     this.Minutes.Equals(input.Minutes)
+                ) && 
+                (
+                    this.Seconds == input.Seconds ||
+                    this.Seconds.Equals(input.Seconds)
                 );
         }
 
@@ -117,6 +130,7 @@ namespace Lusid.Sdk.Model
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Hours.GetHashCode();
                 hashCode = (hashCode * 59) + this.Minutes.GetHashCode();
+                hashCode = (hashCode * 59) + this.Seconds.GetHashCode();
                 return hashCode;
             }
         }
