@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="content">The content associated with a workspace item. (required).</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
-        public WorkspaceItem(string type = default(string), int format = default(int), string name = default(string), string description = default(string), string content = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public WorkspaceItem(string type = default(string), int format = default(int), string name = default(string), string description = default(string), Object content = default(Object), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -107,7 +107,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The content associated with a workspace item.</value>
         [DataMember(Name = "content", IsRequired = true, EmitDefaultValue = true)]
-        public string Content { get; set; }
+        public Object Content { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
@@ -282,18 +282,6 @@ namespace Lusid.Sdk.Model
             if (false == regexDescription.Match(this.Description).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
-            }
-
-            // Content (string) maxLength
-            if (this.Content != null && this.Content.Length > 6000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Content, length must be less than 6000.", new [] { "Content" });
-            }
-
-            // Content (string) minLength
-            if (this.Content != null && this.Content.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Content, length must be greater than 0.", new [] { "Content" });
             }
 
             yield break;

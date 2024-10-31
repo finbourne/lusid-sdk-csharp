@@ -117,7 +117,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfInstrumentCashFlow</returns>
         ApiResponse<ResourceListOfInstrumentCashFlow> QueryCashFlowsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
         /// Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
@@ -132,7 +132,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfInstrumentEventHolder QueryInstrumentEvents(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
         /// Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
@@ -275,7 +275,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfInstrumentCashFlow)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrumentCashFlow>> QueryCashFlowsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
         /// Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
@@ -291,7 +291,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfInstrumentEventHolder> QueryInstrumentEventsAsync(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
         /// Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
@@ -1120,7 +1120,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
@@ -1136,7 +1136,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
@@ -1230,7 +1230,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
@@ -1247,7 +1247,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>

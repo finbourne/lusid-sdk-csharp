@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Format** | **int** | A simple integer format identifier. | 
 **Name** | **string** | A workspace item&#39;s name; a unique identifier. | 
 **Description** | **string** | The description of a workspace item. | 
-**Content** | **string** | The content associated with a workspace item. | 
+**Content** | **Object** | The content associated with a workspace item. | 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

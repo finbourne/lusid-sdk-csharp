@@ -18,6 +18,9 @@ Name | Type | Description | Notes
 **OptionType** | **string** | The option type, Call or Put.    Supported string (enumeration) values are: [Call, Put]. | 
 **Underlying** | [**LusidInstrument**](LusidInstrument.md) |  | 
 **UnderlyingCode** | **string** | Code of the underlying, for an option on futures this should be the futures code. | 
+**DeliveryDays** | **int** | Number of business days between exercise date and settlement of the option payoff or underlying. | [optional] 
+**BusinessDayConvention** | **string** | The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]. | [optional] 
+**SettlementCalendars** | **List&lt;string&gt;** | An array of strings denoting calendars used in calculating the option settlement date. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

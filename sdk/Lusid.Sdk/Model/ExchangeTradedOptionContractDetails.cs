@@ -49,7 +49,10 @@ namespace Lusid.Sdk.Model
         /// <param name="optionType">The option type, Call or Put.    Supported string (enumeration) values are: [Call, Put]. (required).</param>
         /// <param name="underlying">underlying (required).</param>
         /// <param name="underlyingCode">Code of the underlying, for an option on futures this should be the futures code. (required).</param>
-        public ExchangeTradedOptionContractDetails(string domCcy = default(string), decimal strike = default(decimal), decimal contractSize = default(decimal), string country = default(string), string deliveryType = default(string), string description = default(string), string exchangeCode = default(string), DateTimeOffset exerciseDate = default(DateTimeOffset), string exerciseType = default(string), string optionCode = default(string), string optionType = default(string), LusidInstrument underlying = default(LusidInstrument), string underlyingCode = default(string))
+        /// <param name="deliveryDays">Number of business days between exercise date and settlement of the option payoff or underlying..</param>
+        /// <param name="businessDayConvention">The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]..</param>
+        /// <param name="settlementCalendars">An array of strings denoting calendars used in calculating the option settlement date..</param>
+        public ExchangeTradedOptionContractDetails(string domCcy = default(string), decimal strike = default(decimal), decimal contractSize = default(decimal), string country = default(string), string deliveryType = default(string), string description = default(string), string exchangeCode = default(string), DateTimeOffset exerciseDate = default(DateTimeOffset), string exerciseType = default(string), string optionCode = default(string), string optionType = default(string), LusidInstrument underlying = default(LusidInstrument), string underlyingCode = default(string), int deliveryDays = default(int), string businessDayConvention = default(string), List<string> settlementCalendars = default(List<string>))
         {
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
@@ -114,6 +117,9 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("underlyingCode is a required property for ExchangeTradedOptionContractDetails and cannot be null");
             }
             this.UnderlyingCode = underlyingCode;
+            this.DeliveryDays = deliveryDays;
+            this.BusinessDayConvention = businessDayConvention;
+            this.SettlementCalendars = settlementCalendars;
         }
 
         /// <summary>
@@ -207,6 +213,27 @@ namespace Lusid.Sdk.Model
         public string UnderlyingCode { get; set; }
 
         /// <summary>
+        /// Number of business days between exercise date and settlement of the option payoff or underlying.
+        /// </summary>
+        /// <value>Number of business days between exercise date and settlement of the option payoff or underlying.</value>
+        [DataMember(Name = "deliveryDays", EmitDefaultValue = true)]
+        public int DeliveryDays { get; set; }
+
+        /// <summary>
+        /// The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].
+        /// </summary>
+        /// <value>The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].</value>
+        [DataMember(Name = "businessDayConvention", EmitDefaultValue = true)]
+        public string BusinessDayConvention { get; set; }
+
+        /// <summary>
+        /// An array of strings denoting calendars used in calculating the option settlement date.
+        /// </summary>
+        /// <value>An array of strings denoting calendars used in calculating the option settlement date.</value>
+        [DataMember(Name = "settlementCalendars", EmitDefaultValue = true)]
+        public List<string> SettlementCalendars { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -227,6 +254,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  OptionType: ").Append(OptionType).Append("\n");
             sb.Append("  Underlying: ").Append(Underlying).Append("\n");
             sb.Append("  UnderlyingCode: ").Append(UnderlyingCode).Append("\n");
+            sb.Append("  DeliveryDays: ").Append(DeliveryDays).Append("\n");
+            sb.Append("  BusinessDayConvention: ").Append(BusinessDayConvention).Append("\n");
+            sb.Append("  SettlementCalendars: ").Append(SettlementCalendars).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -324,6 +354,21 @@ namespace Lusid.Sdk.Model
                     this.UnderlyingCode == input.UnderlyingCode ||
                     (this.UnderlyingCode != null &&
                     this.UnderlyingCode.Equals(input.UnderlyingCode))
+                ) && 
+                (
+                    this.DeliveryDays == input.DeliveryDays ||
+                    this.DeliveryDays.Equals(input.DeliveryDays)
+                ) && 
+                (
+                    this.BusinessDayConvention == input.BusinessDayConvention ||
+                    (this.BusinessDayConvention != null &&
+                    this.BusinessDayConvention.Equals(input.BusinessDayConvention))
+                ) && 
+                (
+                    this.SettlementCalendars == input.SettlementCalendars ||
+                    this.SettlementCalendars != null &&
+                    input.SettlementCalendars != null &&
+                    this.SettlementCalendars.SequenceEqual(input.SettlementCalendars)
                 );
         }
 
@@ -381,6 +426,15 @@ namespace Lusid.Sdk.Model
                 if (this.UnderlyingCode != null)
                 {
                     hashCode = (hashCode * 59) + this.UnderlyingCode.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DeliveryDays.GetHashCode();
+                if (this.BusinessDayConvention != null)
+                {
+                    hashCode = (hashCode * 59) + this.BusinessDayConvention.GetHashCode();
+                }
+                if (this.SettlementCalendars != null)
+                {
+                    hashCode = (hashCode * 59) + this.SettlementCalendars.GetHashCode();
                 }
                 return hashCode;
             }

@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">The description of a workspace item. (required).</param>
         /// <param name="content">The content associated with a workspace item. (required).</param>
         /// <param name="type">The type of the workspace item. (required).</param>
-        public WorkspaceItemUpdateRequest(int format = default(int), string description = default(string), string content = default(string), string type = default(string))
+        public WorkspaceItemUpdateRequest(int format = default(int), string description = default(string), Object content = default(Object), string type = default(string))
         {
             this.Format = format;
             // to ensure "description" is required (not null)
@@ -82,7 +82,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The content associated with a workspace item.</value>
         [DataMember(Name = "content", IsRequired = true, EmitDefaultValue = true)]
-        public string Content { get; set; }
+        public Object Content { get; set; }
 
         /// <summary>
         /// The type of the workspace item.
@@ -209,18 +209,6 @@ namespace Lusid.Sdk.Model
             if (false == regexDescription.Match(this.Description).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
-            }
-
-            // Content (string) maxLength
-            if (this.Content != null && this.Content.Length > 6000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Content, length must be less than 6000.", new [] { "Content" });
-            }
-
-            // Content (string) minLength
-            if (this.Content != null && this.Content.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Content, length must be greater than 0.", new [] { "Content" });
             }
 
             // Type (string) maxLength
