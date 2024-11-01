@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Properties associated with the Compliance Template Variation (required).</param>
         /// <param name="acceptedAddressKeys">acceptedAddressKeys (required).</param>
         /// <param name="steps">The steps expressed in this template, with their required parameters (required).</param>
-        public ComplianceTemplateVariation(string label = default(string), string description = default(string), List<ComplianceTemplateParameter> requiredParameters = default(List<ComplianceTemplateParameter>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ResourceId acceptedAddressKeys = default(ResourceId), List<ComplianceStep> steps = default(List<ComplianceStep>))
+        /// <param name="referencedGroupLabel">The label of a given referenced group in a Compliance Rule Template Variation.</param>
+        public ComplianceTemplateVariation(string label = default(string), string description = default(string), List<ComplianceTemplateParameter> requiredParameters = default(List<ComplianceTemplateParameter>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ResourceId acceptedAddressKeys = default(ResourceId), List<ComplianceStep> steps = default(List<ComplianceStep>), string referencedGroupLabel = default(string))
         {
             // to ensure "label" is required (not null)
             if (label == null)
@@ -80,6 +81,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("steps is a required property for ComplianceTemplateVariation and cannot be null");
             }
             this.Steps = steps;
+            this.ReferencedGroupLabel = referencedGroupLabel;
         }
 
         /// <summary>
@@ -124,6 +126,13 @@ namespace Lusid.Sdk.Model
         public List<ComplianceStep> Steps { get; set; }
 
         /// <summary>
+        /// The label of a given referenced group in a Compliance Rule Template Variation
+        /// </summary>
+        /// <value>The label of a given referenced group in a Compliance Rule Template Variation</value>
+        [DataMember(Name = "referencedGroupLabel", EmitDefaultValue = true)]
+        public string ReferencedGroupLabel { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -137,6 +146,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  AcceptedAddressKeys: ").Append(AcceptedAddressKeys).Append("\n");
             sb.Append("  Steps: ").Append(Steps).Append("\n");
+            sb.Append("  ReferencedGroupLabel: ").Append(ReferencedGroupLabel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -204,6 +214,11 @@ namespace Lusid.Sdk.Model
                     this.Steps != null &&
                     input.Steps != null &&
                     this.Steps.SequenceEqual(input.Steps)
+                ) && 
+                (
+                    this.ReferencedGroupLabel == input.ReferencedGroupLabel ||
+                    (this.ReferencedGroupLabel != null &&
+                    this.ReferencedGroupLabel.Equals(input.ReferencedGroupLabel))
                 );
         }
 
@@ -240,6 +255,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Steps.GetHashCode();
                 }
+                if (this.ReferencedGroupLabel != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReferencedGroupLabel.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -261,6 +280,18 @@ namespace Lusid.Sdk.Model
             if (this.Description != null && this.Description.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
+            }
+
+            // ReferencedGroupLabel (string) maxLength
+            if (this.ReferencedGroupLabel != null && this.ReferencedGroupLabel.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferencedGroupLabel, length must be less than 64.", new [] { "ReferencedGroupLabel" });
+            }
+
+            // ReferencedGroupLabel (string) minLength
+            if (this.ReferencedGroupLabel != null && this.ReferencedGroupLabel.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferencedGroupLabel, length must be greater than 1.", new [] { "ReferencedGroupLabel" });
             }
 
             yield break;
