@@ -42,8 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="dealingFilters">The set of filters used to decide which JE lines are included in the dealing. (required).</param>
         /// <param name="pnlFilters">The set of filters used to decide which JE lines are included in the PnL. (required).</param>
         /// <param name="backOutFilters">The set of filters used to decide which JE lines are included in the back outs. (required).</param>
+        /// <param name="externalFeeFilters">The set of filters used to decide which JE lines are used for inputting fees from an external source..</param>
         /// <param name="properties">A set of properties for the Fund Configuration..</param>
-        public FundConfigurationRequest(string code = default(string), string displayName = default(string), string description = default(string), List<ComponentFilter> dealingFilters = default(List<ComponentFilter>), List<ComponentFilter> pnlFilters = default(List<ComponentFilter>), List<ComponentFilter> backOutFilters = default(List<ComponentFilter>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public FundConfigurationRequest(string code = default(string), string displayName = default(string), string description = default(string), List<ComponentFilter> dealingFilters = default(List<ComponentFilter>), List<ComponentFilter> pnlFilters = default(List<ComponentFilter>), List<ComponentFilter> backOutFilters = default(List<ComponentFilter>), List<ExternalFeeComponentFilter> externalFeeFilters = default(List<ExternalFeeComponentFilter>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -71,6 +72,7 @@ namespace Lusid.Sdk.Model
             this.BackOutFilters = backOutFilters;
             this.DisplayName = displayName;
             this.Description = description;
+            this.ExternalFeeFilters = externalFeeFilters;
             this.Properties = properties;
         }
 
@@ -116,6 +118,13 @@ namespace Lusid.Sdk.Model
         public List<ComponentFilter> BackOutFilters { get; set; }
 
         /// <summary>
+        /// The set of filters used to decide which JE lines are used for inputting fees from an external source.
+        /// </summary>
+        /// <value>The set of filters used to decide which JE lines are used for inputting fees from an external source.</value>
+        [DataMember(Name = "externalFeeFilters", EmitDefaultValue = true)]
+        public List<ExternalFeeComponentFilter> ExternalFeeFilters { get; set; }
+
+        /// <summary>
         /// A set of properties for the Fund Configuration.
         /// </summary>
         /// <value>A set of properties for the Fund Configuration.</value>
@@ -136,6 +145,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DealingFilters: ").Append(DealingFilters).Append("\n");
             sb.Append("  PnlFilters: ").Append(PnlFilters).Append("\n");
             sb.Append("  BackOutFilters: ").Append(BackOutFilters).Append("\n");
+            sb.Append("  ExternalFeeFilters: ").Append(ExternalFeeFilters).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -206,6 +216,12 @@ namespace Lusid.Sdk.Model
                     this.BackOutFilters.SequenceEqual(input.BackOutFilters)
                 ) && 
                 (
+                    this.ExternalFeeFilters == input.ExternalFeeFilters ||
+                    this.ExternalFeeFilters != null &&
+                    input.ExternalFeeFilters != null &&
+                    this.ExternalFeeFilters.SequenceEqual(input.ExternalFeeFilters)
+                ) && 
+                (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
                     input.Properties != null &&
@@ -245,6 +261,10 @@ namespace Lusid.Sdk.Model
                 if (this.BackOutFilters != null)
                 {
                     hashCode = (hashCode * 59) + this.BackOutFilters.GetHashCode();
+                }
+                if (this.ExternalFeeFilters != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExternalFeeFilters.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

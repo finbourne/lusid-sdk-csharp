@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ExerciseDate** | **DateTimeOffset?** | The exercise date of the option. | [optional] 
+**DeliveryDate** | **DateTimeOffset?** | The delivery date of the option. | [optional] 
 **ExerciseType** | **string** | The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American]. | 
 **MaturityDate** | **DateTimeOffset** | The maturity date of the option. | 
 **Moneyness** | **string** | The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney]. | [optional] 

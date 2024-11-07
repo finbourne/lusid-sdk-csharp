@@ -40,6 +40,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="cashFlowPerUnit">The cashflow per unit.</param>
         /// <param name="exerciseDate">The exercise date of the option..</param>
+        /// <param name="deliveryDate">The delivery date of the option..</param>
         /// <param name="exerciseType">The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American]. (required).</param>
         /// <param name="maturityDate">The maturity date of the option. (required).</param>
         /// <param name="moneyness">The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney]..</param>
@@ -50,7 +51,7 @@ namespace Lusid.Sdk.Model
         /// <param name="strikePerUnit">The strike of the equity option times the number of shares to exchange if exercised. (required).</param>
         /// <param name="underlyingValuePerUnit">The underlying price times the number of shares to exchange if exercised..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent (required) (default to &quot;OptionExerciseCashEvent&quot;).</param>
-        public OptionExerciseCashEvent(decimal? cashFlowPerUnit = default(decimal?), DateTimeOffset? exerciseDate = default(DateTimeOffset?), string exerciseType = default(string), DateTimeOffset maturityDate = default(DateTimeOffset), string moneyness = default(string), List<OptionExerciseElection> optionExerciseElections = default(List<OptionExerciseElection>), string optionType = default(string), DateTimeOffset startDate = default(DateTimeOffset), string strikeCurrency = default(string), decimal strikePerUnit = default(decimal), decimal? underlyingValuePerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public OptionExerciseCashEvent(decimal? cashFlowPerUnit = default(decimal?), DateTimeOffset? exerciseDate = default(DateTimeOffset?), DateTimeOffset? deliveryDate = default(DateTimeOffset?), string exerciseType = default(string), DateTimeOffset maturityDate = default(DateTimeOffset), string moneyness = default(string), List<OptionExerciseElection> optionExerciseElections = default(List<OptionExerciseElection>), string optionType = default(string), DateTimeOffset startDate = default(DateTimeOffset), string strikeCurrency = default(string), decimal strikePerUnit = default(decimal), decimal? underlyingValuePerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "exerciseType" is required (not null)
             if (exerciseType == null)
@@ -75,6 +76,7 @@ namespace Lusid.Sdk.Model
             this.StrikePerUnit = strikePerUnit;
             this.CashFlowPerUnit = cashFlowPerUnit;
             this.ExerciseDate = exerciseDate;
+            this.DeliveryDate = deliveryDate;
             this.Moneyness = moneyness;
             this.OptionExerciseElections = optionExerciseElections;
             this.UnderlyingValuePerUnit = underlyingValuePerUnit;
@@ -93,6 +95,13 @@ namespace Lusid.Sdk.Model
         /// <value>The exercise date of the option.</value>
         [DataMember(Name = "exerciseDate", EmitDefaultValue = true)]
         public DateTimeOffset? ExerciseDate { get; set; }
+
+        /// <summary>
+        /// The delivery date of the option.
+        /// </summary>
+        /// <value>The delivery date of the option.</value>
+        [DataMember(Name = "deliveryDate", EmitDefaultValue = true)]
+        public DateTimeOffset? DeliveryDate { get; set; }
 
         /// <summary>
         /// The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American].
@@ -168,6 +177,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  CashFlowPerUnit: ").Append(CashFlowPerUnit).Append("\n");
             sb.Append("  ExerciseDate: ").Append(ExerciseDate).Append("\n");
+            sb.Append("  DeliveryDate: ").Append(DeliveryDate).Append("\n");
             sb.Append("  ExerciseType: ").Append(ExerciseType).Append("\n");
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
             sb.Append("  Moneyness: ").Append(Moneyness).Append("\n");
@@ -221,6 +231,11 @@ namespace Lusid.Sdk.Model
                     this.ExerciseDate == input.ExerciseDate ||
                     (this.ExerciseDate != null &&
                     this.ExerciseDate.Equals(input.ExerciseDate))
+                ) && base.Equals(input) && 
+                (
+                    this.DeliveryDate == input.DeliveryDate ||
+                    (this.DeliveryDate != null &&
+                    this.DeliveryDate.Equals(input.DeliveryDate))
                 ) && base.Equals(input) && 
                 (
                     this.ExerciseType == input.ExerciseType ||
@@ -285,6 +300,10 @@ namespace Lusid.Sdk.Model
                 if (this.ExerciseDate != null)
                 {
                     hashCode = (hashCode * 59) + this.ExerciseDate.GetHashCode();
+                }
+                if (this.DeliveryDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.DeliveryDate.GetHashCode();
                 }
                 if (this.ExerciseType != null)
                 {

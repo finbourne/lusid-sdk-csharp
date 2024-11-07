@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **AllocationId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **TransactionGroupId** | **string** | The identifier for grouping economic events across multiple transactions | [optional] 
+**StrategyTag** | [**List&lt;Strategy&gt;**](Strategy.md) | A Json representing the allocation of units accross multiple sub-holding keys | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
