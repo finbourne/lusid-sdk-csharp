@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class AggregateSpec : IEquatable<AggregateSpec>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears
+        /// The available values are: Sum, DefaultSum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears
         /// </summary>
-        /// <value>The available values are: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears</value>
+        /// <value>The available values are: Sum, DefaultSum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OpEnum
         {
@@ -42,84 +42,90 @@ namespace Lusid.Sdk.Model
             Sum = 1,
 
             /// <summary>
+            /// Enum DefaultSum for value: DefaultSum
+            /// </summary>
+            [EnumMember(Value = "DefaultSum")]
+            DefaultSum = 2,
+
+            /// <summary>
             /// Enum Proportion for value: Proportion
             /// </summary>
             [EnumMember(Value = "Proportion")]
-            Proportion = 2,
+            Proportion = 3,
 
             /// <summary>
             /// Enum Average for value: Average
             /// </summary>
             [EnumMember(Value = "Average")]
-            Average = 3,
+            Average = 4,
 
             /// <summary>
             /// Enum Count for value: Count
             /// </summary>
             [EnumMember(Value = "Count")]
-            Count = 4,
+            Count = 5,
 
             /// <summary>
             /// Enum Min for value: Min
             /// </summary>
             [EnumMember(Value = "Min")]
-            Min = 5,
+            Min = 6,
 
             /// <summary>
             /// Enum Max for value: Max
             /// </summary>
             [EnumMember(Value = "Max")]
-            Max = 6,
+            Max = 7,
 
             /// <summary>
             /// Enum Value for value: Value
             /// </summary>
             [EnumMember(Value = "Value")]
-            Value = 7,
+            Value = 8,
 
             /// <summary>
             /// Enum SumOfPositiveValues for value: SumOfPositiveValues
             /// </summary>
             [EnumMember(Value = "SumOfPositiveValues")]
-            SumOfPositiveValues = 8,
+            SumOfPositiveValues = 9,
 
             /// <summary>
             /// Enum SumOfNegativeValues for value: SumOfNegativeValues
             /// </summary>
             [EnumMember(Value = "SumOfNegativeValues")]
-            SumOfNegativeValues = 9,
+            SumOfNegativeValues = 10,
 
             /// <summary>
             /// Enum SumOfAbsoluteValues for value: SumOfAbsoluteValues
             /// </summary>
             [EnumMember(Value = "SumOfAbsoluteValues")]
-            SumOfAbsoluteValues = 10,
+            SumOfAbsoluteValues = 11,
 
             /// <summary>
             /// Enum ProportionOfAbsoluteValues for value: ProportionOfAbsoluteValues
             /// </summary>
             [EnumMember(Value = "ProportionOfAbsoluteValues")]
-            ProportionOfAbsoluteValues = 11,
+            ProportionOfAbsoluteValues = 12,
 
             /// <summary>
             /// Enum SumCumulativeInAdvance for value: SumCumulativeInAdvance
             /// </summary>
             [EnumMember(Value = "SumCumulativeInAdvance")]
-            SumCumulativeInAdvance = 12,
+            SumCumulativeInAdvance = 13,
 
             /// <summary>
             /// Enum SumCumulativeInArrears for value: SumCumulativeInArrears
             /// </summary>
             [EnumMember(Value = "SumCumulativeInArrears")]
-            SumCumulativeInArrears = 13
+            SumCumulativeInArrears = 14
 
         }
 
 
         /// <summary>
-        /// The available values are: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears
+        /// The available values are: Sum, DefaultSum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears
         /// </summary>
-        /// <value>The available values are: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears</value>
+        /// <value>The available values are: Sum, DefaultSum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears</value>
         [DataMember(Name = "op", IsRequired = true, EmitDefaultValue = true)]
         public OpEnum Op { get; set; }
         /// <summary>
@@ -131,7 +137,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AggregateSpec" /> class.
         /// </summary>
         /// <param name="key">The key that uniquely identifies a queryable address in Lusid. (required).</param>
-        /// <param name="op">The available values are: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears (required).</param>
+        /// <param name="op">The available values are: Sum, DefaultSum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears (required).</param>
         /// <param name="options">Additional options to apply when performing computations. Options that do not apply to the Key will be  ignored. Option values can be boolean, numeric, string or date-time..</param>
         public AggregateSpec(string key = default(string), OpEnum op = default(OpEnum), Dictionary<string, Object> options = default(Dictionary<string, Object>))
         {

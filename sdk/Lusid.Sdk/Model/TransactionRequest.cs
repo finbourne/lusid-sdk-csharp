@@ -54,7 +54,7 @@ namespace Lusid.Sdk.Model
         /// <param name="allocationId">allocationId.</param>
         /// <param name="custodianAccountId">custodianAccountId.</param>
         /// <param name="transactionGroupId">The identifier for grouping economic events across multiple transactions.</param>
-        /// <param name="strategyTag">A Json representing the allocation of units accross multiple sub-holding keys.</param>
+        /// <param name="strategyTag">A list of strategies representing the allocation of units across multiple sub-holding keys.</param>
         public TransactionRequest(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOrCutLabel transactionDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel settlementDate = default(DateTimeOrCutLabel), decimal units = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), ResourceId custodianAccountId = default(ResourceId), string transactionGroupId = default(string), List<Strategy> strategyTag = default(List<Strategy>))
         {
             // to ensure "transactionId" is required (not null)
@@ -229,9 +229,9 @@ namespace Lusid.Sdk.Model
         public string TransactionGroupId { get; set; }
 
         /// <summary>
-        /// A Json representing the allocation of units accross multiple sub-holding keys
+        /// A list of strategies representing the allocation of units across multiple sub-holding keys
         /// </summary>
-        /// <value>A Json representing the allocation of units accross multiple sub-holding keys</value>
+        /// <value>A list of strategies representing the allocation of units across multiple sub-holding keys</value>
         [DataMember(Name = "strategyTag", EmitDefaultValue = true)]
         public List<Strategy> StrategyTag { get; set; }
 

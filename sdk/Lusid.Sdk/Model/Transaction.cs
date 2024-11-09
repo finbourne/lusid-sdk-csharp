@@ -93,7 +93,9 @@ namespace Lusid.Sdk.Model
         /// <param name="allocationId">allocationId.</param>
         /// <param name="custodianAccount">custodianAccount.</param>
         /// <param name="transactionGroupId">The identifier for grouping economic events across multiple transactions.</param>
-        public Transaction(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), DateTimeOffset entryDateTime = default(DateTimeOffset), OtcConfirmation otcConfirmation = default(OtcConfirmation), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string))
+        /// <param name="strategyTag">A list of strategies representing the allocation of units across multiple sub-holding keys.</param>
+        /// <param name="resolvedTransactionTypeDetails">resolvedTransactionTypeDetails.</param>
+        public Transaction(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), DateTimeOffset entryDateTime = default(DateTimeOffset), OtcConfirmation otcConfirmation = default(OtcConfirmation), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), List<Strategy> strategyTag = default(List<Strategy>), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -138,6 +140,8 @@ namespace Lusid.Sdk.Model
             this.AllocationId = allocationId;
             this.CustodianAccount = custodianAccount;
             this.TransactionGroupId = transactionGroupId;
+            this.StrategyTag = strategyTag;
+            this.ResolvedTransactionTypeDetails = resolvedTransactionTypeDetails;
         }
 
         /// <summary>
@@ -289,6 +293,19 @@ namespace Lusid.Sdk.Model
         public string TransactionGroupId { get; set; }
 
         /// <summary>
+        /// A list of strategies representing the allocation of units across multiple sub-holding keys
+        /// </summary>
+        /// <value>A list of strategies representing the allocation of units across multiple sub-holding keys</value>
+        [DataMember(Name = "strategyTag", EmitDefaultValue = true)]
+        public List<Strategy> StrategyTag { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ResolvedTransactionTypeDetails
+        /// </summary>
+        [DataMember(Name = "resolvedTransactionTypeDetails", EmitDefaultValue = false)]
+        public TransactionTypeDetails ResolvedTransactionTypeDetails { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -319,6 +336,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  AllocationId: ").Append(AllocationId).Append("\n");
             sb.Append("  CustodianAccount: ").Append(CustodianAccount).Append("\n");
             sb.Append("  TransactionGroupId: ").Append(TransactionGroupId).Append("\n");
+            sb.Append("  StrategyTag: ").Append(StrategyTag).Append("\n");
+            sb.Append("  ResolvedTransactionTypeDetails: ").Append(ResolvedTransactionTypeDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -468,6 +487,17 @@ namespace Lusid.Sdk.Model
                     this.TransactionGroupId == input.TransactionGroupId ||
                     (this.TransactionGroupId != null &&
                     this.TransactionGroupId.Equals(input.TransactionGroupId))
+                ) && 
+                (
+                    this.StrategyTag == input.StrategyTag ||
+                    this.StrategyTag != null &&
+                    input.StrategyTag != null &&
+                    this.StrategyTag.SequenceEqual(input.StrategyTag)
+                ) && 
+                (
+                    this.ResolvedTransactionTypeDetails == input.ResolvedTransactionTypeDetails ||
+                    (this.ResolvedTransactionTypeDetails != null &&
+                    this.ResolvedTransactionTypeDetails.Equals(input.ResolvedTransactionTypeDetails))
                 );
         }
 
@@ -565,6 +595,14 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionGroupId != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionGroupId.GetHashCode();
+                }
+                if (this.StrategyTag != null)
+                {
+                    hashCode = (hashCode * 59) + this.StrategyTag.GetHashCode();
+                }
+                if (this.ResolvedTransactionTypeDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.ResolvedTransactionTypeDetails.GetHashCode();
                 }
                 return hashCode;
             }
