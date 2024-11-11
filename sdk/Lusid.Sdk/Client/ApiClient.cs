@@ -617,29 +617,32 @@ namespace Lusid.Sdk.Client
                 response = client.WrappedExecute<T>(req);
             }
 
-            // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-            if (typeof(Lusid.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+            if (response.IsSuccessful)
             {
-                try
+                // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
+                if (typeof(Lusid.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
                 {
-                    response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                    try
+                    {
+                        response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex.InnerException != null ? ex.InnerException : ex;
+                    }
                 }
-                catch (Exception ex)
+                else if (typeof(T).Name == "Stream") // for binary response
                 {
-                    throw ex.InnerException != null ? ex.InnerException : ex;
+                    response.Data = (T)(object)new MemoryStream(response.RawBytes);
                 }
-            }
-            else if (typeof(T).Name == "Stream") // for binary response
-            {
-                response.Data = (T)(object)new MemoryStream(response.RawBytes);
-            }
-            else if (typeof(T).Name == "Byte[]") // for byte response
-            {
-                response.Data = (T)(object)response.RawBytes;
-            }
-            else if (typeof(T).Name == "String") // for string response
-            {
-                response.Data = (T)(object)response.Content;
+                else if (typeof(T).Name == "Byte[]") // for byte response
+                {
+                    response.Data = (T)(object)response.RawBytes;
+                }
+                else if (typeof(T).Name == "String") // for string response
+                {
+                    response.Data = (T)(object)response.Content;
+                }
             }
 
             InterceptResponse(req, response);
@@ -737,18 +740,21 @@ namespace Lusid.Sdk.Client
                 response = await client.ExecuteAsync<T>(req, cancellationToken).ConfigureAwait(false);
             }
 
-            // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-            if (typeof(Lusid.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+            if (response.IsSuccessful)
             {
-                response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
-            }
-            else if (typeof(T).Name == "Stream") // for binary response
-            {
-                response.Data = (T)(object)new MemoryStream(response.RawBytes);
-            }
-            else if (typeof(T).Name == "Byte[]") // for byte response
-            {
-                response.Data = (T)(object)response.RawBytes;
+                // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
+                if (typeof(Lusid.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+                {
+                    response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                }
+                else if (typeof(T).Name == "Stream") // for binary response
+                {
+                    response.Data = (T)(object)new MemoryStream(response.RawBytes);
+                }
+                else if (typeof(T).Name == "Byte[]") // for byte response
+                {
+                    response.Data = (T)(object)response.RawBytes;
+                }
             }
 
             InterceptResponse(req, response);
