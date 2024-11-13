@@ -308,8 +308,9 @@ namespace Lusid.Sdk.Model
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="inflationLeg">inflationLeg (required).</param>
         /// <param name="fixedLeg">fixedLeg (required).</param>
+        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven inflation swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility (required).</param>
-        public InflationSwapAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), InflationLeg inflationLeg = default(InflationLeg), FixedLeg fixedLeg = default(FixedLeg), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public InflationSwapAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), InflationLeg inflationLeg = default(InflationLeg), FixedLeg fixedLeg = default(FixedLeg), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -326,6 +327,7 @@ namespace Lusid.Sdk.Model
             }
             this.FixedLeg = fixedLeg;
             this.InstrumentType = instrumentType;
+            this.AdditionalPayments = additionalPayments;
         }
 
         /// <summary>
@@ -355,6 +357,13 @@ namespace Lusid.Sdk.Model
         public FixedLeg FixedLeg { get; set; }
 
         /// <summary>
+        /// Optional additional payments at a given date e.g. to level off an uneven inflation swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.
+        /// </summary>
+        /// <value>Optional additional payments at a given date e.g. to level off an uneven inflation swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
+        [DataMember(Name = "additionalPayments", EmitDefaultValue = true)]
+        public List<AdditionalPayment> AdditionalPayments { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -366,6 +375,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
             sb.Append("  InflationLeg: ").Append(InflationLeg).Append("\n");
             sb.Append("  FixedLeg: ").Append(FixedLeg).Append("\n");
+            sb.Append("  AdditionalPayments: ").Append(AdditionalPayments).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -423,6 +433,12 @@ namespace Lusid.Sdk.Model
                     this.FixedLeg.Equals(input.FixedLeg))
                 ) && 
                 (
+                    this.AdditionalPayments == input.AdditionalPayments ||
+                    this.AdditionalPayments != null &&
+                    input.AdditionalPayments != null &&
+                    this.AdditionalPayments.SequenceEqual(input.AdditionalPayments)
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -452,6 +468,10 @@ namespace Lusid.Sdk.Model
                 if (this.FixedLeg != null)
                 {
                     hashCode = (hashCode * 59) + this.FixedLeg.GetHashCode();
+                }
+                if (this.AdditionalPayments != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalPayments.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;

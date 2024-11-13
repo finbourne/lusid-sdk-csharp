@@ -312,8 +312,9 @@ namespace Lusid.Sdk.Model
         /// <param name="basket">basket.</param>
         /// <param name="conventionName">conventionName.</param>
         /// <param name="notional">The notional quantity that applies to both the premium and protection legs. (required).</param>
+        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility (required).</param>
-        public CdsIndexAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), CdsFlowConventions flowConventions = default(CdsFlowConventions), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), Basket basket = default(Basket), FlowConventionName conventionName = default(FlowConventionName), decimal notional = default(decimal), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public CdsIndexAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), CdsFlowConventions flowConventions = default(CdsFlowConventions), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), Basket basket = default(Basket), FlowConventionName conventionName = default(FlowConventionName), decimal notional = default(decimal), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -329,6 +330,7 @@ namespace Lusid.Sdk.Model
             this.FlowConventions = flowConventions;
             this.Basket = basket;
             this.ConventionName = conventionName;
+            this.AdditionalPayments = additionalPayments;
         }
 
         /// <summary>
@@ -385,6 +387,13 @@ namespace Lusid.Sdk.Model
         public decimal Notional { get; set; }
 
         /// <summary>
+        /// Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.
+        /// </summary>
+        /// <value>Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
+        [DataMember(Name = "additionalPayments", EmitDefaultValue = true)]
+        public List<AdditionalPayment> AdditionalPayments { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -400,6 +409,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Basket: ").Append(Basket).Append("\n");
             sb.Append("  ConventionName: ").Append(ConventionName).Append("\n");
             sb.Append("  Notional: ").Append(Notional).Append("\n");
+            sb.Append("  AdditionalPayments: ").Append(AdditionalPayments).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -476,6 +486,12 @@ namespace Lusid.Sdk.Model
                     this.Notional.Equals(input.Notional)
                 ) && 
                 (
+                    this.AdditionalPayments == input.AdditionalPayments ||
+                    this.AdditionalPayments != null &&
+                    input.AdditionalPayments != null &&
+                    this.AdditionalPayments.SequenceEqual(input.AdditionalPayments)
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -516,6 +532,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.ConventionName.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Notional.GetHashCode();
+                if (this.AdditionalPayments != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalPayments.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;
             }

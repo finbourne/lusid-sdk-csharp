@@ -315,8 +315,9 @@ namespace Lusid.Sdk.Model
         /// <param name="quantity">The quantity or number of shares in the Equity Swap. (required).</param>
         /// <param name="underlyingIdentifier">External market codes and identifiers for the EquitySwap, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. (required).</param>
         /// <param name="equitySwapDividendPaymentTiming">Determines how the payment of dividends is handled for the equity swap.  Defaults to paying at the next Equity coupon date.                Supported string (enumeration) values are: [PayAtNextEquityCouponDate, PayAtMaturityOfSwap, PayAtNextFundingLegCouponDate, PayAtPaymentDateOfDividendEvent]..</param>
+        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility (required).</param>
-        public EquitySwapAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string code = default(string), FlowConventions equityFlowConventions = default(FlowConventions), InstrumentLeg fundingLeg = default(InstrumentLeg), bool includeDividends = default(bool), decimal initialPrice = default(decimal), bool notionalReset = default(bool), decimal quantity = default(decimal), string underlyingIdentifier = default(string), string equitySwapDividendPaymentTiming = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public EquitySwapAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string code = default(string), FlowConventions equityFlowConventions = default(FlowConventions), InstrumentLeg fundingLeg = default(InstrumentLeg), bool includeDividends = default(bool), decimal initialPrice = default(decimal), bool notionalReset = default(bool), decimal quantity = default(decimal), string underlyingIdentifier = default(string), string equitySwapDividendPaymentTiming = default(string), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -350,6 +351,7 @@ namespace Lusid.Sdk.Model
             this.UnderlyingIdentifier = underlyingIdentifier;
             this.InstrumentType = instrumentType;
             this.EquitySwapDividendPaymentTiming = equitySwapDividendPaymentTiming;
+            this.AdditionalPayments = additionalPayments;
         }
 
         /// <summary>
@@ -428,6 +430,13 @@ namespace Lusid.Sdk.Model
         public string EquitySwapDividendPaymentTiming { get; set; }
 
         /// <summary>
+        /// Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.
+        /// </summary>
+        /// <value>Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
+        [DataMember(Name = "additionalPayments", EmitDefaultValue = true)]
+        public List<AdditionalPayment> AdditionalPayments { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -446,6 +455,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  UnderlyingIdentifier: ").Append(UnderlyingIdentifier).Append("\n");
             sb.Append("  EquitySwapDividendPaymentTiming: ").Append(EquitySwapDividendPaymentTiming).Append("\n");
+            sb.Append("  AdditionalPayments: ").Append(AdditionalPayments).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -534,6 +544,12 @@ namespace Lusid.Sdk.Model
                     this.EquitySwapDividendPaymentTiming.Equals(input.EquitySwapDividendPaymentTiming))
                 ) && 
                 (
+                    this.AdditionalPayments == input.AdditionalPayments ||
+                    this.AdditionalPayments != null &&
+                    input.AdditionalPayments != null &&
+                    this.AdditionalPayments.SequenceEqual(input.AdditionalPayments)
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -579,6 +595,10 @@ namespace Lusid.Sdk.Model
                 if (this.EquitySwapDividendPaymentTiming != null)
                 {
                     hashCode = (hashCode * 59) + this.EquitySwapDividendPaymentTiming.GetHashCode();
+                }
+                if (this.AdditionalPayments != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalPayments.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;

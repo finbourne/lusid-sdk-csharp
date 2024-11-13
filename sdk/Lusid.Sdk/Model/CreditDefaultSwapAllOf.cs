@@ -304,7 +304,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreditDefaultSwapAllOf" /> class.
         /// </summary>
-        /// <param name="ticker">A ticker to uniquely specify then entity against which the cds is written. (required).</param>
+        /// <param name="ticker">A ticker to uniquely specify the entity against which the CDS is written. (required).</param>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="flowConventions">flowConventions.</param>
@@ -312,8 +312,9 @@ namespace Lusid.Sdk.Model
         /// <param name="conventionName">conventionName.</param>
         /// <param name="notional">The notional protected by the Credit Default Swap.</param>
         /// <param name="protectionDetailSpecification">protectionDetailSpecification (required).</param>
+        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility (required).</param>
-        public CreditDefaultSwapAllOf(string ticker = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), CdsFlowConventions flowConventions = default(CdsFlowConventions), decimal couponRate = default(decimal), FlowConventionName conventionName = default(FlowConventionName), decimal? notional = default(decimal?), CdsProtectionDetailSpecification protectionDetailSpecification = default(CdsProtectionDetailSpecification), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public CreditDefaultSwapAllOf(string ticker = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), CdsFlowConventions flowConventions = default(CdsFlowConventions), decimal couponRate = default(decimal), FlowConventionName conventionName = default(FlowConventionName), decimal? notional = default(decimal?), CdsProtectionDetailSpecification protectionDetailSpecification = default(CdsProtectionDetailSpecification), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             // to ensure "ticker" is required (not null)
             if (ticker == null)
@@ -334,12 +335,13 @@ namespace Lusid.Sdk.Model
             this.FlowConventions = flowConventions;
             this.ConventionName = conventionName;
             this.Notional = notional;
+            this.AdditionalPayments = additionalPayments;
         }
 
         /// <summary>
-        /// A ticker to uniquely specify then entity against which the cds is written.
+        /// A ticker to uniquely specify the entity against which the CDS is written.
         /// </summary>
-        /// <value>A ticker to uniquely specify then entity against which the cds is written.</value>
+        /// <value>A ticker to uniquely specify the entity against which the CDS is written.</value>
         [DataMember(Name = "ticker", IsRequired = true, EmitDefaultValue = true)]
         public string Ticker { get; set; }
 
@@ -390,6 +392,13 @@ namespace Lusid.Sdk.Model
         public CdsProtectionDetailSpecification ProtectionDetailSpecification { get; set; }
 
         /// <summary>
+        /// Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.
+        /// </summary>
+        /// <value>Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
+        [DataMember(Name = "additionalPayments", EmitDefaultValue = true)]
+        public List<AdditionalPayment> AdditionalPayments { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -405,6 +414,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ConventionName: ").Append(ConventionName).Append("\n");
             sb.Append("  Notional: ").Append(Notional).Append("\n");
             sb.Append("  ProtectionDetailSpecification: ").Append(ProtectionDetailSpecification).Append("\n");
+            sb.Append("  AdditionalPayments: ").Append(AdditionalPayments).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -481,6 +491,12 @@ namespace Lusid.Sdk.Model
                     this.ProtectionDetailSpecification.Equals(input.ProtectionDetailSpecification))
                 ) && 
                 (
+                    this.AdditionalPayments == input.AdditionalPayments ||
+                    this.AdditionalPayments != null &&
+                    input.AdditionalPayments != null &&
+                    this.AdditionalPayments.SequenceEqual(input.AdditionalPayments)
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -523,6 +539,10 @@ namespace Lusid.Sdk.Model
                 if (this.ProtectionDetailSpecification != null)
                 {
                     hashCode = (hashCode * 59) + this.ProtectionDetailSpecification.GetHashCode();
+                }
+                if (this.AdditionalPayments != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalPayments.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;

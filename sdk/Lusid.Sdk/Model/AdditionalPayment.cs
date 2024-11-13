@@ -36,9 +36,9 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdditionalPayment" /> class.
         /// </summary>
-        /// <param name="amount">The upfront amount. (required).</param>
-        /// <param name="currency">The upfront currency. (required).</param>
-        /// <param name="payDate">Date when the upfront is paid. (required).</param>
+        /// <param name="amount">The payment amount. (required).</param>
+        /// <param name="currency">The payment currency. (required).</param>
+        /// <param name="payDate">Date when the payment is made. (required).</param>
         /// <param name="payReceive">Is it pay or receive.    Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
         public AdditionalPayment(decimal amount = default(decimal), string currency = default(string), DateTimeOffset payDate = default(DateTimeOffset), string payReceive = default(string))
         {
@@ -59,23 +59,23 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The upfront amount.
+        /// The payment amount.
         /// </summary>
-        /// <value>The upfront amount.</value>
+        /// <value>The payment amount.</value>
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 
         /// <summary>
-        /// The upfront currency.
+        /// The payment currency.
         /// </summary>
-        /// <value>The upfront currency.</value>
+        /// <value>The payment currency.</value>
         [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Date when the upfront is paid.
+        /// Date when the payment is made.
         /// </summary>
-        /// <value>Date when the upfront is paid.</value>
+        /// <value>Date when the payment is made.</value>
         [DataMember(Name = "payDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset PayDate { get; set; }
 
