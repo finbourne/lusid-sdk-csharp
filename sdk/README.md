@@ -830,6 +830,7 @@ Class | Method | HTTP request | Description
  - [ConstituentsAdjustmentHeader](docs/ConstituentsAdjustmentHeader.md)
  - [ContractForDifference](docs/ContractForDifference.md)
  - [ContractForDifferenceAllOf](docs/ContractForDifferenceAllOf.md)
+ - [ContributionToNonPassingRuleDetail](docs/ContributionToNonPassingRuleDetail.md)
  - [CorporateAction](docs/CorporateAction.md)
  - [CorporateActionSource](docs/CorporateActionSource.md)
  - [CorporateActionTransition](docs/CorporateActionTransition.md)

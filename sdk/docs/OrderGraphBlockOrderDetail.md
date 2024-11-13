@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **PortfolioName** | **string** | The name of the order&#39;s referenced Portfolio. | [optional] 
 **OrderApprovalTaskId** | **string** | The task id associated with the approval state of the order. | [optional] 
 **OrderApprovalTaskDefinitionId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**NonPassingComplianceRuleResults** | [**List&lt;ContributionToNonPassingRuleDetail&gt;**](ContributionToNonPassingRuleDetail.md) | The details of compliance rules in non-passing states. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

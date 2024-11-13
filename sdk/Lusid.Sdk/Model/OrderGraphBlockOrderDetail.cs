@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioName">The name of the order&#39;s referenced Portfolio..</param>
         /// <param name="orderApprovalTaskId">The task id associated with the approval state of the order..</param>
         /// <param name="orderApprovalTaskDefinitionId">orderApprovalTaskDefinitionId.</param>
-        public OrderGraphBlockOrderDetail(ResourceId id = default(ResourceId), string complianceState = default(string), string approvalState = default(string), ResourceId portfolioId = default(ResourceId), string portfolioName = default(string), string orderApprovalTaskId = default(string), ResourceId orderApprovalTaskDefinitionId = default(ResourceId))
+        /// <param name="nonPassingComplianceRuleResults">The details of compliance rules in non-passing states..</param>
+        public OrderGraphBlockOrderDetail(ResourceId id = default(ResourceId), string complianceState = default(string), string approvalState = default(string), ResourceId portfolioId = default(ResourceId), string portfolioName = default(string), string orderApprovalTaskId = default(string), ResourceId orderApprovalTaskDefinitionId = default(ResourceId), List<ContributionToNonPassingRuleDetail> nonPassingComplianceRuleResults = default(List<ContributionToNonPassingRuleDetail>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -67,6 +68,7 @@ namespace Lusid.Sdk.Model
             this.PortfolioName = portfolioName;
             this.OrderApprovalTaskId = orderApprovalTaskId;
             this.OrderApprovalTaskDefinitionId = orderApprovalTaskDefinitionId;
+            this.NonPassingComplianceRuleResults = nonPassingComplianceRuleResults;
         }
 
         /// <summary>
@@ -116,6 +118,13 @@ namespace Lusid.Sdk.Model
         public ResourceId OrderApprovalTaskDefinitionId { get; set; }
 
         /// <summary>
+        /// The details of compliance rules in non-passing states.
+        /// </summary>
+        /// <value>The details of compliance rules in non-passing states.</value>
+        [DataMember(Name = "nonPassingComplianceRuleResults", EmitDefaultValue = true)]
+        public List<ContributionToNonPassingRuleDetail> NonPassingComplianceRuleResults { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -130,6 +139,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PortfolioName: ").Append(PortfolioName).Append("\n");
             sb.Append("  OrderApprovalTaskId: ").Append(OrderApprovalTaskId).Append("\n");
             sb.Append("  OrderApprovalTaskDefinitionId: ").Append(OrderApprovalTaskDefinitionId).Append("\n");
+            sb.Append("  NonPassingComplianceRuleResults: ").Append(NonPassingComplianceRuleResults).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -199,6 +209,12 @@ namespace Lusid.Sdk.Model
                     this.OrderApprovalTaskDefinitionId == input.OrderApprovalTaskDefinitionId ||
                     (this.OrderApprovalTaskDefinitionId != null &&
                     this.OrderApprovalTaskDefinitionId.Equals(input.OrderApprovalTaskDefinitionId))
+                ) && 
+                (
+                    this.NonPassingComplianceRuleResults == input.NonPassingComplianceRuleResults ||
+                    this.NonPassingComplianceRuleResults != null &&
+                    input.NonPassingComplianceRuleResults != null &&
+                    this.NonPassingComplianceRuleResults.SequenceEqual(input.NonPassingComplianceRuleResults)
                 );
         }
 
@@ -238,6 +254,10 @@ namespace Lusid.Sdk.Model
                 if (this.OrderApprovalTaskDefinitionId != null)
                 {
                     hashCode = (hashCode * 59) + this.OrderApprovalTaskDefinitionId.GetHashCode();
+                }
+                if (this.NonPassingComplianceRuleResults != null)
+                {
+                    hashCode = (hashCode * 59) + this.NonPassingComplianceRuleResults.GetHashCode();
                 }
                 return hashCode;
             }
