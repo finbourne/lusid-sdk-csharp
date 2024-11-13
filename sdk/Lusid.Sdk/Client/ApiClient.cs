@@ -103,6 +103,12 @@ namespace Lusid.Sdk.Client
         /// <returns>Object representation of the JSON string.</returns>
         internal object Deserialize(RestResponse response, Type type)
         {
+            // do not try to deserialize if this is an error response
+            if (response.ErrorException != null)
+            {
+                return GetDefaultValue(type);
+            }
+
             if (type == typeof(byte[])) // return byte array
             {
                 return response.RawBytes;
@@ -152,6 +158,15 @@ namespace Lusid.Sdk.Client
             {
                 throw new ApiException(500, e.Message);
             }
+        }
+
+        private static object GetDefaultValue(Type type)
+        {
+            if (type.IsValueType && Nullable.GetUnderlyingType(type) == null)
+            {
+                return Activator.CreateInstance(type);
+            }
+            return null;
         }
 
         public ISerializer Serializer => this;
@@ -521,9 +536,10 @@ namespace Lusid.Sdk.Client
             T result = response.Data;
             string rawContent = response.Content;
 
+            var errorDescription = response.ErrorException?.ToString() ?? response.ErrorMessage;
             var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(StringComparer.OrdinalIgnoreCase), result, rawContent)
             {
-                ErrorText = response.ErrorMessage,
+                ErrorText = errorDescription,
                 Cookies = new List<Cookie>()
             };
 
@@ -648,11 +664,6 @@ namespace Lusid.Sdk.Client
             InterceptResponse(req, response);
 
             var result = ToApiResponse(response);
-            if (response.ErrorMessage != null)
-            {
-                result.ErrorText = response.ErrorMessage;
-            }
-
             if (response.Cookies != null && response.Cookies.Count > 0)
             {
                 if (result.Cookies == null) result.Cookies = new List<Cookie>();
@@ -760,11 +771,6 @@ namespace Lusid.Sdk.Client
             InterceptResponse(req, response);
 
             var result = ToApiResponse(response);
-            if (response.ErrorMessage != null)
-            {
-                result.ErrorText = response.ErrorMessage;
-            }
-
             if (response.Cookies != null && response.Cookies.Count > 0)
             {
                 if (result.Cookies == null) result.Cookies = new List<Cookie>();

@@ -60,18 +60,23 @@ namespace Lusid.Sdk.Client
         public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response) =>
         {
             var status = (int)response.StatusCode;
-            if (status >= 400)
+            if (response.StatusCode != 0 && status < 400)
             {
-                return new ApiException(status,
-                    string.Format("Error calling {0}: {1}", methodName, response.RawContent),
-                    response.RawContent, response.Headers);
+                return null;
             }
-            if (status == 0)
+            string errorMessage;
+            if (!string.IsNullOrEmpty(response.RawContent))
             {
-                return new ApiException(status,
-                    string.Format("Error calling {0}: {1}\n{2}", methodName, response.ErrorText, response.RawContent), response.ErrorText);
+                errorMessage = string.IsNullOrEmpty(response.ErrorText) 
+                    ? $"Error calling {methodName}: {response.RawContent}"
+                    : $"Error calling {methodName}: {response.ErrorText}\n{response.RawContent}";
+                return new ApiException(status, errorMessage, response.RawContent, response.Headers);
             }
-            return null;
+
+            errorMessage = string.IsNullOrEmpty(response.ErrorText) 
+                ? $"Error calling {methodName}: {status}"
+                : $"Error calling {methodName}: {response.ErrorText}";
+            return new ApiException(status, errorMessage);
         };
 
         #endregion Static Members
@@ -594,7 +599,7 @@ namespace Lusid.Sdk.Client
             string report = "C# SDK (Lusid.Sdk) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
-            report += "    Version of the API: 0.11.7045\n";
+            report += "    Version of the API: 0.11.7054\n";
             report += "    SDK Package Version: 2.0.0\n";
 
             return report;
