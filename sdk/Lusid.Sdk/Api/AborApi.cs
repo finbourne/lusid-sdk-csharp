@@ -214,38 +214,38 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of VersionedResourceListOfJournalEntryLine</returns>
         ApiResponse<VersionedResourceListOfJournalEntryLine> GetJournalEntryLinesWithHttpInfo(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor.
+        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial balance for the given Abor    The Trial balance has been generated from transactions, translated via posting rules and aggregated based on a General Ledger Profile (where specified)
+        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the scope is the unique identifier for the given Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve trial balance. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
-        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTrialBalance</returns>
         VersionedResourceListOfTrialBalance GetTrialBalance(string scope, string code, TrialBalanceQueryParameters trialBalanceQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor.
+        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial balance for the given Abor    The Trial balance has been generated from transactions, translated via posting rules and aggregated based on a General Ledger Profile (where specified)
+        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the scope is the unique identifier for the given Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve trial balance. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
-        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTrialBalance</returns>
@@ -648,19 +648,19 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (VersionedResourceListOfJournalEntryLine)</returns>
         System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfJournalEntryLine>> GetJournalEntryLinesWithHttpInfoAsync(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor.
+        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial balance for the given Abor    The Trial balance has been generated from transactions, translated via posting rules and aggregated based on a General Ledger Profile (where specified)
+        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the scope is the unique identifier for the given Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve trial balance. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
-        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -668,19 +668,19 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<VersionedResourceListOfTrialBalance> GetTrialBalanceAsync(string scope, string code, TrialBalanceQueryParameters trialBalanceQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor.
+        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial balance for the given Abor    The Trial balance has been generated from transactions, translated via posting rules and aggregated based on a General Ledger Profile (where specified)
+        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the scope is the unique identifier for the given Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve trial balance. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
-        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2518,16 +2518,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor. Gets the Trial balance for the given Abor    The Trial balance has been generated from transactions, translated via posting rules and aggregated based on a General Ledger Profile (where specified)
+        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the scope is the unique identifier for the given Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve trial balance. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
-        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTrialBalance</returns>
@@ -2538,16 +2538,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor. Gets the Trial balance for the given Abor    The Trial balance has been generated from transactions, translated via posting rules and aggregated based on a General Ledger Profile (where specified)
+        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the scope is the unique identifier for the given Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve trial balance. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
-        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTrialBalance</returns>
@@ -2664,16 +2664,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor. Gets the Trial balance for the given Abor    The Trial balance has been generated from transactions, translated via posting rules and aggregated based on a General Ledger Profile (where specified)
+        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the scope is the unique identifier for the given Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve trial balance. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
-        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2685,16 +2685,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor. Gets the Trial balance for the given Abor    The Trial balance has been generated from transactions, translated via posting rules and aggregated based on a General Ledger Profile (where specified)
+        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the scope is the unique identifier for the given Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve trial balance. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
-        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
