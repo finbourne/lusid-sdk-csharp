@@ -38,10 +38,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="strike">The strike on this date (required).</param>
         /// <param name="date">The date at which the option can be actioned at this strike (required).</param>
-        public OptionEntry(decimal strike = default(decimal), DateTimeOffset date = default(DateTimeOffset))
+        /// <param name="endDate">If American exercise, this is the end of the exercise period.  Optional field. Defaults to the Date field if not set..</param>
+        public OptionEntry(decimal strike = default(decimal), DateTimeOffset date = default(DateTimeOffset), DateTimeOffset? endDate = default(DateTimeOffset?))
         {
             this.Strike = strike;
             this.Date = date;
+            this.EndDate = endDate;
         }
 
         /// <summary>
@@ -59,6 +61,13 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset Date { get; set; }
 
         /// <summary>
+        /// If American exercise, this is the end of the exercise period.  Optional field. Defaults to the Date field if not set.
+        /// </summary>
+        /// <value>If American exercise, this is the end of the exercise period.  Optional field. Defaults to the Date field if not set.</value>
+        [DataMember(Name = "endDate", EmitDefaultValue = true)]
+        public DateTimeOffset? EndDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,6 +77,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class OptionEntry {\n");
             sb.Append("  Strike: ").Append(Strike).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,6 +121,11 @@ namespace Lusid.Sdk.Model
                     this.Date == input.Date ||
                     (this.Date != null &&
                     this.Date.Equals(input.Date))
+                ) && 
+                (
+                    this.EndDate == input.EndDate ||
+                    (this.EndDate != null &&
+                    this.EndDate.Equals(input.EndDate))
                 );
         }
 
@@ -127,6 +142,10 @@ namespace Lusid.Sdk.Model
                 if (this.Date != null)
                 {
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
+                if (this.EndDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
                 }
                 return hashCode;
             }

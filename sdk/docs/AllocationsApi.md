@@ -371,7 +371,7 @@ catch (ApiException e)
 
 <a id="upsertallocations"></a>
 # **UpsertAllocations**
-> ResourceListOfAllocation UpsertAllocations (AllocationSetRequest? allocationSetRequest = null)
+> ResourceListOfAllocation UpsertAllocations (AllocationSetRequest allocationSetRequest, DateTimeOffset? verificationAsAt = null, bool? retryWithoutChangedEntities = null)
 
 UpsertAllocations: Upsert Allocations
 
@@ -416,15 +416,17 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AllocationsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AllocationsApi>();
-            var allocationSetRequest = new AllocationSetRequest?(); // AllocationSetRequest? | The collection of allocation requests. (optional) 
+            var allocationSetRequest = new AllocationSetRequest(); // AllocationSetRequest | The collection of allocation requests.
+            var verificationAsAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional) 
+            var retryWithoutChangedEntities = false;  // bool? | Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfAllocation result = apiInstance.UpsertAllocations(allocationSetRequest, opts: opts);
+                // ResourceListOfAllocation result = apiInstance.UpsertAllocations(allocationSetRequest, verificationAsAt, retryWithoutChangedEntities, opts: opts);
 
                 // UpsertAllocations: Upsert Allocations
-                ResourceListOfAllocation result = apiInstance.UpsertAllocations(allocationSetRequest);
+                ResourceListOfAllocation result = apiInstance.UpsertAllocations(allocationSetRequest, verificationAsAt, retryWithoutChangedEntities);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -445,7 +447,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // UpsertAllocations: Upsert Allocations
-    ApiResponse<ResourceListOfAllocation> response = apiInstance.UpsertAllocationsWithHttpInfo(allocationSetRequest);
+    ApiResponse<ResourceListOfAllocation> response = apiInstance.UpsertAllocationsWithHttpInfo(allocationSetRequest, verificationAsAt, retryWithoutChangedEntities);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -462,7 +464,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **allocationSetRequest** | [**AllocationSetRequest?**](AllocationSetRequest?.md) | The collection of allocation requests. | [optional]  |
+| **allocationSetRequest** | [**AllocationSetRequest**](AllocationSetRequest.md) | The collection of allocation requests. |  |
+| **verificationAsAt** | **DateTimeOffset?** | An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. | [optional]  |
+| **retryWithoutChangedEntities** | **bool?** | Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. | [optional] [default to false] |
 
 ### Return type
 

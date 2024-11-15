@@ -146,7 +146,19 @@ namespace Lusid.Sdk.Model
         /// Enum Fee for value: Fee
         /// </summary>
         [EnumMember(Value = "Fee")]
-        Fee = 20
+        Fee = 20,
+
+        /// <summary>
+        /// Enum LimitAdjustment for value: LimitAdjustment
+        /// </summary>
+        [EnumMember(Value = "LimitAdjustment")]
+        LimitAdjustment = 21,
+
+        /// <summary>
+        /// Enum BalanceAdjustment for value: BalanceAdjustment
+        /// </summary>
+        [EnumMember(Value = "BalanceAdjustment")]
+        BalanceAdjustment = 22
 
     }
 

@@ -96,7 +96,8 @@ namespace Lusid.Sdk.Model
         /// <param name="sourceType">The type of source that the transaction originated from, eg: InputTransaction, InstrumentEvent, HoldingAdjustment.</param>
         /// <param name="sourceInstrumentEventId">The unique ID of the instrument event that the transaction is related to..</param>
         /// <param name="transactionGroupId">The identifier for grouping economic events across multiple transactions.</param>
-        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), string transactionGroupId = default(string))
+        /// <param name="resolvedTransactionTypeDetails">resolvedTransactionTypeDetails.</param>
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -139,6 +140,7 @@ namespace Lusid.Sdk.Model
             this.SourceType = sourceType;
             this.SourceInstrumentEventId = sourceInstrumentEventId;
             this.TransactionGroupId = transactionGroupId;
+            this.ResolvedTransactionTypeDetails = resolvedTransactionTypeDetails;
         }
 
         /// <summary>
@@ -315,6 +317,12 @@ namespace Lusid.Sdk.Model
         public string TransactionGroupId { get; set; }
 
         /// <summary>
+        /// Gets or Sets ResolvedTransactionTypeDetails
+        /// </summary>
+        [DataMember(Name = "resolvedTransactionTypeDetails", EmitDefaultValue = false)]
+        public TransactionTypeDetails ResolvedTransactionTypeDetails { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -348,6 +356,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SourceType: ").Append(SourceType).Append("\n");
             sb.Append("  SourceInstrumentEventId: ").Append(SourceInstrumentEventId).Append("\n");
             sb.Append("  TransactionGroupId: ").Append(TransactionGroupId).Append("\n");
+            sb.Append("  ResolvedTransactionTypeDetails: ").Append(ResolvedTransactionTypeDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -512,6 +521,11 @@ namespace Lusid.Sdk.Model
                     this.TransactionGroupId == input.TransactionGroupId ||
                     (this.TransactionGroupId != null &&
                     this.TransactionGroupId.Equals(input.TransactionGroupId))
+                ) && 
+                (
+                    this.ResolvedTransactionTypeDetails == input.ResolvedTransactionTypeDetails ||
+                    (this.ResolvedTransactionTypeDetails != null &&
+                    this.ResolvedTransactionTypeDetails.Equals(input.ResolvedTransactionTypeDetails))
                 );
         }
 
@@ -615,6 +629,10 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionGroupId != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionGroupId.GetHashCode();
+                }
+                if (this.ResolvedTransactionTypeDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.ResolvedTransactionTypeDetails.GetHashCode();
                 }
                 return hashCode;
             }

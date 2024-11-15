@@ -31,13 +31,33 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionTypeDetails" /> class.
         /// </summary>
-        /// <param name="scope">The scope in which the TransactionType was resolved. If the portfolio has a TransactionTypeScope, this will have been used. Otherwise the default scope will have been used..</param>
-        /// <param name="source">The source in which the TransactionType was resolved..</param>
-        /// <param name="type">The resolved TransactionType. More information on TransactionType resolution can be found at https://support.lusid.com/docs/how-does-lusid-resolve-transactions-to-transaction-types.</param>
+        [JsonConstructorAttribute]
+        protected TransactionTypeDetails() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionTypeDetails" /> class.
+        /// </summary>
+        /// <param name="scope">The scope in which the TransactionType was resolved. If the portfolio has a TransactionTypeScope, this will have been used. Otherwise the default scope will have been used. (required).</param>
+        /// <param name="source">The source in which the TransactionType was resolved. (required).</param>
+        /// <param name="type">The resolved TransactionType. More information on TransactionType resolution can be found at https://support.lusid.com/docs/how-does-lusid-resolve-transactions-to-transaction-types (required).</param>
         public TransactionTypeDetails(string scope = default(string), string source = default(string), string type = default(string))
         {
+            // to ensure "scope" is required (not null)
+            if (scope == null)
+            {
+                throw new ArgumentNullException("scope is a required property for TransactionTypeDetails and cannot be null");
+            }
             this.Scope = scope;
+            // to ensure "source" is required (not null)
+            if (source == null)
+            {
+                throw new ArgumentNullException("source is a required property for TransactionTypeDetails and cannot be null");
+            }
             this.Source = source;
+            // to ensure "type" is required (not null)
+            if (type == null)
+            {
+                throw new ArgumentNullException("type is a required property for TransactionTypeDetails and cannot be null");
+            }
             this.Type = type;
         }
 
@@ -45,21 +65,21 @@ namespace Lusid.Sdk.Model
         /// The scope in which the TransactionType was resolved. If the portfolio has a TransactionTypeScope, this will have been used. Otherwise the default scope will have been used.
         /// </summary>
         /// <value>The scope in which the TransactionType was resolved. If the portfolio has a TransactionTypeScope, this will have been used. Otherwise the default scope will have been used.</value>
-        [DataMember(Name = "scope", EmitDefaultValue = true)]
+        [DataMember(Name = "scope", IsRequired = true, EmitDefaultValue = true)]
         public string Scope { get; set; }
 
         /// <summary>
         /// The source in which the TransactionType was resolved.
         /// </summary>
         /// <value>The source in which the TransactionType was resolved.</value>
-        [DataMember(Name = "source", EmitDefaultValue = true)]
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = true)]
         public string Source { get; set; }
 
         /// <summary>
         /// The resolved TransactionType. More information on TransactionType resolution can be found at https://support.lusid.com/docs/how-does-lusid-resolve-transactions-to-transaction-types
         /// </summary>
         /// <value>The resolved TransactionType. More information on TransactionType resolution can be found at https://support.lusid.com/docs/how-does-lusid-resolve-transactions-to-transaction-types</value>
-        [DataMember(Name = "type", EmitDefaultValue = true)]
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
@@ -157,6 +177,24 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Scope (string) minLength
+            if (this.Scope != null && this.Scope.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, length must be greater than 1.", new [] { "Scope" });
+            }
+
+            // Source (string) minLength
+            if (this.Source != null && this.Source.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Source, length must be greater than 1.", new [] { "Source" });
+            }
+
+            // Type (string) minLength
+            if (this.Type != null && this.Type.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
+            }
+
             yield break;
         }
     }

@@ -39,12 +39,12 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CapFloor" /> class.
         /// </summary>
         /// <param name="capFloorType">Determine if it&#39;s CAP, FLOOR, or COLLAR.    Supported string (enumeration) values are: [Cap, Floor, Collar]. (required).</param>
-        /// <param name="capStrike">Strike rate of the Cap. (required).</param>
-        /// <param name="floorStrike">Strike rate of the Floor. (required).</param>
+        /// <param name="capStrike">Strike rate of the Cap..</param>
+        /// <param name="floorStrike">Strike rate of the Floor..</param>
         /// <param name="includeFirstCaplet">Include first caplet flag. (required).</param>
         /// <param name="underlyingFloatingLeg">underlyingFloatingLeg (required).</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility (required) (default to &quot;CapFloor&quot;).</param>
-        public CapFloor(string capFloorType = default(string), decimal capStrike = default(decimal), decimal floorStrike = default(decimal), bool includeFirstCaplet = default(bool), FloatingLeg underlyingFloatingLeg = default(FloatingLeg), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public CapFloor(string capFloorType = default(string), decimal? capStrike = default(decimal?), decimal? floorStrike = default(decimal?), bool includeFirstCaplet = default(bool), FloatingLeg underlyingFloatingLeg = default(FloatingLeg), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             // to ensure "capFloorType" is required (not null)
             if (capFloorType == null)
@@ -52,8 +52,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("capFloorType is a required property for CapFloor and cannot be null");
             }
             this.CapFloorType = capFloorType;
-            this.CapStrike = capStrike;
-            this.FloorStrike = floorStrike;
             this.IncludeFirstCaplet = includeFirstCaplet;
             // to ensure "underlyingFloatingLeg" is required (not null)
             if (underlyingFloatingLeg == null)
@@ -61,6 +59,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("underlyingFloatingLeg is a required property for CapFloor and cannot be null");
             }
             this.UnderlyingFloatingLeg = underlyingFloatingLeg;
+            this.CapStrike = capStrike;
+            this.FloorStrike = floorStrike;
         }
 
         /// <summary>
@@ -74,15 +74,15 @@ namespace Lusid.Sdk.Model
         /// Strike rate of the Cap.
         /// </summary>
         /// <value>Strike rate of the Cap.</value>
-        [DataMember(Name = "capStrike", IsRequired = true, EmitDefaultValue = true)]
-        public decimal CapStrike { get; set; }
+        [DataMember(Name = "capStrike", EmitDefaultValue = true)]
+        public decimal? CapStrike { get; set; }
 
         /// <summary>
         /// Strike rate of the Floor.
         /// </summary>
         /// <value>Strike rate of the Floor.</value>
-        [DataMember(Name = "floorStrike", IsRequired = true, EmitDefaultValue = true)]
-        public decimal FloorStrike { get; set; }
+        [DataMember(Name = "floorStrike", EmitDefaultValue = true)]
+        public decimal? FloorStrike { get; set; }
 
         /// <summary>
         /// Include first caplet flag.
@@ -153,11 +153,13 @@ namespace Lusid.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.CapStrike == input.CapStrike ||
-                    this.CapStrike.Equals(input.CapStrike)
+                    (this.CapStrike != null &&
+                    this.CapStrike.Equals(input.CapStrike))
                 ) && base.Equals(input) && 
                 (
                     this.FloorStrike == input.FloorStrike ||
-                    this.FloorStrike.Equals(input.FloorStrike)
+                    (this.FloorStrike != null &&
+                    this.FloorStrike.Equals(input.FloorStrike))
                 ) && base.Equals(input) && 
                 (
                     this.IncludeFirstCaplet == input.IncludeFirstCaplet ||
@@ -183,8 +185,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CapFloorType.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.CapStrike.GetHashCode();
-                hashCode = (hashCode * 59) + this.FloorStrike.GetHashCode();
+                if (this.CapStrike != null)
+                {
+                    hashCode = (hashCode * 59) + this.CapStrike.GetHashCode();
+                }
+                if (this.FloorStrike != null)
+                {
+                    hashCode = (hashCode * 59) + this.FloorStrike.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.IncludeFirstCaplet.GetHashCode();
                 if (this.UnderlyingFloatingLeg != null)
                 {

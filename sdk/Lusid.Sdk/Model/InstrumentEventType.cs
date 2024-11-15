@@ -315,7 +315,13 @@ namespace Lusid.Sdk.Model
         /// Enum TermDepositPrincipalEvent for value: TermDepositPrincipalEvent
         /// </summary>
         [EnumMember(Value = "TermDepositPrincipalEvent")]
-        TermDepositPrincipalEvent = 48
+        TermDepositPrincipalEvent = 48,
+
+        /// <summary>
+        /// Enum EarlyRedemptionEvent for value: EarlyRedemptionEvent
+        /// </summary>
+        [EnumMember(Value = "EarlyRedemptionEvent")]
+        EarlyRedemptionEvent = 49
 
     }
 

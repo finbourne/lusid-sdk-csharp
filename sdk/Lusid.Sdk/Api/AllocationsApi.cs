@@ -131,11 +131,13 @@ namespace Lusid.Sdk.Api
         /// Upsert; update existing allocations with given ids, or create new allocations otherwise.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="allocationSetRequest">The collection of allocation requests. (optional)</param>
+        /// <param name="allocationSetRequest">The collection of allocation requests.</param>
+        /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfAllocation</returns>
-        ResourceListOfAllocation UpsertAllocations(AllocationSetRequest? allocationSetRequest = default(AllocationSetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfAllocation UpsertAllocations(AllocationSetRequest allocationSetRequest, DateTimeOffset? verificationAsAt = default(DateTimeOffset?), bool? retryWithoutChangedEntities = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertAllocations: Upsert Allocations
@@ -144,11 +146,13 @@ namespace Lusid.Sdk.Api
         /// Upsert; update existing allocations with given ids, or create new allocations otherwise.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="allocationSetRequest">The collection of allocation requests. (optional)</param>
+        /// <param name="allocationSetRequest">The collection of allocation requests.</param>
+        /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfAllocation</returns>
-        ApiResponse<ResourceListOfAllocation> UpsertAllocationsWithHttpInfo(AllocationSetRequest? allocationSetRequest = default(AllocationSetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ApiResponse<ResourceListOfAllocation> UpsertAllocationsWithHttpInfo(AllocationSetRequest allocationSetRequest, DateTimeOffset? verificationAsAt = default(DateTimeOffset?), bool? retryWithoutChangedEntities = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -264,12 +268,14 @@ namespace Lusid.Sdk.Api
         /// Upsert; update existing allocations with given ids, or create new allocations otherwise.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="allocationSetRequest">The collection of allocation requests. (optional)</param>
+        /// <param name="allocationSetRequest">The collection of allocation requests.</param>
+        /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfAllocation</returns>
-        System.Threading.Tasks.Task<ResourceListOfAllocation> UpsertAllocationsAsync(AllocationSetRequest? allocationSetRequest = default(AllocationSetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfAllocation> UpsertAllocationsAsync(AllocationSetRequest allocationSetRequest, DateTimeOffset? verificationAsAt = default(DateTimeOffset?), bool? retryWithoutChangedEntities = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertAllocations: Upsert Allocations
@@ -278,12 +284,14 @@ namespace Lusid.Sdk.Api
         /// Upsert; update existing allocations with given ids, or create new allocations otherwise.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="allocationSetRequest">The collection of allocation requests. (optional)</param>
+        /// <param name="allocationSetRequest">The collection of allocation requests.</param>
+        /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfAllocation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfAllocation>> UpsertAllocationsWithHttpInfoAsync(AllocationSetRequest? allocationSetRequest = default(AllocationSetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfAllocation>> UpsertAllocationsWithHttpInfoAsync(AllocationSetRequest allocationSetRequest, DateTimeOffset? verificationAsAt = default(DateTimeOffset?), bool? retryWithoutChangedEntities = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -1137,13 +1145,15 @@ namespace Lusid.Sdk.Api
         /// UpsertAllocations: Upsert Allocations Upsert; update existing allocations with given ids, or create new allocations otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="allocationSetRequest">The collection of allocation requests. (optional)</param>
+        /// <param name="allocationSetRequest">The collection of allocation requests.</param>
+        /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfAllocation</returns>
-        public ResourceListOfAllocation UpsertAllocations(AllocationSetRequest? allocationSetRequest = default(AllocationSetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfAllocation UpsertAllocations(AllocationSetRequest allocationSetRequest, DateTimeOffset? verificationAsAt = default(DateTimeOffset?), bool? retryWithoutChangedEntities = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocation> localVarResponse = UpsertAllocationsWithHttpInfo(allocationSetRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocation> localVarResponse = UpsertAllocationsWithHttpInfo(allocationSetRequest, verificationAsAt, retryWithoutChangedEntities, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1151,12 +1161,20 @@ namespace Lusid.Sdk.Api
         /// UpsertAllocations: Upsert Allocations Upsert; update existing allocations with given ids, or create new allocations otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="allocationSetRequest">The collection of allocation requests. (optional)</param>
+        /// <param name="allocationSetRequest">The collection of allocation requests.</param>
+        /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfAllocation</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocation> UpsertAllocationsWithHttpInfo(AllocationSetRequest? allocationSetRequest = default(AllocationSetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocation> UpsertAllocationsWithHttpInfo(AllocationSetRequest allocationSetRequest, DateTimeOffset? verificationAsAt = default(DateTimeOffset?), bool? retryWithoutChangedEntities = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'allocationSetRequest' is set
+            if (allocationSetRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'allocationSetRequest' when calling AllocationsApi->UpsertAllocations");
+            }
+
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
             if (opts is { TimeoutMs: not null })
@@ -1195,6 +1213,14 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (verificationAsAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "verificationAsAt", verificationAsAt));
+            }
+            if (retryWithoutChangedEntities != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "retryWithoutChangedEntities", retryWithoutChangedEntities));
+            }
             localVarRequestOptions.Data = allocationSetRequest;
 
             localVarRequestOptions.Operation = "AllocationsApi.UpsertAllocations";
@@ -1235,14 +1261,16 @@ namespace Lusid.Sdk.Api
         /// UpsertAllocations: Upsert Allocations Upsert; update existing allocations with given ids, or create new allocations otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="allocationSetRequest">The collection of allocation requests. (optional)</param>
+        /// <param name="allocationSetRequest">The collection of allocation requests.</param>
+        /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfAllocation</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfAllocation> UpsertAllocationsAsync(AllocationSetRequest? allocationSetRequest = default(AllocationSetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfAllocation> UpsertAllocationsAsync(AllocationSetRequest allocationSetRequest, DateTimeOffset? verificationAsAt = default(DateTimeOffset?), bool? retryWithoutChangedEntities = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocation> localVarResponse = await UpsertAllocationsWithHttpInfoAsync(allocationSetRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocation> localVarResponse = await UpsertAllocationsWithHttpInfoAsync(allocationSetRequest, verificationAsAt, retryWithoutChangedEntities, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1250,13 +1278,21 @@ namespace Lusid.Sdk.Api
         /// UpsertAllocations: Upsert Allocations Upsert; update existing allocations with given ids, or create new allocations otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="allocationSetRequest">The collection of allocation requests. (optional)</param>
+        /// <param name="allocationSetRequest">The collection of allocation requests.</param>
+        /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfAllocation)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocation>> UpsertAllocationsWithHttpInfoAsync(AllocationSetRequest? allocationSetRequest = default(AllocationSetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfAllocation>> UpsertAllocationsWithHttpInfoAsync(AllocationSetRequest allocationSetRequest, DateTimeOffset? verificationAsAt = default(DateTimeOffset?), bool? retryWithoutChangedEntities = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'allocationSetRequest' is set
+            if (allocationSetRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'allocationSetRequest' when calling AllocationsApi->UpsertAllocations");
+            }
+
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -1296,6 +1332,14 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (verificationAsAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "verificationAsAt", verificationAsAt));
+            }
+            if (retryWithoutChangedEntities != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "retryWithoutChangedEntities", retryWithoutChangedEntities));
+            }
             localVarRequestOptions.Data = allocationSetRequest;
 
             localVarRequestOptions.Operation = "AllocationsApi.UpsertAllocations";

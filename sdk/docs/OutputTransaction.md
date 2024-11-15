@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **SourceType** | **string** | The type of source that the transaction originated from, eg: InputTransaction, InstrumentEvent, HoldingAdjustment | [optional] 
 **SourceInstrumentEventId** | **string** | The unique ID of the instrument event that the transaction is related to. | [optional] 
 **TransactionGroupId** | **string** | The identifier for grouping economic events across multiple transactions | [optional] 
+**ResolvedTransactionTypeDetails** | [**TransactionTypeDetails**](TransactionTypeDetails.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
