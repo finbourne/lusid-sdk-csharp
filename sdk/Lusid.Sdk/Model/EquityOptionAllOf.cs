@@ -306,7 +306,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="optionMaturityDate">The maturity date of the option. (required).</param>
-        /// <param name="optionSettlementDate">The settlement date of the option. (required).</param>
+        /// <param name="optionSettlementDate">The settlement date of the option..</param>
         /// <param name="deliveryType">Is the option cash settled or physical delivery of option    Supported string (enumeration) values are: [Cash, Physical]. (required).</param>
         /// <param name="optionType">Type of optionality for the option    Supported string (enumeration) values are: [Call, Put]. (required).</param>
         /// <param name="strike">The strike of the option. (required).</param>
@@ -319,11 +319,10 @@ namespace Lusid.Sdk.Model
         /// <param name="exerciseType">Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American]..</param>
         /// <param name="underlying">underlying.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility (required).</param>
-        public EquityOptionAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset optionMaturityDate = default(DateTimeOffset), DateTimeOffset optionSettlementDate = default(DateTimeOffset), string deliveryType = default(string), string optionType = default(string), decimal strike = default(decimal), string domCcy = default(string), string underlyingIdentifier = default(string), string code = default(string), string equityOptionType = default(string), decimal? numberOfShares = default(decimal?), Premium premium = default(Premium), string exerciseType = default(string), LusidInstrument underlying = default(LusidInstrument), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public EquityOptionAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset optionMaturityDate = default(DateTimeOffset), DateTimeOffset? optionSettlementDate = default(DateTimeOffset?), string deliveryType = default(string), string optionType = default(string), decimal strike = default(decimal), string domCcy = default(string), string underlyingIdentifier = default(string), string code = default(string), string equityOptionType = default(string), decimal? numberOfShares = default(decimal?), Premium premium = default(Premium), string exerciseType = default(string), LusidInstrument underlying = default(LusidInstrument), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.OptionMaturityDate = optionMaturityDate;
-            this.OptionSettlementDate = optionSettlementDate;
             // to ensure "deliveryType" is required (not null)
             if (deliveryType == null)
             {
@@ -344,6 +343,7 @@ namespace Lusid.Sdk.Model
             }
             this.DomCcy = domCcy;
             this.InstrumentType = instrumentType;
+            this.OptionSettlementDate = optionSettlementDate;
             this.UnderlyingIdentifier = underlyingIdentifier;
             this.Code = code;
             this.EquityOptionType = equityOptionType;
@@ -371,8 +371,8 @@ namespace Lusid.Sdk.Model
         /// The settlement date of the option.
         /// </summary>
         /// <value>The settlement date of the option.</value>
-        [DataMember(Name = "optionSettlementDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset OptionSettlementDate { get; set; }
+        [DataMember(Name = "optionSettlementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? OptionSettlementDate { get; set; }
 
         /// <summary>
         /// Is the option cash settled or physical delivery of option    Supported string (enumeration) values are: [Cash, Physical].

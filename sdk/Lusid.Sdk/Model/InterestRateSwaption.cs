@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="InterestRateSwaption" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
-        /// <param name="payOrReceiveFixed">True if on exercise the holder of the option enters the swap paying fixed, false if floating.    Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
+        /// <param name="payOrReceiveFixed">Pay or Receive the fixed leg of the underlying swap.    Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
         /// <param name="premium">premium.</param>
         /// <param name="deliveryMethod">How does the option settle    Supported string (enumeration) values are: [Cash, Physical]. (required).</param>
         /// <param name="swap">swap (required).</param>
@@ -76,9 +76,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// True if on exercise the holder of the option enters the swap paying fixed, false if floating.    Supported string (enumeration) values are: [Pay, Receive].
+        /// Pay or Receive the fixed leg of the underlying swap.    Supported string (enumeration) values are: [Pay, Receive].
         /// </summary>
-        /// <value>True if on exercise the holder of the option enters the swap paying fixed, false if floating.    Supported string (enumeration) values are: [Pay, Receive].</value>
+        /// <value>Pay or Receive the fixed leg of the underlying swap.    Supported string (enumeration) values are: [Pay, Receive].</value>
         [DataMember(Name = "payOrReceiveFixed", IsRequired = true, EmitDefaultValue = true)]
         public string PayOrReceiveFixed { get; set; }
 
