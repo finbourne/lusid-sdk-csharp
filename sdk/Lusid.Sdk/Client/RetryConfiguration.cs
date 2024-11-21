@@ -7,7 +7,6 @@
 
 using System;
 using Polly;
-using RestSharp;
 
 namespace Lusid.Sdk.Client
 {
@@ -19,21 +18,21 @@ namespace Lusid.Sdk.Client
         /// <summary>
         /// Function to return a retry policy for synchronous calls - this will only be used if RetryPolicy is null
         /// </summary>
-        public static Func<RequestOptions, Policy<RestResponse>>? GetRetryPolicyFunc { get; set; }
+        public static Func<RequestOptions, Policy<ResponseBase>>? GetRetryPolicyFunc { get; set; }
 
         /// <summary>
         /// Function to return a retry policy for asynchronous calls - this will only be used if AsyncRetryPolicy is null
         /// </summary>
-        public static Func<RequestOptions, AsyncPolicy<RestResponse>>? GetAsyncRetryPolicyFunc { get; set; }
+        public static Func<RequestOptions, AsyncPolicy<ResponseBase>>? GetAsyncRetryPolicyFunc { get; set; }
         
         /// <summary>
         /// Retry policy - if set will be used over any policy returned from GetRetryPolicyFunc
         /// </summary>
-        public static Policy<RestResponse>? RetryPolicy { get; set; }
+        public static Policy<ResponseBase>? RetryPolicy { get; set; }
 
         /// <summary>
         /// Async retry policy - if set will be used over any policy returned from GetAsyncRetryPolicyFunc
         /// </summary>
-        public static AsyncPolicy<RestResponse>? AsyncRetryPolicy { get; set; }
+        public static AsyncPolicy<ResponseBase>? AsyncRetryPolicy { get; set; }
     }
 }

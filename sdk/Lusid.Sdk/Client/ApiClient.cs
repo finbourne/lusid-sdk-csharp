@@ -6,30 +6,19 @@
  */
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Net.Security;
-using System.Net.Sockets;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters;
-using System.Text;
 using System.Threading;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using RestSharp;
-using RestSharp.Serializers;
-using RestSharpMethod = RestSharp.Method;
+using Finbourne.Sdk.Core.RestSharp;
+using Finbourne.Sdk.Core.RestSharp.Serializers;
 using Polly;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Extensions;
@@ -38,7 +27,7 @@ using Lusid.Sdk.Extensions;
 namespace Lusid.Sdk.Client
 {
     /// <summary>
-    /// Allows RestSharp to Serialize/Deserialize JSON using our custom logic, but only when ContentType is JSON.
+    /// Allows Finbourne.Sdk.Core.RestSharp to Serialize/Deserialize JSON using our custom logic, but only when ContentType is JSON.
     /// </summary>
     internal class CustomJsonCodec : IRestSerializer, ISerializer, IDeserializer
     {
@@ -183,93 +172,79 @@ namespace Lusid.Sdk.Client
             get { return _contentType; }
             set { throw new InvalidOperationException("Not allowed to set content type."); }
         }
-
-
-        public DataFormat DataFormat => DataFormat.Json;
-    }
-
-    internal class TextDeserializer : IDeserializer
-    {
-        private readonly string _contentType;
-
-        public TextDeserializer(string contentType)
-        {
-            _contentType = contentType;
-        }
-
-        public T Deserialize<T>(RestResponse response)
-        {
-            var result = (T)Deserialize(response, typeof(T));
-            return result;
-        }
-
-        internal object Deserialize(RestResponse response, Type type)
-        {
-            if (type != typeof(string))
-            {
-                throw new ArgumentException("This deserializer can only be used to deserialize into strings");
-            }
-
-            return response.Content;
-        }
-
-        public string ContentType
-        {
-            get { return _contentType; }
-            set { throw new InvalidOperationException("Not allowed to set content type."); }
-        }
+        
+        public Finbourne.Sdk.Core.RestSharp.DataFormat DataFormat => Finbourne.Sdk.Core.RestSharp.DataFormat.Json;
     }
 
     /// <summary>
-    /// An interface for the required RestClient methods
+    /// The methods which must be provided by the http client
     /// </summary>
-    public interface IRestClientWrapper : IRestClient
+    public interface IClient
     {
         /// <summary>
-        /// Wraps the Execute method of RestClient
+        /// Execute the http request synchronously
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        RestResponse WrappedExecute(RestRequest request);
+        Response<T> Execute<T>(Request request);
         
         /// <summary>
-        /// Wraps the type parameterised Execute method of RestClient
+        /// Executes the http request asynchronously
         /// </summary>
-        /// <param name="request"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        RestResponse<T> WrappedExecute<T>(RestRequest request);
+        Task<Response<T>> ExecuteAsync<T>(Request request, CancellationToken cancellationToken = default);
     }
 
     /// <summary>
     /// A wrapper around required RestClient methods
     /// </summary>
-    public class RestClientWrapper : RestClient, IRestClientWrapper
+    internal class RestClientWrapper : RestClient, IClient
     {
-        /// <summary/>
-        /// <param name="httpClient"></param>
-        /// <param name="options"></param>
-        /// <param name="disposeHttpClient"></param>
-        /// <param name="configureSerialization"></param>
+        private class RestSharpAuthenticator : Finbourne.Sdk.Core.RestSharp.Authenticators.IAuthenticator
+        {
+            private readonly OAuthAuthenticator _authenticator;
+
+            public RestSharpAuthenticator(OAuthAuthenticator authenticator)
+            {
+                _authenticator = authenticator;
+            }
+
+            public async ValueTask Authenticate(IRestClient client, RestRequest request)
+            {
+                await _authenticator.Authenticate(request.ToSdkRequest());
+            }
+        }
+        
         public RestClientWrapper(
             HttpClient httpClient,
-            RestClientOptions? options,
+            ClientOptions? options,
             bool disposeHttpClient = false,
             ConfigureSerialization? configureSerialization = null
-        ) : base(httpClient, options, disposeHttpClient, configureSerialization)
+        ) : base(
+            httpClient, 
+            new RestClientOptions
+            {
+                BaseUrl = new Uri(options?.BaseUrl),
+                Authenticator = options?.Authenticator != null ? new RestSharpAuthenticator(options.Authenticator) : null,
+                ClientCertificates = options?.ClientCertificates,
+                Proxy = options?.Proxy,
+                UserAgent = options?.UserAgent,
+                Timeout = options?.Timeout
+            }, 
+            disposeHttpClient, 
+            configureSerialization)
         {
         }
 
-        /// <inheritdoc/>
-        public RestResponse WrappedExecute(RestRequest request)
+        public Response<T> Execute<T>(Request request)
         {
-            return this.Execute(request);
+            var restSharpRequest = request.ToRestSharpRequest();
+            var restResponse = this.Execute<T>(restSharpRequest);
+            return restResponse.ToSdkResponse();
         }
 
-        /// <inheritdoc/>
-        public RestResponse<T> WrappedExecute<T>(RestRequest request)
+        public async Task<Response<T>> ExecuteAsync<T>(Request request, CancellationToken cancellationToken = default)
         {
-            return this.Execute<T>(request);
+            var restSharpRequest = request.ToRestSharpRequest();
+            var restResponse = await this.ExecuteAsync<T>(restSharpRequest, cancellationToken);
+            return restResponse.ToSdkResponse();
         }
     }
 
@@ -280,9 +255,9 @@ namespace Lusid.Sdk.Client
     public partial class ApiClient : ISynchronousClient, IAsynchronousClient
     {
         private readonly string _baseUrl;
-        private readonly Func<RestClientOptions, HttpMessageHandler> _createHttpMessageHandler;
+        private readonly Func<ClientOptions, HttpMessageHandler> _createHttpMessageHandler;
         private readonly bool _disposeHandler;
-        private readonly Func<RestClientOptions, IReadableConfiguration, IRestClientWrapper> _createRestClient;
+        private readonly Func<ClientOptions, IReadableConfiguration, IClient> _createRestClient;
 
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
@@ -305,15 +280,15 @@ namespace Lusid.Sdk.Client
         /// <summary>
         /// Allows for extending request processing for <see cref="ApiClient"/> generated code.
         /// </summary>
-        /// <param name="request">The RestSharp request object</param>
-        partial void InterceptRequest(RestRequest request);
+        /// <param name="request">The request object</param>
+        partial void InterceptRequest(Request request);
 
         /// <summary>
         /// Allows for extending response processing for <see cref="ApiClient"/> generated code.
         /// </summary>
-        /// <param name="request">The RestSharp request object</param>
-        /// <param name="response">The RestSharp response object</param>
-        partial void InterceptResponse(RestRequest request, RestResponse response);
+        /// <param name="request">The request object</param>
+        /// <param name="response">The response object</param>
+        partial void InterceptResponse(Request request, ResponseBase response);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" />, defaulting to the global configurations' base url.
@@ -330,7 +305,11 @@ namespace Lusid.Sdk.Client
         /// <param name="disposeHandler">Should the HttpMessageHandler be disposed of after each request</param>
         /// <param name="createRestClientFunc">A function that given configuration will return an implementation of the IRestClientWrapper interface. Use to override the default RestClient</param>
         /// <exception cref="ArgumentException"></exception>
-        public ApiClient(string basePath, Func<RestClientOptions, HttpMessageHandler>? CreateHttpMessageHandler = null, bool disposeHandler = true, Func<RestClientOptions, IReadableConfiguration, IRestClientWrapper> createRestClientFunc = null){
+        public ApiClient(
+            string basePath, 
+            Func<ClientOptions, HttpMessageHandler>? CreateHttpMessageHandler = null, 
+            bool disposeHandler = true,
+            Func<ClientOptions, IReadableConfiguration, IClient> createRestClientFunc = null){
             if (string.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
             _baseUrl = basePath;
@@ -339,59 +318,23 @@ namespace Lusid.Sdk.Client
             _createRestClient = createRestClientFunc ?? DefaultCreateRestClient;
         }
 
-        private IRestClientWrapper DefaultCreateRestClient(RestClientOptions clientOptions, IReadableConfiguration configuration)
+        private IClient DefaultCreateRestClient(ClientOptions clientOptions, IReadableConfiguration configuration)
         {
             var httpClient = new HttpClient(_createHttpMessageHandler(clientOptions), _disposeHandler);
-
+            // set the timeout to be infinite, because the timeout is set on the request and then the lower of these two times
+            // will be used. It would therefore not be possible to set an infinite timeout if we didn't do it here
+            httpClient.Timeout = Timeout.InfiniteTimeSpan;
             return new RestClientWrapper(httpClient,
                 options: clientOptions,
                 configureSerialization: s =>
                     s.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
         }
 
-        /// <summary>
-        /// Constructs the RestSharp version of an http method
-        /// </summary>
-        /// <param name="method">Swagger Client Custom HttpMethod</param>
-        /// <returns>RestSharp's HttpMethod instance.</returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        private RestSharpMethod Method(HttpMethod method)
-        {
-            RestSharpMethod other;
-            switch (method)
-            {
-                case HttpMethod.Get:
-                    other = RestSharpMethod.Get;
-                    break;
-                case HttpMethod.Post:
-                    other = RestSharpMethod.Post;
-                    break;
-                case HttpMethod.Put:
-                    other = RestSharpMethod.Put;
-                    break;
-                case HttpMethod.Delete:
-                    other = RestSharpMethod.Delete;
-                    break;
-                case HttpMethod.Head:
-                    other = RestSharpMethod.Head;
-                    break;
-                case HttpMethod.Options:
-                    other = RestSharpMethod.Options;
-                    break;
-                case HttpMethod.Patch:
-                    other = RestSharpMethod.Patch;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException("method", method, null);
-            }
-
-            return other;
-        }
 
         /// <summary>
-        /// Provides all logic for constructing a new RestSharp <see cref="RestRequest"/>.
+        /// Provides all logic for constructing a new Finbourne.Sdk.Core.RestSharp <see cref="RestRequest"/>.
         /// At this point, all information for querying the service is known. Here, it is simply
-        /// mapped into the RestSharp request.
+        /// mapped into the Finbourne.Sdk.Core.RestSharp request.
         /// </summary>
         /// <param name="method">The http verb.</param>
         /// <param name="path">The target path (or resource).</param>
@@ -400,7 +343,7 @@ namespace Lusid.Sdk.Client
         /// GlobalConfiguration has been done before calling this method.</param>
         /// <returns>[private] A new RestRequest instance.</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        private RestRequest NewRequest(
+        private Request NewRequest(
             HttpMethod method,
             string path,
             RequestOptions options,
@@ -410,137 +353,67 @@ namespace Lusid.Sdk.Client
             if (options == null) throw new ArgumentNullException("options");
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            RestRequest request = new RestRequest(path, Method(method));
-
-            if (options.PathParameters != null)
-            {
-                foreach (var pathParam in options.PathParameters)
-                {
-                    var segmentParameter = new UrlSegmentParameter(pathParam.Key, pathParam.Value);
-                    // %2F's are replaced in UrlSegmentParameter constructor
-                    // we don't want this
-                    request.AddParameter(segmentParameter with {Value = pathParam.Value});
-                }
-            }
-
-            if (options.QueryParameters != null)
-            {
-                foreach (var queryParam in options.QueryParameters)
-                {
-                    foreach (var value in queryParam.Value)
-                    {
-                        request.AddQueryParameter(queryParam.Key, value);
-                    }
-                }
-            }
-
+            var headers = options.HeaderParameters ?? new();
             if (configuration.DefaultHeaders != null)
             {
-                foreach (var headerParam in configuration.DefaultHeaders)
+                foreach (var header in configuration.DefaultHeaders)
                 {
-                    request.AddHeader(headerParam.Key, headerParam.Value);
+                    headers.Add(header.Key, header.Value);
                 }
             }
-
-            if (options.HeaderParameters != null)
+            Request request = new Request
             {
-                foreach (var headerParam in options.HeaderParameters)
-                {
-                    foreach (var value in headerParam.Value)
-                    {
-                        request.AddHeader(headerParam.Key, value);
-                    }
-                }
-            }
-
-            if (options.FormParameters != null)
-            {
-                foreach (var formParam in options.FormParameters)
-                {
-                    request.AddParameter(formParam.Key, formParam.Value);
-                }
-            }
+                Resource = path,
+                Method = method,
+                PathParameters = options.PathParameters ?? new(),
+                QueryParameters = options.QueryParameters ?? new(),
+                FormParameters = options.FormParameters ?? new(),
+                FileParameters = options.FileParameters ?? new(),
+                Headers = headers,
+            };
 
             if (options.Data != null)
             {
                 if (options.Data is Stream stream)
                 {
-                    var contentType = "application/octet-stream";
-                    if (options.HeaderParameters != null)
-                    {
-                        var contentTypes = options.HeaderParameters["Content-Type"];
-                        contentType = contentTypes[0];
-                    }
-
-                    var bytes = ClientUtils.ReadAsBytes(stream);
-                    request.AddParameter(contentType, bytes, ParameterType.RequestBody);
+                    AddContentTypeHeaderIfMissing(options, request, "application/octet-stream");
+                    request.RequestFormat = DataFormat.Binary;
+                    request.Body = ClientUtils.ReadAsBytes(stream);
                 }
                 else if (options.Data is byte[])
                 {
-                    var defaultContentType = "application/octet-stream";
-                    var contentType = 
-                        (options.HeaderParameters == null) ? 
-                        defaultContentType : 
-                        options.HeaderParameters["Content-Type"][0];
-
-                    var bytes = options.Data;
-                    request.AddParameter(contentType, bytes, ParameterType.RequestBody);
+                    AddContentTypeHeaderIfMissing(options, request, "application/octet-stream");
+                    request.RequestFormat = DataFormat.Binary;
+                    request.Body = options.Data;
                 }
                 else
                 {
-                    if (options.HeaderParameters != null)
-                    {
-                        var contentTypes = options.HeaderParameters["Content-Type"];
-                        if (contentTypes == null || contentTypes.Any(header => header.Contains("application/json")))
-                        {
-                            request.RequestFormat = DataFormat.Json;
-                        }
-                        else
-                        {
-                            // TODO: Generated client user should add additional handlers. RestSharp only supports XML and JSON, with XML as default.
-                        }
-                    }
-                    else
-                    {
-                        // Here, we'll assume JSON APIs are more common. XML can be forced by adding produces/consumes to openapi spec explicitly.
-                        request.RequestFormat = DataFormat.Json;
-                    }
-
-                    request.AddJsonBody(options.Data);
+                    request.RequestFormat = DataFormat.Json;
+                    request.Body = options.Data;
                 }
             }
 
-            if (options.FileParameters != null)
-            {
-                foreach (var fileParam in options.FileParameters)
-                {
-                    foreach (var file in fileParam.Value)
-                    {
-                        var bytes = ClientUtils.ReadAsBytes(file);
-                        var fileStream = file as FileStream;
-                        if (fileStream != null)
-                            request.AddFile(fileParam.Key, bytes, System.IO.Path.GetFileName(fileStream.Name));
-                        else
-                            request.AddFile(fileParam.Key, bytes, "no_file_name_provided");
-                    }
-                }
-            }
-
-            request.Timeout = options.TimeoutMs ?? configuration.TimeoutMs;
-
+            request.Timeout = TimeSpan.FromMilliseconds(options.TimeoutMs ?? configuration.TimeoutMs);
             return request;
         }
 
-        private ApiResponse<T> ToApiResponse<T>(RestResponse<T> response)
+        private static void AddContentTypeHeaderIfMissing(RequestOptions options, Request request, string contentType)
+        {
+            if (options.HeaderParameters == null || !options.HeaderParameters.ContainsKey("Content-Type"))
+            {
+                request.Headers.Add("Content-Type", contentType);
+            }
+        }
+
+        private ApiResponse<T> ToApiResponse<T>(Response<T> response)
         {
             T result = response.Data;
             string rawContent = response.Content;
-
+            
             var errorDescription = response.ErrorException?.ToString() ?? response.ErrorMessage;
             var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(StringComparer.OrdinalIgnoreCase), result, rawContent)
             {
-                ErrorText = errorDescription,
-                Cookies = new List<Cookie>()
+                ErrorText = errorDescription
             };
 
             if (response.Headers != null)
@@ -550,51 +423,18 @@ namespace Lusid.Sdk.Client
                     transformed.Headers.Add(responseHeader.Name, ClientUtils.ParameterToString(responseHeader.Value));
                 }
             }
-
-            if (response.ContentHeaders != null)
-            {
-                foreach (var responseHeader in response.ContentHeaders)
-                {
-                    transformed.Headers.Add(responseHeader.Name, ClientUtils.ParameterToString(responseHeader.Value));
-                }
-            }
-
-            if (response.Cookies != null)
-            {
-                foreach (var responseCookies in response.Cookies.Cast<Cookie>())
-                {
-                    transformed.Cookies.Add(
-                        new Cookie(
-                            responseCookies.Name,
-                            responseCookies.Value,
-                            responseCookies.Path,
-                            responseCookies.Domain)
-                        );
-                }
-            }
-
+            
             return transformed;
         }
 
-        private ApiResponse<T> Exec<T>(RestRequest req, RequestOptions options, IReadableConfiguration configuration)
+        private ApiResponse<T> Exec<T>(Request request, RequestOptions options, IReadableConfiguration configuration)
         {
             var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;
             
-            var cookies = new CookieContainer();
-
-            if (options.Cookies != null && options.Cookies.Count > 0)
-            {
-                foreach (var cookie in options.Cookies)
-                {
-                    cookies.Add(new Cookie(cookie.Name, cookie.Value));
-                }
-            }
-
-            var clientOptions = new RestClientOptions(baseUrl)
+            var clientOptions = new ClientOptions(baseUrl)
             {
                 ClientCertificates = configuration.ClientCertificates,
-                CookieContainer = cookies,
-                MaxTimeout = options.TimeoutMs ?? configuration.TimeoutMs,
+                Timeout = TimeSpan.FromMilliseconds(options.TimeoutMs ?? configuration.TimeoutMs),
                 Proxy = configuration.Proxy,
                 UserAgent = configuration.UserAgent
             };
@@ -604,7 +444,7 @@ namespace Lusid.Sdk.Client
                 !string.IsNullOrEmpty(configuration.OAuthClientSecret) &&
                 configuration.OAuthFlow != null)
             {
-                clientOptions.Authenticator= new OAuthAuthenticator(
+                clientOptions.Authenticator = new OAuthAuthenticator(
                     configuration.OAuthTokenUrl,
                     configuration.OAuthClientId,
                     configuration.OAuthClientSecret,
@@ -615,22 +455,23 @@ namespace Lusid.Sdk.Client
 
             var client = _createRestClient(clientOptions, configuration);
 
-            InterceptRequest(req);
+            InterceptRequest(request);
 
-            RestResponse<T> response;
+            Response<T> response;
 
             var policy = GetSyncPolicy(options);
             if (policy != null)
             {
-                var policyResult = policy.ExecuteAndCapture(() => client.WrappedExecute(req));
-                response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>(req)
+                var policyResult = policy.ExecuteAndCapture(() => client.Execute<T>(request));
+                response = policyResult.Result as Response<T>;
+                if (response == null)
                 {
-                    ErrorException = policyResult.FinalException
-                };
+                    throw new Exception($"error casting response to {typeof(Response<T>)}");
+                }
             }
             else
             {
-                response = client.WrappedExecute<T>(req);
+                response = client.Execute<T>(request);
             }
 
             if (response.IsSuccessful)
@@ -661,36 +502,9 @@ namespace Lusid.Sdk.Client
                 }
             }
 
-            InterceptResponse(req, response);
+            InterceptResponse(request, response);
 
-            var result = ToApiResponse(response);
-            if (response.Cookies != null && response.Cookies.Count > 0)
-            {
-                if (result.Cookies == null) result.Cookies = new List<Cookie>();
-                foreach (var restResponseCookie in response.Cookies.Cast<Cookie>())
-                {
-                    var cookie = new Cookie(
-                        restResponseCookie.Name,
-                        restResponseCookie.Value,
-                        restResponseCookie.Path,
-                        restResponseCookie.Domain
-                    )
-                    {
-                        Comment = restResponseCookie.Comment,
-                        CommentUri = restResponseCookie.CommentUri,
-                        Discard = restResponseCookie.Discard,
-                        Expired = restResponseCookie.Expired,
-                        Expires = restResponseCookie.Expires,
-                        HttpOnly = restResponseCookie.HttpOnly,
-                        Port = restResponseCookie.Port,
-                        Secure = restResponseCookie.Secure,
-                        Version = restResponseCookie.Version
-                    };
-
-                    result.Cookies.Add(cookie);
-                }
-            }
-            return result;
+            return ToApiResponse(response);
         }
 
         /// <summary>
@@ -698,22 +512,22 @@ namespace Lusid.Sdk.Client
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static Policy<RestResponse>? GetSyncPolicy(RequestOptions options)
+        public static Policy<ResponseBase>? GetSyncPolicy(RequestOptions options)
         {
-            Policy<RestResponse>? policy = RetryConfiguration.RetryPolicy ?? (RetryConfiguration.GetRetryPolicyFunc == null
+            Policy<ResponseBase>? policy = RetryConfiguration.RetryPolicy ?? (RetryConfiguration.GetRetryPolicyFunc == null
                 ? null
                 : RetryConfiguration.GetRetryPolicyFunc(options));
             return policy;
         }
 
-        private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, RequestOptions options, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        private async Task<ApiResponse<T>> ExecAsync<T>(Request request, RequestOptions options, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;
 
-            var clientOptions = new RestClientOptions(baseUrl)
+            var clientOptions = new ClientOptions(baseUrl)
             {
                 ClientCertificates = configuration.ClientCertificates,
-                MaxTimeout = options.TimeoutMs ?? configuration.TimeoutMs,
+                Timeout = TimeSpan.FromMilliseconds(options.TimeoutMs ?? configuration.TimeoutMs),
                 Proxy = configuration.Proxy,
                 UserAgent = configuration.UserAgent
             };
@@ -733,22 +547,24 @@ namespace Lusid.Sdk.Client
             }
             
             var client = _createRestClient(clientOptions, configuration);
-            InterceptRequest(req);
+            InterceptRequest(request);
 
-            RestResponse<T> response;
+            Response<T> response;
             var policy = GetAsyncPolicy(options);
             
             if (policy != null)
             {
-                var policyResult = await policy.ExecuteAndCaptureAsync((ct) => client.ExecuteAsync(req, ct), cancellationToken).ConfigureAwait(false);
-                response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>(req)
+                Func<CancellationToken, Task<ResponseBase>> action = async ct => await client.ExecuteAsync<T>(request, ct);
+                var policyResult = await policy.ExecuteAndCaptureAsync(action, cancellationToken).ConfigureAwait(false);
+                response = policyResult.Result as Response<T>;
+                if (response == null)
                 {
-                    ErrorException = policyResult.FinalException
-                };
+                    throw new Exception($"error casting response to {typeof(Response<T>)}");
+                }
             }
             else
             {
-                response = await client.ExecuteAsync<T>(req, cancellationToken).ConfigureAwait(false);
+                response = await client.ExecuteAsync<T>(request, cancellationToken).ConfigureAwait(false);
             }
 
             if (response.IsSuccessful)
@@ -768,36 +584,9 @@ namespace Lusid.Sdk.Client
                 }
             }
 
-            InterceptResponse(req, response);
+            InterceptResponse(request, response);
 
-            var result = ToApiResponse(response);
-            if (response.Cookies != null && response.Cookies.Count > 0)
-            {
-                if (result.Cookies == null) result.Cookies = new List<Cookie>();
-                foreach (var restResponseCookie in response.Cookies.Cast<Cookie>())
-                {
-                    var cookie = new Cookie(
-                        restResponseCookie.Name,
-                        restResponseCookie.Value,
-                        restResponseCookie.Path,
-                        restResponseCookie.Domain
-                    )
-                    {
-                        Comment = restResponseCookie.Comment,
-                        CommentUri = restResponseCookie.CommentUri,
-                        Discard = restResponseCookie.Discard,
-                        Expired = restResponseCookie.Expired,
-                        Expires = restResponseCookie.Expires,
-                        HttpOnly = restResponseCookie.HttpOnly,
-                        Port = restResponseCookie.Port,
-                        Secure = restResponseCookie.Secure,
-                        Version = restResponseCookie.Version
-                    };
-
-                    result.Cookies.Add(cookie);
-                }
-            }
-            return result;
+            return ToApiResponse(response);
         }
 
         /// <summary>
@@ -805,9 +594,9 @@ namespace Lusid.Sdk.Client
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static AsyncPolicy<RestResponse>? GetAsyncPolicy(RequestOptions options)
+        public static AsyncPolicy<ResponseBase>? GetAsyncPolicy(RequestOptions options)
         {
-            AsyncPolicy<RestResponse>? policy = RetryConfiguration.AsyncRetryPolicy ?? (RetryConfiguration.GetAsyncRetryPolicyFunc == null
+            AsyncPolicy<ResponseBase>? policy = RetryConfiguration.AsyncRetryPolicy ?? (RetryConfiguration.GetAsyncRetryPolicyFunc == null
                 ? null
                 : RetryConfiguration.GetAsyncRetryPolicyFunc(options));
             return policy;

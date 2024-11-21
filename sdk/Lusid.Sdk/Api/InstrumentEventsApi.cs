@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Lusid.Sdk.Client;
+using IApiAccessor = Lusid.Sdk.Client.IApiAccessor;
 using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
@@ -61,7 +61,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfApplicableInstrumentEvent</returns>
-        ApiResponse<ResourceListOfApplicableInstrumentEvent> QueryApplicableInstrumentEventsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfApplicableInstrumentEvent> QueryApplicableInstrumentEventsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BucketedCashFlowResponse</returns>
-        ApiResponse<BucketedCashFlowResponse> QueryBucketedCashFlowsWithHttpInfo(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<BucketedCashFlowResponse> QueryBucketedCashFlowsWithHttpInfo(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -115,7 +115,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfInstrumentCashFlow</returns>
-        ApiResponse<ResourceListOfInstrumentCashFlow> QueryCashFlowsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> QueryCashFlowsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfInstrumentEventHolder</returns>
-        ApiResponse<ResourceListOfInstrumentEventHolder> QueryInstrumentEventsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentEventHolder> QueryInstrumentEventsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -173,7 +173,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPortfolioTradeTicket</returns>
-        ApiResponse<ResourceListOfPortfolioTradeTicket> QueryTradeTicketsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioTradeTicket> QueryTradeTicketsWithHttpInfo(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -215,7 +215,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfApplicableInstrumentEvent)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfApplicableInstrumentEvent>> QueryApplicableInstrumentEventsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfApplicableInstrumentEvent>> QueryApplicableInstrumentEventsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -242,7 +242,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BucketedCashFlowResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BucketedCashFlowResponse>> QueryBucketedCashFlowsWithHttpInfoAsync(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BucketedCashFlowResponse>> QueryBucketedCashFlowsWithHttpInfoAsync(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -273,7 +273,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfInstrumentCashFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrumentCashFlow>> QueryCashFlowsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow>> QueryCashFlowsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryCashFlowsRequest? queryCashFlowsRequest = default(QueryCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -304,7 +304,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfInstrumentEventHolder)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrumentEventHolder>> QueryInstrumentEventsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentEventHolder>> QueryInstrumentEventsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryInstrumentEventsRequest? queryInstrumentEventsRequest = default(QueryInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
@@ -335,7 +335,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPortfolioTradeTicket)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolioTradeTicket>> QueryTradeTicketsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioTradeTicket>> QueryTradeTicketsWithHttpInfoAsync(int? limit = default(int?), string? page = default(string?), QueryTradeTicketsRequest? queryTradeTicketsRequest = default(QueryTradeTicketsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

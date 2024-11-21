@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Lusid.Sdk.Client;
+using IApiAccessor = Lusid.Sdk.Client.IApiAccessor;
 using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
@@ -61,7 +61,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpdateUserReviewForComparisonResultResponse</returns>
-        ApiResponse<BatchUpdateUserReviewForComparisonResultResponse> BatchUpdateComparisonResultsWithHttpInfo(string scope, string code, List<BatchUpdateUserReviewForComparisonResultRequest> batchUpdateUserReviewForComparisonResultRequest, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<BatchUpdateUserReviewForComparisonResultResponse> BatchUpdateComparisonResultsWithHttpInfo(string scope, string code, List<BatchUpdateUserReviewForComparisonResultRequest> batchUpdateUserReviewForComparisonResultRequest, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateComparisonRuleset: Create a Group Reconciliation Comparison Ruleset
         /// </summary>
@@ -86,7 +86,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GroupReconciliationComparisonRuleset</returns>
-        ApiResponse<GroupReconciliationComparisonRuleset> CreateComparisonRulesetWithHttpInfo(CreateGroupReconciliationComparisonRulesetRequest? createGroupReconciliationComparisonRulesetRequest = default(CreateGroupReconciliationComparisonRulesetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<GroupReconciliationComparisonRuleset> CreateComparisonRulesetWithHttpInfo(CreateGroupReconciliationComparisonRulesetRequest? createGroupReconciliationComparisonRulesetRequest = default(CreateGroupReconciliationComparisonRulesetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateGroupReconciliationDefinition: Create Group Reconciliation Definition
         /// </summary>
@@ -111,7 +111,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GroupReconciliationDefinition</returns>
-        ApiResponse<GroupReconciliationDefinition> CreateGroupReconciliationDefinitionWithHttpInfo(CreateGroupReconciliationDefinitionRequest? createGroupReconciliationDefinitionRequest = default(CreateGroupReconciliationDefinitionRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<GroupReconciliationDefinition> CreateGroupReconciliationDefinitionWithHttpInfo(CreateGroupReconciliationDefinitionRequest? createGroupReconciliationDefinitionRequest = default(CreateGroupReconciliationDefinitionRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset
         /// </summary>
@@ -138,7 +138,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteComparisonRulesetWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteComparisonRulesetWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteGroupReconciliationDefinition: Delete Group Reconciliation Definition
         /// </summary>
@@ -165,7 +165,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteGroupReconciliationDefinitionWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteGroupReconciliationDefinitionWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code.
         /// </summary>
@@ -196,7 +196,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GroupReconciliationComparisonResult</returns>
-        ApiResponse<GroupReconciliationComparisonResult> GetComparisonResultWithHttpInfo(string scope, string code, string resultId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<GroupReconciliationComparisonResult> GetComparisonResultWithHttpInfo(string scope, string code, string resultId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetComparisonRuleset: Get a single Group Reconciliation Comparison Ruleset by scope and code.
         /// </summary>
@@ -225,7 +225,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GroupReconciliationComparisonRuleset</returns>
-        ApiResponse<GroupReconciliationComparisonRuleset> GetComparisonRulesetWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<GroupReconciliationComparisonRuleset> GetComparisonRulesetWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetGroupReconciliationDefinition: Get group reconciliation definition
         /// </summary>
@@ -256,7 +256,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GroupReconciliationDefinition</returns>
-        ApiResponse<GroupReconciliationDefinition> GetGroupReconciliationDefinitionWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<GroupReconciliationDefinition> GetGroupReconciliationDefinitionWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results.
         /// </summary>
@@ -289,7 +289,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfGroupReconciliationComparisonResult</returns>
-        ApiResponse<PagedResourceListOfGroupReconciliationComparisonResult> ListComparisonResultsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGroupReconciliationComparisonResult> ListComparisonResultsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets
         /// </summary>
@@ -322,7 +322,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfGroupReconciliationComparisonRuleset</returns>
-        ApiResponse<PagedResourceListOfGroupReconciliationComparisonRuleset> ListComparisonRulesetsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGroupReconciliationComparisonRuleset> ListComparisonRulesetsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListGroupReconciliationDefinitions: List group reconciliation definitions
         /// </summary>
@@ -357,7 +357,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfGroupReconciliationDefinition</returns>
-        ApiResponse<PagedResourceListOfGroupReconciliationDefinition> ListGroupReconciliationDefinitionsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGroupReconciliationDefinition> ListGroupReconciliationDefinitionsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
         /// </summary>
@@ -386,7 +386,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GroupReconciliationRunResponse</returns>
-        ApiResponse<GroupReconciliationRunResponse> RunReconciliationWithHttpInfo(string scope, string code, GroupReconciliationRunRequest? groupReconciliationRunRequest = default(GroupReconciliationRunRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<GroupReconciliationRunResponse> RunReconciliationWithHttpInfo(string scope, string code, GroupReconciliationRunRequest? groupReconciliationRunRequest = default(GroupReconciliationRunRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code
         /// </summary>
@@ -415,7 +415,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GroupReconciliationComparisonRuleset</returns>
-        ApiResponse<GroupReconciliationComparisonRuleset> UpdateComparisonRulesetWithHttpInfo(string scope, string code, UpdateGroupReconciliationComparisonRulesetRequest? updateGroupReconciliationComparisonRulesetRequest = default(UpdateGroupReconciliationComparisonRulesetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<GroupReconciliationComparisonRuleset> UpdateComparisonRulesetWithHttpInfo(string scope, string code, UpdateGroupReconciliationComparisonRulesetRequest? updateGroupReconciliationComparisonRulesetRequest = default(UpdateGroupReconciliationComparisonRulesetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateGroupReconciliationDefinition: Update group reconciliation definition
         /// </summary>
@@ -444,7 +444,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GroupReconciliationDefinition</returns>
-        ApiResponse<GroupReconciliationDefinition> UpdateGroupReconciliationDefinitionWithHttpInfo(string scope, string code, UpdateGroupReconciliationDefinitionRequest? updateGroupReconciliationDefinitionRequest = default(UpdateGroupReconciliationDefinitionRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<GroupReconciliationDefinition> UpdateGroupReconciliationDefinitionWithHttpInfo(string scope, string code, UpdateGroupReconciliationDefinitionRequest? updateGroupReconciliationDefinitionRequest = default(UpdateGroupReconciliationDefinitionRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -486,7 +486,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpdateUserReviewForComparisonResultResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchUpdateUserReviewForComparisonResultResponse>> BatchUpdateComparisonResultsWithHttpInfoAsync(string scope, string code, List<BatchUpdateUserReviewForComparisonResultRequest> batchUpdateUserReviewForComparisonResultRequest, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpdateUserReviewForComparisonResultResponse>> BatchUpdateComparisonResultsWithHttpInfoAsync(string scope, string code, List<BatchUpdateUserReviewForComparisonResultRequest> batchUpdateUserReviewForComparisonResultRequest, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateComparisonRuleset: Create a Group Reconciliation Comparison Ruleset
         /// </summary>
@@ -513,7 +513,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GroupReconciliationComparisonRuleset)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupReconciliationComparisonRuleset>> CreateComparisonRulesetWithHttpInfoAsync(CreateGroupReconciliationComparisonRulesetRequest? createGroupReconciliationComparisonRulesetRequest = default(CreateGroupReconciliationComparisonRulesetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GroupReconciliationComparisonRuleset>> CreateComparisonRulesetWithHttpInfoAsync(CreateGroupReconciliationComparisonRulesetRequest? createGroupReconciliationComparisonRulesetRequest = default(CreateGroupReconciliationComparisonRulesetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateGroupReconciliationDefinition: Create Group Reconciliation Definition
         /// </summary>
@@ -540,7 +540,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GroupReconciliationDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupReconciliationDefinition>> CreateGroupReconciliationDefinitionWithHttpInfoAsync(CreateGroupReconciliationDefinitionRequest? createGroupReconciliationDefinitionRequest = default(CreateGroupReconciliationDefinitionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GroupReconciliationDefinition>> CreateGroupReconciliationDefinitionWithHttpInfoAsync(CreateGroupReconciliationDefinitionRequest? createGroupReconciliationDefinitionRequest = default(CreateGroupReconciliationDefinitionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset
         /// </summary>
@@ -569,7 +569,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteComparisonRulesetWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteComparisonRulesetWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteGroupReconciliationDefinition: Delete Group Reconciliation Definition
         /// </summary>
@@ -598,7 +598,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteGroupReconciliationDefinitionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteGroupReconciliationDefinitionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code.
         /// </summary>
@@ -631,7 +631,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GroupReconciliationComparisonResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupReconciliationComparisonResult>> GetComparisonResultWithHttpInfoAsync(string scope, string code, string resultId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GroupReconciliationComparisonResult>> GetComparisonResultWithHttpInfoAsync(string scope, string code, string resultId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetComparisonRuleset: Get a single Group Reconciliation Comparison Ruleset by scope and code.
         /// </summary>
@@ -662,7 +662,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GroupReconciliationComparisonRuleset)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupReconciliationComparisonRuleset>> GetComparisonRulesetWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GroupReconciliationComparisonRuleset>> GetComparisonRulesetWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetGroupReconciliationDefinition: Get group reconciliation definition
         /// </summary>
@@ -695,7 +695,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GroupReconciliationDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupReconciliationDefinition>> GetGroupReconciliationDefinitionWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GroupReconciliationDefinition>> GetGroupReconciliationDefinitionWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results.
         /// </summary>
@@ -730,7 +730,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfGroupReconciliationComparisonResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfGroupReconciliationComparisonResult>> ListComparisonResultsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGroupReconciliationComparisonResult>> ListComparisonResultsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets
         /// </summary>
@@ -765,7 +765,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfGroupReconciliationComparisonRuleset)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfGroupReconciliationComparisonRuleset>> ListComparisonRulesetsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGroupReconciliationComparisonRuleset>> ListComparisonRulesetsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListGroupReconciliationDefinitions: List group reconciliation definitions
         /// </summary>
@@ -802,7 +802,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfGroupReconciliationDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfGroupReconciliationDefinition>> ListGroupReconciliationDefinitionsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGroupReconciliationDefinition>> ListGroupReconciliationDefinitionsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
         /// </summary>
@@ -833,7 +833,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GroupReconciliationRunResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupReconciliationRunResponse>> RunReconciliationWithHttpInfoAsync(string scope, string code, GroupReconciliationRunRequest? groupReconciliationRunRequest = default(GroupReconciliationRunRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GroupReconciliationRunResponse>> RunReconciliationWithHttpInfoAsync(string scope, string code, GroupReconciliationRunRequest? groupReconciliationRunRequest = default(GroupReconciliationRunRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code
         /// </summary>
@@ -864,7 +864,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GroupReconciliationComparisonRuleset)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupReconciliationComparisonRuleset>> UpdateComparisonRulesetWithHttpInfoAsync(string scope, string code, UpdateGroupReconciliationComparisonRulesetRequest? updateGroupReconciliationComparisonRulesetRequest = default(UpdateGroupReconciliationComparisonRulesetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GroupReconciliationComparisonRuleset>> UpdateComparisonRulesetWithHttpInfoAsync(string scope, string code, UpdateGroupReconciliationComparisonRulesetRequest? updateGroupReconciliationComparisonRulesetRequest = default(UpdateGroupReconciliationComparisonRulesetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateGroupReconciliationDefinition: Update group reconciliation definition
         /// </summary>
@@ -895,7 +895,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GroupReconciliationDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupReconciliationDefinition>> UpdateGroupReconciliationDefinitionWithHttpInfoAsync(string scope, string code, UpdateGroupReconciliationDefinitionRequest? updateGroupReconciliationDefinitionRequest = default(UpdateGroupReconciliationDefinitionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GroupReconciliationDefinition>> UpdateGroupReconciliationDefinitionWithHttpInfoAsync(string scope, string code, UpdateGroupReconciliationDefinitionRequest? updateGroupReconciliationDefinitionRequest = default(UpdateGroupReconciliationDefinitionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

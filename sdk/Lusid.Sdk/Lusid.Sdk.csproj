@@ -25,7 +25,7 @@
   <ItemGroup>
     <PackageReference Include="JsonSubTypes" Version="2.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="RestSharp" Version="110.2.0" />
+    <PackageReference Include="Finbourne.Sdk.Core" Version="0.0.4" />
     <PackageReference Include="Polly" Version="7.2.3" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
@@ -36,15 +36,9 @@
 
   <PropertyGroup>
     <WarningsAsErrors></WarningsAsErrors>
-    <!-- REMOVE NU1902 ONCE CTOOLS-333 complete -->
-    <NoWarn>1701;1702;CS0472;CS1573;CS0108;CS8073;NU1902</NoWarn>
+    <NoWarn>1701;1702;CS0472;CS1573;CS0108;CS8073</NoWarn>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
-
-  <ItemGroup>
-    <!-- REMOVE ONCE CTOOLS-333 complete -->
-    <NuGetAuditSuppress Include="https://github.com/advisories/GHSA-4rr6-2v9v-wcpc" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />

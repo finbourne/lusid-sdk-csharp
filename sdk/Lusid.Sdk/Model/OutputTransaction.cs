@@ -95,9 +95,10 @@ namespace Lusid.Sdk.Model
         /// <param name="holdingIds">The collection of single identifiers for the holding within the portfolio. The holdingId is constructed from the LusidInstrumentId, sub-holding keys and currrency and is unique within the portfolio..</param>
         /// <param name="sourceType">The type of source that the transaction originated from, eg: InputTransaction, InstrumentEvent, HoldingAdjustment.</param>
         /// <param name="sourceInstrumentEventId">The unique ID of the instrument event that the transaction is related to..</param>
+        /// <param name="custodianAccount">custodianAccount.</param>
         /// <param name="transactionGroupId">The identifier for grouping economic events across multiple transactions.</param>
         /// <param name="resolvedTransactionTypeDetails">resolvedTransactionTypeDetails.</param>
-        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails))
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -139,6 +140,7 @@ namespace Lusid.Sdk.Model
             this.HoldingIds = holdingIds;
             this.SourceType = sourceType;
             this.SourceInstrumentEventId = sourceInstrumentEventId;
+            this.CustodianAccount = custodianAccount;
             this.TransactionGroupId = transactionGroupId;
             this.ResolvedTransactionTypeDetails = resolvedTransactionTypeDetails;
         }
@@ -310,6 +312,12 @@ namespace Lusid.Sdk.Model
         public string SourceInstrumentEventId { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustodianAccount
+        /// </summary>
+        [DataMember(Name = "custodianAccount", EmitDefaultValue = false)]
+        public CustodianAccount CustodianAccount { get; set; }
+
+        /// <summary>
         /// The identifier for grouping economic events across multiple transactions
         /// </summary>
         /// <value>The identifier for grouping economic events across multiple transactions</value>
@@ -355,6 +363,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  HoldingIds: ").Append(HoldingIds).Append("\n");
             sb.Append("  SourceType: ").Append(SourceType).Append("\n");
             sb.Append("  SourceInstrumentEventId: ").Append(SourceInstrumentEventId).Append("\n");
+            sb.Append("  CustodianAccount: ").Append(CustodianAccount).Append("\n");
             sb.Append("  TransactionGroupId: ").Append(TransactionGroupId).Append("\n");
             sb.Append("  ResolvedTransactionTypeDetails: ").Append(ResolvedTransactionTypeDetails).Append("\n");
             sb.Append("}\n");
@@ -518,6 +527,11 @@ namespace Lusid.Sdk.Model
                     this.SourceInstrumentEventId.Equals(input.SourceInstrumentEventId))
                 ) && 
                 (
+                    this.CustodianAccount == input.CustodianAccount ||
+                    (this.CustodianAccount != null &&
+                    this.CustodianAccount.Equals(input.CustodianAccount))
+                ) && 
+                (
                     this.TransactionGroupId == input.TransactionGroupId ||
                     (this.TransactionGroupId != null &&
                     this.TransactionGroupId.Equals(input.TransactionGroupId))
@@ -625,6 +639,10 @@ namespace Lusid.Sdk.Model
                 if (this.SourceInstrumentEventId != null)
                 {
                     hashCode = (hashCode * 59) + this.SourceInstrumentEventId.GetHashCode();
+                }
+                if (this.CustodianAccount != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianAccount.GetHashCode();
                 }
                 if (this.TransactionGroupId != null)
                 {

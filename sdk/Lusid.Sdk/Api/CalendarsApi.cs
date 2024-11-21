@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Lusid.Sdk.Client;
+using IApiAccessor = Lusid.Sdk.Client.IApiAccessor;
 using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AddBusinessDaysToDateResponse</returns>
-        ApiResponse<AddBusinessDaysToDateResponse> AddBusinessDaysToDateWithHttpInfo(string scope, AddBusinessDaysToDateRequest addBusinessDaysToDateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<AddBusinessDaysToDateResponse> AddBusinessDaysToDateWithHttpInfo(string scope, AddBusinessDaysToDateRequest addBusinessDaysToDateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// AddDateToCalendar: Add a date to a calendar
         /// </summary>
@@ -86,7 +86,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CalendarDate</returns>
-        ApiResponse<CalendarDate> AddDateToCalendarWithHttpInfo(string scope, string code, CreateDateRequest createDateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<CalendarDate> AddDateToCalendarWithHttpInfo(string scope, string code, CreateDateRequest createDateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// BatchUpsertDatesForCalendar: Batch upsert dates to a calendar
         /// </summary>
@@ -117,7 +117,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpsertDatesForCalendarResponse</returns>
-        ApiResponse<BatchUpsertDatesForCalendarResponse> BatchUpsertDatesForCalendarWithHttpInfo(string scope, string code, string successMode, Dictionary<string, CreateDateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<BatchUpsertDatesForCalendarResponse> BatchUpsertDatesForCalendarWithHttpInfo(string scope, string code, string successMode, Dictionary<string, CreateDateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateCalendar: Create a calendar in its generic form
         /// </summary>
@@ -142,7 +142,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Calendar</returns>
-        ApiResponse<Calendar> CreateCalendarWithHttpInfo(CreateCalendarRequest createCalendarRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<Calendar> CreateCalendarWithHttpInfo(CreateCalendarRequest createCalendarRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteCalendar: Delete a calendar
         /// </summary>
@@ -169,7 +169,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Calendar</returns>
-        ApiResponse<Calendar> DeleteCalendarWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<Calendar> DeleteCalendarWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteDateFromCalendar: Remove a date from a calendar
         /// </summary>
@@ -198,7 +198,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CalendarDate</returns>
-        ApiResponse<CalendarDate> DeleteDateFromCalendarWithHttpInfo(string scope, string code, string dateId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<CalendarDate> DeleteDateFromCalendarWithHttpInfo(string scope, string code, string dateId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteDatesFromCalendar: Delete dates from a calendar
         /// </summary>
@@ -227,7 +227,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, CalendarDate&gt;</returns>
-        ApiResponse<Dictionary<string, CalendarDate>> DeleteDatesFromCalendarWithHttpInfo(string scope, string code, List<string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<Dictionary<string, CalendarDate>> DeleteDatesFromCalendarWithHttpInfo(string scope, string code, List<string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates.
         /// </summary>
@@ -256,7 +256,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;DateTimeOffset&gt;</returns>
-        ApiResponse<List<DateTimeOffset>> GenerateScheduleWithHttpInfo(string scope, ValuationSchedule valuationSchedule, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<List<DateTimeOffset>> GenerateScheduleWithHttpInfo(string scope, ValuationSchedule valuationSchedule, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetCalendar: Get a calendar in its generic form
         /// </summary>
@@ -287,7 +287,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Calendar</returns>
-        ApiResponse<Calendar> GetCalendarWithHttpInfo(string scope, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<Calendar> GetCalendarWithHttpInfo(string scope, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetDates: Get dates for a specific calendar
         /// </summary>
@@ -322,7 +322,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfCalendarDate</returns>
-        ApiResponse<ResourceListOfCalendarDate> GetDatesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? idFilter = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfCalendarDate> GetDatesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? idFilter = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] IsBusinessDateTime: Check whether a DateTime is a \&quot;Business DateTime\&quot;
         /// </summary>
@@ -353,7 +353,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of IsBusinessDayResponse</returns>
-        ApiResponse<IsBusinessDayResponse> IsBusinessDateTimeWithHttpInfo(DateTimeOffset dateTime, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<IsBusinessDayResponse> IsBusinessDateTimeWithHttpInfo(DateTimeOffset dateTime, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListCalendars: List Calendars
         /// </summary>
@@ -386,7 +386,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCalendar</returns>
-        ApiResponse<PagedResourceListOfCalendar> ListCalendarsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCalendar> ListCalendarsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListCalendarsInScope: List all calenders in a specified scope
         /// </summary>
@@ -421,7 +421,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCalendar</returns>
-        ApiResponse<PagedResourceListOfCalendar> ListCalendarsInScopeWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCalendar> ListCalendarsInScopeWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateCalendar: Update a calendar
         /// </summary>
@@ -450,7 +450,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Calendar</returns>
-        ApiResponse<Calendar> UpdateCalendarWithHttpInfo(string scope, string code, UpdateCalendarRequest updateCalendarRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<Calendar> UpdateCalendarWithHttpInfo(string scope, string code, UpdateCalendarRequest updateCalendarRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -488,7 +488,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AddBusinessDaysToDateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AddBusinessDaysToDateResponse>> AddBusinessDaysToDateWithHttpInfoAsync(string scope, AddBusinessDaysToDateRequest addBusinessDaysToDateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AddBusinessDaysToDateResponse>> AddBusinessDaysToDateWithHttpInfoAsync(string scope, AddBusinessDaysToDateRequest addBusinessDaysToDateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// AddDateToCalendar: Add a date to a calendar
         /// </summary>
@@ -519,7 +519,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CalendarDate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalendarDate>> AddDateToCalendarWithHttpInfoAsync(string scope, string code, CreateDateRequest createDateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CalendarDate>> AddDateToCalendarWithHttpInfoAsync(string scope, string code, CreateDateRequest createDateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// BatchUpsertDatesForCalendar: Batch upsert dates to a calendar
         /// </summary>
@@ -552,7 +552,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertDatesForCalendarResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchUpsertDatesForCalendarResponse>> BatchUpsertDatesForCalendarWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, CreateDateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertDatesForCalendarResponse>> BatchUpsertDatesForCalendarWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, CreateDateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateCalendar: Create a calendar in its generic form
         /// </summary>
@@ -579,7 +579,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Calendar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Calendar>> CreateCalendarWithHttpInfoAsync(CreateCalendarRequest createCalendarRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Calendar>> CreateCalendarWithHttpInfoAsync(CreateCalendarRequest createCalendarRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteCalendar: Delete a calendar
         /// </summary>
@@ -608,7 +608,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Calendar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Calendar>> DeleteCalendarWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Calendar>> DeleteCalendarWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteDateFromCalendar: Remove a date from a calendar
         /// </summary>
@@ -639,7 +639,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CalendarDate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalendarDate>> DeleteDateFromCalendarWithHttpInfoAsync(string scope, string code, string dateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CalendarDate>> DeleteDateFromCalendarWithHttpInfoAsync(string scope, string code, string dateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteDatesFromCalendar: Delete dates from a calendar
         /// </summary>
@@ -670,7 +670,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, CalendarDate&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, CalendarDate>>> DeleteDatesFromCalendarWithHttpInfoAsync(string scope, string code, List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, CalendarDate>>> DeleteDatesFromCalendarWithHttpInfoAsync(string scope, string code, List<string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates.
         /// </summary>
@@ -701,7 +701,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;DateTimeOffset&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<DateTimeOffset>>> GenerateScheduleWithHttpInfoAsync(string scope, ValuationSchedule valuationSchedule, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<List<DateTimeOffset>>> GenerateScheduleWithHttpInfoAsync(string scope, ValuationSchedule valuationSchedule, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetCalendar: Get a calendar in its generic form
         /// </summary>
@@ -734,7 +734,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Calendar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Calendar>> GetCalendarWithHttpInfoAsync(string scope, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Calendar>> GetCalendarWithHttpInfoAsync(string scope, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetDates: Get dates for a specific calendar
         /// </summary>
@@ -771,7 +771,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfCalendarDate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfCalendarDate>> GetDatesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? idFilter = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfCalendarDate>> GetDatesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? idFilter = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] IsBusinessDateTime: Check whether a DateTime is a \&quot;Business DateTime\&quot;
         /// </summary>
@@ -804,7 +804,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (IsBusinessDayResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IsBusinessDayResponse>> IsBusinessDateTimeWithHttpInfoAsync(DateTimeOffset dateTime, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<IsBusinessDayResponse>> IsBusinessDateTimeWithHttpInfoAsync(DateTimeOffset dateTime, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListCalendars: List Calendars
         /// </summary>
@@ -839,7 +839,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCalendar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCalendar>> ListCalendarsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCalendar>> ListCalendarsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListCalendarsInScope: List all calenders in a specified scope
         /// </summary>
@@ -876,7 +876,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCalendar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCalendar>> ListCalendarsInScopeWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCalendar>> ListCalendarsInScopeWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateCalendar: Update a calendar
         /// </summary>
@@ -907,7 +907,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Calendar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Calendar>> UpdateCalendarWithHttpInfoAsync(string scope, string code, UpdateCalendarRequest updateCalendarRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Calendar>> UpdateCalendarWithHttpInfoAsync(string scope, string code, UpdateCalendarRequest updateCalendarRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

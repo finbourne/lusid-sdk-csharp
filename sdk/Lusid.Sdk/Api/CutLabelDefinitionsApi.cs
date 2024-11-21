@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Lusid.Sdk.Client;
+using IApiAccessor = Lusid.Sdk.Client.IApiAccessor;
 using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
@@ -55,7 +55,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CutLabelDefinition</returns>
-        ApiResponse<CutLabelDefinition> CreateCutLabelDefinitionWithHttpInfo(CreateCutLabelDefinitionRequest? createCutLabelDefinitionRequest = default(CreateCutLabelDefinitionRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<CutLabelDefinition> CreateCutLabelDefinitionWithHttpInfo(CreateCutLabelDefinitionRequest? createCutLabelDefinitionRequest = default(CreateCutLabelDefinitionRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteCutLabelDefinition: Delete a Cut Label
         /// </summary>
@@ -80,7 +80,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DateTimeOffset</returns>
-        ApiResponse<DateTimeOffset> DeleteCutLabelDefinitionWithHttpInfo(string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<DateTimeOffset> DeleteCutLabelDefinitionWithHttpInfo(string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetCutLabelDefinition: Get a Cut Label
         /// </summary>
@@ -107,7 +107,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CutLabelDefinition</returns>
-        ApiResponse<CutLabelDefinition> GetCutLabelDefinitionWithHttpInfo(string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<CutLabelDefinition> GetCutLabelDefinitionWithHttpInfo(string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListCutLabelDefinitions: List Existing Cut Labels
         /// </summary>
@@ -140,7 +140,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCutLabelDefinition</returns>
-        ApiResponse<PagedResourceListOfCutLabelDefinition> ListCutLabelDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCutLabelDefinition> ListCutLabelDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpdateCutLabelDefinition: Update a Cut Label
         /// </summary>
@@ -167,7 +167,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CutLabelDefinition</returns>
-        ApiResponse<CutLabelDefinition> UpdateCutLabelDefinitionWithHttpInfo(string code, UpdateCutLabelDefinitionRequest? updateCutLabelDefinitionRequest = default(UpdateCutLabelDefinitionRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<CutLabelDefinition> UpdateCutLabelDefinitionWithHttpInfo(string code, UpdateCutLabelDefinitionRequest? updateCutLabelDefinitionRequest = default(UpdateCutLabelDefinitionRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -203,7 +203,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CutLabelDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CutLabelDefinition>> CreateCutLabelDefinitionWithHttpInfoAsync(CreateCutLabelDefinitionRequest? createCutLabelDefinitionRequest = default(CreateCutLabelDefinitionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CutLabelDefinition>> CreateCutLabelDefinitionWithHttpInfoAsync(CreateCutLabelDefinitionRequest? createCutLabelDefinitionRequest = default(CreateCutLabelDefinitionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteCutLabelDefinition: Delete a Cut Label
         /// </summary>
@@ -230,7 +230,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DateTimeOffset)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DateTimeOffset>> DeleteCutLabelDefinitionWithHttpInfoAsync(string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DateTimeOffset>> DeleteCutLabelDefinitionWithHttpInfoAsync(string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetCutLabelDefinition: Get a Cut Label
         /// </summary>
@@ -259,7 +259,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CutLabelDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CutLabelDefinition>> GetCutLabelDefinitionWithHttpInfoAsync(string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CutLabelDefinition>> GetCutLabelDefinitionWithHttpInfoAsync(string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListCutLabelDefinitions: List Existing Cut Labels
         /// </summary>
@@ -294,7 +294,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCutLabelDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCutLabelDefinition>> ListCutLabelDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCutLabelDefinition>> ListCutLabelDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpdateCutLabelDefinition: Update a Cut Label
         /// </summary>
@@ -323,7 +323,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CutLabelDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CutLabelDefinition>> UpdateCutLabelDefinitionWithHttpInfoAsync(string code, UpdateCutLabelDefinitionRequest? updateCutLabelDefinitionRequest = default(UpdateCutLabelDefinitionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CutLabelDefinition>> UpdateCutLabelDefinitionWithHttpInfoAsync(string code, UpdateCutLabelDefinitionRequest? updateCutLabelDefinitionRequest = default(UpdateCutLabelDefinitionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

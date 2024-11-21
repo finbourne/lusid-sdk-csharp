@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Lusid.Sdk.Client;
+using IApiAccessor = Lusid.Sdk.Client.IApiAccessor;
 using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
@@ -61,7 +61,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;InstrumentMatch&gt;</returns>
-        ApiResponse<List<InstrumentMatch>> InstrumentsSearchWithHttpInfo(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<List<InstrumentMatch>> InstrumentsSearchWithHttpInfo(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// SearchPortfolioGroups: Search Portfolio Groups
         /// </summary>
@@ -94,7 +94,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPortfolioGroupSearchResult</returns>
-        ApiResponse<PagedResourceListOfPortfolioGroupSearchResult> SearchPortfolioGroupsWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroupSearchResult> SearchPortfolioGroupsWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// SearchPortfolios: Search Portfolios
         /// </summary>
@@ -127,7 +127,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPortfolioSearchResult</returns>
-        ApiResponse<PagedResourceListOfPortfolioSearchResult> SearchPortfoliosWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioSearchResult> SearchPortfoliosWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// SearchProperties: Search Property Definitions
         /// </summary>
@@ -160,7 +160,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPropertyDefinitionSearchResult</returns>
-        ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult> SearchPropertiesWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult> SearchPropertiesWithHttpInfo(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -202,7 +202,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;InstrumentMatch&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InstrumentMatch>>> InstrumentsSearchWithHttpInfoAsync(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<List<InstrumentMatch>>> InstrumentsSearchWithHttpInfoAsync(List<InstrumentSearchProperty> instrumentSearchProperty, DateTimeOrCutLabel? masteredEffectiveAt = default(DateTimeOrCutLabel?), bool? masteredOnly = default(bool?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// SearchPortfolioGroups: Search Portfolio Groups
         /// </summary>
@@ -237,7 +237,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPortfolioGroupSearchResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPortfolioGroupSearchResult>> SearchPortfolioGroupsWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroupSearchResult>> SearchPortfolioGroupsWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// SearchPortfolios: Search Portfolios
         /// </summary>
@@ -272,7 +272,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPortfolioSearchResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPortfolioSearchResult>> SearchPortfoliosWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioSearchResult>> SearchPortfoliosWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// SearchProperties: Search Property Definitions
         /// </summary>
@@ -307,7 +307,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPropertyDefinitionSearchResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult>> SearchPropertiesWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPropertyDefinitionSearchResult>> SearchPropertiesWithHttpInfoAsync(string? search = default(string?), string? filter = default(string?), string? sortBy = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

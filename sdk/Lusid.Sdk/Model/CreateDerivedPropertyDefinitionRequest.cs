@@ -521,7 +521,8 @@ namespace Lusid.Sdk.Model
         /// <param name="dataTypeId">dataTypeId (required).</param>
         /// <param name="propertyDescription">Describes the property.</param>
         /// <param name="derivationFormula">The rule that defines how data is composed for a derived property. (required).</param>
-        public CreateDerivedPropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string propertyDescription = default(string), string derivationFormula = default(string))
+        /// <param name="isFilterable">Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering. (required).</param>
+        public CreateDerivedPropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string propertyDescription = default(string), string derivationFormula = default(string), bool isFilterable = default(bool))
         {
             this.Domain = domain;
             // to ensure "scope" is required (not null)
@@ -554,6 +555,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("derivationFormula is a required property for CreateDerivedPropertyDefinitionRequest and cannot be null");
             }
             this.DerivationFormula = derivationFormula;
+            this.IsFilterable = isFilterable;
             this.PropertyDescription = propertyDescription;
         }
 
@@ -599,6 +601,13 @@ namespace Lusid.Sdk.Model
         public string DerivationFormula { get; set; }
 
         /// <summary>
+        /// Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering.
+        /// </summary>
+        /// <value>Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering.</value>
+        [DataMember(Name = "isFilterable", IsRequired = true, EmitDefaultValue = true)]
+        public bool IsFilterable { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -613,6 +622,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DataTypeId: ").Append(DataTypeId).Append("\n");
             sb.Append("  PropertyDescription: ").Append(PropertyDescription).Append("\n");
             sb.Append("  DerivationFormula: ").Append(DerivationFormula).Append("\n");
+            sb.Append("  IsFilterable: ").Append(IsFilterable).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -681,6 +691,10 @@ namespace Lusid.Sdk.Model
                     this.DerivationFormula == input.DerivationFormula ||
                     (this.DerivationFormula != null &&
                     this.DerivationFormula.Equals(input.DerivationFormula))
+                ) && 
+                (
+                    this.IsFilterable == input.IsFilterable ||
+                    this.IsFilterable.Equals(input.IsFilterable)
                 );
         }
 
@@ -718,6 +732,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DerivationFormula.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsFilterable.GetHashCode();
                 return hashCode;
             }
         }

@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Lusid.Sdk.Client;
+using IApiAccessor = Lusid.Sdk.Client.IApiAccessor;
 using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BookTransactionsResponse</returns>
-        ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CancelOrders: Cancel existing orders
         /// </summary>
@@ -82,7 +82,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CancelOrdersResponse</returns>
-        ApiResponse<CancelOrdersResponse> CancelOrdersWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<CancelOrdersResponse> CancelOrdersWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks
         /// </summary>
@@ -107,7 +107,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CancelOrdersAndMoveRemainingResponse</returns>
-        ApiResponse<CancelOrdersAndMoveRemainingResponse> CancelOrdersAndMoveRemainingWithHttpInfo(Dictionary<string, CancelOrdersAndMoveRemainingRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<CancelOrdersAndMoveRemainingResponse> CancelOrdersAndMoveRemainingWithHttpInfo(Dictionary<string, CancelOrdersAndMoveRemainingRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
         /// </summary>
@@ -132,7 +132,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CancelPlacementsResponse</returns>
-        ApiResponse<CancelPlacementsResponse> CancelPlacementsWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse> CancelPlacementsWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
         /// </summary>
@@ -157,7 +157,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfBlockAndOrders</returns>
-        ApiResponse<ResourceListOfBlockAndOrders> CreateOrdersWithHttpInfo(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfBlockAndOrders> CreateOrdersWithHttpInfo(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
         /// </summary>
@@ -186,7 +186,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
-        ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
         /// </summary>
@@ -211,7 +211,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfMovedOrderToDifferentBlockResponse</returns>
-        ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersWithHttpInfo(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersWithHttpInfo(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
         /// </summary>
@@ -236,7 +236,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPlacement</returns>
-        ApiResponse<ResourceListOfPlacement> PlaceBlocksWithHttpInfo(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement> PlaceBlocksWithHttpInfo(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
         /// </summary>
@@ -263,7 +263,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationServiceRunResponse</returns>
-        ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithHttpInfo(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse> RunAllocationServiceWithHttpInfo(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateOrders: Update existing orders
         /// </summary>
@@ -288,7 +288,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpdateOrdersResponse</returns>
-        ApiResponse<UpdateOrdersResponse> UpdateOrdersWithHttpInfo(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<UpdateOrdersResponse> UpdateOrdersWithHttpInfo(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
         /// </summary>
@@ -313,7 +313,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpdatePlacementsResponse</returns>
-        ApiResponse<UpdatePlacementsResponse> UpdatePlacementsWithHttpInfo(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<UpdatePlacementsResponse> UpdatePlacementsWithHttpInfo(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -351,7 +351,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BookTransactionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CancelOrders: Cancel existing orders
         /// </summary>
@@ -378,7 +378,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CancelOrdersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CancelOrdersResponse>> CancelOrdersWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CancelOrdersResponse>> CancelOrdersWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks
         /// </summary>
@@ -405,7 +405,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CancelOrdersAndMoveRemainingResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CancelOrdersAndMoveRemainingResponse>> CancelOrdersAndMoveRemainingWithHttpInfoAsync(Dictionary<string, CancelOrdersAndMoveRemainingRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CancelOrdersAndMoveRemainingResponse>> CancelOrdersAndMoveRemainingWithHttpInfoAsync(Dictionary<string, CancelOrdersAndMoveRemainingRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
         /// </summary>
@@ -432,7 +432,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CancelPlacementsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CancelPlacementsResponse>> CancelPlacementsWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse>> CancelPlacementsWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
         /// </summary>
@@ -459,7 +459,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfBlockAndOrders)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfBlockAndOrders>> CreateOrdersWithHttpInfoAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfBlockAndOrders>> CreateOrdersWithHttpInfoAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
         /// </summary>
@@ -490,7 +490,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfChangeIntervalWithOrderManagementDetail)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail>> GetOrderHistoryWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail>> GetOrderHistoryWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
         /// </summary>
@@ -517,7 +517,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfMovedOrderToDifferentBlockResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse>> MoveOrdersWithHttpInfoAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse>> MoveOrdersWithHttpInfoAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
         /// </summary>
@@ -544,7 +544,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPlacement)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPlacement>> PlaceBlocksWithHttpInfoAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement>> PlaceBlocksWithHttpInfoAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
         /// </summary>
@@ -573,7 +573,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AllocationServiceRunResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithHttpInfoAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AllocationServiceRunResponse>> RunAllocationServiceWithHttpInfoAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateOrders: Update existing orders
         /// </summary>
@@ -600,7 +600,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpdateOrdersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpdateOrdersResponse>> UpdateOrdersWithHttpInfoAsync(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpdateOrdersResponse>> UpdateOrdersWithHttpInfoAsync(Dictionary<string, OrderUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
         /// </summary>
@@ -627,7 +627,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpdatePlacementsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpdatePlacementsResponse>> UpdatePlacementsWithHttpInfoAsync(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpdatePlacementsResponse>> UpdatePlacementsWithHttpInfoAsync(Dictionary<string, PlacementUpdateRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

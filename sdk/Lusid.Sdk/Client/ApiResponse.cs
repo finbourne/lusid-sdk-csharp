@@ -44,11 +44,6 @@ namespace Lusid.Sdk.Client
         string ErrorText { get; set; }
 
         /// <summary>
-        /// Gets or sets any cookies passed along on the response.
-        /// </summary>
-        List<Cookie> Cookies { get; set; }
-
-        /// <summary>
         /// The raw content of this response
         /// </summary>
         string RawContent { get; }
@@ -83,11 +78,6 @@ namespace Lusid.Sdk.Client
         /// Gets or sets any error text defined by the calling client.
         /// </summary>
         public string ErrorText { get; set; }
-
-        /// <summary>
-        /// Gets or sets any cookies passed along on the response.
-        /// </summary>
-        public List<Cookie> Cookies { get; set; }
 
         /// <summary>
         /// The content of this response

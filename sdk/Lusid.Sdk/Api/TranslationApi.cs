@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Lusid.Sdk.Client;
+using IApiAccessor = Lusid.Sdk.Client.IApiAccessor;
 using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
@@ -55,7 +55,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslateInstrumentDefinitionsResponse</returns>
-        ApiResponse<TranslateInstrumentDefinitionsResponse> TranslateInstrumentDefinitionsWithHttpInfo(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<TranslateInstrumentDefinitionsResponse> TranslateInstrumentDefinitionsWithHttpInfo(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] TranslateTradeTickets: Translate trade ticket
         /// </summary>
@@ -80,7 +80,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TranslateTradeTicketsResponse</returns>
-        ApiResponse<TranslateTradeTicketsResponse> TranslateTradeTicketsWithHttpInfo(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<TranslateTradeTicketsResponse> TranslateTradeTicketsWithHttpInfo(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -116,7 +116,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslateInstrumentDefinitionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TranslateInstrumentDefinitionsResponse>> TranslateInstrumentDefinitionsWithHttpInfoAsync(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslateInstrumentDefinitionsResponse>> TranslateInstrumentDefinitionsWithHttpInfoAsync(TranslateInstrumentDefinitionsRequest translateInstrumentDefinitionsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] TranslateTradeTickets: Translate trade ticket
         /// </summary>
@@ -143,7 +143,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TranslateTradeTicketsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TranslateTradeTicketsResponse>> TranslateTradeTicketsWithHttpInfoAsync(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TranslateTradeTicketsResponse>> TranslateTradeTicketsWithHttpInfoAsync(TranslateTradeTicketRequest translateTradeTicketRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

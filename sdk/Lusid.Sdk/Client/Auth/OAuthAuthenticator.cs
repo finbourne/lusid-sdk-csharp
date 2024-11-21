@@ -7,16 +7,17 @@
 
 using System;
 using System.Threading.Tasks;
+using Lusid.Sdk.Extensions;
 using Newtonsoft.Json;
-using RestSharp;
-using RestSharp.Authenticators;
+using Finbourne.Sdk.Core.RestSharp;
+using Finbourne.Sdk.Core.RestSharp.Authenticators;
 
 namespace Lusid.Sdk.Client.Auth
 {
     /// <summary>
     /// An authenticator for OAuth2 authentication flows
     /// </summary>
-    public class OAuthAuthenticator : AuthenticatorBase
+    public class OAuthAuthenticator
     {
         readonly string _tokenUrl;
         readonly string _clientId;
@@ -34,7 +35,7 @@ namespace Lusid.Sdk.Client.Auth
             string clientSecret,
             OAuthFlow? flow,
             JsonSerializerSettings serializerSettings,
-            IReadableConfiguration configuration) : base("")
+            IReadableConfiguration configuration)
         {
             _tokenUrl = tokenUrl;
             _clientId = clientId;
@@ -66,7 +67,7 @@ namespace Lusid.Sdk.Client.Auth
         /// </summary>
         /// <param name="accessToken">Access token to create a parameter from.</param>
         /// <returns>An authentication parameter.</returns>
-        protected override async ValueTask<Parameter> GetAuthenticationParameter(string accessToken)
+        protected async ValueTask<Parameter> GetAuthenticationParameter(string accessToken)
         {
             var token = string.IsNullOrEmpty(Token) ? await GetToken().ConfigureAwait(false) : Token;
             return new HeaderParameter(KnownHeaders.Authorization, token);
@@ -88,5 +89,18 @@ namespace Lusid.Sdk.Client.Auth
             var response = await client.PostAsync<TokenResponse>(request).ConfigureAwait(false);
             return $"{response.TokenType} {response.AccessToken}";
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        protected string Token { get; set; } = "";
+
+        // taken from https://github.com/restsharp/RestSharp/blob/dev/src/RestSharp/Authenticators/AuthenticatorBase.cs#L22
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request"></param>
+        public async ValueTask Authenticate(Request request)
+            => request.ToRestSharpRequest().AddOrUpdateParameter(await GetAuthenticationParameter(Token).ConfigureAwait(false));
     }
 }

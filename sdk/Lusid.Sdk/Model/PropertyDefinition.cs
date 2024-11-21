@@ -793,8 +793,9 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Set of unique property definition properties and associated values to store with the property definition. Each property must be from the &#39;PropertyDefinition&#39; domain..</param>
         /// <param name="version">version.</param>
         /// <param name="stagedModifications">stagedModifications.</param>
+        /// <param name="isFilterable">Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering..</param>
         /// <param name="links">links.</param>
-        public PropertyDefinition(string href = default(string), string key = default(string), ValueTypeEnum? valueType = default(ValueTypeEnum?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), TypeEnum? type = default(TypeEnum?), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), DomainEnum? domain = default(DomainEnum?), bool valueRequired = default(bool), LifeTimeEnum? lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), PropertyDefinitionTypeEnum? propertyDefinitionType = default(PropertyDefinitionTypeEnum?), string propertyDescription = default(string), string derivationFormula = default(string), string collectionType = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
+        public PropertyDefinition(string href = default(string), string key = default(string), ValueTypeEnum? valueType = default(ValueTypeEnum?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), TypeEnum? type = default(TypeEnum?), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), DomainEnum? domain = default(DomainEnum?), bool valueRequired = default(bool), LifeTimeEnum? lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), PropertyDefinitionTypeEnum? propertyDefinitionType = default(PropertyDefinitionTypeEnum?), string propertyDescription = default(string), string derivationFormula = default(string), string collectionType = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isFilterable = default(bool), List<Link> links = default(List<Link>))
         {
             this.Href = href;
             this.Key = key;
@@ -814,6 +815,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this._Version = version;
             this.StagedModifications = stagedModifications;
+            this.IsFilterable = isFilterable;
             this.Links = links;
         }
 
@@ -929,6 +931,13 @@ namespace Lusid.Sdk.Model
         public StagedModificationsInfo StagedModifications { get; set; }
 
         /// <summary>
+        /// Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering.
+        /// </summary>
+        /// <value>Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering.</value>
+        [DataMember(Name = "isFilterable", EmitDefaultValue = true)]
+        public bool IsFilterable { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -962,6 +971,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
+            sb.Append("  IsFilterable: ").Append(IsFilterable).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -1093,6 +1103,10 @@ namespace Lusid.Sdk.Model
                     this.StagedModifications.Equals(input.StagedModifications))
                 ) && 
                 (
+                    this.IsFilterable == input.IsFilterable ||
+                    this.IsFilterable.Equals(input.IsFilterable)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -1168,6 +1182,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsFilterable.GetHashCode();
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

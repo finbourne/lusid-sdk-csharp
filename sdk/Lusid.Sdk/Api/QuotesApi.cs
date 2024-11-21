@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Lusid.Sdk.Client;
+using IApiAccessor = Lusid.Sdk.Client.IApiAccessor;
 using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
@@ -69,7 +69,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of QuoteAccessMetadataRule</returns>
-        ApiResponse<QuoteAccessMetadataRule> DeleteQuoteAccessMetadataRuleWithHttpInfo(string scope, string? provider = default(string?), string? priceSource = default(string?), string? instrumentIdType = default(string?), string? instrumentId = default(string?), string? quoteType = default(string?), string? field = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<QuoteAccessMetadataRule> DeleteQuoteAccessMetadataRuleWithHttpInfo(string scope, string? provider = default(string?), string? priceSource = default(string?), string? instrumentIdType = default(string?), string? instrumentId = default(string?), string? quoteType = default(string?), string? field = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteQuotes: Delete quotes
         /// </summary>
@@ -96,7 +96,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AnnulQuotesResponse</returns>
-        ApiResponse<AnnulQuotesResponse> DeleteQuotesWithHttpInfo(string scope, Dictionary<string, QuoteId>? requestBody = default(Dictionary<string, QuoteId>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<AnnulQuotesResponse> DeleteQuotesWithHttpInfo(string scope, Dictionary<string, QuoteId>? requestBody = default(Dictionary<string, QuoteId>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetQuotes: Get quotes
         /// </summary>
@@ -129,7 +129,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetQuotesResponse</returns>
-        ApiResponse<GetQuotesResponse> GetQuotesWithHttpInfo(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), Dictionary<string, QuoteSeriesId>? requestBody = default(Dictionary<string, QuoteSeriesId>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<GetQuotesResponse> GetQuotesWithHttpInfo(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), Dictionary<string, QuoteSeriesId>? requestBody = default(Dictionary<string, QuoteSeriesId>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule
         /// </summary>
@@ -170,7 +170,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of QuoteAccessMetadataRule</returns>
-        ApiResponse<QuoteAccessMetadataRule> GetQuotesAccessMetadataRuleWithHttpInfo(string scope, string? provider = default(string?), string? priceSource = default(string?), string? instrumentIdType = default(string?), string? instrumentId = default(string?), string? quoteType = default(string?), string? field = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<QuoteAccessMetadataRule> GetQuotesAccessMetadataRuleWithHttpInfo(string scope, string? provider = default(string?), string? priceSource = default(string?), string? instrumentIdType = default(string?), string? instrumentId = default(string?), string? quoteType = default(string?), string? field = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] ListQuotes: List quotes
         /// </summary>
@@ -203,7 +203,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfQuote</returns>
-        ApiResponse<ResourceListOfQuote> ListQuotesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote> ListQuotesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
         /// </summary>
@@ -230,7 +230,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfQuoteAccessMetadataRule</returns>
-        ApiResponse<ResourceListOfQuoteAccessMetadataRule> ListQuotesAccessMetadataRulesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfQuoteAccessMetadataRule> ListQuotesAccessMetadataRulesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListQuotesForScope: List quotes for scope
         /// </summary>
@@ -263,7 +263,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfQuote</returns>
-        ApiResponse<ResourceListOfQuote> ListQuotesForScopeWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote> ListQuotesForScopeWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
         /// </summary>
@@ -294,7 +294,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of QuoteAccessMetadataRule</returns>
-        ApiResponse<QuoteAccessMetadataRule> UpsertQuoteAccessMetadataRuleWithHttpInfo(string scope, UpsertQuoteAccessMetadataRuleRequest upsertQuoteAccessMetadataRuleRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<QuoteAccessMetadataRule> UpsertQuoteAccessMetadataRuleWithHttpInfo(string scope, UpsertQuoteAccessMetadataRuleRequest upsertQuoteAccessMetadataRuleRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertQuotes: Upsert quotes
         /// </summary>
@@ -321,7 +321,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertQuotesResponse</returns>
-        ApiResponse<UpsertQuotesResponse> UpsertQuotesWithHttpInfo(string scope, Dictionary<string, UpsertQuoteRequest>? requestBody = default(Dictionary<string, UpsertQuoteRequest>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<UpsertQuotesResponse> UpsertQuotesWithHttpInfo(string scope, Dictionary<string, UpsertQuoteRequest>? requestBody = default(Dictionary<string, UpsertQuoteRequest>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -371,7 +371,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (QuoteAccessMetadataRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<QuoteAccessMetadataRule>> DeleteQuoteAccessMetadataRuleWithHttpInfoAsync(string scope, string? provider = default(string?), string? priceSource = default(string?), string? instrumentIdType = default(string?), string? instrumentId = default(string?), string? quoteType = default(string?), string? field = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<QuoteAccessMetadataRule>> DeleteQuoteAccessMetadataRuleWithHttpInfoAsync(string scope, string? provider = default(string?), string? priceSource = default(string?), string? instrumentIdType = default(string?), string? instrumentId = default(string?), string? quoteType = default(string?), string? field = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// DeleteQuotes: Delete quotes
         /// </summary>
@@ -400,7 +400,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AnnulQuotesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnnulQuotesResponse>> DeleteQuotesWithHttpInfoAsync(string scope, Dictionary<string, QuoteId>? requestBody = default(Dictionary<string, QuoteId>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulQuotesResponse>> DeleteQuotesWithHttpInfoAsync(string scope, Dictionary<string, QuoteId>? requestBody = default(Dictionary<string, QuoteId>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetQuotes: Get quotes
         /// </summary>
@@ -435,7 +435,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetQuotesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetQuotesResponse>> GetQuotesWithHttpInfoAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), Dictionary<string, QuoteSeriesId>? requestBody = default(Dictionary<string, QuoteSeriesId>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetQuotesResponse>> GetQuotesWithHttpInfoAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? maxAge = default(string?), Dictionary<string, QuoteSeriesId>? requestBody = default(Dictionary<string, QuoteSeriesId>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule
         /// </summary>
@@ -478,7 +478,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (QuoteAccessMetadataRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<QuoteAccessMetadataRule>> GetQuotesAccessMetadataRuleWithHttpInfoAsync(string scope, string? provider = default(string?), string? priceSource = default(string?), string? instrumentIdType = default(string?), string? instrumentId = default(string?), string? quoteType = default(string?), string? field = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<QuoteAccessMetadataRule>> GetQuotesAccessMetadataRuleWithHttpInfoAsync(string scope, string? provider = default(string?), string? priceSource = default(string?), string? instrumentIdType = default(string?), string? instrumentId = default(string?), string? quoteType = default(string?), string? field = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] ListQuotes: List quotes
         /// </summary>
@@ -513,7 +513,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfQuote)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfQuote>> ListQuotesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote>> ListQuotesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
         /// </summary>
@@ -542,7 +542,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfQuoteAccessMetadataRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfQuoteAccessMetadataRule>> ListQuotesAccessMetadataRulesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfQuoteAccessMetadataRule>> ListQuotesAccessMetadataRulesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListQuotesForScope: List quotes for scope
         /// </summary>
@@ -577,7 +577,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfQuote)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfQuote>> ListQuotesForScopeWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote>> ListQuotesForScopeWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
         /// </summary>
@@ -610,7 +610,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (QuoteAccessMetadataRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<QuoteAccessMetadataRule>> UpsertQuoteAccessMetadataRuleWithHttpInfoAsync(string scope, UpsertQuoteAccessMetadataRuleRequest upsertQuoteAccessMetadataRuleRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<QuoteAccessMetadataRule>> UpsertQuoteAccessMetadataRuleWithHttpInfoAsync(string scope, UpsertQuoteAccessMetadataRuleRequest upsertQuoteAccessMetadataRuleRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertQuotes: Upsert quotes
         /// </summary>
@@ -639,7 +639,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertQuotesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertQuotesResponse>> UpsertQuotesWithHttpInfoAsync(string scope, Dictionary<string, UpsertQuoteRequest>? requestBody = default(Dictionary<string, UpsertQuoteRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertQuotesResponse>> UpsertQuotesWithHttpInfoAsync(string scope, Dictionary<string, UpsertQuoteRequest>? requestBody = default(Dictionary<string, UpsertQuoteRequest>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

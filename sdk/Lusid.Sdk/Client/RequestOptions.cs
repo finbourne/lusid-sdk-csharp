@@ -46,11 +46,6 @@ namespace Lusid.Sdk.Client
         public Multimap<string, Stream> FileParameters { get; set; }
 
         /// <summary>
-        /// Cookies to be sent along with the request.
-        /// </summary>
-        public List<Cookie> Cookies { get; set; }
-
-        /// <summary>
         /// Operation associated with the request path.
         /// </summary>
         public string Operation { get; set; }
@@ -90,7 +85,6 @@ namespace Lusid.Sdk.Client
             HeaderParameters = new Multimap<string, string>();
             FormParameters = new Dictionary<string, string>();
             FileParameters = new Multimap<string, Stream>();
-            Cookies = new List<Cookie>();
         }
     }
 }

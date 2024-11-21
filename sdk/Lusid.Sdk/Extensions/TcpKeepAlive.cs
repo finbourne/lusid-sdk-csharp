@@ -5,15 +5,14 @@ using System.Net.Http;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
-using RestSharp;
+using Lusid.Sdk.Client;
 
 namespace Lusid.Sdk.Extensions;
 
 internal static class TcpKeepAlive
 {
-    public static HttpMessageHandler CreateTcpKeepAliveMessageHandler(RestClientOptions options)
+    public static HttpMessageHandler CreateTcpKeepAliveMessageHandler(ClientOptions options)
     {
-
         var handler = new SocketsHttpHandler
         {
             SslOptions = new SslClientAuthenticationOptions()
@@ -21,25 +20,18 @@ internal static class TcpKeepAlive
         // this stuff is mostly copied from RestClient to set options on the handler
         if (!OperatingSystem.IsBrowser()) {
             handler.UseCookies             = false;
-            handler.Credentials            = options.Credentials;
-            if (options.UseDefaultCredentials){
-                handler.Credentials  = CredentialCache.DefaultCredentials;
-            }
-            handler.AutomaticDecompression = options.AutomaticDecompression;
-            handler.PreAuthenticate        = options.PreAuthenticate;
-            if (options.MaxRedirects.HasValue) handler.MaxAutomaticRedirections = options.MaxRedirects.Value;
-
-            if (options.RemoteCertificateValidationCallback != null)
-                // cast request from object to HttpRequestMessage
-                handler.SslOptions.RemoteCertificateValidationCallback = 
-                    (request, cert, chain, errors) => options.RemoteCertificateValidationCallback((HttpRequestMessage)request, cert as X509Certificate2, chain, errors);
-
+#if NET
+            handler.AutomaticDecompression = DecompressionMethods.All;
+#else
+            handler.AutomaticDecompression = DecompressionMethods.GZip;
+#endif
+            handler.PreAuthenticate        = false;
             if (options.ClientCertificates != null) {
                 handler.SslOptions.ClientCertificates.AddRange(options.ClientCertificates);
                 // removed ClientCertificateOption - all HttpClientHandler does is call LocalCertificateSelectionCallback without passing a list of certs.
             }
         }
-        handler.AllowAutoRedirect = options.FollowRedirects;
+        handler.AllowAutoRedirect = true;
 
         if (!OperatingSystem.IsBrowser() && !OperatingSystem.IsIOS() && !OperatingSystem.IsTvOS()) {
             handler.Proxy = options.Proxy;
