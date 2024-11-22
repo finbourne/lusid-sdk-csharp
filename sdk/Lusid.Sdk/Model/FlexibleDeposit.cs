@@ -24,38 +24,41 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// LUSID representation of a Fixed Rate Leg.
+    /// LUSID flexible deposit instrument. Represents the basic building block of a bank account  structure that can handle deferred interest payments.
     /// </summary>
-    [DataContract(Name = "FixedLeg")]
+    [DataContract(Name = "FlexibleDeposit")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]
-    public partial class FixedLeg : InstrumentLeg, IEquatable<FixedLeg>, IValidatableObject
+    public partial class FlexibleDeposit : LusidInstrument, IEquatable<FlexibleDeposit>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedLeg" /> class.
+        /// Initializes a new instance of the <see cref="FlexibleDeposit" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FixedLeg() { }
+        protected FlexibleDeposit() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedLeg" /> class.
+        /// Initializes a new instance of the <see cref="FlexibleDeposit" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
-        /// <param name="legDefinition">legDefinition (required).</param>
-        /// <param name="notional">notional (required).</param>
-        /// <param name="overrides">overrides.</param>
-        /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;FixedLeg&quot;).</param>
-        public FixedLeg(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), LegDefinition legDefinition = default(LegDefinition), decimal notional = default(decimal), FixedLegAllOfOverrides overrides = default(FixedLegAllOfOverrides), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
+        /// <param name="schedules">Repayment schedules for the deposit instrument. (required).</param>
+        /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;FlexibleDeposit&quot;).</param>
+        public FlexibleDeposit(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), List<Schedule> schedules = default(List<Schedule>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
-            // to ensure "legDefinition" is required (not null)
-            if (legDefinition == null)
+            // to ensure "domCcy" is required (not null)
+            if (domCcy == null)
             {
-                throw new ArgumentNullException("legDefinition is a required property for FixedLeg and cannot be null");
+                throw new ArgumentNullException("domCcy is a required property for FlexibleDeposit and cannot be null");
             }
-            this.LegDefinition = legDefinition;
-            this.Notional = notional;
-            this.Overrides = overrides;
+            this.DomCcy = domCcy;
+            // to ensure "schedules" is required (not null)
+            if (schedules == null)
+            {
+                throw new ArgumentNullException("schedules is a required property for FlexibleDeposit and cannot be null");
+            }
+            this.Schedules = schedules;
         }
 
         /// <summary>
@@ -73,22 +76,18 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset MaturityDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets LegDefinition
+        /// The domestic currency of the instrument.
         /// </summary>
-        [DataMember(Name = "legDefinition", IsRequired = true, EmitDefaultValue = true)]
-        public LegDefinition LegDefinition { get; set; }
+        /// <value>The domestic currency of the instrument.</value>
+        [DataMember(Name = "domCcy", IsRequired = true, EmitDefaultValue = true)]
+        public string DomCcy { get; set; }
 
         /// <summary>
-        /// Gets or Sets Notional
+        /// Repayment schedules for the deposit instrument.
         /// </summary>
-        [DataMember(Name = "notional", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Notional { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Overrides
-        /// </summary>
-        [DataMember(Name = "overrides", EmitDefaultValue = true)]
-        public FixedLegAllOfOverrides Overrides { get; set; }
+        /// <value>Repayment schedules for the deposit instrument.</value>
+        [DataMember(Name = "schedules", IsRequired = true, EmitDefaultValue = true)]
+        public List<Schedule> Schedules { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,13 +96,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class FixedLeg {\n");
+            sb.Append("class FlexibleDeposit {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
-            sb.Append("  LegDefinition: ").Append(LegDefinition).Append("\n");
-            sb.Append("  Notional: ").Append(Notional).Append("\n");
-            sb.Append("  Overrides: ").Append(Overrides).Append("\n");
+            sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
+            sb.Append("  Schedules: ").Append(Schedules).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -124,15 +122,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FixedLeg);
+            return this.Equals(input as FlexibleDeposit);
         }
 
         /// <summary>
-        /// Returns true if FixedLeg instances are equal
+        /// Returns true if FlexibleDeposit instances are equal
         /// </summary>
-        /// <param name="input">Instance of FixedLeg to be compared</param>
+        /// <param name="input">Instance of FlexibleDeposit to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FixedLeg input)
+        public bool Equals(FlexibleDeposit input)
         {
             if (input == null)
             {
@@ -150,18 +148,15 @@ namespace Lusid.Sdk.Model
                     this.MaturityDate.Equals(input.MaturityDate))
                 ) && base.Equals(input) && 
                 (
-                    this.LegDefinition == input.LegDefinition ||
-                    (this.LegDefinition != null &&
-                    this.LegDefinition.Equals(input.LegDefinition))
+                    this.DomCcy == input.DomCcy ||
+                    (this.DomCcy != null &&
+                    this.DomCcy.Equals(input.DomCcy))
                 ) && base.Equals(input) && 
                 (
-                    this.Notional == input.Notional ||
-                    this.Notional.Equals(input.Notional)
-                ) && base.Equals(input) && 
-                (
-                    this.Overrides == input.Overrides ||
-                    (this.Overrides != null &&
-                    this.Overrides.Equals(input.Overrides))
+                    this.Schedules == input.Schedules ||
+                    this.Schedules != null &&
+                    input.Schedules != null &&
+                    this.Schedules.SequenceEqual(input.Schedules)
                 );
         }
 
@@ -182,14 +177,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
                 }
-                if (this.LegDefinition != null)
+                if (this.DomCcy != null)
                 {
-                    hashCode = (hashCode * 59) + this.LegDefinition.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Notional.GetHashCode();
-                if (this.Overrides != null)
+                if (this.Schedules != null)
                 {
-                    hashCode = (hashCode * 59) + this.Overrides.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Schedules.GetHashCode();
                 }
                 return hashCode;
             }

@@ -278,7 +278,13 @@ namespace Lusid.Sdk.Model
         /// Enum LoanFacility for value: LoanFacility
         /// </summary>
         [EnumMember(Value = "LoanFacility")]
-        LoanFacility = 42
+        LoanFacility = 42,
+
+        /// <summary>
+        /// Enum FlexibleDeposit for value: FlexibleDeposit
+        /// </summary>
+        [EnumMember(Value = "FlexibleDeposit")]
+        FlexibleDeposit = 43
 
     }
 

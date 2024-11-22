@@ -1021,6 +1021,8 @@ Class | Method | HTTP request | Description
  - [FixedLegAllOfOverrides](docs/FixedLegAllOfOverrides.md)
  - [FixedSchedule](docs/FixedSchedule.md)
  - [FixedScheduleAllOf](docs/FixedScheduleAllOf.md)
+ - [FlexibleDeposit](docs/FlexibleDeposit.md)
+ - [FlexibleDepositAllOf](docs/FlexibleDepositAllOf.md)
  - [FlexibleLoan](docs/FlexibleLoan.md)
  - [FlexibleLoanAllOf](docs/FlexibleLoanAllOf.md)
  - [FloatSchedule](docs/FloatSchedule.md)
