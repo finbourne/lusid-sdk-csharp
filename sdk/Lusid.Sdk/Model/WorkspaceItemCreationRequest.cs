@@ -37,11 +37,12 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="WorkspaceItemCreationRequest" /> class.
         /// </summary>
         /// <param name="format">A simple integer format identifier. (required).</param>
-        /// <param name="name">A workspace item&#39;s name; a unique identifier. (required).</param>
+        /// <param name="name">A workspace item&#39;s name. (required).</param>
+        /// <param name="group">The group containing a workspace item. (required).</param>
         /// <param name="description">The description of a workspace item. (required).</param>
         /// <param name="content">The content associated with a workspace item. (required).</param>
         /// <param name="type">The type of the workspace item. (required).</param>
-        public WorkspaceItemCreationRequest(int format = default(int), string name = default(string), string description = default(string), Object content = default(Object), string type = default(string))
+        public WorkspaceItemCreationRequest(int format = default(int), string name = default(string), string group = default(string), string description = default(string), Object content = default(Object), string type = default(string))
         {
             this.Format = format;
             // to ensure "name" is required (not null)
@@ -50,6 +51,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("name is a required property for WorkspaceItemCreationRequest and cannot be null");
             }
             this.Name = name;
+            // to ensure "group" is required (not null)
+            if (group == null)
+            {
+                throw new ArgumentNullException("group is a required property for WorkspaceItemCreationRequest and cannot be null");
+            }
+            this.Group = group;
             // to ensure "description" is required (not null)
             if (description == null)
             {
@@ -78,11 +85,18 @@ namespace Lusid.Sdk.Model
         public int Format { get; set; }
 
         /// <summary>
-        /// A workspace item&#39;s name; a unique identifier.
+        /// A workspace item&#39;s name.
         /// </summary>
-        /// <value>A workspace item&#39;s name; a unique identifier.</value>
+        /// <value>A workspace item&#39;s name.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// The group containing a workspace item.
+        /// </summary>
+        /// <value>The group containing a workspace item.</value>
+        [DataMember(Name = "group", IsRequired = true, EmitDefaultValue = true)]
+        public string Group { get; set; }
 
         /// <summary>
         /// The description of a workspace item.
@@ -115,6 +129,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class WorkspaceItemCreationRequest {\n");
             sb.Append("  Format: ").Append(Format).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Group: ").Append(Group).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -163,6 +178,11 @@ namespace Lusid.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.Group == input.Group ||
+                    (this.Group != null &&
+                    this.Group.Equals(input.Group))
+                ) && 
+                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
@@ -192,6 +212,10 @@ namespace Lusid.Sdk.Model
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.Group != null)
+                {
+                    hashCode = (hashCode * 59) + this.Group.GetHashCode();
                 }
                 if (this.Description != null)
                 {
@@ -233,6 +257,25 @@ namespace Lusid.Sdk.Model
             if (false == regexName.Match(this.Name).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });
+            }
+
+            // Group (string) maxLength
+            if (this.Group != null && this.Group.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Group, length must be less than 64.", new [] { "Group" });
+            }
+
+            // Group (string) minLength
+            if (this.Group != null && this.Group.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Group, length must be greater than 1.", new [] { "Group" });
+            }
+
+            // Group (string) pattern
+            Regex regexGroup = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexGroup.Match(this.Group).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Group, must match a pattern of " + regexGroup, new [] { "Group" });
             }
 
             // Description (string) maxLength

@@ -5,7 +5,7 @@ A workspace.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | A workspace&#39;s name; a unique identifier. | 
+**Name** | **string** | A workspace&#39;s name. | 
 **Description** | **string** | A friendly description for the workspace. | 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 

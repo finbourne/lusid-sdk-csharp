@@ -8,21 +8,21 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**CreatePersonalWorkspace**](WorkspaceApi.md#createpersonalworkspace) | **POST** /api/workspaces/personal | [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace. |
 | [**CreateSharedItem**](WorkspaceApi.md#createshareditem) | **POST** /api/workspaces/shared/{workspaceName}/items | [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace. |
 | [**CreateSharedWorkspace**](WorkspaceApi.md#createsharedworkspace) | **POST** /api/workspaces/shared | [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace. |
-| [**DeletePersonalItem**](WorkspaceApi.md#deletepersonalitem) | **DELETE** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace. |
+| [**DeletePersonalItem**](WorkspaceApi.md#deletepersonalitem) | **DELETE** /api/workspaces/personal/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace. |
 | [**DeletePersonalWorkspace**](WorkspaceApi.md#deletepersonalworkspace) | **DELETE** /api/workspaces/personal/{workspaceName} | [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace. |
-| [**DeleteSharedItem**](WorkspaceApi.md#deleteshareditem) | **DELETE** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace. |
+| [**DeleteSharedItem**](WorkspaceApi.md#deleteshareditem) | **DELETE** /api/workspaces/shared/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace. |
 | [**DeleteSharedWorkspace**](WorkspaceApi.md#deletesharedworkspace) | **DELETE** /api/workspaces/shared/{workspaceName} | [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace. |
-| [**GetPersonalItem**](WorkspaceApi.md#getpersonalitem) | **GET** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item. |
+| [**GetPersonalItem**](WorkspaceApi.md#getpersonalitem) | **GET** /api/workspaces/personal/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item. |
 | [**GetPersonalWorkspace**](WorkspaceApi.md#getpersonalworkspace) | **GET** /api/workspaces/personal/{workspaceName} | [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace. |
-| [**GetSharedItem**](WorkspaceApi.md#getshareditem) | **GET** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item. |
+| [**GetSharedItem**](WorkspaceApi.md#getshareditem) | **GET** /api/workspaces/shared/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item. |
 | [**GetSharedWorkspace**](WorkspaceApi.md#getsharedworkspace) | **GET** /api/workspaces/shared/{workspaceName} | [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace. |
 | [**ListPersonalItems**](WorkspaceApi.md#listpersonalitems) | **GET** /api/workspaces/personal/{workspaceName}/items | [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace. |
 | [**ListPersonalWorkspaces**](WorkspaceApi.md#listpersonalworkspaces) | **GET** /api/workspaces/personal | [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces. |
 | [**ListSharedItems**](WorkspaceApi.md#listshareditems) | **GET** /api/workspaces/shared/{workspaceName}/items | [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace. |
 | [**ListSharedWorkspaces**](WorkspaceApi.md#listsharedworkspaces) | **GET** /api/workspaces/shared | [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces. |
-| [**UpdatePersonalItem**](WorkspaceApi.md#updatepersonalitem) | **PUT** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace. |
+| [**UpdatePersonalItem**](WorkspaceApi.md#updatepersonalitem) | **PUT** /api/workspaces/personal/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace. |
 | [**UpdatePersonalWorkspace**](WorkspaceApi.md#updatepersonalworkspace) | **PUT** /api/workspaces/personal/{workspaceName} | [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace. |
-| [**UpdateSharedItem**](WorkspaceApi.md#updateshareditem) | **PUT** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace. |
+| [**UpdateSharedItem**](WorkspaceApi.md#updateshareditem) | **PUT** /api/workspaces/shared/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace. |
 | [**UpdateSharedWorkspace**](WorkspaceApi.md#updatesharedworkspace) | **PUT** /api/workspaces/shared/{workspaceName} | [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace. |
 
 <a id="createpersonalitem"></a>
@@ -487,7 +487,7 @@ catch (ApiException e)
 
 <a id="deletepersonalitem"></a>
 # **DeletePersonalItem**
-> DeletedEntityResponse DeletePersonalItem (string workspaceName, string itemName)
+> DeletedEntityResponse DeletePersonalItem (string workspaceName, string groupName, string itemName)
 
 [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
 
@@ -533,15 +533,16 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The name of the personal workspace.
+            var groupName = "groupName_example";  // string | The group containing the item.
             var itemName = "itemName_example";  // string | The name of the item.
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DeletedEntityResponse result = apiInstance.DeletePersonalItem(workspaceName, itemName, opts: opts);
+                // DeletedEntityResponse result = apiInstance.DeletePersonalItem(workspaceName, groupName, itemName, opts: opts);
 
                 // [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
-                DeletedEntityResponse result = apiInstance.DeletePersonalItem(workspaceName, itemName);
+                DeletedEntityResponse result = apiInstance.DeletePersonalItem(workspaceName, groupName, itemName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -562,7 +563,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
-    ApiResponse<DeletedEntityResponse> response = apiInstance.DeletePersonalItemWithHttpInfo(workspaceName, itemName);
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeletePersonalItemWithHttpInfo(workspaceName, groupName, itemName);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -580,6 +581,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **workspaceName** | **string** | The name of the personal workspace. |  |
+| **groupName** | **string** | The group containing the item. |  |
 | **itemName** | **string** | The name of the item. |  |
 
 ### Return type
@@ -717,7 +719,7 @@ catch (ApiException e)
 
 <a id="deleteshareditem"></a>
 # **DeleteSharedItem**
-> DeletedEntityResponse DeleteSharedItem (string workspaceName, string itemName)
+> DeletedEntityResponse DeleteSharedItem (string workspaceName, string groupName, string itemName)
 
 [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
 
@@ -763,15 +765,16 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The name of the shared workspace.
+            var groupName = "groupName_example";  // string | The group containing the item.
             var itemName = "itemName_example";  // string | The name of the item.
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DeletedEntityResponse result = apiInstance.DeleteSharedItem(workspaceName, itemName, opts: opts);
+                // DeletedEntityResponse result = apiInstance.DeleteSharedItem(workspaceName, groupName, itemName, opts: opts);
 
                 // [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
-                DeletedEntityResponse result = apiInstance.DeleteSharedItem(workspaceName, itemName);
+                DeletedEntityResponse result = apiInstance.DeleteSharedItem(workspaceName, groupName, itemName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -792,7 +795,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
-    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteSharedItemWithHttpInfo(workspaceName, itemName);
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteSharedItemWithHttpInfo(workspaceName, groupName, itemName);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -810,6 +813,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **workspaceName** | **string** | The name of the shared workspace. |  |
+| **groupName** | **string** | The group containing the item. |  |
 | **itemName** | **string** | The name of the item. |  |
 
 ### Return type
@@ -947,7 +951,7 @@ catch (ApiException e)
 
 <a id="getpersonalitem"></a>
 # **GetPersonalItem**
-> WorkspaceItem GetPersonalItem (string workspaceName, string itemName, DateTimeOffset? asAt = null)
+> WorkspaceItem GetPersonalItem (string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = null)
 
 [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
 
@@ -993,16 +997,17 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The name of the personal workspace.
+            var groupName = "groupName_example";  // string | The group containing the item.
             var itemName = "itemName_example";  // string | The name of the item.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The datetime at which to request the workspace item. If not provided, defaults to 'latest'. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // WorkspaceItem result = apiInstance.GetPersonalItem(workspaceName, itemName, asAt, opts: opts);
+                // WorkspaceItem result = apiInstance.GetPersonalItem(workspaceName, groupName, itemName, asAt, opts: opts);
 
                 // [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
-                WorkspaceItem result = apiInstance.GetPersonalItem(workspaceName, itemName, asAt);
+                WorkspaceItem result = apiInstance.GetPersonalItem(workspaceName, groupName, itemName, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1023,7 +1028,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
-    ApiResponse<WorkspaceItem> response = apiInstance.GetPersonalItemWithHttpInfo(workspaceName, itemName, asAt);
+    ApiResponse<WorkspaceItem> response = apiInstance.GetPersonalItemWithHttpInfo(workspaceName, groupName, itemName, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1041,6 +1046,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **workspaceName** | **string** | The name of the personal workspace. |  |
+| **groupName** | **string** | The group containing the item. |  |
 | **itemName** | **string** | The name of the item. |  |
 | **asAt** | **DateTimeOffset?** | The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. | [optional]  |
 
@@ -1181,7 +1187,7 @@ catch (ApiException e)
 
 <a id="getshareditem"></a>
 # **GetSharedItem**
-> WorkspaceItem GetSharedItem (string workspaceName, string itemName, DateTimeOffset? asAt = null)
+> WorkspaceItem GetSharedItem (string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = null)
 
 [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
 
@@ -1227,16 +1233,17 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The name of the shared workspace.
+            var groupName = "groupName_example";  // string | The group containing the item.
             var itemName = "itemName_example";  // string | The name of the item.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The datetime at which to request the workspace item. If not provided, defaults to 'latest'. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // WorkspaceItem result = apiInstance.GetSharedItem(workspaceName, itemName, asAt, opts: opts);
+                // WorkspaceItem result = apiInstance.GetSharedItem(workspaceName, groupName, itemName, asAt, opts: opts);
 
                 // [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
-                WorkspaceItem result = apiInstance.GetSharedItem(workspaceName, itemName, asAt);
+                WorkspaceItem result = apiInstance.GetSharedItem(workspaceName, groupName, itemName, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1257,7 +1264,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
-    ApiResponse<WorkspaceItem> response = apiInstance.GetSharedItemWithHttpInfo(workspaceName, itemName, asAt);
+    ApiResponse<WorkspaceItem> response = apiInstance.GetSharedItemWithHttpInfo(workspaceName, groupName, itemName, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1275,6 +1282,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **workspaceName** | **string** | The name of the shared workspace. |  |
+| **groupName** | **string** | The group containing the item. |  |
 | **itemName** | **string** | The name of the item. |  |
 | **asAt** | **DateTimeOffset?** | The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. | [optional]  |
 
@@ -1907,7 +1915,7 @@ catch (ApiException e)
 
 <a id="updatepersonalitem"></a>
 # **UpdatePersonalItem**
-> WorkspaceItem UpdatePersonalItem (string workspaceName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = null)
+> WorkspaceItem UpdatePersonalItem (string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = null)
 
 [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
 
@@ -1953,16 +1961,17 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The personal workspace name.
+            var groupName = "groupName_example";  // string | The group containing the item.
             var itemName = "itemName_example";  // string | The item name.
             var workspaceItemUpdateRequest = new WorkspaceItemUpdateRequest?(); // WorkspaceItemUpdateRequest? | The new item details. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // WorkspaceItem result = apiInstance.UpdatePersonalItem(workspaceName, itemName, workspaceItemUpdateRequest, opts: opts);
+                // WorkspaceItem result = apiInstance.UpdatePersonalItem(workspaceName, groupName, itemName, workspaceItemUpdateRequest, opts: opts);
 
                 // [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
-                WorkspaceItem result = apiInstance.UpdatePersonalItem(workspaceName, itemName, workspaceItemUpdateRequest);
+                WorkspaceItem result = apiInstance.UpdatePersonalItem(workspaceName, groupName, itemName, workspaceItemUpdateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1983,7 +1992,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
-    ApiResponse<WorkspaceItem> response = apiInstance.UpdatePersonalItemWithHttpInfo(workspaceName, itemName, workspaceItemUpdateRequest);
+    ApiResponse<WorkspaceItem> response = apiInstance.UpdatePersonalItemWithHttpInfo(workspaceName, groupName, itemName, workspaceItemUpdateRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2001,6 +2010,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **workspaceName** | **string** | The personal workspace name. |  |
+| **groupName** | **string** | The group containing the item. |  |
 | **itemName** | **string** | The item name. |  |
 | **workspaceItemUpdateRequest** | [**WorkspaceItemUpdateRequest?**](WorkspaceItemUpdateRequest?.md) | The new item details. | [optional]  |
 
@@ -2141,7 +2151,7 @@ catch (ApiException e)
 
 <a id="updateshareditem"></a>
 # **UpdateSharedItem**
-> WorkspaceItem UpdateSharedItem (string workspaceName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = null)
+> WorkspaceItem UpdateSharedItem (string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = null)
 
 [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
 
@@ -2187,16 +2197,17 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var workspaceName = "workspaceName_example";  // string | The shared workspace name.
+            var groupName = "groupName_example";  // string | The group containing the item.
             var itemName = "itemName_example";  // string | The item name.
             var workspaceItemUpdateRequest = new WorkspaceItemUpdateRequest?(); // WorkspaceItemUpdateRequest? | The new item details. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // WorkspaceItem result = apiInstance.UpdateSharedItem(workspaceName, itemName, workspaceItemUpdateRequest, opts: opts);
+                // WorkspaceItem result = apiInstance.UpdateSharedItem(workspaceName, groupName, itemName, workspaceItemUpdateRequest, opts: opts);
 
                 // [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
-                WorkspaceItem result = apiInstance.UpdateSharedItem(workspaceName, itemName, workspaceItemUpdateRequest);
+                WorkspaceItem result = apiInstance.UpdateSharedItem(workspaceName, groupName, itemName, workspaceItemUpdateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2217,7 +2228,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
-    ApiResponse<WorkspaceItem> response = apiInstance.UpdateSharedItemWithHttpInfo(workspaceName, itemName, workspaceItemUpdateRequest);
+    ApiResponse<WorkspaceItem> response = apiInstance.UpdateSharedItemWithHttpInfo(workspaceName, groupName, itemName, workspaceItemUpdateRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2235,6 +2246,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **workspaceName** | **string** | The shared workspace name. |  |
+| **groupName** | **string** | The group containing the item. |  |
 | **itemName** | **string** | The item name. |  |
 | **workspaceItemUpdateRequest** | [**WorkspaceItemUpdateRequest?**](WorkspaceItemUpdateRequest?.md) | The new item details. | [optional]  |
 

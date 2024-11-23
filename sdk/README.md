@@ -587,21 +587,21 @@ Class | Method | HTTP request | Description
 *WorkspaceApi* | [**CreatePersonalWorkspace**](docs/WorkspaceApi.md#createpersonalworkspace) | **POST** /api/workspaces/personal | [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
 *WorkspaceApi* | [**CreateSharedItem**](docs/WorkspaceApi.md#createshareditem) | **POST** /api/workspaces/shared/{workspaceName}/items | [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
 *WorkspaceApi* | [**CreateSharedWorkspace**](docs/WorkspaceApi.md#createsharedworkspace) | **POST** /api/workspaces/shared | [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
-*WorkspaceApi* | [**DeletePersonalItem**](docs/WorkspaceApi.md#deletepersonalitem) | **DELETE** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
+*WorkspaceApi* | [**DeletePersonalItem**](docs/WorkspaceApi.md#deletepersonalitem) | **DELETE** /api/workspaces/personal/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
 *WorkspaceApi* | [**DeletePersonalWorkspace**](docs/WorkspaceApi.md#deletepersonalworkspace) | **DELETE** /api/workspaces/personal/{workspaceName} | [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
-*WorkspaceApi* | [**DeleteSharedItem**](docs/WorkspaceApi.md#deleteshareditem) | **DELETE** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
+*WorkspaceApi* | [**DeleteSharedItem**](docs/WorkspaceApi.md#deleteshareditem) | **DELETE** /api/workspaces/shared/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
 *WorkspaceApi* | [**DeleteSharedWorkspace**](docs/WorkspaceApi.md#deletesharedworkspace) | **DELETE** /api/workspaces/shared/{workspaceName} | [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
-*WorkspaceApi* | [**GetPersonalItem**](docs/WorkspaceApi.md#getpersonalitem) | **GET** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
+*WorkspaceApi* | [**GetPersonalItem**](docs/WorkspaceApi.md#getpersonalitem) | **GET** /api/workspaces/personal/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
 *WorkspaceApi* | [**GetPersonalWorkspace**](docs/WorkspaceApi.md#getpersonalworkspace) | **GET** /api/workspaces/personal/{workspaceName} | [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
-*WorkspaceApi* | [**GetSharedItem**](docs/WorkspaceApi.md#getshareditem) | **GET** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
+*WorkspaceApi* | [**GetSharedItem**](docs/WorkspaceApi.md#getshareditem) | **GET** /api/workspaces/shared/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
 *WorkspaceApi* | [**GetSharedWorkspace**](docs/WorkspaceApi.md#getsharedworkspace) | **GET** /api/workspaces/shared/{workspaceName} | [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
 *WorkspaceApi* | [**ListPersonalItems**](docs/WorkspaceApi.md#listpersonalitems) | **GET** /api/workspaces/personal/{workspaceName}/items | [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
 *WorkspaceApi* | [**ListPersonalWorkspaces**](docs/WorkspaceApi.md#listpersonalworkspaces) | **GET** /api/workspaces/personal | [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
 *WorkspaceApi* | [**ListSharedItems**](docs/WorkspaceApi.md#listshareditems) | **GET** /api/workspaces/shared/{workspaceName}/items | [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
 *WorkspaceApi* | [**ListSharedWorkspaces**](docs/WorkspaceApi.md#listsharedworkspaces) | **GET** /api/workspaces/shared | [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
-*WorkspaceApi* | [**UpdatePersonalItem**](docs/WorkspaceApi.md#updatepersonalitem) | **PUT** /api/workspaces/personal/{workspaceName}/items/{itemName} | [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
+*WorkspaceApi* | [**UpdatePersonalItem**](docs/WorkspaceApi.md#updatepersonalitem) | **PUT** /api/workspaces/personal/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
 *WorkspaceApi* | [**UpdatePersonalWorkspace**](docs/WorkspaceApi.md#updatepersonalworkspace) | **PUT** /api/workspaces/personal/{workspaceName} | [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
-*WorkspaceApi* | [**UpdateSharedItem**](docs/WorkspaceApi.md#updateshareditem) | **PUT** /api/workspaces/shared/{workspaceName}/items/{itemName} | [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
+*WorkspaceApi* | [**UpdateSharedItem**](docs/WorkspaceApi.md#updateshareditem) | **PUT** /api/workspaces/shared/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
 *WorkspaceApi* | [**UpdateSharedWorkspace**](docs/WorkspaceApi.md#updatesharedworkspace) | **PUT** /api/workspaces/shared/{workspaceName} | [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
 
 
@@ -643,6 +643,8 @@ Class | Method | HTTP request | Description
  - [AddressKeyListComplianceParameter](docs/AddressKeyListComplianceParameter.md)
  - [AddressKeyListComplianceParameterAllOf](docs/AddressKeyListComplianceParameterAllOf.md)
  - [AddressKeyOptionDefinition](docs/AddressKeyOptionDefinition.md)
+ - [AdjustGlobalCommitmentEvent](docs/AdjustGlobalCommitmentEvent.md)
+ - [AdjustGlobalCommitmentEventAllOf](docs/AdjustGlobalCommitmentEventAllOf.md)
  - [AdjustHolding](docs/AdjustHolding.md)
  - [AdjustHoldingForDateRequest](docs/AdjustHoldingForDateRequest.md)
  - [AdjustHoldingRequest](docs/AdjustHoldingRequest.md)
@@ -834,8 +836,11 @@ Class | Method | HTTP request | Description
  - [ConstantVolatilitySurface](docs/ConstantVolatilitySurface.md)
  - [ConstantVolatilitySurfaceAllOf](docs/ConstantVolatilitySurfaceAllOf.md)
  - [ConstituentsAdjustmentHeader](docs/ConstituentsAdjustmentHeader.md)
+ - [ContractDetails](docs/ContractDetails.md)
  - [ContractForDifference](docs/ContractForDifference.md)
  - [ContractForDifferenceAllOf](docs/ContractForDifferenceAllOf.md)
+ - [ContractInitialisationEvent](docs/ContractInitialisationEvent.md)
+ - [ContractInitialisationEventAllOf](docs/ContractInitialisationEventAllOf.md)
  - [ContributionToNonPassingRuleDetail](docs/ContributionToNonPassingRuleDetail.md)
  - [CorporateAction](docs/CorporateAction.md)
  - [CorporateActionSource](docs/CorporateActionSource.md)
@@ -951,6 +956,8 @@ Class | Method | HTTP request | Description
  - [DividendOptionEvent](docs/DividendOptionEvent.md)
  - [DividendOptionEventAllOf](docs/DividendOptionEventAllOf.md)
  - [DividendReinvestmentEvent](docs/DividendReinvestmentEvent.md)
+ - [DrawdownEvent](docs/DrawdownEvent.md)
+ - [DrawdownEventAllOf](docs/DrawdownEventAllOf.md)
  - [EarlyRedemptionElection](docs/EarlyRedemptionElection.md)
  - [EarlyRedemptionEvent](docs/EarlyRedemptionEvent.md)
  - [EarlyRedemptionEventAllOf](docs/EarlyRedemptionEventAllOf.md)
@@ -1057,6 +1064,8 @@ Class | Method | HTTP request | Description
  - [FutureAllOf](docs/FutureAllOf.md)
  - [FutureExpiryEvent](docs/FutureExpiryEvent.md)
  - [FutureExpiryEventAllOf](docs/FutureExpiryEventAllOf.md)
+ - [FutureMarkToMarketEvent](docs/FutureMarkToMarketEvent.md)
+ - [FutureMarkToMarketEventAllOf](docs/FutureMarkToMarketEventAllOf.md)
  - [FuturesContractDetails](docs/FuturesContractDetails.md)
  - [FxConventions](docs/FxConventions.md)
  - [FxDependency](docs/FxDependency.md)

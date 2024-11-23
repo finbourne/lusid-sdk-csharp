@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkspaceCreationRequest" /> class.
         /// </summary>
-        /// <param name="name">A workspace&#39;s name; a unique identifier. (required).</param>
+        /// <param name="name">A workspace&#39;s name. (required).</param>
         /// <param name="description">A friendly description for the workspace. (required).</param>
         public WorkspaceCreationRequest(string name = default(string), string description = default(string))
         {
@@ -55,9 +55,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// A workspace&#39;s name; a unique identifier.
+        /// A workspace&#39;s name.
         /// </summary>
-        /// <value>A workspace&#39;s name; a unique identifier.</value>
+        /// <value>A workspace&#39;s name.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 

@@ -321,7 +321,31 @@ namespace Lusid.Sdk.Model
         /// Enum EarlyRedemptionEvent for value: EarlyRedemptionEvent
         /// </summary>
         [EnumMember(Value = "EarlyRedemptionEvent")]
-        EarlyRedemptionEvent = 49
+        EarlyRedemptionEvent = 49,
+
+        /// <summary>
+        /// Enum FutureMarkToMarketEvent for value: FutureMarkToMarketEvent
+        /// </summary>
+        [EnumMember(Value = "FutureMarkToMarketEvent")]
+        FutureMarkToMarketEvent = 50,
+
+        /// <summary>
+        /// Enum AdjustGlobalCommitmentEvent for value: AdjustGlobalCommitmentEvent
+        /// </summary>
+        [EnumMember(Value = "AdjustGlobalCommitmentEvent")]
+        AdjustGlobalCommitmentEvent = 51,
+
+        /// <summary>
+        /// Enum ContractInitialisationEvent for value: ContractInitialisationEvent
+        /// </summary>
+        [EnumMember(Value = "ContractInitialisationEvent")]
+        ContractInitialisationEvent = 52,
+
+        /// <summary>
+        /// Enum DrawdownEvent for value: DrawdownEvent
+        /// </summary>
+        [EnumMember(Value = "DrawdownEvent")]
+        DrawdownEvent = 53
 
     }
 
