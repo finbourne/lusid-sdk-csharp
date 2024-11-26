@@ -160,7 +160,7 @@ namespace Lusid.Sdk.Model
         /// <param name="quoteType">The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall (required).</param>
         /// <param name="field">The conceptual qualification for the field, such as bid, mid, or ask.  The field must be one of a defined set for the given supplier, in the same way as it  is for the Finbourne.WebApi.Interface.Dto.Quotes.QuoteSeriesId (required).</param>
         /// <param name="quoteInterval">Shorthand for the time interval used to select market data. This must be a dot-separated string              nominating a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago). The syntax              is &lt;i&gt;int&lt;/i&gt;&lt;i&gt;char&lt;/i&gt;.&lt;i&gt;int&lt;/i&gt;&lt;i&gt;char&lt;/i&gt;, where &lt;i&gt;char&lt;/i&gt; is one of D(ay), W(eek), M(onth) or Y(ear)..</param>
-        /// <param name="asAt">The AsAt predicate specification..</param>
+        /// <param name="asAt">Deprecated field which no longer has any effect on market data resolution..</param>
         /// <param name="priceSource">The source of the quote. For a given provider/supplier of market data there may be an additional qualifier, e.g. the exchange or bank that provided the quote.</param>
         /// <param name="mask">Allows for partial or complete override of the market asset resolved for a dependency  Either a named override or a dot separated string (A.B.C.D.*).  e.g. for Rates curve &#39;EUR.*&#39; will replace the resolve MarketAsset &#39;GBP/12M&#39;, &#39;GBP/3M&#39; with the EUR equivalent, if there  are no wildcards in the mask, the mask is taken as the MarketAsset for any dependency matching the rule..</param>
         /// <param name="dependencySourceFilter">dependencySourceFilter (required).</param>
@@ -243,9 +243,9 @@ namespace Lusid.Sdk.Model
         public string QuoteInterval { get; set; }
 
         /// <summary>
-        /// The AsAt predicate specification.
+        /// Deprecated field which no longer has any effect on market data resolution.
         /// </summary>
-        /// <value>The AsAt predicate specification.</value>
+        /// <value>Deprecated field which no longer has any effect on market data resolution.</value>
         [DataMember(Name = "asAt", EmitDefaultValue = true)]
         public DateTimeOffset? AsAt { get; set; }
 

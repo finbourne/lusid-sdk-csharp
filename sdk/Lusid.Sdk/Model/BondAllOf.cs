@@ -324,8 +324,9 @@ namespace Lusid.Sdk.Model
         /// <param name="roundingConventions">Rounding conventions for analytics, if any..</param>
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
         /// <param name="originalIssuePrice">The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%..</param>
+        /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required).</param>
-        public BondAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), FlowConventions flowConventions = default(FlowConventions), decimal principal = default(decimal), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), int? exDividendDays = default(int?), DateTimeOffset? initialCouponDate = default(DateTimeOffset?), DateTimeOffset? firstCouponPayDate = default(DateTimeOffset?), string calculationType = default(string), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), decimal? originalIssuePrice = default(decimal?), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public BondAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), FlowConventions flowConventions = default(FlowConventions), decimal principal = default(decimal), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), int? exDividendDays = default(int?), DateTimeOffset? initialCouponDate = default(DateTimeOffset?), DateTimeOffset? firstCouponPayDate = default(DateTimeOffset?), string calculationType = default(string), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), decimal? originalIssuePrice = default(decimal?), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -352,6 +353,7 @@ namespace Lusid.Sdk.Model
             this.RoundingConventions = roundingConventions;
             this.ExDividendConfiguration = exDividendConfiguration;
             this.OriginalIssuePrice = originalIssuePrice;
+            this.TradingConventions = tradingConventions;
         }
 
         /// <summary>
@@ -451,6 +453,12 @@ namespace Lusid.Sdk.Model
         public decimal? OriginalIssuePrice { get; set; }
 
         /// <summary>
+        /// Gets or Sets TradingConventions
+        /// </summary>
+        [DataMember(Name = "tradingConventions", EmitDefaultValue = false)]
+        public TradingConventions TradingConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -472,6 +480,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
             sb.Append("  ExDividendConfiguration: ").Append(ExDividendConfiguration).Append("\n");
             sb.Append("  OriginalIssuePrice: ").Append(OriginalIssuePrice).Append("\n");
+            sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -579,6 +588,11 @@ namespace Lusid.Sdk.Model
                     this.OriginalIssuePrice.Equals(input.OriginalIssuePrice))
                 ) && 
                 (
+                    this.TradingConventions == input.TradingConventions ||
+                    (this.TradingConventions != null &&
+                    this.TradingConventions.Equals(input.TradingConventions))
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -642,6 +656,10 @@ namespace Lusid.Sdk.Model
                 if (this.OriginalIssuePrice != null)
                 {
                     hashCode = (hashCode * 59) + this.OriginalIssuePrice.GetHashCode();
+                }
+                if (this.TradingConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;

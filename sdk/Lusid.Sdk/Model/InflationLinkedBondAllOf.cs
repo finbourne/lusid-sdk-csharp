@@ -325,8 +325,9 @@ namespace Lusid.Sdk.Model
         /// <param name="principalProtection">If true then the principal is protected in that the redemption amount will be at least the face value (Principal).  This is typically set to true for inflation linked bonds issued by the United States and France (for example).  This is typically set to false for inflation linked bonds issued by the United Kingdom (post 2005).  For other sovereigns this can vary from issue to issue.  If not set this property defaults to true.  This is sometimes referred to as Deflation protection or an inflation floor of 0%..</param>
         /// <param name="stubType">StubType. Most Inflation linked bonds have a ShortFront stub type so this is the default, however in some cases  with a long front stub LongFront should be selected.  StubType Both is not supported for InflationLinkedBonds.    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both]..</param>
         /// <param name="roundingConventions">Rounding conventions for analytics, if any..</param>
+        /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required).</param>
-        public InflationLinkedBondAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), InflationIndexConventions inflationIndexConventions = default(InflationIndexConventions), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), decimal? baseCPI = default(decimal?), DateTimeOffset? baseCPIDate = default(DateTimeOffset?), string calculationType = default(string), int? exDividendDays = default(int?), int indexPrecision = default(int), decimal principal = default(decimal), bool principalProtection = default(bool), string stubType = default(string), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public InflationLinkedBondAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), InflationIndexConventions inflationIndexConventions = default(InflationIndexConventions), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), decimal? baseCPI = default(decimal?), DateTimeOffset? baseCPIDate = default(DateTimeOffset?), string calculationType = default(string), int? exDividendDays = default(int?), int indexPrecision = default(int), decimal principal = default(decimal), bool principalProtection = default(bool), string stubType = default(string), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -354,6 +355,7 @@ namespace Lusid.Sdk.Model
             this.PrincipalProtection = principalProtection;
             this.StubType = stubType;
             this.RoundingConventions = roundingConventions;
+            this.TradingConventions = tradingConventions;
         }
 
         /// <summary>
@@ -460,6 +462,12 @@ namespace Lusid.Sdk.Model
         public List<RoundingConvention> RoundingConventions { get; set; }
 
         /// <summary>
+        /// Gets or Sets TradingConventions
+        /// </summary>
+        [DataMember(Name = "tradingConventions", EmitDefaultValue = false)]
+        public TradingConventions TradingConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -482,6 +490,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PrincipalProtection: ").Append(PrincipalProtection).Append("\n");
             sb.Append("  StubType: ").Append(StubType).Append("\n");
             sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
+            sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -592,6 +601,11 @@ namespace Lusid.Sdk.Model
                     this.RoundingConventions.SequenceEqual(input.RoundingConventions)
                 ) && 
                 (
+                    this.TradingConventions == input.TradingConventions ||
+                    (this.TradingConventions != null &&
+                    this.TradingConventions.Equals(input.TradingConventions))
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -653,6 +667,10 @@ namespace Lusid.Sdk.Model
                 if (this.RoundingConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.RoundingConventions.GetHashCode();
+                }
+                if (this.TradingConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;

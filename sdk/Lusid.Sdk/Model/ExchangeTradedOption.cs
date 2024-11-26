@@ -42,8 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="contractDetails">contractDetails (required).</param>
         /// <param name="contracts">The number of contracts held. (required).</param>
         /// <param name="refSpotPrice">The reference spot price for the option at which the contract was entered into. (required).</param>
+        /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;ExchangeTradedOption&quot;).</param>
-        public ExchangeTradedOption(DateTimeOffset startDate = default(DateTimeOffset), ExchangeTradedOptionContractDetails contractDetails = default(ExchangeTradedOptionContractDetails), decimal contracts = default(decimal), decimal refSpotPrice = default(decimal), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public ExchangeTradedOption(DateTimeOffset startDate = default(DateTimeOffset), ExchangeTradedOptionContractDetails contractDetails = default(ExchangeTradedOptionContractDetails), decimal contracts = default(decimal), decimal refSpotPrice = default(decimal), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             // to ensure "contractDetails" is required (not null)
@@ -54,6 +55,7 @@ namespace Lusid.Sdk.Model
             this.ContractDetails = contractDetails;
             this.Contracts = contracts;
             this.RefSpotPrice = refSpotPrice;
+            this.TradingConventions = tradingConventions;
         }
 
         /// <summary>
@@ -84,6 +86,12 @@ namespace Lusid.Sdk.Model
         public decimal RefSpotPrice { get; set; }
 
         /// <summary>
+        /// Gets or Sets TradingConventions
+        /// </summary>
+        [DataMember(Name = "tradingConventions", EmitDefaultValue = false)]
+        public TradingConventions TradingConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -96,6 +104,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ContractDetails: ").Append(ContractDetails).Append("\n");
             sb.Append("  Contracts: ").Append(Contracts).Append("\n");
             sb.Append("  RefSpotPrice: ").Append(RefSpotPrice).Append("\n");
+            sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,6 +157,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.RefSpotPrice == input.RefSpotPrice ||
                     this.RefSpotPrice.Equals(input.RefSpotPrice)
+                ) && base.Equals(input) && 
+                (
+                    this.TradingConventions == input.TradingConventions ||
+                    (this.TradingConventions != null &&
+                    this.TradingConventions.Equals(input.TradingConventions))
                 );
         }
 
@@ -170,6 +184,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.Contracts.GetHashCode();
                 hashCode = (hashCode * 59) + this.RefSpotPrice.GetHashCode();
+                if (this.TradingConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
+                }
                 return hashCode;
             }
         }

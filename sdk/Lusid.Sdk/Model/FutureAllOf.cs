@@ -315,11 +315,13 @@ namespace Lusid.Sdk.Model
         /// <param name="identifiers">External market codes and identifiers for the bond, e.g. ISIN. (required).</param>
         /// <param name="contractDetails">contractDetails (required).</param>
         /// <param name="contracts">The number of contracts held..</param>
+        /// <param name="markToMarketConventions">markToMarketConventions.</param>
         /// <param name="refSpotPrice">The reference spot price for the future at which the contract was entered into..</param>
         /// <param name="underlying">underlying.</param>
-        /// <param name="calculationType">Calculation type for some Future instruments which have non-standard methodology.  Optional, if not set defaults as follows:  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;IR\&quot; or \&quot;BB\&quot; set to ASX_BankBills  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;YT\&quot; set to ASX_3Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;VT\&quot; set to ASX_5Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;XT\&quot; set to ASX_10Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;LT\&quot; set to ASX_20Year  - otherwise set to Standard    Specific calculation types for bond and interest rate futures are:  - [Standard] The default calculation type, which does not fit into any of the categories below.  - [ASX_BankBills] Used for AUD and NZD futures “IR” and “BB” on ASX. 90D Bank Bills.  - [ASX_3Year] Used for “YT” on ASX. 3YR semi-annual bond (6 coupons) @ 6%.  - [ASX_5Year] Used for “VT” on ASX. 5yr semi-annual bond (10 coupons) @ 2%.  - [ASX_10Year] Used for “XT” on ASX. 10yr semi-annual bond (20 coupons) @ 6%.  - [ASX_20Year] Used for “LT” on ASX. 20yr semi-annual bond (40 coupons) @ 4%.  - [B3_DI1] Used for “DI1” on B3. Average of 1D interbank deposit rates.    - For futures with this calculation type, quote values are expected to be specified as a percentage.      For example, a quoted rate of 13.205% should be specified as a quote of 13.205 with a face value of 100.    Supported string (enumeration) values are: [Standard, ASX_BankBills, ASX_3Year, ASX_5Year, ASX_10Year, ASX_20Year, B3_DI1]..</param>
+        /// <param name="calculationType">Calculation type for some Future instruments which have non-standard methodology.  Optional, if not set defaults as follows:  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;IR\&quot; or \&quot;BB\&quot; set to ASX_BankBills  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;YT\&quot; set to ASX_3Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;VT\&quot; set to ASX_5Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;XT\&quot; set to ASX_10Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;LT\&quot; set to ASX_20Year  - otherwise set to Standard                Specific calculation types for bond and interest rate futures are:  - [Standard] The default calculation type, which does not fit into any of the categories below.  - [ASX_BankBills] Used for AUD and NZD futures “IR” and “BB” on ASX. 90D Bank Bills.  - [ASX_3Year] Used for “YT” on ASX. 3YR semi-annual bond (6 coupons) @ 6%.  - [ASX_5Year] Used for “VT” on ASX. 5yr semi-annual bond (10 coupons) @ 2%.  - [ASX_10Year] Used for “XT” on ASX. 10yr semi-annual bond (20 coupons) @ 6%.  - [ASX_20Year] Used for “LT” on ASX. 20yr semi-annual bond (40 coupons) @ 4%.  - [B3_DI1] Used for “DI1” on B3. Average of 1D interbank deposit rates.    - For futures with this calculation type, quote values are expected to be specified as a percentage.      For example, a quoted rate of 13.205% should be specified as a quote of 13.205 with a face value of 100.                Supported string (enumeration) values are: [Standard, ASX_BankBills, ASX_3Year, ASX_5Year, ASX_10Year, ASX_20Year, B3_DI1]..</param>
+        /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required).</param>
-        public FutureAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), Dictionary<string, string> identifiers = default(Dictionary<string, string>), FuturesContractDetails contractDetails = default(FuturesContractDetails), decimal contracts = default(decimal), decimal refSpotPrice = default(decimal), LusidInstrument underlying = default(LusidInstrument), string calculationType = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public FutureAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), Dictionary<string, string> identifiers = default(Dictionary<string, string>), FuturesContractDetails contractDetails = default(FuturesContractDetails), decimal contracts = default(decimal), MarkToMarketConventions markToMarketConventions = default(MarkToMarketConventions), decimal refSpotPrice = default(decimal), LusidInstrument underlying = default(LusidInstrument), string calculationType = default(string), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -337,9 +339,11 @@ namespace Lusid.Sdk.Model
             this.ContractDetails = contractDetails;
             this.InstrumentType = instrumentType;
             this.Contracts = contracts;
+            this.MarkToMarketConventions = markToMarketConventions;
             this.RefSpotPrice = refSpotPrice;
             this.Underlying = underlying;
             this.CalculationType = calculationType;
+            this.TradingConventions = tradingConventions;
         }
 
         /// <summary>
@@ -377,6 +381,12 @@ namespace Lusid.Sdk.Model
         public decimal Contracts { get; set; }
 
         /// <summary>
+        /// Gets or Sets MarkToMarketConventions
+        /// </summary>
+        [DataMember(Name = "markToMarketConventions", EmitDefaultValue = false)]
+        public MarkToMarketConventions MarkToMarketConventions { get; set; }
+
+        /// <summary>
         /// The reference spot price for the future at which the contract was entered into.
         /// </summary>
         /// <value>The reference spot price for the future at which the contract was entered into.</value>
@@ -390,11 +400,17 @@ namespace Lusid.Sdk.Model
         public LusidInstrument Underlying { get; set; }
 
         /// <summary>
-        /// Calculation type for some Future instruments which have non-standard methodology.  Optional, if not set defaults as follows:  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;IR\&quot; or \&quot;BB\&quot; set to ASX_BankBills  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;YT\&quot; set to ASX_3Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;VT\&quot; set to ASX_5Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;XT\&quot; set to ASX_10Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;LT\&quot; set to ASX_20Year  - otherwise set to Standard    Specific calculation types for bond and interest rate futures are:  - [Standard] The default calculation type, which does not fit into any of the categories below.  - [ASX_BankBills] Used for AUD and NZD futures “IR” and “BB” on ASX. 90D Bank Bills.  - [ASX_3Year] Used for “YT” on ASX. 3YR semi-annual bond (6 coupons) @ 6%.  - [ASX_5Year] Used for “VT” on ASX. 5yr semi-annual bond (10 coupons) @ 2%.  - [ASX_10Year] Used for “XT” on ASX. 10yr semi-annual bond (20 coupons) @ 6%.  - [ASX_20Year] Used for “LT” on ASX. 20yr semi-annual bond (40 coupons) @ 4%.  - [B3_DI1] Used for “DI1” on B3. Average of 1D interbank deposit rates.    - For futures with this calculation type, quote values are expected to be specified as a percentage.      For example, a quoted rate of 13.205% should be specified as a quote of 13.205 with a face value of 100.    Supported string (enumeration) values are: [Standard, ASX_BankBills, ASX_3Year, ASX_5Year, ASX_10Year, ASX_20Year, B3_DI1].
+        /// Calculation type for some Future instruments which have non-standard methodology.  Optional, if not set defaults as follows:  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;IR\&quot; or \&quot;BB\&quot; set to ASX_BankBills  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;YT\&quot; set to ASX_3Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;VT\&quot; set to ASX_5Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;XT\&quot; set to ASX_10Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;LT\&quot; set to ASX_20Year  - otherwise set to Standard                Specific calculation types for bond and interest rate futures are:  - [Standard] The default calculation type, which does not fit into any of the categories below.  - [ASX_BankBills] Used for AUD and NZD futures “IR” and “BB” on ASX. 90D Bank Bills.  - [ASX_3Year] Used for “YT” on ASX. 3YR semi-annual bond (6 coupons) @ 6%.  - [ASX_5Year] Used for “VT” on ASX. 5yr semi-annual bond (10 coupons) @ 2%.  - [ASX_10Year] Used for “XT” on ASX. 10yr semi-annual bond (20 coupons) @ 6%.  - [ASX_20Year] Used for “LT” on ASX. 20yr semi-annual bond (40 coupons) @ 4%.  - [B3_DI1] Used for “DI1” on B3. Average of 1D interbank deposit rates.    - For futures with this calculation type, quote values are expected to be specified as a percentage.      For example, a quoted rate of 13.205% should be specified as a quote of 13.205 with a face value of 100.                Supported string (enumeration) values are: [Standard, ASX_BankBills, ASX_3Year, ASX_5Year, ASX_10Year, ASX_20Year, B3_DI1].
         /// </summary>
-        /// <value>Calculation type for some Future instruments which have non-standard methodology.  Optional, if not set defaults as follows:  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;IR\&quot; or \&quot;BB\&quot; set to ASX_BankBills  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;YT\&quot; set to ASX_3Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;VT\&quot; set to ASX_5Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;XT\&quot; set to ASX_10Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;LT\&quot; set to ASX_20Year  - otherwise set to Standard    Specific calculation types for bond and interest rate futures are:  - [Standard] The default calculation type, which does not fit into any of the categories below.  - [ASX_BankBills] Used for AUD and NZD futures “IR” and “BB” on ASX. 90D Bank Bills.  - [ASX_3Year] Used for “YT” on ASX. 3YR semi-annual bond (6 coupons) @ 6%.  - [ASX_5Year] Used for “VT” on ASX. 5yr semi-annual bond (10 coupons) @ 2%.  - [ASX_10Year] Used for “XT” on ASX. 10yr semi-annual bond (20 coupons) @ 6%.  - [ASX_20Year] Used for “LT” on ASX. 20yr semi-annual bond (40 coupons) @ 4%.  - [B3_DI1] Used for “DI1” on B3. Average of 1D interbank deposit rates.    - For futures with this calculation type, quote values are expected to be specified as a percentage.      For example, a quoted rate of 13.205% should be specified as a quote of 13.205 with a face value of 100.    Supported string (enumeration) values are: [Standard, ASX_BankBills, ASX_3Year, ASX_5Year, ASX_10Year, ASX_20Year, B3_DI1].</value>
+        /// <value>Calculation type for some Future instruments which have non-standard methodology.  Optional, if not set defaults as follows:  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;IR\&quot; or \&quot;BB\&quot; set to ASX_BankBills  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;YT\&quot; set to ASX_3Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;VT\&quot; set to ASX_5Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;XT\&quot; set to ASX_10Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;LT\&quot; set to ASX_20Year  - otherwise set to Standard                Specific calculation types for bond and interest rate futures are:  - [Standard] The default calculation type, which does not fit into any of the categories below.  - [ASX_BankBills] Used for AUD and NZD futures “IR” and “BB” on ASX. 90D Bank Bills.  - [ASX_3Year] Used for “YT” on ASX. 3YR semi-annual bond (6 coupons) @ 6%.  - [ASX_5Year] Used for “VT” on ASX. 5yr semi-annual bond (10 coupons) @ 2%.  - [ASX_10Year] Used for “XT” on ASX. 10yr semi-annual bond (20 coupons) @ 6%.  - [ASX_20Year] Used for “LT” on ASX. 20yr semi-annual bond (40 coupons) @ 4%.  - [B3_DI1] Used for “DI1” on B3. Average of 1D interbank deposit rates.    - For futures with this calculation type, quote values are expected to be specified as a percentage.      For example, a quoted rate of 13.205% should be specified as a quote of 13.205 with a face value of 100.                Supported string (enumeration) values are: [Standard, ASX_BankBills, ASX_3Year, ASX_5Year, ASX_10Year, ASX_20Year, B3_DI1].</value>
         [DataMember(Name = "calculationType", EmitDefaultValue = true)]
         public string CalculationType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TradingConventions
+        /// </summary>
+        [DataMember(Name = "tradingConventions", EmitDefaultValue = false)]
+        public TradingConventions TradingConventions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -409,9 +425,11 @@ namespace Lusid.Sdk.Model
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  ContractDetails: ").Append(ContractDetails).Append("\n");
             sb.Append("  Contracts: ").Append(Contracts).Append("\n");
+            sb.Append("  MarkToMarketConventions: ").Append(MarkToMarketConventions).Append("\n");
             sb.Append("  RefSpotPrice: ").Append(RefSpotPrice).Append("\n");
             sb.Append("  Underlying: ").Append(Underlying).Append("\n");
             sb.Append("  CalculationType: ").Append(CalculationType).Append("\n");
+            sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -474,6 +492,11 @@ namespace Lusid.Sdk.Model
                     this.Contracts.Equals(input.Contracts)
                 ) && 
                 (
+                    this.MarkToMarketConventions == input.MarkToMarketConventions ||
+                    (this.MarkToMarketConventions != null &&
+                    this.MarkToMarketConventions.Equals(input.MarkToMarketConventions))
+                ) && 
+                (
                     this.RefSpotPrice == input.RefSpotPrice ||
                     this.RefSpotPrice.Equals(input.RefSpotPrice)
                 ) && 
@@ -486,6 +509,11 @@ namespace Lusid.Sdk.Model
                     this.CalculationType == input.CalculationType ||
                     (this.CalculationType != null &&
                     this.CalculationType.Equals(input.CalculationType))
+                ) && 
+                (
+                    this.TradingConventions == input.TradingConventions ||
+                    (this.TradingConventions != null &&
+                    this.TradingConventions.Equals(input.TradingConventions))
                 ) && 
                 (
                     this.InstrumentType == input.InstrumentType ||
@@ -519,6 +547,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.ContractDetails.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Contracts.GetHashCode();
+                if (this.MarkToMarketConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.MarkToMarketConventions.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.RefSpotPrice.GetHashCode();
                 if (this.Underlying != null)
                 {
@@ -527,6 +559,10 @@ namespace Lusid.Sdk.Model
                 if (this.CalculationType != null)
                 {
                     hashCode = (hashCode * 59) + this.CalculationType.GetHashCode();
+                }
+                if (this.TradingConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;
