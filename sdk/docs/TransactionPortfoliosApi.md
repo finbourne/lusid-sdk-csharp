@@ -11,6 +11,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**BatchUpsertTransactions**](TransactionPortfoliosApi.md#batchupserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$batchUpsert | [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions |
 | [**BuildTransactions**](TransactionPortfoliosApi.md#buildtransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$build | BuildTransactions: Build transactions |
 | [**CancelAdjustHoldings**](TransactionPortfoliosApi.md#canceladjustholdings) | **DELETE** /api/transactionportfolios/{scope}/{code}/holdings | CancelAdjustHoldings: Cancel adjust holdings |
+| [**CancelSingleAdjustHolding**](TransactionPortfoliosApi.md#cancelsingleadjustholding) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$cancelAdjustment | [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment. |
 | [**CancelTransactions**](TransactionPortfoliosApi.md#canceltransactions) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions | CancelTransactions: Cancel transactions |
 | [**CreatePortfolio**](TransactionPortfoliosApi.md#createportfolio) | **POST** /api/transactionportfolios/{scope} | CreatePortfolio: Create portfolio |
 | [**CreateTradeTicket**](TransactionPortfoliosApi.md#createtradeticket) | **POST** /api/transactionportfolios/{scope}/{code}/$tradeticket | [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket |
@@ -891,6 +892,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The datetime that the holding adjustments were cancelled |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="cancelsingleadjustholding"></a>
+# **CancelSingleAdjustHolding**
+> DeletedEntityResponse CancelSingleAdjustHolding (string scope, string code, DateTimeOrCutLabel effectiveAt, CancelSingleHoldingAdjustmentRequest cancelSingleHoldingAdjustmentRequest)
+
+[EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment.
+
+Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
+            var scope = "scope_example";  // string | The scope of the transaction portfolio.
+            var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel | The effective datetime or cut label at which the previous adjustment was made.
+            var cancelSingleHoldingAdjustmentRequest = new CancelSingleHoldingAdjustmentRequest(); // CancelSingleHoldingAdjustmentRequest | The selected holding adjustment to be canceled.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.CancelSingleAdjustHolding(scope, code, effectiveAt, cancelSingleHoldingAdjustmentRequest, opts: opts);
+
+                // [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment.
+                DeletedEntityResponse result = apiInstance.CancelSingleAdjustHolding(scope, code, effectiveAt, cancelSingleHoldingAdjustmentRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TransactionPortfoliosApi.CancelSingleAdjustHolding: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CancelSingleAdjustHoldingWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment.
+    ApiResponse<DeletedEntityResponse> response = apiInstance.CancelSingleAdjustHoldingWithHttpInfo(scope, code, effectiveAt, cancelSingleHoldingAdjustmentRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TransactionPortfoliosApi.CancelSingleAdjustHoldingWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the transaction portfolio. |  |
+| **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. |  |
+| **effectiveAt** | **DateTimeOrCutLabel** | The effective datetime or cut label at which the previous adjustment was made. |  |
+| **cancelSingleHoldingAdjustmentRequest** | [**CancelSingleHoldingAdjustmentRequest**](CancelSingleHoldingAdjustmentRequest.md) | The selected holding adjustment to be canceled. |  |
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The datetime that the holding adjustment was cancelled |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
