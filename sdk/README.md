@@ -221,6 +221,7 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**GetFund**](docs/FundsApi.md#getfund) | **GET** /api/funds/{scope}/{code} | [EXPERIMENTAL] GetFund: Get a Fund.
 *FundsApi* | [**GetValuationPointData**](docs/FundsApi.md#getvaluationpointdata) | **POST** /api/funds/{scope}/{code}/valuationpoints/$query | [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
 *FundsApi* | [**GetValuationPointJournalEntryLines**](docs/FundsApi.md#getvaluationpointjournalentrylines) | **POST** /api/funds/{scope}/{code}/valuationpoints/journalentrylines/$query | [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund.
+*FundsApi* | [**GetValuationPointPnlSummary**](docs/FundsApi.md#getvaluationpointpnlsummary) | **POST** /api/funds/{scope}/{code}/valuationpoints/pnlsummary/$query | [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
 *FundsApi* | [**GetValuationPointTrialBalance**](docs/FundsApi.md#getvaluationpointtrialbalance) | **POST** /api/funds/{scope}/{code}/valuationpoints/trialbalance/$query | [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
 *FundsApi* | [**ListFees**](docs/FundsApi.md#listfees) | **GET** /api/funds/{scope}/{code}/fees | [EXPERIMENTAL] ListFees: List Fees for a specified Fund.
 *FundsApi* | [**ListFunds**](docs/FundsApi.md#listfunds) | **GET** /api/funds | [EXPERIMENTAL] ListFunds: List Funds.
@@ -1451,6 +1452,7 @@ Class | Method | HTTP request | Description
  - [PlacementRequest](docs/PlacementRequest.md)
  - [PlacementSetRequest](docs/PlacementSetRequest.md)
  - [PlacementUpdateRequest](docs/PlacementUpdateRequest.md)
+ - [PnlJournalEntryLine](docs/PnlJournalEntryLine.md)
  - [Portfolio](docs/Portfolio.md)
  - [PortfolioCashFlow](docs/PortfolioCashFlow.md)
  - [PortfolioCashLadder](docs/PortfolioCashLadder.md)
@@ -1905,6 +1907,7 @@ Class | Method | HTTP request | Description
  - [ValuationPointDataResponse](docs/ValuationPointDataResponse.md)
  - [ValuationPointOverview](docs/ValuationPointOverview.md)
  - [ValuationPointResourceListOfJournalEntryLine](docs/ValuationPointResourceListOfJournalEntryLine.md)
+ - [ValuationPointResourceListOfPnlJournalEntryLine](docs/ValuationPointResourceListOfPnlJournalEntryLine.md)
  - [ValuationPointResourceListOfTrialBalance](docs/ValuationPointResourceListOfTrialBalance.md)
  - [ValuationRequest](docs/ValuationRequest.md)
  - [ValuationSchedule](docs/ValuationSchedule.md)

@@ -43,8 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="units">The value, field or property key defining the side&#39;s units. (required).</param>
         /// <param name="amount">The value, field or property key defining the side&#39;s amount (required).</param>
         /// <param name="notionalAmount">The value, field or property key defining the side&#39;s notional amount.</param>
+        /// <param name="currentFace">The value, field or property key defining the side&#39;s current face / outstanding notional..</param>
         /// <param name="links">links.</param>
-        public SideDefinition(string side = default(string), string security = default(string), string currency = default(string), string rate = default(string), string units = default(string), string amount = default(string), string notionalAmount = default(string), List<Link> links = default(List<Link>))
+        public SideDefinition(string side = default(string), string security = default(string), string currency = default(string), string rate = default(string), string units = default(string), string amount = default(string), string notionalAmount = default(string), string currentFace = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "side" is required (not null)
             if (side == null)
@@ -83,6 +84,7 @@ namespace Lusid.Sdk.Model
             }
             this.Amount = amount;
             this.NotionalAmount = notionalAmount;
+            this.CurrentFace = currentFace;
             this.Links = links;
         }
 
@@ -136,6 +138,13 @@ namespace Lusid.Sdk.Model
         public string NotionalAmount { get; set; }
 
         /// <summary>
+        /// The value, field or property key defining the side&#39;s current face / outstanding notional.
+        /// </summary>
+        /// <value>The value, field or property key defining the side&#39;s current face / outstanding notional.</value>
+        [DataMember(Name = "currentFace", EmitDefaultValue = true)]
+        public string CurrentFace { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -156,6 +165,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Units: ").Append(Units).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  NotionalAmount: ").Append(NotionalAmount).Append("\n");
+            sb.Append("  CurrentFace: ").Append(CurrentFace).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -228,6 +238,11 @@ namespace Lusid.Sdk.Model
                     this.NotionalAmount.Equals(input.NotionalAmount))
                 ) && 
                 (
+                    this.CurrentFace == input.CurrentFace ||
+                    (this.CurrentFace != null &&
+                    this.CurrentFace.Equals(input.CurrentFace))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -271,6 +286,10 @@ namespace Lusid.Sdk.Model
                 if (this.NotionalAmount != null)
                 {
                     hashCode = (hashCode * 59) + this.NotionalAmount.GetHashCode();
+                }
+                if (this.CurrentFace != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentFace.GetHashCode();
                 }
                 if (this.Links != null)
                 {
@@ -369,6 +388,18 @@ namespace Lusid.Sdk.Model
             if (this.NotionalAmount != null && this.NotionalAmount.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotionalAmount, length must be greater than 1.", new [] { "NotionalAmount" });
+            }
+
+            // CurrentFace (string) maxLength
+            if (this.CurrentFace != null && this.CurrentFace.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CurrentFace, length must be less than 64.", new [] { "CurrentFace" });
+            }
+
+            // CurrentFace (string) minLength
+            if (this.CurrentFace != null && this.CurrentFace.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CurrentFace, length must be greater than 1.", new [] { "CurrentFace" });
             }
 
             yield break;

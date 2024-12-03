@@ -47,7 +47,7 @@ namespace Lusid.Sdk.Model
         /// <param name="resultTypes">resultTypes.</param>
         /// <param name="resultStatuses">resultStatuses.</param>
         /// <param name="reviewStatuses">reviewStatuses.</param>
-        public GroupReconciliationSummary(GroupReconciliationRunDetails runDetails = default(GroupReconciliationRunDetails), ResourceId groupReconciliationDefinitionId = default(ResourceId), string reconciliationType = default(string), GroupReconciliationInstanceId instanceId = default(GroupReconciliationInstanceId), GroupReconciliationDates datesReconciled = default(GroupReconciliationDates), string reconciliationRunAsAt = default(string), int countComparisonResults = default(int), Link linkComparisonResults = default(Link), GroupReconciliationResultTypes resultTypes = default(GroupReconciliationResultTypes), GroupReconciliationResultStatuses resultStatuses = default(GroupReconciliationResultStatuses), GroupReconciliationReviewStatuses reviewStatuses = default(GroupReconciliationReviewStatuses))
+        public GroupReconciliationSummary(GroupReconciliationRunDetails runDetails = default(GroupReconciliationRunDetails), ResourceId groupReconciliationDefinitionId = default(ResourceId), string reconciliationType = default(string), GroupReconciliationInstanceId instanceId = default(GroupReconciliationInstanceId), GroupReconciliationDates datesReconciled = default(GroupReconciliationDates), DateTimeOffset reconciliationRunAsAt = default(DateTimeOffset), int countComparisonResults = default(int), Link linkComparisonResults = default(Link), GroupReconciliationResultTypes resultTypes = default(GroupReconciliationResultTypes), GroupReconciliationResultStatuses resultStatuses = default(GroupReconciliationResultStatuses), GroupReconciliationReviewStatuses reviewStatuses = default(GroupReconciliationReviewStatuses))
         {
             // to ensure "reconciliationType" is required (not null)
             if (reconciliationType == null)
@@ -67,11 +67,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("datesReconciled is a required property for GroupReconciliationSummary and cannot be null");
             }
             this.DatesReconciled = datesReconciled;
-            // to ensure "reconciliationRunAsAt" is required (not null)
-            if (reconciliationRunAsAt == null)
-            {
-                throw new ArgumentNullException("reconciliationRunAsAt is a required property for GroupReconciliationSummary and cannot be null");
-            }
             this.ReconciliationRunAsAt = reconciliationRunAsAt;
             this.CountComparisonResults = countComparisonResults;
             this.RunDetails = runDetails;
@@ -118,7 +113,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The date and time the reconciliation was run</value>
         [DataMember(Name = "reconciliationRunAsAt", IsRequired = true, EmitDefaultValue = true)]
-        public string ReconciliationRunAsAt { get; set; }
+        public DateTimeOffset ReconciliationRunAsAt { get; set; }
 
         /// <summary>
         /// The total number of comparison results with this InstanceId and ReconciliationType
@@ -326,12 +321,6 @@ namespace Lusid.Sdk.Model
             if (this.ReconciliationType != null && this.ReconciliationType.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationType, length must be greater than 1.", new [] { "ReconciliationType" });
-            }
-
-            // ReconciliationRunAsAt (string) minLength
-            if (this.ReconciliationRunAsAt != null && this.ReconciliationRunAsAt.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconciliationRunAsAt, length must be greater than 1.", new [] { "ReconciliationRunAsAt" });
             }
 
             yield break;
