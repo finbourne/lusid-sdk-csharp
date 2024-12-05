@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **CalculationBase** | **decimal** | The result of the evaluating the fee&#39;s calculation base expression. | [optional] 
 **Amount** | **decimal** | The result of applying the fee to the calculation base, and scaled down to a day. | [optional] 
 **PreviousAccrual** | **decimal** | The previous valuation point&#39;s total accrual. | [optional] 
+**PreviousTotalAccrual** | **decimal** | The previous valuation point&#39;s total accrual. | [optional] 
 **TotalAccrual** | **decimal** | The sum of the PreviousAccrual and Amount. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

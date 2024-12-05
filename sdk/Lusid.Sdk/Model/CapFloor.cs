@@ -43,8 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="floorStrike">Strike rate of the Floor..</param>
         /// <param name="includeFirstCaplet">Include first caplet flag. (required).</param>
         /// <param name="underlyingFloatingLeg">underlyingFloatingLeg (required).</param>
+        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;CapFloor&quot;).</param>
-        public CapFloor(string capFloorType = default(string), decimal? capStrike = default(decimal?), decimal? floorStrike = default(decimal?), bool includeFirstCaplet = default(bool), FloatingLeg underlyingFloatingLeg = default(FloatingLeg), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public CapFloor(string capFloorType = default(string), decimal? capStrike = default(decimal?), decimal? floorStrike = default(decimal?), bool includeFirstCaplet = default(bool), FloatingLeg underlyingFloatingLeg = default(FloatingLeg), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             // to ensure "capFloorType" is required (not null)
             if (capFloorType == null)
@@ -61,6 +62,7 @@ namespace Lusid.Sdk.Model
             this.UnderlyingFloatingLeg = underlyingFloatingLeg;
             this.CapStrike = capStrike;
             this.FloorStrike = floorStrike;
+            this.AdditionalPayments = additionalPayments;
         }
 
         /// <summary>
@@ -98,6 +100,13 @@ namespace Lusid.Sdk.Model
         public FloatingLeg UnderlyingFloatingLeg { get; set; }
 
         /// <summary>
+        /// Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.
+        /// </summary>
+        /// <value>Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
+        [DataMember(Name = "additionalPayments", EmitDefaultValue = true)]
+        public List<AdditionalPayment> AdditionalPayments { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -111,6 +120,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FloorStrike: ").Append(FloorStrike).Append("\n");
             sb.Append("  IncludeFirstCaplet: ").Append(IncludeFirstCaplet).Append("\n");
             sb.Append("  UnderlyingFloatingLeg: ").Append(UnderlyingFloatingLeg).Append("\n");
+            sb.Append("  AdditionalPayments: ").Append(AdditionalPayments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,6 +179,12 @@ namespace Lusid.Sdk.Model
                     this.UnderlyingFloatingLeg == input.UnderlyingFloatingLeg ||
                     (this.UnderlyingFloatingLeg != null &&
                     this.UnderlyingFloatingLeg.Equals(input.UnderlyingFloatingLeg))
+                ) && base.Equals(input) && 
+                (
+                    this.AdditionalPayments == input.AdditionalPayments ||
+                    this.AdditionalPayments != null &&
+                    input.AdditionalPayments != null &&
+                    this.AdditionalPayments.SequenceEqual(input.AdditionalPayments)
                 );
         }
 
@@ -197,6 +213,10 @@ namespace Lusid.Sdk.Model
                 if (this.UnderlyingFloatingLeg != null)
                 {
                     hashCode = (hashCode * 59) + this.UnderlyingFloatingLeg.GetHashCode();
+                }
+                if (this.AdditionalPayments != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalPayments.GetHashCode();
                 }
                 return hashCode;
             }

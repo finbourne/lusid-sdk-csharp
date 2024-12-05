@@ -42,9 +42,10 @@ namespace Lusid.Sdk.Model
         /// <param name="calculationBase">The result of the evaluating the fee&#39;s calculation base expression..</param>
         /// <param name="amount">The result of applying the fee to the calculation base, and scaled down to a day..</param>
         /// <param name="previousAccrual">The previous valuation point&#39;s total accrual..</param>
+        /// <param name="previousTotalAccrual">The previous valuation point&#39;s total accrual..</param>
         /// <param name="totalAccrual">The sum of the PreviousAccrual and Amount..</param>
         /// <param name="links">links.</param>
-        public FeeAccrual(DateTimeOffset effectiveAt = default(DateTimeOffset), string code = default(string), string name = default(string), decimal calculationBase = default(decimal), decimal amount = default(decimal), decimal previousAccrual = default(decimal), decimal totalAccrual = default(decimal), List<Link> links = default(List<Link>))
+        public FeeAccrual(DateTimeOffset effectiveAt = default(DateTimeOffset), string code = default(string), string name = default(string), decimal calculationBase = default(decimal), decimal amount = default(decimal), decimal previousAccrual = default(decimal), decimal previousTotalAccrual = default(decimal), decimal totalAccrual = default(decimal), List<Link> links = default(List<Link>))
         {
             this.EffectiveAt = effectiveAt;
             // to ensure "code" is required (not null)
@@ -62,6 +63,7 @@ namespace Lusid.Sdk.Model
             this.CalculationBase = calculationBase;
             this.Amount = amount;
             this.PreviousAccrual = previousAccrual;
+            this.PreviousTotalAccrual = previousTotalAccrual;
             this.TotalAccrual = totalAccrual;
             this.Links = links;
         }
@@ -109,6 +111,13 @@ namespace Lusid.Sdk.Model
         public decimal PreviousAccrual { get; set; }
 
         /// <summary>
+        /// The previous valuation point&#39;s total accrual.
+        /// </summary>
+        /// <value>The previous valuation point&#39;s total accrual.</value>
+        [DataMember(Name = "previousTotalAccrual", EmitDefaultValue = true)]
+        public decimal PreviousTotalAccrual { get; set; }
+
+        /// <summary>
         /// The sum of the PreviousAccrual and Amount.
         /// </summary>
         /// <value>The sum of the PreviousAccrual and Amount.</value>
@@ -135,6 +144,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CalculationBase: ").Append(CalculationBase).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  PreviousAccrual: ").Append(PreviousAccrual).Append("\n");
+            sb.Append("  PreviousTotalAccrual: ").Append(PreviousTotalAccrual).Append("\n");
             sb.Append("  TotalAccrual: ").Append(TotalAccrual).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -200,6 +210,10 @@ namespace Lusid.Sdk.Model
                     this.PreviousAccrual.Equals(input.PreviousAccrual)
                 ) && 
                 (
+                    this.PreviousTotalAccrual == input.PreviousTotalAccrual ||
+                    this.PreviousTotalAccrual.Equals(input.PreviousTotalAccrual)
+                ) && 
+                (
                     this.TotalAccrual == input.TotalAccrual ||
                     this.TotalAccrual.Equals(input.TotalAccrual)
                 ) && 
@@ -235,6 +249,7 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.CalculationBase.GetHashCode();
                 hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 hashCode = (hashCode * 59) + this.PreviousAccrual.GetHashCode();
+                hashCode = (hashCode * 59) + this.PreviousTotalAccrual.GetHashCode();
                 hashCode = (hashCode * 59) + this.TotalAccrual.GetHashCode();
                 if (this.Links != null)
                 {
