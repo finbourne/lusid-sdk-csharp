@@ -18,7 +18,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 <a id="booktransactions"></a>
 # **BookTransactions**
-> BookTransactionsResponse BookTransactions (BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = null)
+> BookTransactionsResponse BookTransactions (BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = null, bool? markOrdersAndAllocationsAsBooked = null)
 
 [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
 
@@ -65,14 +65,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var bookTransactionsRequest = new BookTransactionsRequest(); // BookTransactionsRequest | The allocations to create transactions for
             var applyFeesAndCommission = true;  // bool? | Whether to apply fees and commissions to transactions (default: true) (optional)  (default to true)
+            var markOrdersAndAllocationsAsBooked = false;  // bool? | Whether to mark allocations and fully-booked orders with state Booked (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // BookTransactionsResponse result = apiInstance.BookTransactions(bookTransactionsRequest, applyFeesAndCommission, opts: opts);
+                // BookTransactionsResponse result = apiInstance.BookTransactions(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked, opts: opts);
 
                 // [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
-                BookTransactionsResponse result = apiInstance.BookTransactions(bookTransactionsRequest, applyFeesAndCommission);
+                BookTransactionsResponse result = apiInstance.BookTransactions(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -93,7 +94,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
-    ApiResponse<BookTransactionsResponse> response = apiInstance.BookTransactionsWithHttpInfo(bookTransactionsRequest, applyFeesAndCommission);
+    ApiResponse<BookTransactionsResponse> response = apiInstance.BookTransactionsWithHttpInfo(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -112,6 +113,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **bookTransactionsRequest** | [**BookTransactionsRequest**](BookTransactionsRequest.md) | The allocations to create transactions for |  |
 | **applyFeesAndCommission** | **bool?** | Whether to apply fees and commissions to transactions (default: true) | [optional] [default to true] |
+| **markOrdersAndAllocationsAsBooked** | **bool?** | Whether to mark allocations and fully-booked orders with state Booked | [optional] [default to false] |
 
 ### Return type
 

@@ -38,7 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="entitlementDate">entitlementDate (required).</param>
         /// <param name="eligibleUnits">eligibleUnits (required).</param>
-        public EligibilityCalculation(string entitlementDate = default(string), string eligibleUnits = default(string))
+        /// <param name="dateModifiableByInstruction">dateModifiableByInstruction.</param>
+        public EligibilityCalculation(string entitlementDate = default(string), string eligibleUnits = default(string), bool dateModifiableByInstruction = default(bool))
         {
             // to ensure "entitlementDate" is required (not null)
             if (entitlementDate == null)
@@ -52,6 +53,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("eligibleUnits is a required property for EligibilityCalculation and cannot be null");
             }
             this.EligibleUnits = eligibleUnits;
+            this.DateModifiableByInstruction = dateModifiableByInstruction;
         }
 
         /// <summary>
@@ -67,6 +69,12 @@ namespace Lusid.Sdk.Model
         public string EligibleUnits { get; set; }
 
         /// <summary>
+        /// Gets or Sets DateModifiableByInstruction
+        /// </summary>
+        [DataMember(Name = "dateModifiableByInstruction", EmitDefaultValue = true)]
+        public bool DateModifiableByInstruction { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +84,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class EligibilityCalculation {\n");
             sb.Append("  EntitlementDate: ").Append(EntitlementDate).Append("\n");
             sb.Append("  EligibleUnits: ").Append(EligibleUnits).Append("\n");
+            sb.Append("  DateModifiableByInstruction: ").Append(DateModifiableByInstruction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,6 +129,10 @@ namespace Lusid.Sdk.Model
                     this.EligibleUnits == input.EligibleUnits ||
                     (this.EligibleUnits != null &&
                     this.EligibleUnits.Equals(input.EligibleUnits))
+                ) && 
+                (
+                    this.DateModifiableByInstruction == input.DateModifiableByInstruction ||
+                    this.DateModifiableByInstruction.Equals(input.DateModifiableByInstruction)
                 );
         }
 
@@ -140,6 +153,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EligibleUnits.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.DateModifiableByInstruction.GetHashCode();
                 return hashCode;
             }
         }

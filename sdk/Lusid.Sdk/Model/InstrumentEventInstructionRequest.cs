@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="instructionType">The type of instruction (Ignore, ElectForPortfolio, ElectForHolding) (required).</param>
         /// <param name="electionKey">For elected instructions, the key to be chosen.</param>
         /// <param name="holdingId">For holding instructions, the id of the holding for which the instruction will apply.</param>
-        public InstrumentEventInstructionRequest(string instrumentEventInstructionId = default(string), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?))
+        /// <param name="entitlementDateInstructed">The instructed entitlement date for the event (where none is set on the event itself).</param>
+        public InstrumentEventInstructionRequest(string instrumentEventInstructionId = default(string), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?))
         {
             // to ensure "instrumentEventInstructionId" is required (not null)
             if (instrumentEventInstructionId == null)
@@ -63,6 +64,7 @@ namespace Lusid.Sdk.Model
             this.InstructionType = instructionType;
             this.ElectionKey = electionKey;
             this.HoldingId = holdingId;
+            this.EntitlementDateInstructed = entitlementDateInstructed;
         }
 
         /// <summary>
@@ -101,6 +103,13 @@ namespace Lusid.Sdk.Model
         public long? HoldingId { get; set; }
 
         /// <summary>
+        /// The instructed entitlement date for the event (where none is set on the event itself)
+        /// </summary>
+        /// <value>The instructed entitlement date for the event (where none is set on the event itself)</value>
+        [DataMember(Name = "entitlementDateInstructed", EmitDefaultValue = true)]
+        public DateTimeOffset? EntitlementDateInstructed { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +122,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstructionType: ").Append(InstructionType).Append("\n");
             sb.Append("  ElectionKey: ").Append(ElectionKey).Append("\n");
             sb.Append("  HoldingId: ").Append(HoldingId).Append("\n");
+            sb.Append("  EntitlementDateInstructed: ").Append(EntitlementDateInstructed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -172,6 +182,11 @@ namespace Lusid.Sdk.Model
                     this.HoldingId == input.HoldingId ||
                     (this.HoldingId != null &&
                     this.HoldingId.Equals(input.HoldingId))
+                ) && 
+                (
+                    this.EntitlementDateInstructed == input.EntitlementDateInstructed ||
+                    (this.EntitlementDateInstructed != null &&
+                    this.EntitlementDateInstructed.Equals(input.EntitlementDateInstructed))
                 );
         }
 
@@ -203,6 +218,10 @@ namespace Lusid.Sdk.Model
                 if (this.HoldingId != null)
                 {
                     hashCode = (hashCode * 59) + this.HoldingId.GetHashCode();
+                }
+                if (this.EntitlementDateInstructed != null)
+                {
+                    hashCode = (hashCode * 59) + this.EntitlementDateInstructed.GetHashCode();
                 }
                 return hashCode;
             }
