@@ -345,7 +345,13 @@ namespace Lusid.Sdk.Model
         /// Enum DrawdownEvent for value: DrawdownEvent
         /// </summary>
         [EnumMember(Value = "DrawdownEvent")]
-        DrawdownEvent = 53
+        DrawdownEvent = 53,
+
+        /// <summary>
+        /// Enum LoanInterestRepaymentEvent for value: LoanInterestRepaymentEvent
+        /// </summary>
+        [EnumMember(Value = "LoanInterestRepaymentEvent")]
+        LoanInterestRepaymentEvent = 54
 
     }
 

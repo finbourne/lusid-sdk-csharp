@@ -24,65 +24,65 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of a Swap Principal Event.  This is an event that describes the occurence of a cashflow due to the principal payment.
+    /// Event to signify the repayment of interest accrued against a loan holding.
     /// </summary>
-    [DataContract(Name = "SwapPrincipalEvent")]
+    [DataContract(Name = "LoanInterestRepaymentEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class SwapPrincipalEvent : InstrumentEvent, IEquatable<SwapPrincipalEvent>, IValidatableObject
+    public partial class LoanInterestRepaymentEvent : InstrumentEvent, IEquatable<LoanInterestRepaymentEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SwapPrincipalEvent" /> class.
+        /// Initializes a new instance of the <see cref="LoanInterestRepaymentEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SwapPrincipalEvent() { }
+        protected LoanInterestRepaymentEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SwapPrincipalEvent" /> class.
+        /// Initializes a new instance of the <see cref="LoanInterestRepaymentEvent" /> class.
         /// </summary>
-        /// <param name="exDate">The entitlement date of the principal payment. (required).</param>
-        /// <param name="paymentDate">The payment date of the principal. (required).</param>
-        /// <param name="currency">The currency in which the principal is paid. (required).</param>
-        /// <param name="principalPerUnit">The principal amount received for each unit of the instrument held on the ex date..</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent (required) (default to &quot;SwapPrincipalEvent&quot;).</param>
-        public SwapPrincipalEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal principalPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="paymentDate">Date that the interest is due to be paid. (required).</param>
+        /// <param name="exDate">Date that the accrued interest is calculated up until. (required).</param>
+        /// <param name="currency">Currency of the repayment. (required).</param>
+        /// <param name="fraction">Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set..</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent (required) (default to &quot;LoanInterestRepaymentEvent&quot;).</param>
+        public LoanInterestRepaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), string currency = default(string), decimal fraction = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.ExDate = exDate;
             this.PaymentDate = paymentDate;
+            this.ExDate = exDate;
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
-                throw new ArgumentNullException("currency is a required property for SwapPrincipalEvent and cannot be null");
+                throw new ArgumentNullException("currency is a required property for LoanInterestRepaymentEvent and cannot be null");
             }
             this.Currency = currency;
-            this.PrincipalPerUnit = principalPerUnit;
+            this.Fraction = fraction;
         }
 
         /// <summary>
-        /// The entitlement date of the principal payment.
+        /// Date that the interest is due to be paid.
         /// </summary>
-        /// <value>The entitlement date of the principal payment.</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset ExDate { get; set; }
-
-        /// <summary>
-        /// The payment date of the principal.
-        /// </summary>
-        /// <value>The payment date of the principal.</value>
+        /// <value>Date that the interest is due to be paid.</value>
         [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// The currency in which the principal is paid.
+        /// Date that the accrued interest is calculated up until.
         /// </summary>
-        /// <value>The currency in which the principal is paid.</value>
+        /// <value>Date that the accrued interest is calculated up until.</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExDate { get; set; }
+
+        /// <summary>
+        /// Currency of the repayment.
+        /// </summary>
+        /// <value>Currency of the repayment.</value>
         [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The principal amount received for each unit of the instrument held on the ex date.
+        /// Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set.
         /// </summary>
-        /// <value>The principal amount received for each unit of the instrument held on the ex date.</value>
-        [DataMember(Name = "principalPerUnit", EmitDefaultValue = true)]
-        public decimal PrincipalPerUnit { get; set; }
+        /// <value>Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set.</value>
+        [DataMember(Name = "fraction", EmitDefaultValue = true)]
+        public decimal Fraction { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,12 +91,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class SwapPrincipalEvent {\n");
+            sb.Append("class LoanInterestRepaymentEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  PrincipalPerUnit: ").Append(PrincipalPerUnit).Append("\n");
+            sb.Append("  Fraction: ").Append(Fraction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,15 +117,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SwapPrincipalEvent);
+            return this.Equals(input as LoanInterestRepaymentEvent);
         }
 
         /// <summary>
-        /// Returns true if SwapPrincipalEvent instances are equal
+        /// Returns true if LoanInterestRepaymentEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of SwapPrincipalEvent to be compared</param>
+        /// <param name="input">Instance of LoanInterestRepaymentEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SwapPrincipalEvent input)
+        public bool Equals(LoanInterestRepaymentEvent input)
         {
             if (input == null)
             {
@@ -133,14 +133,14 @@ namespace Lusid.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.ExDate == input.ExDate ||
-                    (this.ExDate != null &&
-                    this.ExDate.Equals(input.ExDate))
-                ) && base.Equals(input) && 
-                (
                     this.PaymentDate == input.PaymentDate ||
                     (this.PaymentDate != null &&
                     this.PaymentDate.Equals(input.PaymentDate))
+                ) && base.Equals(input) && 
+                (
+                    this.ExDate == input.ExDate ||
+                    (this.ExDate != null &&
+                    this.ExDate.Equals(input.ExDate))
                 ) && base.Equals(input) && 
                 (
                     this.Currency == input.Currency ||
@@ -148,8 +148,8 @@ namespace Lusid.Sdk.Model
                     this.Currency.Equals(input.Currency))
                 ) && base.Equals(input) && 
                 (
-                    this.PrincipalPerUnit == input.PrincipalPerUnit ||
-                    this.PrincipalPerUnit.Equals(input.PrincipalPerUnit)
+                    this.Fraction == input.Fraction ||
+                    this.Fraction.Equals(input.Fraction)
                 );
         }
 
@@ -162,19 +162,19 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.ExDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
-                }
                 if (this.PaymentDate != null)
                 {
                     hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                }
+                if (this.ExDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
                 }
                 if (this.Currency != null)
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PrincipalPerUnit.GetHashCode();
+                hashCode = (hashCode * 59) + this.Fraction.GetHashCode();
                 return hashCode;
             }
         }

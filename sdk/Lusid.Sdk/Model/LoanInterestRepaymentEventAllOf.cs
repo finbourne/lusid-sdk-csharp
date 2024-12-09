@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// MbsInterestShortfallEventAllOf
+    /// LoanInterestRepaymentEventAllOf
     /// </summary>
-    [DataContract(Name = "MbsInterestShortfallEvent_allOf")]
-    public partial class MbsInterestShortfallEventAllOf : IEquatable<MbsInterestShortfallEventAllOf>, IValidatableObject
+    [DataContract(Name = "LoanInterestRepaymentEvent_allOf")]
+    public partial class LoanInterestRepaymentEventAllOf : IEquatable<LoanInterestRepaymentEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent
@@ -369,59 +369,59 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MbsInterestShortfallEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="LoanInterestRepaymentEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MbsInterestShortfallEventAllOf() { }
+        protected LoanInterestRepaymentEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MbsInterestShortfallEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="LoanInterestRepaymentEventAllOf" /> class.
         /// </summary>
-        /// <param name="exDate">The ex date (entitlement date) of the interest payment, usually several weeks prior to the payment date (required).</param>
-        /// <param name="paymentDate">The payment date of the interest (required).</param>
-        /// <param name="currency">The currency in which the interest amount is notated (required).</param>
-        /// <param name="interestPerUnit">The amount by which the coupon amount will fall short for each unit of the instrument held on the ex date.</param>
+        /// <param name="paymentDate">Date that the interest is due to be paid. (required).</param>
+        /// <param name="exDate">Date that the accrued interest is calculated up until. (required).</param>
+        /// <param name="currency">Currency of the repayment. (required).</param>
+        /// <param name="fraction">Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent (required).</param>
-        public MbsInterestShortfallEventAllOf(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal? interestPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public LoanInterestRepaymentEventAllOf(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), string currency = default(string), decimal fraction = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            this.ExDate = exDate;
             this.PaymentDate = paymentDate;
+            this.ExDate = exDate;
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
-                throw new ArgumentNullException("currency is a required property for MbsInterestShortfallEventAllOf and cannot be null");
+                throw new ArgumentNullException("currency is a required property for LoanInterestRepaymentEventAllOf and cannot be null");
             }
             this.Currency = currency;
             this.InstrumentEventType = instrumentEventType;
-            this.InterestPerUnit = interestPerUnit;
+            this.Fraction = fraction;
         }
 
         /// <summary>
-        /// The ex date (entitlement date) of the interest payment, usually several weeks prior to the payment date
+        /// Date that the interest is due to be paid.
         /// </summary>
-        /// <value>The ex date (entitlement date) of the interest payment, usually several weeks prior to the payment date</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset ExDate { get; set; }
-
-        /// <summary>
-        /// The payment date of the interest
-        /// </summary>
-        /// <value>The payment date of the interest</value>
+        /// <value>Date that the interest is due to be paid.</value>
         [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// The currency in which the interest amount is notated
+        /// Date that the accrued interest is calculated up until.
         /// </summary>
-        /// <value>The currency in which the interest amount is notated</value>
+        /// <value>Date that the accrued interest is calculated up until.</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExDate { get; set; }
+
+        /// <summary>
+        /// Currency of the repayment.
+        /// </summary>
+        /// <value>Currency of the repayment.</value>
         [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The amount by which the coupon amount will fall short for each unit of the instrument held on the ex date
+        /// Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set.
         /// </summary>
-        /// <value>The amount by which the coupon amount will fall short for each unit of the instrument held on the ex date</value>
-        [DataMember(Name = "interestPerUnit", EmitDefaultValue = true)]
-        public decimal? InterestPerUnit { get; set; }
+        /// <value>Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set.</value>
+        [DataMember(Name = "fraction", EmitDefaultValue = true)]
+        public decimal Fraction { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -430,11 +430,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class MbsInterestShortfallEventAllOf {\n");
-            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
+            sb.Append("class LoanInterestRepaymentEventAllOf {\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  InterestPerUnit: ").Append(InterestPerUnit).Append("\n");
+            sb.Append("  Fraction: ").Append(Fraction).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -456,15 +456,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MbsInterestShortfallEventAllOf);
+            return this.Equals(input as LoanInterestRepaymentEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if MbsInterestShortfallEventAllOf instances are equal
+        /// Returns true if LoanInterestRepaymentEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of MbsInterestShortfallEventAllOf to be compared</param>
+        /// <param name="input">Instance of LoanInterestRepaymentEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MbsInterestShortfallEventAllOf input)
+        public bool Equals(LoanInterestRepaymentEventAllOf input)
         {
             if (input == null)
             {
@@ -472,14 +472,14 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.ExDate == input.ExDate ||
-                    (this.ExDate != null &&
-                    this.ExDate.Equals(input.ExDate))
-                ) && 
-                (
                     this.PaymentDate == input.PaymentDate ||
                     (this.PaymentDate != null &&
                     this.PaymentDate.Equals(input.PaymentDate))
+                ) && 
+                (
+                    this.ExDate == input.ExDate ||
+                    (this.ExDate != null &&
+                    this.ExDate.Equals(input.ExDate))
                 ) && 
                 (
                     this.Currency == input.Currency ||
@@ -487,9 +487,8 @@ namespace Lusid.Sdk.Model
                     this.Currency.Equals(input.Currency))
                 ) && 
                 (
-                    this.InterestPerUnit == input.InterestPerUnit ||
-                    (this.InterestPerUnit != null &&
-                    this.InterestPerUnit.Equals(input.InterestPerUnit))
+                    this.Fraction == input.Fraction ||
+                    this.Fraction.Equals(input.Fraction)
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -506,22 +505,19 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ExDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
-                }
                 if (this.PaymentDate != null)
                 {
                     hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                }
+                if (this.ExDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
                 }
                 if (this.Currency != null)
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                if (this.InterestPerUnit != null)
-                {
-                    hashCode = (hashCode * 59) + this.InterestPerUnit.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Fraction.GetHashCode();
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
             }
