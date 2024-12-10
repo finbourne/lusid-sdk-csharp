@@ -35,12 +35,14 @@ namespace Lusid.Sdk.Model
         /// <param name="assetClass">Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied..</param>
         /// <param name="domCcy">Specify that a rule should only apply if the market data is requested by an instrument with a given domestic currency.  If null, then no filtering on currency is applied..</param>
         /// <param name="longOrShortIndicator">Specify that a rule should apply if the market data is requested by a model with a given long or short indicator.  If none, then no filtering on LongOrShortIndicator is applied..</param>
-        public DependencySourceFilter(string instrumentType = default(string), string assetClass = default(string), string domCcy = default(string), string longOrShortIndicator = default(string))
+        /// <param name="addressKeyFilters">addressKeyFilters.</param>
+        public DependencySourceFilter(string instrumentType = default(string), string assetClass = default(string), string domCcy = default(string), string longOrShortIndicator = default(string), List<AddressKeyFilter> addressKeyFilters = default(List<AddressKeyFilter>))
         {
             this.InstrumentType = instrumentType;
             this.AssetClass = assetClass;
             this.DomCcy = domCcy;
             this.LongOrShortIndicator = longOrShortIndicator;
+            this.AddressKeyFilters = addressKeyFilters;
         }
 
         /// <summary>
@@ -72,6 +74,12 @@ namespace Lusid.Sdk.Model
         public string LongOrShortIndicator { get; set; }
 
         /// <summary>
+        /// Gets or Sets AddressKeyFilters
+        /// </summary>
+        [DataMember(Name = "addressKeyFilters", EmitDefaultValue = true)]
+        public List<AddressKeyFilter> AddressKeyFilters { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +91,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AssetClass: ").Append(AssetClass).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
             sb.Append("  LongOrShortIndicator: ").Append(LongOrShortIndicator).Append("\n");
+            sb.Append("  AddressKeyFilters: ").Append(AddressKeyFilters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,6 +146,12 @@ namespace Lusid.Sdk.Model
                     this.LongOrShortIndicator == input.LongOrShortIndicator ||
                     (this.LongOrShortIndicator != null &&
                     this.LongOrShortIndicator.Equals(input.LongOrShortIndicator))
+                ) && 
+                (
+                    this.AddressKeyFilters == input.AddressKeyFilters ||
+                    this.AddressKeyFilters != null &&
+                    input.AddressKeyFilters != null &&
+                    this.AddressKeyFilters.SequenceEqual(input.AddressKeyFilters)
                 );
         }
 
@@ -164,6 +179,10 @@ namespace Lusid.Sdk.Model
                 if (this.LongOrShortIndicator != null)
                 {
                     hashCode = (hashCode * 59) + this.LongOrShortIndicator.GetHashCode();
+                }
+                if (this.AddressKeyFilters != null)
+                {
+                    hashCode = (hashCode * 59) + this.AddressKeyFilters.GetHashCode();
                 }
                 return hashCode;
             }
