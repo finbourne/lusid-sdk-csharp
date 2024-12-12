@@ -32,6 +32,35 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity
+        /// </summary>
+        /// <remarks>
+        /// Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="createClosedPeriodRequest">The request containing the details of the Closed Period (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ClosedPeriod</returns>
+        ClosedPeriod CreateClosedPeriod(string scope, string code, CreateClosedPeriodRequest? createClosedPeriodRequest = default(CreateClosedPeriodRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity
+        /// </summary>
+        /// <remarks>
+        /// Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="createClosedPeriodRequest">The request containing the details of the Closed Period (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ClosedPeriod</returns>
+        Lusid.Sdk.Client.ApiResponse<ClosedPeriod> CreateClosedPeriodWithHttpInfo(string scope, string code, CreateClosedPeriodRequest? createClosedPeriodRequest = default(CreateClosedPeriodRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] CreateTimeline: Create a Timeline
         /// </summary>
         /// <remarks>
@@ -83,6 +112,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTimelineWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetClosedPeriod: Gets a Closed Period entity.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves one ClosedPeriod uniquely defined by the Timelines Scope/Code and a ClosedPeriodId.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ClosedPeriod</returns>
+        ClosedPeriod GetClosedPeriod(string scope, string code, string closedPeriodId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetClosedPeriod: Gets a Closed Period entity.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves one ClosedPeriod uniquely defined by the Timelines Scope/Code and a ClosedPeriodId.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ClosedPeriod</returns>
+        Lusid.Sdk.Client.ApiResponse<ClosedPeriod> GetClosedPeriodWithHttpInfo(string scope, string code, string closedPeriodId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code.
         /// </summary>
@@ -155,6 +217,37 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
+        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity
+        /// </summary>
+        /// <remarks>
+        /// Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="createClosedPeriodRequest">The request containing the details of the Closed Period (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ClosedPeriod</returns>
+        System.Threading.Tasks.Task<ClosedPeriod> CreateClosedPeriodAsync(string scope, string code, CreateClosedPeriodRequest? createClosedPeriodRequest = default(CreateClosedPeriodRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity
+        /// </summary>
+        /// <remarks>
+        /// Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="createClosedPeriodRequest">The request containing the details of the Closed Period (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ClosedPeriod)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ClosedPeriod>> CreateClosedPeriodWithHttpInfoAsync(string scope, string code, CreateClosedPeriodRequest? createClosedPeriodRequest = default(CreateClosedPeriodRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] CreateTimeline: Create a Timeline
         /// </summary>
         /// <remarks>
@@ -210,6 +303,41 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTimelineWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetClosedPeriod: Gets a Closed Period entity.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves one ClosedPeriod uniquely defined by the Timelines Scope/Code and a ClosedPeriodId.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ClosedPeriod</returns>
+        System.Threading.Tasks.Task<ClosedPeriod> GetClosedPeriodAsync(string scope, string code, string closedPeriodId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetClosedPeriod: Gets a Closed Period entity.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves one ClosedPeriod uniquely defined by the Timelines Scope/Code and a ClosedPeriodId.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ClosedPeriod)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ClosedPeriod>> GetClosedPeriodWithHttpInfoAsync(string scope, string code, string closedPeriodId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code.
         /// </summary>
@@ -397,6 +525,242 @@ namespace Lusid.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="createClosedPeriodRequest">The request containing the details of the Closed Period (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ClosedPeriod</returns>
+        public ClosedPeriod CreateClosedPeriod(string scope, string code, CreateClosedPeriodRequest? createClosedPeriodRequest = default(CreateClosedPeriodRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ClosedPeriod> localVarResponse = CreateClosedPeriodWithHttpInfo(scope, code, createClosedPeriodRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="createClosedPeriodRequest">The request containing the details of the Closed Period (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ClosedPeriod</returns>
+        public Lusid.Sdk.Client.ApiResponse<ClosedPeriod> CreateClosedPeriodWithHttpInfo(string scope, string code, CreateClosedPeriodRequest? createClosedPeriodRequest = default(CreateClosedPeriodRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TimelinesApi->CreateClosedPeriod");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TimelinesApi->CreateClosedPeriod");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = createClosedPeriodRequest;
+
+            localVarRequestOptions.Operation = "TimelinesApi.CreateClosedPeriod";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ClosedPeriod>("/api/timelines/{scope}/{code}/closedperiods", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateClosedPeriod", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="createClosedPeriodRequest">The request containing the details of the Closed Period (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ClosedPeriod</returns>
+        public async System.Threading.Tasks.Task<ClosedPeriod> CreateClosedPeriodAsync(string scope, string code, CreateClosedPeriodRequest? createClosedPeriodRequest = default(CreateClosedPeriodRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ClosedPeriod> localVarResponse = await CreateClosedPeriodWithHttpInfoAsync(scope, code, createClosedPeriodRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline.</param>
+        /// <param name="createClosedPeriodRequest">The request containing the details of the Closed Period (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ClosedPeriod)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ClosedPeriod>> CreateClosedPeriodWithHttpInfoAsync(string scope, string code, CreateClosedPeriodRequest? createClosedPeriodRequest = default(CreateClosedPeriodRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TimelinesApi->CreateClosedPeriod");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TimelinesApi->CreateClosedPeriod");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = createClosedPeriodRequest;
+
+            localVarRequestOptions.Operation = "TimelinesApi.CreateClosedPeriod";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ClosedPeriod>("/api/timelines/{scope}/{code}/closedperiods", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateClosedPeriod", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
@@ -812,6 +1176,270 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteTimeline", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetClosedPeriod: Gets a Closed Period entity. Retrieves one ClosedPeriod uniquely defined by the Timelines Scope/Code and a ClosedPeriodId.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ClosedPeriod</returns>
+        public ClosedPeriod GetClosedPeriod(string scope, string code, string closedPeriodId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ClosedPeriod> localVarResponse = GetClosedPeriodWithHttpInfo(scope, code, closedPeriodId, asAt, propertyKeys, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetClosedPeriod: Gets a Closed Period entity. Retrieves one ClosedPeriod uniquely defined by the Timelines Scope/Code and a ClosedPeriodId.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ClosedPeriod</returns>
+        public Lusid.Sdk.Client.ApiResponse<ClosedPeriod> GetClosedPeriodWithHttpInfo(string scope, string code, string closedPeriodId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TimelinesApi->GetClosedPeriod");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TimelinesApi->GetClosedPeriod");
+            }
+
+            // verify the required parameter 'closedPeriodId' is set
+            if (closedPeriodId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'closedPeriodId' when calling TimelinesApi->GetClosedPeriod");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("closedPeriodId", Lusid.Sdk.Client.ClientUtils.ParameterToString(closedPeriodId)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
+
+            localVarRequestOptions.Operation = "TimelinesApi.GetClosedPeriod";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ClosedPeriod>("/api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetClosedPeriod", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetClosedPeriod: Gets a Closed Period entity. Retrieves one ClosedPeriod uniquely defined by the Timelines Scope/Code and a ClosedPeriodId.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ClosedPeriod</returns>
+        public async System.Threading.Tasks.Task<ClosedPeriod> GetClosedPeriodAsync(string scope, string code, string closedPeriodId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ClosedPeriod> localVarResponse = await GetClosedPeriodWithHttpInfoAsync(scope, code, closedPeriodId, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetClosedPeriod: Gets a Closed Period entity. Retrieves one ClosedPeriod uniquely defined by the Timelines Scope/Code and a ClosedPeriodId.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ClosedPeriod)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ClosedPeriod>> GetClosedPeriodWithHttpInfoAsync(string scope, string code, string closedPeriodId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TimelinesApi->GetClosedPeriod");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TimelinesApi->GetClosedPeriod");
+            }
+
+            // verify the required parameter 'closedPeriodId' is set
+            if (closedPeriodId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'closedPeriodId' when calling TimelinesApi->GetClosedPeriod");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("closedPeriodId", Lusid.Sdk.Client.ClientUtils.ParameterToString(closedPeriodId)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
+
+            localVarRequestOptions.Operation = "TimelinesApi.GetClosedPeriod";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ClosedPeriod>("/api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetClosedPeriod", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

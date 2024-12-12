@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class CreateDerivedPropertyDefinitionRequest : IEquatable<CreateDerivedPropertyDefinitionRequest>, IValidatableObject
     {
         /// <summary>
-        /// The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/knowledgebase/article/KA-01719/. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet
+        /// The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/knowledgebase/article/KA-01719/. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet
         /// </summary>
-        /// <value>The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/knowledgebase/article/KA-01719/. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet</value>
+        /// <value>The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/knowledgebase/article/KA-01719/. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DomainEnum
         {
@@ -294,216 +294,222 @@ namespace Lusid.Sdk.Model
             Timeline = 43,
 
             /// <summary>
+            /// Enum ClosedPeriod for value: ClosedPeriod
+            /// </summary>
+            [EnumMember(Value = "ClosedPeriod")]
+            ClosedPeriod = 44,
+
+            /// <summary>
             /// Enum AddressKeyDefinition for value: AddressKeyDefinition
             /// </summary>
             [EnumMember(Value = "AddressKeyDefinition")]
-            AddressKeyDefinition = 44,
+            AddressKeyDefinition = 45,
 
             /// <summary>
             /// Enum AmortisationRuleSet for value: AmortisationRuleSet
             /// </summary>
             [EnumMember(Value = "AmortisationRuleSet")]
-            AmortisationRuleSet = 45,
+            AmortisationRuleSet = 46,
 
             /// <summary>
             /// Enum AnalyticsSetInventory for value: AnalyticsSetInventory
             /// </summary>
             [EnumMember(Value = "AnalyticsSetInventory")]
-            AnalyticsSetInventory = 46,
+            AnalyticsSetInventory = 47,
 
             /// <summary>
             /// Enum AtomUnitResult for value: AtomUnitResult
             /// </summary>
             [EnumMember(Value = "AtomUnitResult")]
-            AtomUnitResult = 47,
+            AtomUnitResult = 48,
 
             /// <summary>
             /// Enum CleardownModule for value: CleardownModule
             /// </summary>
             [EnumMember(Value = "CleardownModule")]
-            CleardownModule = 48,
+            CleardownModule = 49,
 
             /// <summary>
             /// Enum ComplexMarketData for value: ComplexMarketData
             /// </summary>
             [EnumMember(Value = "ComplexMarketData")]
-            ComplexMarketData = 49,
+            ComplexMarketData = 50,
 
             /// <summary>
             /// Enum ComplianceRunSummary for value: ComplianceRunSummary
             /// </summary>
             [EnumMember(Value = "ComplianceRunSummary")]
-            ComplianceRunSummary = 50,
+            ComplianceRunSummary = 51,
 
             /// <summary>
             /// Enum ComplianceRule for value: ComplianceRule
             /// </summary>
             [EnumMember(Value = "ComplianceRule")]
-            ComplianceRule = 51,
+            ComplianceRule = 52,
 
             /// <summary>
             /// Enum ComplianceRunInfo for value: ComplianceRunInfo
             /// </summary>
             [EnumMember(Value = "ComplianceRunInfo")]
-            ComplianceRunInfo = 52,
+            ComplianceRunInfo = 53,
 
             /// <summary>
             /// Enum CorporateActionSource for value: CorporateActionSource
             /// </summary>
             [EnumMember(Value = "CorporateActionSource")]
-            CorporateActionSource = 53,
+            CorporateActionSource = 54,
 
             /// <summary>
             /// Enum CounterpartyAgreement for value: CounterpartyAgreement
             /// </summary>
             [EnumMember(Value = "CounterpartyAgreement")]
-            CounterpartyAgreement = 54,
+            CounterpartyAgreement = 55,
 
             /// <summary>
             /// Enum CustomEntityDefinition for value: CustomEntityDefinition
             /// </summary>
             [EnumMember(Value = "CustomEntityDefinition")]
-            CustomEntityDefinition = 55,
+            CustomEntityDefinition = 56,
 
             /// <summary>
             /// Enum DataType for value: DataType
             /// </summary>
             [EnumMember(Value = "DataType")]
-            DataType = 56,
+            DataType = 57,
 
             /// <summary>
             /// Enum Dialect for value: Dialect
             /// </summary>
             [EnumMember(Value = "Dialect")]
-            Dialect = 57,
+            Dialect = 58,
 
             /// <summary>
             /// Enum EventHandler for value: EventHandler
             /// </summary>
             [EnumMember(Value = "EventHandler")]
-            EventHandler = 58,
+            EventHandler = 59,
 
             /// <summary>
             /// Enum GeneralLedgerProfile for value: GeneralLedgerProfile
             /// </summary>
             [EnumMember(Value = "GeneralLedgerProfile")]
-            GeneralLedgerProfile = 59,
+            GeneralLedgerProfile = 60,
 
             /// <summary>
             /// Enum PostingModule for value: PostingModule
             /// </summary>
             [EnumMember(Value = "PostingModule")]
-            PostingModule = 60,
+            PostingModule = 61,
 
             /// <summary>
             /// Enum Quote for value: Quote
             /// </summary>
             [EnumMember(Value = "Quote")]
-            Quote = 61,
+            Quote = 62,
 
             /// <summary>
             /// Enum RecipeComposer for value: RecipeComposer
             /// </summary>
             [EnumMember(Value = "RecipeComposer")]
-            RecipeComposer = 62,
+            RecipeComposer = 63,
 
             /// <summary>
             /// Enum ReconciliationRunBreak for value: ReconciliationRunBreak
             /// </summary>
             [EnumMember(Value = "ReconciliationRunBreak")]
-            ReconciliationRunBreak = 63,
+            ReconciliationRunBreak = 64,
 
             /// <summary>
             /// Enum ReferenceList for value: ReferenceList
             /// </summary>
             [EnumMember(Value = "ReferenceList")]
-            ReferenceList = 64,
+            ReferenceList = 65,
 
             /// <summary>
             /// Enum RelationDefinition for value: RelationDefinition
             /// </summary>
             [EnumMember(Value = "RelationDefinition")]
-            RelationDefinition = 65,
+            RelationDefinition = 66,
 
             /// <summary>
             /// Enum ReturnBlockIndex for value: ReturnBlockIndex
             /// </summary>
             [EnumMember(Value = "ReturnBlockIndex")]
-            ReturnBlockIndex = 66,
+            ReturnBlockIndex = 67,
 
             /// <summary>
             /// Enum SRSDocument for value: SRSDocument
             /// </summary>
             [EnumMember(Value = "SRSDocument")]
-            SRSDocument = 67,
+            SRSDocument = 68,
 
             /// <summary>
             /// Enum SRSIndex for value: SRSIndex
             /// </summary>
             [EnumMember(Value = "SRSIndex")]
-            SRSIndex = 68,
+            SRSIndex = 69,
 
             /// <summary>
             /// Enum TransactionTemplate for value: TransactionTemplate
             /// </summary>
             [EnumMember(Value = "TransactionTemplate")]
-            TransactionTemplate = 69,
+            TransactionTemplate = 70,
 
             /// <summary>
             /// Enum TransactionTemplateScope for value: TransactionTemplateScope
             /// </summary>
             [EnumMember(Value = "TransactionTemplateScope")]
-            TransactionTemplateScope = 70,
+            TransactionTemplateScope = 71,
 
             /// <summary>
             /// Enum TransactionType for value: TransactionType
             /// </summary>
             [EnumMember(Value = "TransactionType")]
-            TransactionType = 71,
+            TransactionType = 72,
 
             /// <summary>
             /// Enum TransactionTypeConfig for value: TransactionTypeConfig
             /// </summary>
             [EnumMember(Value = "TransactionTypeConfig")]
-            TransactionTypeConfig = 72,
+            TransactionTypeConfig = 73,
 
             /// <summary>
             /// Enum TranslationScript for value: TranslationScript
             /// </summary>
             [EnumMember(Value = "TranslationScript")]
-            TranslationScript = 73,
+            TranslationScript = 74,
 
             /// <summary>
             /// Enum TaskDefinition for value: TaskDefinition
             /// </summary>
             [EnumMember(Value = "TaskDefinition")]
-            TaskDefinition = 74,
+            TaskDefinition = 75,
 
             /// <summary>
             /// Enum TaskInstance for value: TaskInstance
             /// </summary>
             [EnumMember(Value = "TaskInstance")]
-            TaskInstance = 75,
+            TaskInstance = 76,
 
             /// <summary>
             /// Enum Worker for value: Worker
             /// </summary>
             [EnumMember(Value = "Worker")]
-            Worker = 76,
+            Worker = 77,
 
             /// <summary>
             /// Enum StagingRuleSet for value: StagingRuleSet
             /// </summary>
             [EnumMember(Value = "StagingRuleSet")]
-            StagingRuleSet = 77
+            StagingRuleSet = 78
 
         }
 
 
         /// <summary>
-        /// The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/knowledgebase/article/KA-01719/. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet
+        /// The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/knowledgebase/article/KA-01719/. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet
         /// </summary>
-        /// <value>The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/knowledgebase/article/KA-01719/. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet</value>
+        /// <value>The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/knowledgebase/article/KA-01719/. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet</value>
         [DataMember(Name = "domain", IsRequired = true, EmitDefaultValue = true)]
         public DomainEnum Domain { get; set; }
         /// <summary>
@@ -514,7 +520,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateDerivedPropertyDefinitionRequest" /> class.
         /// </summary>
-        /// <param name="domain">The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/knowledgebase/article/KA-01719/. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet (required).</param>
+        /// <param name="domain">The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/knowledgebase/article/KA-01719/. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet (required).</param>
         /// <param name="scope">The scope that the property exists in. (required).</param>
         /// <param name="code">The code of the property. Together with the domain and scope this uniquely identifies the property. (required).</param>
         /// <param name="displayName">The display name of the property. (required).</param>
