@@ -86,7 +86,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of CorporateActionSource</returns>
         Lusid.Sdk.Client.ApiResponse<CorporateActionSource> CreateCorporateActionSourceWithHttpInfo(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
+        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source
         /// </summary>
         /// <remarks>
         /// Deletes a single corporate action source
@@ -100,7 +100,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteCorporateActionSource(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
+        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source
         /// </summary>
         /// <remarks>
         /// Deletes a single corporate action source
@@ -113,7 +113,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCorporateActionSourceWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
+        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source
         /// </summary>
         /// <remarks>
         /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
@@ -128,7 +128,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteCorporateActions(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
+        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source
         /// </summary>
         /// <remarks>
         /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
@@ -142,7 +142,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCorporateActionsWithHttpInfo(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source
         /// </summary>
         /// <remarks>
         /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
@@ -157,7 +157,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteInstrumentEvents(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source
         /// </summary>
         /// <remarks>
         /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
@@ -374,7 +374,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (CorporateActionSource)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CorporateActionSource>> CreateCorporateActionSourceWithHttpInfoAsync(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
+        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source
         /// </summary>
         /// <remarks>
         /// Deletes a single corporate action source
@@ -389,7 +389,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionSourceAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
+        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source
         /// </summary>
         /// <remarks>
         /// Deletes a single corporate action source
@@ -403,7 +403,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCorporateActionSourceWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
+        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source
         /// </summary>
         /// <remarks>
         /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
@@ -419,7 +419,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionsAsync(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
+        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source
         /// </summary>
         /// <remarks>
         /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
@@ -434,7 +434,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCorporateActionsWithHttpInfoAsync(string scope, string code, List<string> corporateActionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source
         /// </summary>
         /// <remarks>
         /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
@@ -450,7 +450,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteInstrumentEventsAsync(string scope, string code, List<string> instrumentEventIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source
         /// </summary>
         /// <remarks>
         /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
@@ -1180,7 +1180,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source. Deletes a single corporate action source
+        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source Deletes a single corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source to be deleted</param>
@@ -1195,7 +1195,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source. Deletes a single corporate action source
+        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source Deletes a single corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source to be deleted</param>
@@ -1289,7 +1289,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source. Deletes a single corporate action source
+        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source Deletes a single corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source to be deleted</param>
@@ -1305,7 +1305,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source. Deletes a single corporate action source
+        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source Deletes a single corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source to be deleted</param>
@@ -1402,7 +1402,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1418,7 +1418,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1520,7 +1520,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1537,7 +1537,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1642,7 +1642,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source. Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1658,7 +1658,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source. Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1760,7 +1760,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source. Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1777,7 +1777,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source. Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>

@@ -6,9 +6,9 @@ All URIs are relative to *https://www.lusid.com/api*
 |--------|--------------|-------------|
 | [**BatchUpsertCorporateActions**](CorporateActionSourcesApi.md#batchupsertcorporateactions) | **POST** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source. |
 | [**CreateCorporateActionSource**](CorporateActionSourcesApi.md#createcorporateactionsource) | **POST** /api/corporateactionsources | [EARLY ACCESS] CreateCorporateActionSource: Create corporate action source |
-| [**DeleteCorporateActionSource**](CorporateActionSourcesApi.md#deletecorporateactionsource) | **DELETE** /api/corporateactionsources/{scope}/{code} | [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source. |
-| [**DeleteCorporateActions**](CorporateActionSourcesApi.md#deletecorporateactions) | **DELETE** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions |
-| [**DeleteInstrumentEvents**](CorporateActionSourcesApi.md#deleteinstrumentevents) | **DELETE** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source. |
+| [**DeleteCorporateActionSource**](CorporateActionSourcesApi.md#deletecorporateactionsource) | **DELETE** /api/corporateactionsources/{scope}/{code} | [BETA] DeleteCorporateActionSource: Delete a corporate action source |
+| [**DeleteCorporateActions**](CorporateActionSourcesApi.md#deletecorporateactions) | **DELETE** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source |
+| [**DeleteInstrumentEvents**](CorporateActionSourcesApi.md#deleteinstrumentevents) | **DELETE** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source |
 | [**GetCorporateActions**](CorporateActionSourcesApi.md#getcorporateactions) | **GET** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source. |
 | [**GetInstrumentEvents**](CorporateActionSourcesApi.md#getinstrumentevents) | **GET** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source. |
 | [**ListCorporateActionSources**](CorporateActionSourcesApi.md#listcorporateactionsources) | **GET** /api/corporateactionsources | [EARLY ACCESS] ListCorporateActionSources: List corporate action sources |
@@ -250,7 +250,7 @@ catch (ApiException e)
 # **DeleteCorporateActionSource**
 > DeletedEntityResponse DeleteCorporateActionSource (string scope, string code)
 
-[BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
+[BETA] DeleteCorporateActionSource: Delete a corporate action source
 
 Deletes a single corporate action source
 
@@ -301,7 +301,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteCorporateActionSource(scope, code, opts: opts);
 
-                // [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
+                // [BETA] DeleteCorporateActionSource: Delete a corporate action source
                 DeletedEntityResponse result = apiInstance.DeleteCorporateActionSource(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -322,7 +322,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
+    // [BETA] DeleteCorporateActionSource: Delete a corporate action source
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteCorporateActionSourceWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -366,7 +366,7 @@ catch (ApiException e)
 # **DeleteCorporateActions**
 > DeletedEntityResponse DeleteCorporateActions (string scope, string code, List<string> corporateActionIds)
 
-[EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
+[EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source
 
 Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
 
@@ -418,7 +418,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteCorporateActions(scope, code, corporateActionIds, opts: opts);
 
-                // [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
+                // [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source
                 DeletedEntityResponse result = apiInstance.DeleteCorporateActions(scope, code, corporateActionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -439,7 +439,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
+    // [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteCorporateActionsWithHttpInfo(scope, code, corporateActionIds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -484,7 +484,7 @@ catch (ApiException e)
 # **DeleteInstrumentEvents**
 > DeletedEntityResponse DeleteInstrumentEvents (string scope, string code, List<string> instrumentEventIds)
 
-[EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+[EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source
 
 Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
 
@@ -536,7 +536,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteInstrumentEvents(scope, code, instrumentEventIds, opts: opts);
 
-                // [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+                // [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source
                 DeletedEntityResponse result = apiInstance.DeleteInstrumentEvents(scope, code, instrumentEventIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -557,7 +557,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+    // [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteInstrumentEventsWithHttpInfo(scope, code, instrumentEventIds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
