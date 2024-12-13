@@ -44,7 +44,13 @@ namespace Lusid.Sdk.Model
         /// Enum DerivedTransaction for value: DerivedTransaction
         /// </summary>
         [EnumMember(Value = "DerivedTransaction")]
-        DerivedTransaction = 3
+        DerivedTransaction = 3,
+
+        /// <summary>
+        /// Enum SimplePosition for value: SimplePosition
+        /// </summary>
+        [EnumMember(Value = "SimplePosition")]
+        SimplePosition = 4
 
     }
 

@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class PortfolioWithoutHref : IEquatable<PortfolioWithoutHref>, IValidatableObject
     {
         /// <summary>
-        /// The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction
+        /// The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition
         /// </summary>
-        /// <value>The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction</value>
+        /// <value>The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -51,15 +51,21 @@ namespace Lusid.Sdk.Model
             /// Enum DerivedTransaction for value: DerivedTransaction
             /// </summary>
             [EnumMember(Value = "DerivedTransaction")]
-            DerivedTransaction = 3
+            DerivedTransaction = 3,
+
+            /// <summary>
+            /// Enum SimplePosition for value: SimplePosition
+            /// </summary>
+            [EnumMember(Value = "SimplePosition")]
+            SimplePosition = 4
 
         }
 
 
         /// <summary>
-        /// The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction
+        /// The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition
         /// </summary>
-        /// <value>The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction</value>
+        /// <value>The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TypeEnum Type { get; set; }
         /// <summary>
@@ -183,7 +189,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PortfolioWithoutHref" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        /// <param name="type">The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction (required).</param>
+        /// <param name="type">The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition (required).</param>
         /// <param name="displayName">The name of the portfolio. (required).</param>
         /// <param name="description">The long form description of the portfolio..</param>
         /// <param name="created">The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. (required).</param>

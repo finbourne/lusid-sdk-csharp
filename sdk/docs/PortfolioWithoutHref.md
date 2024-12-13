@@ -6,7 +6,7 @@ A list of portfolios.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
-**Type** | **string** | The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction | 
+**Type** | **string** | The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition | 
 **DisplayName** | **string** | The name of the portfolio. | 
 **Description** | **string** | The long form description of the portfolio. | [optional] 
 **Created** | **DateTimeOffset** | The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. | 

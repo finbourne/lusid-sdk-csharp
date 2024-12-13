@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **Id** | [**ResourceId**](ResourceId.md) |  | 
-**Type** | **string** | The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction | 
+**Type** | **string** | The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition | 
 **DisplayName** | **string** | The name of the portfolio. | 
 **Description** | **string** | The long form description of the portfolio. | [optional] 
 **Created** | **DateTimeOffset** | The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. | 
