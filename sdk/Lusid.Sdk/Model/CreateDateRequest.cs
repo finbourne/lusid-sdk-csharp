@@ -39,12 +39,12 @@ namespace Lusid.Sdk.Model
         /// <param name="dateId">dateId (required).</param>
         /// <param name="fromUtc">fromUtc (required).</param>
         /// <param name="toUtc">toUtc (required).</param>
-        /// <param name="timeZone">timeZone (required).</param>
+        /// <param name="varTimeZone">varTimeZone (required).</param>
         /// <param name="description">description (required).</param>
         /// <param name="type">type.</param>
         /// <param name="attributes">attributes.</param>
         /// <param name="sourceData">sourceData.</param>
-        public CreateDateRequest(string dateId = default(string), DateTimeOffset fromUtc = default(DateTimeOffset), DateTimeOffset toUtc = default(DateTimeOffset), string timeZone = default(string), string description = default(string), string type = default(string), DateAttributes attributes = default(DateAttributes), Dictionary<string, string> sourceData = default(Dictionary<string, string>))
+        public CreateDateRequest(string dateId = default(string), DateTimeOffset fromUtc = default(DateTimeOffset), DateTimeOffset toUtc = default(DateTimeOffset), string varTimeZone = default(string), string description = default(string), string type = default(string), DateAttributes attributes = default(DateAttributes), Dictionary<string, string> sourceData = default(Dictionary<string, string>))
         {
             // to ensure "dateId" is required (not null)
             if (dateId == null)
@@ -54,12 +54,12 @@ namespace Lusid.Sdk.Model
             this.DateId = dateId;
             this.FromUtc = fromUtc;
             this.ToUtc = toUtc;
-            // to ensure "timeZone" is required (not null)
-            if (timeZone == null)
+            // to ensure "varTimeZone" is required (not null)
+            if (varTimeZone == null)
             {
-                throw new ArgumentNullException("timeZone is a required property for CreateDateRequest and cannot be null");
+                throw new ArgumentNullException("varTimeZone is a required property for CreateDateRequest and cannot be null");
             }
-            this.TimeZone = timeZone;
+            this.VarTimeZone = varTimeZone;
             // to ensure "description" is required (not null)
             if (description == null)
             {
@@ -90,10 +90,10 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset ToUtc { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeZone
+        /// Gets or Sets VarTimeZone
         /// </summary>
         [DataMember(Name = "timeZone", IsRequired = true, EmitDefaultValue = true)]
-        public string TimeZone { get; set; }
+        public string VarTimeZone { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
@@ -130,7 +130,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DateId: ").Append(DateId).Append("\n");
             sb.Append("  FromUtc: ").Append(FromUtc).Append("\n");
             sb.Append("  ToUtc: ").Append(ToUtc).Append("\n");
-            sb.Append("  TimeZone: ").Append(TimeZone).Append("\n");
+            sb.Append("  VarTimeZone: ").Append(VarTimeZone).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
@@ -186,9 +186,9 @@ namespace Lusid.Sdk.Model
                     this.ToUtc.Equals(input.ToUtc))
                 ) && 
                 (
-                    this.TimeZone == input.TimeZone ||
-                    (this.TimeZone != null &&
-                    this.TimeZone.Equals(input.TimeZone))
+                    this.VarTimeZone == input.VarTimeZone ||
+                    (this.VarTimeZone != null &&
+                    this.VarTimeZone.Equals(input.VarTimeZone))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -234,9 +234,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ToUtc.GetHashCode();
                 }
-                if (this.TimeZone != null)
+                if (this.VarTimeZone != null)
                 {
-                    hashCode = (hashCode * 59) + this.TimeZone.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarTimeZone.GetHashCode();
                 }
                 if (this.Description != null)
                 {
@@ -284,23 +284,23 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DateId, must match a pattern of " + regexDateId, new [] { "DateId" });
             }
 
-            // TimeZone (string) maxLength
-            if (this.TimeZone != null && this.TimeZone.Length > 5)
+            // VarTimeZone (string) maxLength
+            if (this.VarTimeZone != null && this.VarTimeZone.Length > 5)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimeZone, length must be less than 5.", new [] { "TimeZone" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarTimeZone, length must be less than 5.", new [] { "VarTimeZone" });
             }
 
-            // TimeZone (string) minLength
-            if (this.TimeZone != null && this.TimeZone.Length < 0)
+            // VarTimeZone (string) minLength
+            if (this.VarTimeZone != null && this.VarTimeZone.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimeZone, length must be greater than 0.", new [] { "TimeZone" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarTimeZone, length must be greater than 0.", new [] { "VarTimeZone" });
             }
 
-            // TimeZone (string) pattern
-            Regex regexTimeZone = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexTimeZone.Match(this.TimeZone).Success)
+            // VarTimeZone (string) pattern
+            Regex regexVarTimeZone = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexVarTimeZone.Match(this.VarTimeZone).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimeZone, must match a pattern of " + regexTimeZone, new [] { "TimeZone" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarTimeZone, must match a pattern of " + regexVarTimeZone, new [] { "VarTimeZone" });
             }
 
             // Description (string) maxLength

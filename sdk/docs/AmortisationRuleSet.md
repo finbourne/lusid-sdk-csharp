@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | A user-friendly name. | 
 **Description** | **string** | A description of what this rule set is for. | [optional] 
 **RulesInterval** | [**RulesInterval**](RulesInterval.md) |  | 
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

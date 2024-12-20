@@ -123,7 +123,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "MaximumLossMinimumGainPortfolioCurrency")]
         MaximumLossMinimumGainPortfolioCurrency = 16
-
     }
 
 }

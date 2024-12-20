@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
 **Values** | [**List&lt;PortfolioHolding&gt;**](PortfolioHolding.md) | The resources to list. | 
 **Href** | **string** | The URI of the resource list. | [optional] 
 **NextPage** | **string** | The next page of results. | [optional] 

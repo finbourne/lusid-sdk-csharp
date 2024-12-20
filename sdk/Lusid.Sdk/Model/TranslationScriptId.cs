@@ -38,8 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="scope">Scope of the translation script. (required).</param>
         /// <param name="code">Code of the translation script. (required).</param>
-        /// <param name="version">Semantic Version of the translation script of the form MAJOR.MINOR.PATCH. (required).</param>
-        public TranslationScriptId(string scope = default(string), string code = default(string), string version = default(string))
+        /// <param name="varVersion">Semantic Version of the translation script of the form MAJOR.MINOR.PATCH. (required).</param>
+        public TranslationScriptId(string scope = default(string), string code = default(string), string varVersion = default(string))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -53,12 +53,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("code is a required property for TranslationScriptId and cannot be null");
             }
             this.Code = code;
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for TranslationScriptId and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for TranslationScriptId and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>Semantic Version of the translation script of the form MAJOR.MINOR.PATCH.</value>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public string _Version { get; set; }
+        public string VarVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class TranslationScriptId {\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,9 +139,9 @@ namespace Lusid.Sdk.Model
                     this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 );
         }
 
@@ -162,9 +162,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 return hashCode;
             }
@@ -215,23 +215,23 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
             }
 
-            // _Version (string) maxLength
-            if (this._Version != null && this._Version.Length > 30)
+            // VarVersion (string) maxLength
+            if (this.VarVersion != null && this.VarVersion.Length > 30)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, length must be less than 30.", new [] { "_Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarVersion, length must be less than 30.", new [] { "VarVersion" });
             }
 
-            // _Version (string) minLength
-            if (this._Version != null && this._Version.Length < 1)
+            // VarVersion (string) minLength
+            if (this.VarVersion != null && this.VarVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, length must be greater than 1.", new [] { "_Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarVersion, length must be greater than 1.", new [] { "VarVersion" });
             }
 
-            // _Version (string) pattern
-            Regex regex_Version = new Regex(@"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$", RegexOptions.CultureInvariant);
-            if (false == regex_Version.Match(this._Version).Success)
+            // VarVersion (string) pattern
+            Regex regexVarVersion = new Regex(@"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$", RegexOptions.CultureInvariant);
+            if (false == regexVarVersion.Match(this.VarVersion).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must match a pattern of " + regex_Version, new [] { "_Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarVersion, must match a pattern of " + regexVarVersion, new [] { "VarVersion" });
             }
 
             yield break;

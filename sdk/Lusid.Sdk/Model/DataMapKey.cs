@@ -31,11 +31,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DataMapKey" /> class.
         /// </summary>
-        /// <param name="version">The version of the mappings. It is possible that a client will wish to update mappings over time. The version identifies the MAJOR.MINOR.PATCH version  of the mappings that the client assigns it..</param>
+        /// <param name="varVersion">The version of the mappings. It is possible that a client will wish to update mappings over time. The version identifies the MAJOR.MINOR.PATCH version  of the mappings that the client assigns it..</param>
         /// <param name="code">A unique name to semantically identify the mapping set..</param>
-        public DataMapKey(string version = default(string), string code = default(string))
+        public DataMapKey(string varVersion = default(string), string code = default(string))
         {
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Code = code;
         }
 
@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The version of the mappings. It is possible that a client will wish to update mappings over time. The version identifies the MAJOR.MINOR.PATCH version  of the mappings that the client assigns it.</value>
         [DataMember(Name = "version", EmitDefaultValue = true)]
-        public string _Version { get; set; }
+        public string VarVersion { get; set; }
 
         /// <summary>
         /// A unique name to semantically identify the mapping set.
@@ -61,7 +61,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class DataMapKey {\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -99,9 +99,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Code == input.Code ||
@@ -119,9 +119,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Code != null)
                 {
@@ -138,23 +138,23 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // _Version (string) maxLength
-            if (this._Version != null && this._Version.Length > 32)
+            // VarVersion (string) maxLength
+            if (this.VarVersion != null && this.VarVersion.Length > 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, length must be less than 32.", new [] { "_Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarVersion, length must be less than 32.", new [] { "VarVersion" });
             }
 
-            // _Version (string) minLength
-            if (this._Version != null && this._Version.Length < 0)
+            // VarVersion (string) minLength
+            if (this.VarVersion != null && this.VarVersion.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, length must be greater than 0.", new [] { "_Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarVersion, length must be greater than 0.", new [] { "VarVersion" });
             }
 
-            // _Version (string) pattern
-            Regex regex_Version = new Regex(@"^\d+\.\d+(\.\d+)?(-[a-zA-Z0-9\.-]{1,30})?$", RegexOptions.CultureInvariant);
-            if (false == regex_Version.Match(this._Version).Success)
+            // VarVersion (string) pattern
+            Regex regexVarVersion = new Regex(@"^\d+\.\d+(\.\d+)?(-[a-zA-Z0-9\.-]{1,30})?$", RegexOptions.CultureInvariant);
+            if (false == regexVarVersion.Match(this.VarVersion).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must match a pattern of " + regex_Version, new [] { "_Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarVersion, must match a pattern of " + regexVarVersion, new [] { "VarVersion" });
             }
 
             // Code (string) maxLength

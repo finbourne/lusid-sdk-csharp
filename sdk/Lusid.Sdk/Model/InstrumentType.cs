@@ -285,7 +285,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "FlexibleDeposit")]
         FlexibleDeposit = 43
-
     }
 
 }

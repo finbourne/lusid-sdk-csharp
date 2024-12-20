@@ -136,7 +136,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "InterestShortfall")]
             InterestShortfall = 17
-
         }
 
 

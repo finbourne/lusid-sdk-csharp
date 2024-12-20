@@ -37,11 +37,11 @@ namespace Lusid.Sdk.Model
         /// <param name="instructionType">The type of instruction (Ignore, ElectForPortfolio, ElectForHolding).</param>
         /// <param name="electionKey">For elected instructions, the key to be chosen.</param>
         /// <param name="holdingId">For holding instructions, the id of the holding for which the instruction will apply.</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="href">The uri for this version of this instruction.</param>
         /// <param name="entitlementDateInstructed">The instructed entitlement date for the event (where none is set on the event itself).</param>
         /// <param name="links">links.</param>
-        public InstrumentEventInstruction(string instrumentEventInstructionId = default(string), ResourceId portfolioId = default(ResourceId), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), ModelVersion version = default(ModelVersion), string href = default(string), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?), List<Link> links = default(List<Link>))
+        public InstrumentEventInstruction(string instrumentEventInstructionId = default(string), ResourceId portfolioId = default(ResourceId), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), ModelVersion varVersion = default(ModelVersion), string href = default(string), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?), List<Link> links = default(List<Link>))
         {
             this.InstrumentEventInstructionId = instrumentEventInstructionId;
             this.PortfolioId = portfolioId;
@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Model
             this.InstructionType = instructionType;
             this.ElectionKey = electionKey;
             this.HoldingId = holdingId;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Href = href;
             this.EntitlementDateInstructed = entitlementDateInstructed;
             this.Links = links;
@@ -97,10 +97,10 @@ namespace Lusid.Sdk.Model
         public long? HoldingId { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// The uri for this version of this instruction
@@ -136,7 +136,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstructionType: ").Append(InstructionType).Append("\n");
             sb.Append("  ElectionKey: ").Append(ElectionKey).Append("\n");
             sb.Append("  HoldingId: ").Append(HoldingId).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  EntitlementDateInstructed: ").Append(EntitlementDateInstructed).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -206,9 +206,9 @@ namespace Lusid.Sdk.Model
                     this.HoldingId.Equals(input.HoldingId))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Href == input.Href ||
@@ -261,9 +261,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.HoldingId.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Href != null)
                 {

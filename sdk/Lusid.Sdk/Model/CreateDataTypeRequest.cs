@@ -46,7 +46,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Closed")]
             Closed = 2
-
         }
 
 
@@ -188,7 +187,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "UnindexedText")]
             UnindexedText = 21
-
         }
 
 
@@ -222,7 +220,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Iso4217Currency")]
             Iso4217Currency = 3
-
         }
 
 

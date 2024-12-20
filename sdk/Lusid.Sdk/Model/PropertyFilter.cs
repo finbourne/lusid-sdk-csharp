@@ -76,7 +76,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "In")]
             In = 7
-
         }
 
 
@@ -104,7 +103,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Property")]
             Property = 2
-
         }
 
 
@@ -118,13 +116,13 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PropertyFilter" /> class.
         /// </summary>
         /// <param name="left">The key that uniquely identifies a queryable address in Lusid..</param>
-        /// <param name="_operator">The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In.</param>
+        /// <param name="varOperator">The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In.</param>
         /// <param name="right">right.</param>
         /// <param name="rightOperandType">The available values are: Absolute, Property.</param>
-        public PropertyFilter(string left = default(string), OperatorEnum? _operator = default(OperatorEnum?), Object right = default(Object), RightOperandTypeEnum? rightOperandType = default(RightOperandTypeEnum?))
+        public PropertyFilter(string left = default(string), OperatorEnum? varOperator = default(OperatorEnum?), Object right = default(Object), RightOperandTypeEnum? rightOperandType = default(RightOperandTypeEnum?))
         {
             this.Left = left;
-            this.Operator = _operator;
+            this.Operator = varOperator;
             this.Right = right;
             this.RightOperandType = rightOperandType;
         }

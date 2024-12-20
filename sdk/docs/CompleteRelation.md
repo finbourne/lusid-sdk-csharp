@@ -6,7 +6,7 @@ Representation of a relation containing details of source and target entities, a
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** |  | [optional] 
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **RelationDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
 **SourceEntityId** | **Dictionary&lt;string, string&gt;** |  | 
 **TargetEntityId** | **Dictionary&lt;string, string&gt;** |  | 

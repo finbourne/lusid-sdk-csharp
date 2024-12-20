@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="taxLotId">The tax lot Id that the Journal Entry Line is impacting..</param>
         /// <param name="generalLedgerAccountCode">The code of the account in the general ledger the Journal Entry was posted to. (required).</param>
         /// <param name="local">local (required).</param>
-        /// <param name="_base">_base (required).</param>
+        /// <param name="varBase">varBase (required).</param>
         /// <param name="units">Units held for the Journal Entry Line. (required).</param>
         /// <param name="postingModuleCode">The code of the posting module where the posting rules derived the Journal Entry lines..</param>
         /// <param name="postingRule">The rule generating the Journal Entry Line. (required).</param>
@@ -65,7 +65,7 @@ namespace Lusid.Sdk.Model
         /// <param name="ledgerColumn">Indicates if the Journal Entry Line is credit or debit..</param>
         /// <param name="journalEntryLineType">Indicates the Journal Entry Line type.</param>
         /// <param name="links">links.</param>
-        public JournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount _base = default(CurrencyAndAmount), decimal units = default(decimal), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<Link> links = default(List<Link>))
+        public JournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount varBase = default(CurrencyAndAmount), decimal units = default(decimal), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<Link> links = default(List<Link>))
         {
             this.AccountingDate = accountingDate;
             this.ActivityDate = activityDate;
@@ -99,12 +99,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("local is a required property for JournalEntryLine and cannot be null");
             }
             this.Local = local;
-            // to ensure "_base" is required (not null)
-            if (_base == null)
+            // to ensure "varBase" is required (not null)
+            if (varBase == null)
             {
-                throw new ArgumentNullException("_base is a required property for JournalEntryLine and cannot be null");
+                throw new ArgumentNullException("varBase is a required property for JournalEntryLine and cannot be null");
             }
-            this.Base = _base;
+            this.Base = varBase;
             this.Units = units;
             // to ensure "postingRule" is required (not null)
             if (postingRule == null)

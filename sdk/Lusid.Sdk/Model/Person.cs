@@ -38,9 +38,9 @@ namespace Lusid.Sdk.Model
         /// <param name="identifiers">Unique client-defined identifiers of the Person..</param>
         /// <param name="properties">A set of properties associated to the Person. There can be multiple properties associated with a property key..</param>
         /// <param name="relationships">A set of relationships associated to the Person..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public Person(string displayName = default(string), string description = default(string), string href = default(string), string lusidPersonId = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Person(string displayName = default(string), string description = default(string), string href = default(string), string lusidPersonId = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             this.DisplayName = displayName;
             this.Description = description;
@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Model
             this.Identifiers = identifiers;
             this.Properties = properties;
             this.Relationships = relationships;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
@@ -103,10 +103,10 @@ namespace Lusid.Sdk.Model
         public List<Relationship> Relationships { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -129,7 +129,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Relationships: ").Append(Relationships).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -205,9 +205,9 @@ namespace Lusid.Sdk.Model
                     this.Relationships.SequenceEqual(input.Relationships)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -254,9 +254,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Relationships.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

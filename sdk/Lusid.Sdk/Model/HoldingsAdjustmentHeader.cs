@@ -46,7 +46,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "KeepTheSame")]
             KeepTheSame = 2
-
         }
 
 
@@ -65,18 +64,18 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="HoldingsAdjustmentHeader" /> class.
         /// </summary>
         /// <param name="effectiveAt">The effective datetime from which the adjustment is valid. There can only be one holdings adjustment for a transaction portfolio at a specific effective datetime, so this uniquely identifies the adjustment. (required).</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="unmatchedHoldingMethod">Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame (required).</param>
         /// <param name="links">links.</param>
-        public HoldingsAdjustmentHeader(DateTimeOffset effectiveAt = default(DateTimeOffset), ModelVersion version = default(ModelVersion), UnmatchedHoldingMethodEnum unmatchedHoldingMethod = default(UnmatchedHoldingMethodEnum), List<Link> links = default(List<Link>))
+        public HoldingsAdjustmentHeader(DateTimeOffset effectiveAt = default(DateTimeOffset), ModelVersion varVersion = default(ModelVersion), UnmatchedHoldingMethodEnum unmatchedHoldingMethod = default(UnmatchedHoldingMethodEnum), List<Link> links = default(List<Link>))
         {
             this.EffectiveAt = effectiveAt;
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for HoldingsAdjustmentHeader and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for HoldingsAdjustmentHeader and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.UnmatchedHoldingMethod = unmatchedHoldingMethod;
             this.Links = links;
         }
@@ -89,10 +88,10 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -109,7 +108,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class HoldingsAdjustmentHeader {\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  UnmatchedHoldingMethod: ").Append(UnmatchedHoldingMethod).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -153,9 +152,9 @@ namespace Lusid.Sdk.Model
                     this.EffectiveAt.Equals(input.EffectiveAt))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.UnmatchedHoldingMethod == input.UnmatchedHoldingMethod ||
@@ -182,9 +181,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.UnmatchedHoldingMethod.GetHashCode();
                 if (this.Links != null)

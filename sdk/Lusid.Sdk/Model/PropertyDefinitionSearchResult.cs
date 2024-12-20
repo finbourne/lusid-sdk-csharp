@@ -160,7 +160,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "UnindexedText")]
             UnindexedText = 21
-
         }
 
 
@@ -194,7 +193,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Information")]
             Information = 3
-
         }
 
 
@@ -228,7 +226,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Iso4217Currency")]
             Iso4217Currency = 3
-
         }
 
 
@@ -712,7 +709,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "StagingRuleSet")]
             StagingRuleSet = 78
-
         }
 
 
@@ -740,7 +736,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "TimeVariant")]
             TimeVariant = 2
-
         }
 
 
@@ -768,7 +763,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "DerivedDefinition")]
             DerivedDefinition = 2
-
         }
 
 

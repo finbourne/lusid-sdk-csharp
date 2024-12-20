@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **Positions** | [**ReconciliationConfiguration**](ReconciliationConfiguration.md) |  | [optional] 
 **Valuations** | [**ReconciliationConfiguration**](ReconciliationConfiguration.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Reconciliation properties | [optional] 
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

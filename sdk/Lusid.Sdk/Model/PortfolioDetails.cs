@@ -130,7 +130,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "MaximumLossMinimumGainPortfolioCurrency")]
             MaximumLossMinimumGainPortfolioCurrency = 16
-
         }
 
 
@@ -150,7 +149,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="originPortfolioId">originPortfolioId (required).</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="baseCurrency">The base currency of the transaction portfolio. (required).</param>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
         /// <param name="subHoldingKeys">subHoldingKeys.</param>
@@ -163,7 +162,7 @@ namespace Lusid.Sdk.Model
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="links">links.</param>
-        public PortfolioDetails(string href = default(string), ResourceId originPortfolioId = default(ResourceId), ModelVersion version = default(ModelVersion), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
+        public PortfolioDetails(string href = default(string), ResourceId originPortfolioId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
         {
             // to ensure "originPortfolioId" is required (not null)
             if (originPortfolioId == null)
@@ -171,12 +170,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("originPortfolioId is a required property for PortfolioDetails and cannot be null");
             }
             this.OriginPortfolioId = originPortfolioId;
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for PortfolioDetails and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for PortfolioDetails and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             // to ensure "baseCurrency" is required (not null)
             if (baseCurrency == null)
             {
@@ -211,10 +210,10 @@ namespace Lusid.Sdk.Model
         public ResourceId OriginPortfolioId { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// The base currency of the transaction portfolio.
@@ -297,7 +296,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class PortfolioDetails {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  OriginPortfolioId: ").Append(OriginPortfolioId).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
             sb.Append("  CorporateActionSourceId: ").Append(CorporateActionSourceId).Append("\n");
             sb.Append("  SubHoldingKeys: ").Append(SubHoldingKeys).Append("\n");
@@ -356,9 +355,9 @@ namespace Lusid.Sdk.Model
                     this.OriginPortfolioId.Equals(input.OriginPortfolioId))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.BaseCurrency == input.BaseCurrency ||
@@ -441,9 +440,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.OriginPortfolioId.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.BaseCurrency != null)
                 {

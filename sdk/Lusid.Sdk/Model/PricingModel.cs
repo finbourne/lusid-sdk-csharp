@@ -147,7 +147,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "CdsLookupPricer")]
         CdsLookupPricer = 20
-
     }
 
 }

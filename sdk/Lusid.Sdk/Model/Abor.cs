@@ -43,10 +43,10 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioIds">The list with the portfolio ids which are part of the Abor. Note: These must all have the same base currency. (required).</param>
         /// <param name="aborConfigurationId">aborConfigurationId.</param>
         /// <param name="properties">A set of properties for the Abor..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="baseCurrency">The base currency of the abor based on contained portfolio base currencies..</param>
         /// <param name="links">links.</param>
-        public Abor(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId aborConfigurationId = default(ResourceId), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), string baseCurrency = default(string), List<Link> links = default(List<Link>))
+        public Abor(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId aborConfigurationId = default(ResourceId), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string baseCurrency = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -65,7 +65,7 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.AborConfigurationId = aborConfigurationId;
             this.Properties = properties;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.BaseCurrency = baseCurrency;
             this.Links = links;
         }
@@ -118,10 +118,10 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// The base currency of the abor based on contained portfolio base currencies.
@@ -151,7 +151,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PortfolioIds: ").Append(PortfolioIds).Append("\n");
             sb.Append("  AborConfigurationId: ").Append(AborConfigurationId).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -227,9 +227,9 @@ namespace Lusid.Sdk.Model
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.BaseCurrency == input.BaseCurrency ||
@@ -281,9 +281,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.BaseCurrency != null)
                 {

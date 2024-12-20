@@ -39,10 +39,10 @@ namespace Lusid.Sdk.Model
         /// <param name="scope">The Scope of the dialect. (required).</param>
         /// <param name="vendor">The vendor of the dialect, the entity that created it. e.g. ISDA, FINBOURNE. (required).</param>
         /// <param name="sourceSystem">The source system of the dialect, the system that understands it. e.g. LUSID, QuantLib. (required).</param>
-        /// <param name="version">The semantic version of the dialect: MAJOR.MINOR.PATCH. (required).</param>
+        /// <param name="varVersion">The semantic version of the dialect: MAJOR.MINOR.PATCH. (required).</param>
         /// <param name="serialisationFormat">The serialisation format of a document in this dialect. e.g. JSON, XML. (required).</param>
         /// <param name="entityType">The type of entity this dialect describes e.g. Instrument. (required).</param>
-        public DialectId(string scope = default(string), string vendor = default(string), string sourceSystem = default(string), string version = default(string), string serialisationFormat = default(string), string entityType = default(string))
+        public DialectId(string scope = default(string), string vendor = default(string), string sourceSystem = default(string), string varVersion = default(string), string serialisationFormat = default(string), string entityType = default(string))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -62,12 +62,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("sourceSystem is a required property for DialectId and cannot be null");
             }
             this.SourceSystem = sourceSystem;
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for DialectId and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for DialectId and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             // to ensure "serialisationFormat" is required (not null)
             if (serialisationFormat == null)
             {
@@ -108,7 +108,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The semantic version of the dialect: MAJOR.MINOR.PATCH.</value>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public string _Version { get; set; }
+        public string VarVersion { get; set; }
 
         /// <summary>
         /// The serialisation format of a document in this dialect. e.g. JSON, XML.
@@ -135,7 +135,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Vendor: ").Append(Vendor).Append("\n");
             sb.Append("  SourceSystem: ").Append(SourceSystem).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  SerialisationFormat: ").Append(SerialisationFormat).Append("\n");
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("}\n");
@@ -189,9 +189,9 @@ namespace Lusid.Sdk.Model
                     this.SourceSystem.Equals(input.SourceSystem))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.SerialisationFormat == input.SerialisationFormat ||
@@ -226,9 +226,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SourceSystem.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.SerialisationFormat != null)
                 {
@@ -306,23 +306,23 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceSystem, must match a pattern of " + regexSourceSystem, new [] { "SourceSystem" });
             }
 
-            // _Version (string) maxLength
-            if (this._Version != null && this._Version.Length > 30)
+            // VarVersion (string) maxLength
+            if (this.VarVersion != null && this.VarVersion.Length > 30)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, length must be less than 30.", new [] { "_Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarVersion, length must be less than 30.", new [] { "VarVersion" });
             }
 
-            // _Version (string) minLength
-            if (this._Version != null && this._Version.Length < 1)
+            // VarVersion (string) minLength
+            if (this.VarVersion != null && this.VarVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, length must be greater than 1.", new [] { "_Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarVersion, length must be greater than 1.", new [] { "VarVersion" });
             }
 
-            // _Version (string) pattern
-            Regex regex_Version = new Regex(@"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$", RegexOptions.CultureInvariant);
-            if (false == regex_Version.Match(this._Version).Success)
+            // VarVersion (string) pattern
+            Regex regexVarVersion = new Regex(@"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$", RegexOptions.CultureInvariant);
+            if (false == regexVarVersion.Match(this.VarVersion).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must match a pattern of " + regex_Version, new [] { "_Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarVersion, must match a pattern of " + regexVarVersion, new [] { "VarVersion" });
             }
 
             // SerialisationFormat (string) minLength

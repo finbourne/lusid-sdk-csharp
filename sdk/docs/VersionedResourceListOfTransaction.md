@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
 **Values** | [**List&lt;Transaction&gt;**](Transaction.md) |  | 
 **Href** | **string** |  | [optional] 
 **NextPage** | **string** |  | [optional] 

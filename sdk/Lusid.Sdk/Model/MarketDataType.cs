@@ -112,7 +112,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "ConstantVolatilitySurface")]
         ConstantVolatilitySurface = 14
-
     }
 
 }

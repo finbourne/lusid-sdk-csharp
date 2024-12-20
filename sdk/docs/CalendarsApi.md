@@ -888,7 +888,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope of the calendars to use
             var valuationSchedule = new ValuationSchedule(); // ValuationSchedule | The ValuationSchedule to generate schedule dates from
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional AsAt for searching the calendar store. Defaults to Latest. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional AsAt for searching the calendar store. Defaults to Latest. (optional) 
 
             try
             {
@@ -1007,7 +1007,7 @@ namespace Examples
             var scope = "scope_example";  // string | Scope of the calendar identifier
             var code = "code_example";  // string | Code of the calendar identifier
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendar (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendar (optional) 
 
             try
             {
@@ -1128,7 +1128,7 @@ namespace Examples
             var code = "code_example";  // string | Code of the calendar
             var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel? | Where the effective window of dates should begin from (optional) 
             var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel? | Where the effective window of dates should end (optional) 
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | AsAt the dates should be retrieved at (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | AsAt the dates should be retrieved at (optional) 
             var idFilter = new List<string>?(); // List<string>? | An additional filter that will filter dates based on their identifer (optional) 
 
             try
@@ -1248,10 +1248,10 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
-            var dateTime = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset | DateTime to check - This DateTime must be UTC
+            var dateTime = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset | DateTime to check - This DateTime must be UTC
             var scope = "scope_example";  // string | Scope of the calendar
             var code = "code_example";  // string | Code of the calendar
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | AsAt for the request (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | AsAt for the request (optional) 
 
             try
             {
@@ -1368,7 +1368,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendars (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendars (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
@@ -1491,7 +1491,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope of the calendars
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendars (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendars (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 

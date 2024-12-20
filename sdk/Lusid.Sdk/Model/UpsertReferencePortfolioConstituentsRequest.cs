@@ -52,7 +52,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Periodical")]
             Periodical = 3
-
         }
 
 
@@ -98,7 +97,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Annually")]
             Annually = 5
-
         }
 
 

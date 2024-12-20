@@ -45,7 +45,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Iso4217Currency")]
         Iso4217Currency = 3
-
     }
 
 }

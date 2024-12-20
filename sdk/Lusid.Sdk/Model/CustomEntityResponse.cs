@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="entityType">The type of custom entity this is. (required).</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="displayName">A display label for the custom entity. (required).</param>
         /// <param name="description">A description of the custom entity..</param>
@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="fields">The fields that decorate the custom entity. (required).</param>
         /// <param name="relationships">A set of relationships associated to the custom entity. (required).</param>
         /// <param name="links">links.</param>
-        public CustomEntityResponse(string href = default(string), string entityType = default(string), ModelVersion version = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), string displayName = default(string), string description = default(string), List<CustomEntityId> identifiers = default(List<CustomEntityId>), List<CustomEntityField> fields = default(List<CustomEntityField>), List<Relationship> relationships = default(List<Relationship>), List<Link> links = default(List<Link>))
+        public CustomEntityResponse(string href = default(string), string entityType = default(string), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), string displayName = default(string), string description = default(string), List<CustomEntityId> identifiers = default(List<CustomEntityId>), List<CustomEntityField> fields = default(List<CustomEntityField>), List<Relationship> relationships = default(List<Relationship>), List<Link> links = default(List<Link>))
         {
             // to ensure "entityType" is required (not null)
             if (entityType == null)
@@ -54,12 +54,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("entityType is a required property for CustomEntityResponse and cannot be null");
             }
             this.EntityType = entityType;
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for CustomEntityResponse and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for CustomEntityResponse and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             // to ensure "displayName" is required (not null)
             if (displayName == null)
             {
@@ -105,10 +105,10 @@ namespace Lusid.Sdk.Model
         public string EntityType { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets StagedModifications
@@ -167,7 +167,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class CustomEntityResponse {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -221,9 +221,9 @@ namespace Lusid.Sdk.Model
                     this.EntityType.Equals(input.EntityType))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.StagedModifications == input.StagedModifications ||
@@ -283,9 +283,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EntityType.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.StagedModifications != null)
                 {

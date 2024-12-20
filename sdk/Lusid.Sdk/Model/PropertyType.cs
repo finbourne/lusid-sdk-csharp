@@ -46,7 +46,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Information")]
         Information = 3
-
     }
 
 }

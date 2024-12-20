@@ -118,7 +118,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "SumCumulativeInArrears")]
             SumCumulativeInArrears = 14
-
         }
 
 

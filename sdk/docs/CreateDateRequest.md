@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **DateId** | **string** |  | 
 **FromUtc** | **DateTimeOffset** |  | 
 **ToUtc** | **DateTimeOffset** |  | 
-**TimeZone** | **string** |  | 
+**VarTimeZone** | **string** |  | 
 **Description** | **string** |  | 
 **Type** | **string** |  | [optional] 
 **Attributes** | [**DateAttributes**](DateAttributes.md) |  | [optional] 

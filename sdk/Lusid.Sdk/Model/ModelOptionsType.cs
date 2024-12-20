@@ -69,7 +69,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "EquityModelOptions")]
         EquityModelOptions = 7
-
     }
 
 }

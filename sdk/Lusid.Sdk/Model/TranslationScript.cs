@@ -38,8 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="body">Body of the translation script, i.e. the actual translation code. (required).</param>
-        /// <param name="version">version.</param>
-        public TranslationScript(TranslationScriptId id = default(TranslationScriptId), string body = default(string), ModelVersion version = default(ModelVersion))
+        /// <param name="varVersion">varVersion.</param>
+        public TranslationScript(TranslationScriptId id = default(TranslationScriptId), string body = default(string), ModelVersion varVersion = default(ModelVersion))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -53,7 +53,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("body is a required property for TranslationScript and cannot be null");
             }
             this.Body = body;
-            this._Version = version;
+            this.VarVersion = varVersion;
         }
 
         /// <summary>
@@ -70,10 +70,10 @@ namespace Lusid.Sdk.Model
         public string Body { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,7 +85,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class TranslationScript {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -132,9 +132,9 @@ namespace Lusid.Sdk.Model
                     this.Body.Equals(input.Body))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 );
         }
 
@@ -155,9 +155,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Body.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 return hashCode;
             }

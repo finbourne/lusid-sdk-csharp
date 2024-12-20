@@ -69,7 +69,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Saturday")]
         Saturday = 7
-
     }
 
 }

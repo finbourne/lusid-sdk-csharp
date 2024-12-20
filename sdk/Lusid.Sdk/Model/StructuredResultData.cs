@@ -37,11 +37,11 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="StructuredResultData" /> class.
         /// </summary>
         /// <param name="documentFormat">The format of the accompanying document. (required).</param>
-        /// <param name="version">The semantic version of the document format; MAJOR.MINOR.PATCH.</param>
+        /// <param name="varVersion">The semantic version of the document format; MAJOR.MINOR.PATCH.</param>
         /// <param name="name">The name or description for the document.</param>
         /// <param name="document">The document that will be stored (or retrieved) and which describes a unit result data entity such as a set of prices or yields (required).</param>
         /// <param name="dataMapKey">dataMapKey.</param>
-        public StructuredResultData(string documentFormat = default(string), string version = default(string), string name = default(string), string document = default(string), DataMapKey dataMapKey = default(DataMapKey))
+        public StructuredResultData(string documentFormat = default(string), string varVersion = default(string), string name = default(string), string document = default(string), DataMapKey dataMapKey = default(DataMapKey))
         {
             // to ensure "documentFormat" is required (not null)
             if (documentFormat == null)
@@ -55,7 +55,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("document is a required property for StructuredResultData and cannot be null");
             }
             this.Document = document;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Name = name;
             this.DataMapKey = dataMapKey;
         }
@@ -72,7 +72,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The semantic version of the document format; MAJOR.MINOR.PATCH</value>
         [DataMember(Name = "version", EmitDefaultValue = true)]
-        public string _Version { get; set; }
+        public string VarVersion { get; set; }
 
         /// <summary>
         /// The name or description for the document
@@ -103,7 +103,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class StructuredResultData {\n");
             sb.Append("  DocumentFormat: ").Append(DocumentFormat).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Document: ").Append(Document).Append("\n");
             sb.Append("  DataMapKey: ").Append(DataMapKey).Append("\n");
@@ -148,9 +148,9 @@ namespace Lusid.Sdk.Model
                     this.DocumentFormat.Equals(input.DocumentFormat))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -182,9 +182,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DocumentFormat.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Name != null)
                 {

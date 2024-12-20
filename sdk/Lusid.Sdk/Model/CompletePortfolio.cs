@@ -58,7 +58,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "SimplePosition")]
             SimplePosition = 4
-
         }
 
 
@@ -83,12 +82,12 @@ namespace Lusid.Sdk.Model
         /// <param name="created">The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date..</param>
         /// <param name="parentPortfolioId">parentPortfolioId.</param>
         /// <param name="type">The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition.</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="properties">The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain..</param>
         /// <param name="baseCurrency">If the portfolio is a transaction portfolio or derived transaction portfolio, this is the base currency of the portfolio..</param>
         /// <param name="subHoldingKeys">The sub holding key properties configured for the portfolio.</param>
         /// <param name="links">links.</param>
-        public CompletePortfolio(ResourceId id = default(ResourceId), string href = default(string), string description = default(string), string displayName = default(string), DateTimeOffset created = default(DateTimeOffset), ResourceId parentPortfolioId = default(ResourceId), TypeEnum? type = default(TypeEnum?), ModelVersion version = default(ModelVersion), List<Property> properties = default(List<Property>), string baseCurrency = default(string), List<string> subHoldingKeys = default(List<string>), List<Link> links = default(List<Link>))
+        public CompletePortfolio(ResourceId id = default(ResourceId), string href = default(string), string description = default(string), string displayName = default(string), DateTimeOffset created = default(DateTimeOffset), ResourceId parentPortfolioId = default(ResourceId), TypeEnum? type = default(TypeEnum?), ModelVersion varVersion = default(ModelVersion), List<Property> properties = default(List<Property>), string baseCurrency = default(string), List<string> subHoldingKeys = default(List<string>), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -96,12 +95,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("id is a required property for CompletePortfolio and cannot be null");
             }
             this.Id = id;
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for CompletePortfolio and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for CompletePortfolio and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Href = href;
             this.Description = description;
             this.DisplayName = displayName;
@@ -170,10 +169,10 @@ namespace Lusid.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain.
@@ -218,7 +217,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ParentPortfolioId: ").Append(ParentPortfolioId).Append("\n");
             sb.Append("  IsDerived: ").Append(IsDerived).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
             sb.Append("  SubHoldingKeys: ").Append(SubHoldingKeys).Append("\n");
@@ -297,9 +296,9 @@ namespace Lusid.Sdk.Model
                     this.Type.Equals(input.Type)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -361,9 +360,9 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.IsDerived.GetHashCode();
                 hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

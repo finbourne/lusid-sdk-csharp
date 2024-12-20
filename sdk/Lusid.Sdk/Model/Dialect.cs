@@ -38,8 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="schema">schema (required).</param>
-        /// <param name="version">version.</param>
-        public Dialect(DialectId id = default(DialectId), DialectSchema schema = default(DialectSchema), ModelVersion version = default(ModelVersion))
+        /// <param name="varVersion">varVersion.</param>
+        public Dialect(DialectId id = default(DialectId), DialectSchema schema = default(DialectSchema), ModelVersion varVersion = default(ModelVersion))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -53,7 +53,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("schema is a required property for Dialect and cannot be null");
             }
             this.Schema = schema;
-            this._Version = version;
+            this.VarVersion = varVersion;
         }
 
         /// <summary>
@@ -69,10 +69,10 @@ namespace Lusid.Sdk.Model
         public DialectSchema Schema { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,7 +84,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class Dialect {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Schema: ").Append(Schema).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,9 +131,9 @@ namespace Lusid.Sdk.Model
                     this.Schema.Equals(input.Schema))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 );
         }
 
@@ -154,9 +154,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Schema.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 return hashCode;
             }

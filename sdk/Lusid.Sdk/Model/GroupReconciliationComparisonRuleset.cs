@@ -42,9 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="coreAttributeRules">The core comparison rules (required).</param>
         /// <param name="aggregateAttributeRules">The aggregate comparison rules (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public GroupReconciliationComparisonRuleset(ResourceId id = default(ResourceId), string displayName = default(string), string reconciliationType = default(string), List<GroupReconciliationCoreAttributeRule> coreAttributeRules = default(List<GroupReconciliationCoreAttributeRule>), List<GroupReconciliationAggregateAttributeRule> aggregateAttributeRules = default(List<GroupReconciliationAggregateAttributeRule>), string href = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public GroupReconciliationComparisonRuleset(ResourceId id = default(ResourceId), string displayName = default(string), string reconciliationType = default(string), List<GroupReconciliationCoreAttributeRule> coreAttributeRules = default(List<GroupReconciliationCoreAttributeRule>), List<GroupReconciliationAggregateAttributeRule> aggregateAttributeRules = default(List<GroupReconciliationAggregateAttributeRule>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -77,7 +77,7 @@ namespace Lusid.Sdk.Model
             }
             this.AggregateAttributeRules = aggregateAttributeRules;
             this.Href = href;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
@@ -123,10 +123,10 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -148,7 +148,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CoreAttributeRules: ").Append(CoreAttributeRules).Append("\n");
             sb.Append("  AggregateAttributeRules: ").Append(AggregateAttributeRules).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -218,9 +218,9 @@ namespace Lusid.Sdk.Model
                     this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -263,9 +263,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Href.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

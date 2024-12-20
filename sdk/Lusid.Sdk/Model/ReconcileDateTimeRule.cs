@@ -48,7 +48,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "AbsoluteDifference")]
             AbsoluteDifference = 2
-
         }
 
 

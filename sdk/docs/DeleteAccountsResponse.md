@@ -5,7 +5,7 @@ The delete accounts response
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **AccountIds** | **List&lt;string&gt;** | The Accounts which have been soft/hard deleted. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

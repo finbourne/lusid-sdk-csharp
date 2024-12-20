@@ -76,7 +76,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "LusidCalc")]
             LusidCalc = 7
-
         }
 
 

@@ -36,28 +36,28 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpsertPortfolioTransactionsResponse" /> class.
         /// </summary>
-        /// <param name="version">version (required).</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="metadata">Contains warnings related to unresolved instruments or non-existent transaction types for the upserted trades.</param>
         /// <param name="links">links.</param>
-        public UpsertPortfolioTransactionsResponse(ModelVersion version = default(ModelVersion), string href = default(string), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
+        public UpsertPortfolioTransactionsResponse(ModelVersion varVersion = default(ModelVersion), string href = default(string), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
         {
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for UpsertPortfolioTransactionsResponse and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for UpsertPortfolioTransactionsResponse and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Href = href;
             this.Metadata = metadata;
             this.Links = links;
         }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
@@ -87,7 +87,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpsertPortfolioTransactionsResponse {\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -127,9 +127,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Href == input.Href ||
@@ -159,9 +159,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Href != null)
                 {

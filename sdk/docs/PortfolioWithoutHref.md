@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Description** | **string** | The long form description of the portfolio. | [optional] 
 **Created** | **DateTimeOffset** | The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. | 
 **ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **IsDerived** | **bool** | Whether or not this is a derived portfolio. | [optional] 
 **BaseCurrency** | **string** | The base currency of the portfolio. | [optional] 

@@ -31,19 +31,19 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DataScope" /> class.
         /// </summary>
-        /// <param name="_client">_client.</param>
+        /// <param name="varClient">varClient.</param>
         /// <param name="scope">scope.</param>
-        public DataScope(ModelClient _client = default(ModelClient), string scope = default(string))
+        public DataScope(ModelClient varClient = default(ModelClient), string scope = default(string))
         {
-            this._Client = _client;
+            this.VarClient = varClient;
             this.Scope = scope;
         }
 
         /// <summary>
-        /// Gets or Sets _Client
+        /// Gets or Sets VarClient
         /// </summary>
         [DataMember(Name = "client", EmitDefaultValue = false)]
-        public ModelClient _Client { get; set; }
+        public ModelClient VarClient { get; set; }
 
         /// <summary>
         /// Gets or Sets Scope
@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class DataScope {\n");
-            sb.Append("  _Client: ").Append(_Client).Append("\n");
+            sb.Append("  VarClient: ").Append(VarClient).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -97,9 +97,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this._Client == input._Client ||
-                    (this._Client != null &&
-                    this._Client.Equals(input._Client))
+                    this.VarClient == input.VarClient ||
+                    (this.VarClient != null &&
+                    this.VarClient.Equals(input.VarClient))
                 ) && 
                 (
                     this.Scope == input.Scope ||
@@ -117,9 +117,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this._Client != null)
+                if (this.VarClient != null)
                 {
-                    hashCode = (hashCode * 59) + this._Client.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarClient.GetHashCode();
                 }
                 if (this.Scope != null)
                 {

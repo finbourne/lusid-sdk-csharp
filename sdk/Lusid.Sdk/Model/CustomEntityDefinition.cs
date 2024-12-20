@@ -42,9 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A description for the custom entity type..</param>
         /// <param name="entityType">The identifier for the custom entity type, derived from the “entityTypeName” provided on creation. (required).</param>
         /// <param name="fieldSchema">The description of the fields on the custom entity type. (required).</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="links">links.</param>
-        public CustomEntityDefinition(string href = default(string), string entityTypeName = default(string), string displayName = default(string), string description = default(string), string entityType = default(string), List<CustomEntityFieldDefinition> fieldSchema = default(List<CustomEntityFieldDefinition>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public CustomEntityDefinition(string href = default(string), string entityTypeName = default(string), string displayName = default(string), string description = default(string), string entityType = default(string), List<CustomEntityFieldDefinition> fieldSchema = default(List<CustomEntityFieldDefinition>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "entityTypeName" is required (not null)
             if (entityTypeName == null)
@@ -70,12 +70,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("fieldSchema is a required property for CustomEntityDefinition and cannot be null");
             }
             this.FieldSchema = fieldSchema;
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for CustomEntityDefinition and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for CustomEntityDefinition and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Href = href;
             this.Description = description;
             this.Links = links;
@@ -124,10 +124,10 @@ namespace Lusid.Sdk.Model
         public List<CustomEntityFieldDefinition> FieldSchema { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -149,7 +149,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("  FieldSchema: ").Append(FieldSchema).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -218,9 +218,9 @@ namespace Lusid.Sdk.Model
                     this.FieldSchema.SequenceEqual(input.FieldSchema)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -263,9 +263,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.FieldSchema.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -88,7 +88,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Cusip")]
             Cusip = 9
-
         }
 
 
@@ -206,7 +205,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "InterestShortfall")]
             InterestShortfall = 17
-
         }
 
 

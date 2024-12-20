@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **RelationDefinitionId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **SourceEntityDomain** | **string** | The entity domain of the source entity object. | [optional] 
 **TargetEntityDomain** | **string** | The entity domain of the target entity object. | [optional] 

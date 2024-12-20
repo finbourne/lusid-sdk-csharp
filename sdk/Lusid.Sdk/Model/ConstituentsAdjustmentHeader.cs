@@ -32,12 +32,12 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ConstituentsAdjustmentHeader" /> class.
         /// </summary>
         /// <param name="effectiveAt">There can be at most one holdings adjustment for a portfolio at a  specific effective time so this uniquely identifies the adjustment..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public ConstituentsAdjustmentHeader(DateTimeOffset effectiveAt = default(DateTimeOffset), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public ConstituentsAdjustmentHeader(DateTimeOffset effectiveAt = default(DateTimeOffset), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             this.EffectiveAt = effectiveAt;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
@@ -49,10 +49,10 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -69,7 +69,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ConstituentsAdjustmentHeader {\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -112,9 +112,9 @@ namespace Lusid.Sdk.Model
                     this.EffectiveAt.Equals(input.EffectiveAt))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -137,9 +137,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

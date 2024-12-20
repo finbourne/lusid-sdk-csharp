@@ -49,8 +49,8 @@ namespace Lusid.Sdk.Model
         /// <param name="hardRequirement">hardRequirement (required).</param>
         /// <param name="targetPortfolioIds">targetPortfolioIds (required).</param>
         /// <param name="description">description.</param>
-        /// <param name="version">version.</param>
-        public ComplianceRule(string scope = default(string), string code = default(string), string displayName = default(string), string type = default(string), string propertyKey = default(string), string value = default(string), string addressKey = default(string), decimal lowerBound = default(decimal), decimal upperBound = default(decimal), string schedule = default(string), bool hardRequirement = default(bool), List<ResourceId> targetPortfolioIds = default(List<ResourceId>), string description = default(string), ModelVersion version = default(ModelVersion))
+        /// <param name="varVersion">varVersion.</param>
+        public ComplianceRule(string scope = default(string), string code = default(string), string displayName = default(string), string type = default(string), string propertyKey = default(string), string value = default(string), string addressKey = default(string), decimal lowerBound = default(decimal), decimal upperBound = default(decimal), string schedule = default(string), bool hardRequirement = default(bool), List<ResourceId> targetPortfolioIds = default(List<ResourceId>), string description = default(string), ModelVersion varVersion = default(ModelVersion))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -95,7 +95,7 @@ namespace Lusid.Sdk.Model
             this.Value = value;
             this.AddressKey = addressKey;
             this.Description = description;
-            this._Version = version;
+            this.VarVersion = varVersion;
         }
 
         /// <summary>
@@ -177,10 +177,10 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -203,7 +203,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  HardRequirement: ").Append(HardRequirement).Append("\n");
             sb.Append("  TargetPortfolioIds: ").Append(TargetPortfolioIds).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -303,9 +303,9 @@ namespace Lusid.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 );
         }
 
@@ -361,9 +361,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 return hashCode;
             }

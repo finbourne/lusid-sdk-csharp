@@ -63,7 +63,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "ReconcileExact")]
             ReconcileExact = 4
-
         }
 
 

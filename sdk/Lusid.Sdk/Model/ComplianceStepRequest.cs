@@ -79,7 +79,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "PercentCheckStepRequest")]
             PercentCheckStepRequest = 6
-
         }
 
 

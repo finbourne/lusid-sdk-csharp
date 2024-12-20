@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RelationshipDefinition" /> class.
         /// </summary>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="relationshipDefinitionId">relationshipDefinitionId (required).</param>
         /// <param name="sourceEntityType">The entity type of the source entity object. (required).</param>
         /// <param name="targetEntityType">The entity type of the target entity object. (required).</param>
@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="lifeTime">Describes how the relationships can change over time. (required).</param>
         /// <param name="relationshipCardinality">Describes the cardinality of the relationship between source entity and target entity. (required).</param>
         /// <param name="links">links.</param>
-        public RelationshipDefinition(ModelVersion version = default(ModelVersion), ResourceId relationshipDefinitionId = default(ResourceId), string sourceEntityType = default(string), string targetEntityType = default(string), string displayName = default(string), string outwardDescription = default(string), string inwardDescription = default(string), string lifeTime = default(string), string relationshipCardinality = default(string), List<Link> links = default(List<Link>))
+        public RelationshipDefinition(ModelVersion varVersion = default(ModelVersion), ResourceId relationshipDefinitionId = default(ResourceId), string sourceEntityType = default(string), string targetEntityType = default(string), string displayName = default(string), string outwardDescription = default(string), string inwardDescription = default(string), string lifeTime = default(string), string relationshipCardinality = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "relationshipDefinitionId" is required (not null)
             if (relationshipDefinitionId == null)
@@ -96,15 +96,15 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("relationshipCardinality is a required property for RelationshipDefinition and cannot be null");
             }
             this.RelationshipCardinality = relationshipCardinality;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets RelationshipDefinitionId
@@ -175,7 +175,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class RelationshipDefinition {\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  RelationshipDefinitionId: ").Append(RelationshipDefinitionId).Append("\n");
             sb.Append("  SourceEntityType: ").Append(SourceEntityType).Append("\n");
             sb.Append("  TargetEntityType: ").Append(TargetEntityType).Append("\n");
@@ -221,9 +221,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.RelationshipDefinitionId == input.RelationshipDefinitionId ||
@@ -282,9 +282,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.RelationshipDefinitionId != null)
                 {

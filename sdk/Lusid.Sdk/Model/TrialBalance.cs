@@ -36,16 +36,16 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TrialBalance" /> class.
         /// </summary>
-        /// <param name="generalLedgerAccountCode">The Account code that the trial balance results have been grouped against (required).</param>
-        /// <param name="description">The description of the record.</param>
-        /// <param name="levels">The levels that have been derived from the specified General Ledger Profile (required).</param>
-        /// <param name="accountType">The account type attributed to the record (required).</param>
-        /// <param name="localCurrency">The account type attributed to the record (required).</param>
+        /// <param name="generalLedgerAccountCode">The Account code that the trial balance results have been grouped against. (required).</param>
+        /// <param name="description">The description of the record..</param>
+        /// <param name="levels">The levels that have been derived from the specified General Ledger Profile. (required).</param>
+        /// <param name="accountType">The account type attributed to the record. (required).</param>
+        /// <param name="localCurrency">The local currency for the amounts specified. Defaults to base currency if multiple different currencies present in the grouped line. (required).</param>
         /// <param name="opening">opening (required).</param>
         /// <param name="closing">closing (required).</param>
         /// <param name="debit">debit (required).</param>
         /// <param name="credit">credit (required).</param>
-        /// <param name="properties">Properties found on the mapped &#39;Account&#39;, as specified in request.</param>
+        /// <param name="properties">Properties found on the mapped &#39;Account&#39;, as specified in request..</param>
         /// <param name="links">links.</param>
         public TrialBalance(string generalLedgerAccountCode = default(string), string description = default(string), List<string> levels = default(List<string>), string accountType = default(string), string localCurrency = default(string), MultiCurrencyAmounts opening = default(MultiCurrencyAmounts), MultiCurrencyAmounts closing = default(MultiCurrencyAmounts), MultiCurrencyAmounts debit = default(MultiCurrencyAmounts), MultiCurrencyAmounts credit = default(MultiCurrencyAmounts), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
         {
@@ -103,37 +103,37 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The Account code that the trial balance results have been grouped against
+        /// The Account code that the trial balance results have been grouped against.
         /// </summary>
-        /// <value>The Account code that the trial balance results have been grouped against</value>
+        /// <value>The Account code that the trial balance results have been grouped against.</value>
         [DataMember(Name = "generalLedgerAccountCode", IsRequired = true, EmitDefaultValue = true)]
         public string GeneralLedgerAccountCode { get; set; }
 
         /// <summary>
-        /// The description of the record
+        /// The description of the record.
         /// </summary>
-        /// <value>The description of the record</value>
+        /// <value>The description of the record.</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// The levels that have been derived from the specified General Ledger Profile
+        /// The levels that have been derived from the specified General Ledger Profile.
         /// </summary>
-        /// <value>The levels that have been derived from the specified General Ledger Profile</value>
+        /// <value>The levels that have been derived from the specified General Ledger Profile.</value>
         [DataMember(Name = "levels", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Levels { get; set; }
 
         /// <summary>
-        /// The account type attributed to the record
+        /// The account type attributed to the record.
         /// </summary>
-        /// <value>The account type attributed to the record</value>
+        /// <value>The account type attributed to the record.</value>
         [DataMember(Name = "accountType", IsRequired = true, EmitDefaultValue = true)]
         public string AccountType { get; set; }
 
         /// <summary>
-        /// The account type attributed to the record
+        /// The local currency for the amounts specified. Defaults to base currency if multiple different currencies present in the grouped line.
         /// </summary>
-        /// <value>The account type attributed to the record</value>
+        /// <value>The local currency for the amounts specified. Defaults to base currency if multiple different currencies present in the grouped line.</value>
         [DataMember(Name = "localCurrency", IsRequired = true, EmitDefaultValue = true)]
         public string LocalCurrency { get; set; }
 
@@ -162,9 +162,9 @@ namespace Lusid.Sdk.Model
         public MultiCurrencyAmounts Credit { get; set; }
 
         /// <summary>
-        /// Properties found on the mapped &#39;Account&#39;, as specified in request
+        /// Properties found on the mapped &#39;Account&#39;, as specified in request.
         /// </summary>
-        /// <value>Properties found on the mapped &#39;Account&#39;, as specified in request</value>
+        /// <value>Properties found on the mapped &#39;Account&#39;, as specified in request.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 

@@ -160,7 +160,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "UnindexedText")]
             UnindexedText = 21
-
         }
 
 

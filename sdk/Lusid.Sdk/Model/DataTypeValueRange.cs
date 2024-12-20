@@ -40,7 +40,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Closed")]
         Closed = 2
-
     }
 
 }

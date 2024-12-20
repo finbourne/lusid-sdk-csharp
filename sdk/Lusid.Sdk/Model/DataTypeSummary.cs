@@ -46,7 +46,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Closed")]
             Closed = 2
-
         }
 
 
@@ -188,7 +187,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "UnindexedText")]
             UnindexedText = 21
-
         }
 
 
@@ -222,7 +220,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Iso4217Currency")]
             Iso4217Currency = 3
-
         }
 
 
@@ -248,8 +245,8 @@ namespace Lusid.Sdk.Model
         /// <param name="acceptableValues">The acceptable set of values for this data type. Only applies to &#39;open&#39; value type range..</param>
         /// <param name="unitSchema">The schema of the data type&#39;s units. The available values are: NoUnits, Basic, Iso4217Currency.</param>
         /// <param name="acceptableUnits">The definitions of the acceptable units..</param>
-        /// <param name="version">version.</param>
-        public DataTypeSummary(TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), List<IUnitDefinitionDto> acceptableUnits = default(List<IUnitDefinitionDto>), ModelVersion version = default(ModelVersion))
+        /// <param name="varVersion">varVersion.</param>
+        public DataTypeSummary(TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), List<IUnitDefinitionDto> acceptableUnits = default(List<IUnitDefinitionDto>), ModelVersion varVersion = default(ModelVersion))
         {
             this.TypeValueRange = typeValueRange;
             // to ensure "id" is required (not null)
@@ -274,7 +271,7 @@ namespace Lusid.Sdk.Model
             this.AcceptableValues = acceptableValues;
             this.UnitSchema = unitSchema;
             this.AcceptableUnits = acceptableUnits;
-            this._Version = version;
+            this.VarVersion = varVersion;
         }
 
         /// <summary>
@@ -312,10 +309,10 @@ namespace Lusid.Sdk.Model
         public List<IUnitDefinitionDto> AcceptableUnits { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -333,7 +330,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AcceptableValues: ").Append(AcceptableValues).Append("\n");
             sb.Append("  UnitSchema: ").Append(UnitSchema).Append("\n");
             sb.Append("  AcceptableUnits: ").Append(AcceptableUnits).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -409,9 +406,9 @@ namespace Lusid.Sdk.Model
                     this.AcceptableUnits.SequenceEqual(input.AcceptableUnits)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 );
         }
 
@@ -447,9 +444,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.AcceptableUnits.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 return hashCode;
             }

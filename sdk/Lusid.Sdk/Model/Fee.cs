@@ -53,11 +53,11 @@ namespace Lusid.Sdk.Model
         /// <param name="endDate">The end date of the Fee..</param>
         /// <param name="anchorDate">anchorDate.</param>
         /// <param name="properties">The Fee properties. These will be from the &#39;Fee&#39; domain..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="shareClasses">The short codes of the ShareClasses that the Fee should be applied to. Optional: if this is null or empty, then the Fee will be divided between all the ShareClasses of the Fund according to the capital ratio..</param>
         /// <param name="links">links.</param>
-        public Fee(string href = default(string), string feeCode = default(string), ResourceId feeTypeId = default(ResourceId), string displayName = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), ResourceId portfolioId = default(ResourceId), List<string> shareClasses = default(List<string>), List<Link> links = default(List<Link>))
+        public Fee(string href = default(string), string feeCode = default(string), ResourceId feeTypeId = default(ResourceId), string displayName = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), ResourceId portfolioId = default(ResourceId), List<string> shareClasses = default(List<string>), List<Link> links = default(List<Link>))
         {
             // to ensure "feeTypeId" is required (not null)
             if (feeTypeId == null)
@@ -106,7 +106,7 @@ namespace Lusid.Sdk.Model
             this.EndDate = endDate;
             this.AnchorDate = anchorDate;
             this.Properties = properties;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.PortfolioId = portfolioId;
             this.ShareClasses = shareClasses;
             this.Links = links;
@@ -230,10 +230,10 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets PortfolioId
@@ -279,7 +279,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  AnchorDate: ").Append(AnchorDate).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  ShareClasses: ").Append(ShareClasses).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -405,9 +405,9 @@ namespace Lusid.Sdk.Model
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.PortfolioId == input.PortfolioId ||
@@ -505,9 +505,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.PortfolioId != null)
                 {

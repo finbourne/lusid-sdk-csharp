@@ -75,7 +75,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "FundIdList")]
         FundIdList = 8
-
     }
 
 }

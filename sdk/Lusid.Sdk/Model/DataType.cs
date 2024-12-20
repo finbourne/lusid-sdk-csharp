@@ -46,7 +46,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Closed")]
             Closed = 2
-
         }
 
 
@@ -188,7 +187,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "UnindexedText")]
             UnindexedText = 21
-
         }
 
 
@@ -222,7 +220,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Iso4217Currency")]
             Iso4217Currency = 3
-
         }
 
 
@@ -249,11 +246,11 @@ namespace Lusid.Sdk.Model
         /// <param name="unitSchema">The available values are: NoUnits, Basic, Iso4217Currency.</param>
         /// <param name="acceptableUnits">acceptableUnits.</param>
         /// <param name="referenceData">referenceData.</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="links">links.</param>
-        public DataType(TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), List<IUnitDefinitionDto> acceptableUnits = default(List<IUnitDefinitionDto>), ReferenceData referenceData = default(ReferenceData), ModelVersion version = default(ModelVersion), string href = default(string), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
+        public DataType(TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), List<IUnitDefinitionDto> acceptableUnits = default(List<IUnitDefinitionDto>), ReferenceData referenceData = default(ReferenceData), ModelVersion varVersion = default(ModelVersion), string href = default(string), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
         {
             this.TypeValueRange = typeValueRange;
             // to ensure "id" is required (not null)
@@ -279,7 +276,7 @@ namespace Lusid.Sdk.Model
             this.UnitSchema = unitSchema;
             this.AcceptableUnits = acceptableUnits;
             this.ReferenceData = referenceData;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Href = href;
             this.StagedModifications = stagedModifications;
             this.Links = links;
@@ -322,10 +319,10 @@ namespace Lusid.Sdk.Model
         public ReferenceData ReferenceData { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
@@ -363,7 +360,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  UnitSchema: ").Append(UnitSchema).Append("\n");
             sb.Append("  AcceptableUnits: ").Append(AcceptableUnits).Append("\n");
             sb.Append("  ReferenceData: ").Append(ReferenceData).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -447,9 +444,9 @@ namespace Lusid.Sdk.Model
                     this.ReferenceData.Equals(input.ReferenceData))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Href == input.Href ||
@@ -505,9 +502,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ReferenceData.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Href != null)
                 {

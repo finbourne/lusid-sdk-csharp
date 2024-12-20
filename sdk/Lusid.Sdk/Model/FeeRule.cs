@@ -51,9 +51,9 @@ namespace Lusid.Sdk.Model
         /// <param name="maxFee">maxFee.</param>
         /// <param name="additionalKeys">additionalKeys.</param>
         /// <param name="description">description.</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public FeeRule(string code = default(string), string transactionPropertyKey = default(string), string transactionType = default(string), string country = default(string), string counterparty = default(string), string transactionCurrency = default(string), string settlementCurrency = default(string), string executionBroker = default(string), string custodian = default(string), string exchange = default(string), CalculationInfo fee = default(CalculationInfo), CalculationInfo minFee = default(CalculationInfo), CalculationInfo maxFee = default(CalculationInfo), Dictionary<string, string> additionalKeys = default(Dictionary<string, string>), string description = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public FeeRule(string code = default(string), string transactionPropertyKey = default(string), string transactionType = default(string), string country = default(string), string counterparty = default(string), string transactionCurrency = default(string), string settlementCurrency = default(string), string executionBroker = default(string), string custodian = default(string), string exchange = default(string), CalculationInfo fee = default(CalculationInfo), CalculationInfo minFee = default(CalculationInfo), CalculationInfo maxFee = default(CalculationInfo), Dictionary<string, string> additionalKeys = default(Dictionary<string, string>), string description = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -125,7 +125,7 @@ namespace Lusid.Sdk.Model
             this.MaxFee = maxFee;
             this.AdditionalKeys = additionalKeys;
             this.Description = description;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
@@ -220,10 +220,10 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -254,7 +254,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  MaxFee: ").Append(MaxFee).Append("\n");
             sb.Append("  AdditionalKeys: ").Append(AdditionalKeys).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -368,9 +368,9 @@ namespace Lusid.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -449,9 +449,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

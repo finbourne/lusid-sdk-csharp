@@ -35,19 +35,19 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">displayName.</param>
         /// <param name="description">description.</param>
         /// <param name="cutLocalTime">cutLocalTime.</param>
-        /// <param name="timeZone">timeZone.</param>
+        /// <param name="varTimeZone">varTimeZone.</param>
         /// <param name="href">href.</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public CutLabelDefinition(string code = default(string), string displayName = default(string), string description = default(string), CutLocalTime cutLocalTime = default(CutLocalTime), string timeZone = default(string), string href = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public CutLabelDefinition(string code = default(string), string displayName = default(string), string description = default(string), CutLocalTime cutLocalTime = default(CutLocalTime), string varTimeZone = default(string), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             this.Code = code;
             this.DisplayName = displayName;
             this.Description = description;
             this.CutLocalTime = cutLocalTime;
-            this.TimeZone = timeZone;
+            this.VarTimeZone = varTimeZone;
             this.Href = href;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
@@ -76,10 +76,10 @@ namespace Lusid.Sdk.Model
         public CutLocalTime CutLocalTime { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeZone
+        /// Gets or Sets VarTimeZone
         /// </summary>
         [DataMember(Name = "timeZone", EmitDefaultValue = true)]
-        public string TimeZone { get; set; }
+        public string VarTimeZone { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
@@ -88,10 +88,10 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -111,9 +111,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  CutLocalTime: ").Append(CutLocalTime).Append("\n");
-            sb.Append("  TimeZone: ").Append(TimeZone).Append("\n");
+            sb.Append("  VarTimeZone: ").Append(VarTimeZone).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -171,9 +171,9 @@ namespace Lusid.Sdk.Model
                     this.CutLocalTime.Equals(input.CutLocalTime))
                 ) && 
                 (
-                    this.TimeZone == input.TimeZone ||
-                    (this.TimeZone != null &&
-                    this.TimeZone.Equals(input.TimeZone))
+                    this.VarTimeZone == input.VarTimeZone ||
+                    (this.VarTimeZone != null &&
+                    this.VarTimeZone.Equals(input.VarTimeZone))
                 ) && 
                 (
                     this.Href == input.Href ||
@@ -181,9 +181,9 @@ namespace Lusid.Sdk.Model
                     this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -218,17 +218,17 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CutLocalTime.GetHashCode();
                 }
-                if (this.TimeZone != null)
+                if (this.VarTimeZone != null)
                 {
-                    hashCode = (hashCode * 59) + this.TimeZone.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarTimeZone.GetHashCode();
                 }
                 if (this.Href != null)
                 {
                     hashCode = (hashCode * 59) + this.Href.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

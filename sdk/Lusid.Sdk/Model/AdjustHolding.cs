@@ -37,17 +37,17 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AdjustHolding" /> class.
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="metadata">Contains warnings related to unresolved instruments.</param>
         /// <param name="links">links.</param>
-        public AdjustHolding(string href = default(string), ModelVersion version = default(ModelVersion), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
+        public AdjustHolding(string href = default(string), ModelVersion varVersion = default(ModelVersion), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
         {
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for AdjustHolding and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for AdjustHolding and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Href = href;
             this.Metadata = metadata;
             this.Links = links;
@@ -61,10 +61,10 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Contains warnings related to unresolved instruments
@@ -88,7 +88,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class AdjustHolding {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -132,9 +132,9 @@ namespace Lusid.Sdk.Model
                     this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Metadata == input.Metadata ||
@@ -163,9 +163,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Href.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Metadata != null)
                 {

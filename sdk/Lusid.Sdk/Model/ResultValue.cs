@@ -119,7 +119,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "ResultValueDateTimeOffset")]
             ResultValueDateTimeOffset = 12
-
         }
 
 

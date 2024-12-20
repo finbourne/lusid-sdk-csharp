@@ -58,7 +58,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "SimplePosition")]
             SimplePosition = 4
-
         }
 
 

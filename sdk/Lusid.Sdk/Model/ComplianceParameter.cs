@@ -190,7 +190,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "GroupCalculationComplianceParameter")]
             GroupCalculationComplianceParameter = 22
-
         }
 
 

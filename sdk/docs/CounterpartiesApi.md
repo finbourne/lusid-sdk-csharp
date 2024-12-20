@@ -294,7 +294,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CounterpartiesApi>();
             var scope = "scope_example";  // string | The scope of the Counterparty Agreement to retrieve.
             var code = "code_example";  // string | The name of the Counterparty Agreement to retrieve the data for.
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. (optional) 
 
             try
             {
@@ -412,7 +412,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CounterpartiesApi>();
             var scope = "scope_example";  // string | The scope of the Credit Support Annex to retrieve.
             var code = "code_example";  // string | The name of the Credit Support Annex to retrieve the data for.
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. (optional) 
 
             try
             {
@@ -528,7 +528,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CounterpartiesApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CounterpartiesApi>();
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional) 
 
             try
             {
@@ -642,7 +642,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CounterpartiesApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CounterpartiesApi>();
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional) 
 
             try
             {

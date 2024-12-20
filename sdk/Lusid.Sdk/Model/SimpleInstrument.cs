@@ -84,7 +84,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Unknown")]
             Unknown = 8
-
         }
 
 

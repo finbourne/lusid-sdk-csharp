@@ -76,7 +76,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "LusidCalc")]
             LusidCalc = 7
-
         }
 
 
@@ -212,7 +211,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "CdsLookupPricer")]
             CdsLookupPricer = 20
-
         }
 
 

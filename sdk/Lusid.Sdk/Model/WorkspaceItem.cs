@@ -42,9 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="group">The group containing a workspace item. (required).</param>
         /// <param name="description">The description of a workspace item. (required).</param>
         /// <param name="content">The content associated with a workspace item. (required).</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public WorkspaceItem(string type = default(string), int format = default(int), string name = default(string), string group = default(string), string description = default(string), Object content = default(Object), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public WorkspaceItem(string type = default(string), int format = default(int), string name = default(string), string group = default(string), string description = default(string), Object content = default(Object), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -77,7 +77,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("content is a required property for WorkspaceItem and cannot be null");
             }
             this.Content = content;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
@@ -124,10 +124,10 @@ namespace Lusid.Sdk.Model
         public Object Content { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -149,7 +149,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Group: ").Append(Group).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -216,9 +216,9 @@ namespace Lusid.Sdk.Model
                     this.Content.Equals(input.Content))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -258,9 +258,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Content.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

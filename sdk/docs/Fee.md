@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **EndDate** | **DateTimeOffset** | The end date of the Fee. | [optional] 
 **AnchorDate** | [**DayMonth**](DayMonth.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The Fee properties. These will be from the &#39;Fee&#39; domain. | [optional] 
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ShareClasses** | **List&lt;string&gt;** | The short codes of the ShareClasses that the Fee should be applied to. Optional: if this is null or empty, then the Fee will be divided between all the ShareClasses of the Fund according to the capital ratio. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 

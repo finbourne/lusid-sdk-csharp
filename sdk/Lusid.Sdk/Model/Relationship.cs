@@ -36,14 +36,14 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Relationship" /> class.
         /// </summary>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="relationshipDefinitionId">relationshipDefinitionId (required).</param>
         /// <param name="relatedEntity">relatedEntity (required).</param>
         /// <param name="traversalDirection">Direction of relationship between the requested entity and related entity. This can be &#39;In&#39; or &#39;Out&#39;. Read more about relationships traversal direction in LUSID Knowledge Base here https://support.lusid.com/knowledgebase/article/KA-01679. (required).</param>
         /// <param name="traversalDescription">Description of the relationship based on relationship&#39;s traversal direction. If &#39;TraversalDirection&#39; is &#39;Out&#39;, this description would be &#39;OutwardDescription&#39; from the associated relationship definition. If &#39;TraversalDirection&#39; is &#39;In&#39;, this description would be &#39;InwardDescription&#39; from the associated relationship definition. (required).</param>
         /// <param name="effectiveFrom">The effective datetime from which the relationship is valid..</param>
         /// <param name="effectiveUntil">The effective datetime until which the relationship is valid. If no future deletions are present or an effective until has not been set for the relationship, this will be indefinite and represented by the maximum date..</param>
-        public Relationship(ModelVersion version = default(ModelVersion), ResourceId relationshipDefinitionId = default(ResourceId), RelatedEntity relatedEntity = default(RelatedEntity), string traversalDirection = default(string), string traversalDescription = default(string), DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset effectiveUntil = default(DateTimeOffset))
+        public Relationship(ModelVersion varVersion = default(ModelVersion), ResourceId relationshipDefinitionId = default(ResourceId), RelatedEntity relatedEntity = default(RelatedEntity), string traversalDirection = default(string), string traversalDescription = default(string), DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset effectiveUntil = default(DateTimeOffset))
         {
             // to ensure "relationshipDefinitionId" is required (not null)
             if (relationshipDefinitionId == null)
@@ -69,16 +69,16 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("traversalDescription is a required property for Relationship and cannot be null");
             }
             this.TraversalDescription = traversalDescription;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.EffectiveFrom = effectiveFrom;
             this.EffectiveUntil = effectiveUntil;
         }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets RelationshipDefinitionId
@@ -128,7 +128,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Relationship {\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  RelationshipDefinitionId: ").Append(RelationshipDefinitionId).Append("\n");
             sb.Append("  RelatedEntity: ").Append(RelatedEntity).Append("\n");
             sb.Append("  TraversalDirection: ").Append(TraversalDirection).Append("\n");
@@ -171,9 +171,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.RelationshipDefinitionId == input.RelationshipDefinitionId ||
@@ -216,9 +216,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.RelationshipDefinitionId != null)
                 {

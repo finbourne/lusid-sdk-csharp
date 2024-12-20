@@ -69,7 +69,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "In")]
         In = 7
-
     }
 
 }

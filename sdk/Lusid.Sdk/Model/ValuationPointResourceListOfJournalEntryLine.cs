@@ -37,20 +37,20 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ValuationPointResourceListOfJournalEntryLine" /> class.
         /// </summary>
         /// <param name="startValuationPoint">startValuationPoint.</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="values">values (required).</param>
         /// <param name="href">href.</param>
         /// <param name="nextPage">nextPage.</param>
         /// <param name="previousPage">previousPage.</param>
         /// <param name="links">links.</param>
-        public ValuationPointResourceListOfJournalEntryLine(DiaryEntry startValuationPoint = default(DiaryEntry), ModelVersion version = default(ModelVersion), List<JournalEntryLine> values = default(List<JournalEntryLine>), string href = default(string), string nextPage = default(string), string previousPage = default(string), List<Link> links = default(List<Link>))
+        public ValuationPointResourceListOfJournalEntryLine(DiaryEntry startValuationPoint = default(DiaryEntry), ModelVersion varVersion = default(ModelVersion), List<JournalEntryLine> values = default(List<JournalEntryLine>), string href = default(string), string nextPage = default(string), string previousPage = default(string), List<Link> links = default(List<Link>))
         {
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for ValuationPointResourceListOfJournalEntryLine and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for ValuationPointResourceListOfJournalEntryLine and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             // to ensure "values" is required (not null)
             if (values == null)
             {
@@ -71,10 +71,10 @@ namespace Lusid.Sdk.Model
         public DiaryEntry StartValuationPoint { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Values
@@ -115,7 +115,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ValuationPointResourceListOfJournalEntryLine {\n");
             sb.Append("  StartValuationPoint: ").Append(StartValuationPoint).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  NextPage: ").Append(NextPage).Append("\n");
@@ -162,9 +162,9 @@ namespace Lusid.Sdk.Model
                     this.StartValuationPoint.Equals(input.StartValuationPoint))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Values == input.Values ||
@@ -208,9 +208,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.StartValuationPoint.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Values != null)
                 {

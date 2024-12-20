@@ -36,19 +36,19 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpsertReturnsResponse" /> class.
         /// </summary>
-        /// <param name="version">version (required).</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="values">The set of values that were successfully retrieved..</param>
         /// <param name="failed">The set of values that could not be retrieved due along with a reason for this, e.g badly formed request..</param>
         /// <param name="links">links.</param>
-        public UpsertReturnsResponse(ModelVersion version = default(ModelVersion), string href = default(string), List<Dictionary<string, DateTimeOffset>> values = default(List<Dictionary<string, DateTimeOffset>>), List<Dictionary<string, ErrorDetail>> failed = default(List<Dictionary<string, ErrorDetail>>), List<Link> links = default(List<Link>))
+        public UpsertReturnsResponse(ModelVersion varVersion = default(ModelVersion), string href = default(string), List<Dictionary<string, DateTimeOffset>> values = default(List<Dictionary<string, DateTimeOffset>>), List<Dictionary<string, ErrorDetail>> failed = default(List<Dictionary<string, ErrorDetail>>), List<Link> links = default(List<Link>))
         {
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for UpsertReturnsResponse and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for UpsertReturnsResponse and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Href = href;
             this.Values = values;
             this.Failed = failed;
@@ -56,10 +56,10 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
@@ -96,7 +96,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpsertReturnsResponse {\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Failed: ").Append(Failed).Append("\n");
@@ -137,9 +137,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Href == input.Href ||
@@ -175,9 +175,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Href != null)
                 {

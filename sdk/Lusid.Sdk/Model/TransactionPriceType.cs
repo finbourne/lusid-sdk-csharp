@@ -63,7 +63,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "DirtyPrice")]
         DirtyPrice = 6
-
     }
 
 }

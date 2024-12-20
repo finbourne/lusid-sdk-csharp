@@ -31,7 +31,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RelationDefinition" /> class.
         /// </summary>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="relationDefinitionId">relationDefinitionId.</param>
         /// <param name="sourceEntityDomain">The entity domain of the source entity object..</param>
         /// <param name="targetEntityDomain">The entity domain of the target entity object..</param>
@@ -41,9 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="lifeTime">Describes how the relations can change over time, allowed values are \&quot;Perpetual\&quot; and \&quot;TimeVariant\&quot;.</param>
         /// <param name="constraintStyle">Describes the uniqueness and cardinality for relations with a specific source entity object and relations under this definition. Allowed values are \&quot;Property\&quot; and \&quot;Collection\&quot;, defaults to \&quot;Collection\&quot; if not specified..</param>
         /// <param name="links">links.</param>
-        public RelationDefinition(ModelVersion version = default(ModelVersion), ResourceId relationDefinitionId = default(ResourceId), string sourceEntityDomain = default(string), string targetEntityDomain = default(string), string displayName = default(string), string outwardDescription = default(string), string inwardDescription = default(string), string lifeTime = default(string), string constraintStyle = default(string), List<Link> links = default(List<Link>))
+        public RelationDefinition(ModelVersion varVersion = default(ModelVersion), ResourceId relationDefinitionId = default(ResourceId), string sourceEntityDomain = default(string), string targetEntityDomain = default(string), string displayName = default(string), string outwardDescription = default(string), string inwardDescription = default(string), string lifeTime = default(string), string constraintStyle = default(string), List<Link> links = default(List<Link>))
         {
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.RelationDefinitionId = relationDefinitionId;
             this.SourceEntityDomain = sourceEntityDomain;
             this.TargetEntityDomain = targetEntityDomain;
@@ -56,10 +56,10 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets RelationDefinitionId
@@ -130,7 +130,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class RelationDefinition {\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  RelationDefinitionId: ").Append(RelationDefinitionId).Append("\n");
             sb.Append("  SourceEntityDomain: ").Append(SourceEntityDomain).Append("\n");
             sb.Append("  TargetEntityDomain: ").Append(TargetEntityDomain).Append("\n");
@@ -176,9 +176,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.RelationDefinitionId == input.RelationDefinitionId ||
@@ -237,9 +237,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.RelationDefinitionId != null)
                 {

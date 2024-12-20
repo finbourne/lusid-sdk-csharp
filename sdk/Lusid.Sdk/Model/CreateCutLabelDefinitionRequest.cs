@@ -40,8 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">displayName (required).</param>
         /// <param name="description">description.</param>
         /// <param name="cutLocalTime">cutLocalTime (required).</param>
-        /// <param name="timeZone">timeZone (required).</param>
-        public CreateCutLabelDefinitionRequest(string code = default(string), string displayName = default(string), string description = default(string), CutLocalTime cutLocalTime = default(CutLocalTime), string timeZone = default(string))
+        /// <param name="varTimeZone">varTimeZone (required).</param>
+        public CreateCutLabelDefinitionRequest(string code = default(string), string displayName = default(string), string description = default(string), CutLocalTime cutLocalTime = default(CutLocalTime), string varTimeZone = default(string))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -61,12 +61,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("cutLocalTime is a required property for CreateCutLabelDefinitionRequest and cannot be null");
             }
             this.CutLocalTime = cutLocalTime;
-            // to ensure "timeZone" is required (not null)
-            if (timeZone == null)
+            // to ensure "varTimeZone" is required (not null)
+            if (varTimeZone == null)
             {
-                throw new ArgumentNullException("timeZone is a required property for CreateCutLabelDefinitionRequest and cannot be null");
+                throw new ArgumentNullException("varTimeZone is a required property for CreateCutLabelDefinitionRequest and cannot be null");
             }
-            this.TimeZone = timeZone;
+            this.VarTimeZone = varTimeZone;
             this.Description = description;
         }
 
@@ -95,10 +95,10 @@ namespace Lusid.Sdk.Model
         public CutLocalTime CutLocalTime { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeZone
+        /// Gets or Sets VarTimeZone
         /// </summary>
         [DataMember(Name = "timeZone", IsRequired = true, EmitDefaultValue = true)]
-        public string TimeZone { get; set; }
+        public string VarTimeZone { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -112,7 +112,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  CutLocalTime: ").Append(CutLocalTime).Append("\n");
-            sb.Append("  TimeZone: ").Append(TimeZone).Append("\n");
+            sb.Append("  VarTimeZone: ").Append(VarTimeZone).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,9 +169,9 @@ namespace Lusid.Sdk.Model
                     this.CutLocalTime.Equals(input.CutLocalTime))
                 ) && 
                 (
-                    this.TimeZone == input.TimeZone ||
-                    (this.TimeZone != null &&
-                    this.TimeZone.Equals(input.TimeZone))
+                    this.VarTimeZone == input.VarTimeZone ||
+                    (this.VarTimeZone != null &&
+                    this.VarTimeZone.Equals(input.VarTimeZone))
                 );
         }
 
@@ -200,9 +200,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CutLocalTime.GetHashCode();
                 }
-                if (this.TimeZone != null)
+                if (this.VarTimeZone != null)
                 {
-                    hashCode = (hashCode * 59) + this.TimeZone.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarTimeZone.GetHashCode();
                 }
                 return hashCode;
             }
@@ -235,10 +235,10 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
             }
 
-            // TimeZone (string) minLength
-            if (this.TimeZone != null && this.TimeZone.Length < 1)
+            // VarTimeZone (string) minLength
+            if (this.VarTimeZone != null && this.VarTimeZone.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimeZone, length must be greater than 1.", new [] { "TimeZone" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarTimeZone, length must be greater than 1.", new [] { "VarTimeZone" });
             }
 
             yield break;

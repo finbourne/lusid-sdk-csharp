@@ -31,21 +31,21 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteAccountsResponse" /> class.
         /// </summary>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="accountIds">The Accounts which have been soft/hard deleted..</param>
         /// <param name="links">links.</param>
-        public DeleteAccountsResponse(ModelVersion version = default(ModelVersion), List<string> accountIds = default(List<string>), List<Link> links = default(List<Link>))
+        public DeleteAccountsResponse(ModelVersion varVersion = default(ModelVersion), List<string> accountIds = default(List<string>), List<Link> links = default(List<Link>))
         {
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.AccountIds = accountIds;
             this.Links = links;
         }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// The Accounts which have been soft/hard deleted.
@@ -68,7 +68,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class DeleteAccountsResponse {\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  AccountIds: ").Append(AccountIds).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -107,9 +107,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.AccountIds == input.AccountIds ||
@@ -134,9 +134,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.AccountIds != null)
                 {

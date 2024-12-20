@@ -352,7 +352,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "LoanInterestRepaymentEvent")]
         LoanInterestRepaymentEvent = 54
-
     }
 
 }

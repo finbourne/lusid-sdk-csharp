@@ -35,16 +35,16 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Timeline..</param>
         /// <param name="description">A description for the Timeline..</param>
         /// <param name="properties">The Timelines properties. These will be from the &#39;Timeline&#39; domain..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
         /// <param name="links">links.</param>
-        public Timeline(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), string href = default(string), List<Link> links = default(List<Link>))
+        public Timeline(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.Id = id;
             this.DisplayName = displayName;
             this.Description = description;
             this.Properties = properties;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Href = href;
             this.Links = links;
         }
@@ -77,10 +77,10 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime.
@@ -107,7 +107,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -167,9 +167,9 @@ namespace Lusid.Sdk.Model
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Href == input.Href ||
@@ -209,9 +209,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Href != null)
                 {

@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioId">portfolioId (required).</param>
         /// <param name="quantity">The quantity of given instrument allocated. (required).</param>
         /// <param name="instrumentIdentifiers">The instrument allocated. (required).</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="properties">Client-defined properties associated with this allocation..</param>
         /// <param name="instrumentScope">The scope in which the instrument lies.</param>
         /// <param name="lusidInstrumentId">The LUSID instrument id for the instrument allocated. (required).</param>
@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Model
         /// <param name="counterparty">The counterparty for this allocation..</param>
         /// <param name="executionIds">The executions associated with this allocation.</param>
         /// <param name="links">links.</param>
-        public Allocation(ResourceId id = default(ResourceId), ResourceId allocatedOrderId = default(ResourceId), ResourceId portfolioId = default(ResourceId), decimal quantity = default(decimal), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), ModelVersion version = default(ModelVersion), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string instrumentScope = default(string), string lusidInstrumentId = default(string), List<ResourceId> placementIds = default(List<ResourceId>), string state = default(string), string side = default(string), string type = default(string), DateTimeOffset? settlementDate = default(DateTimeOffset?), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), string settlementCurrency = default(string), decimal? settlementCurrencyFxRate = default(decimal?), string counterparty = default(string), List<ResourceId> executionIds = default(List<ResourceId>), List<Link> links = default(List<Link>))
+        public Allocation(ResourceId id = default(ResourceId), ResourceId allocatedOrderId = default(ResourceId), ResourceId portfolioId = default(ResourceId), decimal quantity = default(decimal), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string instrumentScope = default(string), string lusidInstrumentId = default(string), List<ResourceId> placementIds = default(List<ResourceId>), string state = default(string), string side = default(string), string type = default(string), DateTimeOffset? settlementDate = default(DateTimeOffset?), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), string settlementCurrency = default(string), decimal? settlementCurrencyFxRate = default(decimal?), string counterparty = default(string), List<ResourceId> executionIds = default(List<ResourceId>), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -90,7 +90,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("lusidInstrumentId is a required property for Allocation and cannot be null");
             }
             this.LusidInstrumentId = lusidInstrumentId;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Properties = properties;
             this.InstrumentScope = instrumentScope;
             this.PlacementIds = placementIds;
@@ -140,10 +140,10 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Client-defined properties associated with this allocation.
@@ -261,7 +261,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  InstrumentIdentifiers: ").Append(InstrumentIdentifiers).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
@@ -338,9 +338,9 @@ namespace Lusid.Sdk.Model
                     this.InstrumentIdentifiers.SequenceEqual(input.InstrumentIdentifiers)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -449,9 +449,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.InstrumentIdentifiers.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

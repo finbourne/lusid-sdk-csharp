@@ -39,9 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="id">id (required).</param>
         /// <param name="placementId">placementId (required).</param>
         /// <param name="orderId">orderId (required).</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public Participation(ResourceId id = default(ResourceId), ResourceId placementId = default(ResourceId), ResourceId orderId = default(ResourceId), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Participation(ResourceId id = default(ResourceId), ResourceId placementId = default(ResourceId), ResourceId orderId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -61,7 +61,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("orderId is a required property for Participation and cannot be null");
             }
             this.OrderId = orderId;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
@@ -84,10 +84,10 @@ namespace Lusid.Sdk.Model
         public ResourceId OrderId { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -106,7 +106,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  PlacementId: ").Append(PlacementId).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -159,9 +159,9 @@ namespace Lusid.Sdk.Model
                     this.OrderId.Equals(input.OrderId))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -192,9 +192,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.OrderId.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -466,7 +466,7 @@ namespace Lusid.Sdk.Client
                 response = policyResult.Result as Response<T>;
                 if (response == null)
                 {
-                    throw new Exception($"error casting response to {typeof(Response<T>)}");
+                    throw new InvalidResponseCastException($"error casting response to {typeof(Response<T>)}");
                 }
             }
             else

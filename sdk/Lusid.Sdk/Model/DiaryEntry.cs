@@ -46,9 +46,9 @@ namespace Lusid.Sdk.Model
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
         /// <param name="previousEntryTime">The entry time of the previous diary entry..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public DiaryEntry(string href = default(string), ResourceId aborId = default(ResourceId), string diaryEntryCode = default(string), string type = default(string), string name = default(string), string status = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset queryAsAt = default(DateTimeOffset), DateTimeOffset previousEntryTime = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public DiaryEntry(string href = default(string), ResourceId aborId = default(ResourceId), string diaryEntryCode = default(string), string type = default(string), string name = default(string), string status = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset queryAsAt = default(DateTimeOffset), DateTimeOffset previousEntryTime = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -70,7 +70,7 @@ namespace Lusid.Sdk.Model
             this.QueryAsAt = queryAsAt;
             this.PreviousEntryTime = previousEntryTime;
             this.Properties = properties;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
@@ -144,10 +144,10 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -173,7 +173,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  QueryAsAt: ").Append(QueryAsAt).Append("\n");
             sb.Append("  PreviousEntryTime: ").Append(PreviousEntryTime).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -262,9 +262,9 @@ namespace Lusid.Sdk.Model
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -323,9 +323,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

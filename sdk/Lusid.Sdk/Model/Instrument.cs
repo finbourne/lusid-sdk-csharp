@@ -52,7 +52,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Deleted")]
             Deleted = 3
-
         }
 
 
@@ -116,7 +115,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Unknown")]
             Unknown = 8
-
         }
 
 
@@ -137,7 +135,7 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="scope">The scope in which the instrument lies..</param>
         /// <param name="lusidInstrumentId">The unique LUSID Instrument Identifier (LUID) of the instrument. (required).</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="name">The name of the instrument. (required).</param>
         /// <param name="identifiers">The set of identifiers that can be used to identify the instrument. (required).</param>
@@ -150,7 +148,7 @@ namespace Lusid.Sdk.Model
         /// <param name="relationships">A set of relationships associated to the instrument..</param>
         /// <param name="settlementCycle">settlementCycle.</param>
         /// <param name="links">links.</param>
-        public Instrument(string href = default(string), string scope = default(string), string lusidInstrumentId = default(string), ModelVersion version = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), string name = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>), List<Property> properties = default(List<Property>), ResourceId lookthroughPortfolio = default(ResourceId), LusidInstrument instrumentDefinition = default(LusidInstrument), StateEnum state = default(StateEnum), AssetClassEnum? assetClass = default(AssetClassEnum?), string domCcy = default(string), List<Relationship> relationships = default(List<Relationship>), SettlementCycle settlementCycle = default(SettlementCycle), List<Link> links = default(List<Link>))
+        public Instrument(string href = default(string), string scope = default(string), string lusidInstrumentId = default(string), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), string name = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>), List<Property> properties = default(List<Property>), ResourceId lookthroughPortfolio = default(ResourceId), LusidInstrument instrumentDefinition = default(LusidInstrument), StateEnum state = default(StateEnum), AssetClassEnum? assetClass = default(AssetClassEnum?), string domCcy = default(string), List<Relationship> relationships = default(List<Relationship>), SettlementCycle settlementCycle = default(SettlementCycle), List<Link> links = default(List<Link>))
         {
             // to ensure "lusidInstrumentId" is required (not null)
             if (lusidInstrumentId == null)
@@ -158,12 +156,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("lusidInstrumentId is a required property for Instrument and cannot be null");
             }
             this.LusidInstrumentId = lusidInstrumentId;
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for Instrument and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for Instrument and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             // to ensure "name" is required (not null)
             if (name == null)
             {
@@ -212,10 +210,10 @@ namespace Lusid.Sdk.Model
         public string LusidInstrumentId { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets StagedModifications
@@ -293,7 +291,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
@@ -357,9 +355,9 @@ namespace Lusid.Sdk.Model
                     this.LusidInstrumentId.Equals(input.LusidInstrumentId))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.StagedModifications == input.StagedModifications ||
@@ -446,9 +444,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.LusidInstrumentId.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.StagedModifications != null)
                 {

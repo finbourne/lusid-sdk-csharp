@@ -6,7 +6,7 @@ An item of structured result data that is to be inserted into Lusid. This will t
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DocumentFormat** | **string** | The format of the accompanying document. | 
-**_Version** | **string** | The semantic version of the document format; MAJOR.MINOR.PATCH | [optional] 
+**VarVersion** | **string** | The semantic version of the document format; MAJOR.MINOR.PATCH | [optional] 
 **Name** | **string** | The name or description for the document | [optional] 
 **Document** | **string** | The document that will be stored (or retrieved) and which describes a unit result data entity such as a set of prices or yields | 
 **DataMapKey** | [**DataMapKey**](DataMapKey.md) |  | [optional] 

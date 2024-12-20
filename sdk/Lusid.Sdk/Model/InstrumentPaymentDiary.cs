@@ -34,16 +34,16 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentIdType">The identifier type of the instrument..</param>
         /// <param name="instrumentId">The identifier for the instrument..</param>
         /// <param name="instrumentScope">The scope of the instrument..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="legs">Aggregated sets of Cashflows..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="links">links.</param>
-        public InstrumentPaymentDiary(string instrumentIdType = default(string), string instrumentId = default(string), string instrumentScope = default(string), ModelVersion version = default(ModelVersion), List<InstrumentPaymentDiaryLeg> legs = default(List<InstrumentPaymentDiaryLeg>), string href = default(string), List<Link> links = default(List<Link>))
+        public InstrumentPaymentDiary(string instrumentIdType = default(string), string instrumentId = default(string), string instrumentScope = default(string), ModelVersion varVersion = default(ModelVersion), List<InstrumentPaymentDiaryLeg> legs = default(List<InstrumentPaymentDiaryLeg>), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.InstrumentIdType = instrumentIdType;
             this.InstrumentId = instrumentId;
             this.InstrumentScope = instrumentScope;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Legs = legs;
             this.Href = href;
             this.Links = links;
@@ -71,10 +71,10 @@ namespace Lusid.Sdk.Model
         public string InstrumentScope { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Aggregated sets of Cashflows.
@@ -107,7 +107,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentIdType: ").Append(InstrumentIdType).Append("\n");
             sb.Append("  InstrumentId: ").Append(InstrumentId).Append("\n");
             sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Legs: ").Append(Legs).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -162,9 +162,9 @@ namespace Lusid.Sdk.Model
                     this.InstrumentScope.Equals(input.InstrumentScope))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Legs == input.Legs ||
@@ -206,9 +206,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.InstrumentScope.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Legs != null)
                 {

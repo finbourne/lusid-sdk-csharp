@@ -52,7 +52,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Delete")]
             Delete = 3
-
         }
 
 

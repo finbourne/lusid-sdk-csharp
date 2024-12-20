@@ -25,7 +25,7 @@ namespace Lusid.Sdk.Model
     /// <summary>
     /// The version metadata.
     /// </summary>
-    [DataContract(Name = "_Version")]
+    [DataContract(Name = "varVersion")]
     public partial class ModelVersion : IEquatable<ModelVersion>, IValidatableObject
     {
         /// <summary>

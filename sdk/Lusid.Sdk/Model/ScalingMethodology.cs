@@ -45,7 +45,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Unity")]
         Unity = 3
-
     }
 
 }

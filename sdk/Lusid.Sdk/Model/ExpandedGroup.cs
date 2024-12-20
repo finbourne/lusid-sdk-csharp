@@ -42,9 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="description">The long form description of the portfolio group..</param>
         /// <param name="values">The collection of resource identifiers for the portfolios contained in the portfolio group..</param>
         /// <param name="subGroups">The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public ExpandedGroup(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<CompletePortfolio> values = default(List<CompletePortfolio>), List<ExpandedGroup> subGroups = default(List<ExpandedGroup>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public ExpandedGroup(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<CompletePortfolio> values = default(List<CompletePortfolio>), List<ExpandedGroup> subGroups = default(List<ExpandedGroup>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -62,7 +62,7 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.Values = values;
             this.SubGroups = subGroups;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
@@ -108,10 +108,10 @@ namespace Lusid.Sdk.Model
         public List<ExpandedGroup> SubGroups { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -133,7 +133,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  SubGroups: ").Append(SubGroups).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -203,9 +203,9 @@ namespace Lusid.Sdk.Model
                     this.SubGroups.SequenceEqual(input.SubGroups)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -248,9 +248,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SubGroups.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -38,9 +38,9 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="addressKey">The address key of the address key definition. (required).</param>
         /// <param name="type">The type of the address key definition (required).</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public AddressKeyDefinition(string addressKey = default(string), string type = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public AddressKeyDefinition(string addressKey = default(string), string type = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "addressKey" is required (not null)
             if (addressKey == null)
@@ -54,7 +54,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("type is a required property for AddressKeyDefinition and cannot be null");
             }
             this.Type = type;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
@@ -73,10 +73,10 @@ namespace Lusid.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -94,7 +94,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class AddressKeyDefinition {\n");
             sb.Append("  AddressKey: ").Append(AddressKey).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -142,9 +142,9 @@ namespace Lusid.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -171,9 +171,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

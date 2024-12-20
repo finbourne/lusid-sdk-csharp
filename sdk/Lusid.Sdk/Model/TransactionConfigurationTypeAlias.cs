@@ -82,7 +82,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "AllRoles")]
             AllRoles = 8
-
         }
 
 

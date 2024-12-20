@@ -66,7 +66,7 @@ namespace Examples
             var entityType = "entityType_example";  // string | The type of entity this dialect describes e.g. Instrument.
             var serialisationFormat = "serialisationFormat_example";  // string | The serialisation format of a document in this dialect. e.g. JSON, XML.
             var version = "version_example";  // string | The semantic version of the dialect: MAJOR.MINOR.PATCH.
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the dialect. Defaults to return the latest version of the dialect if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the dialect. Defaults to return the latest version of the dialect if not specified. (optional) 
 
             try
             {
@@ -189,7 +189,7 @@ namespace Examples
             var scope = "scope_example";  // string | Scope of the translation script.
             var code = "code_example";  // string | Code of the translation script.
             var version = "version_example";  // string | Semantic version of the translation script.
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the translation script. Defaults to latest. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the translation script. Defaults to latest. (optional) 
 
             try
             {
@@ -306,7 +306,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScriptedTranslationApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScriptedTranslationApi>();
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the dialects.              Defaults to return the latest version of the dialect if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the dialects.              Defaults to return the latest version of the dialect if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
@@ -426,7 +426,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScriptedTranslationApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScriptedTranslationApi>();
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the script identifiers. Defaults to latest. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the script identifiers. Defaults to latest. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq 'my-scripts' to list result only for a particular scope. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional) 

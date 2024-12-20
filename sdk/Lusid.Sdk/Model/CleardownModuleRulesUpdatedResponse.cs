@@ -32,13 +32,13 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CleardownModuleRulesUpdatedResponse" /> class.
         /// </summary>
         /// <param name="rules">The Cleardown Rules that apply for the Cleardown Module. Rules are evaluated in the order they occur in this collection..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="links">links.</param>
-        public CleardownModuleRulesUpdatedResponse(List<CleardownModuleRule> rules = default(List<CleardownModuleRule>), ModelVersion version = default(ModelVersion), string href = default(string), List<Link> links = default(List<Link>))
+        public CleardownModuleRulesUpdatedResponse(List<CleardownModuleRule> rules = default(List<CleardownModuleRule>), ModelVersion varVersion = default(ModelVersion), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.Rules = rules;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Href = href;
             this.Links = links;
         }
@@ -51,10 +51,10 @@ namespace Lusid.Sdk.Model
         public List<CleardownModuleRule> Rules { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
@@ -78,7 +78,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CleardownModuleRulesUpdatedResponse {\n");
             sb.Append("  Rules: ").Append(Rules).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -123,9 +123,9 @@ namespace Lusid.Sdk.Model
                     this.Rules.SequenceEqual(input.Rules)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Href == input.Href ||
@@ -153,9 +153,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Rules.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Href != null)
                 {

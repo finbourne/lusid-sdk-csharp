@@ -46,7 +46,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "SettleDate")]
             SettleDate = 2
-
         }
 
 

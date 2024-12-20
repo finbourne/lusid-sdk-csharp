@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Sockets;
+using System.Security.Authentication;
 using System.Threading.Tasks;
 using Lusid.Sdk.Client;
 using SdkConfiguration = Lusid.Sdk.Client.Configuration;
@@ -36,10 +38,12 @@ namespace Lusid.Sdk.Extensions
         /// <returns>The boolean of whether the Polly retry condition is satisfied</returns>
         public static bool GetPollyRetryCondition(ResponseBase response)
         {
-            // Retry on concurrency conflict failures
-            bool concurrencyConflictCondition = response.StatusCode == (HttpStatusCode)409;
-
-            return concurrencyConflictCondition;
+            bool isRetryableStatusCode = response.StatusCode == (HttpStatusCode)409 ||
+                                                response.StatusCode == (HttpStatusCode)503 ||
+                                                response.StatusCode == (HttpStatusCode)504;
+            bool isRetryableException = GetRetryableException(response);
+            
+            return isRetryableStatusCode || isRetryableException;
         }
 
         /// <summary>
@@ -53,6 +57,36 @@ namespace Lusid.Sdk.Extensions
             // Retry on rate limit hit:
             bool rateLimitHitCondition = response.StatusCode == (HttpStatusCode)429;
             return rateLimitHitCondition;
+        }
+
+        /// <summary>
+        /// Get the Polly retry condition on which to retry when exceptions are thrown.
+        /// </summary>
+        /// <param name="response">Exception object that comes from the API Client</param>
+        /// <returns>The boolean of whether the Polly retry condition is satisfied</returns>
+        private static bool GetRetryableException(ResponseBase response)
+        {
+            Exception exception = response.ErrorException;
+
+            if (exception == null) return false;
+
+            var baseException = exception.GetBaseException();
+            
+            bool isRetryable = baseException is SocketException ||
+                               baseException is AuthenticationException;
+            
+            if (baseException is WebException webEx)
+            {
+                isRetryable = webEx.Status == WebExceptionStatus.NameResolutionFailure ||
+                 webEx.Status == WebExceptionStatus.ConnectFailure || // Connection failure
+                 webEx.Status == WebExceptionStatus.ReceiveFailure || // TCP receive failure
+                 webEx.Status == WebExceptionStatus.SendFailure || // TCP send failure
+                 webEx.Status == WebExceptionStatus.PipelineFailure || // Network pipeline error
+                 webEx.Status == WebExceptionStatus.TrustFailure || // SSL/TLS trust issue
+                 webEx.Status == WebExceptionStatus.ConnectionClosed; // Connection prematurely closed
+            }
+            
+            return isRetryable;
         }
 
         private static void HandleRetryAction(DelegateResult<ResponseBase> result, int retryCount, Context ctx)
@@ -93,6 +127,20 @@ namespace Lusid.Sdk.Extensions
                     (outcome, ctx, ct) => outcome.Result,
                     (outcome, ctx) => {
                         // Add logging or other logic here
+                    });
+
+        /// <summary>
+        /// Defines a retry policy for handling exceptions during operations that return a <see cref="ResponseBase"/>.
+        /// The policy retries failed attempts up to a specified number of times, using an exponential backoff strategy
+        /// capped at 2 seconds between retries.
+        /// </summary>
+        public static Policy<ResponseBase> DefaultExceptionRetry =>
+            Policy
+                .HandleResult<ResponseBase>(GetRetryableException)
+                .WaitAndRetry(DefaultNumberOfRetries, retryAttempt => TimeSpan.FromTicks(Math.Min(TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)).Ticks, TimeSpan.FromSeconds(2).Ticks)),
+                    onRetry: (exception, calculatedWaitDuration) =>
+                    {
+                        Console.WriteLine($"Failed attempt. Waited for {calculatedWaitDuration}. Retrying");
                     });
 
 
@@ -202,6 +250,20 @@ namespace Lusid.Sdk.Extensions
                             Console.WriteLine("Outcome Exception: {0}", outcome.Exception);
                         }
                         return Task.CompletedTask;
+                    });
+
+        /// <summary>
+        /// Defines a retry policy for handling exceptions during operations that return a <see cref="ResponseBase"/>.
+        /// The policy retries failed attempts up to a specified number of times, using an exponential backoff strategy
+        /// capped at 2 seconds between retries.
+        /// </summary>
+        public static AsyncPolicy<ResponseBase> DefaultExceptionRetryAsync =>
+            Policy
+                .HandleResult<ResponseBase>(GetRetryableException)
+                .WaitAndRetryAsync(DefaultNumberOfRetries, retryAttempt => TimeSpan.FromTicks(Math.Min(TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)).Ticks, TimeSpan.FromSeconds(2).Ticks)),
+                    onRetry: (exception, calculatedWaitDuration) =>
+                    {
+                        Console.WriteLine($"Failed attempt. Waited for {calculatedWaitDuration}. Retrying");
                     });
 
         /// <summary>

@@ -39,7 +39,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "DerivedDefinition")]
         DerivedDefinition = 2
-
     }
 
 }

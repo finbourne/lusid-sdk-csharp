@@ -39,7 +39,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "TimeVariant")]
         TimeVariant = 2
-
     }
 
 }

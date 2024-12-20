@@ -502,7 +502,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "StagingRuleSet")]
             StagingRuleSet = 78
-
         }
 
 
@@ -530,7 +529,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "TimeVariant")]
             TimeVariant = 2
-
         }
 
 

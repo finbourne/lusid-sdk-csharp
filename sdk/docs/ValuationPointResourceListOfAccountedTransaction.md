@@ -6,7 +6,7 @@ ResourceList with extra header fields used by the various ValuationPoint endpoin
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StartValuationPoint** | [**DiaryEntry**](DiaryEntry.md) |  | [optional] 
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
 **Values** | [**List&lt;AccountedTransaction&gt;**](AccountedTransaction.md) |  | 
 **Href** | **string** |  | [optional] 
 **NextPage** | **string** |  | [optional] 

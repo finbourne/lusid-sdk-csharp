@@ -52,7 +52,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Cancelled")]
             Cancelled = 3
-
         }
 
 

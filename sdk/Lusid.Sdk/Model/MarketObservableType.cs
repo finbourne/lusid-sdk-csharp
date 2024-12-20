@@ -57,7 +57,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Invalid")]
         Invalid = 5
-
     }
 
 }

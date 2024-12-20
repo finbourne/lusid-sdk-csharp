@@ -37,8 +37,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="WeekendMask" /> class.
         /// </summary>
         /// <param name="days">days (required).</param>
-        /// <param name="timeZone">timeZone (required).</param>
-        public WeekendMask(List<DayOfWeek> days = default(List<DayOfWeek>), string timeZone = default(string))
+        /// <param name="varTimeZone">varTimeZone (required).</param>
+        public WeekendMask(List<DayOfWeek> days = default(List<DayOfWeek>), string varTimeZone = default(string))
         {
             // to ensure "days" is required (not null)
             if (days == null)
@@ -46,12 +46,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("days is a required property for WeekendMask and cannot be null");
             }
             this.Days = days;
-            // to ensure "timeZone" is required (not null)
-            if (timeZone == null)
+            // to ensure "varTimeZone" is required (not null)
+            if (varTimeZone == null)
             {
-                throw new ArgumentNullException("timeZone is a required property for WeekendMask and cannot be null");
+                throw new ArgumentNullException("varTimeZone is a required property for WeekendMask and cannot be null");
             }
-            this.TimeZone = timeZone;
+            this.VarTimeZone = varTimeZone;
         }
 
         /// <summary>
@@ -61,10 +61,10 @@ namespace Lusid.Sdk.Model
         public List<DayOfWeek> Days { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeZone
+        /// Gets or Sets VarTimeZone
         /// </summary>
         [DataMember(Name = "timeZone", IsRequired = true, EmitDefaultValue = true)]
-        public string TimeZone { get; set; }
+        public string VarTimeZone { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,7 +75,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class WeekendMask {\n");
             sb.Append("  Days: ").Append(Days).Append("\n");
-            sb.Append("  TimeZone: ").Append(TimeZone).Append("\n");
+            sb.Append("  VarTimeZone: ").Append(VarTimeZone).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,9 +118,9 @@ namespace Lusid.Sdk.Model
                     this.Days.SequenceEqual(input.Days)
                 ) && 
                 (
-                    this.TimeZone == input.TimeZone ||
-                    (this.TimeZone != null &&
-                    this.TimeZone.Equals(input.TimeZone))
+                    this.VarTimeZone == input.VarTimeZone ||
+                    (this.VarTimeZone != null &&
+                    this.VarTimeZone.Equals(input.VarTimeZone))
                 );
         }
 
@@ -137,9 +137,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Days.GetHashCode();
                 }
-                if (this.TimeZone != null)
+                if (this.VarTimeZone != null)
                 {
-                    hashCode = (hashCode * 59) + this.TimeZone.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarTimeZone.GetHashCode();
                 }
                 return hashCode;
             }
@@ -152,23 +152,23 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TimeZone (string) maxLength
-            if (this.TimeZone != null && this.TimeZone.Length > 256)
+            // VarTimeZone (string) maxLength
+            if (this.VarTimeZone != null && this.VarTimeZone.Length > 256)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimeZone, length must be less than 256.", new [] { "TimeZone" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarTimeZone, length must be less than 256.", new [] { "VarTimeZone" });
             }
 
-            // TimeZone (string) minLength
-            if (this.TimeZone != null && this.TimeZone.Length < 1)
+            // VarTimeZone (string) minLength
+            if (this.VarTimeZone != null && this.VarTimeZone.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimeZone, length must be greater than 1.", new [] { "TimeZone" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarTimeZone, length must be greater than 1.", new [] { "VarTimeZone" });
             }
 
-            // TimeZone (string) pattern
-            Regex regexTimeZone = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexTimeZone.Match(this.TimeZone).Success)
+            // VarTimeZone (string) pattern
+            Regex regexVarTimeZone = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexVarTimeZone.Match(this.VarTimeZone).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimeZone, must match a pattern of " + regexTimeZone, new [] { "TimeZone" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarTimeZone, must match a pattern of " + regexVarTimeZone, new [] { "VarTimeZone" });
             }
 
             yield break;

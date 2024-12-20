@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **DerivationFormula** | **string** | The rule that defines how data is composed for a derived property. | [optional] 
 **CollectionType** | **string** | Describes whether a collection property should behave as a set or as an array. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Set of unique property definition properties and associated values to store with the property definition. Each property must be from the &#39;PropertyDefinition&#39; domain. | [optional] 
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **IsFilterable** | **bool** | Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 

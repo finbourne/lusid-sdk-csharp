@@ -160,7 +160,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "UnindexedText")]
             UnindexedText = 21
-
         }
 
 
@@ -194,7 +193,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Information")]
             Information = 3
-
         }
 
 
@@ -228,7 +226,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Iso4217Currency")]
             Iso4217Currency = 3
-
         }
 
 
@@ -712,7 +709,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "StagingRuleSet")]
             StagingRuleSet = 78
-
         }
 
 
@@ -740,7 +736,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "TimeVariant")]
             TimeVariant = 2
-
         }
 
 
@@ -768,7 +763,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "DerivedDefinition")]
             DerivedDefinition = 2
-
         }
 
 
@@ -797,11 +791,11 @@ namespace Lusid.Sdk.Model
         /// <param name="derivationFormula">The rule that defines how data is composed for a derived property..</param>
         /// <param name="collectionType">Describes whether a collection property should behave as a set or as an array..</param>
         /// <param name="properties">Set of unique property definition properties and associated values to store with the property definition. Each property must be from the &#39;PropertyDefinition&#39; domain..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="isFilterable">Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering..</param>
         /// <param name="links">links.</param>
-        public PropertyDefinition(string href = default(string), string key = default(string), ValueTypeEnum? valueType = default(ValueTypeEnum?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), TypeEnum? type = default(TypeEnum?), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), DomainEnum? domain = default(DomainEnum?), bool valueRequired = default(bool), LifeTimeEnum? lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), PropertyDefinitionTypeEnum? propertyDefinitionType = default(PropertyDefinitionTypeEnum?), string propertyDescription = default(string), string derivationFormula = default(string), string collectionType = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isFilterable = default(bool), List<Link> links = default(List<Link>))
+        public PropertyDefinition(string href = default(string), string key = default(string), ValueTypeEnum? valueType = default(ValueTypeEnum?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), TypeEnum? type = default(TypeEnum?), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), DomainEnum? domain = default(DomainEnum?), bool valueRequired = default(bool), LifeTimeEnum? lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), PropertyDefinitionTypeEnum? propertyDefinitionType = default(PropertyDefinitionTypeEnum?), string propertyDescription = default(string), string derivationFormula = default(string), string collectionType = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isFilterable = default(bool), List<Link> links = default(List<Link>))
         {
             this.Href = href;
             this.Key = key;
@@ -819,7 +813,7 @@ namespace Lusid.Sdk.Model
             this.DerivationFormula = derivationFormula;
             this.CollectionType = collectionType;
             this.Properties = properties;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.StagedModifications = stagedModifications;
             this.IsFilterable = isFilterable;
             this.Links = links;
@@ -925,10 +919,10 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets StagedModifications
@@ -975,7 +969,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DerivationFormula: ").Append(DerivationFormula).Append("\n");
             sb.Append("  CollectionType: ").Append(CollectionType).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  IsFilterable: ").Append(IsFilterable).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -1099,9 +1093,9 @@ namespace Lusid.Sdk.Model
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.StagedModifications == input.StagedModifications ||
@@ -1180,9 +1174,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.StagedModifications != null)
                 {

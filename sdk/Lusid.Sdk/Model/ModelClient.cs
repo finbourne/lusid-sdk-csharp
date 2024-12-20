@@ -25,7 +25,7 @@ namespace Lusid.Sdk.Model
     /// <summary>
     /// ModelClient
     /// </summary>
-    [DataContract(Name = "_Client")]
+    [DataContract(Name = "varClient")]
     public partial class ModelClient : IEquatable<ModelClient>, IValidatableObject
     {
         /// <summary>

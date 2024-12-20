@@ -58,7 +58,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "SimplePosition")]
             SimplePosition = 4
-
         }
 
 
@@ -170,7 +169,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "MaximumLossMinimumGainPortfolioCurrency")]
             MaximumLossMinimumGainPortfolioCurrency = 16
-
         }
 
 
@@ -195,7 +193,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">The long form description of the portfolio..</param>
         /// <param name="created">The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. (required).</param>
         /// <param name="parentPortfolioId">parentPortfolioId.</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="isDerived">Whether or not this is a derived portfolio..</param>
         /// <param name="baseCurrency">The base currency of the portfolio..</param>
@@ -209,7 +207,7 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentEventConfiguration">instrumentEventConfiguration.</param>
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
         /// <param name="links">links.</param>
-        public Portfolio(string href = default(string), ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string displayName = default(string), string description = default(string), DateTimeOffset created = default(DateTimeOffset), ResourceId parentPortfolioId = default(ResourceId), ModelVersion version = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isDerived = default(bool), string baseCurrency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), List<Link> links = default(List<Link>))
+        public Portfolio(string href = default(string), ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string displayName = default(string), string description = default(string), DateTimeOffset created = default(DateTimeOffset), ResourceId parentPortfolioId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isDerived = default(bool), string baseCurrency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -228,7 +226,7 @@ namespace Lusid.Sdk.Model
             this.Href = href;
             this.Description = description;
             this.ParentPortfolioId = parentPortfolioId;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.StagedModifications = stagedModifications;
             this.IsDerived = isDerived;
             this.BaseCurrency = baseCurrency;
@@ -285,10 +283,10 @@ namespace Lusid.Sdk.Model
         public ResourceId ParentPortfolioId { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets StagedModifications
@@ -385,7 +383,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ParentPortfolioId: ").Append(ParentPortfolioId).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  IsDerived: ").Append(IsDerived).Append("\n");
             sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
@@ -469,9 +467,9 @@ namespace Lusid.Sdk.Model
                     this.ParentPortfolioId.Equals(input.ParentPortfolioId))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.StagedModifications == input.StagedModifications ||
@@ -576,9 +574,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ParentPortfolioId.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.StagedModifications != null)
                 {

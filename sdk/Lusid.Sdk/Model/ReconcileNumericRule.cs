@@ -54,7 +54,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "RelativeDifference")]
             RelativeDifference = 3
-
         }
 
 

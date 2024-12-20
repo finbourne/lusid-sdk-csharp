@@ -32,12 +32,12 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AddressKeyFilter" /> class.
         /// </summary>
         /// <param name="left">Address for the value in the row.</param>
-        /// <param name="_operator">What sort of comparison is the filter performing. Can be either \&quot;eq\&quot; for equals or \&quot;neq\&quot; for not equals..</param>
+        /// <param name="varOperator">What sort of comparison is the filter performing. Can be either \&quot;eq\&quot; for equals or \&quot;neq\&quot; for not equals..</param>
         /// <param name="right">right.</param>
-        public AddressKeyFilter(string left = default(string), string _operator = default(string), ResultValue right = default(ResultValue))
+        public AddressKeyFilter(string left = default(string), string varOperator = default(string), ResultValue right = default(ResultValue))
         {
             this.Left = left;
-            this.Operator = _operator;
+            this.Operator = varOperator;
             this.Right = right;
         }
 

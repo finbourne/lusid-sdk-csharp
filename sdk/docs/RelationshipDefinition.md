@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **RelationshipDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
 **SourceEntityType** | **string** | The entity type of the source entity object. | 
 **TargetEntityType** | **string** | The entity type of the target entity object. | 

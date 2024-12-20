@@ -39,7 +39,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Property")]
         Property = 2
-
     }
 
 }

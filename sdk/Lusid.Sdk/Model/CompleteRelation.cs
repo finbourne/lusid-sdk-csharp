@@ -37,14 +37,14 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CompleteRelation" /> class.
         /// </summary>
         /// <param name="href">href.</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="relationDefinitionId">relationDefinitionId (required).</param>
         /// <param name="sourceEntityId">sourceEntityId (required).</param>
         /// <param name="targetEntityId">targetEntityId (required).</param>
         /// <param name="outwardDescription">outwardDescription (required).</param>
         /// <param name="inwardDescription">inwardDescription (required).</param>
         /// <param name="effectiveFrom">effectiveFrom.</param>
-        public CompleteRelation(string href = default(string), ModelVersion version = default(ModelVersion), ResourceId relationDefinitionId = default(ResourceId), Dictionary<string, string> sourceEntityId = default(Dictionary<string, string>), Dictionary<string, string> targetEntityId = default(Dictionary<string, string>), string outwardDescription = default(string), string inwardDescription = default(string), DateTimeOffset effectiveFrom = default(DateTimeOffset))
+        public CompleteRelation(string href = default(string), ModelVersion varVersion = default(ModelVersion), ResourceId relationDefinitionId = default(ResourceId), Dictionary<string, string> sourceEntityId = default(Dictionary<string, string>), Dictionary<string, string> targetEntityId = default(Dictionary<string, string>), string outwardDescription = default(string), string inwardDescription = default(string), DateTimeOffset effectiveFrom = default(DateTimeOffset))
         {
             // to ensure "relationDefinitionId" is required (not null)
             if (relationDefinitionId == null)
@@ -77,7 +77,7 @@ namespace Lusid.Sdk.Model
             }
             this.InwardDescription = inwardDescription;
             this.Href = href;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.EffectiveFrom = effectiveFrom;
         }
 
@@ -88,10 +88,10 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets RelationDefinitionId
@@ -138,7 +138,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CompleteRelation {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  RelationDefinitionId: ").Append(RelationDefinitionId).Append("\n");
             sb.Append("  SourceEntityId: ").Append(SourceEntityId).Append("\n");
             sb.Append("  TargetEntityId: ").Append(TargetEntityId).Append("\n");
@@ -186,9 +186,9 @@ namespace Lusid.Sdk.Model
                     this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.RelationDefinitionId == input.RelationDefinitionId ||
@@ -237,9 +237,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Href.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.RelationDefinitionId != null)
                 {

@@ -42,9 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the General Ledger Profile (required).</param>
         /// <param name="description">A description for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileMappings">Rules for mapping Account or property values to aggregation pattern definitions (required).</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public GeneralLedgerProfileResponse(string href = default(string), ResourceId chartOfAccountsId = default(ResourceId), string generalLedgerProfileCode = default(string), string displayName = default(string), string description = default(string), List<GeneralLedgerProfileMapping> generalLedgerProfileMappings = default(List<GeneralLedgerProfileMapping>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public GeneralLedgerProfileResponse(string href = default(string), ResourceId chartOfAccountsId = default(ResourceId), string generalLedgerProfileCode = default(string), string displayName = default(string), string description = default(string), List<GeneralLedgerProfileMapping> generalLedgerProfileMappings = default(List<GeneralLedgerProfileMapping>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "chartOfAccountsId" is required (not null)
             if (chartOfAccountsId == null)
@@ -72,7 +72,7 @@ namespace Lusid.Sdk.Model
             this.GeneralLedgerProfileMappings = generalLedgerProfileMappings;
             this.Href = href;
             this.Description = description;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
@@ -118,10 +118,10 @@ namespace Lusid.Sdk.Model
         public List<GeneralLedgerProfileMapping> GeneralLedgerProfileMappings { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -143,7 +143,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  GeneralLedgerProfileMappings: ").Append(GeneralLedgerProfileMappings).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -212,9 +212,9 @@ namespace Lusid.Sdk.Model
                     this.GeneralLedgerProfileMappings.SequenceEqual(input.GeneralLedgerProfileMappings)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -257,9 +257,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.GeneralLedgerProfileMappings.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

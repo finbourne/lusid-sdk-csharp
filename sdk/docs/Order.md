@@ -6,7 +6,7 @@ An Order for a certain quantity of a specific instrument
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this order. | [optional] 
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | The instrument ordered. | 
 **Quantity** | **decimal** | The quantity of given instrument ordered. | 
 **Side** | **string** | The client&#39;s representation of the order&#39;s side (buy, sell, short, etc) | 

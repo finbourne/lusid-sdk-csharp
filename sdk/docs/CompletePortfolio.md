@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **IsDerived** | **bool** | Whether or not this is a derived portfolio. | [optional] [readonly] 
 **Type** | **string** | The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition | [optional] 
-**_Version** | [**ModelVersion**](ModelVersion.md) |  | 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
 **Properties** | [**List&lt;Property&gt;**](Property.md) | The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain. | [optional] 
 **BaseCurrency** | **string** | If the portfolio is a transaction portfolio or derived transaction portfolio, this is the base currency of the portfolio. | [optional] 
 **SubHoldingKeys** | **List&lt;string&gt;** | The sub holding key properties configured for the portfolio | [optional] 

@@ -41,9 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="description">The description of the reference list..</param>
         /// <param name="tags">The tags associated with the reference list..</param>
         /// <param name="referenceList">referenceList (required).</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="links">links.</param>
-        public ReferenceListResponse(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), List<string> tags = default(List<string>), ReferenceList referenceList = default(ReferenceList), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public ReferenceListResponse(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), List<string> tags = default(List<string>), ReferenceList referenceList = default(ReferenceList), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -63,12 +63,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("referenceList is a required property for ReferenceListResponse and cannot be null");
             }
             this.ReferenceList = referenceList;
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for ReferenceListResponse and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for ReferenceListResponse and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Description = description;
             this.Tags = tags;
             this.Links = links;
@@ -108,10 +108,10 @@ namespace Lusid.Sdk.Model
         public ReferenceList ReferenceList { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -132,7 +132,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  ReferenceList: ").Append(ReferenceList).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -196,9 +196,9 @@ namespace Lusid.Sdk.Model
                     this.ReferenceList.Equals(input.ReferenceList))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -237,9 +237,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ReferenceList.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -82,7 +82,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "Json")]
             Json = 8
-
         }
 
 

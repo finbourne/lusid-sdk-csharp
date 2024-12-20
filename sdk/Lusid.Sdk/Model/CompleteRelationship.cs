@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CompleteRelationship" /> class.
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="relationshipDefinitionId">relationshipDefinitionId (required).</param>
         /// <param name="sourceEntity">sourceEntity (required).</param>
         /// <param name="targetEntity">targetEntity (required).</param>
@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="inwardDescription">Description of the relationship based on relationship definition&#39;s inward description. (required).</param>
         /// <param name="effectiveFrom">The effective datetime from which the relationship is valid..</param>
         /// <param name="effectiveUntil">The effective datetime to which the relationship is valid until..</param>
-        public CompleteRelationship(string href = default(string), ModelVersion version = default(ModelVersion), ResourceId relationshipDefinitionId = default(ResourceId), RelatedEntity sourceEntity = default(RelatedEntity), RelatedEntity targetEntity = default(RelatedEntity), string outwardDescription = default(string), string inwardDescription = default(string), DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset effectiveUntil = default(DateTimeOffset))
+        public CompleteRelationship(string href = default(string), ModelVersion varVersion = default(ModelVersion), ResourceId relationshipDefinitionId = default(ResourceId), RelatedEntity sourceEntity = default(RelatedEntity), RelatedEntity targetEntity = default(RelatedEntity), string outwardDescription = default(string), string inwardDescription = default(string), DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset effectiveUntil = default(DateTimeOffset))
         {
             // to ensure "relationshipDefinitionId" is required (not null)
             if (relationshipDefinitionId == null)
@@ -78,7 +78,7 @@ namespace Lusid.Sdk.Model
             }
             this.InwardDescription = inwardDescription;
             this.Href = href;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.EffectiveFrom = effectiveFrom;
             this.EffectiveUntil = effectiveUntil;
         }
@@ -91,10 +91,10 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets RelationshipDefinitionId
@@ -151,7 +151,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CompleteRelationship {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  RelationshipDefinitionId: ").Append(RelationshipDefinitionId).Append("\n");
             sb.Append("  SourceEntity: ").Append(SourceEntity).Append("\n");
             sb.Append("  TargetEntity: ").Append(TargetEntity).Append("\n");
@@ -200,9 +200,9 @@ namespace Lusid.Sdk.Model
                     this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.RelationshipDefinitionId == input.RelationshipDefinitionId ||
@@ -254,9 +254,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Href.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.RelationshipDefinitionId != null)
                 {

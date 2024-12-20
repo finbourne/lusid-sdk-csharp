@@ -43,9 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A description for the Posting Module..</param>
         /// <param name="rules">The Posting Rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection..</param>
         /// <param name="status">The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public PostingModuleResponse(string href = default(string), string postingModuleCode = default(string), ResourceId chartOfAccountsId = default(ResourceId), string displayName = default(string), string description = default(string), List<PostingModuleRule> rules = default(List<PostingModuleRule>), string status = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public PostingModuleResponse(string href = default(string), string postingModuleCode = default(string), ResourceId chartOfAccountsId = default(ResourceId), string displayName = default(string), string description = default(string), List<PostingModuleRule> rules = default(List<PostingModuleRule>), string status = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "postingModuleCode" is required (not null)
             if (postingModuleCode == null)
@@ -74,7 +74,7 @@ namespace Lusid.Sdk.Model
             this.Href = href;
             this.Description = description;
             this.Rules = rules;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Links = links;
         }
 
@@ -127,10 +127,10 @@ namespace Lusid.Sdk.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -153,7 +153,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Rules: ").Append(Rules).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -227,9 +227,9 @@ namespace Lusid.Sdk.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -276,9 +276,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Links != null)
                 {

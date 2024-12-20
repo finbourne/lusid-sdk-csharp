@@ -36,17 +36,17 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveEnd">The effective end of the Closed Period.</param>
         /// <param name="asAtClosed">The asAt datetime the Closed Period was created.</param>
         /// <param name="properties">The Closed Periods properties. These will be from the &#39;ClosedPeriod&#39; domain..</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
         /// <param name="links">links.</param>
-        public ClosedPeriod(string closedPeriodId = default(string), DateTimeOffset effectiveStart = default(DateTimeOffset), DateTimeOffset effectiveEnd = default(DateTimeOffset), DateTimeOffset asAtClosed = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), string href = default(string), List<Link> links = default(List<Link>))
+        public ClosedPeriod(string closedPeriodId = default(string), DateTimeOffset effectiveStart = default(DateTimeOffset), DateTimeOffset effectiveEnd = default(DateTimeOffset), DateTimeOffset asAtClosed = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.ClosedPeriodId = closedPeriodId;
             this.EffectiveStart = effectiveStart;
             this.EffectiveEnd = effectiveEnd;
             this.AsAtClosed = asAtClosed;
             this.Properties = properties;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Href = href;
             this.Links = links;
         }
@@ -87,10 +87,10 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime.
@@ -118,7 +118,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveEnd: ").Append(EffectiveEnd).Append("\n");
             sb.Append("  AsAtClosed: ").Append(AsAtClosed).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -183,9 +183,9 @@ namespace Lusid.Sdk.Model
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Href == input.Href ||
@@ -229,9 +229,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Href != null)
                 {

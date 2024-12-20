@@ -56,7 +56,6 @@ namespace Lusid.Sdk.Model
             /// </summary>
             [EnumMember(Value = "PortfolioResultDataKeyRule")]
             PortfolioResultDataKeyRule = 3
-
         }
 
 
