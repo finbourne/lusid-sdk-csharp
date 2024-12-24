@@ -89,8 +89,18 @@ namespace Lusid.Sdk.Extensions
             return isRetryable;
         }
 
-        private static void HandleRetryAction(DelegateResult<ResponseBase> result, int retryCount, Context ctx)
+        private static void HandleRetryAction(DelegateResult<ResponseBase> response, TimeSpan delay, Context ctx)
         {
+            var message = "";
+            if (response.Result.ErrorException != null)
+            {
+                message = response.Result.ErrorException.ToString();
+                if (response.Result.ErrorException is WebException webEx)
+                    message = webEx.Status.ToString();
+            }
+            else
+                message = response.Result.StatusCode.ToString();
+            Console.WriteLine($"Retrying because of {message}. Retrying in {delay}");
         }
 
         #region Synchronous Retry Policies
@@ -130,27 +140,20 @@ namespace Lusid.Sdk.Extensions
                     });
 
         /// <summary>
-        /// Defines a retry policy for handling exceptions during operations that return a <see cref="ResponseBase"/>.
-        /// The policy retries failed attempts up to a specified number of times, using an exponential backoff strategy
-        /// capped at 2 seconds between retries.
-        /// </summary>
-        public static Policy<ResponseBase> DefaultExceptionRetry =>
-            Policy
-                .HandleResult<ResponseBase>(GetRetryableException)
-                .WaitAndRetry(DefaultNumberOfRetries, retryAttempt => TimeSpan.FromTicks(Math.Min(TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)).Ticks, TimeSpan.FromSeconds(2).Ticks)),
-                    onRetry: (exception, calculatedWaitDuration) =>
-                    {
-                        Console.WriteLine($"Failed attempt. Waited for {calculatedWaitDuration}. Retrying");
-                    });
-
-
-        /// <summary>
         /// Define Polly retry policy for synchronous API calls.
         /// </summary>
         public static Policy<ResponseBase> DefaultRetryPolicy =>
             Policy
                 .HandleResult<ResponseBase>(GetPollyRetryCondition)
-                .Retry(retryCount: DefaultNumberOfRetries, onRetry: HandleRetryAction);
+                .WaitAndRetry(retryCount: DefaultNumberOfRetries, retryAttempt =>
+                    {
+                        var jitter = TimeSpan.FromMilliseconds(Random.Shared.Next(0, 1000));
+                        var exponentialBackoff = TimeSpan.FromTicks(Math.Min(TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)).Ticks,
+                            TimeSpan.FromSeconds(3).Ticks));
+                        return exponentialBackoff + jitter;
+
+                    },
+                    onRetry: HandleRetryAction);
 
         /// <summary>
         /// Retry policy wrap that handles rate limit codes (409) as well as the default retry policy.
@@ -180,6 +183,7 @@ namespace Lusid.Sdk.Extensions
 
         private static void OnRetry(DelegateResult<ResponseBase> arg1, TimeSpan arg2, Context arg3)
         {
+            Console.WriteLine("Rate limit retry");
         }
 
         #endregion
@@ -211,7 +215,14 @@ namespace Lusid.Sdk.Extensions
         public static AsyncPolicy<ResponseBase> DefaultRetryPolicyAsync =>
             Policy
                 .HandleResult<ResponseBase>(GetPollyRetryCondition)
-                .RetryAsync(retryCount: DefaultNumberOfRetries, onRetry: HandleRetryAction);
+                .WaitAndRetryAsync(retryCount: DefaultNumberOfRetries, retryAttempt =>
+                    {
+                        var jitter = TimeSpan.FromMilliseconds(Random.Shared.Next(0, 1000));
+                        var exponentialBackoff = TimeSpan.FromTicks(Math.Min(
+                            TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)).Ticks, TimeSpan.FromSeconds(3).Ticks));
+                        return exponentialBackoff + jitter;
+                    },
+                    onRetry: HandleRetryAction);
 
         /// <summary>
         /// Defines async policy for handling rate limit (429) http response codes.
@@ -250,20 +261,6 @@ namespace Lusid.Sdk.Extensions
                             Console.WriteLine("Outcome Exception: {0}", outcome.Exception);
                         }
                         return Task.CompletedTask;
-                    });
-
-        /// <summary>
-        /// Defines a retry policy for handling exceptions during operations that return a <see cref="ResponseBase"/>.
-        /// The policy retries failed attempts up to a specified number of times, using an exponential backoff strategy
-        /// capped at 2 seconds between retries.
-        /// </summary>
-        public static AsyncPolicy<ResponseBase> DefaultExceptionRetryAsync =>
-            Policy
-                .HandleResult<ResponseBase>(GetRetryableException)
-                .WaitAndRetryAsync(DefaultNumberOfRetries, retryAttempt => TimeSpan.FromTicks(Math.Min(TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)).Ticks, TimeSpan.FromSeconds(2).Ticks)),
-                    onRetry: (exception, calculatedWaitDuration) =>
-                    {
-                        Console.WriteLine($"Failed attempt. Waited for {calculatedWaitDuration}. Retrying");
                     });
 
         /// <summary>

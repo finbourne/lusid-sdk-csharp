@@ -462,7 +462,12 @@ namespace Lusid.Sdk.Client
             var policy = GetSyncPolicy(options);
             if (policy != null)
             {
-                var policyResult = policy.ExecuteAndCapture(() => client.Execute<T>(request));
+                var policyResult = policy.ExecuteAndCapture(() => {
+                    var responseInner = client.Execute<T>(request);
+                    if (responseInner.ErrorException != null)
+                        client = _createRestClient(clientOptions, configuration);
+                    return responseInner;
+                });
                 response = policyResult.Result as Response<T>;
                 if (response == null)
                 {
@@ -554,7 +559,14 @@ namespace Lusid.Sdk.Client
             
             if (policy != null)
             {
-                Func<CancellationToken, Task<ResponseBase>> action = async ct => await client.ExecuteAsync<T>(request, ct);
+                Func<CancellationToken, Task<ResponseBase>> action = async ct =>
+                {
+                    var responseInner = await client.ExecuteAsync<T>(request, ct).ConfigureAwait(false);
+                    if (responseInner.ErrorException != null)
+                        client = _createRestClient(clientOptions, configuration);
+                    return responseInner;
+                };
+
                 var policyResult = await policy.ExecuteAndCaptureAsync(action, cancellationToken).ConfigureAwait(false);
                 response = policyResult.Result as Response<T>;
                 if (response == null)
