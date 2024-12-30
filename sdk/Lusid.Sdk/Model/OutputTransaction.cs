@@ -97,7 +97,8 @@ namespace Lusid.Sdk.Model
         /// <param name="custodianAccount">custodianAccount.</param>
         /// <param name="transactionGroupId">The identifier for grouping economic events across multiple transactions.</param>
         /// <param name="resolvedTransactionTypeDetails">resolvedTransactionTypeDetails.</param>
-        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails))
+        /// <param name="grossTransactionAmount">The total gross value of the transaction in the transaction currency..</param>
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -142,6 +143,7 @@ namespace Lusid.Sdk.Model
             this.CustodianAccount = custodianAccount;
             this.TransactionGroupId = transactionGroupId;
             this.ResolvedTransactionTypeDetails = resolvedTransactionTypeDetails;
+            this.GrossTransactionAmount = grossTransactionAmount;
         }
 
         /// <summary>
@@ -330,6 +332,13 @@ namespace Lusid.Sdk.Model
         public TransactionTypeDetails ResolvedTransactionTypeDetails { get; set; }
 
         /// <summary>
+        /// The total gross value of the transaction in the transaction currency.
+        /// </summary>
+        /// <value>The total gross value of the transaction in the transaction currency.</value>
+        [DataMember(Name = "grossTransactionAmount", EmitDefaultValue = true)]
+        public decimal GrossTransactionAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -365,6 +374,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CustodianAccount: ").Append(CustodianAccount).Append("\n");
             sb.Append("  TransactionGroupId: ").Append(TransactionGroupId).Append("\n");
             sb.Append("  ResolvedTransactionTypeDetails: ").Append(ResolvedTransactionTypeDetails).Append("\n");
+            sb.Append("  GrossTransactionAmount: ").Append(GrossTransactionAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -539,6 +549,10 @@ namespace Lusid.Sdk.Model
                     this.ResolvedTransactionTypeDetails == input.ResolvedTransactionTypeDetails ||
                     (this.ResolvedTransactionTypeDetails != null &&
                     this.ResolvedTransactionTypeDetails.Equals(input.ResolvedTransactionTypeDetails))
+                ) && 
+                (
+                    this.GrossTransactionAmount == input.GrossTransactionAmount ||
+                    this.GrossTransactionAmount.Equals(input.GrossTransactionAmount)
                 );
         }
 
@@ -651,6 +665,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ResolvedTransactionTypeDetails.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.GrossTransactionAmount.GetHashCode();
                 return hashCode;
             }
         }
