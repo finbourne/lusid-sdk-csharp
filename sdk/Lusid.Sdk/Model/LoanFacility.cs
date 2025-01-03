@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Loan Facility. This is a very lightweight instrument which acts as a placeholder for the events occurring within  the related facility Portfolio. This Portfolio is identified by its Scope and Code, which is recorded on the  instrument definition. The instrument acts as an agreement between a single borrower and many lenders (investors).  Several contracts may be drawn up to enable the lending of funds to the borrower. These contracts are modelled via  FlexibleLoan instruments in LUSID. The events occurring within the linked Portfolio may be related  to the facility as a whole (for example to define a global commitment amount), or they may relate to a single  contract (such as a paydown transaction on a particular contract).
+    /// Loan Facility. This is a very lightweight instrument which acts as a placeholder for the state that is built  from the instrument events. The facility acts as an agreement between a single borrower and many lenders (investors).  Several contracts may be drawn up to enable the lending of funds to the borrower. These contracts are modelled via  FlexibleLoan instruments in LUSID. The instrument events on the facility may relate to the facility as a whole  (for example to define a global commitment amount), or they may relate to a single contract (such as a paydown  transaction on a particular contract).
     /// </summary>
     [DataContract(Name = "LoanFacility")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]
@@ -39,31 +39,19 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="LoanFacility" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
+        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
-        /// <param name="facilityPortfolioScope">The Scope of the Transaction Portfolio to which the Loan Facility instrument is linked. (required).</param>
-        /// <param name="facilityPortfolioCode">The Code of the Transaction Portfolio to which the Loan Facility instrument is linked. (required).</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;LoanFacility&quot;).</param>
-        public LoanFacility(DateTimeOffset startDate = default(DateTimeOffset), string domCcy = default(string), string facilityPortfolioScope = default(string), string facilityPortfolioCode = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public LoanFacility(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
+            this.MaturityDate = maturityDate;
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
             {
                 throw new ArgumentNullException("domCcy is a required property for LoanFacility and cannot be null");
             }
             this.DomCcy = domCcy;
-            // to ensure "facilityPortfolioScope" is required (not null)
-            if (facilityPortfolioScope == null)
-            {
-                throw new ArgumentNullException("facilityPortfolioScope is a required property for LoanFacility and cannot be null");
-            }
-            this.FacilityPortfolioScope = facilityPortfolioScope;
-            // to ensure "facilityPortfolioCode" is required (not null)
-            if (facilityPortfolioCode == null)
-            {
-                throw new ArgumentNullException("facilityPortfolioCode is a required property for LoanFacility and cannot be null");
-            }
-            this.FacilityPortfolioCode = facilityPortfolioCode;
         }
 
         /// <summary>
@@ -74,25 +62,18 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
+        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
+        /// </summary>
+        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
+        [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset MaturityDate { get; set; }
+
+        /// <summary>
         /// The domestic currency of the instrument.
         /// </summary>
         /// <value>The domestic currency of the instrument.</value>
         [DataMember(Name = "domCcy", IsRequired = true, EmitDefaultValue = true)]
         public string DomCcy { get; set; }
-
-        /// <summary>
-        /// The Scope of the Transaction Portfolio to which the Loan Facility instrument is linked.
-        /// </summary>
-        /// <value>The Scope of the Transaction Portfolio to which the Loan Facility instrument is linked.</value>
-        [DataMember(Name = "facilityPortfolioScope", IsRequired = true, EmitDefaultValue = true)]
-        public string FacilityPortfolioScope { get; set; }
-
-        /// <summary>
-        /// The Code of the Transaction Portfolio to which the Loan Facility instrument is linked.
-        /// </summary>
-        /// <value>The Code of the Transaction Portfolio to which the Loan Facility instrument is linked.</value>
-        [DataMember(Name = "facilityPortfolioCode", IsRequired = true, EmitDefaultValue = true)]
-        public string FacilityPortfolioCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -104,9 +85,8 @@ namespace Lusid.Sdk.Model
             sb.Append("class LoanFacility {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
-            sb.Append("  FacilityPortfolioScope: ").Append(FacilityPortfolioScope).Append("\n");
-            sb.Append("  FacilityPortfolioCode: ").Append(FacilityPortfolioCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,19 +128,14 @@ namespace Lusid.Sdk.Model
                     this.StartDate.Equals(input.StartDate))
                 ) && base.Equals(input) && 
                 (
+                    this.MaturityDate == input.MaturityDate ||
+                    (this.MaturityDate != null &&
+                    this.MaturityDate.Equals(input.MaturityDate))
+                ) && base.Equals(input) && 
+                (
                     this.DomCcy == input.DomCcy ||
                     (this.DomCcy != null &&
                     this.DomCcy.Equals(input.DomCcy))
-                ) && base.Equals(input) && 
-                (
-                    this.FacilityPortfolioScope == input.FacilityPortfolioScope ||
-                    (this.FacilityPortfolioScope != null &&
-                    this.FacilityPortfolioScope.Equals(input.FacilityPortfolioScope))
-                ) && base.Equals(input) && 
-                (
-                    this.FacilityPortfolioCode == input.FacilityPortfolioCode ||
-                    (this.FacilityPortfolioCode != null &&
-                    this.FacilityPortfolioCode.Equals(input.FacilityPortfolioCode))
                 );
         }
 
@@ -177,17 +152,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
                 }
+                if (this.MaturityDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
+                }
                 if (this.DomCcy != null)
                 {
                     hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
-                }
-                if (this.FacilityPortfolioScope != null)
-                {
-                    hashCode = (hashCode * 59) + this.FacilityPortfolioScope.GetHashCode();
-                }
-                if (this.FacilityPortfolioCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.FacilityPortfolioCode.GetHashCode();
                 }
                 return hashCode;
             }
@@ -214,30 +185,6 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
-            // FacilityPortfolioScope (string) maxLength
-            if (this.FacilityPortfolioScope != null && this.FacilityPortfolioScope.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FacilityPortfolioScope, length must be less than 256.", new [] { "FacilityPortfolioScope" });
-            }
-
-            // FacilityPortfolioScope (string) minLength
-            if (this.FacilityPortfolioScope != null && this.FacilityPortfolioScope.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FacilityPortfolioScope, length must be greater than 0.", new [] { "FacilityPortfolioScope" });
-            }
-
-            // FacilityPortfolioCode (string) maxLength
-            if (this.FacilityPortfolioCode != null && this.FacilityPortfolioCode.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FacilityPortfolioCode, length must be less than 256.", new [] { "FacilityPortfolioCode" });
-            }
-
-            // FacilityPortfolioCode (string) minLength
-            if (this.FacilityPortfolioCode != null && this.FacilityPortfolioCode.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FacilityPortfolioCode, length must be greater than 0.", new [] { "FacilityPortfolioCode" });
-            }
-
             yield break;
         }
     }
