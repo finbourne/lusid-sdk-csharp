@@ -66,7 +66,7 @@ namespace Examples
             var bookTransactionsRequest = new BookTransactionsRequest(); // BookTransactionsRequest | The allocations to create transactions for
             var applyFeesAndCommission = true;  // bool? | Whether to apply fees and commissions to transactions (default: true) (optional)  (default to true)
             var markOrdersAndAllocationsAsBooked = false;  // bool? | Whether to mark allocations and fully-booked orders with state Booked (optional)  (default to false)
-            var usePreviewTransactionsForPricing = false;  // bool? | Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional)  (default to false)
+            var usePreviewTransactionsForPricing = true;  // bool? | Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional)  (default to true)
 
             try
             {
@@ -115,7 +115,7 @@ catch (ApiException e)
 | **bookTransactionsRequest** | [**BookTransactionsRequest**](BookTransactionsRequest.md) | The allocations to create transactions for |  |
 | **applyFeesAndCommission** | **bool?** | Whether to apply fees and commissions to transactions (default: true) | [optional] [default to true] |
 | **markOrdersAndAllocationsAsBooked** | **bool?** | Whether to mark allocations and fully-booked orders with state Booked | [optional] [default to false] |
-| **usePreviewTransactionsForPricing** | **bool?** | Whether to use calculators for the transaction type to work out pricing fields on the booked transactions | [optional] [default to false] |
+| **usePreviewTransactionsForPricing** | **bool?** | Whether to use calculators for the transaction type to work out pricing fields on the booked transactions | [optional] [default to true] |
 
 ### Return type
 

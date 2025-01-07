@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to false)</param>
+        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BookTransactionsResponse</returns>
@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to false)</param>
+        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BookTransactionsResponse</returns>
@@ -337,7 +337,7 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to false)</param>
+        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -354,7 +354,7 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to false)</param>
+        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -766,7 +766,7 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to false)</param>
+        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BookTransactionsResponse</returns>
@@ -783,7 +783,7 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to false)</param>
+        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BookTransactionsResponse</returns>
@@ -888,7 +888,7 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to false)</param>
+        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -906,7 +906,7 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to false)</param>
+        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
