@@ -41,8 +41,10 @@ namespace Lusid.Sdk.Model
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
+        /// <param name="loanType">LoanType for this facility. The facility can either be a revolving or a  term loan.    Supported string (enumeration) values are: [Revolver, TermLoan]. (required).</param>
+        /// <param name="schedules">Repayment schedules for the loan. (required).</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;LoanFacility&quot;).</param>
-        public LoanFacility(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public LoanFacility(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), string loanType = default(string), List<Schedule> schedules = default(List<Schedule>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -52,6 +54,18 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("domCcy is a required property for LoanFacility and cannot be null");
             }
             this.DomCcy = domCcy;
+            // to ensure "loanType" is required (not null)
+            if (loanType == null)
+            {
+                throw new ArgumentNullException("loanType is a required property for LoanFacility and cannot be null");
+            }
+            this.LoanType = loanType;
+            // to ensure "schedules" is required (not null)
+            if (schedules == null)
+            {
+                throw new ArgumentNullException("schedules is a required property for LoanFacility and cannot be null");
+            }
+            this.Schedules = schedules;
         }
 
         /// <summary>
@@ -76,6 +90,20 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
+        /// LoanType for this facility. The facility can either be a revolving or a  term loan.    Supported string (enumeration) values are: [Revolver, TermLoan].
+        /// </summary>
+        /// <value>LoanType for this facility. The facility can either be a revolving or a  term loan.    Supported string (enumeration) values are: [Revolver, TermLoan].</value>
+        [DataMember(Name = "loanType", IsRequired = true, EmitDefaultValue = true)]
+        public string LoanType { get; set; }
+
+        /// <summary>
+        /// Repayment schedules for the loan.
+        /// </summary>
+        /// <value>Repayment schedules for the loan.</value>
+        [DataMember(Name = "schedules", IsRequired = true, EmitDefaultValue = true)]
+        public List<Schedule> Schedules { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -87,6 +115,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
+            sb.Append("  LoanType: ").Append(LoanType).Append("\n");
+            sb.Append("  Schedules: ").Append(Schedules).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +166,17 @@ namespace Lusid.Sdk.Model
                     this.DomCcy == input.DomCcy ||
                     (this.DomCcy != null &&
                     this.DomCcy.Equals(input.DomCcy))
+                ) && base.Equals(input) && 
+                (
+                    this.LoanType == input.LoanType ||
+                    (this.LoanType != null &&
+                    this.LoanType.Equals(input.LoanType))
+                ) && base.Equals(input) && 
+                (
+                    this.Schedules == input.Schedules ||
+                    this.Schedules != null &&
+                    input.Schedules != null &&
+                    this.Schedules.SequenceEqual(input.Schedules)
                 );
         }
 
@@ -159,6 +200,14 @@ namespace Lusid.Sdk.Model
                 if (this.DomCcy != null)
                 {
                     hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
+                }
+                if (this.LoanType != null)
+                {
+                    hashCode = (hashCode * 59) + this.LoanType.GetHashCode();
+                }
+                if (this.Schedules != null)
+                {
+                    hashCode = (hashCode * 59) + this.Schedules.GetHashCode();
                 }
                 return hashCode;
             }
@@ -185,6 +234,12 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
+            // LoanType (string) minLength
+            if (this.LoanType != null && this.LoanType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoanType, length must be greater than 1.", new [] { "LoanType" });
+            }
+
             yield break;
         }
     }
