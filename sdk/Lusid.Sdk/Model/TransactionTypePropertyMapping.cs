@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="propertyKey">The key that uniquely identifies the property. It has the format {domain}/{scope}/{code} (required).</param>
         /// <param name="mapFrom">The Property Key of the Property to map from.</param>
         /// <param name="setTo">A pointer to the Property being mapped from.</param>
-        public TransactionTypePropertyMapping(string propertyKey = default(string), string mapFrom = default(string), string setTo = default(string))
+        /// <param name="templateFrom">The template that defines how the property value is constructed from transaction, instrument and portfolio details..</param>
+        public TransactionTypePropertyMapping(string propertyKey = default(string), string mapFrom = default(string), string setTo = default(string), string templateFrom = default(string))
         {
             // to ensure "propertyKey" is required (not null)
             if (propertyKey == null)
@@ -49,6 +50,7 @@ namespace Lusid.Sdk.Model
             this.PropertyKey = propertyKey;
             this.MapFrom = mapFrom;
             this.SetTo = setTo;
+            this.TemplateFrom = templateFrom;
         }
 
         /// <summary>
@@ -73,6 +75,13 @@ namespace Lusid.Sdk.Model
         public string SetTo { get; set; }
 
         /// <summary>
+        /// The template that defines how the property value is constructed from transaction, instrument and portfolio details.
+        /// </summary>
+        /// <value>The template that defines how the property value is constructed from transaction, instrument and portfolio details.</value>
+        [DataMember(Name = "templateFrom", EmitDefaultValue = true)]
+        public string TemplateFrom { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +92,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PropertyKey: ").Append(PropertyKey).Append("\n");
             sb.Append("  MapFrom: ").Append(MapFrom).Append("\n");
             sb.Append("  SetTo: ").Append(SetTo).Append("\n");
+            sb.Append("  TemplateFrom: ").Append(TemplateFrom).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -132,6 +142,11 @@ namespace Lusid.Sdk.Model
                     this.SetTo == input.SetTo ||
                     (this.SetTo != null &&
                     this.SetTo.Equals(input.SetTo))
+                ) && 
+                (
+                    this.TemplateFrom == input.TemplateFrom ||
+                    (this.TemplateFrom != null &&
+                    this.TemplateFrom.Equals(input.TemplateFrom))
                 );
         }
 
@@ -155,6 +170,10 @@ namespace Lusid.Sdk.Model
                 if (this.SetTo != null)
                 {
                     hashCode = (hashCode * 59) + this.SetTo.GetHashCode();
+                }
+                if (this.TemplateFrom != null)
+                {
+                    hashCode = (hashCode * 59) + this.TemplateFrom.GetHashCode();
                 }
                 return hashCode;
             }
@@ -184,6 +203,25 @@ namespace Lusid.Sdk.Model
             if (false == regexSetTo.Match(this.SetTo).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SetTo, must match a pattern of " + regexSetTo, new [] { "SetTo" });
+            }
+
+            // TemplateFrom (string) maxLength
+            if (this.TemplateFrom != null && this.TemplateFrom.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TemplateFrom, length must be less than 512.", new [] { "TemplateFrom" });
+            }
+
+            // TemplateFrom (string) minLength
+            if (this.TemplateFrom != null && this.TemplateFrom.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TemplateFrom, length must be greater than 1.", new [] { "TemplateFrom" });
+            }
+
+            // TemplateFrom (string) pattern
+            Regex regexTemplateFrom = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexTemplateFrom.Match(this.TemplateFrom).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TemplateFrom, must match a pattern of " + regexTemplateFrom, new [] { "TemplateFrom" });
             }
 
             yield break;
