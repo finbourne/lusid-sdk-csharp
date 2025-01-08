@@ -40,7 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="mapFrom">The Property Key of the Property to map from.</param>
         /// <param name="setTo">A pointer to the Property being mapped from.</param>
         /// <param name="templateFrom">The template that defines how the property value is constructed from transaction, instrument and portfolio details..</param>
-        public TransactionTypePropertyMapping(string propertyKey = default(string), string mapFrom = default(string), string setTo = default(string), string templateFrom = default(string))
+        /// <param name="nullify">Flag to unset the Property Key for the mapping.</param>
+        public TransactionTypePropertyMapping(string propertyKey = default(string), string mapFrom = default(string), string setTo = default(string), string templateFrom = default(string), bool? nullify = default(bool?))
         {
             // to ensure "propertyKey" is required (not null)
             if (propertyKey == null)
@@ -51,6 +52,7 @@ namespace Lusid.Sdk.Model
             this.MapFrom = mapFrom;
             this.SetTo = setTo;
             this.TemplateFrom = templateFrom;
+            this.Nullify = nullify;
         }
 
         /// <summary>
@@ -82,6 +84,13 @@ namespace Lusid.Sdk.Model
         public string TemplateFrom { get; set; }
 
         /// <summary>
+        /// Flag to unset the Property Key for the mapping
+        /// </summary>
+        /// <value>Flag to unset the Property Key for the mapping</value>
+        [DataMember(Name = "nullify", EmitDefaultValue = true)]
+        public bool? Nullify { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +102,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  MapFrom: ").Append(MapFrom).Append("\n");
             sb.Append("  SetTo: ").Append(SetTo).Append("\n");
             sb.Append("  TemplateFrom: ").Append(TemplateFrom).Append("\n");
+            sb.Append("  Nullify: ").Append(Nullify).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,6 +157,11 @@ namespace Lusid.Sdk.Model
                     this.TemplateFrom == input.TemplateFrom ||
                     (this.TemplateFrom != null &&
                     this.TemplateFrom.Equals(input.TemplateFrom))
+                ) && 
+                (
+                    this.Nullify == input.Nullify ||
+                    (this.Nullify != null &&
+                    this.Nullify.Equals(input.Nullify))
                 );
         }
 
@@ -174,6 +189,10 @@ namespace Lusid.Sdk.Model
                 if (this.TemplateFrom != null)
                 {
                     hashCode = (hashCode * 59) + this.TemplateFrom.GetHashCode();
+                }
+                if (this.Nullify != null)
+                {
+                    hashCode = (hashCode * 59) + this.Nullify.GetHashCode();
                 }
                 return hashCode;
             }

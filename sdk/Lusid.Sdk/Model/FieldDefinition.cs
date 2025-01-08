@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="key">key (required).</param>
         /// <param name="isRequired">isRequired (required).</param>
         /// <param name="isUnique">isUnique (required).</param>
-        public FieldDefinition(string key = default(string), bool isRequired = default(bool), bool isUnique = default(bool))
+        /// <param name="valueType">valueType.</param>
+        public FieldDefinition(string key = default(string), bool isRequired = default(bool), bool isUnique = default(bool), string valueType = default(string))
         {
             // to ensure "key" is required (not null)
             if (key == null)
@@ -49,6 +50,7 @@ namespace Lusid.Sdk.Model
             this.Key = key;
             this.IsRequired = isRequired;
             this.IsUnique = isUnique;
+            this.ValueType = valueType;
         }
 
         /// <summary>
@@ -70,6 +72,12 @@ namespace Lusid.Sdk.Model
         public bool IsUnique { get; set; }
 
         /// <summary>
+        /// Gets or Sets ValueType
+        /// </summary>
+        [DataMember(Name = "valueType", EmitDefaultValue = true)]
+        public string ValueType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -80,6 +88,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  IsRequired: ").Append(IsRequired).Append("\n");
             sb.Append("  IsUnique: ").Append(IsUnique).Append("\n");
+            sb.Append("  ValueType: ").Append(ValueType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,6 +136,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.IsUnique == input.IsUnique ||
                     this.IsUnique.Equals(input.IsUnique)
+                ) && 
+                (
+                    this.ValueType == input.ValueType ||
+                    (this.ValueType != null &&
+                    this.ValueType.Equals(input.ValueType))
                 );
         }
 
@@ -145,6 +159,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.IsRequired.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsUnique.GetHashCode();
+                if (this.ValueType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValueType.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -37,8 +37,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FieldValue" /> class.
         /// </summary>
         /// <param name="value">value (required).</param>
-        /// <param name="fields">fields (required).</param>
-        public FieldValue(string value = default(string), Dictionary<string, string> fields = default(Dictionary<string, string>))
+        /// <param name="fields">fields.</param>
+        /// <param name="numericFields">numericFields.</param>
+        public FieldValue(string value = default(string), Dictionary<string, string> fields = default(Dictionary<string, string>), Dictionary<string, decimal> numericFields = default(Dictionary<string, decimal>))
         {
             // to ensure "value" is required (not null)
             if (value == null)
@@ -46,12 +47,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("value is a required property for FieldValue and cannot be null");
             }
             this.Value = value;
-            // to ensure "fields" is required (not null)
-            if (fields == null)
-            {
-                throw new ArgumentNullException("fields is a required property for FieldValue and cannot be null");
-            }
             this.Fields = fields;
+            this.NumericFields = numericFields;
         }
 
         /// <summary>
@@ -63,8 +60,14 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Fields
         /// </summary>
-        [DataMember(Name = "fields", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fields", EmitDefaultValue = true)]
         public Dictionary<string, string> Fields { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NumericFields
+        /// </summary>
+        [DataMember(Name = "numericFields", EmitDefaultValue = true)]
+        public Dictionary<string, decimal> NumericFields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,6 +79,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class FieldValue {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Fields: ").Append(Fields).Append("\n");
+            sb.Append("  NumericFields: ").Append(NumericFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,6 +125,12 @@ namespace Lusid.Sdk.Model
                     this.Fields != null &&
                     input.Fields != null &&
                     this.Fields.SequenceEqual(input.Fields)
+                ) && 
+                (
+                    this.NumericFields == input.NumericFields ||
+                    this.NumericFields != null &&
+                    input.NumericFields != null &&
+                    this.NumericFields.SequenceEqual(input.NumericFields)
                 );
         }
 
@@ -140,6 +150,10 @@ namespace Lusid.Sdk.Model
                 if (this.Fields != null)
                 {
                     hashCode = (hashCode * 59) + this.Fields.GetHashCode();
+                }
+                if (this.NumericFields != null)
+                {
+                    hashCode = (hashCode * 59) + this.NumericFields.GetHashCode();
                 }
                 return hashCode;
             }
