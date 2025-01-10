@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// CashAndSecurityOfferElection
+    /// Election for events that result in both cash and equity via a merger or acquisition
     /// </summary>
     [DataContract(Name = "CashAndSecurityOfferElection")]
     public partial class CashAndSecurityOfferElection : IEquatable<CashAndSecurityOfferElection>, IValidatableObject

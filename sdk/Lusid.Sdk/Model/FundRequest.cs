@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="code">The code given for the Fund. (required).</param>
         /// <param name="displayName">The name of the Fund..</param>
         /// <param name="description">A description for the Fund..</param>
-        /// <param name="fundConfigurationId">fundConfigurationId.</param>
+        /// <param name="fundConfigurationId">fundConfigurationId (required).</param>
         /// <param name="aborId">aborId (required).</param>
         /// <param name="shareClassInstrumentScopes">The scopes in which the instruments lie, currently limited to one..</param>
         /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them..</param>
@@ -56,6 +56,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("code is a required property for FundRequest and cannot be null");
             }
             this.Code = code;
+            // to ensure "fundConfigurationId" is required (not null)
+            if (fundConfigurationId == null)
+            {
+                throw new ArgumentNullException("fundConfigurationId is a required property for FundRequest and cannot be null");
+            }
+            this.FundConfigurationId = fundConfigurationId;
             // to ensure "aborId" is required (not null)
             if (aborId == null)
             {
@@ -77,7 +83,6 @@ namespace Lusid.Sdk.Model
             this.YearEndDate = yearEndDate;
             this.DisplayName = displayName;
             this.Description = description;
-            this.FundConfigurationId = fundConfigurationId;
             this.ShareClassInstrumentScopes = shareClassInstrumentScopes;
             this.ShareClassInstruments = shareClassInstruments;
             this.DecimalPlaces = decimalPlaces;
@@ -108,7 +113,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets FundConfigurationId
         /// </summary>
-        [DataMember(Name = "fundConfigurationId", EmitDefaultValue = false)]
+        [DataMember(Name = "fundConfigurationId", IsRequired = true, EmitDefaultValue = true)]
         public ResourceId FundConfigurationId { get; set; }
 
         /// <summary>
