@@ -54,8 +54,9 @@ namespace Lusid.Sdk.Model
         /// <param name="stubType">StubType. Most Inflation linked bonds have a ShortFront stub type so this is the default, however in some cases  with a long front stub LongFront should be selected.  StubType Both is not supported for InflationLinkedBonds.    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both]..</param>
         /// <param name="roundingConventions">Rounding conventions for analytics, if any..</param>
         /// <param name="tradingConventions">tradingConventions.</param>
+        /// <param name="originalIssuePrice">The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;InflationLinkedBond&quot;).</param>
-        public InflationLinkedBond(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), InflationIndexConventions inflationIndexConventions = default(InflationIndexConventions), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), decimal? baseCPI = default(decimal?), DateTimeOffset? baseCPIDate = default(DateTimeOffset?), string calculationType = default(string), int? exDividendDays = default(int?), int indexPrecision = default(int), decimal principal = default(decimal), bool principalProtection = default(bool), string stubType = default(string), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public InflationLinkedBond(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), InflationIndexConventions inflationIndexConventions = default(InflationIndexConventions), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), decimal? baseCPI = default(decimal?), DateTimeOffset? baseCPIDate = default(DateTimeOffset?), string calculationType = default(string), int? exDividendDays = default(int?), int indexPrecision = default(int), decimal principal = default(decimal), bool principalProtection = default(bool), string stubType = default(string), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), TradingConventions tradingConventions = default(TradingConventions), decimal? originalIssuePrice = default(decimal?), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -83,6 +84,7 @@ namespace Lusid.Sdk.Model
             this.StubType = stubType;
             this.RoundingConventions = roundingConventions;
             this.TradingConventions = tradingConventions;
+            this.OriginalIssuePrice = originalIssuePrice;
         }
 
         /// <summary>
@@ -195,6 +197,13 @@ namespace Lusid.Sdk.Model
         public TradingConventions TradingConventions { get; set; }
 
         /// <summary>
+        /// The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%.
+        /// </summary>
+        /// <value>The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%.</value>
+        [DataMember(Name = "originalIssuePrice", EmitDefaultValue = true)]
+        public decimal? OriginalIssuePrice { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -219,6 +228,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  StubType: ").Append(StubType).Append("\n");
             sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
             sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
+            sb.Append("  OriginalIssuePrice: ").Append(OriginalIssuePrice).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -331,6 +341,11 @@ namespace Lusid.Sdk.Model
                     this.TradingConventions == input.TradingConventions ||
                     (this.TradingConventions != null &&
                     this.TradingConventions.Equals(input.TradingConventions))
+                ) && base.Equals(input) && 
+                (
+                    this.OriginalIssuePrice == input.OriginalIssuePrice ||
+                    (this.OriginalIssuePrice != null &&
+                    this.OriginalIssuePrice.Equals(input.OriginalIssuePrice))
                 );
         }
 
@@ -394,6 +409,10 @@ namespace Lusid.Sdk.Model
                 if (this.TradingConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
+                }
+                if (this.OriginalIssuePrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.OriginalIssuePrice.GetHashCode();
                 }
                 return hashCode;
             }

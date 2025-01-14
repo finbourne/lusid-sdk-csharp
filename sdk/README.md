@@ -152,6 +152,12 @@ Class | Method | HTTP request | Description
 *CounterpartiesApi* | [**ListCreditSupportAnnexes**](docs/CounterpartiesApi.md#listcreditsupportannexes) | **GET** /api/counterparties/creditsupportannexes | [EARLY ACCESS] ListCreditSupportAnnexes: List the set of Credit Support Annexes
 *CounterpartiesApi* | [**UpsertCounterpartyAgreement**](docs/CounterpartiesApi.md#upsertcounterpartyagreement) | **POST** /api/counterparties/counterpartyagreements | [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
 *CounterpartiesApi* | [**UpsertCreditSupportAnnex**](docs/CounterpartiesApi.md#upsertcreditsupportannex) | **POST** /api/counterparties/creditsupportannexes | [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
+*CustomDataModelsApi* | [**CreateCustomDataModel**](docs/CustomDataModelsApi.md#createcustomdatamodel) | **POST** /api/datamodel/{entityType}/{scope}/{code} | [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model
+*CustomDataModelsApi* | [**DeleteCustomDataModel**](docs/CustomDataModelsApi.md#deletecustomdatamodel) | **DELETE** /api/datamodel/{scope}/{code} | [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
+*CustomDataModelsApi* | [**GetCustomDataModel**](docs/CustomDataModelsApi.md#getcustomdatamodel) | **GET** /api/datamodel/{scope}/{code} | [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model
+*CustomDataModelsApi* | [**ListDataModelHierarchies**](docs/CustomDataModelsApi.md#listdatamodelhierarchies) | **GET** /api/datamodel/hierarchies | [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies.
+*CustomDataModelsApi* | [**ListSupportedEntityTypes**](docs/CustomDataModelsApi.md#listsupportedentitytypes) | **GET** /api/datamodel/entitytype | [EXPERIMENTAL] ListSupportedEntityTypes: List the currently supported entity types for use in Custom Data Models.
+*CustomDataModelsApi* | [**UpdateCustomDataModel**](docs/CustomDataModelsApi.md#updatecustomdatamodel) | **PUT** /api/datamodel/{entityType}/{scope}/{code} | [EXPERIMENTAL] UpdateCustomDataModel: Update a Custom Data Model
 *CustomEntitiesApi* | [**DeleteCustomEntity**](docs/CustomEntitiesApi.md#deletecustomentity) | **DELETE** /api/customentities/{entityType}/{identifierType}/{identifierValue} | DeleteCustomEntity: Delete a Custom Entity instance.
 *CustomEntitiesApi* | [**DeleteCustomEntityAccessMetadata**](docs/CustomEntitiesApi.md#deletecustomentityaccessmetadata) | **DELETE** /api/customentities/{entityType}/{identifierType}/{identifierValue}/metadata/{metadataKey} | [EARLY ACCESS] DeleteCustomEntityAccessMetadata: Delete a Custom Entity Access Metadata entry
 *CustomEntitiesApi* | [**GetAllCustomEntityAccessMetadata**](docs/CustomEntitiesApi.md#getallcustomentityaccessmetadata) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/metadata | [EARLY ACCESS] GetAllCustomEntityAccessMetadata: Get all the Access Metadata rules for a Custom Entity
@@ -494,6 +500,7 @@ Class | Method | HTTP request | Description
 *SequencesApi* | [**GetSequence**](docs/SequencesApi.md#getsequence) | **GET** /api/sequences/{scope}/{code} | [EARLY ACCESS] GetSequence: Get a specified sequence
 *SequencesApi* | [**ListSequences**](docs/SequencesApi.md#listsequences) | **GET** /api/sequences | [EARLY ACCESS] ListSequences: List Sequences
 *SequencesApi* | [**Next**](docs/SequencesApi.md#next) | **GET** /api/sequences/{scope}/{code}/next | [EARLY ACCESS] Next: Get next values from sequence
+*SimplePositionPortfoliosApi* | [**CreateSimplePositionPortfolio**](docs/SimplePositionPortfoliosApi.md#createsimplepositionportfolio) | **POST** /api/simpleposition/{scope} | [EARLY ACCESS] CreateSimplePositionPortfolio: Create simple position portfolio
 *StagedModificationsApi* | [**AddDecision**](docs/StagedModificationsApi.md#adddecision) | **POST** /api/stagedmodifications/{id}/decision | [EXPERIMENTAL] AddDecision: AddDecision
 *StagedModificationsApi* | [**GetStagedModification**](docs/StagedModificationsApi.md#getstagedmodification) | **GET** /api/stagedmodifications/{id} | [EXPERIMENTAL] GetStagedModification: GetStagedModification
 *StagedModificationsApi* | [**ListRequestedChanges**](docs/StagedModificationsApi.md#listrequestedchanges) | **GET** /api/stagedmodifications/{id}/requestedChanges | [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
@@ -662,6 +669,7 @@ Class | Method | HTTP request | Description
  - [AggregationOptions](docs/AggregationOptions.md)
  - [AggregationQuery](docs/AggregationQuery.md)
  - [AggregationType](docs/AggregationType.md)
+ - [Alias](docs/Alias.md)
  - [Allocation](docs/Allocation.md)
  - [AllocationRequest](docs/AllocationRequest.md)
  - [AllocationServiceRunResponse](docs/AllocationServiceRunResponse.md)
@@ -850,6 +858,7 @@ Class | Method | HTTP request | Description
  - [CreateRelationshipDefinitionRequest](docs/CreateRelationshipDefinitionRequest.md)
  - [CreateRelationshipRequest](docs/CreateRelationshipRequest.md)
  - [CreateSequenceRequest](docs/CreateSequenceRequest.md)
+ - [CreateSimplePositionPortfolioRequest](docs/CreateSimplePositionPortfolioRequest.md)
  - [CreateStagingRuleSetRequest](docs/CreateStagingRuleSetRequest.md)
  - [CreateTaxRuleSetRequest](docs/CreateTaxRuleSetRequest.md)
  - [CreateTimelineRequest](docs/CreateTimelineRequest.md)
@@ -868,6 +877,12 @@ Class | Method | HTTP request | Description
  - [CustodianAccountProperties](docs/CustodianAccountProperties.md)
  - [CustodianAccountRequest](docs/CustodianAccountRequest.md)
  - [CustodianAccountsUpsertResponse](docs/CustodianAccountsUpsertResponse.md)
+ - [CustomDataModel](docs/CustomDataModel.md)
+ - [CustomDataModelCriteria](docs/CustomDataModelCriteria.md)
+ - [CustomDataModelIdentifierTypeSpecification](docs/CustomDataModelIdentifierTypeSpecification.md)
+ - [CustomDataModelIdentifierTypeSpecificationWithDisplayName](docs/CustomDataModelIdentifierTypeSpecificationWithDisplayName.md)
+ - [CustomDataModelPropertySpecification](docs/CustomDataModelPropertySpecification.md)
+ - [CustomDataModelPropertySpecificationWithDisplayName](docs/CustomDataModelPropertySpecificationWithDisplayName.md)
  - [CustomEntityDefinition](docs/CustomEntityDefinition.md)
  - [CustomEntityDefinitionRequest](docs/CustomEntityDefinitionRequest.md)
  - [CustomEntityEntity](docs/CustomEntityEntity.md)
@@ -882,6 +897,7 @@ Class | Method | HTTP request | Description
  - [DataDefinition](docs/DataDefinition.md)
  - [DataMapKey](docs/DataMapKey.md)
  - [DataMapping](docs/DataMapping.md)
+ - [DataModelSummary](docs/DataModelSummary.md)
  - [DataScope](docs/DataScope.md)
  - [DataType](docs/DataType.md)
  - [DataTypeEntity](docs/DataTypeEntity.md)
@@ -1410,6 +1426,7 @@ Class | Method | HTTP request | Description
  - [RecipeComposer](docs/RecipeComposer.md)
  - [RecipeValue](docs/RecipeValue.md)
  - [RecombineStep](docs/RecombineStep.md)
+ - [RecommendedSortBy](docs/RecommendedSortBy.md)
  - [ReconcileDateTimeRule](docs/ReconcileDateTimeRule.md)
  - [ReconcileNumericRule](docs/ReconcileNumericRule.md)
  - [ReconcileStringRule](docs/ReconcileStringRule.md)
@@ -1465,6 +1482,7 @@ Class | Method | HTTP request | Description
  - [ResourceListOfComplianceRunInfo](docs/ResourceListOfComplianceRunInfo.md)
  - [ResourceListOfConstituentsAdjustmentHeader](docs/ResourceListOfConstituentsAdjustmentHeader.md)
  - [ResourceListOfCorporateAction](docs/ResourceListOfCorporateAction.md)
+ - [ResourceListOfDataModelSummary](docs/ResourceListOfDataModelSummary.md)
  - [ResourceListOfDataType](docs/ResourceListOfDataType.md)
  - [ResourceListOfExecution](docs/ResourceListOfExecution.md)
  - [ResourceListOfFeeRule](docs/ResourceListOfFeeRule.md)
@@ -1702,6 +1720,7 @@ Class | Method | HTTP request | Description
  - [UpsertCorporateActionsResponse](docs/UpsertCorporateActionsResponse.md)
  - [UpsertCounterpartyAgreementRequest](docs/UpsertCounterpartyAgreementRequest.md)
  - [UpsertCreditSupportAnnexRequest](docs/UpsertCreditSupportAnnexRequest.md)
+ - [UpsertCustomDataModelRequest](docs/UpsertCustomDataModelRequest.md)
  - [UpsertCustomEntitiesResponse](docs/UpsertCustomEntitiesResponse.md)
  - [UpsertCustomEntityAccessMetadataRequest](docs/UpsertCustomEntityAccessMetadataRequest.md)
  - [UpsertDialectRequest](docs/UpsertDialectRequest.md)
