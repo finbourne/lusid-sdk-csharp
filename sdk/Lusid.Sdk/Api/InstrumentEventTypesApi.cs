@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
+        /// [EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template
         /// </summary>
         /// <remarks>
         /// Create a transaction template for a particular instrument event type in a scope.
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Api
         TransactionTemplate CreateTransactionTemplate(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
+        /// [EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template
         /// </summary>
         /// <remarks>
         /// Create a transaction template for a particular instrument event type in a scope.
@@ -63,7 +63,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of TransactionTemplate</returns>
         Lusid.Sdk.Client.ApiResponse<TransactionTemplate> CreateTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
+        /// [EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template
         /// </summary>
         /// <remarks>
         /// Delete a transaction template for a particular instrument event type in a scope.
@@ -78,7 +78,7 @@ namespace Lusid.Sdk.Api
         DateTimeOffset DeleteTransactionTemplate(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
+        /// [EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template
         /// </summary>
         /// <remarks>
         /// Delete a transaction template for a particular instrument event type in a scope.
@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DateTimeOffset</returns>
         Lusid.Sdk.Client.ApiResponse<DateTimeOffset> DeleteTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
+        /// [EARLY ACCESS] GetTransactionTemplate: Get Transaction Template
         /// </summary>
         /// <remarks>
         /// Gets the Transaction Template that for the instrument event type within the scope specified.
@@ -108,7 +108,7 @@ namespace Lusid.Sdk.Api
         TransactionTemplate GetTransactionTemplate(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
+        /// [EARLY ACCESS] GetTransactionTemplate: Get Transaction Template
         /// </summary>
         /// <remarks>
         /// Gets the Transaction Template that for the instrument event type within the scope specified.
@@ -123,7 +123,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of TransactionTemplate</returns>
         Lusid.Sdk.Client.ApiResponse<TransactionTemplate> GetTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
+        /// [EARLY ACCESS] GetTransactionTemplateSpecification: Get Transaction Template Specification.
         /// </summary>
         /// <remarks>
         /// Retrieve the transaction template specification for a particular event type.
@@ -136,7 +136,7 @@ namespace Lusid.Sdk.Api
         TransactionTemplateSpecification GetTransactionTemplateSpecification(string instrumentEventType, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
+        /// [EARLY ACCESS] GetTransactionTemplateSpecification: Get Transaction Template Specification.
         /// </summary>
         /// <remarks>
         /// Retrieve the transaction template specification for a particular event type.
@@ -148,7 +148,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of TransactionTemplateSpecification</returns>
         Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> GetTransactionTemplateSpecificationWithHttpInfo(string instrumentEventType, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
+        /// [EARLY ACCESS] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
         /// </summary>
         /// <remarks>
         /// Retrieves all transaction template specifications.
@@ -165,7 +165,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfTransactionTemplateSpecification ListTransactionTemplateSpecifications(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
+        /// [EARLY ACCESS] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
         /// </summary>
         /// <remarks>
         /// Retrieves all transaction template specifications.
@@ -181,7 +181,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfTransactionTemplateSpecification</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplateSpecification> ListTransactionTemplateSpecificationsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates
+        /// [EARLY ACCESS] ListTransactionTemplates: List Transaction Templates
         /// </summary>
         /// <remarks>
         /// Lists all Transaction Templates.
@@ -198,7 +198,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfTransactionTemplate ListTransactionTemplates(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates
+        /// [EARLY ACCESS] ListTransactionTemplates: List Transaction Templates
         /// </summary>
         /// <remarks>
         /// Lists all Transaction Templates.
@@ -214,7 +214,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfTransactionTemplate</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplate> ListTransactionTemplatesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template
+        /// [EARLY ACCESS] UpdateTransactionTemplate: Update Transaction Template
         /// </summary>
         /// <remarks>
         /// Update a transaction template for a particular instrument event type in a scope.
@@ -230,7 +230,7 @@ namespace Lusid.Sdk.Api
         TransactionTemplate UpdateTransactionTemplate(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template
+        /// [EARLY ACCESS] UpdateTransactionTemplate: Update Transaction Template
         /// </summary>
         /// <remarks>
         /// Update a transaction template for a particular instrument event type in a scope.
@@ -254,7 +254,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
+        /// [EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template
         /// </summary>
         /// <remarks>
         /// Create a transaction template for a particular instrument event type in a scope.
@@ -271,7 +271,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<TransactionTemplate> CreateTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template
+        /// [EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template
         /// </summary>
         /// <remarks>
         /// Create a transaction template for a particular instrument event type in a scope.
@@ -287,7 +287,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (TransactionTemplate)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplate>> CreateTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
+        /// [EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template
         /// </summary>
         /// <remarks>
         /// Delete a transaction template for a particular instrument event type in a scope.
@@ -303,7 +303,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DateTimeOffset> DeleteTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
+        /// [EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template
         /// </summary>
         /// <remarks>
         /// Delete a transaction template for a particular instrument event type in a scope.
@@ -318,7 +318,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DateTimeOffset)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DateTimeOffset>> DeleteTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
+        /// [EARLY ACCESS] GetTransactionTemplate: Get Transaction Template
         /// </summary>
         /// <remarks>
         /// Gets the Transaction Template that for the instrument event type within the scope specified.
@@ -335,7 +335,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<TransactionTemplate> GetTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
+        /// [EARLY ACCESS] GetTransactionTemplate: Get Transaction Template
         /// </summary>
         /// <remarks>
         /// Gets the Transaction Template that for the instrument event type within the scope specified.
@@ -351,7 +351,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (TransactionTemplate)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplate>> GetTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
+        /// [EARLY ACCESS] GetTransactionTemplateSpecification: Get Transaction Template Specification.
         /// </summary>
         /// <remarks>
         /// Retrieve the transaction template specification for a particular event type.
@@ -365,7 +365,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<TransactionTemplateSpecification> GetTransactionTemplateSpecificationAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
+        /// [EARLY ACCESS] GetTransactionTemplateSpecification: Get Transaction Template Specification.
         /// </summary>
         /// <remarks>
         /// Retrieve the transaction template specification for a particular event type.
@@ -378,7 +378,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (TransactionTemplateSpecification)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification>> GetTransactionTemplateSpecificationWithHttpInfoAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
+        /// [EARLY ACCESS] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
         /// </summary>
         /// <remarks>
         /// Retrieves all transaction template specifications.
@@ -396,7 +396,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfTransactionTemplateSpecification> ListTransactionTemplateSpecificationsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
+        /// [EARLY ACCESS] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
         /// </summary>
         /// <remarks>
         /// Retrieves all transaction template specifications.
@@ -413,7 +413,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfTransactionTemplateSpecification)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplateSpecification>> ListTransactionTemplateSpecificationsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates
+        /// [EARLY ACCESS] ListTransactionTemplates: List Transaction Templates
         /// </summary>
         /// <remarks>
         /// Lists all Transaction Templates.
@@ -431,7 +431,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfTransactionTemplate> ListTransactionTemplatesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates
+        /// [EARLY ACCESS] ListTransactionTemplates: List Transaction Templates
         /// </summary>
         /// <remarks>
         /// Lists all Transaction Templates.
@@ -448,7 +448,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfTransactionTemplate)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTransactionTemplate>> ListTransactionTemplatesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template
+        /// [EARLY ACCESS] UpdateTransactionTemplate: Update Transaction Template
         /// </summary>
         /// <remarks>
         /// Update a transaction template for a particular instrument event type in a scope.
@@ -465,7 +465,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<TransactionTemplate> UpdateTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template
+        /// [EARLY ACCESS] UpdateTransactionTemplate: Update Transaction Template
         /// </summary>
         /// <remarks>
         /// Update a transaction template for a particular instrument event type in a scope.
@@ -604,7 +604,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template Create a transaction template for a particular instrument event type in a scope.
+        /// [EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template Create a transaction template for a particular instrument event type in a scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
@@ -621,7 +621,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template Create a transaction template for a particular instrument event type in a scope.
+        /// [EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template Create a transaction template for a particular instrument event type in a scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
@@ -735,7 +735,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template Create a transaction template for a particular instrument event type in a scope.
+        /// [EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template Create a transaction template for a particular instrument event type in a scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
@@ -753,7 +753,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template Create a transaction template for a particular instrument event type in a scope.
+        /// [EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template Create a transaction template for a particular instrument event type in a scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
@@ -870,7 +870,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template Delete a transaction template for a particular instrument event type in a scope.
+        /// [EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template Delete a transaction template for a particular instrument event type in a scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
@@ -886,7 +886,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template Delete a transaction template for a particular instrument event type in a scope.
+        /// [EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template Delete a transaction template for a particular instrument event type in a scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
@@ -988,7 +988,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template Delete a transaction template for a particular instrument event type in a scope.
+        /// [EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template Delete a transaction template for a particular instrument event type in a scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
@@ -1005,7 +1005,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template Delete a transaction template for a particular instrument event type in a scope.
+        /// [EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template Delete a transaction template for a particular instrument event type in a scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
@@ -1110,7 +1110,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template Gets the Transaction Template that for the instrument event type within the scope specified.
+        /// [EARLY ACCESS] GetTransactionTemplate: Get Transaction Template Gets the Transaction Template that for the instrument event type within the scope specified.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The instrument event type of the transaction template</param>
@@ -1127,7 +1127,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template Gets the Transaction Template that for the instrument event type within the scope specified.
+        /// [EARLY ACCESS] GetTransactionTemplate: Get Transaction Template Gets the Transaction Template that for the instrument event type within the scope specified.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The instrument event type of the transaction template</param>
@@ -1234,7 +1234,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template Gets the Transaction Template that for the instrument event type within the scope specified.
+        /// [EARLY ACCESS] GetTransactionTemplate: Get Transaction Template Gets the Transaction Template that for the instrument event type within the scope specified.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The instrument event type of the transaction template</param>
@@ -1252,7 +1252,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template Gets the Transaction Template that for the instrument event type within the scope specified.
+        /// [EARLY ACCESS] GetTransactionTemplate: Get Transaction Template Gets the Transaction Template that for the instrument event type within the scope specified.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The instrument event type of the transaction template</param>
@@ -1362,7 +1362,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification. Retrieve the transaction template specification for a particular event type.
+        /// [EARLY ACCESS] GetTransactionTemplateSpecification: Get Transaction Template Specification. Retrieve the transaction template specification for a particular event type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
@@ -1376,7 +1376,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification. Retrieve the transaction template specification for a particular event type.
+        /// [EARLY ACCESS] GetTransactionTemplateSpecification: Get Transaction Template Specification. Retrieve the transaction template specification for a particular event type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
@@ -1462,7 +1462,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification. Retrieve the transaction template specification for a particular event type.
+        /// [EARLY ACCESS] GetTransactionTemplateSpecification: Get Transaction Template Specification. Retrieve the transaction template specification for a particular event type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
@@ -1477,7 +1477,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification. Retrieve the transaction template specification for a particular event type.
+        /// [EARLY ACCESS] GetTransactionTemplateSpecification: Get Transaction Template Specification. Retrieve the transaction template specification for a particular event type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
@@ -1566,7 +1566,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications. Retrieves all transaction template specifications.
+        /// [EARLY ACCESS] ListTransactionTemplateSpecifications: List Transaction Template Specifications. Retrieves all transaction template specifications.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">AsAt of the request (optional)</param>
@@ -1584,7 +1584,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications. Retrieves all transaction template specifications.
+        /// [EARLY ACCESS] ListTransactionTemplateSpecifications: List Transaction Template Specifications. Retrieves all transaction template specifications.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">AsAt of the request (optional)</param>
@@ -1687,7 +1687,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications. Retrieves all transaction template specifications.
+        /// [EARLY ACCESS] ListTransactionTemplateSpecifications: List Transaction Template Specifications. Retrieves all transaction template specifications.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">AsAt of the request (optional)</param>
@@ -1706,7 +1706,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplateSpecifications: List Transaction Template Specifications. Retrieves all transaction template specifications.
+        /// [EARLY ACCESS] ListTransactionTemplateSpecifications: List Transaction Template Specifications. Retrieves all transaction template specifications.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">AsAt of the request (optional)</param>
@@ -1812,7 +1812,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates Lists all Transaction Templates.
+        /// [EARLY ACCESS] ListTransactionTemplates: List Transaction Templates Lists all Transaction Templates.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The AsAt time at which to retrieve the Transaction Templates (optional)</param>
@@ -1830,7 +1830,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates Lists all Transaction Templates.
+        /// [EARLY ACCESS] ListTransactionTemplates: List Transaction Templates Lists all Transaction Templates.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The AsAt time at which to retrieve the Transaction Templates (optional)</param>
@@ -1933,7 +1933,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates Lists all Transaction Templates.
+        /// [EARLY ACCESS] ListTransactionTemplates: List Transaction Templates Lists all Transaction Templates.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The AsAt time at which to retrieve the Transaction Templates (optional)</param>
@@ -1952,7 +1952,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTemplates: List Transaction Templates Lists all Transaction Templates.
+        /// [EARLY ACCESS] ListTransactionTemplates: List Transaction Templates Lists all Transaction Templates.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The AsAt time at which to retrieve the Transaction Templates (optional)</param>
@@ -2058,7 +2058,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template Update a transaction template for a particular instrument event type in a scope.
+        /// [EARLY ACCESS] UpdateTransactionTemplate: Update Transaction Template Update a transaction template for a particular instrument event type in a scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
@@ -2075,7 +2075,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template Update a transaction template for a particular instrument event type in a scope.
+        /// [EARLY ACCESS] UpdateTransactionTemplate: Update Transaction Template Update a transaction template for a particular instrument event type in a scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
@@ -2189,7 +2189,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template Update a transaction template for a particular instrument event type in a scope.
+        /// [EARLY ACCESS] UpdateTransactionTemplate: Update Transaction Template Update a transaction template for a particular instrument event type in a scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
@@ -2207,7 +2207,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionTemplate: Update Transaction Template Update a transaction template for a particular instrument event type in a scope.
+        /// [EARLY ACCESS] UpdateTransactionTemplate: Update Transaction Template Update a transaction template for a particular instrument event type in a scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>

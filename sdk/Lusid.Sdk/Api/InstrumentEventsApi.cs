@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
         /// Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfApplicableInstrumentEvent QueryApplicableInstrumentEvents(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
         /// Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
@@ -184,7 +184,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
         /// Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
@@ -201,7 +201,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfApplicableInstrumentEvent> QueryApplicableInstrumentEventsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
         /// Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
@@ -460,7 +460,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The as at time to use. (optional)</param>
@@ -477,7 +477,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The as at time to use. (optional)</param>
@@ -576,7 +576,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The as at time to use. (optional)</param>
@@ -594,7 +594,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
+        /// [EARLY ACCESS] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The as at time to use. (optional)</param>
