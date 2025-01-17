@@ -40,24 +40,19 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="startDate">The start date of the CFD. (required).</param>
         /// <param name="maturityDate">The maturity date for the CFD. If CFDType is Futures, this should be set to be the maturity date of the underlying  future. If CFDType is Cash, this should not be set..</param>
-        /// <param name="code">The code of the underlying. (required).</param>
+        /// <param name="code">The code of the underlying..</param>
         /// <param name="contractSize">The size of the CFD contract, this should represent the total number of stocks that the CFD represents. (required).</param>
         /// <param name="payCcy">The currency that this CFD pays out, this can be different to the UnderlyingCcy. (required).</param>
         /// <param name="referenceRate">The reference rate of the CFD, this can be set to 0 but not negative values.  This field is optional, if not set it will default to 0..</param>
         /// <param name="type">The type of CFD.    Supported string (enumeration) values are: [Cash, Futures]. (required).</param>
-        /// <param name="underlyingCcy">The currency of the underlying (required).</param>
-        /// <param name="underlyingIdentifier">External market codes and identifiers for the CFD, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. (required).</param>
+        /// <param name="underlyingCcy">The currency of the underlying.</param>
+        /// <param name="underlyingIdentifier">External market codes and identifiers for the CFD, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]..</param>
         /// <param name="lotSize">CFD LotSize, the minimum number of shares that can be bought or sold at once.  Optional, if set must be non-negative, if not set defaults to 1..</param>
+        /// <param name="underlying">underlying.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;ContractForDifference&quot;).</param>
-        public ContractForDifference(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string code = default(string), decimal contractSize = default(decimal), string payCcy = default(string), decimal referenceRate = default(decimal), string type = default(string), string underlyingCcy = default(string), string underlyingIdentifier = default(string), int lotSize = default(int), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public ContractForDifference(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string code = default(string), decimal contractSize = default(decimal), string payCcy = default(string), decimal referenceRate = default(decimal), string type = default(string), string underlyingCcy = default(string), string underlyingIdentifier = default(string), int lotSize = default(int), LusidInstrument underlying = default(LusidInstrument), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new ArgumentNullException("code is a required property for ContractForDifference and cannot be null");
-            }
-            this.Code = code;
             this.ContractSize = contractSize;
             // to ensure "payCcy" is required (not null)
             if (payCcy == null)
@@ -71,21 +66,13 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("type is a required property for ContractForDifference and cannot be null");
             }
             this.Type = type;
-            // to ensure "underlyingCcy" is required (not null)
-            if (underlyingCcy == null)
-            {
-                throw new ArgumentNullException("underlyingCcy is a required property for ContractForDifference and cannot be null");
-            }
-            this.UnderlyingCcy = underlyingCcy;
-            // to ensure "underlyingIdentifier" is required (not null)
-            if (underlyingIdentifier == null)
-            {
-                throw new ArgumentNullException("underlyingIdentifier is a required property for ContractForDifference and cannot be null");
-            }
-            this.UnderlyingIdentifier = underlyingIdentifier;
             this.MaturityDate = maturityDate;
+            this.Code = code;
             this.ReferenceRate = referenceRate;
+            this.UnderlyingCcy = underlyingCcy;
+            this.UnderlyingIdentifier = underlyingIdentifier;
             this.LotSize = lotSize;
+            this.Underlying = underlying;
         }
 
         /// <summary>
@@ -106,7 +93,7 @@ namespace Lusid.Sdk.Model
         /// The code of the underlying.
         /// </summary>
         /// <value>The code of the underlying.</value>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
@@ -141,14 +128,14 @@ namespace Lusid.Sdk.Model
         /// The currency of the underlying
         /// </summary>
         /// <value>The currency of the underlying</value>
-        [DataMember(Name = "underlyingCcy", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "underlyingCcy", EmitDefaultValue = true)]
         public string UnderlyingCcy { get; set; }
 
         /// <summary>
         /// External market codes and identifiers for the CFD, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].
         /// </summary>
         /// <value>External market codes and identifiers for the CFD, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].</value>
-        [DataMember(Name = "underlyingIdentifier", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "underlyingIdentifier", EmitDefaultValue = true)]
         public string UnderlyingIdentifier { get; set; }
 
         /// <summary>
@@ -157,6 +144,12 @@ namespace Lusid.Sdk.Model
         /// <value>CFD LotSize, the minimum number of shares that can be bought or sold at once.  Optional, if set must be non-negative, if not set defaults to 1.</value>
         [DataMember(Name = "lotSize", EmitDefaultValue = true)]
         public int LotSize { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Underlying
+        /// </summary>
+        [DataMember(Name = "underlying", EmitDefaultValue = false)]
+        public LusidInstrument Underlying { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -177,6 +170,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  UnderlyingCcy: ").Append(UnderlyingCcy).Append("\n");
             sb.Append("  UnderlyingIdentifier: ").Append(UnderlyingIdentifier).Append("\n");
             sb.Append("  LotSize: ").Append(LotSize).Append("\n");
+            sb.Append("  Underlying: ").Append(Underlying).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -258,6 +252,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.LotSize == input.LotSize ||
                     this.LotSize.Equals(input.LotSize)
+                ) && base.Equals(input) && 
+                (
+                    this.Underlying == input.Underlying ||
+                    (this.Underlying != null &&
+                    this.Underlying.Equals(input.Underlying))
                 );
         }
 
@@ -301,6 +300,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.UnderlyingIdentifier.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.LotSize.GetHashCode();
+                if (this.Underlying != null)
+                {
+                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -326,22 +329,10 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
-            // Code (string) minLength
-            if (this.Code != null && this.Code.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
-            }
-
             // Type (string) minLength
             if (this.Type != null && this.Type.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
-            }
-
-            // UnderlyingIdentifier (string) minLength
-            if (this.UnderlyingIdentifier != null && this.UnderlyingIdentifier.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnderlyingIdentifier, length must be greater than 1.", new [] { "UnderlyingIdentifier" });
             }
 
             yield break;
