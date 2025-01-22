@@ -495,7 +495,13 @@ namespace Lusid.Sdk.Model
         /// Enum StagingRuleSet for value: StagingRuleSet
         /// </summary>
         [EnumMember(Value = "StagingRuleSet")]
-        StagingRuleSet = 78
+        StagingRuleSet = 78,
+
+        /// <summary>
+        /// Enum IdentifierDefinition for value: IdentifierDefinition
+        /// </summary>
+        [EnumMember(Value = "IdentifierDefinition")]
+        IdentifierDefinition = 79
     }
 
 }

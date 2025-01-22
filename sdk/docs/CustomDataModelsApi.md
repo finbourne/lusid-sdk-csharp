@@ -367,7 +367,7 @@ catch (ApiException e)
 
 <a id="listdatamodelhierarchies"></a>
 # **ListDataModelHierarchies**
-> ResourceListOfDataModelSummary ListDataModelHierarchies (DateTimeOffset? asAt = null)
+> ResourceListOfDataModelSummary ListDataModelHierarchies (DateTimeOffset? asAt = null, string? filter = null)
 
 [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies.
 
@@ -413,14 +413,15 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomDataModelsApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results. Only EntityType is supported (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfDataModelSummary result = apiInstance.ListDataModelHierarchies(asAt, opts: opts);
+                // ResourceListOfDataModelSummary result = apiInstance.ListDataModelHierarchies(asAt, filter, opts: opts);
 
                 // [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies.
-                ResourceListOfDataModelSummary result = apiInstance.ListDataModelHierarchies(asAt);
+                ResourceListOfDataModelSummary result = apiInstance.ListDataModelHierarchies(asAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -441,7 +442,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies.
-    ApiResponse<ResourceListOfDataModelSummary> response = apiInstance.ListDataModelHierarchiesWithHttpInfo(asAt);
+    ApiResponse<ResourceListOfDataModelSummary> response = apiInstance.ListDataModelHierarchiesWithHttpInfo(asAt, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -459,6 +460,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the results. Only EntityType is supported | [optional]  |
 
 ### Return type
 
