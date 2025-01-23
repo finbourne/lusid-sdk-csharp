@@ -259,6 +259,11 @@ Class | Method | HTTP request | Description
 *GroupReconciliationsApi* | [**RunReconciliation**](docs/GroupReconciliationsApi.md#runreconciliation) | **POST** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code}/$run | [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
 *GroupReconciliationsApi* | [**UpdateComparisonRuleset**](docs/GroupReconciliationsApi.md#updatecomparisonruleset) | **PUT** /api/reconciliations/comparisonrulesets/{scope}/{code} | [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code
 *GroupReconciliationsApi* | [**UpdateGroupReconciliationDefinition**](docs/GroupReconciliationsApi.md#updategroupreconciliationdefinition) | **PUT** /api/reconciliations/groupreconciliationdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateGroupReconciliationDefinition: Update group reconciliation definition
+*IdentifierDefinitionsApi* | [**CreateIdentifierDefinition**](docs/IdentifierDefinitionsApi.md#createidentifierdefinition) | **POST** /api/identifierdefinitions | [EXPERIMENTAL] CreateIdentifierDefinition: Create an Identifier Definition
+*IdentifierDefinitionsApi* | [**DeleteIdentifierDefinition**](docs/IdentifierDefinitionsApi.md#deleteidentifierdefinition) | **DELETE** /api/identifierdefinitions/{domain}/{identifierScope}/{identifierType} | [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition
+*IdentifierDefinitionsApi* | [**GetIdentifierDefinition**](docs/IdentifierDefinitionsApi.md#getidentifierdefinition) | **GET** /api/identifierdefinitions/{domain}/{identifierScope}/{identifierType} | [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition
+*IdentifierDefinitionsApi* | [**ListIdentifierDefinitions**](docs/IdentifierDefinitionsApi.md#listidentifierdefinitions) | **GET** /api/identifierdefinitions | [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions
+*IdentifierDefinitionsApi* | [**UpdateIdentifierDefinition**](docs/IdentifierDefinitionsApi.md#updateidentifierdefinition) | **PUT** /api/identifierdefinitions/{domain}/{identifierScope}/{identifierType} | [EXPERIMENTAL] UpdateIdentifierDefinition: Update Identifier Definition defined by domain, identifierScope, and identifierType
 *InstrumentEventTypesApi* | [**CreateTransactionTemplate**](docs/InstrumentEventTypesApi.md#createtransactiontemplate) | **POST** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template
 *InstrumentEventTypesApi* | [**DeleteTransactionTemplate**](docs/InstrumentEventTypesApi.md#deletetransactiontemplate) | **DELETE** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template
 *InstrumentEventTypesApi* | [**GetTransactionTemplate**](docs/InstrumentEventTypesApi.md#gettransactiontemplate) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EARLY ACCESS] GetTransactionTemplate: Get Transaction Template
@@ -853,6 +858,7 @@ Class | Method | HTTP request | Description
  - [CreateDerivedTransactionPortfolioRequest](docs/CreateDerivedTransactionPortfolioRequest.md)
  - [CreateGroupReconciliationComparisonRulesetRequest](docs/CreateGroupReconciliationComparisonRulesetRequest.md)
  - [CreateGroupReconciliationDefinitionRequest](docs/CreateGroupReconciliationDefinitionRequest.md)
+ - [CreateIdentifierDefinitionRequest](docs/CreateIdentifierDefinitionRequest.md)
  - [CreatePortfolioDetails](docs/CreatePortfolioDetails.md)
  - [CreatePortfolioGroupRequest](docs/CreatePortfolioGroupRequest.md)
  - [CreatePropertyDefinitionRequest](docs/CreatePropertyDefinitionRequest.md)
@@ -1109,6 +1115,7 @@ Class | Method | HTTP request | Description
  - [HoldingsAdjustmentHeader](docs/HoldingsAdjustmentHeader.md)
  - [IUnitDefinitionDto](docs/IUnitDefinitionDto.md)
  - [IdSelectorDefinition](docs/IdSelectorDefinition.md)
+ - [IdentifierDefinition](docs/IdentifierDefinition.md)
  - [IdentifierPartSchema](docs/IdentifierPartSchema.md)
  - [IndexConvention](docs/IndexConvention.md)
  - [IndexModelOptions](docs/IndexModelOptions.md)
@@ -1301,6 +1308,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfGroupReconciliationComparisonResult](docs/PagedResourceListOfGroupReconciliationComparisonResult.md)
  - [PagedResourceListOfGroupReconciliationComparisonRuleset](docs/PagedResourceListOfGroupReconciliationComparisonRuleset.md)
  - [PagedResourceListOfGroupReconciliationDefinition](docs/PagedResourceListOfGroupReconciliationDefinition.md)
+ - [PagedResourceListOfIdentifierDefinition](docs/PagedResourceListOfIdentifierDefinition.md)
  - [PagedResourceListOfInstrument](docs/PagedResourceListOfInstrument.md)
  - [PagedResourceListOfInstrumentEventHolder](docs/PagedResourceListOfInstrumentEventHolder.md)
  - [PagedResourceListOfInstrumentEventInstruction](docs/PagedResourceListOfInstrumentEventInstruction.md)
@@ -1704,6 +1712,7 @@ Class | Method | HTTP request | Description
  - [UpdateFeeTypeRequest](docs/UpdateFeeTypeRequest.md)
  - [UpdateGroupReconciliationComparisonRulesetRequest](docs/UpdateGroupReconciliationComparisonRulesetRequest.md)
  - [UpdateGroupReconciliationDefinitionRequest](docs/UpdateGroupReconciliationDefinitionRequest.md)
+ - [UpdateIdentifierDefinitionRequest](docs/UpdateIdentifierDefinitionRequest.md)
  - [UpdateInstrumentIdentifierRequest](docs/UpdateInstrumentIdentifierRequest.md)
  - [UpdateOrdersResponse](docs/UpdateOrdersResponse.md)
  - [UpdatePlacementsResponse](docs/UpdatePlacementsResponse.md)
