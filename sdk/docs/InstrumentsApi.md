@@ -2348,7 +2348,7 @@ catch (ApiException e)
 
 <a id="upsertinstruments"></a>
 # **UpsertInstruments**
-> UpsertInstrumentsResponse UpsertInstruments (Dictionary<string, InstrumentDefinition> requestBody, string? scope = null)
+> UpsertInstrumentsResponse UpsertInstruments (Dictionary<string, InstrumentDefinition> requestBody, string? scope = null, string? dataModelScope = null, string? dataModelCode = null)
 
 UpsertInstruments: Upsert instruments
 
@@ -2395,14 +2395,16 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var requestBody = new Dictionary<string, InstrumentDefinition>(); // Dictionary<string, InstrumentDefinition> | The definitions of the instruments to create or update.
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Hierarchical Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Hierarchical Data Model to use (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // UpsertInstrumentsResponse result = apiInstance.UpsertInstruments(requestBody, scope, opts: opts);
+                // UpsertInstrumentsResponse result = apiInstance.UpsertInstruments(requestBody, scope, dataModelScope, dataModelCode, opts: opts);
 
                 // UpsertInstruments: Upsert instruments
-                UpsertInstrumentsResponse result = apiInstance.UpsertInstruments(requestBody, scope);
+                UpsertInstrumentsResponse result = apiInstance.UpsertInstruments(requestBody, scope, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2423,7 +2425,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // UpsertInstruments: Upsert instruments
-    ApiResponse<UpsertInstrumentsResponse> response = apiInstance.UpsertInstrumentsWithHttpInfo(requestBody, scope);
+    ApiResponse<UpsertInstrumentsResponse> response = apiInstance.UpsertInstrumentsWithHttpInfo(requestBody, scope, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2442,6 +2444,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **requestBody** | [**Dictionary&lt;string, InstrumentDefinition&gt;**](InstrumentDefinition.md) | The definitions of the instruments to create or update. |  |
 | **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **dataModelScope** | **string?** | The optional scope of a Hierarchical Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Hierarchical Data Model to use | [optional]  |
 
 ### Return type
 

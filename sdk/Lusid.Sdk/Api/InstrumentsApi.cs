@@ -673,10 +673,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertInstrumentsResponse</returns>
-        UpsertInstrumentsResponse UpsertInstruments(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        UpsertInstrumentsResponse UpsertInstruments(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertInstruments: Upsert instruments
@@ -687,10 +689,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertInstrumentsResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> UpsertInstrumentsWithHttpInfo(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> UpsertInstrumentsWithHttpInfo(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertInstrumentsProperties: Upsert instruments properties
         /// </summary>
@@ -1407,11 +1411,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertInstrumentsResponse</returns>
-        System.Threading.Tasks.Task<UpsertInstrumentsResponse> UpsertInstrumentsAsync(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<UpsertInstrumentsResponse> UpsertInstrumentsAsync(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertInstruments: Upsert instruments
@@ -1422,11 +1428,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertInstrumentsResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpInfoAsync(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpInfoAsync(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertInstrumentsProperties: Upsert instruments properties
         /// </summary>
@@ -6541,12 +6549,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertInstrumentsResponse</returns>
-        public UpsertInstrumentsResponse UpsertInstruments(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public UpsertInstrumentsResponse UpsertInstruments(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> localVarResponse = UpsertInstrumentsWithHttpInfo(requestBody, scope, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> localVarResponse = UpsertInstrumentsWithHttpInfo(requestBody, scope, dataModelScope, dataModelCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -6556,10 +6566,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertInstrumentsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> UpsertInstrumentsWithHttpInfo(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> UpsertInstrumentsWithHttpInfo(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -6609,6 +6621,14 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
+            if (dataModelScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
+            }
             localVarRequestOptions.Data = requestBody;
 
             localVarRequestOptions.Operation = "InstrumentsApi.UpsertInstruments";
@@ -6651,13 +6671,15 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertInstrumentsResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertInstrumentsResponse> UpsertInstrumentsAsync(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<UpsertInstrumentsResponse> UpsertInstrumentsAsync(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> localVarResponse = await UpsertInstrumentsWithHttpInfoAsync(requestBody, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> localVarResponse = await UpsertInstrumentsWithHttpInfoAsync(requestBody, scope, dataModelScope, dataModelCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6667,11 +6689,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertInstrumentsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpInfoAsync(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpInfoAsync(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -6721,6 +6745,14 @@ namespace Lusid.Sdk.Api
             if (scope != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            }
+            if (dataModelScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
             }
             localVarRequestOptions.Data = requestBody;
 

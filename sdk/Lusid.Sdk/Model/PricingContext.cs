@@ -36,13 +36,15 @@ namespace Lusid.Sdk.Model
         /// <param name="options">options.</param>
         /// <param name="resultDataRules">Set of rules that control querying of unit results either for direct queries into aggregation or for  overriding intermediate calculations. For example, a dirty price is made up from a clean price and the accrued interest.  One might consider overriding the accrued interest calculated by a model (perhaps one wants to match an external value or simply disagrees with the  calculated result) and use that in calculation of the dirty price..</param>
         /// <param name="holdingPricingInfo">holdingPricingInfo.</param>
-        public PricingContext(List<VendorModelRule> modelRules = default(List<VendorModelRule>), Dictionary<string, ModelSelection> modelChoice = default(Dictionary<string, ModelSelection>), PricingOptions options = default(PricingOptions), List<ResultKeyRule> resultDataRules = default(List<ResultKeyRule>), HoldingPricingInfo holdingPricingInfo = default(HoldingPricingInfo))
+        /// <param name="accrualDefinition">Determines which method to use for the calculation of accrued interest. Defaults to SOD..</param>
+        public PricingContext(List<VendorModelRule> modelRules = default(List<VendorModelRule>), Dictionary<string, ModelSelection> modelChoice = default(Dictionary<string, ModelSelection>), PricingOptions options = default(PricingOptions), List<ResultKeyRule> resultDataRules = default(List<ResultKeyRule>), HoldingPricingInfo holdingPricingInfo = default(HoldingPricingInfo), string accrualDefinition = default(string))
         {
             this.ModelRules = modelRules;
             this.ModelChoice = modelChoice;
             this.Options = options;
             this.ResultDataRules = resultDataRules;
             this.HoldingPricingInfo = holdingPricingInfo;
+            this.AccrualDefinition = accrualDefinition;
         }
 
         /// <summary>
@@ -79,6 +81,13 @@ namespace Lusid.Sdk.Model
         public HoldingPricingInfo HoldingPricingInfo { get; set; }
 
         /// <summary>
+        /// Determines which method to use for the calculation of accrued interest. Defaults to SOD.
+        /// </summary>
+        /// <value>Determines which method to use for the calculation of accrued interest. Defaults to SOD.</value>
+        [DataMember(Name = "accrualDefinition", EmitDefaultValue = true)]
+        public string AccrualDefinition { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -91,6 +100,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("  ResultDataRules: ").Append(ResultDataRules).Append("\n");
             sb.Append("  HoldingPricingInfo: ").Append(HoldingPricingInfo).Append("\n");
+            sb.Append("  AccrualDefinition: ").Append(AccrualDefinition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +163,11 @@ namespace Lusid.Sdk.Model
                     this.HoldingPricingInfo == input.HoldingPricingInfo ||
                     (this.HoldingPricingInfo != null &&
                     this.HoldingPricingInfo.Equals(input.HoldingPricingInfo))
+                ) && 
+                (
+                    this.AccrualDefinition == input.AccrualDefinition ||
+                    (this.AccrualDefinition != null &&
+                    this.AccrualDefinition.Equals(input.AccrualDefinition))
                 );
         }
 
@@ -185,6 +200,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.HoldingPricingInfo.GetHashCode();
                 }
+                if (this.AccrualDefinition != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccrualDefinition.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -196,6 +215,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AccrualDefinition (string) maxLength
+            if (this.AccrualDefinition != null && this.AccrualDefinition.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccrualDefinition, length must be less than 50.", new [] { "AccrualDefinition" });
+            }
+
+            // AccrualDefinition (string) minLength
+            if (this.AccrualDefinition != null && this.AccrualDefinition.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccrualDefinition, length must be greater than 0.", new [] { "AccrualDefinition" });
+            }
+
             yield break;
         }
     }

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **StartDate** | **DateTimeOffset** | The start date of the CFD. | 
 **MaturityDate** | **DateTimeOffset** | The maturity date for the CFD. If CFDType is Futures, this should be set to be the maturity date of the underlying  future. If CFDType is Cash, this should not be set. | [optional] 
 **Code** | **string** | The code of the underlying. | [optional] 
-**ContractSize** | **decimal** | The size of the CFD contract, this should represent the total number of stocks that the CFD represents. | 
+**ContractSize** | **decimal** | The size of the CFD contract, this should represent the total number of stocks that the CFD represents.   This field is optional, if not set it will default to 1. | [optional] 
 **PayCcy** | **string** | The currency that this CFD pays out, this can be different to the UnderlyingCcy. | 
 **ReferenceRate** | **decimal** | The reference rate of the CFD, this can be set to 0 but not negative values.  This field is optional, if not set it will default to 0. | [optional] 
 **Type** | **string** | The type of CFD.    Supported string (enumeration) values are: [Cash, Futures]. | 

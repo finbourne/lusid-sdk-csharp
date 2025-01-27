@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="electionKey">For elected instructions, the key to be chosen.</param>
         /// <param name="holdingId">For holding instructions, the id of the holding for which the instruction will apply.</param>
         /// <param name="entitlementDateInstructed">The instructed entitlement date for the event (where none is set on the event itself).</param>
-        public InstrumentEventInstructionRequest(string instrumentEventInstructionId = default(string), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?))
+        /// <param name="quantityInstructed">quantityInstructed.</param>
+        public InstrumentEventInstructionRequest(string instrumentEventInstructionId = default(string), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?), QuantityInstructed quantityInstructed = default(QuantityInstructed))
         {
             // to ensure "instrumentEventInstructionId" is required (not null)
             if (instrumentEventInstructionId == null)
@@ -65,6 +66,7 @@ namespace Lusid.Sdk.Model
             this.ElectionKey = electionKey;
             this.HoldingId = holdingId;
             this.EntitlementDateInstructed = entitlementDateInstructed;
+            this.QuantityInstructed = quantityInstructed;
         }
 
         /// <summary>
@@ -110,6 +112,12 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? EntitlementDateInstructed { get; set; }
 
         /// <summary>
+        /// Gets or Sets QuantityInstructed
+        /// </summary>
+        [DataMember(Name = "quantityInstructed", EmitDefaultValue = false)]
+        public QuantityInstructed QuantityInstructed { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -123,6 +131,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ElectionKey: ").Append(ElectionKey).Append("\n");
             sb.Append("  HoldingId: ").Append(HoldingId).Append("\n");
             sb.Append("  EntitlementDateInstructed: ").Append(EntitlementDateInstructed).Append("\n");
+            sb.Append("  QuantityInstructed: ").Append(QuantityInstructed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -187,6 +196,11 @@ namespace Lusid.Sdk.Model
                     this.EntitlementDateInstructed == input.EntitlementDateInstructed ||
                     (this.EntitlementDateInstructed != null &&
                     this.EntitlementDateInstructed.Equals(input.EntitlementDateInstructed))
+                ) && 
+                (
+                    this.QuantityInstructed == input.QuantityInstructed ||
+                    (this.QuantityInstructed != null &&
+                    this.QuantityInstructed.Equals(input.QuantityInstructed))
                 );
         }
 
@@ -222,6 +236,10 @@ namespace Lusid.Sdk.Model
                 if (this.EntitlementDateInstructed != null)
                 {
                     hashCode = (hashCode * 59) + this.EntitlementDateInstructed.GetHashCode();
+                }
+                if (this.QuantityInstructed != null)
+                {
+                    hashCode = (hashCode * 59) + this.QuantityInstructed.GetHashCode();
                 }
                 return hashCode;
             }

@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="displayName">The display name of the property definition..</param>
         /// <param name="identifierKey">The identifier type that is required/allowed on the bound entity. (required).</param>
-        /// <param name="required">Whether dentifier type is required or allowed..</param>
+        /// <param name="required">Whether identifier type is required or allowed..</param>
         public CustomDataModelIdentifierTypeSpecificationWithDisplayName(string displayName = default(string), string identifierKey = default(string), bool required = default(bool))
         {
             // to ensure "identifierKey" is required (not null)
@@ -66,9 +66,9 @@ namespace Lusid.Sdk.Model
         public string IdentifierKey { get; set; }
 
         /// <summary>
-        /// Whether dentifier type is required or allowed.
+        /// Whether identifier type is required or allowed.
         /// </summary>
-        /// <value>Whether dentifier type is required or allowed.</value>
+        /// <value>Whether identifier type is required or allowed.</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
 

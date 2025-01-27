@@ -40,8 +40,9 @@ namespace Lusid.Sdk.Model
         /// <param name="varVersion">varVersion.</param>
         /// <param name="href">The uri for this version of this instruction.</param>
         /// <param name="entitlementDateInstructed">The instructed entitlement date for the event (where none is set on the event itself).</param>
+        /// <param name="quantityInstructed">quantityInstructed.</param>
         /// <param name="links">links.</param>
-        public InstrumentEventInstruction(string instrumentEventInstructionId = default(string), ResourceId portfolioId = default(ResourceId), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), ModelVersion varVersion = default(ModelVersion), string href = default(string), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?), List<Link> links = default(List<Link>))
+        public InstrumentEventInstruction(string instrumentEventInstructionId = default(string), ResourceId portfolioId = default(ResourceId), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), ModelVersion varVersion = default(ModelVersion), string href = default(string), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?), QuantityInstructed quantityInstructed = default(QuantityInstructed), List<Link> links = default(List<Link>))
         {
             this.InstrumentEventInstructionId = instrumentEventInstructionId;
             this.PortfolioId = portfolioId;
@@ -52,6 +53,7 @@ namespace Lusid.Sdk.Model
             this.VarVersion = varVersion;
             this.Href = href;
             this.EntitlementDateInstructed = entitlementDateInstructed;
+            this.QuantityInstructed = quantityInstructed;
             this.Links = links;
         }
 
@@ -117,6 +119,12 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? EntitlementDateInstructed { get; set; }
 
         /// <summary>
+        /// Gets or Sets QuantityInstructed
+        /// </summary>
+        [DataMember(Name = "quantityInstructed", EmitDefaultValue = false)]
+        public QuantityInstructed QuantityInstructed { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -139,6 +147,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  EntitlementDateInstructed: ").Append(EntitlementDateInstructed).Append("\n");
+            sb.Append("  QuantityInstructed: ").Append(QuantityInstructed).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -221,6 +230,11 @@ namespace Lusid.Sdk.Model
                     this.EntitlementDateInstructed.Equals(input.EntitlementDateInstructed))
                 ) && 
                 (
+                    this.QuantityInstructed == input.QuantityInstructed ||
+                    (this.QuantityInstructed != null &&
+                    this.QuantityInstructed.Equals(input.QuantityInstructed))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -272,6 +286,10 @@ namespace Lusid.Sdk.Model
                 if (this.EntitlementDateInstructed != null)
                 {
                     hashCode = (hashCode * 59) + this.EntitlementDateInstructed.GetHashCode();
+                }
+                if (this.QuantityInstructed != null)
+                {
+                    hashCode = (hashCode * 59) + this.QuantityInstructed.GetHashCode();
                 }
                 if (this.Links != null)
                 {

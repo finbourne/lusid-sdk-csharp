@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ElectionKey** | **string** | For elected instructions, the key to be chosen | [optional] 
 **HoldingId** | **long?** | For holding instructions, the id of the holding for which the instruction will apply | [optional] 
 **EntitlementDateInstructed** | **DateTimeOffset?** | The instructed entitlement date for the event (where none is set on the event itself) | [optional] 
+**QuantityInstructed** | [**QuantityInstructed**](QuantityInstructed.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

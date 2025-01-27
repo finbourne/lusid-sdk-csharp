@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="Alias" /> class.
         /// </summary>
         /// <param name="attributeName">The property key, identifier type, or field to be replaced by an alias. (required).</param>
-        /// <param name="attributeAlias">The alias to replace tPrecedencehe property key, identifier type, or field on the bound entity. (required).</param>
+        /// <param name="attributeAlias">The alias to replace the property key, identifier type, or field on the bound entity. (required).</param>
         public Alias(string attributeName = default(string), string attributeAlias = default(string))
         {
             // to ensure "attributeName" is required (not null)
@@ -62,9 +62,9 @@ namespace Lusid.Sdk.Model
         public string AttributeName { get; set; }
 
         /// <summary>
-        /// The alias to replace tPrecedencehe property key, identifier type, or field on the bound entity.
+        /// The alias to replace the property key, identifier type, or field on the bound entity.
         /// </summary>
-        /// <value>The alias to replace tPrecedencehe property key, identifier type, or field on the bound entity.</value>
+        /// <value>The alias to replace the property key, identifier type, or field on the bound entity.</value>
         [DataMember(Name = "attributeAlias", IsRequired = true, EmitDefaultValue = true)]
         public string AttributeAlias { get; set; }
 

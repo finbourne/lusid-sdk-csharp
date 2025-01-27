@@ -23,45 +23,43 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// CustomDataModelIdentifierTypeSpecification
+    /// QuantityInstructed
     /// </summary>
-    [DataContract(Name = "CustomDataModelIdentifierTypeSpecification")]
-    public partial class CustomDataModelIdentifierTypeSpecification : IEquatable<CustomDataModelIdentifierTypeSpecification>, IValidatableObject
+    [DataContract(Name = "QuantityInstructed")]
+    public partial class QuantityInstructed : IEquatable<QuantityInstructed>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomDataModelIdentifierTypeSpecification" /> class.
+        /// Initializes a new instance of the <see cref="QuantityInstructed" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CustomDataModelIdentifierTypeSpecification() { }
+        protected QuantityInstructed() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomDataModelIdentifierTypeSpecification" /> class.
+        /// Initializes a new instance of the <see cref="QuantityInstructed" /> class.
         /// </summary>
-        /// <param name="identifierKey">The identifier type that is required/allowed on the bound entity. (required).</param>
-        /// <param name="required">Whether identifier type is required or allowed..</param>
-        public CustomDataModelIdentifierTypeSpecification(string identifierKey = default(string), bool required = default(bool))
+        /// <param name="type">type (required).</param>
+        /// <param name="amount">amount (required).</param>
+        public QuantityInstructed(string type = default(string), decimal amount = default(decimal))
         {
-            // to ensure "identifierKey" is required (not null)
-            if (identifierKey == null)
+            // to ensure "type" is required (not null)
+            if (type == null)
             {
-                throw new ArgumentNullException("identifierKey is a required property for CustomDataModelIdentifierTypeSpecification and cannot be null");
+                throw new ArgumentNullException("type is a required property for QuantityInstructed and cannot be null");
             }
-            this.IdentifierKey = identifierKey;
-            this.Required = required;
+            this.Type = type;
+            this.Amount = amount;
         }
 
         /// <summary>
-        /// The identifier type that is required/allowed on the bound entity.
+        /// Gets or Sets Type
         /// </summary>
-        /// <value>The identifier type that is required/allowed on the bound entity.</value>
-        [DataMember(Name = "identifierKey", IsRequired = true, EmitDefaultValue = true)]
-        public string IdentifierKey { get; set; }
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public string Type { get; set; }
 
         /// <summary>
-        /// Whether identifier type is required or allowed.
+        /// Gets or Sets Amount
         /// </summary>
-        /// <value>Whether identifier type is required or allowed.</value>
-        [DataMember(Name = "required", EmitDefaultValue = true)]
-        public bool Required { get; set; }
+        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
+        public decimal Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,9 +68,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CustomDataModelIdentifierTypeSpecification {\n");
-            sb.Append("  IdentifierKey: ").Append(IdentifierKey).Append("\n");
-            sb.Append("  Required: ").Append(Required).Append("\n");
+            sb.Append("class QuantityInstructed {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,15 +91,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CustomDataModelIdentifierTypeSpecification);
+            return this.Equals(input as QuantityInstructed);
         }
 
         /// <summary>
-        /// Returns true if CustomDataModelIdentifierTypeSpecification instances are equal
+        /// Returns true if QuantityInstructed instances are equal
         /// </summary>
-        /// <param name="input">Instance of CustomDataModelIdentifierTypeSpecification to be compared</param>
+        /// <param name="input">Instance of QuantityInstructed to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CustomDataModelIdentifierTypeSpecification input)
+        public bool Equals(QuantityInstructed input)
         {
             if (input == null)
             {
@@ -109,13 +107,13 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.IdentifierKey == input.IdentifierKey ||
-                    (this.IdentifierKey != null &&
-                    this.IdentifierKey.Equals(input.IdentifierKey))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Required == input.Required ||
-                    this.Required.Equals(input.Required)
+                    this.Amount == input.Amount ||
+                    this.Amount.Equals(input.Amount)
                 );
         }
 
@@ -128,11 +126,11 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IdentifierKey != null)
+                if (this.Type != null)
                 {
-                    hashCode = (hashCode * 59) + this.IdentifierKey.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Required.GetHashCode();
+                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 return hashCode;
             }
         }
@@ -144,6 +142,12 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Type (string) minLength
+            if (this.Type != null && this.Type.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
+            }
+
             yield break;
         }
     }

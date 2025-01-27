@@ -57,7 +57,13 @@ namespace Lusid.Sdk.Model
         /// Enum IsOneOf for value: IsOneOf
         /// </summary>
         [EnumMember(Value = "IsOneOf")]
-        IsOneOf = 5
+        IsOneOf = 5,
+
+        /// <summary>
+        /// Enum IsOneOfCaseInsensitive for value: IsOneOfCaseInsensitive
+        /// </summary>
+        [EnumMember(Value = "IsOneOfCaseInsensitive")]
+        IsOneOfCaseInsensitive = 6
     }
 
 }

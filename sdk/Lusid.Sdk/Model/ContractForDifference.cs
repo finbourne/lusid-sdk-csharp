@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="startDate">The start date of the CFD. (required).</param>
         /// <param name="maturityDate">The maturity date for the CFD. If CFDType is Futures, this should be set to be the maturity date of the underlying  future. If CFDType is Cash, this should not be set..</param>
         /// <param name="code">The code of the underlying..</param>
-        /// <param name="contractSize">The size of the CFD contract, this should represent the total number of stocks that the CFD represents. (required).</param>
+        /// <param name="contractSize">The size of the CFD contract, this should represent the total number of stocks that the CFD represents.   This field is optional, if not set it will default to 1..</param>
         /// <param name="payCcy">The currency that this CFD pays out, this can be different to the UnderlyingCcy. (required).</param>
         /// <param name="referenceRate">The reference rate of the CFD, this can be set to 0 but not negative values.  This field is optional, if not set it will default to 0..</param>
         /// <param name="type">The type of CFD.    Supported string (enumeration) values are: [Cash, Futures]. (required).</param>
@@ -53,7 +53,6 @@ namespace Lusid.Sdk.Model
         public ContractForDifference(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string code = default(string), decimal contractSize = default(decimal), string payCcy = default(string), decimal referenceRate = default(decimal), string type = default(string), string underlyingCcy = default(string), string underlyingIdentifier = default(string), int lotSize = default(int), LusidInstrument underlying = default(LusidInstrument), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
-            this.ContractSize = contractSize;
             // to ensure "payCcy" is required (not null)
             if (payCcy == null)
             {
@@ -68,6 +67,7 @@ namespace Lusid.Sdk.Model
             this.Type = type;
             this.MaturityDate = maturityDate;
             this.Code = code;
+            this.ContractSize = contractSize;
             this.ReferenceRate = referenceRate;
             this.UnderlyingCcy = underlyingCcy;
             this.UnderlyingIdentifier = underlyingIdentifier;
@@ -97,10 +97,10 @@ namespace Lusid.Sdk.Model
         public string Code { get; set; }
 
         /// <summary>
-        /// The size of the CFD contract, this should represent the total number of stocks that the CFD represents.
+        /// The size of the CFD contract, this should represent the total number of stocks that the CFD represents.   This field is optional, if not set it will default to 1.
         /// </summary>
-        /// <value>The size of the CFD contract, this should represent the total number of stocks that the CFD represents.</value>
-        [DataMember(Name = "contractSize", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The size of the CFD contract, this should represent the total number of stocks that the CFD represents.   This field is optional, if not set it will default to 1.</value>
+        [DataMember(Name = "contractSize", EmitDefaultValue = true)]
         public decimal ContractSize { get; set; }
 
         /// <summary>

@@ -24,42 +24,42 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Event to adjust the limit/balance of a LoanFacility.  Used to initially set up the facility, but also used to increase/reduce the associated limit and balance.
+    /// Event to update the deposit be a given amount.
     /// </summary>
-    [DataContract(Name = "AdjustGlobalCommitmentEvent")]
+    [DataContract(Name = "UpdateDepositAmountEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class AdjustGlobalCommitmentEvent : InstrumentEvent, IEquatable<AdjustGlobalCommitmentEvent>, IValidatableObject
+    public partial class UpdateDepositAmountEvent : InstrumentEvent, IEquatable<UpdateDepositAmountEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdjustGlobalCommitmentEvent" /> class.
+        /// Initializes a new instance of the <see cref="UpdateDepositAmountEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AdjustGlobalCommitmentEvent() { }
+        protected UpdateDepositAmountEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdjustGlobalCommitmentEvent" /> class.
+        /// Initializes a new instance of the <see cref="UpdateDepositAmountEvent" /> class.
         /// </summary>
-        /// <param name="amount">Amount that the limit and balance are changed by.  A positive number signifies an increase, and a negative number here signifies a decrease. (required).</param>
-        /// <param name="date">Date of the adjustment.  Signifies when the facility begins to accrue interest. (required).</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent (required) (default to &quot;AdjustGlobalCommitmentEvent&quot;).</param>
-        public AdjustGlobalCommitmentEvent(decimal amount = default(decimal), DateTimeOffset date = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="date">The date of the adjustment to the deposit. (required).</param>
+        /// <param name="amount">The signed amount of the adjustment to make to the deposit. Positive implies an increase, and negative implies a decrease. (required).</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent (required) (default to &quot;UpdateDepositAmountEvent&quot;).</param>
+        public UpdateDepositAmountEvent(DateTimeOffset date = default(DateTimeOffset), decimal amount = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.Amount = amount;
             this.Date = date;
+            this.Amount = amount;
         }
 
         /// <summary>
-        /// Amount that the limit and balance are changed by.  A positive number signifies an increase, and a negative number here signifies a decrease.
+        /// The date of the adjustment to the deposit.
         /// </summary>
-        /// <value>Amount that the limit and balance are changed by.  A positive number signifies an increase, and a negative number here signifies a decrease.</value>
-        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Amount { get; set; }
-
-        /// <summary>
-        /// Date of the adjustment.  Signifies when the facility begins to accrue interest.
-        /// </summary>
-        /// <value>Date of the adjustment.  Signifies when the facility begins to accrue interest.</value>
+        /// <value>The date of the adjustment to the deposit.</value>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset Date { get; set; }
+
+        /// <summary>
+        /// The signed amount of the adjustment to make to the deposit. Positive implies an increase, and negative implies a decrease.
+        /// </summary>
+        /// <value>The signed amount of the adjustment to make to the deposit. Positive implies an increase, and negative implies a decrease.</value>
+        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
+        public decimal Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,10 +68,10 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AdjustGlobalCommitmentEvent {\n");
+            sb.Append("class UpdateDepositAmountEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,15 +92,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AdjustGlobalCommitmentEvent);
+            return this.Equals(input as UpdateDepositAmountEvent);
         }
 
         /// <summary>
-        /// Returns true if AdjustGlobalCommitmentEvent instances are equal
+        /// Returns true if UpdateDepositAmountEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of AdjustGlobalCommitmentEvent to be compared</param>
+        /// <param name="input">Instance of UpdateDepositAmountEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AdjustGlobalCommitmentEvent input)
+        public bool Equals(UpdateDepositAmountEvent input)
         {
             if (input == null)
             {
@@ -108,13 +108,13 @@ namespace Lusid.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.Amount == input.Amount ||
-                    this.Amount.Equals(input.Amount)
-                ) && base.Equals(input) && 
-                (
                     this.Date == input.Date ||
                     (this.Date != null &&
                     this.Date.Equals(input.Date))
+                ) && base.Equals(input) && 
+                (
+                    this.Amount == input.Amount ||
+                    this.Amount.Equals(input.Amount)
                 );
         }
 
@@ -127,11 +127,11 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 if (this.Date != null)
                 {
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 return hashCode;
             }
         }

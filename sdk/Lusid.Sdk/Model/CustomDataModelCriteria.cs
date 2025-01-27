@@ -34,7 +34,7 @@ namespace Lusid.Sdk.Model
         /// <param name="conditions">The conditions that the bound entity must meet to be valid..</param>
         /// <param name="properties">The properties that are required or allowed on the bound entity..</param>
         /// <param name="identifierTypes">The identifier types that are required or allowed on the bound entity..</param>
-        /// <param name="attributeAliases">The aliaes for property keys, identifier types, and fields on the bound entity..</param>
+        /// <param name="attributeAliases">The aliases for property keys, identifier types, and fields on the bound entity..</param>
         /// <param name="recommendedSortBy">The preferred default sorting instructions..</param>
         public CustomDataModelCriteria(string conditions = default(string), List<CustomDataModelPropertySpecificationWithDisplayName> properties = default(List<CustomDataModelPropertySpecificationWithDisplayName>), List<CustomDataModelIdentifierTypeSpecificationWithDisplayName> identifierTypes = default(List<CustomDataModelIdentifierTypeSpecificationWithDisplayName>), List<Alias> attributeAliases = default(List<Alias>), List<RecommendedSortBy> recommendedSortBy = default(List<RecommendedSortBy>))
         {
@@ -67,9 +67,9 @@ namespace Lusid.Sdk.Model
         public List<CustomDataModelIdentifierTypeSpecificationWithDisplayName> IdentifierTypes { get; set; }
 
         /// <summary>
-        /// The aliaes for property keys, identifier types, and fields on the bound entity.
+        /// The aliases for property keys, identifier types, and fields on the bound entity.
         /// </summary>
-        /// <value>The aliaes for property keys, identifier types, and fields on the bound entity.</value>
+        /// <value>The aliases for property keys, identifier types, and fields on the bound entity.</value>
         [DataMember(Name = "attributeAliases", EmitDefaultValue = true)]
         public List<Alias> AttributeAliases { get; set; }
 
