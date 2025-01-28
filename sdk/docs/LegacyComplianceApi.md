@@ -123,7 +123,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

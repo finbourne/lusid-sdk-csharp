@@ -133,7 +133,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
 
-<br>              Deletes the rule set perpetually, including its rules.                <br>              The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                <br>              This cannot be undone.              
+               Deletes the rule set perpetually, including its rules.                               The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                               This cannot be undone.              
 
 ### Example
 ```csharp
@@ -237,7 +237,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

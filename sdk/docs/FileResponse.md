@@ -5,7 +5,7 @@ Allows a file (represented as a stream) to be returned from an Api call
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FileStream** | [**Stream**](Stream.md) |  | [optional] 
+**FileStream** | **System.IO.Stream** |  | [optional] 
 **ContentType** | **string** |  | [optional] 
 **DownloadedFilename** | **string** |  | [optional] 
 

@@ -62,7 +62,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
         /// </summary>
         /// <remarks>
-        /// &lt;br&gt;              Deletes the rule set perpetually, including its rules.                &lt;br&gt;              The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                &lt;br&gt;              This cannot be undone.              
+        ///                Deletes the rule set perpetually, including its rules.                               The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                               This cannot be undone.              
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -76,7 +76,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
         /// </summary>
         /// <remarks>
-        /// &lt;br&gt;              Deletes the rule set perpetually, including its rules.                &lt;br&gt;              The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                &lt;br&gt;              This cannot be undone.              
+        ///                Deletes the rule set perpetually, including its rules.                               The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                               This cannot be undone.              
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -251,7 +251,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
         /// </summary>
         /// <remarks>
-        /// &lt;br&gt;              Deletes the rule set perpetually, including its rules.                &lt;br&gt;              The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                &lt;br&gt;              This cannot be undone.              
+        ///                Deletes the rule set perpetually, including its rules.                               The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                               This cannot be undone.              
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -266,7 +266,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
         /// </summary>
         /// <remarks>
-        /// &lt;br&gt;              Deletes the rule set perpetually, including its rules.                &lt;br&gt;              The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                &lt;br&gt;              This cannot be undone.              
+        ///                Deletes the rule set perpetually, including its rules.                               The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                               This cannot be undone.              
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -762,7 +762,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. &lt;br&gt;              Deletes the rule set perpetually, including its rules.                &lt;br&gt;              The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                &lt;br&gt;              This cannot be undone.              
+        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.                Deletes the rule set perpetually, including its rules.                               The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                               This cannot be undone.              
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -777,7 +777,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. &lt;br&gt;              Deletes the rule set perpetually, including its rules.                &lt;br&gt;              The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                &lt;br&gt;              This cannot be undone.              
+        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.                Deletes the rule set perpetually, including its rules.                               The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                               This cannot be undone.              
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -871,7 +871,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. &lt;br&gt;              Deletes the rule set perpetually, including its rules.                &lt;br&gt;              The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                &lt;br&gt;              This cannot be undone.              
+        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.                Deletes the rule set perpetually, including its rules.                               The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                               This cannot be undone.              
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -887,7 +887,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. &lt;br&gt;              Deletes the rule set perpetually, including its rules.                &lt;br&gt;              The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                &lt;br&gt;              This cannot be undone.              
+        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.                Deletes the rule set perpetually, including its rules.                               The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                               This cannot be undone.              
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>

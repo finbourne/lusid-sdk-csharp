@@ -34,7 +34,7 @@ namespace Lusid.Sdk.Model
         /// <param name="fileStream">fileStream.</param>
         /// <param name="contentType">contentType.</param>
         /// <param name="downloadedFilename">downloadedFilename.</param>
-        public FileResponse(Stream fileStream = default(Stream), string contentType = default(string), string downloadedFilename = default(string))
+        public FileResponse(System.IO.Stream fileStream = default(System.IO.Stream), string contentType = default(string), string downloadedFilename = default(string))
         {
             this.FileStream = fileStream;
             this.ContentType = contentType;
@@ -44,8 +44,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets FileStream
         /// </summary>
-        [DataMember(Name = "fileStream", EmitDefaultValue = false)]
-        public Stream FileStream { get; set; }
+        [DataMember(Name = "fileStream", EmitDefaultValue = true)]
+        public System.IO.Stream FileStream { get; set; }
 
         /// <summary>
         /// Gets or Sets ContentType
