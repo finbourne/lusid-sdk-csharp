@@ -46,7 +46,8 @@ namespace Lusid.Sdk.Model
         /// <param name="price">price.</param>
         /// <param name="orderInstruction">orderInstruction.</param>
         /// <param name="package">package.</param>
-        public BlockedOrderRequest(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), decimal quantity = default(decimal), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string state = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), ResourceId orderInstruction = default(ResourceId), ResourceId package = default(ResourceId))
+        /// <param name="side">The client&#39;s representation of the order&#39;s side (buy, sell, short, etc).</param>
+        public BlockedOrderRequest(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), decimal quantity = default(decimal), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string state = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), ResourceId orderInstruction = default(ResourceId), ResourceId package = default(ResourceId), string side = default(string))
         {
             this.Quantity = quantity;
             // to ensure "id" is required (not null)
@@ -63,6 +64,7 @@ namespace Lusid.Sdk.Model
             this.Price = price;
             this.OrderInstruction = orderInstruction;
             this.Package = package;
+            this.Side = side;
         }
 
         /// <summary>
@@ -130,6 +132,13 @@ namespace Lusid.Sdk.Model
         public ResourceId Package { get; set; }
 
         /// <summary>
+        /// The client&#39;s representation of the order&#39;s side (buy, sell, short, etc)
+        /// </summary>
+        /// <value>The client&#39;s representation of the order&#39;s side (buy, sell, short, etc)</value>
+        [DataMember(Name = "side", EmitDefaultValue = true)]
+        public string Side { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -147,6 +156,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  OrderInstruction: ").Append(OrderInstruction).Append("\n");
             sb.Append("  Package: ").Append(Package).Append("\n");
+            sb.Append("  Side: ").Append(Side).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -231,6 +241,11 @@ namespace Lusid.Sdk.Model
                     this.Package == input.Package ||
                     (this.Package != null &&
                     this.Package.Equals(input.Package))
+                ) && 
+                (
+                    this.Side == input.Side ||
+                    (this.Side != null &&
+                    this.Side.Equals(input.Side))
                 );
         }
 
@@ -279,6 +294,10 @@ namespace Lusid.Sdk.Model
                 if (this.Package != null)
                 {
                     hashCode = (hashCode * 59) + this.Package.GetHashCode();
+                }
+                if (this.Side != null)
+                {
+                    hashCode = (hashCode * 59) + this.Side.GetHashCode();
                 }
                 return hashCode;
             }

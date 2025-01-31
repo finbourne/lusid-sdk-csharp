@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="orders">An order which belongs to a block. Fields common to both entities (such as instrument) should be derived from the block. (required).</param>
         /// <param name="blockProperties">Client-defined properties associated with this block..</param>
         /// <param name="instrumentIdentifiers">The instrument ordered. (required).</param>
-        /// <param name="side">The client&#39;s representation of the block&#39;s side (buy, sell, short, etc) (required).</param>
+        /// <param name="side">The client&#39;s representation of the block&#39;s side (buy, sell, short, etc). BlockedOrders in the request which do not specify a side will have their side populated with this value..</param>
         /// <param name="type">The block order&#39;s type (examples: Limit, Market, ...).</param>
         /// <param name="timeInForce">The block orders&#39; time in force (examples: Day, GoodTilCancel, ...).</param>
         /// <param name="date">The date on which the block was made.</param>
@@ -66,13 +66,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instrumentIdentifiers is a required property for BlockAndOrdersRequest and cannot be null");
             }
             this.InstrumentIdentifiers = instrumentIdentifiers;
-            // to ensure "side" is required (not null)
-            if (side == null)
-            {
-                throw new ArgumentNullException("side is a required property for BlockAndOrdersRequest and cannot be null");
-            }
-            this.Side = side;
             this.BlockProperties = blockProperties;
+            this.Side = side;
             this.Type = type;
             this.TimeInForce = timeInForce;
             this.Date = date;
@@ -108,10 +103,10 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
-        /// The client&#39;s representation of the block&#39;s side (buy, sell, short, etc)
+        /// The client&#39;s representation of the block&#39;s side (buy, sell, short, etc). BlockedOrders in the request which do not specify a side will have their side populated with this value.
         /// </summary>
-        /// <value>The client&#39;s representation of the block&#39;s side (buy, sell, short, etc)</value>
-        [DataMember(Name = "side", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The client&#39;s representation of the block&#39;s side (buy, sell, short, etc). BlockedOrders in the request which do not specify a side will have their side populated with this value.</value>
+        [DataMember(Name = "side", EmitDefaultValue = true)]
         public string Side { get; set; }
 
         /// <summary>
@@ -315,12 +310,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Side (string) minLength
-            if (this.Side != null && this.Side.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Side, length must be greater than 1.", new [] { "Side" });
-            }
-
             yield break;
         }
     }
