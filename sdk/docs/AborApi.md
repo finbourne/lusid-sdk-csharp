@@ -1520,9 +1520,9 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
-            var scope = "scope_example";  // string | The scope of the Abor to be deleted.
-            var code = "code_example";  // string | The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.
-            var reOpenPeriodDiaryEntryRequest = new ReOpenPeriodDiaryEntryRequest?(); // ReOpenPeriodDiaryEntryRequest? | The request body, detailing re open details (optional) 
+            var scope = "scope_example";  // string | The scope of the Abor.
+            var code = "code_example";  // string | The code of the Abor. Together with the scope this uniquely identifies the Abor.
+            var reOpenPeriodDiaryEntryRequest = new ReOpenPeriodDiaryEntryRequest?(); // ReOpenPeriodDiaryEntryRequest? | The request body, containing details about the period to be re-opened. (optional) 
 
             try
             {
@@ -1568,9 +1568,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **scope** | **string** | The scope of the Abor to be deleted. |  |
-| **code** | **string** | The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor. |  |
-| **reOpenPeriodDiaryEntryRequest** | [**ReOpenPeriodDiaryEntryRequest?**](ReOpenPeriodDiaryEntryRequest?.md) | The request body, detailing re open details | [optional]  |
+| **scope** | **string** | The scope of the Abor. |  |
+| **code** | **string** | The code of the Abor. Together with the scope this uniquely identifies the Abor. |  |
+| **reOpenPeriodDiaryEntryRequest** | [**ReOpenPeriodDiaryEntryRequest?**](ReOpenPeriodDiaryEntryRequest?.md) | The request body, containing details about the period to be re-opened. | [optional]  |
 
 ### Return type
 

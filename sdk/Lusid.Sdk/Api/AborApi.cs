@@ -424,9 +424,9 @@ namespace Lusid.Sdk.Api
         /// Reopens one or more periods.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Abor to be deleted.</param>
-        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, containing details about the period to be re-opened. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PeriodDiaryEntriesReopenedResponse</returns>
@@ -439,9 +439,9 @@ namespace Lusid.Sdk.Api
         /// Reopens one or more periods.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Abor to be deleted.</param>
-        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, containing details about the period to be re-opened. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PeriodDiaryEntriesReopenedResponse</returns>
@@ -901,9 +901,9 @@ namespace Lusid.Sdk.Api
         /// Reopens one or more periods.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Abor to be deleted.</param>
-        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, containing details about the period to be re-opened. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -917,9 +917,9 @@ namespace Lusid.Sdk.Api
         /// Reopens one or more periods.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Abor to be deleted.</param>
-        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, containing details about the period to be re-opened. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4187,9 +4187,9 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Abor to be deleted.</param>
-        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, containing details about the period to be re-opened. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PeriodDiaryEntriesReopenedResponse</returns>
@@ -4203,9 +4203,9 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Abor to be deleted.</param>
-        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, containing details about the period to be re-opened. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PeriodDiaryEntriesReopenedResponse</returns>
@@ -4303,9 +4303,9 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Abor to be deleted.</param>
-        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, containing details about the period to be re-opened. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4320,9 +4320,9 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Abor to be deleted.</param>
-        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, containing details about the period to be re-opened. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
