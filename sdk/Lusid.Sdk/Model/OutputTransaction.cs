@@ -98,7 +98,10 @@ namespace Lusid.Sdk.Model
         /// <param name="transactionGroupId">The identifier for grouping economic events across multiple transactions.</param>
         /// <param name="resolvedTransactionTypeDetails">resolvedTransactionTypeDetails.</param>
         /// <param name="grossTransactionAmount">The total gross value of the transaction in the transaction currency..</param>
-        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal))
+        /// <param name="otcConfirmation">otcConfirmation.</param>
+        /// <param name="orderId">orderId.</param>
+        /// <param name="allocationId">allocationId.</param>
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -144,6 +147,9 @@ namespace Lusid.Sdk.Model
             this.TransactionGroupId = transactionGroupId;
             this.ResolvedTransactionTypeDetails = resolvedTransactionTypeDetails;
             this.GrossTransactionAmount = grossTransactionAmount;
+            this.OtcConfirmation = otcConfirmation;
+            this.OrderId = orderId;
+            this.AllocationId = allocationId;
         }
 
         /// <summary>
@@ -339,6 +345,24 @@ namespace Lusid.Sdk.Model
         public decimal GrossTransactionAmount { get; set; }
 
         /// <summary>
+        /// Gets or Sets OtcConfirmation
+        /// </summary>
+        [DataMember(Name = "otcConfirmation", EmitDefaultValue = false)]
+        public OtcConfirmation OtcConfirmation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OrderId
+        /// </summary>
+        [DataMember(Name = "orderId", EmitDefaultValue = false)]
+        public ResourceId OrderId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AllocationId
+        /// </summary>
+        [DataMember(Name = "allocationId", EmitDefaultValue = false)]
+        public ResourceId AllocationId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -375,6 +399,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  TransactionGroupId: ").Append(TransactionGroupId).Append("\n");
             sb.Append("  ResolvedTransactionTypeDetails: ").Append(ResolvedTransactionTypeDetails).Append("\n");
             sb.Append("  GrossTransactionAmount: ").Append(GrossTransactionAmount).Append("\n");
+            sb.Append("  OtcConfirmation: ").Append(OtcConfirmation).Append("\n");
+            sb.Append("  OrderId: ").Append(OrderId).Append("\n");
+            sb.Append("  AllocationId: ").Append(AllocationId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -553,6 +580,21 @@ namespace Lusid.Sdk.Model
                 (
                     this.GrossTransactionAmount == input.GrossTransactionAmount ||
                     this.GrossTransactionAmount.Equals(input.GrossTransactionAmount)
+                ) && 
+                (
+                    this.OtcConfirmation == input.OtcConfirmation ||
+                    (this.OtcConfirmation != null &&
+                    this.OtcConfirmation.Equals(input.OtcConfirmation))
+                ) && 
+                (
+                    this.OrderId == input.OrderId ||
+                    (this.OrderId != null &&
+                    this.OrderId.Equals(input.OrderId))
+                ) && 
+                (
+                    this.AllocationId == input.AllocationId ||
+                    (this.AllocationId != null &&
+                    this.AllocationId.Equals(input.AllocationId))
                 );
         }
 
@@ -666,6 +708,18 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.ResolvedTransactionTypeDetails.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.GrossTransactionAmount.GetHashCode();
+                if (this.OtcConfirmation != null)
+                {
+                    hashCode = (hashCode * 59) + this.OtcConfirmation.GetHashCode();
+                }
+                if (this.OrderId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OrderId.GetHashCode();
+                }
+                if (this.AllocationId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllocationId.GetHashCode();
+                }
                 return hashCode;
             }
         }
