@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.ValuationPointResourceListOfJournalEntryLine
+# Lusid.Sdk.Model.ValuationPointResourceListOfFundJournalEntryLine
 ResourceList with extra header fields used by the various ValuationPoint endpoints for returning additional context related to the list of results.
 
 ## Properties
@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StartValuationPoint** | [**DiaryEntry**](DiaryEntry.md) |  | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
-**Values** | [**List&lt;JournalEntryLine&gt;**](JournalEntryLine.md) |  | 
+**Values** | [**List&lt;FundJournalEntryLine&gt;**](FundJournalEntryLine.md) |  | 
 **Href** | **string** |  | [optional] 
 **NextPage** | **string** |  | [optional] 
 **PreviousPage** | **string** |  | [optional] 

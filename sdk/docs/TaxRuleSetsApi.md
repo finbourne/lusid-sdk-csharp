@@ -132,7 +132,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set.
 
-               Deletes the rule set for all effective time.                               The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                               This cannot be undone.              
+Deletes the rule set for all effective time.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
 
 ### Example
 ```csharp

@@ -133,7 +133,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
 
-               Deletes the rule set perpetually, including its rules.                               The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.                               This cannot be undone.              
+Deletes the rule set perpetually, including its rules.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
 
 ### Example
 ```csharp

@@ -43,14 +43,16 @@ namespace Lusid.Sdk.Model
         /// <param name="recoveryRate">The fraction of the defaulted debt that can be recovered..</param>
         /// <param name="constituentWeight">The relative weight of the CDX constituent. (required).</param>
         /// <param name="constituentReference">Reference value used to identify the CDX constituent..</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent (required) (default to &quot;CdxCreditEvent&quot;).</param>
-        public CdxCreditEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), DateTimeOffset? auctionDate = default(DateTimeOffset?), decimal? recoveryRate = default(decimal?), decimal constituentWeight = default(decimal), string constituentReference = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="paymentDate">The date of the credit event auction settlement..</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent (required) (default to &quot;CdxCreditEvent&quot;).</param>
+        public CdxCreditEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), DateTimeOffset? auctionDate = default(DateTimeOffset?), decimal? recoveryRate = default(decimal?), decimal constituentWeight = default(decimal), string constituentReference = default(string), DateTimeOffset? paymentDate = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.EffectiveDate = effectiveDate;
             this.ConstituentWeight = constituentWeight;
             this.AuctionDate = auctionDate;
             this.RecoveryRate = recoveryRate;
             this.ConstituentReference = constituentReference;
+            this.PaymentDate = paymentDate;
         }
 
         /// <summary>
@@ -89,6 +91,13 @@ namespace Lusid.Sdk.Model
         public string ConstituentReference { get; set; }
 
         /// <summary>
+        /// The date of the credit event auction settlement.
+        /// </summary>
+        /// <value>The date of the credit event auction settlement.</value>
+        [DataMember(Name = "paymentDate", EmitDefaultValue = true)]
+        public DateTimeOffset? PaymentDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -102,6 +111,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  RecoveryRate: ").Append(RecoveryRate).Append("\n");
             sb.Append("  ConstituentWeight: ").Append(ConstituentWeight).Append("\n");
             sb.Append("  ConstituentReference: ").Append(ConstituentReference).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -160,6 +170,11 @@ namespace Lusid.Sdk.Model
                     this.ConstituentReference == input.ConstituentReference ||
                     (this.ConstituentReference != null &&
                     this.ConstituentReference.Equals(input.ConstituentReference))
+                ) && base.Equals(input) && 
+                (
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
                 );
         }
 
@@ -188,6 +203,10 @@ namespace Lusid.Sdk.Model
                 if (this.ConstituentReference != null)
                 {
                     hashCode = (hashCode * 59) + this.ConstituentReference.GetHashCode();
+                }
+                if (this.PaymentDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
                 }
                 return hashCode;
             }

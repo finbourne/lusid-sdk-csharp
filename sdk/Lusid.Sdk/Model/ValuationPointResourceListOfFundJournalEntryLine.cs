@@ -25,16 +25,16 @@ namespace Lusid.Sdk.Model
     /// <summary>
     /// ResourceList with extra header fields used by the various ValuationPoint endpoints for returning additional context related to the list of results.
     /// </summary>
-    [DataContract(Name = "ValuationPointResourceListOfJournalEntryLine")]
-    public partial class ValuationPointResourceListOfJournalEntryLine : IEquatable<ValuationPointResourceListOfJournalEntryLine>, IValidatableObject
+    [DataContract(Name = "ValuationPointResourceListOfFundJournalEntryLine")]
+    public partial class ValuationPointResourceListOfFundJournalEntryLine : IEquatable<ValuationPointResourceListOfFundJournalEntryLine>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ValuationPointResourceListOfJournalEntryLine" /> class.
+        /// Initializes a new instance of the <see cref="ValuationPointResourceListOfFundJournalEntryLine" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ValuationPointResourceListOfJournalEntryLine() { }
+        protected ValuationPointResourceListOfFundJournalEntryLine() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ValuationPointResourceListOfJournalEntryLine" /> class.
+        /// Initializes a new instance of the <see cref="ValuationPointResourceListOfFundJournalEntryLine" /> class.
         /// </summary>
         /// <param name="startValuationPoint">startValuationPoint.</param>
         /// <param name="varVersion">varVersion (required).</param>
@@ -43,18 +43,18 @@ namespace Lusid.Sdk.Model
         /// <param name="nextPage">nextPage.</param>
         /// <param name="previousPage">previousPage.</param>
         /// <param name="links">links.</param>
-        public ValuationPointResourceListOfJournalEntryLine(DiaryEntry startValuationPoint = default(DiaryEntry), ModelVersion varVersion = default(ModelVersion), List<JournalEntryLine> values = default(List<JournalEntryLine>), string href = default(string), string nextPage = default(string), string previousPage = default(string), List<Link> links = default(List<Link>))
+        public ValuationPointResourceListOfFundJournalEntryLine(DiaryEntry startValuationPoint = default(DiaryEntry), ModelVersion varVersion = default(ModelVersion), List<FundJournalEntryLine> values = default(List<FundJournalEntryLine>), string href = default(string), string nextPage = default(string), string previousPage = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "varVersion" is required (not null)
             if (varVersion == null)
             {
-                throw new ArgumentNullException("varVersion is a required property for ValuationPointResourceListOfJournalEntryLine and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for ValuationPointResourceListOfFundJournalEntryLine and cannot be null");
             }
             this.VarVersion = varVersion;
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for ValuationPointResourceListOfJournalEntryLine and cannot be null");
+                throw new ArgumentNullException("values is a required property for ValuationPointResourceListOfFundJournalEntryLine and cannot be null");
             }
             this.Values = values;
             this.StartValuationPoint = startValuationPoint;
@@ -80,7 +80,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Values
         /// </summary>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<JournalEntryLine> Values { get; set; }
+        public List<FundJournalEntryLine> Values { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
@@ -113,7 +113,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ValuationPointResourceListOfJournalEntryLine {\n");
+            sb.Append("class ValuationPointResourceListOfFundJournalEntryLine {\n");
             sb.Append("  StartValuationPoint: ").Append(StartValuationPoint).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
@@ -141,15 +141,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ValuationPointResourceListOfJournalEntryLine);
+            return this.Equals(input as ValuationPointResourceListOfFundJournalEntryLine);
         }
 
         /// <summary>
-        /// Returns true if ValuationPointResourceListOfJournalEntryLine instances are equal
+        /// Returns true if ValuationPointResourceListOfFundJournalEntryLine instances are equal
         /// </summary>
-        /// <param name="input">Instance of ValuationPointResourceListOfJournalEntryLine to be compared</param>
+        /// <param name="input">Instance of ValuationPointResourceListOfFundJournalEntryLine to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ValuationPointResourceListOfJournalEntryLine input)
+        public bool Equals(ValuationPointResourceListOfFundJournalEntryLine input)
         {
             if (input == null)
             {
