@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="DataModelMembership" /> class.
         /// </summary>
         /// <param name="membership">The collection of data models this entity is a member of. (required).</param>
-        /// <param name="currentModel">currentModel (required).</param>
+        /// <param name="currentModel">currentModel.</param>
         public DataModelMembership(List<Membership> membership = default(List<Membership>), MembershipAndStatus currentModel = default(MembershipAndStatus))
         {
             // to ensure "membership" is required (not null)
@@ -46,11 +46,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("membership is a required property for DataModelMembership and cannot be null");
             }
             this.Membership = membership;
-            // to ensure "currentModel" is required (not null)
-            if (currentModel == null)
-            {
-                throw new ArgumentNullException("currentModel is a required property for DataModelMembership and cannot be null");
-            }
             this.CurrentModel = currentModel;
         }
 
@@ -64,7 +59,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets CurrentModel
         /// </summary>
-        [DataMember(Name = "currentModel", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currentModel", EmitDefaultValue = false)]
         public MembershipAndStatus CurrentModel { get; set; }
 
         /// <summary>

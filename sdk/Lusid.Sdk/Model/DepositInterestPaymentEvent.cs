@@ -24,38 +24,34 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Event to signify the repayment of interest accrued against a loan holding.
+    /// Event to signify the repayment of interest accrued against a deposit holding.
     /// </summary>
-    [DataContract(Name = "LoanInterestRepaymentEvent")]
+    [DataContract(Name = "DepositInterestPaymentEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class LoanInterestRepaymentEvent : InstrumentEvent, IEquatable<LoanInterestRepaymentEvent>, IValidatableObject
+    public partial class DepositInterestPaymentEvent : InstrumentEvent, IEquatable<DepositInterestPaymentEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoanInterestRepaymentEvent" /> class.
+        /// Initializes a new instance of the <see cref="DepositInterestPaymentEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LoanInterestRepaymentEvent() { }
+        protected DepositInterestPaymentEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoanInterestRepaymentEvent" /> class.
+        /// Initializes a new instance of the <see cref="DepositInterestPaymentEvent" /> class.
         /// </summary>
         /// <param name="paymentDate">Date that the interest is due to be paid. (required).</param>
         /// <param name="exDate">Date that the accrued interest is calculated up until. (required).</param>
         /// <param name="currency">Currency of the repayment. (required).</param>
-        /// <param name="fraction">Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set..</param>
-        /// <param name="lapseElections">Election for controlling whether the interest is paid automatically or not.  Exactly one election must be provided..</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent (required) (default to &quot;LoanInterestRepaymentEvent&quot;).</param>
-        public LoanInterestRepaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), string currency = default(string), decimal fraction = default(decimal), List<LapseElection> lapseElections = default(List<LapseElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent (required) (default to &quot;DepositInterestPaymentEvent&quot;).</param>
+        public DepositInterestPaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), string currency = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.PaymentDate = paymentDate;
             this.ExDate = exDate;
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
-                throw new ArgumentNullException("currency is a required property for LoanInterestRepaymentEvent and cannot be null");
+                throw new ArgumentNullException("currency is a required property for DepositInterestPaymentEvent and cannot be null");
             }
             this.Currency = currency;
-            this.Fraction = fraction;
-            this.LapseElections = lapseElections;
         }
 
         /// <summary>
@@ -80,33 +76,17 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set.
-        /// </summary>
-        /// <value>Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set.</value>
-        [DataMember(Name = "fraction", EmitDefaultValue = true)]
-        public decimal Fraction { get; set; }
-
-        /// <summary>
-        /// Election for controlling whether the interest is paid automatically or not.  Exactly one election must be provided.
-        /// </summary>
-        /// <value>Election for controlling whether the interest is paid automatically or not.  Exactly one election must be provided.</value>
-        [DataMember(Name = "lapseElections", EmitDefaultValue = true)]
-        public List<LapseElection> LapseElections { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LoanInterestRepaymentEvent {\n");
+            sb.Append("class DepositInterestPaymentEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  Fraction: ").Append(Fraction).Append("\n");
-            sb.Append("  LapseElections: ").Append(LapseElections).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,15 +107,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LoanInterestRepaymentEvent);
+            return this.Equals(input as DepositInterestPaymentEvent);
         }
 
         /// <summary>
-        /// Returns true if LoanInterestRepaymentEvent instances are equal
+        /// Returns true if DepositInterestPaymentEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of LoanInterestRepaymentEvent to be compared</param>
+        /// <param name="input">Instance of DepositInterestPaymentEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LoanInterestRepaymentEvent input)
+        public bool Equals(DepositInterestPaymentEvent input)
         {
             if (input == null)
             {
@@ -156,16 +136,6 @@ namespace Lusid.Sdk.Model
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
-                ) && base.Equals(input) && 
-                (
-                    this.Fraction == input.Fraction ||
-                    this.Fraction.Equals(input.Fraction)
-                ) && base.Equals(input) && 
-                (
-                    this.LapseElections == input.LapseElections ||
-                    this.LapseElections != null &&
-                    input.LapseElections != null &&
-                    this.LapseElections.SequenceEqual(input.LapseElections)
                 );
         }
 
@@ -189,11 +159,6 @@ namespace Lusid.Sdk.Model
                 if (this.Currency != null)
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Fraction.GetHashCode();
-                if (this.LapseElections != null)
-                {
-                    hashCode = (hashCode * 59) + this.LapseElections.GetHashCode();
                 }
                 return hashCode;
             }

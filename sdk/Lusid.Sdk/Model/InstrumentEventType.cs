@@ -363,7 +363,13 @@ namespace Lusid.Sdk.Model
         /// Enum LoanPrincipalRepaymentEvent for value: LoanPrincipalRepaymentEvent
         /// </summary>
         [EnumMember(Value = "LoanPrincipalRepaymentEvent")]
-        LoanPrincipalRepaymentEvent = 56
+        LoanPrincipalRepaymentEvent = 56,
+
+        /// <summary>
+        /// Enum DepositInterestPaymentEvent for value: DepositInterestPaymentEvent
+        /// </summary>
+        [EnumMember(Value = "DepositInterestPaymentEvent")]
+        DepositInterestPaymentEvent = 57
     }
 
 }
