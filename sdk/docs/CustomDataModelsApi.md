@@ -4,16 +4,16 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateCustomDataModel**](CustomDataModelsApi.md#createcustomdatamodel) | **POST** /api/datamodel/{entityType}/{scope}/{code} | [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model |
-| [**DeleteCustomDataModel**](CustomDataModelsApi.md#deletecustomdatamodel) | **DELETE** /api/datamodel/{scope}/{code} | [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model |
-| [**GetCustomDataModel**](CustomDataModelsApi.md#getcustomdatamodel) | **GET** /api/datamodel/{scope}/{code} | [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model |
+| [**CreateCustomDataModel**](CustomDataModelsApi.md#createcustomdatamodel) | **POST** /api/datamodel/{entityType} | [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model |
+| [**DeleteCustomDataModel**](CustomDataModelsApi.md#deletecustomdatamodel) | **DELETE** /api/datamodel/{entityType}/{scope}/{code} | [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model |
+| [**GetCustomDataModel**](CustomDataModelsApi.md#getcustomdatamodel) | **GET** /api/datamodel/{entityType}/{scope}/{code} | [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model |
 | [**ListDataModelHierarchies**](CustomDataModelsApi.md#listdatamodelhierarchies) | **GET** /api/datamodel/hierarchies | [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies. |
 | [**ListSupportedEntityTypes**](CustomDataModelsApi.md#listsupportedentitytypes) | **GET** /api/datamodel/entitytype | [EXPERIMENTAL] ListSupportedEntityTypes: List the currently supported entity types for use in Custom Data Models. |
 | [**UpdateCustomDataModel**](CustomDataModelsApi.md#updatecustomdatamodel) | **PUT** /api/datamodel/{entityType}/{scope}/{code} | [EXPERIMENTAL] UpdateCustomDataModel: Update a Custom Data Model |
 
 <a id="createcustomdatamodel"></a>
 # **CreateCustomDataModel**
-> CustomDataModel CreateCustomDataModel (string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = null)
+> CustomDataModel CreateCustomDataModel (string entityType, CreateCustomDataModelRequest? createCustomDataModelRequest = null)
 
 [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model
 
@@ -58,18 +58,16 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomDataModelsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomDataModelsApi>();
-            var scope = "scope_example";  // string | The scope of the specified Data Model.
-            var code = "code_example";  // string | The code of the specified Data Model.
             var entityType = "entityType_example";  // string | The entity type of the Data Model.
-            var upsertCustomDataModelRequest = new UpsertCustomDataModelRequest?(); // UpsertCustomDataModelRequest? | The request containing the details of the Data Model. (optional) 
+            var createCustomDataModelRequest = new CreateCustomDataModelRequest?(); // CreateCustomDataModelRequest? | The request containing the details of the Data Model. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // CustomDataModel result = apiInstance.CreateCustomDataModel(scope, code, entityType, upsertCustomDataModelRequest, opts: opts);
+                // CustomDataModel result = apiInstance.CreateCustomDataModel(entityType, createCustomDataModelRequest, opts: opts);
 
                 // [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model
-                CustomDataModel result = apiInstance.CreateCustomDataModel(scope, code, entityType, upsertCustomDataModelRequest);
+                CustomDataModel result = apiInstance.CreateCustomDataModel(entityType, createCustomDataModelRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -90,7 +88,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model
-    ApiResponse<CustomDataModel> response = apiInstance.CreateCustomDataModelWithHttpInfo(scope, code, entityType, upsertCustomDataModelRequest);
+    ApiResponse<CustomDataModel> response = apiInstance.CreateCustomDataModelWithHttpInfo(entityType, createCustomDataModelRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -107,10 +105,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **scope** | **string** | The scope of the specified Data Model. |  |
-| **code** | **string** | The code of the specified Data Model. |  |
 | **entityType** | **string** | The entity type of the Data Model. |  |
-| **upsertCustomDataModelRequest** | [**UpsertCustomDataModelRequest?**](UpsertCustomDataModelRequest?.md) | The request containing the details of the Data Model. | [optional]  |
+| **createCustomDataModelRequest** | [**CreateCustomDataModelRequest?**](CreateCustomDataModelRequest?.md) | The request containing the details of the Data Model. | [optional]  |
 
 ### Return type
 
@@ -133,7 +129,7 @@ catch (ApiException e)
 
 <a id="deletecustomdatamodel"></a>
 # **DeleteCustomDataModel**
-> DeletedEntityResponse DeleteCustomDataModel (string scope, string code)
+> DeletedEntityResponse DeleteCustomDataModel (string entityType, string scope, string code)
 
 [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
 
@@ -178,16 +174,17 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomDataModelsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomDataModelsApi>();
+            var entityType = "entityType_example";  // string | The entity type of the Data Model.
             var scope = "scope_example";  // string | The scope of the specified Data Model.
             var code = "code_example";  // string | The code of the specified Data Model.
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DeletedEntityResponse result = apiInstance.DeleteCustomDataModel(scope, code, opts: opts);
+                // DeletedEntityResponse result = apiInstance.DeleteCustomDataModel(entityType, scope, code, opts: opts);
 
                 // [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
-                DeletedEntityResponse result = apiInstance.DeleteCustomDataModel(scope, code);
+                DeletedEntityResponse result = apiInstance.DeleteCustomDataModel(entityType, scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -208,7 +205,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
-    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteCustomDataModelWithHttpInfo(scope, code);
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteCustomDataModelWithHttpInfo(entityType, scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -225,6 +222,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **entityType** | **string** | The entity type of the Data Model. |  |
 | **scope** | **string** | The scope of the specified Data Model. |  |
 | **code** | **string** | The code of the specified Data Model. |  |
 
@@ -249,7 +247,7 @@ catch (ApiException e)
 
 <a id="getcustomdatamodel"></a>
 # **GetCustomDataModel**
-> CustomDataModel GetCustomDataModel (string scope, string code, DateTimeOffset? asAt = null)
+> CustomDataModel GetCustomDataModel (string entityType, string scope, string code, DateTimeOffset? asAt = null)
 
 [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model
 
@@ -294,6 +292,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomDataModelsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomDataModelsApi>();
+            var entityType = "entityType_example";  // string | The entity type of the Data Model.
             var scope = "scope_example";  // string | The scope of the specified Data Model.
             var code = "code_example";  // string | The code of the specified Data Model.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional) 
@@ -301,10 +300,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // CustomDataModel result = apiInstance.GetCustomDataModel(scope, code, asAt, opts: opts);
+                // CustomDataModel result = apiInstance.GetCustomDataModel(entityType, scope, code, asAt, opts: opts);
 
                 // [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model
-                CustomDataModel result = apiInstance.GetCustomDataModel(scope, code, asAt);
+                CustomDataModel result = apiInstance.GetCustomDataModel(entityType, scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -325,7 +324,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model
-    ApiResponse<CustomDataModel> response = apiInstance.GetCustomDataModelWithHttpInfo(scope, code, asAt);
+    ApiResponse<CustomDataModel> response = apiInstance.GetCustomDataModelWithHttpInfo(entityType, scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -342,6 +341,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **entityType** | **string** | The entity type of the Data Model. |  |
 | **scope** | **string** | The scope of the specified Data Model. |  |
 | **code** | **string** | The code of the specified Data Model. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. | [optional]  |
@@ -591,7 +591,7 @@ This endpoint does not need any parameter.
 
 <a id="updatecustomdatamodel"></a>
 # **UpdateCustomDataModel**
-> CustomDataModel UpdateCustomDataModel (string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = null)
+> CustomDataModel UpdateCustomDataModel (string entityType, string scope, string code, UpdateCustomDataModelRequest? updateCustomDataModelRequest = null)
 
 [EXPERIMENTAL] UpdateCustomDataModel: Update a Custom Data Model
 
@@ -636,18 +636,18 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomDataModelsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomDataModelsApi>();
+            var entityType = "entityType_example";  // string | The entity type of the Data Model.
             var scope = "scope_example";  // string | The scope of the specified Data Model.
             var code = "code_example";  // string | The code of the specified Data Model.
-            var entityType = "entityType_example";  // string | The entity type of the Data Model.
-            var upsertCustomDataModelRequest = new UpsertCustomDataModelRequest?(); // UpsertCustomDataModelRequest? | The request containing the details of the Data Model. (optional) 
+            var updateCustomDataModelRequest = new UpdateCustomDataModelRequest?(); // UpdateCustomDataModelRequest? | The request containing the details of the Data Model. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // CustomDataModel result = apiInstance.UpdateCustomDataModel(scope, code, entityType, upsertCustomDataModelRequest, opts: opts);
+                // CustomDataModel result = apiInstance.UpdateCustomDataModel(entityType, scope, code, updateCustomDataModelRequest, opts: opts);
 
                 // [EXPERIMENTAL] UpdateCustomDataModel: Update a Custom Data Model
-                CustomDataModel result = apiInstance.UpdateCustomDataModel(scope, code, entityType, upsertCustomDataModelRequest);
+                CustomDataModel result = apiInstance.UpdateCustomDataModel(entityType, scope, code, updateCustomDataModelRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -668,7 +668,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] UpdateCustomDataModel: Update a Custom Data Model
-    ApiResponse<CustomDataModel> response = apiInstance.UpdateCustomDataModelWithHttpInfo(scope, code, entityType, upsertCustomDataModelRequest);
+    ApiResponse<CustomDataModel> response = apiInstance.UpdateCustomDataModelWithHttpInfo(entityType, scope, code, updateCustomDataModelRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -685,10 +685,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **entityType** | **string** | The entity type of the Data Model. |  |
 | **scope** | **string** | The scope of the specified Data Model. |  |
 | **code** | **string** | The code of the specified Data Model. |  |
-| **entityType** | **string** | The entity type of the Data Model. |  |
-| **upsertCustomDataModelRequest** | [**UpsertCustomDataModelRequest?**](UpsertCustomDataModelRequest?.md) | The request containing the details of the Data Model. | [optional]  |
+| **updateCustomDataModelRequest** | [**UpdateCustomDataModelRequest?**](UpdateCustomDataModelRequest?.md) | The request containing the details of the Data Model. | [optional]  |
 
 ### Return type
 

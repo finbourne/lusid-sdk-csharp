@@ -23,19 +23,20 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// UpsertCustomDataModelRequest
+    /// CreateCustomDataModelRequest
     /// </summary>
-    [DataContract(Name = "UpsertCustomDataModelRequest")]
-    public partial class UpsertCustomDataModelRequest : IEquatable<UpsertCustomDataModelRequest>, IValidatableObject
+    [DataContract(Name = "CreateCustomDataModelRequest")]
+    public partial class CreateCustomDataModelRequest : IEquatable<CreateCustomDataModelRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertCustomDataModelRequest" /> class.
+        /// Initializes a new instance of the <see cref="CreateCustomDataModelRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UpsertCustomDataModelRequest() { }
+        protected CreateCustomDataModelRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertCustomDataModelRequest" /> class.
+        /// Initializes a new instance of the <see cref="CreateCustomDataModelRequest" /> class.
         /// </summary>
+        /// <param name="id">id (required).</param>
         /// <param name="displayName">The name of the Custom Data Model. (required).</param>
         /// <param name="description">A description for the Custom Data Model. (required).</param>
         /// <param name="parentDataModel">parentDataModel.</param>
@@ -44,18 +45,24 @@ namespace Lusid.Sdk.Model
         /// <param name="identifierTypes">The identifier types that are required or allowed on the bound entity..</param>
         /// <param name="attributeAliases">The aliases for property keys, identifier types, and fields on the bound entity..</param>
         /// <param name="recommendedSortBy">The preferred default sorting instructions..</param>
-        public UpsertCustomDataModelRequest(string displayName = default(string), string description = default(string), ResourceId parentDataModel = default(ResourceId), string conditions = default(string), List<CustomDataModelPropertySpecification> properties = default(List<CustomDataModelPropertySpecification>), List<CustomDataModelIdentifierTypeSpecification> identifierTypes = default(List<CustomDataModelIdentifierTypeSpecification>), List<Alias> attributeAliases = default(List<Alias>), List<RecommendedSortBy> recommendedSortBy = default(List<RecommendedSortBy>))
+        public CreateCustomDataModelRequest(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ResourceId parentDataModel = default(ResourceId), string conditions = default(string), List<CustomDataModelPropertySpecification> properties = default(List<CustomDataModelPropertySpecification>), List<CustomDataModelIdentifierTypeSpecification> identifierTypes = default(List<CustomDataModelIdentifierTypeSpecification>), List<Alias> attributeAliases = default(List<Alias>), List<RecommendedSortBy> recommendedSortBy = default(List<RecommendedSortBy>))
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for CreateCustomDataModelRequest and cannot be null");
+            }
+            this.Id = id;
             // to ensure "displayName" is required (not null)
             if (displayName == null)
             {
-                throw new ArgumentNullException("displayName is a required property for UpsertCustomDataModelRequest and cannot be null");
+                throw new ArgumentNullException("displayName is a required property for CreateCustomDataModelRequest and cannot be null");
             }
             this.DisplayName = displayName;
             // to ensure "description" is required (not null)
             if (description == null)
             {
-                throw new ArgumentNullException("description is a required property for UpsertCustomDataModelRequest and cannot be null");
+                throw new ArgumentNullException("description is a required property for CreateCustomDataModelRequest and cannot be null");
             }
             this.Description = description;
             this.ParentDataModel = parentDataModel;
@@ -65,6 +72,12 @@ namespace Lusid.Sdk.Model
             this.AttributeAliases = attributeAliases;
             this.RecommendedSortBy = recommendedSortBy;
         }
+
+        /// <summary>
+        /// Gets or Sets Id
+        /// </summary>
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public ResourceId Id { get; set; }
 
         /// <summary>
         /// The name of the Custom Data Model.
@@ -128,7 +141,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UpsertCustomDataModelRequest {\n");
+            sb.Append("class CreateCustomDataModelRequest {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ParentDataModel: ").Append(ParentDataModel).Append("\n");
@@ -157,21 +171,26 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpsertCustomDataModelRequest);
+            return this.Equals(input as CreateCustomDataModelRequest);
         }
 
         /// <summary>
-        /// Returns true if UpsertCustomDataModelRequest instances are equal
+        /// Returns true if CreateCustomDataModelRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpsertCustomDataModelRequest to be compared</param>
+        /// <param name="input">Instance of CreateCustomDataModelRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpsertCustomDataModelRequest input)
+        public bool Equals(CreateCustomDataModelRequest input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
                 (
                     this.DisplayName == input.DisplayName ||
                     (this.DisplayName != null &&
@@ -227,6 +246,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();

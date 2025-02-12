@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.UpsertCustomDataModelRequest
+# Lusid.Sdk.Model.UpdateCustomDataModelRequest
 
 ## Properties
 

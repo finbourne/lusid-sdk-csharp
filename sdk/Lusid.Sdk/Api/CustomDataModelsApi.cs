@@ -38,14 +38,12 @@ namespace Lusid.Sdk.Api
         /// Creates a Custom Data Model.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the specified Data Model.</param>
-        /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="createCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>CustomDataModel</returns>
-        CustomDataModel CreateCustomDataModel(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        CustomDataModel CreateCustomDataModel(string entityType, CreateCustomDataModelRequest? createCustomDataModelRequest = default(CreateCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model
@@ -54,14 +52,12 @@ namespace Lusid.Sdk.Api
         /// Creates a Custom Data Model.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the specified Data Model.</param>
-        /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="createCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomDataModel</returns>
-        Lusid.Sdk.Client.ApiResponse<CustomDataModel> CreateCustomDataModelWithHttpInfo(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<CustomDataModel> CreateCustomDataModelWithHttpInfo(string entityType, CreateCustomDataModelRequest? createCustomDataModelRequest = default(CreateCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
         /// </summary>
@@ -69,12 +65,13 @@ namespace Lusid.Sdk.Api
         /// Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteCustomDataModel(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        DeletedEntityResponse DeleteCustomDataModel(string entityType, string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
@@ -83,12 +80,13 @@ namespace Lusid.Sdk.Api
         /// Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCustomDataModelWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCustomDataModelWithHttpInfo(string entityType, string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model
         /// </summary>
@@ -96,13 +94,14 @@ namespace Lusid.Sdk.Api
         /// Retrieves a Custom Data Model at a given as at time.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>CustomDataModel</returns>
-        CustomDataModel GetCustomDataModel(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        CustomDataModel GetCustomDataModel(string entityType, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model
@@ -111,13 +110,14 @@ namespace Lusid.Sdk.Api
         /// Retrieves a Custom Data Model at a given as at time.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomDataModel</returns>
-        Lusid.Sdk.Client.ApiResponse<CustomDataModel> GetCustomDataModelWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<CustomDataModel> GetCustomDataModelWithHttpInfo(string entityType, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies.
         /// </summary>
@@ -175,14 +175,14 @@ namespace Lusid.Sdk.Api
         /// Updates a Custom Data Model.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="updateCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>CustomDataModel</returns>
-        CustomDataModel UpdateCustomDataModel(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        CustomDataModel UpdateCustomDataModel(string entityType, string scope, string code, UpdateCustomDataModelRequest? updateCustomDataModelRequest = default(UpdateCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateCustomDataModel: Update a Custom Data Model
@@ -191,14 +191,14 @@ namespace Lusid.Sdk.Api
         /// Updates a Custom Data Model.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="updateCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomDataModel</returns>
-        Lusid.Sdk.Client.ApiResponse<CustomDataModel> UpdateCustomDataModelWithHttpInfo(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<CustomDataModel> UpdateCustomDataModelWithHttpInfo(string entityType, string scope, string code, UpdateCustomDataModelRequest? updateCustomDataModelRequest = default(UpdateCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -215,15 +215,13 @@ namespace Lusid.Sdk.Api
         /// Creates a Custom Data Model.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the specified Data Model.</param>
-        /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="createCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomDataModel</returns>
-        System.Threading.Tasks.Task<CustomDataModel> CreateCustomDataModelAsync(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<CustomDataModel> CreateCustomDataModelAsync(string entityType, CreateCustomDataModelRequest? createCustomDataModelRequest = default(CreateCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model
@@ -232,15 +230,13 @@ namespace Lusid.Sdk.Api
         /// Creates a Custom Data Model.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the specified Data Model.</param>
-        /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="createCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomDataModel)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomDataModel>> CreateCustomDataModelWithHttpInfoAsync(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomDataModel>> CreateCustomDataModelWithHttpInfoAsync(string entityType, CreateCustomDataModelRequest? createCustomDataModelRequest = default(CreateCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
         /// </summary>
@@ -248,13 +244,14 @@ namespace Lusid.Sdk.Api
         /// Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCustomDataModelAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCustomDataModelAsync(string entityType, string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
@@ -263,13 +260,14 @@ namespace Lusid.Sdk.Api
         /// Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCustomDataModelWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCustomDataModelWithHttpInfoAsync(string entityType, string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model
         /// </summary>
@@ -277,6 +275,7 @@ namespace Lusid.Sdk.Api
         /// Retrieves a Custom Data Model at a given as at time.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
@@ -284,7 +283,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomDataModel</returns>
-        System.Threading.Tasks.Task<CustomDataModel> GetCustomDataModelAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<CustomDataModel> GetCustomDataModelAsync(string entityType, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model
@@ -293,6 +292,7 @@ namespace Lusid.Sdk.Api
         /// Retrieves a Custom Data Model at a given as at time.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
@@ -300,7 +300,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomDataModel)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomDataModel>> GetCustomDataModelWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomDataModel>> GetCustomDataModelWithHttpInfoAsync(string entityType, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies.
         /// </summary>
@@ -362,15 +362,15 @@ namespace Lusid.Sdk.Api
         /// Updates a Custom Data Model.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="updateCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomDataModel</returns>
-        System.Threading.Tasks.Task<CustomDataModel> UpdateCustomDataModelAsync(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<CustomDataModel> UpdateCustomDataModelAsync(string entityType, string scope, string code, UpdateCustomDataModelRequest? updateCustomDataModelRequest = default(UpdateCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateCustomDataModel: Update a Custom Data Model
@@ -379,15 +379,15 @@ namespace Lusid.Sdk.Api
         /// Updates a Custom Data Model.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="updateCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomDataModel)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomDataModel>> UpdateCustomDataModelWithHttpInfoAsync(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomDataModel>> UpdateCustomDataModelWithHttpInfoAsync(string entityType, string scope, string code, UpdateCustomDataModelRequest? updateCustomDataModelRequest = default(UpdateCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -515,16 +515,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model Creates a Custom Data Model.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the specified Data Model.</param>
-        /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="createCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>CustomDataModel</returns>
-        public CustomDataModel CreateCustomDataModel(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public CustomDataModel CreateCustomDataModel(string entityType, CreateCustomDataModelRequest? createCustomDataModelRequest = default(CreateCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomDataModel> localVarResponse = CreateCustomDataModelWithHttpInfo(scope, code, entityType, upsertCustomDataModelRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<CustomDataModel> localVarResponse = CreateCustomDataModelWithHttpInfo(entityType, createCustomDataModelRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -532,27 +530,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model Creates a Custom Data Model.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the specified Data Model.</param>
-        /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="createCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomDataModel</returns>
-        public Lusid.Sdk.Client.ApiResponse<CustomDataModel> CreateCustomDataModelWithHttpInfo(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<CustomDataModel> CreateCustomDataModelWithHttpInfo(string entityType, CreateCustomDataModelRequest? createCustomDataModelRequest = default(CreateCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling CustomDataModelsApi->CreateCustomDataModel");
-            }
-
-            // verify the required parameter 'code' is set
-            if (code == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling CustomDataModelsApi->CreateCustomDataModel");
-            }
-
             // verify the required parameter 'entityType' is set
             if (entityType == null)
             {
@@ -597,10 +581,8 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
-            localVarRequestOptions.Data = upsertCustomDataModelRequest;
+            localVarRequestOptions.Data = createCustomDataModelRequest;
 
             localVarRequestOptions.Operation = "CustomDataModelsApi.CreateCustomDataModel";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -623,7 +605,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<CustomDataModel>("/api/datamodel/{entityType}/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<CustomDataModel>("/api/datamodel/{entityType}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateCustomDataModel", localVarResponse);
@@ -640,17 +622,15 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model Creates a Custom Data Model.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the specified Data Model.</param>
-        /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="createCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomDataModel</returns>
-        public async System.Threading.Tasks.Task<CustomDataModel> CreateCustomDataModelAsync(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<CustomDataModel> CreateCustomDataModelAsync(string entityType, CreateCustomDataModelRequest? createCustomDataModelRequest = default(CreateCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomDataModel> localVarResponse = await CreateCustomDataModelWithHttpInfoAsync(scope, code, entityType, upsertCustomDataModelRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CustomDataModel> localVarResponse = await CreateCustomDataModelWithHttpInfoAsync(entityType, createCustomDataModelRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -658,28 +638,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model Creates a Custom Data Model.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the specified Data Model.</param>
-        /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="createCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomDataModel)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomDataModel>> CreateCustomDataModelWithHttpInfoAsync(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomDataModel>> CreateCustomDataModelWithHttpInfoAsync(string entityType, CreateCustomDataModelRequest? createCustomDataModelRequest = default(CreateCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling CustomDataModelsApi->CreateCustomDataModel");
-            }
-
-            // verify the required parameter 'code' is set
-            if (code == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling CustomDataModelsApi->CreateCustomDataModel");
-            }
-
             // verify the required parameter 'entityType' is set
             if (entityType == null)
             {
@@ -725,10 +691,8 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
-            localVarRequestOptions.Data = upsertCustomDataModelRequest;
+            localVarRequestOptions.Data = createCustomDataModelRequest;
 
             localVarRequestOptions.Operation = "CustomDataModelsApi.CreateCustomDataModel";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -751,7 +715,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<CustomDataModel>("/api/datamodel/{entityType}/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CustomDataModel>("/api/datamodel/{entityType}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -769,14 +733,15 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteCustomDataModel(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public DeletedEntityResponse DeleteCustomDataModel(string entityType, string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteCustomDataModelWithHttpInfo(scope, code, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteCustomDataModelWithHttpInfo(entityType, scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -784,13 +749,20 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCustomDataModelWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCustomDataModelWithHttpInfo(string entityType, string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'entityType' is set
+            if (entityType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityType' when calling CustomDataModelsApi->DeleteCustomDataModel");
+            }
+
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
@@ -837,6 +809,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
 
@@ -861,7 +834,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/datamodel/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/datamodel/{entityType}/{scope}/{code}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteCustomDataModel", localVarResponse);
@@ -878,15 +851,16 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCustomDataModelAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCustomDataModelAsync(string entityType, string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteCustomDataModelWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteCustomDataModelWithHttpInfoAsync(entityType, scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -894,14 +868,21 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCustomDataModelWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCustomDataModelWithHttpInfoAsync(string entityType, string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'entityType' is set
+            if (entityType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityType' when calling CustomDataModelsApi->DeleteCustomDataModel");
+            }
+
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
@@ -949,6 +930,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
 
@@ -973,7 +955,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/datamodel/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/datamodel/{entityType}/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -991,15 +973,16 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model Retrieves a Custom Data Model at a given as at time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>CustomDataModel</returns>
-        public CustomDataModel GetCustomDataModel(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public CustomDataModel GetCustomDataModel(string entityType, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomDataModel> localVarResponse = GetCustomDataModelWithHttpInfo(scope, code, asAt, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<CustomDataModel> localVarResponse = GetCustomDataModelWithHttpInfo(entityType, scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1007,14 +990,21 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model Retrieves a Custom Data Model at a given as at time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomDataModel</returns>
-        public Lusid.Sdk.Client.ApiResponse<CustomDataModel> GetCustomDataModelWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<CustomDataModel> GetCustomDataModelWithHttpInfo(string entityType, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'entityType' is set
+            if (entityType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityType' when calling CustomDataModelsApi->GetCustomDataModel");
+            }
+
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
@@ -1061,6 +1051,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             if (asAt != null)
@@ -1089,7 +1080,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<CustomDataModel>("/api/datamodel/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<CustomDataModel>("/api/datamodel/{entityType}/{scope}/{code}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCustomDataModel", localVarResponse);
@@ -1106,6 +1097,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model Retrieves a Custom Data Model at a given as at time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
@@ -1113,9 +1105,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomDataModel</returns>
-        public async System.Threading.Tasks.Task<CustomDataModel> GetCustomDataModelAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<CustomDataModel> GetCustomDataModelAsync(string entityType, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomDataModel> localVarResponse = await GetCustomDataModelWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CustomDataModel> localVarResponse = await GetCustomDataModelWithHttpInfoAsync(entityType, scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1123,6 +1115,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model Retrieves a Custom Data Model at a given as at time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
@@ -1130,8 +1123,14 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomDataModel)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomDataModel>> GetCustomDataModelWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomDataModel>> GetCustomDataModelWithHttpInfoAsync(string entityType, string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'entityType' is set
+            if (entityType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityType' when calling CustomDataModelsApi->GetCustomDataModel");
+            }
+
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
@@ -1179,6 +1178,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             if (asAt != null)
@@ -1207,7 +1207,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CustomDataModel>("/api/datamodel/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CustomDataModel>("/api/datamodel/{entityType}/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1621,16 +1621,16 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateCustomDataModel: Update a Custom Data Model Updates a Custom Data Model.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="updateCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>CustomDataModel</returns>
-        public CustomDataModel UpdateCustomDataModel(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public CustomDataModel UpdateCustomDataModel(string entityType, string scope, string code, UpdateCustomDataModelRequest? updateCustomDataModelRequest = default(UpdateCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomDataModel> localVarResponse = UpdateCustomDataModelWithHttpInfo(scope, code, entityType, upsertCustomDataModelRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<CustomDataModel> localVarResponse = UpdateCustomDataModelWithHttpInfo(entityType, scope, code, updateCustomDataModelRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1638,15 +1638,21 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateCustomDataModel: Update a Custom Data Model Updates a Custom Data Model.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="updateCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomDataModel</returns>
-        public Lusid.Sdk.Client.ApiResponse<CustomDataModel> UpdateCustomDataModelWithHttpInfo(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<CustomDataModel> UpdateCustomDataModelWithHttpInfo(string entityType, string scope, string code, UpdateCustomDataModelRequest? updateCustomDataModelRequest = default(UpdateCustomDataModelRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'entityType' is set
+            if (entityType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityType' when calling CustomDataModelsApi->UpdateCustomDataModel");
+            }
+
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
@@ -1657,12 +1663,6 @@ namespace Lusid.Sdk.Api
             if (code == null)
             {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling CustomDataModelsApi->UpdateCustomDataModel");
-            }
-
-            // verify the required parameter 'entityType' is set
-            if (entityType == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityType' when calling CustomDataModelsApi->UpdateCustomDataModel");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1703,10 +1703,10 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
-            localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
-            localVarRequestOptions.Data = upsertCustomDataModelRequest;
+            localVarRequestOptions.Data = updateCustomDataModelRequest;
 
             localVarRequestOptions.Operation = "CustomDataModelsApi.UpdateCustomDataModel";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1746,17 +1746,17 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateCustomDataModel: Update a Custom Data Model Updates a Custom Data Model.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="updateCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomDataModel</returns>
-        public async System.Threading.Tasks.Task<CustomDataModel> UpdateCustomDataModelAsync(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<CustomDataModel> UpdateCustomDataModelAsync(string entityType, string scope, string code, UpdateCustomDataModelRequest? updateCustomDataModelRequest = default(UpdateCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomDataModel> localVarResponse = await UpdateCustomDataModelWithHttpInfoAsync(scope, code, entityType, upsertCustomDataModelRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CustomDataModel> localVarResponse = await UpdateCustomDataModelWithHttpInfoAsync(entityType, scope, code, updateCustomDataModelRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1764,16 +1764,22 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateCustomDataModel: Update a Custom Data Model Updates a Custom Data Model.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="entityType">The entity type of the Data Model.</param>
-        /// <param name="upsertCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
+        /// <param name="updateCustomDataModelRequest">The request containing the details of the Data Model. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomDataModel)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomDataModel>> UpdateCustomDataModelWithHttpInfoAsync(string scope, string code, string entityType, UpsertCustomDataModelRequest? upsertCustomDataModelRequest = default(UpsertCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomDataModel>> UpdateCustomDataModelWithHttpInfoAsync(string entityType, string scope, string code, UpdateCustomDataModelRequest? updateCustomDataModelRequest = default(UpdateCustomDataModelRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'entityType' is set
+            if (entityType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityType' when calling CustomDataModelsApi->UpdateCustomDataModel");
+            }
+
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
@@ -1784,12 +1790,6 @@ namespace Lusid.Sdk.Api
             if (code == null)
             {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling CustomDataModelsApi->UpdateCustomDataModel");
-            }
-
-            // verify the required parameter 'entityType' is set
-            if (entityType == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityType' when calling CustomDataModelsApi->UpdateCustomDataModel");
             }
 
 
@@ -1831,10 +1831,10 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
-            localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
-            localVarRequestOptions.Data = upsertCustomDataModelRequest;
+            localVarRequestOptions.Data = updateCustomDataModelRequest;
 
             localVarRequestOptions.Operation = "CustomDataModelsApi.UpdateCustomDataModel";
             localVarRequestOptions.OperationIndex = operationIndex;
