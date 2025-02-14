@@ -369,7 +369,13 @@ namespace Lusid.Sdk.Model
         /// Enum DepositInterestPaymentEvent for value: DepositInterestPaymentEvent
         /// </summary>
         [EnumMember(Value = "DepositInterestPaymentEvent")]
-        DepositInterestPaymentEvent = 57
+        DepositInterestPaymentEvent = 57,
+
+        /// <summary>
+        /// Enum DepositCloseEvent for value: DepositCloseEvent
+        /// </summary>
+        [EnumMember(Value = "DepositCloseEvent")]
+        DepositCloseEvent = 58
     }
 
 }

@@ -24,33 +24,33 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The opening of an instrument.
+    /// Event to trigger the termination of a deposit.
     /// </summary>
-    [DataContract(Name = "OpenEvent")]
+    [DataContract(Name = "DepositCloseEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class OpenEvent : InstrumentEvent, IEquatable<OpenEvent>, IValidatableObject
+    public partial class DepositCloseEvent : InstrumentEvent, IEquatable<DepositCloseEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpenEvent" /> class.
+        /// Initializes a new instance of the <see cref="DepositCloseEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected OpenEvent() { }
+        protected DepositCloseEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpenEvent" /> class.
+        /// Initializes a new instance of the <see cref="DepositCloseEvent" /> class.
         /// </summary>
-        /// <param name="anchorDate">The date on the which the instrument was opened..</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent (required) (default to &quot;OpenEvent&quot;).</param>
-        public OpenEvent(DateTimeOffset anchorDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="effectiveDate">Date on which the deposit is terminated. (required).</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent (required) (default to &quot;DepositCloseEvent&quot;).</param>
+        public DepositCloseEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.AnchorDate = anchorDate;
+            this.EffectiveDate = effectiveDate;
         }
 
         /// <summary>
-        /// The date on the which the instrument was opened.
+        /// Date on which the deposit is terminated.
         /// </summary>
-        /// <value>The date on the which the instrument was opened.</value>
-        [DataMember(Name = "anchorDate", EmitDefaultValue = false)]
-        public DateTimeOffset AnchorDate { get; set; }
+        /// <value>Date on which the deposit is terminated.</value>
+        [DataMember(Name = "effectiveDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset EffectiveDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -59,9 +59,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class OpenEvent {\n");
+            sb.Append("class DepositCloseEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  AnchorDate: ").Append(AnchorDate).Append("\n");
+            sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +82,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OpenEvent);
+            return this.Equals(input as DepositCloseEvent);
         }
 
         /// <summary>
-        /// Returns true if OpenEvent instances are equal
+        /// Returns true if DepositCloseEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of OpenEvent to be compared</param>
+        /// <param name="input">Instance of DepositCloseEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OpenEvent input)
+        public bool Equals(DepositCloseEvent input)
         {
             if (input == null)
             {
@@ -98,9 +98,9 @@ namespace Lusid.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.AnchorDate == input.AnchorDate ||
-                    (this.AnchorDate != null &&
-                    this.AnchorDate.Equals(input.AnchorDate))
+                    this.EffectiveDate == input.EffectiveDate ||
+                    (this.EffectiveDate != null &&
+                    this.EffectiveDate.Equals(input.EffectiveDate))
                 );
         }
 
@@ -113,9 +113,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.AnchorDate != null)
+                if (this.EffectiveDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.AnchorDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.EffectiveDate.GetHashCode();
                 }
                 return hashCode;
             }
