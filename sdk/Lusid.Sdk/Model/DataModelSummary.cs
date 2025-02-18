@@ -36,47 +36,72 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DataModelSummary" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="displayName">The name of the Custom Data Model..</param>
-        /// <param name="description">A description for the Custom Data Model..</param>
+        /// <param name="id">id (required).</param>
+        /// <param name="displayName">The name of the Custom Data Model. (required).</param>
+        /// <param name="description">A description for the Custom Data Model. (required).</param>
         /// <param name="entityType">The entity type that the Custom Data Model binds to. (required).</param>
-        /// <param name="type">Either Root or Leaf or Intermediate..</param>
-        /// <param name="precedence">Where in the hierarchy this model sits..</param>
-        /// <param name="children">Child Custom Data Models that will inherit from this data model..</param>
+        /// <param name="type">Either Root or Leaf or Intermediate. (required).</param>
+        /// <param name="precedence">Where in the hierarchy this model sits. (required).</param>
+        /// <param name="children">Child Custom Data Models that will inherit from this data model. (required).</param>
         public DataModelSummary(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string entityType = default(string), string type = default(string), int precedence = default(int), List<DataModelSummary> children = default(List<DataModelSummary>))
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for DataModelSummary and cannot be null");
+            }
+            this.Id = id;
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
+            {
+                throw new ArgumentNullException("displayName is a required property for DataModelSummary and cannot be null");
+            }
+            this.DisplayName = displayName;
+            // to ensure "description" is required (not null)
+            if (description == null)
+            {
+                throw new ArgumentNullException("description is a required property for DataModelSummary and cannot be null");
+            }
+            this.Description = description;
             // to ensure "entityType" is required (not null)
             if (entityType == null)
             {
                 throw new ArgumentNullException("entityType is a required property for DataModelSummary and cannot be null");
             }
             this.EntityType = entityType;
-            this.Id = id;
-            this.DisplayName = displayName;
-            this.Description = description;
+            // to ensure "type" is required (not null)
+            if (type == null)
+            {
+                throw new ArgumentNullException("type is a required property for DataModelSummary and cannot be null");
+            }
             this.Type = type;
             this.Precedence = precedence;
+            // to ensure "children" is required (not null)
+            if (children == null)
+            {
+                throw new ArgumentNullException("children is a required property for DataModelSummary and cannot be null");
+            }
             this.Children = children;
         }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public ResourceId Id { get; set; }
 
         /// <summary>
         /// The name of the Custom Data Model.
         /// </summary>
         /// <value>The name of the Custom Data Model.</value>
-        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// A description for the Custom Data Model.
         /// </summary>
         /// <value>A description for the Custom Data Model.</value>
-        [DataMember(Name = "description", EmitDefaultValue = true)]
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
@@ -90,21 +115,21 @@ namespace Lusid.Sdk.Model
         /// Either Root or Leaf or Intermediate.
         /// </summary>
         /// <value>Either Root or Leaf or Intermediate.</value>
-        [DataMember(Name = "type", EmitDefaultValue = true)]
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Where in the hierarchy this model sits.
         /// </summary>
         /// <value>Where in the hierarchy this model sits.</value>
-        [DataMember(Name = "precedence", EmitDefaultValue = true)]
+        [DataMember(Name = "precedence", IsRequired = true, EmitDefaultValue = true)]
         public int Precedence { get; set; }
 
         /// <summary>
         /// Child Custom Data Models that will inherit from this data model.
         /// </summary>
         /// <value>Child Custom Data Models that will inherit from this data model.</value>
-        [DataMember(Name = "children", EmitDefaultValue = true)]
+        [DataMember(Name = "children", IsRequired = true, EmitDefaultValue = true)]
         public List<DataModelSummary> Children { get; set; }
 
         /// <summary>
@@ -239,10 +264,28 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+            }
+
+            // Description (string) minLength
+            if (this.Description != null && this.Description.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
+            }
+
             // EntityType (string) minLength
             if (this.EntityType != null && this.EntityType.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityType, length must be greater than 1.", new [] { "EntityType" });
+            }
+
+            // Type (string) minLength
+            if (this.Type != null && this.Type.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
 
             yield break;
