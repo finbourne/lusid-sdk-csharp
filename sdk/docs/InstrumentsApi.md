@@ -28,7 +28,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 <a id="batchupsertinstrumentproperties"></a>
 # **BatchUpsertInstrumentProperties**
-> BatchUpsertInstrumentPropertiesResponse BatchUpsertInstrumentProperties (Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = null, DateTimeOrCutLabel? identifierEffectiveAt = null, string? successMode = null)
+> BatchUpsertInstrumentPropertiesResponse BatchUpsertInstrumentProperties (Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = null, DateTimeOrCutLabel? identifierEffectiveAt = null, string? successMode = null, string? dataModelScope = null, string? dataModelCode = null)
 
 BatchUpsertInstrumentProperties: Batch upsert instruments properties
 
@@ -77,14 +77,16 @@ namespace Examples
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
             var identifierEffectiveAt = "identifierEffectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional) 
             var successMode = "\"Partial\"";  // string? | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional)  (default to "Partial")
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Hierarchical Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Hierarchical Data Model to use (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // BatchUpsertInstrumentPropertiesResponse result = apiInstance.BatchUpsertInstrumentProperties(requestBody, scope, identifierEffectiveAt, successMode, opts: opts);
+                // BatchUpsertInstrumentPropertiesResponse result = apiInstance.BatchUpsertInstrumentProperties(requestBody, scope, identifierEffectiveAt, successMode, dataModelScope, dataModelCode, opts: opts);
 
                 // BatchUpsertInstrumentProperties: Batch upsert instruments properties
-                BatchUpsertInstrumentPropertiesResponse result = apiInstance.BatchUpsertInstrumentProperties(requestBody, scope, identifierEffectiveAt, successMode);
+                BatchUpsertInstrumentPropertiesResponse result = apiInstance.BatchUpsertInstrumentProperties(requestBody, scope, identifierEffectiveAt, successMode, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -105,7 +107,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // BatchUpsertInstrumentProperties: Batch upsert instruments properties
-    ApiResponse<BatchUpsertInstrumentPropertiesResponse> response = apiInstance.BatchUpsertInstrumentPropertiesWithHttpInfo(requestBody, scope, identifierEffectiveAt, successMode);
+    ApiResponse<BatchUpsertInstrumentPropertiesResponse> response = apiInstance.BatchUpsertInstrumentPropertiesWithHttpInfo(requestBody, scope, identifierEffectiveAt, successMode, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -126,6 +128,8 @@ catch (ApiException e)
 | **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 | **identifierEffectiveAt** | **DateTimeOrCutLabel?** | The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **successMode** | **string?** | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. | [optional] [default to &quot;Partial&quot;] |
+| **dataModelScope** | **string?** | The optional scope of a Hierarchical Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Hierarchical Data Model to use | [optional]  |
 
 ### Return type
 
@@ -388,7 +392,7 @@ catch (ApiException e)
 
 <a id="deleteinstrumentproperties"></a>
 # **DeleteInstrumentProperties**
-> DeleteInstrumentPropertiesResponse DeleteInstrumentProperties (string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = null, string? scope = null)
+> DeleteInstrumentPropertiesResponse DeleteInstrumentProperties (string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = null, string? scope = null, string? dataModelScope = null, string? dataModelCode = null)
 
 [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
 
@@ -438,14 +442,16 @@ namespace Examples
             var requestBody = new List<string>(); // List<string> | A list of property keys from the 'Instruments' domain whose properties to delete.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional) 
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Hierarchical Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Hierarchical Data Model to use (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DeleteInstrumentPropertiesResponse result = apiInstance.DeleteInstrumentProperties(identifierType, identifier, requestBody, effectiveAt, scope, opts: opts);
+                // DeleteInstrumentPropertiesResponse result = apiInstance.DeleteInstrumentProperties(identifierType, identifier, requestBody, effectiveAt, scope, dataModelScope, dataModelCode, opts: opts);
 
                 // [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
-                DeleteInstrumentPropertiesResponse result = apiInstance.DeleteInstrumentProperties(identifierType, identifier, requestBody, effectiveAt, scope);
+                DeleteInstrumentPropertiesResponse result = apiInstance.DeleteInstrumentProperties(identifierType, identifier, requestBody, effectiveAt, scope, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -466,7 +472,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
-    ApiResponse<DeleteInstrumentPropertiesResponse> response = apiInstance.DeleteInstrumentPropertiesWithHttpInfo(identifierType, identifier, requestBody, effectiveAt, scope);
+    ApiResponse<DeleteInstrumentPropertiesResponse> response = apiInstance.DeleteInstrumentPropertiesWithHttpInfo(identifierType, identifier, requestBody, effectiveAt, scope, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -488,6 +494,8 @@ catch (ApiException e)
 | **requestBody** | [**List&lt;string&gt;**](string.md) | A list of property keys from the &#39;Instruments&#39; domain whose properties to delete. |  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. | [optional]  |
 | **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **dataModelScope** | **string?** | The optional scope of a Hierarchical Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Hierarchical Data Model to use | [optional]  |
 
 ### Return type
 
@@ -2232,7 +2240,7 @@ catch (ApiException e)
 
 <a id="updateinstrumentidentifier"></a>
 # **UpdateInstrumentIdentifier**
-> Instrument UpdateInstrumentIdentifier (string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string? scope = null)
+> Instrument UpdateInstrumentIdentifier (string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string? scope = null, string? dataModelScope = null, string? dataModelCode = null)
 
 UpdateInstrumentIdentifier: Update instrument identifier
 
@@ -2281,14 +2289,16 @@ namespace Examples
             var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
             var updateInstrumentIdentifierRequest = new UpdateInstrumentIdentifierRequest(); // UpdateInstrumentIdentifierRequest | The identifier to update or delete. This need not be the same value as the               'identifier' parameter used to retrieve the instrument.
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Hierarchical Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Hierarchical Data Model to use (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Instrument result = apiInstance.UpdateInstrumentIdentifier(identifierType, identifier, updateInstrumentIdentifierRequest, scope, opts: opts);
+                // Instrument result = apiInstance.UpdateInstrumentIdentifier(identifierType, identifier, updateInstrumentIdentifierRequest, scope, dataModelScope, dataModelCode, opts: opts);
 
                 // UpdateInstrumentIdentifier: Update instrument identifier
-                Instrument result = apiInstance.UpdateInstrumentIdentifier(identifierType, identifier, updateInstrumentIdentifierRequest, scope);
+                Instrument result = apiInstance.UpdateInstrumentIdentifier(identifierType, identifier, updateInstrumentIdentifierRequest, scope, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2309,7 +2319,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // UpdateInstrumentIdentifier: Update instrument identifier
-    ApiResponse<Instrument> response = apiInstance.UpdateInstrumentIdentifierWithHttpInfo(identifierType, identifier, updateInstrumentIdentifierRequest, scope);
+    ApiResponse<Instrument> response = apiInstance.UpdateInstrumentIdentifierWithHttpInfo(identifierType, identifier, updateInstrumentIdentifierRequest, scope, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2330,6 +2340,8 @@ catch (ApiException e)
 | **identifier** | **string** | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. |  |
 | **updateInstrumentIdentifierRequest** | [**UpdateInstrumentIdentifierRequest**](UpdateInstrumentIdentifierRequest.md) | The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument. |  |
 | **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **dataModelScope** | **string?** | The optional scope of a Hierarchical Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Hierarchical Data Model to use | [optional]  |
 
 ### Return type
 
@@ -2472,7 +2484,7 @@ catch (ApiException e)
 
 <a id="upsertinstrumentsproperties"></a>
 # **UpsertInstrumentsProperties**
-> UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties (List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string? scope = null)
+> UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties (List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string? scope = null, string? dataModelScope = null, string? dataModelCode = null)
 
 UpsertInstrumentsProperties: Upsert instruments properties
 
@@ -2519,14 +2531,16 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var upsertInstrumentPropertyRequest = new List<UpsertInstrumentPropertyRequest>(); // List<UpsertInstrumentPropertyRequest> | A list of instruments and associated instrument properties to create or update.
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Hierarchical Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Hierarchical Data Model to use (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // UpsertInstrumentPropertiesResponse result = apiInstance.UpsertInstrumentsProperties(upsertInstrumentPropertyRequest, scope, opts: opts);
+                // UpsertInstrumentPropertiesResponse result = apiInstance.UpsertInstrumentsProperties(upsertInstrumentPropertyRequest, scope, dataModelScope, dataModelCode, opts: opts);
 
                 // UpsertInstrumentsProperties: Upsert instruments properties
-                UpsertInstrumentPropertiesResponse result = apiInstance.UpsertInstrumentsProperties(upsertInstrumentPropertyRequest, scope);
+                UpsertInstrumentPropertiesResponse result = apiInstance.UpsertInstrumentsProperties(upsertInstrumentPropertyRequest, scope, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2547,7 +2561,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // UpsertInstrumentsProperties: Upsert instruments properties
-    ApiResponse<UpsertInstrumentPropertiesResponse> response = apiInstance.UpsertInstrumentsPropertiesWithHttpInfo(upsertInstrumentPropertyRequest, scope);
+    ApiResponse<UpsertInstrumentPropertiesResponse> response = apiInstance.UpsertInstrumentsPropertiesWithHttpInfo(upsertInstrumentPropertyRequest, scope, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2566,6 +2580,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **upsertInstrumentPropertyRequest** | [**List&lt;UpsertInstrumentPropertyRequest&gt;**](UpsertInstrumentPropertyRequest.md) | A list of instruments and associated instrument properties to create or update. |  |
 | **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **dataModelScope** | **string?** | The optional scope of a Hierarchical Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Hierarchical Data Model to use | [optional]  |
 
 ### Return type
 

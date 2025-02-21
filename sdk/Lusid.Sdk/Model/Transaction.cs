@@ -94,7 +94,8 @@ namespace Lusid.Sdk.Model
         /// <param name="transactionGroupId">The identifier for grouping economic events across multiple transactions.</param>
         /// <param name="strategyTag">A list of strategies representing the allocation of units across multiple sub-holding keys.</param>
         /// <param name="resolvedTransactionTypeDetails">resolvedTransactionTypeDetails.</param>
-        public Transaction(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), DateTimeOffset entryDateTime = default(DateTimeOffset), OtcConfirmation otcConfirmation = default(OtcConfirmation), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), List<Strategy> strategyTag = default(List<Strategy>), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails))
+        /// <param name="dataModelMembership">dataModelMembership.</param>
+        public Transaction(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), DateTimeOffset entryDateTime = default(DateTimeOffset), OtcConfirmation otcConfirmation = default(OtcConfirmation), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), List<Strategy> strategyTag = default(List<Strategy>), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), DataModelMembership dataModelMembership = default(DataModelMembership))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -141,6 +142,7 @@ namespace Lusid.Sdk.Model
             this.TransactionGroupId = transactionGroupId;
             this.StrategyTag = strategyTag;
             this.ResolvedTransactionTypeDetails = resolvedTransactionTypeDetails;
+            this.DataModelMembership = dataModelMembership;
         }
 
         /// <summary>
@@ -305,6 +307,12 @@ namespace Lusid.Sdk.Model
         public TransactionTypeDetails ResolvedTransactionTypeDetails { get; set; }
 
         /// <summary>
+        /// Gets or Sets DataModelMembership
+        /// </summary>
+        [DataMember(Name = "dataModelMembership", EmitDefaultValue = false)]
+        public DataModelMembership DataModelMembership { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -337,6 +345,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TransactionGroupId: ").Append(TransactionGroupId).Append("\n");
             sb.Append("  StrategyTag: ").Append(StrategyTag).Append("\n");
             sb.Append("  ResolvedTransactionTypeDetails: ").Append(ResolvedTransactionTypeDetails).Append("\n");
+            sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -497,6 +506,11 @@ namespace Lusid.Sdk.Model
                     this.ResolvedTransactionTypeDetails == input.ResolvedTransactionTypeDetails ||
                     (this.ResolvedTransactionTypeDetails != null &&
                     this.ResolvedTransactionTypeDetails.Equals(input.ResolvedTransactionTypeDetails))
+                ) && 
+                (
+                    this.DataModelMembership == input.DataModelMembership ||
+                    (this.DataModelMembership != null &&
+                    this.DataModelMembership.Equals(input.DataModelMembership))
                 );
         }
 
@@ -602,6 +616,10 @@ namespace Lusid.Sdk.Model
                 if (this.ResolvedTransactionTypeDetails != null)
                 {
                     hashCode = (hashCode * 59) + this.ResolvedTransactionTypeDetails.GetHashCode();
+                }
+                if (this.DataModelMembership != null)
+                {
+                    hashCode = (hashCode * 59) + this.DataModelMembership.GetHashCode();
                 }
                 return hashCode;
             }
