@@ -47,6 +47,7 @@ namespace Lusid.Sdk.Model
         /// The face value to round against.  The number to be rounded is scaled to this face value before being rounded, and then re-scaled to the holding amount.  For example if rounding an accrued interest value using a FaceValue of 1,000, but 10,000 units are held,  then the initial calculated value would be divided by 10,000, then multiplied by 1,000 and rounded per the convention.  The result of this would then be divided by 1,000 and multiplied by 10,000 to get the final value.
         /// </summary>
         /// <value>The face value to round against.  The number to be rounded is scaled to this face value before being rounded, and then re-scaled to the holding amount.  For example if rounding an accrued interest value using a FaceValue of 1,000, but 10,000 units are held,  then the initial calculated value would be divided by 10,000, then multiplied by 1,000 and rounded per the convention.  The result of this would then be divided by 1,000 and multiplied by 10,000 to get the final value.</value>
+        /// <example>100</example>
         [DataMember(Name = "faceValue", EmitDefaultValue = true)]
         public decimal FaceValue { get; set; }
 
@@ -54,6 +55,7 @@ namespace Lusid.Sdk.Model
         /// The precision of the rounding.  The decimal places to which the rounding takes place.
         /// </summary>
         /// <value>The precision of the rounding.  The decimal places to which the rounding takes place.</value>
+        /// <example>6</example>
         [DataMember(Name = "precision", EmitDefaultValue = true)]
         public int Precision { get; set; }
 
