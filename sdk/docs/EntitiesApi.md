@@ -6,7 +6,7 @@ All URIs are relative to *https://www.lusid.com/api*
 |--------|--------------|-------------|
 | [**GetCustomEntityByEntityUniqueId**](EntitiesApi.md#getcustomentitybyentityuniqueid) | **GET** /api/entities/customentities/{entityUniqueId} | [EXPERIMENTAL] GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId |
 | [**GetDataTypeByEntityUniqueId**](EntitiesApi.md#getdatatypebyentityuniqueid) | **GET** /api/entities/datatypes/{entityUniqueId} | [EXPERIMENTAL] GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId |
-| [**GetEntityHistory**](EntitiesApi.md#getentityhistory) | **GET** /api/entities/{entityType}/{entityUniqueId}/history | [EXPERIMENTAL] GetEntityHistory: List an entity&#39;s history information |
+| [**GetEntityHistory**](EntitiesApi.md#getentityhistory) | **GET** /api/entities/{entityType}/{entityUniqueId}/history | [EARLY ACCESS] GetEntityHistory: List an entity&#39;s history information |
 | [**GetInstrumentByEntityUniqueId**](EntitiesApi.md#getinstrumentbyentityuniqueid) | **GET** /api/entities/instruments/{entityUniqueId} | [EXPERIMENTAL] GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId |
 | [**GetPortfolioByEntityUniqueId**](EntitiesApi.md#getportfoliobyentityuniqueid) | **GET** /api/entities/portfolios/{entityUniqueId} | [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId |
 | [**GetPortfolioChanges**](EntitiesApi.md#getportfoliochanges) | **GET** /api/entities/changes/portfolios | GetPortfolioChanges: Get the next change to each portfolio in a scope. |
@@ -254,7 +254,7 @@ catch (ApiException e)
 # **GetEntityHistory**
 > ResourceListOfChangeInterval GetEntityHistory (string entityType, string entityUniqueId, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
 
-[EXPERIMENTAL] GetEntityHistory: List an entity's history information
+[EARLY ACCESS] GetEntityHistory: List an entity's history information
 
 Retrieve a page of an entity's change history up to a particular point in AsAt time.
 
@@ -310,7 +310,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfChangeInterval result = apiInstance.GetEntityHistory(entityType, entityUniqueId, asAt, page, limit, filter, sortBy, opts: opts);
 
-                // [EXPERIMENTAL] GetEntityHistory: List an entity's history information
+                // [EARLY ACCESS] GetEntityHistory: List an entity's history information
                 ResourceListOfChangeInterval result = apiInstance.GetEntityHistory(entityType, entityUniqueId, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -331,7 +331,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetEntityHistory: List an entity's history information
+    // [EARLY ACCESS] GetEntityHistory: List an entity's history information
     ApiResponse<ResourceListOfChangeInterval> response = apiInstance.GetEntityHistoryWithHttpInfo(entityType, entityUniqueId, asAt, page, limit, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

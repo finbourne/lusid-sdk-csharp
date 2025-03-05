@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DataTypeEntity</returns>
         Lusid.Sdk.Client.ApiResponse<DataTypeEntity> GetDataTypeByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetEntityHistory: List an entity&#39;s history information
+        /// [EARLY ACCESS] GetEntityHistory: List an entity&#39;s history information
         /// </summary>
         /// <remarks>
         /// Retrieve a page of an entity&#39;s change history up to a particular point in AsAt time.
@@ -111,7 +111,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfChangeInterval GetEntityHistory(string entityType, string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetEntityHistory: List an entity&#39;s history information
+        /// [EARLY ACCESS] GetEntityHistory: List an entity&#39;s history information
         /// </summary>
         /// <remarks>
         /// Retrieve a page of an entity&#39;s change history up to a particular point in AsAt time.
@@ -324,7 +324,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DataTypeEntity)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataTypeEntity>> GetDataTypeByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? previews = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetEntityHistory: List an entity&#39;s history information
+        /// [EARLY ACCESS] GetEntityHistory: List an entity&#39;s history information
         /// </summary>
         /// <remarks>
         /// Retrieve a page of an entity&#39;s change history up to a particular point in AsAt time.
@@ -344,7 +344,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfChangeInterval> GetEntityHistoryAsync(string entityType, string entityUniqueId, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetEntityHistory: List an entity&#39;s history information
+        /// [EARLY ACCESS] GetEntityHistory: List an entity&#39;s history information
         /// </summary>
         /// <remarks>
         /// Retrieve a page of an entity&#39;s change history up to a particular point in AsAt time.
@@ -1084,7 +1084,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetEntityHistory: List an entity&#39;s history information Retrieve a page of an entity&#39;s change history up to a particular point in AsAt time.
+        /// [EARLY ACCESS] GetEntityHistory: List an entity&#39;s history information Retrieve a page of an entity&#39;s change history up to a particular point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of the entity to list the change history for.</param>
@@ -1104,7 +1104,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetEntityHistory: List an entity&#39;s history information Retrieve a page of an entity&#39;s change history up to a particular point in AsAt time.
+        /// [EARLY ACCESS] GetEntityHistory: List an entity&#39;s history information Retrieve a page of an entity&#39;s change history up to a particular point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of the entity to list the change history for.</param>
@@ -1223,7 +1223,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetEntityHistory: List an entity&#39;s history information Retrieve a page of an entity&#39;s change history up to a particular point in AsAt time.
+        /// [EARLY ACCESS] GetEntityHistory: List an entity&#39;s history information Retrieve a page of an entity&#39;s change history up to a particular point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of the entity to list the change history for.</param>
@@ -1244,7 +1244,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetEntityHistory: List an entity&#39;s history information Retrieve a page of an entity&#39;s change history up to a particular point in AsAt time.
+        /// [EARLY ACCESS] GetEntityHistory: List an entity&#39;s history information Retrieve a page of an entity&#39;s change history up to a particular point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of the entity to list the change history for.</param>
