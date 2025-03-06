@@ -5,23 +5,23 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**BatchUpsertInstrumentProperties**](InstrumentsApi.md#batchupsertinstrumentproperties) | **POST** /api/instruments/$batchupsertproperties | BatchUpsertInstrumentProperties: Batch upsert instruments properties |
-| [**CalculateSettlementDate**](InstrumentsApi.md#calculatesettlementdate) | **GET** /api/instruments/{identifierType}/{identifier}/settlementdate | [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument. |
+| [**CalculateSettlementDate**](InstrumentsApi.md#calculatesettlementdate) | **GET** /api/instruments/{identifierType}/{identifier}/settlementdate | CalculateSettlementDate: Get the settlement date for an instrument. |
 | [**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | DeleteInstrument: Soft delete a single instrument |
-| [**DeleteInstrumentProperties**](InstrumentsApi.md#deleteinstrumentproperties) | **POST** /api/instruments/{identifierType}/{identifier}/properties/$delete | [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties |
+| [**DeleteInstrumentProperties**](InstrumentsApi.md#deleteinstrumentproperties) | **POST** /api/instruments/{identifierType}/{identifier}/properties/$delete | DeleteInstrumentProperties: Delete instrument properties |
 | [**DeleteInstruments**](InstrumentsApi.md#deleteinstruments) | **POST** /api/instruments/$delete | DeleteInstruments: Soft or hard delete multiple instruments |
-| [**GetAllPossibleFeatures**](InstrumentsApi.md#getallpossiblefeatures) | **GET** /api/instruments/{instrumentType}/allfeatures | [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type. |
-| [**GetExistingInstrumentCapabilities**](InstrumentsApi.md#getexistinginstrumentcapabilities) | **GET** /api/instruments/{identifier}/capabilities | [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. |
+| [**GetAllPossibleFeatures**](InstrumentsApi.md#getallpossiblefeatures) | **GET** /api/instruments/{instrumentType}/allfeatures | GetAllPossibleFeatures: Provides list of all possible features for instrument type. |
+| [**GetExistingInstrumentCapabilities**](InstrumentsApi.md#getexistinginstrumentcapabilities) | **GET** /api/instruments/{identifier}/capabilities | GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. |
 | [**GetExistingInstrumentModels**](InstrumentsApi.md#getexistinginstrumentmodels) | **GET** /api/instruments/{identifier}/models | GetExistingInstrumentModels: Retrieve supported pricing models for an existing instrument identified by LUID. |
 | [**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | GetInstrument: Get instrument |
 | [**GetInstrumentIdentifierTypes**](InstrumentsApi.md#getinstrumentidentifiertypes) | **GET** /api/instruments/identifierTypes | GetInstrumentIdentifierTypes: Get instrument identifier types |
-| [**GetInstrumentPaymentDiary**](InstrumentsApi.md#getinstrumentpaymentdiary) | **GET** /api/instruments/{identifierType}/{identifier}/paymentdiary | [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary |
+| [**GetInstrumentPaymentDiary**](InstrumentsApi.md#getinstrumentpaymentdiary) | **GET** /api/instruments/{identifierType}/{identifier}/paymentdiary | GetInstrumentPaymentDiary: Get instrument payment diary |
 | [**GetInstrumentProperties**](InstrumentsApi.md#getinstrumentproperties) | **GET** /api/instruments/{identifierType}/{identifier}/properties | GetInstrumentProperties: Get instrument properties |
 | [**GetInstrumentPropertyTimeSeries**](InstrumentsApi.md#getinstrumentpropertytimeseries) | **GET** /api/instruments/{identifierType}/{identifier}/properties/time-series | GetInstrumentPropertyTimeSeries: Get instrument property time series |
-| [**GetInstrumentRelationships**](InstrumentsApi.md#getinstrumentrelationships) | **GET** /api/instruments/{identifierType}/{identifier}/relationships | [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships |
+| [**GetInstrumentRelationships**](InstrumentsApi.md#getinstrumentrelationships) | **GET** /api/instruments/{identifierType}/{identifier}/relationships | GetInstrumentRelationships: Get Instrument relationships |
 | [**GetInstruments**](InstrumentsApi.md#getinstruments) | **POST** /api/instruments/$get | GetInstruments: Get instruments |
-| [**ListInstrumentProperties**](InstrumentsApi.md#listinstrumentproperties) | **GET** /api/instruments/{identifierType}/{identifier}/properties/list | [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination) |
+| [**ListInstrumentProperties**](InstrumentsApi.md#listinstrumentproperties) | **GET** /api/instruments/{identifierType}/{identifier}/properties/list | ListInstrumentProperties: Get instrument properties (with Pagination) |
 | [**ListInstruments**](InstrumentsApi.md#listinstruments) | **GET** /api/instruments | ListInstruments: List instruments |
-| [**QueryInstrumentCapabilities**](InstrumentsApi.md#queryinstrumentcapabilities) | **POST** /api/instruments/capabilities | [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. |
+| [**QueryInstrumentCapabilities**](InstrumentsApi.md#queryinstrumentcapabilities) | **POST** /api/instruments/capabilities | QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. |
 | [**UpdateInstrumentIdentifier**](InstrumentsApi.md#updateinstrumentidentifier) | **POST** /api/instruments/{identifierType}/{identifier} | UpdateInstrumentIdentifier: Update instrument identifier |
 | [**UpsertInstruments**](InstrumentsApi.md#upsertinstruments) | **POST** /api/instruments | UpsertInstruments: Upsert instruments |
 | [**UpsertInstrumentsProperties**](InstrumentsApi.md#upsertinstrumentsproperties) | **POST** /api/instruments/$upsertproperties | UpsertInstrumentsProperties: Upsert instruments properties |
@@ -154,7 +154,7 @@ catch (ApiException e)
 # **CalculateSettlementDate**
 > AddBusinessDaysToDateResponse CalculateSettlementDate (string identifierType, string identifier, DateTimeOrCutLabel? transactionDate = null, string? scope = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.
+CalculateSettlementDate: Get the settlement date for an instrument.
 
 Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
 
@@ -208,7 +208,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AddBusinessDaysToDateResponse result = apiInstance.CalculateSettlementDate(identifierType, identifier, transactionDate, scope, asAt, opts: opts);
 
-                // [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.
+                // CalculateSettlementDate: Get the settlement date for an instrument.
                 AddBusinessDaysToDateResponse result = apiInstance.CalculateSettlementDate(identifierType, identifier, transactionDate, scope, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -229,7 +229,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.
+    // CalculateSettlementDate: Get the settlement date for an instrument.
     ApiResponse<AddBusinessDaysToDateResponse> response = apiInstance.CalculateSettlementDateWithHttpInfo(identifierType, identifier, transactionDate, scope, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -394,7 +394,7 @@ catch (ApiException e)
 # **DeleteInstrumentProperties**
 > DeleteInstrumentPropertiesResponse DeleteInstrumentProperties (string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = null, string? scope = null, string? dataModelScope = null, string? dataModelCode = null)
 
-[EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
+DeleteInstrumentProperties: Delete instrument properties
 
 Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
 
@@ -450,7 +450,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeleteInstrumentPropertiesResponse result = apiInstance.DeleteInstrumentProperties(identifierType, identifier, requestBody, effectiveAt, scope, dataModelScope, dataModelCode, opts: opts);
 
-                // [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
+                // DeleteInstrumentProperties: Delete instrument properties
                 DeleteInstrumentPropertiesResponse result = apiInstance.DeleteInstrumentProperties(identifierType, identifier, requestBody, effectiveAt, scope, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -471,7 +471,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
+    // DeleteInstrumentProperties: Delete instrument properties
     ApiResponse<DeleteInstrumentPropertiesResponse> response = apiInstance.DeleteInstrumentPropertiesWithHttpInfo(identifierType, identifier, requestBody, effectiveAt, scope, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -638,7 +638,7 @@ catch (ApiException e)
 # **GetAllPossibleFeatures**
 > Dictionary&lt;string, List&lt;string&gt;&gt; GetAllPossibleFeatures (string instrumentType)
 
-[EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+GetAllPossibleFeatures: Provides list of all possible features for instrument type.
 
 Provides all possible instrument features an instrument of a given type can provide.
 
@@ -688,7 +688,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Dictionary<string, List<string>> result = apiInstance.GetAllPossibleFeatures(instrumentType, opts: opts);
 
-                // [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+                // GetAllPossibleFeatures: Provides list of all possible features for instrument type.
                 Dictionary<string, List<string>> result = apiInstance.GetAllPossibleFeatures(instrumentType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -709,7 +709,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+    // GetAllPossibleFeatures: Provides list of all possible features for instrument type.
     ApiResponse<Dictionary<string, List<string>>> response = apiInstance.GetAllPossibleFeaturesWithHttpInfo(instrumentType);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -752,7 +752,7 @@ catch (ApiException e)
 # **GetExistingInstrumentCapabilities**
 > InstrumentCapabilities GetExistingInstrumentCapabilities (string identifier, string? model = null, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? instrumentScope = null, string? recipeScope = null, string? recipeCode = null)
 
-[EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
 
 Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
 
@@ -808,7 +808,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // InstrumentCapabilities result = apiInstance.GetExistingInstrumentCapabilities(identifier, model, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode, opts: opts);
 
-                // [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+                // GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
                 InstrumentCapabilities result = apiInstance.GetExistingInstrumentCapabilities(identifier, model, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -829,7 +829,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+    // GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
     ApiResponse<InstrumentCapabilities> response = apiInstance.GetExistingInstrumentCapabilitiesWithHttpInfo(identifier, model, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1236,7 +1236,7 @@ This endpoint does not need any parameter.
 # **GetInstrumentPaymentDiary**
 > InstrumentPaymentDiary GetInstrumentPaymentDiary (string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? scope = null)
 
-[EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+GetInstrumentPaymentDiary: Get instrument payment diary
 
 Get the payment diary of a single instrument.
 
@@ -1292,7 +1292,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // InstrumentPaymentDiary result = apiInstance.GetInstrumentPaymentDiary(identifierType, identifier, recipeScope, recipeCode, effectiveAt, asAt, scope, opts: opts);
 
-                // [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+                // GetInstrumentPaymentDiary: Get instrument payment diary
                 InstrumentPaymentDiary result = apiInstance.GetInstrumentPaymentDiary(identifierType, identifier, recipeScope, recipeCode, effectiveAt, asAt, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1313,7 +1313,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+    // GetInstrumentPaymentDiary: Get instrument payment diary
     ApiResponse<InstrumentPaymentDiary> response = apiInstance.GetInstrumentPaymentDiaryWithHttpInfo(identifierType, identifier, recipeScope, recipeCode, effectiveAt, asAt, scope);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1614,7 +1614,7 @@ catch (ApiException e)
 # **GetInstrumentRelationships**
 > ResourceListOfRelationship GetInstrumentRelationships (string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? identifierTypes = null, string? scope = null)
 
-[EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
+GetInstrumentRelationships: Get Instrument relationships
 
 Get relationships for a particular Instrument.
 
@@ -1670,7 +1670,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfRelationship result = apiInstance.GetInstrumentRelationships(identifierType, identifier, effectiveAt, asAt, filter, identifierTypes, scope, opts: opts);
 
-                // [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
+                // GetInstrumentRelationships: Get Instrument relationships
                 ResourceListOfRelationship result = apiInstance.GetInstrumentRelationships(identifierType, identifier, effectiveAt, asAt, filter, identifierTypes, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1691,7 +1691,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
+    // GetInstrumentRelationships: Get Instrument relationships
     ApiResponse<ResourceListOfRelationship> response = apiInstance.GetInstrumentRelationshipsWithHttpInfo(identifierType, identifier, effectiveAt, asAt, filter, identifierTypes, scope);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1866,7 +1866,7 @@ catch (ApiException e)
 # **ListInstrumentProperties**
 > ResourceListOfProperty ListInstrumentProperties (string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? scope = null)
 
-[EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
+ListInstrumentProperties: Get instrument properties (with Pagination)
 
 List all the properties of a particular instrument, as identified by a particular unique identifier.
 
@@ -1922,7 +1922,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfProperty result = apiInstance.ListInstrumentProperties(identifierType, identifier, effectiveAt, asAt, page, limit, scope, opts: opts);
 
-                // [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
+                // ListInstrumentProperties: Get instrument properties (with Pagination)
                 ResourceListOfProperty result = apiInstance.ListInstrumentProperties(identifierType, identifier, effectiveAt, asAt, page, limit, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1943,7 +1943,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
+    // ListInstrumentProperties: Get instrument properties (with Pagination)
     ApiResponse<ResourceListOfProperty> response = apiInstance.ListInstrumentPropertiesWithHttpInfo(identifierType, identifier, effectiveAt, asAt, page, limit, scope);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2126,7 +2126,7 @@ catch (ApiException e)
 # **QueryInstrumentCapabilities**
 > InstrumentCapabilities QueryInstrumentCapabilities (LusidInstrument lusidInstrument, string? model = null)
 
-[EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
 
 Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
 
@@ -2177,7 +2177,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // InstrumentCapabilities result = apiInstance.QueryInstrumentCapabilities(lusidInstrument, model, opts: opts);
 
-                // [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+                // QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
                 InstrumentCapabilities result = apiInstance.QueryInstrumentCapabilities(lusidInstrument, model);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2198,7 +2198,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+    // QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
     ApiResponse<InstrumentCapabilities> response = apiInstance.QueryInstrumentCapabilitiesWithHttpInfo(lusidInstrument, model);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

@@ -4,16 +4,16 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DeleteOrderInstruction**](OrderInstructionsApi.md#deleteorderinstruction) | **DELETE** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction |
-| [**GetOrderInstruction**](OrderInstructionsApi.md#getorderinstruction) | **GET** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction |
-| [**ListOrderInstructions**](OrderInstructionsApi.md#listorderinstructions) | **GET** /api/orderinstructions | [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions |
-| [**UpsertOrderInstructions**](OrderInstructionsApi.md#upsertorderinstructions) | **POST** /api/orderinstructions | [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction |
+| [**DeleteOrderInstruction**](OrderInstructionsApi.md#deleteorderinstruction) | **DELETE** /api/orderinstructions/{scope}/{code} | DeleteOrderInstruction: Delete orderInstruction |
+| [**GetOrderInstruction**](OrderInstructionsApi.md#getorderinstruction) | **GET** /api/orderinstructions/{scope}/{code} | GetOrderInstruction: Get OrderInstruction |
+| [**ListOrderInstructions**](OrderInstructionsApi.md#listorderinstructions) | **GET** /api/orderinstructions | ListOrderInstructions: List OrderInstructions |
+| [**UpsertOrderInstructions**](OrderInstructionsApi.md#upsertorderinstructions) | **POST** /api/orderinstructions | UpsertOrderInstructions: Upsert OrderInstruction |
 
 <a id="deleteorderinstruction"></a>
 # **DeleteOrderInstruction**
 > DeletedEntityResponse DeleteOrderInstruction (string scope, string code)
 
-[EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
+DeleteOrderInstruction: Delete orderInstruction
 
 Delete an orderInstruction. Deletion will be valid from the orderInstruction's creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -64,7 +64,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteOrderInstruction(scope, code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
+                // DeleteOrderInstruction: Delete orderInstruction
                 DeletedEntityResponse result = apiInstance.DeleteOrderInstruction(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -85,7 +85,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
+    // DeleteOrderInstruction: Delete orderInstruction
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteOrderInstructionWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -129,7 +129,7 @@ catch (ApiException e)
 # **GetOrderInstruction**
 > OrderInstruction GetOrderInstruction (string scope, string code, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
+GetOrderInstruction: Get OrderInstruction
 
 Fetch a OrderInstruction that matches the specified identifier
 
@@ -182,7 +182,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // OrderInstruction result = apiInstance.GetOrderInstruction(scope, code, asAt, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
+                // GetOrderInstruction: Get OrderInstruction
                 OrderInstruction result = apiInstance.GetOrderInstruction(scope, code, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -203,7 +203,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
+    // GetOrderInstruction: Get OrderInstruction
     ApiResponse<OrderInstruction> response = apiInstance.GetOrderInstructionWithHttpInfo(scope, code, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -249,7 +249,7 @@ catch (ApiException e)
 # **ListOrderInstructions**
 > PagedResourceListOfOrderInstruction ListOrderInstructions (DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
+ListOrderInstructions: List OrderInstructions
 
 Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
 
@@ -304,7 +304,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfOrderInstruction result = apiInstance.ListOrderInstructions(asAt, page, sortBy, limit, filter, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
+                // ListOrderInstructions: List OrderInstructions
                 PagedResourceListOfOrderInstruction result = apiInstance.ListOrderInstructions(asAt, page, sortBy, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -325,7 +325,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
+    // ListOrderInstructions: List OrderInstructions
     ApiResponse<PagedResourceListOfOrderInstruction> response = apiInstance.ListOrderInstructionsWithHttpInfo(asAt, page, sortBy, limit, filter, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -373,7 +373,7 @@ catch (ApiException e)
 # **UpsertOrderInstructions**
 > ResourceListOfOrderInstruction UpsertOrderInstructions (OrderInstructionSetRequest? orderInstructionSetRequest = null)
 
-[EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
+UpsertOrderInstructions: Upsert OrderInstruction
 
 Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
 
@@ -423,7 +423,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfOrderInstruction result = apiInstance.UpsertOrderInstructions(orderInstructionSetRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
+                // UpsertOrderInstructions: Upsert OrderInstruction
                 ResourceListOfOrderInstruction result = apiInstance.UpsertOrderInstructions(orderInstructionSetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -444,7 +444,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
+    // UpsertOrderInstructions: Upsert OrderInstruction
     ApiResponse<ResourceListOfOrderInstruction> response = apiInstance.UpsertOrderInstructionsWithHttpInfo(orderInstructionSetRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

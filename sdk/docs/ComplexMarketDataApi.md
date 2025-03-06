@@ -4,16 +4,16 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DeleteComplexMarketData**](ComplexMarketDataApi.md#deletecomplexmarketdata) | **POST** /api/complexmarketdata/{scope}/$delete | [EARLY ACCESS] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present. |
-| [**GetComplexMarketData**](ComplexMarketDataApi.md#getcomplexmarketdata) | **POST** /api/complexmarketdata/{scope}/$get | [EARLY ACCESS] GetComplexMarketData: Get complex market data |
-| [**ListComplexMarketData**](ComplexMarketDataApi.md#listcomplexmarketdata) | **GET** /api/complexmarketdata | [EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData |
+| [**DeleteComplexMarketData**](ComplexMarketDataApi.md#deletecomplexmarketdata) | **POST** /api/complexmarketdata/{scope}/$delete | DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present. |
+| [**GetComplexMarketData**](ComplexMarketDataApi.md#getcomplexmarketdata) | **POST** /api/complexmarketdata/{scope}/$get | GetComplexMarketData: Get complex market data |
+| [**ListComplexMarketData**](ComplexMarketDataApi.md#listcomplexmarketdata) | **GET** /api/complexmarketdata | ListComplexMarketData: List the set of ComplexMarketData |
 | [**UpsertComplexMarketData**](ComplexMarketDataApi.md#upsertcomplexmarketdata) | **POST** /api/complexmarketdata/{scope} | UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid. |
 
 <a id="deletecomplexmarketdata"></a>
 # **DeleteComplexMarketData**
 > AnnulStructuredDataResponse DeleteComplexMarketData (string scope, Dictionary<string, ComplexMarketDataId> requestBody)
 
-[EARLY ACCESS] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
+DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
 
 Delete one or more specified complex market data items from a single scope. Each item is identified by a unique id which includes  information about its type as well as the exact effective datetime (to the microsecond) at which it entered the system (became valid).                In the request each complex market data item must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully deleted  complex market data items, as well as those that failed.  For the failures a reason will be provided explaining why the it could not be deleted.                It is important to always check the failed set for any unsuccessful results.
 
@@ -64,7 +64,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AnnulStructuredDataResponse result = apiInstance.DeleteComplexMarketData(scope, requestBody, opts: opts);
 
-                // [EARLY ACCESS] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
+                // DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
                 AnnulStructuredDataResponse result = apiInstance.DeleteComplexMarketData(scope, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -85,7 +85,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
+    // DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
     ApiResponse<AnnulStructuredDataResponse> response = apiInstance.DeleteComplexMarketDataWithHttpInfo(scope, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -129,7 +129,7 @@ catch (ApiException e)
 # **GetComplexMarketData**
 > GetComplexMarketDataResponse GetComplexMarketData (string scope, Dictionary<string, ComplexMarketDataId> requestBody, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? maxAge = null)
 
-[EARLY ACCESS] GetComplexMarketData: Get complex market data
+GetComplexMarketData: Get complex market data
 
 Get one or more items of complex market data from a single scope.                Each item can be identified by its time invariant complex market data identifier.                For each id LUSID will return the most recent matched item with respect to the provided (or default) effective datetime.                An optional maximum age range window can be specified which defines how far back to look back for data from the specified effective datetime.  LUSID will return the most recent item within this window.                In the request each complex market data id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each item in the response.                The response will return three collections. One, the successfully retrieved complex market data. Two, those that had a  valid identifier but could not be found. Three, those that failed because LUSID could not construct a valid identifier from the request.                For the ids that failed to resolve or could not be found a reason will be provided explaining why that is the case.                It is important to always check the failed and not found sets for any unsuccessful results.
 
@@ -183,7 +183,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // GetComplexMarketDataResponse result = apiInstance.GetComplexMarketData(scope, requestBody, effectiveAt, asAt, maxAge, opts: opts);
 
-                // [EARLY ACCESS] GetComplexMarketData: Get complex market data
+                // GetComplexMarketData: Get complex market data
                 GetComplexMarketDataResponse result = apiInstance.GetComplexMarketData(scope, requestBody, effectiveAt, asAt, maxAge);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -204,7 +204,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetComplexMarketData: Get complex market data
+    // GetComplexMarketData: Get complex market data
     ApiResponse<GetComplexMarketDataResponse> response = apiInstance.GetComplexMarketDataWithHttpInfo(scope, requestBody, effectiveAt, asAt, maxAge);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -251,7 +251,7 @@ catch (ApiException e)
 # **ListComplexMarketData**
 > ResourceListOfListComplexMarketDataWithMetaDataResponse ListComplexMarketData (DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
+ListComplexMarketData: List the set of ComplexMarketData
 
 List the set of ComplexMarketData at the specified date/time,  along with the scope the data was stored in and its identifier in that scope.
 
@@ -301,7 +301,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfListComplexMarketDataWithMetaDataResponse result = apiInstance.ListComplexMarketData(asAt, opts: opts);
 
-                // [EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
+                // ListComplexMarketData: List the set of ComplexMarketData
                 ResourceListOfListComplexMarketDataWithMetaDataResponse result = apiInstance.ListComplexMarketData(asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -322,7 +322,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
+    // ListComplexMarketData: List the set of ComplexMarketData
     ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> response = apiInstance.ListComplexMarketDataWithHttpInfo(asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

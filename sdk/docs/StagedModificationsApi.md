@@ -4,16 +4,16 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AddDecision**](StagedModificationsApi.md#adddecision) | **POST** /api/stagedmodifications/{id}/decision | [EXPERIMENTAL] AddDecision: AddDecision |
-| [**GetStagedModification**](StagedModificationsApi.md#getstagedmodification) | **GET** /api/stagedmodifications/{id} | [EXPERIMENTAL] GetStagedModification: GetStagedModification |
-| [**ListRequestedChanges**](StagedModificationsApi.md#listrequestedchanges) | **GET** /api/stagedmodifications/{id}/requestedChanges | [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges |
-| [**ListStagedModifications**](StagedModificationsApi.md#liststagedmodifications) | **GET** /api/stagedmodifications | [EXPERIMENTAL] ListStagedModifications: ListStagedModifications |
+| [**AddDecision**](StagedModificationsApi.md#adddecision) | **POST** /api/stagedmodifications/{id}/decision | AddDecision: AddDecision |
+| [**GetStagedModification**](StagedModificationsApi.md#getstagedmodification) | **GET** /api/stagedmodifications/{id} | GetStagedModification: GetStagedModification |
+| [**ListRequestedChanges**](StagedModificationsApi.md#listrequestedchanges) | **GET** /api/stagedmodifications/{id}/requestedChanges | ListRequestedChanges: ListRequestedChanges |
+| [**ListStagedModifications**](StagedModificationsApi.md#liststagedmodifications) | **GET** /api/stagedmodifications | ListStagedModifications: ListStagedModifications |
 
 <a id="adddecision"></a>
 # **AddDecision**
 > StagedModification AddDecision (string id, StagedModificationDecisionRequest stagedModificationDecisionRequest)
 
-[EXPERIMENTAL] AddDecision: AddDecision
+AddDecision: AddDecision
 
 Add decision to staged modification, Approve or Reject.
 
@@ -64,7 +64,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // StagedModification result = apiInstance.AddDecision(id, stagedModificationDecisionRequest, opts: opts);
 
-                // [EXPERIMENTAL] AddDecision: AddDecision
+                // AddDecision: AddDecision
                 StagedModification result = apiInstance.AddDecision(id, stagedModificationDecisionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -85,7 +85,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] AddDecision: AddDecision
+    // AddDecision: AddDecision
     ApiResponse<StagedModification> response = apiInstance.AddDecisionWithHttpInfo(id, stagedModificationDecisionRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -129,7 +129,7 @@ catch (ApiException e)
 # **GetStagedModification**
 > StagedModification GetStagedModification (string id, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetStagedModification: GetStagedModification
+GetStagedModification: GetStagedModification
 
 Retrieve the details of a staged modification.
 
@@ -180,7 +180,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // StagedModification result = apiInstance.GetStagedModification(id, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetStagedModification: GetStagedModification
+                // GetStagedModification: GetStagedModification
                 StagedModification result = apiInstance.GetStagedModification(id, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -201,7 +201,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetStagedModification: GetStagedModification
+    // GetStagedModification: GetStagedModification
     ApiResponse<StagedModification> response = apiInstance.GetStagedModificationWithHttpInfo(id, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -245,7 +245,7 @@ catch (ApiException e)
 # **ListRequestedChanges**
 > PagedResourceListOfStagedModificationsRequestedChangeInterval ListRequestedChanges (string id, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
 
-[EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
+ListRequestedChanges: ListRequestedChanges
 
 List the requested changes for a staged modification.
 
@@ -300,7 +300,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfStagedModificationsRequestedChangeInterval result = apiInstance.ListRequestedChanges(id, asAt, page, limit, filter, sortBy, opts: opts);
 
-                // [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
+                // ListRequestedChanges: ListRequestedChanges
                 PagedResourceListOfStagedModificationsRequestedChangeInterval result = apiInstance.ListRequestedChanges(id, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -321,7 +321,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
+    // ListRequestedChanges: ListRequestedChanges
     ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval> response = apiInstance.ListRequestedChangesWithHttpInfo(id, asAt, page, limit, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -369,7 +369,7 @@ catch (ApiException e)
 # **ListStagedModifications**
 > PagedResourceListOfStagedModification ListStagedModifications (DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
 
-[EXPERIMENTAL] ListStagedModifications: ListStagedModifications
+ListStagedModifications: ListStagedModifications
 
 List summaries of the staged modifications.
 
@@ -423,7 +423,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfStagedModification result = apiInstance.ListStagedModifications(asAt, page, limit, filter, sortBy, opts: opts);
 
-                // [EXPERIMENTAL] ListStagedModifications: ListStagedModifications
+                // ListStagedModifications: ListStagedModifications
                 PagedResourceListOfStagedModification result = apiInstance.ListStagedModifications(asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -444,7 +444,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListStagedModifications: ListStagedModifications
+    // ListStagedModifications: ListStagedModifications
     ApiResponse<PagedResourceListOfStagedModification> response = apiInstance.ListStagedModificationsWithHttpInfo(asAt, page, limit, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

@@ -4,17 +4,17 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DeleteTransactionFeeRule**](TransactionFeesApi.md#deletetransactionfeerule) | **DELETE** /api/transactions/fees/rules/{code} | [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule. |
-| [**GetApplicableTransactionFees**](TransactionFeesApi.md#getapplicabletransactionfees) | **POST** /api/transactions/fees/$GetApplicableFees | [EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. |
-| [**GetTransactionFeeRule**](TransactionFeesApi.md#gettransactionfeerule) | **GET** /api/transactions/fees/rules/{code} | [EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule. |
-| [**ListTransactionFeeRules**](TransactionFeesApi.md#listtransactionfeerules) | **GET** /api/transactions/fees/rules | [EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering. |
-| [**UpsertTransactionFeeRules**](TransactionFeesApi.md#upserttransactionfeerules) | **POST** /api/transactions/fees/rules | [EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules. |
+| [**DeleteTransactionFeeRule**](TransactionFeesApi.md#deletetransactionfeerule) | **DELETE** /api/transactions/fees/rules/{code} | DeleteTransactionFeeRule: Deletes a fee rule. |
+| [**GetApplicableTransactionFees**](TransactionFeesApi.md#getapplicabletransactionfees) | **POST** /api/transactions/fees/$GetApplicableFees | GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. |
+| [**GetTransactionFeeRule**](TransactionFeesApi.md#gettransactionfeerule) | **GET** /api/transactions/fees/rules/{code} | GetTransactionFeeRule: Retrieve the definition of single fee rule. |
+| [**ListTransactionFeeRules**](TransactionFeesApi.md#listtransactionfeerules) | **GET** /api/transactions/fees/rules | ListTransactionFeeRules: List fee rules, with optional filtering. |
+| [**UpsertTransactionFeeRules**](TransactionFeesApi.md#upserttransactionfeerules) | **POST** /api/transactions/fees/rules | UpsertTransactionFeeRules: Upsert fee rules. |
 
 <a id="deletetransactionfeerule"></a>
 # **DeleteTransactionFeeRule**
 > DeletedEntityResponse DeleteTransactionFeeRule (string code)
 
-[EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule.
+DeleteTransactionFeeRule: Deletes a fee rule.
 
 Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
 
@@ -64,7 +64,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteTransactionFeeRule(code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule.
+                // DeleteTransactionFeeRule: Deletes a fee rule.
                 DeletedEntityResponse result = apiInstance.DeleteTransactionFeeRule(code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -85,7 +85,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule.
+    // DeleteTransactionFeeRule: Deletes a fee rule.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteTransactionFeeRuleWithHttpInfo(code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -128,7 +128,7 @@ catch (ApiException e)
 # **GetApplicableTransactionFees**
 > ResourceListOfFeeRule GetApplicableTransactionFees (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? instrumentIdentifierType = null, string? instrumentIdentifier = null, string? portfolioScope = null, string? portfolioCode = null, Dictionary<string, string>? requestBody = null)
 
-[EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
+GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
 
 Additionally, matching can be based on the instrument's properties, its portfolio properties, and any additional property keys present in the data file.
 
@@ -184,7 +184,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfFeeRule result = apiInstance.GetApplicableTransactionFees(effectiveAt, asAt, instrumentIdentifierType, instrumentIdentifier, portfolioScope, portfolioCode, requestBody, opts: opts);
 
-                // [EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
+                // GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
                 ResourceListOfFeeRule result = apiInstance.GetApplicableTransactionFees(effectiveAt, asAt, instrumentIdentifierType, instrumentIdentifier, portfolioScope, portfolioCode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -205,7 +205,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
+    // GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
     ApiResponse<ResourceListOfFeeRule> response = apiInstance.GetApplicableTransactionFeesWithHttpInfo(effectiveAt, asAt, instrumentIdentifierType, instrumentIdentifier, portfolioScope, portfolioCode, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -254,7 +254,7 @@ catch (ApiException e)
 # **GetTransactionFeeRule**
 > FeeRule GetTransactionFeeRule (string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule.
+GetTransactionFeeRule: Retrieve the definition of single fee rule.
 
 Retrieves the fee rule definition at the given effective and as at times.
 
@@ -306,7 +306,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FeeRule result = apiInstance.GetTransactionFeeRule(code, effectiveAt, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule.
+                // GetTransactionFeeRule: Retrieve the definition of single fee rule.
                 FeeRule result = apiInstance.GetTransactionFeeRule(code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -327,7 +327,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule.
+    // GetTransactionFeeRule: Retrieve the definition of single fee rule.
     ApiResponse<FeeRule> response = apiInstance.GetTransactionFeeRuleWithHttpInfo(code, effectiveAt, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -372,7 +372,7 @@ catch (ApiException e)
 # **ListTransactionFeeRules**
 > ResourceListOfFeeRule ListTransactionFeeRules (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, int? limit = null, string? filter = null, string? page = null)
 
-[EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering.
+ListTransactionFeeRules: List fee rules, with optional filtering.
 
 For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
 
@@ -426,7 +426,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfFeeRule result = apiInstance.ListTransactionFeeRules(effectiveAt, asAt, limit, filter, page, opts: opts);
 
-                // [EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering.
+                // ListTransactionFeeRules: List fee rules, with optional filtering.
                 ResourceListOfFeeRule result = apiInstance.ListTransactionFeeRules(effectiveAt, asAt, limit, filter, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -447,7 +447,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering.
+    // ListTransactionFeeRules: List fee rules, with optional filtering.
     ApiResponse<ResourceListOfFeeRule> response = apiInstance.ListTransactionFeeRulesWithHttpInfo(effectiveAt, asAt, limit, filter, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -494,7 +494,7 @@ catch (ApiException e)
 # **UpsertTransactionFeeRules**
 > FeeRuleUpsertResponse UpsertTransactionFeeRules (Dictionary<string, FeeRuleUpsertRequest> requestBody, DateTimeOrCutLabel? effectiveAt = null)
 
-[EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules.
+UpsertTransactionFeeRules: Upsert fee rules.
 
 To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
 
@@ -545,7 +545,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FeeRuleUpsertResponse result = apiInstance.UpsertTransactionFeeRules(requestBody, effectiveAt, opts: opts);
 
-                // [EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules.
+                // UpsertTransactionFeeRules: Upsert fee rules.
                 FeeRuleUpsertResponse result = apiInstance.UpsertTransactionFeeRules(requestBody, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -566,7 +566,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules.
+    // UpsertTransactionFeeRules: Upsert fee rules.
     ApiResponse<FeeRuleUpsertResponse> response = apiInstance.UpsertTransactionFeeRulesWithHttpInfo(requestBody, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] AddDecision: AddDecision
+        /// AddDecision: AddDecision
         /// </summary>
         /// <remarks>
         /// Add decision to staged modification, Approve or Reject.
@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Api
         StagedModification AddDecision(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] AddDecision: AddDecision
+        /// AddDecision: AddDecision
         /// </summary>
         /// <remarks>
         /// Add decision to staged modification, Approve or Reject.
@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of StagedModification</returns>
         Lusid.Sdk.Client.ApiResponse<StagedModification> AddDecisionWithHttpInfo(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetStagedModification: GetStagedModification
+        /// GetStagedModification: GetStagedModification
         /// </summary>
         /// <remarks>
         /// Retrieve the details of a staged modification.
@@ -73,7 +73,7 @@ namespace Lusid.Sdk.Api
         StagedModification GetStagedModification(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetStagedModification: GetStagedModification
+        /// GetStagedModification: GetStagedModification
         /// </summary>
         /// <remarks>
         /// Retrieve the details of a staged modification.
@@ -86,7 +86,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of StagedModification</returns>
         Lusid.Sdk.Client.ApiResponse<StagedModification> GetStagedModificationWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
+        /// ListRequestedChanges: ListRequestedChanges
         /// </summary>
         /// <remarks>
         /// List the requested changes for a staged modification.
@@ -104,7 +104,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfStagedModificationsRequestedChangeInterval ListRequestedChanges(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
+        /// ListRequestedChanges: ListRequestedChanges
         /// </summary>
         /// <remarks>
         /// List the requested changes for a staged modification.
@@ -121,7 +121,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfStagedModificationsRequestedChangeInterval</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval> ListRequestedChangesWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListStagedModifications: ListStagedModifications
+        /// ListStagedModifications: ListStagedModifications
         /// </summary>
         /// <remarks>
         /// List summaries of the staged modifications.
@@ -138,7 +138,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfStagedModification ListStagedModifications(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListStagedModifications: ListStagedModifications
+        /// ListStagedModifications: ListStagedModifications
         /// </summary>
         /// <remarks>
         /// List summaries of the staged modifications.
@@ -163,7 +163,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] AddDecision: AddDecision
+        /// AddDecision: AddDecision
         /// </summary>
         /// <remarks>
         /// Add decision to staged modification, Approve or Reject.
@@ -178,7 +178,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<StagedModification> AddDecisionAsync(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] AddDecision: AddDecision
+        /// AddDecision: AddDecision
         /// </summary>
         /// <remarks>
         /// Add decision to staged modification, Approve or Reject.
@@ -192,7 +192,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (StagedModification)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagedModification>> AddDecisionWithHttpInfoAsync(string id, StagedModificationDecisionRequest stagedModificationDecisionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetStagedModification: GetStagedModification
+        /// GetStagedModification: GetStagedModification
         /// </summary>
         /// <remarks>
         /// Retrieve the details of a staged modification.
@@ -207,7 +207,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<StagedModification> GetStagedModificationAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetStagedModification: GetStagedModification
+        /// GetStagedModification: GetStagedModification
         /// </summary>
         /// <remarks>
         /// Retrieve the details of a staged modification.
@@ -221,7 +221,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (StagedModification)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagedModification>> GetStagedModificationWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
+        /// ListRequestedChanges: ListRequestedChanges
         /// </summary>
         /// <remarks>
         /// List the requested changes for a staged modification.
@@ -240,7 +240,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfStagedModificationsRequestedChangeInterval> ListRequestedChangesAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges
+        /// ListRequestedChanges: ListRequestedChanges
         /// </summary>
         /// <remarks>
         /// List the requested changes for a staged modification.
@@ -258,7 +258,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfStagedModificationsRequestedChangeInterval)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagedModificationsRequestedChangeInterval>> ListRequestedChangesWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListStagedModifications: ListStagedModifications
+        /// ListStagedModifications: ListStagedModifications
         /// </summary>
         /// <remarks>
         /// List summaries of the staged modifications.
@@ -276,7 +276,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfStagedModification> ListStagedModificationsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListStagedModifications: ListStagedModifications
+        /// ListStagedModifications: ListStagedModifications
         /// </summary>
         /// <remarks>
         /// List summaries of the staged modifications.
@@ -416,7 +416,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddDecision: AddDecision Add decision to staged modification, Approve or Reject.
+        /// AddDecision: AddDecision Add decision to staged modification, Approve or Reject.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique Id for a staged modification..</param>
@@ -431,7 +431,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddDecision: AddDecision Add decision to staged modification, Approve or Reject.
+        /// AddDecision: AddDecision Add decision to staged modification, Approve or Reject.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique Id for a staged modification..</param>
@@ -529,7 +529,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddDecision: AddDecision Add decision to staged modification, Approve or Reject.
+        /// AddDecision: AddDecision Add decision to staged modification, Approve or Reject.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique Id for a staged modification..</param>
@@ -545,7 +545,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] AddDecision: AddDecision Add decision to staged modification, Approve or Reject.
+        /// AddDecision: AddDecision Add decision to staged modification, Approve or Reject.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique Id for a staged modification..</param>
@@ -646,7 +646,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetStagedModification: GetStagedModification Retrieve the details of a staged modification.
+        /// GetStagedModification: GetStagedModification Retrieve the details of a staged modification.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The unique identifier for a staged modification.</param>
@@ -661,7 +661,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetStagedModification: GetStagedModification Retrieve the details of a staged modification.
+        /// GetStagedModification: GetStagedModification Retrieve the details of a staged modification.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The unique identifier for a staged modification.</param>
@@ -752,7 +752,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetStagedModification: GetStagedModification Retrieve the details of a staged modification.
+        /// GetStagedModification: GetStagedModification Retrieve the details of a staged modification.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The unique identifier for a staged modification.</param>
@@ -768,7 +768,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetStagedModification: GetStagedModification Retrieve the details of a staged modification.
+        /// GetStagedModification: GetStagedModification Retrieve the details of a staged modification.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The unique identifier for a staged modification.</param>
@@ -862,7 +862,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges List the requested changes for a staged modification.
+        /// ListRequestedChanges: ListRequestedChanges List the requested changes for a staged modification.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique Id for a staged modification..</param>
@@ -881,7 +881,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges List the requested changes for a staged modification.
+        /// ListRequestedChanges: ListRequestedChanges List the requested changes for a staged modification.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique Id for a staged modification..</param>
@@ -992,7 +992,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges List the requested changes for a staged modification.
+        /// ListRequestedChanges: ListRequestedChanges List the requested changes for a staged modification.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique Id for a staged modification..</param>
@@ -1012,7 +1012,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRequestedChanges: ListRequestedChanges List the requested changes for a staged modification.
+        /// ListRequestedChanges: ListRequestedChanges List the requested changes for a staged modification.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique Id for a staged modification..</param>
@@ -1126,7 +1126,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListStagedModifications: ListStagedModifications List summaries of the staged modifications.
+        /// ListStagedModifications: ListStagedModifications List summaries of the staged modifications.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list staged modifications. Defaults to return the latest version              of each staged modification if not specified. (optional)</param>
@@ -1144,7 +1144,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListStagedModifications: ListStagedModifications List summaries of the staged modifications.
+        /// ListStagedModifications: ListStagedModifications List summaries of the staged modifications.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list staged modifications. Defaults to return the latest version              of each staged modification if not specified. (optional)</param>
@@ -1247,7 +1247,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListStagedModifications: ListStagedModifications List summaries of the staged modifications.
+        /// ListStagedModifications: ListStagedModifications List summaries of the staged modifications.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list staged modifications. Defaults to return the latest version              of each staged modification if not specified. (optional)</param>
@@ -1266,7 +1266,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListStagedModifications: ListStagedModifications List summaries of the staged modifications.
+        /// ListStagedModifications: ListStagedModifications List summaries of the staged modifications.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list staged modifications. Defaults to return the latest version              of each staged modification if not specified. (optional)</param>

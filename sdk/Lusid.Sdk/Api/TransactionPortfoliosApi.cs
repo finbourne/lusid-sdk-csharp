@@ -65,7 +65,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AdjustHolding</returns>
         Lusid.Sdk.Client.ApiResponse<AdjustHolding> AdjustHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings
+        /// BatchAdjustHoldings: Batch adjust holdings
         /// </summary>
         /// <remarks>
         /// Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
@@ -82,7 +82,7 @@ namespace Lusid.Sdk.Api
         BatchAdjustHoldingsResponse BatchAdjustHoldings(string scope, string code, string successMode, Dictionary<string, AdjustHoldingForDateRequest> requestBody, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings
+        /// BatchAdjustHoldings: Batch adjust holdings
         /// </summary>
         /// <remarks>
         /// Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
@@ -98,7 +98,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BatchAdjustHoldingsResponse</returns>
         Lusid.Sdk.Client.ApiResponse<BatchAdjustHoldingsResponse> BatchAdjustHoldingsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, AdjustHoldingForDateRequest> requestBody, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+        /// BatchCreateTradeTickets: Batch Create Trade Tickets
         /// </summary>
         /// <remarks>
         /// Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
@@ -113,7 +113,7 @@ namespace Lusid.Sdk.Api
         CreateTradeTicketsResponse BatchCreateTradeTickets(string scope, string code, List<LusidTradeTicket> lusidTradeTicket, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+        /// BatchCreateTradeTickets: Batch Create Trade Tickets
         /// </summary>
         /// <remarks>
         /// Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
@@ -127,7 +127,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of CreateTradeTicketsResponse</returns>
         Lusid.Sdk.Client.ApiResponse<CreateTradeTicketsResponse> BatchCreateTradeTicketsWithHttpInfo(string scope, string code, List<LusidTradeTicket> lusidTradeTicket, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] BatchSetHoldings: Batch set holdings
+        /// BatchSetHoldings: Batch set holdings
         /// </summary>
         /// <remarks>
         /// Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
@@ -144,7 +144,7 @@ namespace Lusid.Sdk.Api
         BatchAdjustHoldingsResponse BatchSetHoldings(string scope, string code, string successMode, Dictionary<string, AdjustHoldingForDateRequest> requestBody, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] BatchSetHoldings: Batch set holdings
+        /// BatchSetHoldings: Batch set holdings
         /// </summary>
         /// <remarks>
         /// Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
@@ -160,7 +160,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BatchAdjustHoldingsResponse</returns>
         Lusid.Sdk.Client.ApiResponse<BatchAdjustHoldingsResponse> BatchSetHoldingsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, AdjustHoldingForDateRequest> requestBody, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
+        /// BatchUpsertTransactions: Batch upsert transactions
         /// </summary>
         /// <remarks>
         /// Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
@@ -177,7 +177,7 @@ namespace Lusid.Sdk.Api
         BatchUpsertPortfolioTransactionsResponse BatchUpsertTransactions(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
+        /// BatchUpsertTransactions: Batch upsert transactions
         /// </summary>
         /// <remarks>
         /// Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
@@ -261,7 +261,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> CancelAdjustHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment.
+        /// CancelSingleAdjustHolding: Cancel single holding adjustment.
         /// </summary>
         /// <remarks>
         /// Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
@@ -277,7 +277,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse CancelSingleAdjustHolding(string scope, string code, DateTimeOrCutLabel effectiveAt, CancelSingleHoldingAdjustmentRequest cancelSingleHoldingAdjustmentRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment.
+        /// CancelSingleAdjustHolding: Cancel single holding adjustment.
         /// </summary>
         /// <remarks>
         /// Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
@@ -348,7 +348,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Portfolio</returns>
         Lusid.Sdk.Client.ApiResponse<Portfolio> CreatePortfolioWithHttpInfo(string scope, CreateTransactionPortfolioRequest createTransactionPortfolioRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
+        /// CreateTradeTicket: Create Trade Ticket
         /// </summary>
         /// <remarks>
         /// Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
@@ -363,7 +363,7 @@ namespace Lusid.Sdk.Api
         LusidTradeTicket CreateTradeTicket(string scope, string code, LusidTradeTicket? lusidTradeTicket = default(LusidTradeTicket?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
+        /// CreateTradeTicket: Create Trade Ticket
         /// </summary>
         /// <remarks>
         /// Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
@@ -377,7 +377,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of LusidTradeTicket</returns>
         Lusid.Sdk.Client.ApiResponse<LusidTradeTicket> CreateTradeTicketWithHttpInfo(string scope, string code, LusidTradeTicket? lusidTradeTicket = default(LusidTradeTicket?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
+        /// DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
         /// </summary>
         /// <remarks>
         /// Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
@@ -393,7 +393,7 @@ namespace Lusid.Sdk.Api
         DeleteCustodianAccountsResponse DeleteCustodianAccounts(string scope, string code, List<ResourceId> resourceId, string? deleteMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
+        /// DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
         /// </summary>
         /// <remarks>
         /// Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
@@ -521,7 +521,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of VersionedResourceListOfA2BMovementRecord</returns>
         Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord> GetA2BMovementsWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
+        /// GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
         /// </summary>
         /// <remarks>
         /// We bucket/aggregate a transaction portfolio&#39;s instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the &#39;GetUpsertableCashFlows&#39; endpoint.  If you want instrument cashflow, please use the &#39;GetPortfolioCashFlows&#39; endpoint.  Note that these endpoints do not apply bucketing.
@@ -536,7 +536,7 @@ namespace Lusid.Sdk.Api
         BucketedCashFlowResponse GetBucketedCashFlows(string scope, string code, BucketedCashFlowRequest? bucketedCashFlowRequest = default(BucketedCashFlowRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
+        /// GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
         /// </summary>
         /// <remarks>
         /// We bucket/aggregate a transaction portfolio&#39;s instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the &#39;GetUpsertableCashFlows&#39; endpoint.  If you want instrument cashflow, please use the &#39;GetPortfolioCashFlows&#39; endpoint.  Note that these endpoints do not apply bucketing.
@@ -550,7 +550,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BucketedCashFlowResponse</returns>
         Lusid.Sdk.Client.ApiResponse<BucketedCashFlowResponse> GetBucketedCashFlowsWithHttpInfo(string scope, string code, BucketedCashFlowRequest? bucketedCashFlowRequest = default(BucketedCashFlowRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetCustodianAccount: Get Custodian Account
+        /// GetCustodianAccount: Get Custodian Account
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
@@ -569,7 +569,7 @@ namespace Lusid.Sdk.Api
         CustodianAccount GetCustodianAccount(string scope, string code, string custodianAccountScope, string custodianAccountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCustodianAccount: Get Custodian Account
+        /// GetCustodianAccount: Get Custodian Account
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
@@ -618,7 +618,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PortfolioDetails</returns>
         Lusid.Sdk.Client.ApiResponse<PortfolioDetails> GetDetailsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors
+        /// GetHoldingContributors: Get Holdings Contributors
         /// </summary>
         /// <remarks>
         /// Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
@@ -641,7 +641,7 @@ namespace Lusid.Sdk.Api
         VersionedResourceListOfHoldingContributor GetHoldingContributors(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors
+        /// GetHoldingContributors: Get Holdings Contributors
         /// </summary>
         /// <remarks>
         /// Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
@@ -735,7 +735,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of HoldingsAdjustment</returns>
         Lusid.Sdk.Client.ApiResponse<HoldingsAdjustment> GetHoldingsAdjustmentWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders
+        /// GetHoldingsWithOrders: Get holdings with orders
         /// </summary>
         /// <remarks>
         /// Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
@@ -757,7 +757,7 @@ namespace Lusid.Sdk.Api
         VersionedResourceListWithWarningsOfPortfolioHolding GetHoldingsWithOrders(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders
+        /// GetHoldingsWithOrders: Get holdings with orders
         /// </summary>
         /// <remarks>
         /// Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
@@ -778,7 +778,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of VersionedResourceListWithWarningsOfPortfolioHolding</returns>
         Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding> GetHoldingsWithOrdersWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetMultipleHoldingContributors: Get Multiple Holding Contributors
+        /// GetMultipleHoldingContributors: Get Multiple Holding Contributors
         /// </summary>
         /// <remarks>
         /// Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
@@ -801,7 +801,7 @@ namespace Lusid.Sdk.Api
         VersionedResourceListOfHoldingContributor GetMultipleHoldingContributors(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetMultipleHoldingContributors: Get Multiple Holding Contributors
+        /// GetMultipleHoldingContributors: Get Multiple Holding Contributors
         /// </summary>
         /// <remarks>
         /// Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
@@ -1067,7 +1067,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfTransaction</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction> GetUpsertablePortfolioCashFlowsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts
+        /// ListCustodianAccounts: List Custodian Accounts
         /// </summary>
         /// <remarks>
         /// List the custodian accounts in a Transaction Portfolios
@@ -1087,7 +1087,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfCustodianAccount ListCustodianAccounts(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts
+        /// ListCustodianAccounts: List Custodian Accounts
         /// </summary>
         /// <remarks>
         /// List the custodian accounts in a Transaction Portfolios
@@ -1170,7 +1170,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PortfolioDetails</returns>
         Lusid.Sdk.Client.ApiResponse<PortfolioDetails> PatchPortfolioDetailsWithHttpInfo(string scope, string code, List<Operation> operation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] PreviewTransaction: Preview a transaction
+        /// PreviewTransaction: Preview a transaction
         /// </summary>
         /// <remarks>
         /// Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
@@ -1188,7 +1188,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfOutputTransaction PreviewTransaction(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] PreviewTransaction: Preview a transaction
+        /// PreviewTransaction: Preview a transaction
         /// </summary>
         /// <remarks>
         /// Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
@@ -1275,7 +1275,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AdjustHolding</returns>
         Lusid.Sdk.Client.ApiResponse<AdjustHolding> SetHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts
+        /// UpsertCustodianAccounts: Upsert Custodian Accounts
         /// </summary>
         /// <remarks>
         /// Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
@@ -1290,7 +1290,7 @@ namespace Lusid.Sdk.Api
         CustodianAccountsUpsertResponse UpsertCustodianAccounts(string scope, string code, List<CustodianAccountRequest> custodianAccountRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts
+        /// UpsertCustodianAccounts: Upsert Custodian Accounts
         /// </summary>
         /// <remarks>
         /// Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
@@ -1304,7 +1304,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of CustodianAccountsUpsertResponse</returns>
         Lusid.Sdk.Client.ApiResponse<CustodianAccountsUpsertResponse> UpsertCustodianAccountsWithHttpInfo(string scope, string code, List<CustodianAccountRequest> custodianAccountRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties
+        /// UpsertCustodianAccountsProperties: Upsert custodian accounts properties
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;CustodianAccount&#39;.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -1321,7 +1321,7 @@ namespace Lusid.Sdk.Api
         CustodianAccountProperties UpsertCustodianAccountsProperties(string scope, string code, string custodianAccountScope, string custodianAccountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties
+        /// UpsertCustodianAccountsProperties: Upsert custodian accounts properties
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;CustodianAccount&#39;.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -1474,7 +1474,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AdjustHolding)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AdjustHolding>> AdjustHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings
+        /// BatchAdjustHoldings: Batch adjust holdings
         /// </summary>
         /// <remarks>
         /// Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
@@ -1492,7 +1492,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<BatchAdjustHoldingsResponse> BatchAdjustHoldingsAsync(string scope, string code, string successMode, Dictionary<string, AdjustHoldingForDateRequest> requestBody, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings
+        /// BatchAdjustHoldings: Batch adjust holdings
         /// </summary>
         /// <remarks>
         /// Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
@@ -1509,7 +1509,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (BatchAdjustHoldingsResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchAdjustHoldingsResponse>> BatchAdjustHoldingsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, AdjustHoldingForDateRequest> requestBody, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+        /// BatchCreateTradeTickets: Batch Create Trade Tickets
         /// </summary>
         /// <remarks>
         /// Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
@@ -1525,7 +1525,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<CreateTradeTicketsResponse> BatchCreateTradeTicketsAsync(string scope, string code, List<LusidTradeTicket> lusidTradeTicket, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+        /// BatchCreateTradeTickets: Batch Create Trade Tickets
         /// </summary>
         /// <remarks>
         /// Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
@@ -1540,7 +1540,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (CreateTradeTicketsResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CreateTradeTicketsResponse>> BatchCreateTradeTicketsWithHttpInfoAsync(string scope, string code, List<LusidTradeTicket> lusidTradeTicket, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] BatchSetHoldings: Batch set holdings
+        /// BatchSetHoldings: Batch set holdings
         /// </summary>
         /// <remarks>
         /// Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
@@ -1558,7 +1558,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<BatchAdjustHoldingsResponse> BatchSetHoldingsAsync(string scope, string code, string successMode, Dictionary<string, AdjustHoldingForDateRequest> requestBody, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] BatchSetHoldings: Batch set holdings
+        /// BatchSetHoldings: Batch set holdings
         /// </summary>
         /// <remarks>
         /// Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
@@ -1575,7 +1575,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (BatchAdjustHoldingsResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchAdjustHoldingsResponse>> BatchSetHoldingsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, AdjustHoldingForDateRequest> requestBody, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
+        /// BatchUpsertTransactions: Batch upsert transactions
         /// </summary>
         /// <remarks>
         /// Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
@@ -1593,7 +1593,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
+        /// BatchUpsertTransactions: Batch upsert transactions
         /// </summary>
         /// <remarks>
         /// Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
@@ -1682,7 +1682,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> CancelAdjustHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment.
+        /// CancelSingleAdjustHolding: Cancel single holding adjustment.
         /// </summary>
         /// <remarks>
         /// Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
@@ -1699,7 +1699,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> CancelSingleAdjustHoldingAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, CancelSingleHoldingAdjustmentRequest cancelSingleHoldingAdjustmentRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment.
+        /// CancelSingleAdjustHolding: Cancel single holding adjustment.
         /// </summary>
         /// <remarks>
         /// Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
@@ -1775,7 +1775,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Portfolio)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Portfolio>> CreatePortfolioWithHttpInfoAsync(string scope, CreateTransactionPortfolioRequest createTransactionPortfolioRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
+        /// CreateTradeTicket: Create Trade Ticket
         /// </summary>
         /// <remarks>
         /// Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
@@ -1791,7 +1791,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<LusidTradeTicket> CreateTradeTicketAsync(string scope, string code, LusidTradeTicket? lusidTradeTicket = default(LusidTradeTicket?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
+        /// CreateTradeTicket: Create Trade Ticket
         /// </summary>
         /// <remarks>
         /// Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
@@ -1806,7 +1806,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (LusidTradeTicket)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<LusidTradeTicket>> CreateTradeTicketWithHttpInfoAsync(string scope, string code, LusidTradeTicket? lusidTradeTicket = default(LusidTradeTicket?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
+        /// DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
         /// </summary>
         /// <remarks>
         /// Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
@@ -1823,7 +1823,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeleteCustodianAccountsResponse> DeleteCustodianAccountsAsync(string scope, string code, List<ResourceId> resourceId, string? deleteMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
+        /// DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
         /// </summary>
         /// <remarks>
         /// Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
@@ -1958,7 +1958,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (VersionedResourceListOfA2BMovementRecord)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord>> GetA2BMovementsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
+        /// GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
         /// </summary>
         /// <remarks>
         /// We bucket/aggregate a transaction portfolio&#39;s instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the &#39;GetUpsertableCashFlows&#39; endpoint.  If you want instrument cashflow, please use the &#39;GetPortfolioCashFlows&#39; endpoint.  Note that these endpoints do not apply bucketing.
@@ -1974,7 +1974,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<BucketedCashFlowResponse> GetBucketedCashFlowsAsync(string scope, string code, BucketedCashFlowRequest? bucketedCashFlowRequest = default(BucketedCashFlowRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
+        /// GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
         /// </summary>
         /// <remarks>
         /// We bucket/aggregate a transaction portfolio&#39;s instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the &#39;GetUpsertableCashFlows&#39; endpoint.  If you want instrument cashflow, please use the &#39;GetPortfolioCashFlows&#39; endpoint.  Note that these endpoints do not apply bucketing.
@@ -1989,7 +1989,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (BucketedCashFlowResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BucketedCashFlowResponse>> GetBucketedCashFlowsWithHttpInfoAsync(string scope, string code, BucketedCashFlowRequest? bucketedCashFlowRequest = default(BucketedCashFlowRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetCustodianAccount: Get Custodian Account
+        /// GetCustodianAccount: Get Custodian Account
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
@@ -2009,7 +2009,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<CustodianAccount> GetCustodianAccountAsync(string scope, string code, string custodianAccountScope, string custodianAccountCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCustodianAccount: Get Custodian Account
+        /// GetCustodianAccount: Get Custodian Account
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
@@ -2061,7 +2061,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PortfolioDetails)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioDetails>> GetDetailsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors
+        /// GetHoldingContributors: Get Holdings Contributors
         /// </summary>
         /// <remarks>
         /// Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
@@ -2085,7 +2085,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetHoldingContributorsAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors
+        /// GetHoldingContributors: Get Holdings Contributors
         /// </summary>
         /// <remarks>
         /// Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
@@ -2184,7 +2184,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (HoldingsAdjustment)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<HoldingsAdjustment>> GetHoldingsAdjustmentWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders
+        /// GetHoldingsWithOrders: Get holdings with orders
         /// </summary>
         /// <remarks>
         /// Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
@@ -2207,7 +2207,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfPortfolioHolding> GetHoldingsWithOrdersAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders
+        /// GetHoldingsWithOrders: Get holdings with orders
         /// </summary>
         /// <remarks>
         /// Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
@@ -2229,7 +2229,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (VersionedResourceListWithWarningsOfPortfolioHolding)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding>> GetHoldingsWithOrdersWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetMultipleHoldingContributors: Get Multiple Holding Contributors
+        /// GetMultipleHoldingContributors: Get Multiple Holding Contributors
         /// </summary>
         /// <remarks>
         /// Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
@@ -2253,7 +2253,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetMultipleHoldingContributorsAsync(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetMultipleHoldingContributors: Get Multiple Holding Contributors
+        /// GetMultipleHoldingContributors: Get Multiple Holding Contributors
         /// </summary>
         /// <remarks>
         /// Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
@@ -2532,7 +2532,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfTransaction)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction>> GetUpsertablePortfolioCashFlowsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts
+        /// ListCustodianAccounts: List Custodian Accounts
         /// </summary>
         /// <remarks>
         /// List the custodian accounts in a Transaction Portfolios
@@ -2553,7 +2553,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfCustodianAccount> ListCustodianAccountsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts
+        /// ListCustodianAccounts: List Custodian Accounts
         /// </summary>
         /// <remarks>
         /// List the custodian accounts in a Transaction Portfolios
@@ -2641,7 +2641,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PortfolioDetails)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioDetails>> PatchPortfolioDetailsWithHttpInfoAsync(string scope, string code, List<Operation> operation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] PreviewTransaction: Preview a transaction
+        /// PreviewTransaction: Preview a transaction
         /// </summary>
         /// <remarks>
         /// Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
@@ -2660,7 +2660,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfOutputTransaction> PreviewTransactionAsync(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] PreviewTransaction: Preview a transaction
+        /// PreviewTransaction: Preview a transaction
         /// </summary>
         /// <remarks>
         /// Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
@@ -2752,7 +2752,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AdjustHolding)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AdjustHolding>> SetHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts
+        /// UpsertCustodianAccounts: Upsert Custodian Accounts
         /// </summary>
         /// <remarks>
         /// Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
@@ -2768,7 +2768,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<CustodianAccountsUpsertResponse> UpsertCustodianAccountsAsync(string scope, string code, List<CustodianAccountRequest> custodianAccountRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts
+        /// UpsertCustodianAccounts: Upsert Custodian Accounts
         /// </summary>
         /// <remarks>
         /// Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
@@ -2783,7 +2783,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (CustodianAccountsUpsertResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustodianAccountsUpsertResponse>> UpsertCustodianAccountsWithHttpInfoAsync(string scope, string code, List<CustodianAccountRequest> custodianAccountRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties
+        /// UpsertCustodianAccountsProperties: Upsert custodian accounts properties
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;CustodianAccount&#39;.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -2801,7 +2801,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<CustodianAccountProperties> UpsertCustodianAccountsPropertiesAsync(string scope, string code, string custodianAccountScope, string custodianAccountCode, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties
+        /// UpsertCustodianAccountsProperties: Upsert custodian accounts properties
         /// </summary>
         /// <remarks>
         /// Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;CustodianAccount&#39;.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
@@ -3318,7 +3318,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+        /// BatchAdjustHoldings: Batch adjust holdings Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -3336,7 +3336,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+        /// BatchAdjustHoldings: Batch adjust holdings Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -3455,7 +3455,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+        /// BatchAdjustHoldings: Batch adjust holdings Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -3474,7 +3474,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+        /// BatchAdjustHoldings: Batch adjust holdings Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -3596,7 +3596,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+        /// BatchCreateTradeTickets: Batch Create Trade Tickets Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -3612,7 +3612,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+        /// BatchCreateTradeTickets: Batch Create Trade Tickets Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -3718,7 +3718,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+        /// BatchCreateTradeTickets: Batch Create Trade Tickets Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -3735,7 +3735,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+        /// BatchCreateTradeTickets: Batch Create Trade Tickets Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -3844,7 +3844,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchSetHoldings: Batch set holdings Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+        /// BatchSetHoldings: Batch set holdings Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -3862,7 +3862,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchSetHoldings: Batch set holdings Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+        /// BatchSetHoldings: Batch set holdings Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -3981,7 +3981,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchSetHoldings: Batch set holdings Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+        /// BatchSetHoldings: Batch set holdings Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -4000,7 +4000,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchSetHoldings: Batch set holdings Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+        /// BatchSetHoldings: Batch set holdings Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -4122,7 +4122,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+        /// BatchUpsertTransactions: Batch upsert transactions Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -4140,7 +4140,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+        /// BatchUpsertTransactions: Batch upsert transactions Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -4259,7 +4259,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+        /// BatchUpsertTransactions: Batch upsert transactions Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -4278,7 +4278,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
+        /// BatchUpsertTransactions: Batch upsert transactions Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -4948,7 +4948,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment. Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
+        /// CancelSingleAdjustHolding: Cancel single holding adjustment. Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -4965,7 +4965,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment. Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
+        /// CancelSingleAdjustHolding: Cancel single holding adjustment. Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -5079,7 +5079,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment. Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
+        /// CancelSingleAdjustHolding: Cancel single holding adjustment. Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -5097,7 +5097,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment. Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
+        /// CancelSingleAdjustHolding: Cancel single holding adjustment. Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -5684,7 +5684,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
+        /// CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -5700,7 +5700,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
+        /// CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -5800,7 +5800,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
+        /// CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -5817,7 +5817,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
+        /// CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -5920,7 +5920,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
+        /// DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolios.</param>
@@ -5937,7 +5937,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
+        /// DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolios.</param>
@@ -6048,7 +6048,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
+        /// DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolios.</param>
@@ -6066,7 +6066,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
+        /// DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolios.</param>
@@ -7074,7 +7074,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios We bucket/aggregate a transaction portfolio&#39;s instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the &#39;GetUpsertableCashFlows&#39; endpoint.  If you want instrument cashflow, please use the &#39;GetPortfolioCashFlows&#39; endpoint.  Note that these endpoints do not apply bucketing.
+        /// GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios We bucket/aggregate a transaction portfolio&#39;s instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the &#39;GetUpsertableCashFlows&#39; endpoint.  If you want instrument cashflow, please use the &#39;GetPortfolioCashFlows&#39; endpoint.  Note that these endpoints do not apply bucketing.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -7090,7 +7090,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios We bucket/aggregate a transaction portfolio&#39;s instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the &#39;GetUpsertableCashFlows&#39; endpoint.  If you want instrument cashflow, please use the &#39;GetPortfolioCashFlows&#39; endpoint.  Note that these endpoints do not apply bucketing.
+        /// GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios We bucket/aggregate a transaction portfolio&#39;s instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the &#39;GetUpsertableCashFlows&#39; endpoint.  If you want instrument cashflow, please use the &#39;GetPortfolioCashFlows&#39; endpoint.  Note that these endpoints do not apply bucketing.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -7190,7 +7190,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios We bucket/aggregate a transaction portfolio&#39;s instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the &#39;GetUpsertableCashFlows&#39; endpoint.  If you want instrument cashflow, please use the &#39;GetPortfolioCashFlows&#39; endpoint.  Note that these endpoints do not apply bucketing.
+        /// GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios We bucket/aggregate a transaction portfolio&#39;s instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the &#39;GetUpsertableCashFlows&#39; endpoint.  If you want instrument cashflow, please use the &#39;GetPortfolioCashFlows&#39; endpoint.  Note that these endpoints do not apply bucketing.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -7207,7 +7207,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios We bucket/aggregate a transaction portfolio&#39;s instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the &#39;GetUpsertableCashFlows&#39; endpoint.  If you want instrument cashflow, please use the &#39;GetPortfolioCashFlows&#39; endpoint.  Note that these endpoints do not apply bucketing.
+        /// GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios We bucket/aggregate a transaction portfolio&#39;s instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the &#39;GetUpsertableCashFlows&#39; endpoint.  If you want instrument cashflow, please use the &#39;GetPortfolioCashFlows&#39; endpoint.  Note that these endpoints do not apply bucketing.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -7310,7 +7310,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCustodianAccount: Get Custodian Account Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
+        /// GetCustodianAccount: Get Custodian Account Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolio.</param>
@@ -7330,7 +7330,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCustodianAccount: Get Custodian Account Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
+        /// GetCustodianAccount: Get Custodian Account Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolio.</param>
@@ -7455,7 +7455,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCustodianAccount: Get Custodian Account Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
+        /// GetCustodianAccount: Get Custodian Account Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolio.</param>
@@ -7476,7 +7476,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCustodianAccount: Get Custodian Account Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
+        /// GetCustodianAccount: Get Custodian Account Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolio.</param>
@@ -7850,7 +7850,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
+        /// GetHoldingContributors: Get Holdings Contributors Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -7874,7 +7874,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
+        /// GetHoldingContributors: Get Holdings Contributors Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -8010,7 +8010,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
+        /// GetHoldingContributors: Get Holdings Contributors Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -8035,7 +8035,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
+        /// GetHoldingContributors: Get Holdings Contributors Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -8732,7 +8732,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
+        /// GetHoldingsWithOrders: Get holdings with orders Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -8755,7 +8755,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
+        /// GetHoldingsWithOrders: Get holdings with orders Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -8889,7 +8889,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
+        /// GetHoldingsWithOrders: Get holdings with orders Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -8913,7 +8913,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
+        /// GetHoldingsWithOrders: Get holdings with orders Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9050,7 +9050,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetMultipleHoldingContributors: Get Multiple Holding Contributors Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
+        /// GetMultipleHoldingContributors: Get Multiple Holding Contributors Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9074,7 +9074,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetMultipleHoldingContributors: Get Multiple Holding Contributors Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
+        /// GetMultipleHoldingContributors: Get Multiple Holding Contributors Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9220,7 +9220,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetMultipleHoldingContributors: Get Multiple Holding Contributors Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
+        /// GetMultipleHoldingContributors: Get Multiple Holding Contributors Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9245,7 +9245,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetMultipleHoldingContributors: Get Multiple Holding Contributors Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
+        /// GetMultipleHoldingContributors: Get Multiple Holding Contributors Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -11254,7 +11254,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts List the custodian accounts in a Transaction Portfolios
+        /// ListCustodianAccounts: List Custodian Accounts List the custodian accounts in a Transaction Portfolios
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolio.</param>
@@ -11275,7 +11275,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts List the custodian accounts in a Transaction Portfolios
+        /// ListCustodianAccounts: List Custodian Accounts List the custodian accounts in a Transaction Portfolios
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolio.</param>
@@ -11399,7 +11399,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts List the custodian accounts in a Transaction Portfolios
+        /// ListCustodianAccounts: List Custodian Accounts List the custodian accounts in a Transaction Portfolios
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolio.</param>
@@ -11421,7 +11421,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts List the custodian accounts in a Transaction Portfolios
+        /// ListCustodianAccounts: List Custodian Accounts List the custodian accounts in a Transaction Portfolios
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolio.</param>
@@ -12066,7 +12066,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PreviewTransaction: Preview a transaction Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
+        /// PreviewTransaction: Preview a transaction Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -12085,7 +12085,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PreviewTransaction: Preview a transaction Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
+        /// PreviewTransaction: Preview a transaction Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -12206,7 +12206,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PreviewTransaction: Preview a transaction Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
+        /// PreviewTransaction: Preview a transaction Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -12226,7 +12226,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PreviewTransaction: Preview a transaction Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
+        /// PreviewTransaction: Preview a transaction Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -12924,7 +12924,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
+        /// UpsertCustodianAccounts: Upsert Custodian Accounts Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolio.</param>
@@ -12940,7 +12940,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
+        /// UpsertCustodianAccounts: Upsert Custodian Accounts Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolio.</param>
@@ -13046,7 +13046,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
+        /// UpsertCustodianAccounts: Upsert Custodian Accounts Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolio.</param>
@@ -13063,7 +13063,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
+        /// UpsertCustodianAccounts: Upsert Custodian Accounts Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolio.</param>
@@ -13172,7 +13172,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;CustodianAccount&#39;.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// UpsertCustodianAccountsProperties: Upsert custodian accounts properties Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;CustodianAccount&#39;.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolios to update or insert the properties onto.</param>
@@ -13190,7 +13190,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;CustodianAccount&#39;.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// UpsertCustodianAccountsProperties: Upsert custodian accounts properties Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;CustodianAccount&#39;.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolios to update or insert the properties onto.</param>
@@ -13306,7 +13306,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;CustodianAccount&#39;.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// UpsertCustodianAccountsProperties: Upsert custodian accounts properties Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;CustodianAccount&#39;.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolios to update or insert the properties onto.</param>
@@ -13325,7 +13325,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;CustodianAccount&#39;.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// UpsertCustodianAccountsProperties: Upsert custodian accounts properties Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;CustodianAccount&#39;.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Transaction Portfolios to update or insert the properties onto.</param>

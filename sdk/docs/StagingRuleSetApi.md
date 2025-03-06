@@ -4,17 +4,17 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateStagingRuleSet**](StagingRuleSetApi.md#createstagingruleset) | **POST** /api/stagingrulesets/{entityType} | [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet |
-| [**DeleteStagingRuleSet**](StagingRuleSetApi.md#deletestagingruleset) | **DELETE** /api/stagingrulesets/{entityType} | [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet |
-| [**GetStagingRuleSet**](StagingRuleSetApi.md#getstagingruleset) | **GET** /api/stagingrulesets/{entityType} | [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet |
-| [**ListStagingRuleSets**](StagingRuleSetApi.md#liststagingrulesets) | **GET** /api/stagingrulesets | [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets |
-| [**UpdateStagingRuleSet**](StagingRuleSetApi.md#updatestagingruleset) | **PUT** /api/stagingrulesets/{entityType} | [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet |
+| [**CreateStagingRuleSet**](StagingRuleSetApi.md#createstagingruleset) | **POST** /api/stagingrulesets/{entityType} | CreateStagingRuleSet: Create a StagingRuleSet |
+| [**DeleteStagingRuleSet**](StagingRuleSetApi.md#deletestagingruleset) | **DELETE** /api/stagingrulesets/{entityType} | DeleteStagingRuleSet: Delete a StagingRuleSet |
+| [**GetStagingRuleSet**](StagingRuleSetApi.md#getstagingruleset) | **GET** /api/stagingrulesets/{entityType} | GetStagingRuleSet: Get a StagingRuleSet |
+| [**ListStagingRuleSets**](StagingRuleSetApi.md#liststagingrulesets) | **GET** /api/stagingrulesets | ListStagingRuleSets: List StagingRuleSets |
+| [**UpdateStagingRuleSet**](StagingRuleSetApi.md#updatestagingruleset) | **PUT** /api/stagingrulesets/{entityType} | UpdateStagingRuleSet: Update a StagingRuleSet |
 
 <a id="createstagingruleset"></a>
 # **CreateStagingRuleSet**
 > StagingRuleSet CreateStagingRuleSet (string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest)
 
-[EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet
+CreateStagingRuleSet: Create a StagingRuleSet
 
 Create a new staging rule set.
 
@@ -65,7 +65,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // StagingRuleSet result = apiInstance.CreateStagingRuleSet(entityType, createStagingRuleSetRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet
+                // CreateStagingRuleSet: Create a StagingRuleSet
                 StagingRuleSet result = apiInstance.CreateStagingRuleSet(entityType, createStagingRuleSetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -86,7 +86,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet
+    // CreateStagingRuleSet: Create a StagingRuleSet
     ApiResponse<StagingRuleSet> response = apiInstance.CreateStagingRuleSetWithHttpInfo(entityType, createStagingRuleSetRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -130,7 +130,7 @@ catch (ApiException e)
 # **DeleteStagingRuleSet**
 > DeletedEntityResponse DeleteStagingRuleSet (string entityType)
 
-[EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
+DeleteStagingRuleSet: Delete a StagingRuleSet
 
 Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set's creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -180,7 +180,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteStagingRuleSet(entityType, opts: opts);
 
-                // [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
+                // DeleteStagingRuleSet: Delete a StagingRuleSet
                 DeletedEntityResponse result = apiInstance.DeleteStagingRuleSet(entityType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -201,7 +201,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
+    // DeleteStagingRuleSet: Delete a StagingRuleSet
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteStagingRuleSetWithHttpInfo(entityType);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -244,7 +244,7 @@ catch (ApiException e)
 # **GetStagingRuleSet**
 > StagingRuleSet GetStagingRuleSet (string entityType, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
+GetStagingRuleSet: Get a StagingRuleSet
 
 Get the staging rule set for the given entity type at the specific asAt time.
 
@@ -295,7 +295,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // StagingRuleSet result = apiInstance.GetStagingRuleSet(entityType, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
+                // GetStagingRuleSet: Get a StagingRuleSet
                 StagingRuleSet result = apiInstance.GetStagingRuleSet(entityType, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -316,7 +316,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
+    // GetStagingRuleSet: Get a StagingRuleSet
     ApiResponse<StagingRuleSet> response = apiInstance.GetStagingRuleSetWithHttpInfo(entityType, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -360,7 +360,7 @@ catch (ApiException e)
 # **ListStagingRuleSets**
 > PagedResourceListOfStagingRuleSet ListStagingRuleSets (DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
 
-[EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
+ListStagingRuleSets: List StagingRuleSets
 
 List all the staging rule sets matching particular criteria.
 
@@ -414,7 +414,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfStagingRuleSet result = apiInstance.ListStagingRuleSets(asAt, page, sortBy, limit, filter, opts: opts);
 
-                // [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
+                // ListStagingRuleSets: List StagingRuleSets
                 PagedResourceListOfStagingRuleSet result = apiInstance.ListStagingRuleSets(asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -435,7 +435,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
+    // ListStagingRuleSets: List StagingRuleSets
     ApiResponse<PagedResourceListOfStagingRuleSet> response = apiInstance.ListStagingRuleSetsWithHttpInfo(asAt, page, sortBy, limit, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -482,7 +482,7 @@ catch (ApiException e)
 # **UpdateStagingRuleSet**
 > StagingRuleSet UpdateStagingRuleSet (string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest)
 
-[EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
+UpdateStagingRuleSet: Update a StagingRuleSet
 
 Update an existing staging rule set.
 
@@ -533,7 +533,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // StagingRuleSet result = apiInstance.UpdateStagingRuleSet(entityType, updateStagingRuleSetRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
+                // UpdateStagingRuleSet: Update a StagingRuleSet
                 StagingRuleSet result = apiInstance.UpdateStagingRuleSet(entityType, updateStagingRuleSetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -554,7 +554,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
+    // UpdateStagingRuleSet: Update a StagingRuleSet
     ApiResponse<StagingRuleSet> response = apiInstance.UpdateStagingRuleSetWithHttpInfo(entityType, updateStagingRuleSetRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

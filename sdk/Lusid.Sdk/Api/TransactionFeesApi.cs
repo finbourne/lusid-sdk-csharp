@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule.
+        /// DeleteTransactionFeeRule: Deletes a fee rule.
         /// </summary>
         /// <remarks>
         /// Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteTransactionFeeRule(string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule.
+        /// DeleteTransactionFeeRule: Deletes a fee rule.
         /// </summary>
         /// <remarks>
         /// Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransactionFeeRuleWithHttpInfo(string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
+        /// GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
         /// </summary>
         /// <remarks>
         /// Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
@@ -76,7 +76,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfFeeRule GetApplicableTransactionFees(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentIdentifierType = default(string?), string? instrumentIdentifier = default(string?), string? portfolioScope = default(string?), string? portfolioCode = default(string?), Dictionary<string, string>? requestBody = default(Dictionary<string, string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
+        /// GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
         /// </summary>
         /// <remarks>
         /// Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
@@ -94,7 +94,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfFeeRule</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfFeeRule> GetApplicableTransactionFeesWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentIdentifierType = default(string?), string? instrumentIdentifier = default(string?), string? portfolioScope = default(string?), string? portfolioCode = default(string?), Dictionary<string, string>? requestBody = default(Dictionary<string, string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule.
+        /// GetTransactionFeeRule: Retrieve the definition of single fee rule.
         /// </summary>
         /// <remarks>
         /// Retrieves the fee rule definition at the given effective and as at times.
@@ -109,7 +109,7 @@ namespace Lusid.Sdk.Api
         FeeRule GetTransactionFeeRule(string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule.
+        /// GetTransactionFeeRule: Retrieve the definition of single fee rule.
         /// </summary>
         /// <remarks>
         /// Retrieves the fee rule definition at the given effective and as at times.
@@ -123,7 +123,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of FeeRule</returns>
         Lusid.Sdk.Client.ApiResponse<FeeRule> GetTransactionFeeRuleWithHttpInfo(string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering.
         /// </summary>
         /// <remarks>
         /// For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
@@ -140,7 +140,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfFeeRule ListTransactionFeeRules(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering.
         /// </summary>
         /// <remarks>
         /// For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
@@ -156,7 +156,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfFeeRule</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfFeeRule> ListTransactionFeeRulesWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules.
+        /// UpsertTransactionFeeRules: Upsert fee rules.
         /// </summary>
         /// <remarks>
         /// To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
@@ -170,7 +170,7 @@ namespace Lusid.Sdk.Api
         FeeRuleUpsertResponse UpsertTransactionFeeRules(Dictionary<string, FeeRuleUpsertRequest> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules.
+        /// UpsertTransactionFeeRules: Upsert fee rules.
         /// </summary>
         /// <remarks>
         /// To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
@@ -192,7 +192,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule.
+        /// DeleteTransactionFeeRule: Deletes a fee rule.
         /// </summary>
         /// <remarks>
         /// Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
@@ -206,7 +206,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionFeeRuleAsync(string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule.
+        /// DeleteTransactionFeeRule: Deletes a fee rule.
         /// </summary>
         /// <remarks>
         /// Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
@@ -219,7 +219,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransactionFeeRuleWithHttpInfoAsync(string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
+        /// GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
         /// </summary>
         /// <remarks>
         /// Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
@@ -239,7 +239,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfFeeRule> GetApplicableTransactionFeesAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentIdentifierType = default(string?), string? instrumentIdentifier = default(string?), string? portfolioScope = default(string?), string? portfolioCode = default(string?), Dictionary<string, string>? requestBody = default(Dictionary<string, string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
+        /// GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
         /// </summary>
         /// <remarks>
         /// Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
@@ -258,7 +258,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfFeeRule)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfFeeRule>> GetApplicableTransactionFeesWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentIdentifierType = default(string?), string? instrumentIdentifier = default(string?), string? portfolioScope = default(string?), string? portfolioCode = default(string?), Dictionary<string, string>? requestBody = default(Dictionary<string, string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule.
+        /// GetTransactionFeeRule: Retrieve the definition of single fee rule.
         /// </summary>
         /// <remarks>
         /// Retrieves the fee rule definition at the given effective and as at times.
@@ -274,7 +274,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<FeeRule> GetTransactionFeeRuleAsync(string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule.
+        /// GetTransactionFeeRule: Retrieve the definition of single fee rule.
         /// </summary>
         /// <remarks>
         /// Retrieves the fee rule definition at the given effective and as at times.
@@ -289,7 +289,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (FeeRule)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FeeRule>> GetTransactionFeeRuleWithHttpInfoAsync(string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering.
         /// </summary>
         /// <remarks>
         /// For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
@@ -307,7 +307,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfFeeRule> ListTransactionFeeRulesAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering.
         /// </summary>
         /// <remarks>
         /// For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
@@ -324,7 +324,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfFeeRule)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfFeeRule>> ListTransactionFeeRulesWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules.
+        /// UpsertTransactionFeeRules: Upsert fee rules.
         /// </summary>
         /// <remarks>
         /// To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
@@ -339,7 +339,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<FeeRuleUpsertResponse> UpsertTransactionFeeRulesAsync(Dictionary<string, FeeRuleUpsertRequest> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules.
+        /// UpsertTransactionFeeRules: Upsert fee rules.
         /// </summary>
         /// <remarks>
         /// To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
@@ -476,7 +476,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
+        /// DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -490,7 +490,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
+        /// DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -576,7 +576,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
+        /// DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -591,7 +591,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
+        /// DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -680,7 +680,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
+        /// GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -700,7 +700,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
+        /// GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -814,7 +814,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
+        /// GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -835,7 +835,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
+        /// GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -952,7 +952,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule. Retrieves the fee rule definition at the given effective and as at times.
+        /// GetTransactionFeeRule: Retrieve the definition of single fee rule. Retrieves the fee rule definition at the given effective and as at times.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -968,7 +968,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule. Retrieves the fee rule definition at the given effective and as at times.
+        /// GetTransactionFeeRule: Retrieve the definition of single fee rule. Retrieves the fee rule definition at the given effective and as at times.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -1064,7 +1064,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule. Retrieves the fee rule definition at the given effective and as at times.
+        /// GetTransactionFeeRule: Retrieve the definition of single fee rule. Retrieves the fee rule definition at the given effective and as at times.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -1081,7 +1081,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFeeRule: Retrieve the definition of single fee rule. Retrieves the fee rule definition at the given effective and as at times.
+        /// GetTransactionFeeRule: Retrieve the definition of single fee rule. Retrieves the fee rule definition at the given effective and as at times.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -1180,7 +1180,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -1198,7 +1198,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -1301,7 +1301,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -1320,7 +1320,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
@@ -1426,7 +1426,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
+        /// UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a              created fee rule.</param>
@@ -1441,7 +1441,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
+        /// UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a              created fee rule.</param>
@@ -1536,7 +1536,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
+        /// UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a              created fee rule.</param>
@@ -1552,7 +1552,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
+        /// UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a              created fee rule.</param>

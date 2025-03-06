@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
+        /// DeleteOrderInstruction: Delete orderInstruction
         /// </summary>
         /// <remarks>
         /// Delete an orderInstruction. Deletion will be valid from the orderInstruction&#39;s creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteOrderInstruction(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
+        /// DeleteOrderInstruction: Delete orderInstruction
         /// </summary>
         /// <remarks>
         /// Delete an orderInstruction. Deletion will be valid from the orderInstruction&#39;s creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteOrderInstructionWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
+        /// GetOrderInstruction: Get OrderInstruction
         /// </summary>
         /// <remarks>
         /// Fetch a OrderInstruction that matches the specified identifier
@@ -75,7 +75,7 @@ namespace Lusid.Sdk.Api
         OrderInstruction GetOrderInstruction(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
+        /// GetOrderInstruction: Get OrderInstruction
         /// </summary>
         /// <remarks>
         /// Fetch a OrderInstruction that matches the specified identifier
@@ -90,7 +90,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of OrderInstruction</returns>
         Lusid.Sdk.Client.ApiResponse<OrderInstruction> GetOrderInstructionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
+        /// ListOrderInstructions: List OrderInstructions
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
@@ -108,7 +108,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfOrderInstruction ListOrderInstructions(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
+        /// ListOrderInstructions: List OrderInstructions
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
@@ -125,7 +125,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfOrderInstruction</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderInstruction> ListOrderInstructionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
+        /// UpsertOrderInstructions: Upsert OrderInstruction
         /// </summary>
         /// <remarks>
         /// Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
@@ -138,7 +138,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfOrderInstruction UpsertOrderInstructions(OrderInstructionSetRequest? orderInstructionSetRequest = default(OrderInstructionSetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
+        /// UpsertOrderInstructions: Upsert OrderInstruction
         /// </summary>
         /// <remarks>
         /// Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
@@ -159,7 +159,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
+        /// DeleteOrderInstruction: Delete orderInstruction
         /// </summary>
         /// <remarks>
         /// Delete an orderInstruction. Deletion will be valid from the orderInstruction&#39;s creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -174,7 +174,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteOrderInstructionAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
+        /// DeleteOrderInstruction: Delete orderInstruction
         /// </summary>
         /// <remarks>
         /// Delete an orderInstruction. Deletion will be valid from the orderInstruction&#39;s creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -188,7 +188,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteOrderInstructionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
+        /// GetOrderInstruction: Get OrderInstruction
         /// </summary>
         /// <remarks>
         /// Fetch a OrderInstruction that matches the specified identifier
@@ -205,7 +205,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<OrderInstruction> GetOrderInstructionAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
+        /// GetOrderInstruction: Get OrderInstruction
         /// </summary>
         /// <remarks>
         /// Fetch a OrderInstruction that matches the specified identifier
@@ -221,7 +221,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (OrderInstruction)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<OrderInstruction>> GetOrderInstructionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
+        /// ListOrderInstructions: List OrderInstructions
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
@@ -240,7 +240,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfOrderInstruction> ListOrderInstructionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
+        /// ListOrderInstructions: List OrderInstructions
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
@@ -258,7 +258,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfOrderInstruction)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfOrderInstruction>> ListOrderInstructionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
+        /// UpsertOrderInstructions: Upsert OrderInstruction
         /// </summary>
         /// <remarks>
         /// Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
@@ -272,7 +272,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfOrderInstruction> UpsertOrderInstructionsAsync(OrderInstructionSetRequest? orderInstructionSetRequest = default(OrderInstructionSetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
+        /// UpsertOrderInstructions: Upsert OrderInstruction
         /// </summary>
         /// <remarks>
         /// Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
@@ -408,7 +408,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction Delete an orderInstruction. Deletion will be valid from the orderInstruction&#39;s creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeleteOrderInstruction: Delete orderInstruction Delete an orderInstruction. Deletion will be valid from the orderInstruction&#39;s creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The orderInstruction scope.</param>
@@ -423,7 +423,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction Delete an orderInstruction. Deletion will be valid from the orderInstruction&#39;s creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeleteOrderInstruction: Delete orderInstruction Delete an orderInstruction. Deletion will be valid from the orderInstruction&#39;s creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The orderInstruction scope.</param>
@@ -517,7 +517,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction Delete an orderInstruction. Deletion will be valid from the orderInstruction&#39;s creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeleteOrderInstruction: Delete orderInstruction Delete an orderInstruction. Deletion will be valid from the orderInstruction&#39;s creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The orderInstruction scope.</param>
@@ -533,7 +533,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction Delete an orderInstruction. Deletion will be valid from the orderInstruction&#39;s creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeleteOrderInstruction: Delete orderInstruction Delete an orderInstruction. Deletion will be valid from the orderInstruction&#39;s creation datetime.  This means that the orderInstruction will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The orderInstruction scope.</param>
@@ -630,7 +630,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction Fetch a OrderInstruction that matches the specified identifier
+        /// GetOrderInstruction: Get OrderInstruction Fetch a OrderInstruction that matches the specified identifier
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the orderInstruction belongs.</param>
@@ -647,7 +647,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction Fetch a OrderInstruction that matches the specified identifier
+        /// GetOrderInstruction: Get OrderInstruction Fetch a OrderInstruction that matches the specified identifier
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the orderInstruction belongs.</param>
@@ -751,7 +751,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction Fetch a OrderInstruction that matches the specified identifier
+        /// GetOrderInstruction: Get OrderInstruction Fetch a OrderInstruction that matches the specified identifier
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the orderInstruction belongs.</param>
@@ -769,7 +769,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction Fetch a OrderInstruction that matches the specified identifier
+        /// GetOrderInstruction: Get OrderInstruction Fetch a OrderInstruction that matches the specified identifier
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the orderInstruction belongs.</param>
@@ -876,7 +876,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
+        /// ListOrderInstructions: List OrderInstructions Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the orderInstruction. Defaults to return the latest version of the orderInstruction if not specified. (optional)</param>
@@ -895,7 +895,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
+        /// ListOrderInstructions: List OrderInstructions Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the orderInstruction. Defaults to return the latest version of the orderInstruction if not specified. (optional)</param>
@@ -1003,7 +1003,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
+        /// ListOrderInstructions: List OrderInstructions Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the orderInstruction. Defaults to return the latest version of the orderInstruction if not specified. (optional)</param>
@@ -1023,7 +1023,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
+        /// ListOrderInstructions: List OrderInstructions Fetch the last pre-AsAt date version of each orderInstruction in scope (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the orderInstruction. Defaults to return the latest version of the orderInstruction if not specified. (optional)</param>
@@ -1134,7 +1134,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
+        /// UpsertOrderInstructions: Upsert OrderInstruction Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderInstructionSetRequest">The collection of orderInstruction requests. (optional)</param>
@@ -1148,7 +1148,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
+        /// UpsertOrderInstructions: Upsert OrderInstruction Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderInstructionSetRequest">The collection of orderInstruction requests. (optional)</param>
@@ -1232,7 +1232,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
+        /// UpsertOrderInstructions: Upsert OrderInstruction Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderInstructionSetRequest">The collection of orderInstruction requests. (optional)</param>
@@ -1247,7 +1247,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
+        /// UpsertOrderInstructions: Upsert OrderInstruction Upsert; update existing orderInstructions with given ids, or create new orderInstructions otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderInstructionSetRequest">The collection of orderInstruction requests. (optional)</param>

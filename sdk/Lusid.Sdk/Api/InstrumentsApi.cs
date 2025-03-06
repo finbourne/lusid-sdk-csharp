@@ -67,7 +67,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BatchUpsertInstrumentPropertiesResponse</returns>
         Lusid.Sdk.Client.ApiResponse<BatchUpsertInstrumentPropertiesResponse> BatchUpsertInstrumentPropertiesWithHttpInfo(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.
+        /// CalculateSettlementDate: Get the settlement date for an instrument.
         /// </summary>
         /// <remarks>
         /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
@@ -84,7 +84,7 @@ namespace Lusid.Sdk.Api
         AddBusinessDaysToDateResponse CalculateSettlementDate(string identifierType, string identifier, DateTimeOrCutLabel? transactionDate = default(DateTimeOrCutLabel?), string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.
+        /// CalculateSettlementDate: Get the settlement date for an instrument.
         /// </summary>
         /// <remarks>
         /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
@@ -129,7 +129,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeleteInstrumentResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeleteInstrumentResponse> DeleteInstrumentWithHttpInfo(string identifierType, string identifier, string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
+        /// DeleteInstrumentProperties: Delete instrument properties
         /// </summary>
         /// <remarks>
         /// Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
@@ -148,7 +148,7 @@ namespace Lusid.Sdk.Api
         DeleteInstrumentPropertiesResponse DeleteInstrumentProperties(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? scope = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
+        /// DeleteInstrumentProperties: Delete instrument properties
         /// </summary>
         /// <remarks>
         /// Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
@@ -195,7 +195,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeleteInstrumentsResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeleteInstrumentsResponse> DeleteInstrumentsWithHttpInfo(List<string> requestBody, string? deleteMode = default(string?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+        /// GetAllPossibleFeatures: Provides list of all possible features for instrument type.
         /// </summary>
         /// <remarks>
         /// Provides all possible instrument features an instrument of a given type can provide.
@@ -208,7 +208,7 @@ namespace Lusid.Sdk.Api
         Dictionary<string, List<string>> GetAllPossibleFeatures(string instrumentType, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+        /// GetAllPossibleFeatures: Provides list of all possible features for instrument type.
         /// </summary>
         /// <remarks>
         /// Provides all possible instrument features an instrument of a given type can provide.
@@ -220,7 +220,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
         Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<string>>> GetAllPossibleFeaturesWithHttpInfo(string instrumentType, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
         /// </summary>
         /// <remarks>
         /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
@@ -239,7 +239,7 @@ namespace Lusid.Sdk.Api
         InstrumentCapabilities GetExistingInstrumentCapabilities(string identifier, string? model = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
         /// </summary>
         /// <remarks>
         /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
@@ -352,7 +352,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfInstrumentIdTypeDescriptor</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentIdTypeDescriptor> GetInstrumentIdentifierTypesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+        /// GetInstrumentPaymentDiary: Get instrument payment diary
         /// </summary>
         /// <remarks>
         /// Get the payment diary of a single instrument.
@@ -371,7 +371,7 @@ namespace Lusid.Sdk.Api
         InstrumentPaymentDiary GetInstrumentPaymentDiary(string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+        /// GetInstrumentPaymentDiary: Get instrument payment diary
         /// </summary>
         /// <remarks>
         /// Get the payment diary of a single instrument.
@@ -463,7 +463,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfPropertyInterval</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval> GetInstrumentPropertyTimeSeriesWithHttpInfo(string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
+        /// GetInstrumentRelationships: Get Instrument relationships
         /// </summary>
         /// <remarks>
         /// Get relationships for a particular Instrument.
@@ -482,7 +482,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfRelationship GetInstrumentRelationships(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
+        /// GetInstrumentRelationships: Get Instrument relationships
         /// </summary>
         /// <remarks>
         /// Get relationships for a particular Instrument.
@@ -537,7 +537,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of GetInstrumentsResponse</returns>
         Lusid.Sdk.Client.ApiResponse<GetInstrumentsResponse> GetInstrumentsWithHttpInfo(string identifierType, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
+        /// ListInstrumentProperties: Get instrument properties (with Pagination)
         /// </summary>
         /// <remarks>
         /// List all the properties of a particular instrument, as identified by a particular unique identifier.
@@ -556,7 +556,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfProperty ListInstrumentProperties(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
+        /// ListInstrumentProperties: Get instrument properties (with Pagination)
         /// </summary>
         /// <remarks>
         /// List all the properties of a particular instrument, as identified by a particular unique identifier.
@@ -619,7 +619,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfInstrument</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> ListInstrumentsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
         /// </summary>
         /// <remarks>
         /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
@@ -633,7 +633,7 @@ namespace Lusid.Sdk.Api
         InstrumentCapabilities QueryInstrumentCapabilities(LusidInstrument lusidInstrument, string? model = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
         /// </summary>
         /// <remarks>
         /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
@@ -789,7 +789,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (BatchUpsertInstrumentPropertiesResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertInstrumentPropertiesResponse>> BatchUpsertInstrumentPropertiesWithHttpInfoAsync(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.
+        /// CalculateSettlementDate: Get the settlement date for an instrument.
         /// </summary>
         /// <remarks>
         /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
@@ -807,7 +807,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AddBusinessDaysToDateResponse> CalculateSettlementDateAsync(string identifierType, string identifier, DateTimeOrCutLabel? transactionDate = default(DateTimeOrCutLabel?), string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument.
+        /// CalculateSettlementDate: Get the settlement date for an instrument.
         /// </summary>
         /// <remarks>
         /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
@@ -855,7 +855,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeleteInstrumentResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeleteInstrumentResponse>> DeleteInstrumentWithHttpInfoAsync(string identifierType, string identifier, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
+        /// DeleteInstrumentProperties: Delete instrument properties
         /// </summary>
         /// <remarks>
         /// Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
@@ -875,7 +875,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeleteInstrumentPropertiesResponse> DeleteInstrumentPropertiesAsync(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? scope = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
+        /// DeleteInstrumentProperties: Delete instrument properties
         /// </summary>
         /// <remarks>
         /// Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
@@ -925,7 +925,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeleteInstrumentsResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeleteInstrumentsResponse>> DeleteInstrumentsWithHttpInfoAsync(List<string> requestBody, string? deleteMode = default(string?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+        /// GetAllPossibleFeatures: Provides list of all possible features for instrument type.
         /// </summary>
         /// <remarks>
         /// Provides all possible instrument features an instrument of a given type can provide.
@@ -939,7 +939,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Dictionary<string, List<string>>> GetAllPossibleFeaturesAsync(string instrumentType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+        /// GetAllPossibleFeatures: Provides list of all possible features for instrument type.
         /// </summary>
         /// <remarks>
         /// Provides all possible instrument features an instrument of a given type can provide.
@@ -952,7 +952,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;string&gt;&gt;)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<string>>>> GetAllPossibleFeaturesWithHttpInfoAsync(string instrumentType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
         /// </summary>
         /// <remarks>
         /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
@@ -972,7 +972,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<InstrumentCapabilities> GetExistingInstrumentCapabilitiesAsync(string identifier, string? model = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
         /// </summary>
         /// <remarks>
         /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
@@ -1092,7 +1092,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfInstrumentIdTypeDescriptor)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentIdTypeDescriptor>> GetInstrumentIdentifierTypesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+        /// GetInstrumentPaymentDiary: Get instrument payment diary
         /// </summary>
         /// <remarks>
         /// Get the payment diary of a single instrument.
@@ -1112,7 +1112,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<InstrumentPaymentDiary> GetInstrumentPaymentDiaryAsync(string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+        /// GetInstrumentPaymentDiary: Get instrument payment diary
         /// </summary>
         /// <remarks>
         /// Get the payment diary of a single instrument.
@@ -1209,7 +1209,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfPropertyInterval)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval>> GetInstrumentPropertyTimeSeriesWithHttpInfoAsync(string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
+        /// GetInstrumentRelationships: Get Instrument relationships
         /// </summary>
         /// <remarks>
         /// Get relationships for a particular Instrument.
@@ -1229,7 +1229,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfRelationship> GetInstrumentRelationshipsAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
+        /// GetInstrumentRelationships: Get Instrument relationships
         /// </summary>
         /// <remarks>
         /// Get relationships for a particular Instrument.
@@ -1287,7 +1287,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (GetInstrumentsResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetInstrumentsResponse>> GetInstrumentsWithHttpInfoAsync(string identifierType, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
+        /// ListInstrumentProperties: Get instrument properties (with Pagination)
         /// </summary>
         /// <remarks>
         /// List all the properties of a particular instrument, as identified by a particular unique identifier.
@@ -1307,7 +1307,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfProperty> ListInstrumentPropertiesAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
+        /// ListInstrumentProperties: Get instrument properties (with Pagination)
         /// </summary>
         /// <remarks>
         /// List all the properties of a particular instrument, as identified by a particular unique identifier.
@@ -1373,7 +1373,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfInstrument)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument>> ListInstrumentsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
         /// </summary>
         /// <remarks>
         /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
@@ -1388,7 +1388,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<InstrumentCapabilities> QueryInstrumentCapabilitiesAsync(LusidInstrument lusidInstrument, string? model = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
         /// </summary>
         /// <remarks>
         /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
@@ -1900,7 +1900,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
@@ -1918,7 +1918,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
@@ -2027,7 +2027,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
@@ -2046,7 +2046,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
@@ -2392,7 +2392,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -2412,7 +2412,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -2538,7 +2538,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -2559,7 +2559,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -2924,7 +2924,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type. Provides all possible instrument features an instrument of a given type can provide.
+        /// GetAllPossibleFeatures: Provides list of all possible features for instrument type. Provides all possible instrument features an instrument of a given type can provide.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentType">A lusid instrument type e.g. Bond, FxOption.</param>
@@ -2938,7 +2938,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type. Provides all possible instrument features an instrument of a given type can provide.
+        /// GetAllPossibleFeatures: Provides list of all possible features for instrument type. Provides all possible instrument features an instrument of a given type can provide.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentType">A lusid instrument type e.g. Bond, FxOption.</param>
@@ -3024,7 +3024,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type. Provides all possible instrument features an instrument of a given type can provide.
+        /// GetAllPossibleFeatures: Provides list of all possible features for instrument type. Provides all possible instrument features an instrument of a given type can provide.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentType">A lusid instrument type e.g. Bond, FxOption.</param>
@@ -3039,7 +3039,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type. Provides all possible instrument features an instrument of a given type can provide.
+        /// GetAllPossibleFeatures: Provides list of all possible features for instrument type. Provides all possible instrument features an instrument of a given type can provide.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentType">A lusid instrument type e.g. Bond, FxOption.</param>
@@ -3128,7 +3128,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
@@ -3148,7 +3148,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
@@ -3264,7 +3264,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
@@ -3285,7 +3285,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
@@ -4136,7 +4136,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary Get the payment diary of a single instrument.
+        /// GetInstrumentPaymentDiary: Get instrument payment diary Get the payment diary of a single instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The identifier being supplied e.g. \&quot;Figi\&quot;.</param>
@@ -4156,7 +4156,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary Get the payment diary of a single instrument.
+        /// GetInstrumentPaymentDiary: Get instrument payment diary Get the payment diary of a single instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The identifier being supplied e.g. \&quot;Figi\&quot;.</param>
@@ -4281,7 +4281,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary Get the payment diary of a single instrument.
+        /// GetInstrumentPaymentDiary: Get instrument payment diary Get the payment diary of a single instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The identifier being supplied e.g. \&quot;Figi\&quot;.</param>
@@ -4302,7 +4302,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary Get the payment diary of a single instrument.
+        /// GetInstrumentPaymentDiary: Get instrument payment diary Get the payment diary of a single instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The identifier being supplied e.g. \&quot;Figi\&quot;.</param>
@@ -5000,7 +5000,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships Get relationships for a particular Instrument.
+        /// GetInstrumentRelationships: Get Instrument relationships Get relationships for a particular Instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
@@ -5020,7 +5020,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships Get relationships for a particular Instrument.
+        /// GetInstrumentRelationships: Get Instrument relationships Get relationships for a particular Instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
@@ -5139,7 +5139,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships Get relationships for a particular Instrument.
+        /// GetInstrumentRelationships: Get Instrument relationships Get relationships for a particular Instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
@@ -5160,7 +5160,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships Get relationships for a particular Instrument.
+        /// GetInstrumentRelationships: Get Instrument relationships Get relationships for a particular Instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
@@ -5572,7 +5572,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination) List all the properties of a particular instrument, as identified by a particular unique identifier.
+        /// ListInstrumentProperties: Get instrument properties (with Pagination) List all the properties of a particular instrument, as identified by a particular unique identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -5592,7 +5592,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination) List all the properties of a particular instrument, as identified by a particular unique identifier.
+        /// ListInstrumentProperties: Get instrument properties (with Pagination) List all the properties of a particular instrument, as identified by a particular unique identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -5711,7 +5711,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination) List all the properties of a particular instrument, as identified by a particular unique identifier.
+        /// ListInstrumentProperties: Get instrument properties (with Pagination) List all the properties of a particular instrument, as identified by a particular unique identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -5732,7 +5732,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination) List all the properties of a particular instrument, as identified by a particular unique identifier.
+        /// ListInstrumentProperties: Get instrument properties (with Pagination) List all the properties of a particular instrument, as identified by a particular unique identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -6172,7 +6172,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lusidInstrument">The definition of the instrument.</param>
@@ -6187,7 +6187,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lusidInstrument">The definition of the instrument.</param>
@@ -6282,7 +6282,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lusidInstrument">The definition of the instrument.</param>
@@ -6298,7 +6298,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lusidInstrument">The definition of the instrument.</param>

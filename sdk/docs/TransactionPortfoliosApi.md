@@ -5,42 +5,42 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AdjustHoldings**](TransactionPortfoliosApi.md#adjustholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings | AdjustHoldings: Adjust holdings |
-| [**BatchAdjustHoldings**](TransactionPortfoliosApi.md#batchadjustholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$batchAdjust | [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings |
-| [**BatchCreateTradeTickets**](TransactionPortfoliosApi.md#batchcreatetradetickets) | **POST** /api/transactionportfolios/{scope}/{code}/$batchtradetickets | [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets |
-| [**BatchSetHoldings**](TransactionPortfoliosApi.md#batchsetholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$batchSet | [EARLY ACCESS] BatchSetHoldings: Batch set holdings |
-| [**BatchUpsertTransactions**](TransactionPortfoliosApi.md#batchupserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$batchUpsert | [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions |
+| [**BatchAdjustHoldings**](TransactionPortfoliosApi.md#batchadjustholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$batchAdjust | BatchAdjustHoldings: Batch adjust holdings |
+| [**BatchCreateTradeTickets**](TransactionPortfoliosApi.md#batchcreatetradetickets) | **POST** /api/transactionportfolios/{scope}/{code}/$batchtradetickets | BatchCreateTradeTickets: Batch Create Trade Tickets |
+| [**BatchSetHoldings**](TransactionPortfoliosApi.md#batchsetholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$batchSet | BatchSetHoldings: Batch set holdings |
+| [**BatchUpsertTransactions**](TransactionPortfoliosApi.md#batchupserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$batchUpsert | BatchUpsertTransactions: Batch upsert transactions |
 | [**BuildTransactions**](TransactionPortfoliosApi.md#buildtransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$build | BuildTransactions: Build transactions |
 | [**CancelAdjustHoldings**](TransactionPortfoliosApi.md#canceladjustholdings) | **DELETE** /api/transactionportfolios/{scope}/{code}/holdings | CancelAdjustHoldings: Cancel adjust holdings |
-| [**CancelSingleAdjustHolding**](TransactionPortfoliosApi.md#cancelsingleadjustholding) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$cancelAdjustment | [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment. |
+| [**CancelSingleAdjustHolding**](TransactionPortfoliosApi.md#cancelsingleadjustholding) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$cancelAdjustment | CancelSingleAdjustHolding: Cancel single holding adjustment. |
 | [**CancelTransactions**](TransactionPortfoliosApi.md#canceltransactions) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions | CancelTransactions: Cancel transactions |
 | [**CreatePortfolio**](TransactionPortfoliosApi.md#createportfolio) | **POST** /api/transactionportfolios/{scope} | CreatePortfolio: Create portfolio |
-| [**CreateTradeTicket**](TransactionPortfoliosApi.md#createtradeticket) | **POST** /api/transactionportfolios/{scope}/{code}/$tradeticket | [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket |
-| [**DeleteCustodianAccounts**](TransactionPortfoliosApi.md#deletecustodianaccounts) | **POST** /api/transactionportfolios/{scope}/{code}/custodianaccounts/$delete | [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts |
+| [**CreateTradeTicket**](TransactionPortfoliosApi.md#createtradeticket) | **POST** /api/transactionportfolios/{scope}/{code}/$tradeticket | CreateTradeTicket: Create Trade Ticket |
+| [**DeleteCustodianAccounts**](TransactionPortfoliosApi.md#deletecustodianaccounts) | **POST** /api/transactionportfolios/{scope}/{code}/custodianaccounts/$delete | DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts |
 | [**DeletePropertiesFromTransaction**](TransactionPortfoliosApi.md#deletepropertiesfromtransaction) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | DeletePropertiesFromTransaction: Delete properties from transaction |
 | [**GetA2BData**](TransactionPortfoliosApi.md#geta2bdata) | **GET** /api/transactionportfolios/{scope}/{code}/a2b | GetA2BData: Get A2B data |
 | [**GetA2BMovements**](TransactionPortfoliosApi.md#geta2bmovements) | **GET** /api/transactionportfolios/{scope}/{code}/a2bmovements | GetA2BMovements: Get an A2B report at the movement level for the given portfolio. |
-| [**GetBucketedCashFlows**](TransactionPortfoliosApi.md#getbucketedcashflows) | **POST** /api/transactionportfolios/{scope}/{code}/bucketedCashFlows | [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios |
-| [**GetCustodianAccount**](TransactionPortfoliosApi.md#getcustodianaccount) | **GET** /api/transactionportfolios/{scope}/{code}/custodianaccounts/{custodianAccountScope}/{custodianAccountCode} | [EXPERIMENTAL] GetCustodianAccount: Get Custodian Account |
+| [**GetBucketedCashFlows**](TransactionPortfoliosApi.md#getbucketedcashflows) | **POST** /api/transactionportfolios/{scope}/{code}/bucketedCashFlows | GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios |
+| [**GetCustodianAccount**](TransactionPortfoliosApi.md#getcustodianaccount) | **GET** /api/transactionportfolios/{scope}/{code}/custodianaccounts/{custodianAccountScope}/{custodianAccountCode} | GetCustodianAccount: Get Custodian Account |
 | [**GetDetails**](TransactionPortfoliosApi.md#getdetails) | **GET** /api/transactionportfolios/{scope}/{code}/details | GetDetails: Get details |
-| [**GetHoldingContributors**](TransactionPortfoliosApi.md#getholdingcontributors) | **GET** /api/transactionportfolios/{scope}/{code}/holdings/{holdingId}/contributors | [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors |
+| [**GetHoldingContributors**](TransactionPortfoliosApi.md#getholdingcontributors) | **GET** /api/transactionportfolios/{scope}/{code}/holdings/{holdingId}/contributors | GetHoldingContributors: Get Holdings Contributors |
 | [**GetHoldings**](TransactionPortfoliosApi.md#getholdings) | **GET** /api/transactionportfolios/{scope}/{code}/holdings | GetHoldings: Get holdings |
 | [**GetHoldingsAdjustment**](TransactionPortfoliosApi.md#getholdingsadjustment) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments/{effectiveAt} | GetHoldingsAdjustment: Get holdings adjustment |
-| [**GetHoldingsWithOrders**](TransactionPortfoliosApi.md#getholdingswithorders) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsWithOrders | [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders |
-| [**GetMultipleHoldingContributors**](TransactionPortfoliosApi.md#getmultipleholdingcontributors) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/contributors/$get | [EARLY ACCESS] GetMultipleHoldingContributors: Get Multiple Holding Contributors |
+| [**GetHoldingsWithOrders**](TransactionPortfoliosApi.md#getholdingswithorders) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsWithOrders | GetHoldingsWithOrders: Get holdings with orders |
+| [**GetMultipleHoldingContributors**](TransactionPortfoliosApi.md#getmultipleholdingcontributors) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/contributors/$get | GetMultipleHoldingContributors: Get Multiple Holding Contributors |
 | [**GetPortfolioCashFlows**](TransactionPortfoliosApi.md#getportfoliocashflows) | **GET** /api/transactionportfolios/{scope}/{code}/cashflows | GetPortfolioCashFlows: Get portfolio cash flows |
 | [**GetPortfolioCashLadder**](TransactionPortfoliosApi.md#getportfoliocashladder) | **GET** /api/transactionportfolios/{scope}/{code}/cashladder | GetPortfolioCashLadder: Get portfolio cash ladder |
 | [**GetPortfolioCashStatement**](TransactionPortfoliosApi.md#getportfoliocashstatement) | **GET** /api/transactionportfolios/{scope}/{code}/cashstatement | GetPortfolioCashStatement: Get portfolio cash statement |
 | [**GetTransactionHistory**](TransactionPortfoliosApi.md#gettransactionhistory) | **GET** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/history | GetTransactionHistory: Get the history of a transaction |
 | [**GetTransactions**](TransactionPortfoliosApi.md#gettransactions) | **GET** /api/transactionportfolios/{scope}/{code}/transactions | GetTransactions: Get transactions |
 | [**GetUpsertablePortfolioCashFlows**](TransactionPortfoliosApi.md#getupsertableportfoliocashflows) | **GET** /api/transactionportfolios/{scope}/{code}/upsertablecashflows | GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows. |
-| [**ListCustodianAccounts**](TransactionPortfoliosApi.md#listcustodianaccounts) | **GET** /api/transactionportfolios/{scope}/{code}/custodianaccounts | [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts |
+| [**ListCustodianAccounts**](TransactionPortfoliosApi.md#listcustodianaccounts) | **GET** /api/transactionportfolios/{scope}/{code}/custodianaccounts | ListCustodianAccounts: List Custodian Accounts |
 | [**ListHoldingsAdjustments**](TransactionPortfoliosApi.md#listholdingsadjustments) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments | ListHoldingsAdjustments: List holdings adjustments |
 | [**PatchPortfolioDetails**](TransactionPortfoliosApi.md#patchportfoliodetails) | **PATCH** /api/transactionportfolios/{scope}/{code}/details | PatchPortfolioDetails: Patch portfolio details |
-| [**PreviewTransaction**](TransactionPortfoliosApi.md#previewtransaction) | **POST** /api/transactionportfolios/{scope}/{code}/previewTransaction | [EARLY ACCESS] PreviewTransaction: Preview a transaction |
+| [**PreviewTransaction**](TransactionPortfoliosApi.md#previewtransaction) | **POST** /api/transactionportfolios/{scope}/{code}/previewTransaction | PreviewTransaction: Preview a transaction |
 | [**ResolveInstrument**](TransactionPortfoliosApi.md#resolveinstrument) | **POST** /api/transactionportfolios/{scope}/{code}/$resolve | ResolveInstrument: Resolve instrument |
 | [**SetHoldings**](TransactionPortfoliosApi.md#setholdings) | **PUT** /api/transactionportfolios/{scope}/{code}/holdings | SetHoldings: Set holdings |
-| [**UpsertCustodianAccounts**](TransactionPortfoliosApi.md#upsertcustodianaccounts) | **POST** /api/transactionportfolios/{scope}/{code}/custodianaccounts | [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts |
-| [**UpsertCustodianAccountsProperties**](TransactionPortfoliosApi.md#upsertcustodianaccountsproperties) | **POST** /api/transactionportfolios/{scope}/{code}/custodianaccounts/{custodianAccountScope}/{custodianAccountCode}/properties/$upsert | [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties |
+| [**UpsertCustodianAccounts**](TransactionPortfoliosApi.md#upsertcustodianaccounts) | **POST** /api/transactionportfolios/{scope}/{code}/custodianaccounts | UpsertCustodianAccounts: Upsert Custodian Accounts |
+| [**UpsertCustodianAccountsProperties**](TransactionPortfoliosApi.md#upsertcustodianaccountsproperties) | **POST** /api/transactionportfolios/{scope}/{code}/custodianaccounts/{custodianAccountScope}/{custodianAccountCode}/properties/$upsert | UpsertCustodianAccountsProperties: Upsert custodian accounts properties |
 | [**UpsertPortfolioDetails**](TransactionPortfoliosApi.md#upsertportfoliodetails) | **POST** /api/transactionportfolios/{scope}/{code}/details | UpsertPortfolioDetails: Upsert portfolio details |
 | [**UpsertTransactionProperties**](TransactionPortfoliosApi.md#upserttransactionproperties) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | UpsertTransactionProperties: Upsert transaction properties |
 | [**UpsertTransactions**](TransactionPortfoliosApi.md#upserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions | UpsertTransactions: Upsert transactions |
@@ -171,7 +171,7 @@ catch (ApiException e)
 # **BatchAdjustHoldings**
 > BatchAdjustHoldingsResponse BatchAdjustHoldings (string scope, string code, string successMode, Dictionary<string, AdjustHoldingForDateRequest> requestBody, List<string>? reconciliationMethods = null)
 
-[EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings
+BatchAdjustHoldings: Batch adjust holdings
 
 Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime in each request.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
 
@@ -225,7 +225,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BatchAdjustHoldingsResponse result = apiInstance.BatchAdjustHoldings(scope, code, successMode, requestBody, reconciliationMethods, opts: opts);
 
-                // [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings
+                // BatchAdjustHoldings: Batch adjust holdings
                 BatchAdjustHoldingsResponse result = apiInstance.BatchAdjustHoldings(scope, code, successMode, requestBody, reconciliationMethods);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -246,7 +246,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings
+    // BatchAdjustHoldings: Batch adjust holdings
     ApiResponse<BatchAdjustHoldingsResponse> response = apiInstance.BatchAdjustHoldingsWithHttpInfo(scope, code, successMode, requestBody, reconciliationMethods);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -293,7 +293,7 @@ catch (ApiException e)
 # **BatchCreateTradeTickets**
 > CreateTradeTicketsResponse BatchCreateTradeTickets (string scope, string code, List<LusidTradeTicket> lusidTradeTicket)
 
-[EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+BatchCreateTradeTickets: Batch Create Trade Tickets
 
 Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
 
@@ -345,7 +345,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // CreateTradeTicketsResponse result = apiInstance.BatchCreateTradeTickets(scope, code, lusidTradeTicket, opts: opts);
 
-                // [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+                // BatchCreateTradeTickets: Batch Create Trade Tickets
                 CreateTradeTicketsResponse result = apiInstance.BatchCreateTradeTickets(scope, code, lusidTradeTicket);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -366,7 +366,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+    // BatchCreateTradeTickets: Batch Create Trade Tickets
     ApiResponse<CreateTradeTicketsResponse> response = apiInstance.BatchCreateTradeTicketsWithHttpInfo(scope, code, lusidTradeTicket);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -411,7 +411,7 @@ catch (ApiException e)
 # **BatchSetHoldings**
 > BatchAdjustHoldingsResponse BatchSetHoldings (string scope, string code, string successMode, Dictionary<string, AdjustHoldingForDateRequest> requestBody, List<string>? reconciliationMethods = null)
 
-[EARLY ACCESS] BatchSetHoldings: Batch set holdings
+BatchSetHoldings: Batch set holdings
 
 Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/docs/how-do-i-manually-adjust-or-set-holdings.                Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each adjustment in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
 
@@ -465,7 +465,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BatchAdjustHoldingsResponse result = apiInstance.BatchSetHoldings(scope, code, successMode, requestBody, reconciliationMethods, opts: opts);
 
-                // [EARLY ACCESS] BatchSetHoldings: Batch set holdings
+                // BatchSetHoldings: Batch set holdings
                 BatchAdjustHoldingsResponse result = apiInstance.BatchSetHoldings(scope, code, successMode, requestBody, reconciliationMethods);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -486,7 +486,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] BatchSetHoldings: Batch set holdings
+    // BatchSetHoldings: Batch set holdings
     ApiResponse<BatchAdjustHoldingsResponse> response = apiInstance.BatchSetHoldingsWithHttpInfo(scope, code, successMode, requestBody, reconciliationMethods);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -533,7 +533,7 @@ catch (ApiException e)
 # **BatchUpsertTransactions**
 > BatchUpsertPortfolioTransactionsResponse BatchUpsertTransactions (string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = null)
 
-[EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
+BatchUpsertTransactions: Batch upsert transactions
 
 Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
 
@@ -587,7 +587,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BatchUpsertPortfolioTransactionsResponse result = apiInstance.BatchUpsertTransactions(scope, code, successMode, requestBody, preserveProperties, opts: opts);
 
-                // [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
+                // BatchUpsertTransactions: Batch upsert transactions
                 BatchUpsertPortfolioTransactionsResponse result = apiInstance.BatchUpsertTransactions(scope, code, successMode, requestBody, preserveProperties);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -608,7 +608,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
+    // BatchUpsertTransactions: Batch upsert transactions
     ApiResponse<BatchUpsertPortfolioTransactionsResponse> response = apiInstance.BatchUpsertTransactionsWithHttpInfo(scope, code, successMode, requestBody, preserveProperties);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -901,7 +901,7 @@ catch (ApiException e)
 # **CancelSingleAdjustHolding**
 > DeletedEntityResponse CancelSingleAdjustHolding (string scope, string code, DateTimeOrCutLabel effectiveAt, CancelSingleHoldingAdjustmentRequest cancelSingleHoldingAdjustmentRequest)
 
-[EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment.
+CancelSingleAdjustHolding: Cancel single holding adjustment.
 
 Cancel one previously sent holding adjustment without affecting the rest of the adjustment in the previous request on the specified effective datetime.
 
@@ -954,7 +954,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.CancelSingleAdjustHolding(scope, code, effectiveAt, cancelSingleHoldingAdjustmentRequest, opts: opts);
 
-                // [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment.
+                // CancelSingleAdjustHolding: Cancel single holding adjustment.
                 DeletedEntityResponse result = apiInstance.CancelSingleAdjustHolding(scope, code, effectiveAt, cancelSingleHoldingAdjustmentRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -975,7 +975,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] CancelSingleAdjustHolding: Cancel single holding adjustment.
+    // CancelSingleAdjustHolding: Cancel single holding adjustment.
     ApiResponse<DeletedEntityResponse> response = apiInstance.CancelSingleAdjustHoldingWithHttpInfo(scope, code, effectiveAt, cancelSingleHoldingAdjustmentRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1255,7 +1255,7 @@ catch (ApiException e)
 # **CreateTradeTicket**
 > LusidTradeTicket CreateTradeTicket (string scope, string code, LusidTradeTicket? lusidTradeTicket = null)
 
-[EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
+CreateTradeTicket: Create Trade Ticket
 
 Upsert a trade ticket. Broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
 
@@ -1307,7 +1307,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // LusidTradeTicket result = apiInstance.CreateTradeTicket(scope, code, lusidTradeTicket, opts: opts);
 
-                // [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
+                // CreateTradeTicket: Create Trade Ticket
                 LusidTradeTicket result = apiInstance.CreateTradeTicket(scope, code, lusidTradeTicket);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1328,7 +1328,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
+    // CreateTradeTicket: Create Trade Ticket
     ApiResponse<LusidTradeTicket> response = apiInstance.CreateTradeTicketWithHttpInfo(scope, code, lusidTradeTicket);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1373,7 +1373,7 @@ catch (ApiException e)
 # **DeleteCustodianAccounts**
 > DeleteCustodianAccountsResponse DeleteCustodianAccounts (string scope, string code, List<ResourceId> resourceId, string? deleteMode = null)
 
-[EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
+DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
 
 Delete one or more custodian accounts from the Transaction Portfolios. Soft deletion marks the custodian account as inactive  While the Hard deletion is deleting the custodian account.  The batch limit per request is 2,000.
 
@@ -1426,7 +1426,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeleteCustodianAccountsResponse result = apiInstance.DeleteCustodianAccounts(scope, code, resourceId, deleteMode, opts: opts);
 
-                // [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
+                // DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
                 DeleteCustodianAccountsResponse result = apiInstance.DeleteCustodianAccounts(scope, code, resourceId, deleteMode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1447,7 +1447,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
+    // DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts
     ApiResponse<DeleteCustodianAccountsResponse> response = apiInstance.DeleteCustodianAccountsWithHttpInfo(scope, code, resourceId, deleteMode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1873,7 +1873,7 @@ catch (ApiException e)
 # **GetBucketedCashFlows**
 > BucketedCashFlowResponse GetBucketedCashFlows (string scope, string code, BucketedCashFlowRequest? bucketedCashFlowRequest = null)
 
-[EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
+GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
 
 We bucket/aggregate a transaction portfolio's instruments by date or tenor specified in the request.  The cashflows are grouped by both instrumentId and currency.                If you want transactional level cashflow, please use the 'GetUpsertableCashFlows' endpoint.  If you want instrument cashflow, please use the 'GetPortfolioCashFlows' endpoint.  Note that these endpoints do not apply bucketing.
 
@@ -1925,7 +1925,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BucketedCashFlowResponse result = apiInstance.GetBucketedCashFlows(scope, code, bucketedCashFlowRequest, opts: opts);
 
-                // [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
+                // GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
                 BucketedCashFlowResponse result = apiInstance.GetBucketedCashFlows(scope, code, bucketedCashFlowRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1946,7 +1946,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
+    // GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
     ApiResponse<BucketedCashFlowResponse> response = apiInstance.GetBucketedCashFlowsWithHttpInfo(scope, code, bucketedCashFlowRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1991,7 +1991,7 @@ catch (ApiException e)
 # **GetCustodianAccount**
 > CustodianAccount GetCustodianAccount (string scope, string code, string custodianAccountScope, string custodianAccountCode, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetCustodianAccount: Get Custodian Account
+GetCustodianAccount: Get Custodian Account
 
 Retrieve the definition of a particular Custodian Account which is part of a Transaction Portfolios.
 
@@ -2047,7 +2047,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // CustodianAccount result = apiInstance.GetCustodianAccount(scope, code, custodianAccountScope, custodianAccountCode, effectiveAt, asAt, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetCustodianAccount: Get Custodian Account
+                // GetCustodianAccount: Get Custodian Account
                 CustodianAccount result = apiInstance.GetCustodianAccount(scope, code, custodianAccountScope, custodianAccountCode, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2068,7 +2068,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetCustodianAccount: Get Custodian Account
+    // GetCustodianAccount: Get Custodian Account
     ApiResponse<CustodianAccount> response = apiInstance.GetCustodianAccountWithHttpInfo(scope, code, custodianAccountScope, custodianAccountCode, effectiveAt, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2237,7 +2237,7 @@ catch (ApiException e)
 # **GetHoldingContributors**
 > VersionedResourceListOfHoldingContributor GetHoldingContributors (string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = null, DateTimeOrCutLabel? fromTradeDate = null, DateTimeOrCutLabel? toTradeDate = null, bool? includeHistoric = null, string? taxLotId = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null)
 
-[EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors
+GetHoldingContributors: Get Holdings Contributors
 
 Lists all transactions that affect the holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
 
@@ -2297,7 +2297,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributors(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, limit, asAt, page, opts: opts);
 
-                // [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors
+                // GetHoldingContributors: Get Holdings Contributors
                 VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributors(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, limit, asAt, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2318,7 +2318,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors
+    // GetHoldingContributors: Get Holdings Contributors
     ApiResponse<VersionedResourceListOfHoldingContributor> response = apiInstance.GetHoldingContributorsWithHttpInfo(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, limit, asAt, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2621,7 +2621,7 @@ catch (ApiException e)
 # **GetHoldingsWithOrders**
 > VersionedResourceListWithWarningsOfPortfolioHolding GetHoldingsWithOrders (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, bool? byTaxlots = null, string? recipeIdScope = null, string? recipeIdCode = null, int? includeSettlementEventsAfterDays = null)
 
-[EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders
+GetHoldingsWithOrders: Get holdings with orders
 
 Get the holdings of a transaction portfolio. Create virtual holdings for any outstanding orders,  and account for order state/fulfillment; that is, treat outstanding orders (and related records) as  if they had been realised at moment of query.
 
@@ -2680,7 +2680,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // VersionedResourceListWithWarningsOfPortfolioHolding result = apiInstance.GetHoldingsWithOrders(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, recipeIdScope, recipeIdCode, includeSettlementEventsAfterDays, opts: opts);
 
-                // [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders
+                // GetHoldingsWithOrders: Get holdings with orders
                 VersionedResourceListWithWarningsOfPortfolioHolding result = apiInstance.GetHoldingsWithOrders(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, recipeIdScope, recipeIdCode, includeSettlementEventsAfterDays);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2701,7 +2701,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders
+    // GetHoldingsWithOrders: Get holdings with orders
     ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding> response = apiInstance.GetHoldingsWithOrdersWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, recipeIdScope, recipeIdCode, includeSettlementEventsAfterDays);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2753,7 +2753,7 @@ catch (ApiException e)
 # **GetMultipleHoldingContributors**
 > VersionedResourceListOfHoldingContributor GetMultipleHoldingContributors (string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = null, DateTimeOrCutLabel? fromTransactionDate = null, DateTimeOrCutLabel? toTransactionDate = null, bool? includeHistoric = null, string? taxLotId = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null)
 
-[EARLY ACCESS] GetMultipleHoldingContributors: Get Multiple Holding Contributors
+GetMultipleHoldingContributors: Get Multiple Holding Contributors
 
 Lists all transactions that affect multiple specified holdings of a portfolio over a given effective interval. This includes  transactions automatically generated by LUSID such as holding adjustments.
 
@@ -2813,7 +2813,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // VersionedResourceListOfHoldingContributor result = apiInstance.GetMultipleHoldingContributors(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, limit, asAt, page, opts: opts);
 
-                // [EARLY ACCESS] GetMultipleHoldingContributors: Get Multiple Holding Contributors
+                // GetMultipleHoldingContributors: Get Multiple Holding Contributors
                 VersionedResourceListOfHoldingContributor result = apiInstance.GetMultipleHoldingContributors(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, limit, asAt, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2834,7 +2834,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetMultipleHoldingContributors: Get Multiple Holding Contributors
+    // GetMultipleHoldingContributors: Get Multiple Holding Contributors
     ApiResponse<VersionedResourceListOfHoldingContributor> response = apiInstance.GetMultipleHoldingContributorsWithHttpInfo(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, limit, asAt, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3665,7 +3665,7 @@ catch (ApiException e)
 # **ListCustodianAccounts**
 > PagedResourceListOfCustodianAccount ListCustodianAccounts (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts
+ListCustodianAccounts: List Custodian Accounts
 
 List the custodian accounts in a Transaction Portfolios
 
@@ -3722,7 +3722,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfCustodianAccount result = apiInstance.ListCustodianAccounts(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts
+                // ListCustodianAccounts: List Custodian Accounts
                 PagedResourceListOfCustodianAccount result = apiInstance.ListCustodianAccounts(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3743,7 +3743,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListCustodianAccounts: List Custodian Accounts
+    // ListCustodianAccounts: List Custodian Accounts
     ApiResponse<PagedResourceListOfCustodianAccount> response = apiInstance.ListCustodianAccountsWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -4035,7 +4035,7 @@ catch (ApiException e)
 # **PreviewTransaction**
 > ResourceListOfOutputTransaction PreviewTransaction (string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = null, bool? showCancelledTransactions = null, bool? preserveProperties = null)
 
-[EARLY ACCESS] PreviewTransaction: Preview a transaction
+PreviewTransaction: Preview a transaction
 
 Returns the output-transaction(s) - e.g. as returned by BuildTransactions  that would come out of LUSID if the provided TransactionRequest was booked.
 
@@ -4090,7 +4090,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfOutputTransaction result = apiInstance.PreviewTransaction(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties, opts: opts);
 
-                // [EARLY ACCESS] PreviewTransaction: Preview a transaction
+                // PreviewTransaction: Preview a transaction
                 ResourceListOfOutputTransaction result = apiInstance.PreviewTransaction(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -4111,7 +4111,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] PreviewTransaction: Preview a transaction
+    // PreviewTransaction: Preview a transaction
     ApiResponse<ResourceListOfOutputTransaction> response = apiInstance.PreviewTransactionWithHttpInfo(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -4407,7 +4407,7 @@ catch (ApiException e)
 # **UpsertCustodianAccounts**
 > CustodianAccountsUpsertResponse UpsertCustodianAccounts (string scope, string code, List<CustodianAccountRequest> custodianAccountRequest)
 
-[EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts
+UpsertCustodianAccounts: Upsert Custodian Accounts
 
 Create or update Custodian Accounts in the Transaction Portfolios. A Custodian Account will be updated  if it already exists and created if it does not.  The batch limit per request is 2,000.
 
@@ -4459,7 +4459,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // CustodianAccountsUpsertResponse result = apiInstance.UpsertCustodianAccounts(scope, code, custodianAccountRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts
+                // UpsertCustodianAccounts: Upsert Custodian Accounts
                 CustodianAccountsUpsertResponse result = apiInstance.UpsertCustodianAccounts(scope, code, custodianAccountRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -4480,7 +4480,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertCustodianAccounts: Upsert Custodian Accounts
+    // UpsertCustodianAccounts: Upsert Custodian Accounts
     ApiResponse<CustodianAccountsUpsertResponse> response = apiInstance.UpsertCustodianAccountsWithHttpInfo(scope, code, custodianAccountRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -4525,7 +4525,7 @@ catch (ApiException e)
 # **UpsertCustodianAccountsProperties**
 > CustodianAccountProperties UpsertCustodianAccountsProperties (string scope, string code, string custodianAccountScope, string custodianAccountCode, Dictionary<string, Property>? requestBody = null)
 
-[EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties
+UpsertCustodianAccountsProperties: Upsert custodian accounts properties
 
 Update or insert one or more properties onto a single custodian account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'CustodianAccount'.                Upserting a property that exists for a Transaction Portfolios, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
@@ -4579,7 +4579,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // CustodianAccountProperties result = apiInstance.UpsertCustodianAccountsProperties(scope, code, custodianAccountScope, custodianAccountCode, requestBody, opts: opts);
 
-                // [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties
+                // UpsertCustodianAccountsProperties: Upsert custodian accounts properties
                 CustodianAccountProperties result = apiInstance.UpsertCustodianAccountsProperties(scope, code, custodianAccountScope, custodianAccountCode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -4600,7 +4600,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertCustodianAccountsProperties: Upsert custodian accounts properties
+    // UpsertCustodianAccountsProperties: Upsert custodian accounts properties
     ApiResponse<CustodianAccountProperties> response = apiInstance.UpsertCustodianAccountsPropertiesWithHttpInfo(scope, code, custodianAccountScope, custodianAccountCode, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

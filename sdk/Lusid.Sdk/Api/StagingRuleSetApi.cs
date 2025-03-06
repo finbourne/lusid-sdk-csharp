@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet
+        /// CreateStagingRuleSet: Create a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Create a new staging rule set.
@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Api
         StagingRuleSet CreateStagingRuleSet(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet
+        /// CreateStagingRuleSet: Create a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Create a new staging rule set.
@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of StagingRuleSet</returns>
         Lusid.Sdk.Client.ApiResponse<StagingRuleSet> CreateStagingRuleSetWithHttpInfo(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
+        /// DeleteStagingRuleSet: Delete a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set&#39;s creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -72,7 +72,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteStagingRuleSet(string entityType, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
+        /// DeleteStagingRuleSet: Delete a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set&#39;s creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -84,7 +84,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteStagingRuleSetWithHttpInfo(string entityType, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
+        /// GetStagingRuleSet: Get a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Get the staging rule set for the given entity type at the specific asAt time.
@@ -98,7 +98,7 @@ namespace Lusid.Sdk.Api
         StagingRuleSet GetStagingRuleSet(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
+        /// GetStagingRuleSet: Get a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Get the staging rule set for the given entity type at the specific asAt time.
@@ -111,7 +111,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of StagingRuleSet</returns>
         Lusid.Sdk.Client.ApiResponse<StagingRuleSet> GetStagingRuleSetWithHttpInfo(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
+        /// ListStagingRuleSets: List StagingRuleSets
         /// </summary>
         /// <remarks>
         /// List all the staging rule sets matching particular criteria.
@@ -128,7 +128,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfStagingRuleSet ListStagingRuleSets(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
+        /// ListStagingRuleSets: List StagingRuleSets
         /// </summary>
         /// <remarks>
         /// List all the staging rule sets matching particular criteria.
@@ -144,7 +144,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfStagingRuleSet</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagingRuleSet> ListStagingRuleSetsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
+        /// UpdateStagingRuleSet: Update a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Update an existing staging rule set.
@@ -158,7 +158,7 @@ namespace Lusid.Sdk.Api
         StagingRuleSet UpdateStagingRuleSet(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
+        /// UpdateStagingRuleSet: Update a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Update an existing staging rule set.
@@ -180,7 +180,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet
+        /// CreateStagingRuleSet: Create a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Create a new staging rule set.
@@ -195,7 +195,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<StagingRuleSet> CreateStagingRuleSetAsync(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet
+        /// CreateStagingRuleSet: Create a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Create a new staging rule set.
@@ -209,7 +209,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (StagingRuleSet)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagingRuleSet>> CreateStagingRuleSetWithHttpInfoAsync(string entityType, CreateStagingRuleSetRequest createStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
+        /// DeleteStagingRuleSet: Delete a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set&#39;s creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -223,7 +223,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteStagingRuleSetAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet
+        /// DeleteStagingRuleSet: Delete a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set&#39;s creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -236,7 +236,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteStagingRuleSetWithHttpInfoAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
+        /// GetStagingRuleSet: Get a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Get the staging rule set for the given entity type at the specific asAt time.
@@ -251,7 +251,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<StagingRuleSet> GetStagingRuleSetAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet
+        /// GetStagingRuleSet: Get a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Get the staging rule set for the given entity type at the specific asAt time.
@@ -265,7 +265,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (StagingRuleSet)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<StagingRuleSet>> GetStagingRuleSetWithHttpInfoAsync(string entityType, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
+        /// ListStagingRuleSets: List StagingRuleSets
         /// </summary>
         /// <remarks>
         /// List all the staging rule sets matching particular criteria.
@@ -283,7 +283,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfStagingRuleSet> ListStagingRuleSetsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets
+        /// ListStagingRuleSets: List StagingRuleSets
         /// </summary>
         /// <remarks>
         /// List all the staging rule sets matching particular criteria.
@@ -300,7 +300,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfStagingRuleSet)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfStagingRuleSet>> ListStagingRuleSetsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
+        /// UpdateStagingRuleSet: Update a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Update an existing staging rule set.
@@ -315,7 +315,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<StagingRuleSet> UpdateStagingRuleSetAsync(string entityType, UpdateStagingRuleSetRequest updateStagingRuleSetRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet
+        /// UpdateStagingRuleSet: Update a StagingRuleSet
         /// </summary>
         /// <remarks>
         /// Update an existing staging rule set.
@@ -452,7 +452,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet Create a new staging rule set.
+        /// CreateStagingRuleSet: Create a StagingRuleSet Create a new staging rule set.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to create the staging rule set.</param>
@@ -467,7 +467,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet Create a new staging rule set.
+        /// CreateStagingRuleSet: Create a StagingRuleSet Create a new staging rule set.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to create the staging rule set.</param>
@@ -565,7 +565,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet Create a new staging rule set.
+        /// CreateStagingRuleSet: Create a StagingRuleSet Create a new staging rule set.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to create the staging rule set.</param>
@@ -581,7 +581,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateStagingRuleSet: Create a StagingRuleSet Create a new staging rule set.
+        /// CreateStagingRuleSet: Create a StagingRuleSet Create a new staging rule set.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to create the staging rule set.</param>
@@ -682,7 +682,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set&#39;s creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeleteStagingRuleSet: Delete a StagingRuleSet Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set&#39;s creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to delete the staging rule set.</param>
@@ -696,7 +696,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set&#39;s creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeleteStagingRuleSet: Delete a StagingRuleSet Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set&#39;s creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to delete the staging rule set.</param>
@@ -782,7 +782,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set&#39;s creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeleteStagingRuleSet: Delete a StagingRuleSet Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set&#39;s creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to delete the staging rule set.</param>
@@ -797,7 +797,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteStagingRuleSet: Delete a StagingRuleSet Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set&#39;s creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeleteStagingRuleSet: Delete a StagingRuleSet Delete a staging rule set of a specific entity type. Deletion will be valid from the staging rule set&#39;s creation datetime.  This means that the staging rule set will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to delete the staging rule set.</param>
@@ -886,7 +886,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet Get the staging rule set for the given entity type at the specific asAt time.
+        /// GetStagingRuleSet: Get a StagingRuleSet Get the staging rule set for the given entity type at the specific asAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to retrieve the staging rule set.</param>
@@ -901,7 +901,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet Get the staging rule set for the given entity type at the specific asAt time.
+        /// GetStagingRuleSet: Get a StagingRuleSet Get the staging rule set for the given entity type at the specific asAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to retrieve the staging rule set.</param>
@@ -992,7 +992,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet Get the staging rule set for the given entity type at the specific asAt time.
+        /// GetStagingRuleSet: Get a StagingRuleSet Get the staging rule set for the given entity type at the specific asAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to retrieve the staging rule set.</param>
@@ -1008,7 +1008,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetStagingRuleSet: Get a StagingRuleSet Get the staging rule set for the given entity type at the specific asAt time.
+        /// GetStagingRuleSet: Get a StagingRuleSet Get the staging rule set for the given entity type at the specific asAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to retrieve the staging rule set.</param>
@@ -1102,7 +1102,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets List all the staging rule sets matching particular criteria.
+        /// ListStagingRuleSets: List StagingRuleSets List all the staging rule sets matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the staging rule sets. Defaults to return the latest              version of the staging rule sets if not specified. (optional)</param>
@@ -1120,7 +1120,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets List all the staging rule sets matching particular criteria.
+        /// ListStagingRuleSets: List StagingRuleSets List all the staging rule sets matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the staging rule sets. Defaults to return the latest              version of the staging rule sets if not specified. (optional)</param>
@@ -1223,7 +1223,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets List all the staging rule sets matching particular criteria.
+        /// ListStagingRuleSets: List StagingRuleSets List all the staging rule sets matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the staging rule sets. Defaults to return the latest              version of the staging rule sets if not specified. (optional)</param>
@@ -1242,7 +1242,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListStagingRuleSets: List StagingRuleSets List all the staging rule sets matching particular criteria.
+        /// ListStagingRuleSets: List StagingRuleSets List all the staging rule sets matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the staging rule sets. Defaults to return the latest              version of the staging rule sets if not specified. (optional)</param>
@@ -1348,7 +1348,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet Update an existing staging rule set.
+        /// UpdateStagingRuleSet: Update a StagingRuleSet Update an existing staging rule set.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to update the staging rule set.</param>
@@ -1363,7 +1363,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet Update an existing staging rule set.
+        /// UpdateStagingRuleSet: Update a StagingRuleSet Update an existing staging rule set.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to update the staging rule set.</param>
@@ -1461,7 +1461,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet Update an existing staging rule set.
+        /// UpdateStagingRuleSet: Update a StagingRuleSet Update an existing staging rule set.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to update the staging rule set.</param>
@@ -1477,7 +1477,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateStagingRuleSet: Update a StagingRuleSet Update an existing staging rule set.
+        /// UpdateStagingRuleSet: Update a StagingRuleSet Update an existing staging rule set.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type for which to update the staging rule set.</param>

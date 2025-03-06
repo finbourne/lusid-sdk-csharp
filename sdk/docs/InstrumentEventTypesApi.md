@@ -4,19 +4,19 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateTransactionTemplate**](InstrumentEventTypesApi.md#createtransactiontemplate) | **POST** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template |
-| [**DeleteTransactionTemplate**](InstrumentEventTypesApi.md#deletetransactiontemplate) | **DELETE** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template |
-| [**GetTransactionTemplate**](InstrumentEventTypesApi.md#gettransactiontemplate) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EARLY ACCESS] GetTransactionTemplate: Get Transaction Template |
-| [**GetTransactionTemplateSpecification**](InstrumentEventTypesApi.md#gettransactiontemplatespecification) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplatespecification | [EARLY ACCESS] GetTransactionTemplateSpecification: Get Transaction Template Specification. |
-| [**ListTransactionTemplateSpecifications**](InstrumentEventTypesApi.md#listtransactiontemplatespecifications) | **GET** /api/instrumenteventtypes/transactiontemplatespecifications | [EARLY ACCESS] ListTransactionTemplateSpecifications: List Transaction Template Specifications. |
-| [**ListTransactionTemplates**](InstrumentEventTypesApi.md#listtransactiontemplates) | **GET** /api/instrumenteventtypes/transactiontemplates | [EARLY ACCESS] ListTransactionTemplates: List Transaction Templates |
-| [**UpdateTransactionTemplate**](InstrumentEventTypesApi.md#updatetransactiontemplate) | **PUT** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EARLY ACCESS] UpdateTransactionTemplate: Update Transaction Template |
+| [**CreateTransactionTemplate**](InstrumentEventTypesApi.md#createtransactiontemplate) | **POST** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | CreateTransactionTemplate: Create Transaction Template |
+| [**DeleteTransactionTemplate**](InstrumentEventTypesApi.md#deletetransactiontemplate) | **DELETE** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | DeleteTransactionTemplate: Delete Transaction Template |
+| [**GetTransactionTemplate**](InstrumentEventTypesApi.md#gettransactiontemplate) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | GetTransactionTemplate: Get Transaction Template |
+| [**GetTransactionTemplateSpecification**](InstrumentEventTypesApi.md#gettransactiontemplatespecification) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplatespecification | GetTransactionTemplateSpecification: Get Transaction Template Specification. |
+| [**ListTransactionTemplateSpecifications**](InstrumentEventTypesApi.md#listtransactiontemplatespecifications) | **GET** /api/instrumenteventtypes/transactiontemplatespecifications | ListTransactionTemplateSpecifications: List Transaction Template Specifications. |
+| [**ListTransactionTemplates**](InstrumentEventTypesApi.md#listtransactiontemplates) | **GET** /api/instrumenteventtypes/transactiontemplates | ListTransactionTemplates: List Transaction Templates |
+| [**UpdateTransactionTemplate**](InstrumentEventTypesApi.md#updatetransactiontemplate) | **PUT** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | UpdateTransactionTemplate: Update Transaction Template |
 
 <a id="createtransactiontemplate"></a>
 # **CreateTransactionTemplate**
 > TransactionTemplate CreateTransactionTemplate (string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest)
 
-[EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template
+CreateTransactionTemplate: Create Transaction Template
 
 Create a transaction template for a particular instrument event type in a scope.
 
@@ -69,7 +69,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // TransactionTemplate result = apiInstance.CreateTransactionTemplate(instrumentEventType, instrumentType, scope, transactionTemplateRequest, opts: opts);
 
-                // [EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template
+                // CreateTransactionTemplate: Create Transaction Template
                 TransactionTemplate result = apiInstance.CreateTransactionTemplate(instrumentEventType, instrumentType, scope, transactionTemplateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -90,7 +90,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] CreateTransactionTemplate: Create Transaction Template
+    // CreateTransactionTemplate: Create Transaction Template
     ApiResponse<TransactionTemplate> response = apiInstance.CreateTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope, transactionTemplateRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -136,7 +136,7 @@ catch (ApiException e)
 # **DeleteTransactionTemplate**
 > DateTimeOffset DeleteTransactionTemplate (string instrumentEventType, string instrumentType, string scope)
 
-[EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template
+DeleteTransactionTemplate: Delete Transaction Template
 
 Delete a transaction template for a particular instrument event type in a scope.
 
@@ -188,7 +188,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DateTimeOffset result = apiInstance.DeleteTransactionTemplate(instrumentEventType, instrumentType, scope, opts: opts);
 
-                // [EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template
+                // DeleteTransactionTemplate: Delete Transaction Template
                 DateTimeOffset result = apiInstance.DeleteTransactionTemplate(instrumentEventType, instrumentType, scope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -209,7 +209,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] DeleteTransactionTemplate: Delete Transaction Template
+    // DeleteTransactionTemplate: Delete Transaction Template
     ApiResponse<DateTimeOffset> response = apiInstance.DeleteTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -254,7 +254,7 @@ catch (ApiException e)
 # **GetTransactionTemplate**
 > TransactionTemplate GetTransactionTemplate (string instrumentEventType, string instrumentType, string scope, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetTransactionTemplate: Get Transaction Template
+GetTransactionTemplate: Get Transaction Template
 
 Gets the Transaction Template that for the instrument event type within the scope specified.
 
@@ -307,7 +307,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // TransactionTemplate result = apiInstance.GetTransactionTemplate(instrumentEventType, instrumentType, scope, asAt, opts: opts);
 
-                // [EARLY ACCESS] GetTransactionTemplate: Get Transaction Template
+                // GetTransactionTemplate: Get Transaction Template
                 TransactionTemplate result = apiInstance.GetTransactionTemplate(instrumentEventType, instrumentType, scope, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -328,7 +328,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetTransactionTemplate: Get Transaction Template
+    // GetTransactionTemplate: Get Transaction Template
     ApiResponse<TransactionTemplate> response = apiInstance.GetTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -374,7 +374,7 @@ catch (ApiException e)
 # **GetTransactionTemplateSpecification**
 > TransactionTemplateSpecification GetTransactionTemplateSpecification (string instrumentEventType)
 
-[EARLY ACCESS] GetTransactionTemplateSpecification: Get Transaction Template Specification.
+GetTransactionTemplateSpecification: Get Transaction Template Specification.
 
 Retrieve the transaction template specification for a particular event type.
 
@@ -424,7 +424,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // TransactionTemplateSpecification result = apiInstance.GetTransactionTemplateSpecification(instrumentEventType, opts: opts);
 
-                // [EARLY ACCESS] GetTransactionTemplateSpecification: Get Transaction Template Specification.
+                // GetTransactionTemplateSpecification: Get Transaction Template Specification.
                 TransactionTemplateSpecification result = apiInstance.GetTransactionTemplateSpecification(instrumentEventType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -445,7 +445,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetTransactionTemplateSpecification: Get Transaction Template Specification.
+    // GetTransactionTemplateSpecification: Get Transaction Template Specification.
     ApiResponse<TransactionTemplateSpecification> response = apiInstance.GetTransactionTemplateSpecificationWithHttpInfo(instrumentEventType);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -488,7 +488,7 @@ catch (ApiException e)
 # **ListTransactionTemplateSpecifications**
 > PagedResourceListOfTransactionTemplateSpecification ListTransactionTemplateSpecifications (DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
 
-[EARLY ACCESS] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
+ListTransactionTemplateSpecifications: List Transaction Template Specifications.
 
 Retrieves all transaction template specifications.
 
@@ -542,7 +542,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfTransactionTemplateSpecification result = apiInstance.ListTransactionTemplateSpecifications(asAt, page, limit, filter, sortBy, opts: opts);
 
-                // [EARLY ACCESS] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
+                // ListTransactionTemplateSpecifications: List Transaction Template Specifications.
                 PagedResourceListOfTransactionTemplateSpecification result = apiInstance.ListTransactionTemplateSpecifications(asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -563,7 +563,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListTransactionTemplateSpecifications: List Transaction Template Specifications.
+    // ListTransactionTemplateSpecifications: List Transaction Template Specifications.
     ApiResponse<PagedResourceListOfTransactionTemplateSpecification> response = apiInstance.ListTransactionTemplateSpecificationsWithHttpInfo(asAt, page, limit, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -610,7 +610,7 @@ catch (ApiException e)
 # **ListTransactionTemplates**
 > PagedResourceListOfTransactionTemplate ListTransactionTemplates (DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
 
-[EARLY ACCESS] ListTransactionTemplates: List Transaction Templates
+ListTransactionTemplates: List Transaction Templates
 
 Lists all Transaction Templates.
 
@@ -664,7 +664,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfTransactionTemplate result = apiInstance.ListTransactionTemplates(asAt, page, limit, filter, sortBy, opts: opts);
 
-                // [EARLY ACCESS] ListTransactionTemplates: List Transaction Templates
+                // ListTransactionTemplates: List Transaction Templates
                 PagedResourceListOfTransactionTemplate result = apiInstance.ListTransactionTemplates(asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -685,7 +685,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListTransactionTemplates: List Transaction Templates
+    // ListTransactionTemplates: List Transaction Templates
     ApiResponse<PagedResourceListOfTransactionTemplate> response = apiInstance.ListTransactionTemplatesWithHttpInfo(asAt, page, limit, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -732,7 +732,7 @@ catch (ApiException e)
 # **UpdateTransactionTemplate**
 > TransactionTemplate UpdateTransactionTemplate (string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest)
 
-[EARLY ACCESS] UpdateTransactionTemplate: Update Transaction Template
+UpdateTransactionTemplate: Update Transaction Template
 
 Update a transaction template for a particular instrument event type in a scope.
 
@@ -785,7 +785,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // TransactionTemplate result = apiInstance.UpdateTransactionTemplate(instrumentEventType, instrumentType, scope, transactionTemplateRequest, opts: opts);
 
-                // [EARLY ACCESS] UpdateTransactionTemplate: Update Transaction Template
+                // UpdateTransactionTemplate: Update Transaction Template
                 TransactionTemplate result = apiInstance.UpdateTransactionTemplate(instrumentEventType, instrumentType, scope, transactionTemplateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -806,7 +806,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpdateTransactionTemplate: Update Transaction Template
+    // UpdateTransactionTemplate: Update Transaction Template
     ApiResponse<TransactionTemplate> response = apiInstance.UpdateTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope, transactionTemplateRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
