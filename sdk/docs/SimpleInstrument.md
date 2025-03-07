@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **AssetClass** | **string** | The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown | 
 **FgnCcys** | **List&lt;string&gt;** | The set of foreign currencies, if any (optional). | [optional] 
 **SimpleInstrumentType** | **string** | The Instrument type of the simple instrument. | 
+**TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

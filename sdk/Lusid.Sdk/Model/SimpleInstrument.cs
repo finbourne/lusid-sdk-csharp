@@ -106,8 +106,9 @@ namespace Lusid.Sdk.Model
         /// <param name="assetClass">The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown (required).</param>
         /// <param name="fgnCcys">The set of foreign currencies, if any (optional)..</param>
         /// <param name="simpleInstrumentType">The Instrument type of the simple instrument. (required).</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;SimpleInstrument&quot;).</param>
-        public SimpleInstrument(DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), AssetClassEnum assetClass = default(AssetClassEnum), List<string> fgnCcys = default(List<string>), string simpleInstrumentType = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public SimpleInstrument(DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), AssetClassEnum assetClass = default(AssetClassEnum), List<string> fgnCcys = default(List<string>), string simpleInstrumentType = default(string), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
@@ -124,6 +125,7 @@ namespace Lusid.Sdk.Model
             this.SimpleInstrumentType = simpleInstrumentType;
             this.MaturityDate = maturityDate;
             this.FgnCcys = fgnCcys;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -155,6 +157,12 @@ namespace Lusid.Sdk.Model
         public string SimpleInstrumentType { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -168,6 +176,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AssetClass: ").Append(AssetClass).Append("\n");
             sb.Append("  FgnCcys: ").Append(FgnCcys).Append("\n");
             sb.Append("  SimpleInstrumentType: ").Append(SimpleInstrumentType).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -227,6 +236,11 @@ namespace Lusid.Sdk.Model
                     this.SimpleInstrumentType == input.SimpleInstrumentType ||
                     (this.SimpleInstrumentType != null &&
                     this.SimpleInstrumentType.Equals(input.SimpleInstrumentType))
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -255,6 +269,10 @@ namespace Lusid.Sdk.Model
                 if (this.SimpleInstrumentType != null)
                 {
                     hashCode = (hashCode * 59) + this.SimpleInstrumentType.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }
