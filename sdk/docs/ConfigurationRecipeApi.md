@@ -5,16 +5,16 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**DeleteConfigurationRecipe**](ConfigurationRecipeApi.md#deleteconfigurationrecipe) | **DELETE** /api/recipes/{scope}/{code} | DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present. |
-| [**DeleteRecipeComposer**](ConfigurationRecipeApi.md#deleterecipecomposer) | **DELETE** /api/recipes/composer/{scope}/{code} | [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present. |
+| [**DeleteRecipeComposer**](ConfigurationRecipeApi.md#deleterecipecomposer) | **DELETE** /api/recipes/composer/{scope}/{code} | DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present. |
 | [**GetConfigurationRecipe**](ConfigurationRecipeApi.md#getconfigurationrecipe) | **GET** /api/recipes/{scope}/{code} | GetConfigurationRecipe: Get Configuration Recipe |
-| [**GetDerivedRecipe**](ConfigurationRecipeApi.md#getderivedrecipe) | **GET** /api/recipes/derived/{scope}/{code} | [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer. |
-| [**GetRecipeComposer**](ConfigurationRecipeApi.md#getrecipecomposer) | **GET** /api/recipes/composer/{scope}/{code} | [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer |
-| [**GetRecipeComposerResolvedInline**](ConfigurationRecipeApi.md#getrecipecomposerresolvedinline) | **POST** /api/recipes/composer/resolvedinline$ | [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes. |
+| [**GetDerivedRecipe**](ConfigurationRecipeApi.md#getderivedrecipe) | **GET** /api/recipes/derived/{scope}/{code} | GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer. |
+| [**GetRecipeComposer**](ConfigurationRecipeApi.md#getrecipecomposer) | **GET** /api/recipes/composer/{scope}/{code} | GetRecipeComposer: Get Recipe Composer |
+| [**GetRecipeComposerResolvedInline**](ConfigurationRecipeApi.md#getrecipecomposerresolvedinline) | **POST** /api/recipes/composer/resolvedinline$ | GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes. |
 | [**ListConfigurationRecipes**](ConfigurationRecipeApi.md#listconfigurationrecipes) | **GET** /api/recipes | ListConfigurationRecipes: List the set of Configuration Recipes |
-| [**ListDerivedRecipes**](ConfigurationRecipeApi.md#listderivedrecipes) | **GET** /api/recipes/derived | [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers. |
-| [**ListRecipeComposers**](ConfigurationRecipeApi.md#listrecipecomposers) | **GET** /api/recipes/composer | [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers |
+| [**ListDerivedRecipes**](ConfigurationRecipeApi.md#listderivedrecipes) | **GET** /api/recipes/derived | ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers. |
+| [**ListRecipeComposers**](ConfigurationRecipeApi.md#listrecipecomposers) | **GET** /api/recipes/composer | ListRecipeComposers: List the set of Recipe Composers |
 | [**UpsertConfigurationRecipe**](ConfigurationRecipeApi.md#upsertconfigurationrecipe) | **POST** /api/recipes | UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid. |
-| [**UpsertRecipeComposer**](ConfigurationRecipeApi.md#upsertrecipecomposer) | **POST** /api/recipes/composer | [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid. |
+| [**UpsertRecipeComposer**](ConfigurationRecipeApi.md#upsertrecipecomposer) | **POST** /api/recipes/composer | UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid. |
 
 <a id="deleteconfigurationrecipe"></a>
 # **DeleteConfigurationRecipe**
@@ -136,7 +136,7 @@ catch (ApiException e)
 # **DeleteRecipeComposer**
 > AnnulSingleStructuredDataResponse DeleteRecipeComposer (string scope, string code)
 
-[EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
+DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
 
 Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
 
@@ -187,7 +187,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AnnulSingleStructuredDataResponse result = apiInstance.DeleteRecipeComposer(scope, code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
+                // DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
                 AnnulSingleStructuredDataResponse result = apiInstance.DeleteRecipeComposer(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -208,7 +208,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
+    // DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
     ApiResponse<AnnulSingleStructuredDataResponse> response = apiInstance.DeleteRecipeComposerWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -370,7 +370,7 @@ catch (ApiException e)
 # **GetDerivedRecipe**
 > GetRecipeResponse GetDerivedRecipe (string scope, string code, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
+GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
 
 If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
 
@@ -422,7 +422,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // GetRecipeResponse result = apiInstance.GetDerivedRecipe(scope, code, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
+                // GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
                 GetRecipeResponse result = apiInstance.GetDerivedRecipe(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -443,7 +443,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
+    // GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
     ApiResponse<GetRecipeResponse> response = apiInstance.GetDerivedRecipeWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -488,7 +488,7 @@ catch (ApiException e)
 # **GetRecipeComposer**
 > GetRecipeComposerResponse GetRecipeComposer (string scope, string code, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
+GetRecipeComposer: Get Recipe Composer
 
 Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
 
@@ -540,7 +540,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // GetRecipeComposerResponse result = apiInstance.GetRecipeComposer(scope, code, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
+                // GetRecipeComposer: Get Recipe Composer
                 GetRecipeComposerResponse result = apiInstance.GetRecipeComposer(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -561,7 +561,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
+    // GetRecipeComposer: Get Recipe Composer
     ApiResponse<GetRecipeComposerResponse> response = apiInstance.GetRecipeComposerWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -606,7 +606,7 @@ catch (ApiException e)
 # **GetRecipeComposerResolvedInline**
 > GetRecipeResponse GetRecipeComposerResolvedInline (UpsertRecipeComposerRequest upsertRecipeComposerRequest)
 
-[EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
+GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
 
 Resolves an inline recipe composer into a ConfigurationRecipe.
 
@@ -656,7 +656,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // GetRecipeResponse result = apiInstance.GetRecipeComposerResolvedInline(upsertRecipeComposerRequest, opts: opts);
 
-                // [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
+                // GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
                 GetRecipeResponse result = apiInstance.GetRecipeComposerResolvedInline(upsertRecipeComposerRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -677,7 +677,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
+    // GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
     ApiResponse<GetRecipeResponse> response = apiInstance.GetRecipeComposerResolvedInlineWithHttpInfo(upsertRecipeComposerRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -836,7 +836,7 @@ catch (ApiException e)
 # **ListDerivedRecipes**
 > ResourceListOfGetRecipeResponse ListDerivedRecipes (DateTimeOffset? asAt = null, string? filter = null)
 
-[EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
+ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
 
 This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
 
@@ -887,7 +887,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfGetRecipeResponse result = apiInstance.ListDerivedRecipes(asAt, filter, opts: opts);
 
-                // [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
+                // ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
                 ResourceListOfGetRecipeResponse result = apiInstance.ListDerivedRecipes(asAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -908,7 +908,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
+    // ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
     ApiResponse<ResourceListOfGetRecipeResponse> response = apiInstance.ListDerivedRecipesWithHttpInfo(asAt, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -952,7 +952,7 @@ catch (ApiException e)
 # **ListRecipeComposers**
 > ResourceListOfGetRecipeComposerResponse ListRecipeComposers (DateTimeOffset? asAt = null, string? filter = null)
 
-[EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
+ListRecipeComposers: List the set of Recipe Composers
 
 List the set of Recipe Composers at the specified date/time and scope
 
@@ -1003,7 +1003,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfGetRecipeComposerResponse result = apiInstance.ListRecipeComposers(asAt, filter, opts: opts);
 
-                // [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
+                // ListRecipeComposers: List the set of Recipe Composers
                 ResourceListOfGetRecipeComposerResponse result = apiInstance.ListRecipeComposers(asAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1024,7 +1024,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
+    // ListRecipeComposers: List the set of Recipe Composers
     ApiResponse<ResourceListOfGetRecipeComposerResponse> response = apiInstance.ListRecipeComposersWithHttpInfo(asAt, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1182,7 +1182,7 @@ catch (ApiException e)
 # **UpsertRecipeComposer**
 > UpsertSingleStructuredDataResponse UpsertRecipeComposer (UpsertRecipeComposerRequest upsertRecipeComposerRequest)
 
-[EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
+UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
 
 Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
 
@@ -1232,7 +1232,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // UpsertSingleStructuredDataResponse result = apiInstance.UpsertRecipeComposer(upsertRecipeComposerRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
+                // UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
                 UpsertSingleStructuredDataResponse result = apiInstance.UpsertRecipeComposer(upsertRecipeComposerRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1253,7 +1253,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
+    // UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
     ApiResponse<UpsertSingleStructuredDataResponse> response = apiInstance.UpsertRecipeComposerWithHttpInfo(upsertRecipeComposerRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

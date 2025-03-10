@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AnnulSingleStructuredDataResponse</returns>
         Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse> DeleteConfigurationRecipeWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
+        /// DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
         /// </summary>
         /// <remarks>
         /// Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
@@ -73,7 +73,7 @@ namespace Lusid.Sdk.Api
         AnnulSingleStructuredDataResponse DeleteRecipeComposer(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
+        /// DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
         /// </summary>
         /// <remarks>
         /// Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
@@ -115,7 +115,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of GetRecipeResponse</returns>
         Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetConfigurationRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
+        /// GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
         /// </summary>
         /// <remarks>
         /// If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
@@ -130,7 +130,7 @@ namespace Lusid.Sdk.Api
         GetRecipeResponse GetDerivedRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
+        /// GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
         /// </summary>
         /// <remarks>
         /// If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
@@ -144,7 +144,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of GetRecipeResponse</returns>
         Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetDerivedRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
+        /// GetRecipeComposer: Get Recipe Composer
         /// </summary>
         /// <remarks>
         /// Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
@@ -159,7 +159,7 @@ namespace Lusid.Sdk.Api
         GetRecipeComposerResponse GetRecipeComposer(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
+        /// GetRecipeComposer: Get Recipe Composer
         /// </summary>
         /// <remarks>
         /// Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
@@ -173,7 +173,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of GetRecipeComposerResponse</returns>
         Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> GetRecipeComposerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
+        /// GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
         /// </summary>
         /// <remarks>
         /// Resolves an inline recipe composer into a ConfigurationRecipe.
@@ -186,7 +186,7 @@ namespace Lusid.Sdk.Api
         GetRecipeResponse GetRecipeComposerResolvedInline(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
+        /// GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
         /// </summary>
         /// <remarks>
         /// Resolves an inline recipe composer into a ConfigurationRecipe.
@@ -225,7 +225,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfGetRecipeResponse</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListConfigurationRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
+        /// ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
         /// </summary>
         /// <remarks>
         /// This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
@@ -239,7 +239,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfGetRecipeResponse ListDerivedRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
+        /// ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
         /// </summary>
         /// <remarks>
         /// This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
@@ -252,7 +252,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfGetRecipeResponse</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListDerivedRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
+        /// ListRecipeComposers: List the set of Recipe Composers
         /// </summary>
         /// <remarks>
         /// List the set of Recipe Composers at the specified date/time and scope
@@ -266,7 +266,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfGetRecipeComposerResponse ListRecipeComposers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
+        /// ListRecipeComposers: List the set of Recipe Composers
         /// </summary>
         /// <remarks>
         /// List the set of Recipe Composers at the specified date/time and scope
@@ -304,7 +304,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
         Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertConfigurationRecipeWithHttpInfo(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
+        /// UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
         /// </summary>
         /// <remarks>
         /// Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
@@ -317,7 +317,7 @@ namespace Lusid.Sdk.Api
         UpsertSingleStructuredDataResponse UpsertRecipeComposer(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
+        /// UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
         /// </summary>
         /// <remarks>
         /// Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
@@ -367,7 +367,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AnnulSingleStructuredDataResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulSingleStructuredDataResponse>> DeleteConfigurationRecipeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
+        /// DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
         /// </summary>
         /// <remarks>
         /// Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
@@ -382,7 +382,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AnnulSingleStructuredDataResponse> DeleteRecipeComposerAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
+        /// DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
         /// </summary>
         /// <remarks>
         /// Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
@@ -427,7 +427,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (GetRecipeResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetConfigurationRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
+        /// GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
         /// </summary>
         /// <remarks>
         /// If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
@@ -443,7 +443,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<GetRecipeResponse> GetDerivedRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
+        /// GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
         /// </summary>
         /// <remarks>
         /// If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
@@ -458,7 +458,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (GetRecipeResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetDerivedRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
+        /// GetRecipeComposer: Get Recipe Composer
         /// </summary>
         /// <remarks>
         /// Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
@@ -474,7 +474,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<GetRecipeComposerResponse> GetRecipeComposerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer
+        /// GetRecipeComposer: Get Recipe Composer
         /// </summary>
         /// <remarks>
         /// Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
@@ -489,7 +489,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (GetRecipeComposerResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse>> GetRecipeComposerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
+        /// GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
         /// </summary>
         /// <remarks>
         /// Resolves an inline recipe composer into a ConfigurationRecipe.
@@ -503,7 +503,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<GetRecipeResponse> GetRecipeComposerResolvedInlineAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
+        /// GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
         /// </summary>
         /// <remarks>
         /// Resolves an inline recipe composer into a ConfigurationRecipe.
@@ -545,7 +545,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListConfigurationRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
+        /// ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
         /// </summary>
         /// <remarks>
         /// This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
@@ -560,7 +560,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListDerivedRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
+        /// ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
         /// </summary>
         /// <remarks>
         /// This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
@@ -574,7 +574,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListDerivedRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
+        /// ListRecipeComposers: List the set of Recipe Composers
         /// </summary>
         /// <remarks>
         /// List the set of Recipe Composers at the specified date/time and scope
@@ -589,7 +589,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers
+        /// ListRecipeComposers: List the set of Recipe Composers
         /// </summary>
         /// <remarks>
         /// List the set of Recipe Composers at the specified date/time and scope
@@ -630,7 +630,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertConfigurationRecipeWithHttpInfoAsync(UpsertRecipeRequest upsertRecipeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
+        /// UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
         /// </summary>
         /// <remarks>
         /// Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
@@ -644,7 +644,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertRecipeComposerAsync(UpsertRecipeComposerRequest upsertRecipeComposerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
+        /// UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
         /// </summary>
         /// <remarks>
         /// Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
@@ -1002,7 +1002,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present. Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
+        /// DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present. Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Recipe Composer to delete.</param>
@@ -1017,7 +1017,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present. Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
+        /// DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present. Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Recipe Composer to delete.</param>
@@ -1111,7 +1111,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present. Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
+        /// DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present. Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Recipe Composer to delete.</param>
@@ -1127,7 +1127,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present. Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
+        /// DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present. Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Recipe Composer to delete.</param>
@@ -1458,7 +1458,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer. If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
+        /// GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer. If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Configuration Recipe or Recipe Composer to return.</param>
@@ -1474,7 +1474,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer. If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
+        /// GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer. If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Configuration Recipe or Recipe Composer to return.</param>
@@ -1573,7 +1573,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer. If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
+        /// GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer. If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Configuration Recipe or Recipe Composer to return.</param>
@@ -1590,7 +1590,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer. If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
+        /// GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer. If scope-code is referring to a Configuration Recipe it is returned, if it refers to Recipe Composer, it is expanded into a Configuration Recipe and returned.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Configuration Recipe or Recipe Composer to return.</param>
@@ -1692,7 +1692,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
+        /// GetRecipeComposer: Get Recipe Composer Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Recipe Composer to retrieve.</param>
@@ -1708,7 +1708,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
+        /// GetRecipeComposer: Get Recipe Composer Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Recipe Composer to retrieve.</param>
@@ -1807,7 +1807,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
+        /// GetRecipeComposer: Get Recipe Composer Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Recipe Composer to retrieve.</param>
@@ -1824,7 +1824,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposer: Get Recipe Composer Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
+        /// GetRecipeComposer: Get Recipe Composer Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Recipe Composer to retrieve.</param>
@@ -1926,7 +1926,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes. Resolves an inline recipe composer into a ConfigurationRecipe.
+        /// GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes. Resolves an inline recipe composer into a ConfigurationRecipe.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">Recipe composer used to expand into the Configuration Recipe.</param>
@@ -1940,7 +1940,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes. Resolves an inline recipe composer into a ConfigurationRecipe.
+        /// GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes. Resolves an inline recipe composer into a ConfigurationRecipe.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">Recipe composer used to expand into the Configuration Recipe.</param>
@@ -2030,7 +2030,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes. Resolves an inline recipe composer into a ConfigurationRecipe.
+        /// GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes. Resolves an inline recipe composer into a ConfigurationRecipe.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">Recipe composer used to expand into the Configuration Recipe.</param>
@@ -2045,7 +2045,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes. Resolves an inline recipe composer into a ConfigurationRecipe.
+        /// GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes. Resolves an inline recipe composer into a ConfigurationRecipe.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">Recipe composer used to expand into the Configuration Recipe.</param>
@@ -2348,7 +2348,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers. This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
+        /// ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers. This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
@@ -2363,7 +2363,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers. This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
+        /// ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers. This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
@@ -2451,7 +2451,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers. This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
+        /// ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers. This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
@@ -2467,7 +2467,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers. This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
+        /// ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers. This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
@@ -2558,7 +2558,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers List the set of Recipe Composers at the specified date/time and scope
+        /// ListRecipeComposers: List the set of Recipe Composers List the set of Recipe Composers at the specified date/time and scope
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
@@ -2573,7 +2573,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers List the set of Recipe Composers at the specified date/time and scope
+        /// ListRecipeComposers: List the set of Recipe Composers List the set of Recipe Composers at the specified date/time and scope
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
@@ -2661,7 +2661,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers List the set of Recipe Composers at the specified date/time and scope
+        /// ListRecipeComposers: List the set of Recipe Composers List the set of Recipe Composers at the specified date/time and scope
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
@@ -2677,7 +2677,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListRecipeComposers: List the set of Recipe Composers List the set of Recipe Composers at the specified date/time and scope
+        /// ListRecipeComposers: List the set of Recipe Composers List the set of Recipe Composers at the specified date/time and scope
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
@@ -2980,7 +2980,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid. Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
+        /// UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid. Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">The Recipe Composer to update or insert</param>
@@ -2994,7 +2994,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid. Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
+        /// UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid. Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">The Recipe Composer to update or insert</param>
@@ -3084,7 +3084,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid. Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
+        /// UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid. Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">The Recipe Composer to update or insert</param>
@@ -3099,7 +3099,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid. Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
+        /// UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid. Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertRecipeComposerRequest">The Recipe Composer to update or insert</param>
