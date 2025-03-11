@@ -7,6 +7,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**DeleteComplexMarketData**](ComplexMarketDataApi.md#deletecomplexmarketdata) | **POST** /api/complexmarketdata/{scope}/$delete | DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present. |
 | [**GetComplexMarketData**](ComplexMarketDataApi.md#getcomplexmarketdata) | **POST** /api/complexmarketdata/{scope}/$get | GetComplexMarketData: Get complex market data |
 | [**ListComplexMarketData**](ComplexMarketDataApi.md#listcomplexmarketdata) | **GET** /api/complexmarketdata | ListComplexMarketData: List the set of ComplexMarketData |
+| [**UpsertAppendComplexMarketData**](ComplexMarketDataApi.md#upsertappendcomplexmarketdata) | **POST** /api/complexmarketdata/{scope}/$append | [EARLY ACCESS] UpsertAppendComplexMarketData: Appends a new point to the end of a ComplexMarketData definition. |
 | [**UpsertComplexMarketData**](ComplexMarketDataApi.md#upsertcomplexmarketdata) | **POST** /api/complexmarketdata/{scope} | UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid. |
 
 <a id="deletecomplexmarketdata"></a>
@@ -356,6 +357,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested ComplexMarketData |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="upsertappendcomplexmarketdata"></a>
+# **UpsertAppendComplexMarketData**
+> UpsertSingleStructuredDataResponse UpsertAppendComplexMarketData (string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
+
+[EARLY ACCESS] UpsertAppendComplexMarketData: Appends a new point to the end of a ComplexMarketData definition.
+
+Update a complex market data item in a single scope by appending a new point onto the end.                NOTE: This operation is only supported for FX curves with one of the following data types:  FxForwardCurveByQuoteReference, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplexMarketDataApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplexMarketDataApi>();
+            var scope = "scope_example";  // string | The scope of the complex market data to append.
+            var appendComplexMarketDataRequest = new AppendComplexMarketDataRequest(); // AppendComplexMarketDataRequest | Request definition of the point to append.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime at which to retrieve the complex market data.               Defaults to the current LUSID system datetime if not specified.               Must match the effectiveAt of the ComplexMarketDataId given in the request body. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // UpsertSingleStructuredDataResponse result = apiInstance.UpsertAppendComplexMarketData(scope, appendComplexMarketDataRequest, effectiveAt, asAt, opts: opts);
+
+                // [EARLY ACCESS] UpsertAppendComplexMarketData: Appends a new point to the end of a ComplexMarketData definition.
+                UpsertSingleStructuredDataResponse result = apiInstance.UpsertAppendComplexMarketData(scope, appendComplexMarketDataRequest, effectiveAt, asAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ComplexMarketDataApi.UpsertAppendComplexMarketData: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpsertAppendComplexMarketDataWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpsertAppendComplexMarketData: Appends a new point to the end of a ComplexMarketData definition.
+    ApiResponse<UpsertSingleStructuredDataResponse> response = apiInstance.UpsertAppendComplexMarketDataWithHttpInfo(scope, appendComplexMarketDataRequest, effectiveAt, asAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ComplexMarketDataApi.UpsertAppendComplexMarketDataWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the complex market data to append. |  |
+| **appendComplexMarketDataRequest** | [**AppendComplexMarketDataRequest**](AppendComplexMarketDataRequest.md) | Request definition of the point to append. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime at which to retrieve the complex market data.               Defaults to the current LUSID system datetime if not specified.               Must match the effectiveAt of the ComplexMarketDataId given in the request body. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. | [optional]  |
+
+### Return type
+
+[**UpsertSingleStructuredDataResponse**](UpsertSingleStructuredDataResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The successfully appended ComplexMarketData along with any failures |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

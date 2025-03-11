@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using Lusid.Sdk.Model;
+using Type = System.Type;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
