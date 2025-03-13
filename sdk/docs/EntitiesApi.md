@@ -4,19 +4,19 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetCustomEntityByEntityUniqueId**](EntitiesApi.md#getcustomentitybyentityuniqueid) | **GET** /api/entities/customentities/{entityUniqueId} | [EXPERIMENTAL] GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId |
-| [**GetDataTypeByEntityUniqueId**](EntitiesApi.md#getdatatypebyentityuniqueid) | **GET** /api/entities/datatypes/{entityUniqueId} | [EXPERIMENTAL] GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId |
-| [**GetEntityHistory**](EntitiesApi.md#getentityhistory) | **GET** /api/entities/{entityType}/{entityUniqueId}/history | [EARLY ACCESS] GetEntityHistory: List an entity&#39;s history information |
-| [**GetInstrumentByEntityUniqueId**](EntitiesApi.md#getinstrumentbyentityuniqueid) | **GET** /api/entities/instruments/{entityUniqueId} | [EXPERIMENTAL] GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId |
-| [**GetPortfolioByEntityUniqueId**](EntitiesApi.md#getportfoliobyentityuniqueid) | **GET** /api/entities/portfolios/{entityUniqueId} | [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId |
+| [**GetCustomEntityByEntityUniqueId**](EntitiesApi.md#getcustomentitybyentityuniqueid) | **GET** /api/entities/customentities/{entityUniqueId} | GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId |
+| [**GetDataTypeByEntityUniqueId**](EntitiesApi.md#getdatatypebyentityuniqueid) | **GET** /api/entities/datatypes/{entityUniqueId} | GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId |
+| [**GetEntityHistory**](EntitiesApi.md#getentityhistory) | **GET** /api/entities/{entityType}/{entityUniqueId}/history | GetEntityHistory: List an entity&#39;s history information |
+| [**GetInstrumentByEntityUniqueId**](EntitiesApi.md#getinstrumentbyentityuniqueid) | **GET** /api/entities/instruments/{entityUniqueId} | GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId |
+| [**GetPortfolioByEntityUniqueId**](EntitiesApi.md#getportfoliobyentityuniqueid) | **GET** /api/entities/portfolios/{entityUniqueId} | GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId |
 | [**GetPortfolioChanges**](EntitiesApi.md#getportfoliochanges) | **GET** /api/entities/changes/portfolios | GetPortfolioChanges: Get the next change to each portfolio in a scope. |
-| [**GetPropertyDefinitionByEntityUniqueId**](EntitiesApi.md#getpropertydefinitionbyentityuniqueid) | **GET** /api/entities/propertydefinitions/{entityUniqueId} | [EXPERIMENTAL] GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId |
+| [**GetPropertyDefinitionByEntityUniqueId**](EntitiesApi.md#getpropertydefinitionbyentityuniqueid) | **GET** /api/entities/propertydefinitions/{entityUniqueId} | GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId |
 
 <a id="getcustomentitybyentityuniqueid"></a>
 # **GetCustomEntityByEntityUniqueId**
 > CustomEntityEntity GetCustomEntityByEntityUniqueId (string entityUniqueId, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? previews = null)
 
-[EXPERIMENTAL] GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
+GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
 
 Retrieve a particular Custom Entity instance.  If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
 
@@ -69,7 +69,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // CustomEntityEntity result = apiInstance.GetCustomEntityByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
 
-                // [EXPERIMENTAL] GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
+                // GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
                 CustomEntityEntity result = apiInstance.GetCustomEntityByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -90,7 +90,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
+    // GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
     ApiResponse<CustomEntityEntity> response = apiInstance.GetCustomEntityByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -136,7 +136,7 @@ catch (ApiException e)
 # **GetDataTypeByEntityUniqueId**
 > DataTypeEntity GetDataTypeByEntityUniqueId (string entityUniqueId, DateTimeOffset? asAt = null, List<string>? previews = null)
 
-[EXPERIMENTAL] GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
+GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
 
 Retrieve the definition of a particular DataType.  If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
 
@@ -188,7 +188,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DataTypeEntity result = apiInstance.GetDataTypeByEntityUniqueId(entityUniqueId, asAt, previews, opts: opts);
 
-                // [EXPERIMENTAL] GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
+                // GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
                 DataTypeEntity result = apiInstance.GetDataTypeByEntityUniqueId(entityUniqueId, asAt, previews);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -209,7 +209,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
+    // GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
     ApiResponse<DataTypeEntity> response = apiInstance.GetDataTypeByEntityUniqueIdWithHttpInfo(entityUniqueId, asAt, previews);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -254,7 +254,7 @@ catch (ApiException e)
 # **GetEntityHistory**
 > ResourceListOfChangeInterval GetEntityHistory (string entityType, string entityUniqueId, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
 
-[EARLY ACCESS] GetEntityHistory: List an entity's history information
+GetEntityHistory: List an entity's history information
 
 Retrieve a page of an entity's change history up to a particular point in AsAt time.
 
@@ -310,7 +310,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfChangeInterval result = apiInstance.GetEntityHistory(entityType, entityUniqueId, asAt, page, limit, filter, sortBy, opts: opts);
 
-                // [EARLY ACCESS] GetEntityHistory: List an entity's history information
+                // GetEntityHistory: List an entity's history information
                 ResourceListOfChangeInterval result = apiInstance.GetEntityHistory(entityType, entityUniqueId, asAt, page, limit, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -331,7 +331,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetEntityHistory: List an entity's history information
+    // GetEntityHistory: List an entity's history information
     ApiResponse<ResourceListOfChangeInterval> response = apiInstance.GetEntityHistoryWithHttpInfo(entityType, entityUniqueId, asAt, page, limit, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -380,7 +380,7 @@ catch (ApiException e)
 # **GetInstrumentByEntityUniqueId**
 > InstrumentEntity GetInstrumentByEntityUniqueId (string entityUniqueId, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? previews = null)
 
-[EXPERIMENTAL] GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
+GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
 
 Retrieve the definition of a particular instrument.  If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
 
@@ -433,7 +433,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // InstrumentEntity result = apiInstance.GetInstrumentByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
 
-                // [EXPERIMENTAL] GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
+                // GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
                 InstrumentEntity result = apiInstance.GetInstrumentByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -454,7 +454,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
+    // GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
     ApiResponse<InstrumentEntity> response = apiInstance.GetInstrumentByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -500,7 +500,7 @@ catch (ApiException e)
 # **GetPortfolioByEntityUniqueId**
 > PortfolioEntity GetPortfolioByEntityUniqueId (string entityUniqueId, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? previews = null)
 
-[EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
+GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
 
 Retrieve the definition of a particular portfolio.  If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
 
@@ -553,7 +553,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PortfolioEntity result = apiInstance.GetPortfolioByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
 
-                // [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
+                // GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
                 PortfolioEntity result = apiInstance.GetPortfolioByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -574,7 +574,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
+    // GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
     ApiResponse<PortfolioEntity> response = apiInstance.GetPortfolioByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -738,7 +738,7 @@ catch (ApiException e)
 # **GetPropertyDefinitionByEntityUniqueId**
 > PropertyDefinitionEntity GetPropertyDefinitionByEntityUniqueId (string entityUniqueId, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? previews = null)
 
-[EXPERIMENTAL] GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
+GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
 
 Retrieve a particular property definition.  If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
 
@@ -791,7 +791,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PropertyDefinitionEntity result = apiInstance.GetPropertyDefinitionByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
 
-                // [EXPERIMENTAL] GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
+                // GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
                 PropertyDefinitionEntity result = apiInstance.GetPropertyDefinitionByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -812,7 +812,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
+    // GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
     ApiResponse<PropertyDefinitionEntity> response = apiInstance.GetPropertyDefinitionByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
