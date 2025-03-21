@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Model
         /// <param name="assetClass">Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied..</param>
         /// <param name="domCcy">Specify that a rule should only apply if the market data is requested by an instrument with a given domestic currency.  If null, then no filtering on currency is applied..</param>
         /// <param name="longOrShortIndicator">Specify that a rule should apply if the market data is requested by a model with a given long or short indicator.  If none, then no filtering on LongOrShortIndicator is applied..</param>
-        /// <param name="addressKeyFilters">addressKeyFilters.</param>
+        /// <param name="addressKeyFilters">Specify that a rule should apply if the market data is requested by an instrument with features or properties  satisfying all the given address key filters. If an empty list is given, no additional filtering is done..</param>
         public DependencySourceFilter(string instrumentType = default(string), string assetClass = default(string), string domCcy = default(string), string longOrShortIndicator = default(string), List<AddressKeyFilter> addressKeyFilters = default(List<AddressKeyFilter>))
         {
             this.InstrumentType = instrumentType;
@@ -74,8 +74,9 @@ namespace Lusid.Sdk.Model
         public string LongOrShortIndicator { get; set; }
 
         /// <summary>
-        /// Gets or Sets AddressKeyFilters
+        /// Specify that a rule should apply if the market data is requested by an instrument with features or properties  satisfying all the given address key filters. If an empty list is given, no additional filtering is done.
         /// </summary>
+        /// <value>Specify that a rule should apply if the market data is requested by an instrument with features or properties  satisfying all the given address key filters. If an empty list is given, no additional filtering is done.</value>
         [DataMember(Name = "addressKeyFilters", EmitDefaultValue = true)]
         public List<AddressKeyFilter> AddressKeyFilters { get; set; }
 
