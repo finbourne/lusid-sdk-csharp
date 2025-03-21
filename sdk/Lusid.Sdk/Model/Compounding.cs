@@ -38,11 +38,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="averagingMethod">Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod &#x3D; ‘Averaging‘.    Supported string (enumeration) values are: [Unweighted, Weighted]..</param>
         /// <param name="calculationShiftMethod">Defines which resets and day counts are used for the rate calculation    Supported string (enumeration) values are: [Lookback, NoShift, ObservationPeriodShift, Lockout]..</param>
-        /// <param name="compoundingMethod">If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex]. (required).</param>
+        /// <param name="compoundingMethod">If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex, NonCumulativeCompounding]. (required).</param>
         /// <param name="resetFrequency">The interest payment frequency.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required).</param>
         /// <param name="shift">Defines the number of days to lockout or shift observation period by - should be a non-negative integer.</param>
         /// <param name="spreadCompoundingMethod">Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounding‘ or ‘CompoundedIndex‘.    Available compounding methods:    | Method | Description |  | - -- -- - | - -- -- -- -- -- |  | Straight | Compounding rate in each compound period includes the spread. |  | Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |  | SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |    The values \&quot;IsdaCompounding\&quot;, \&quot;NoCompounding\&quot;, \&quot;IsdaFlatCompounding\&quot;, and \&quot;None\&quot; are accepted for compatibility  with existing instruments and their use is discouraged.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None]..</param>
-        public Compounding(string averagingMethod = default(string), string calculationShiftMethod = default(string), string compoundingMethod = default(string), string resetFrequency = default(string), int shift = default(int), string spreadCompoundingMethod = default(string))
+        /// <param name="roundingPrecision">Defines the number of decimal places the compounded rate (expressed as a decimal) should be rounded to.  This is an optional field, leaving it blank will mean no rounding takes place in Compounding..</param>
+        public Compounding(string averagingMethod = default(string), string calculationShiftMethod = default(string), string compoundingMethod = default(string), string resetFrequency = default(string), int shift = default(int), string spreadCompoundingMethod = default(string), int? roundingPrecision = default(int?))
         {
             // to ensure "compoundingMethod" is required (not null)
             if (compoundingMethod == null)
@@ -60,6 +61,7 @@ namespace Lusid.Sdk.Model
             this.CalculationShiftMethod = calculationShiftMethod;
             this.Shift = shift;
             this.SpreadCompoundingMethod = spreadCompoundingMethod;
+            this.RoundingPrecision = roundingPrecision;
         }
 
         /// <summary>
@@ -77,9 +79,9 @@ namespace Lusid.Sdk.Model
         public string CalculationShiftMethod { get; set; }
 
         /// <summary>
-        /// If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex].
+        /// If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex, NonCumulativeCompounding].
         /// </summary>
-        /// <value>If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex].</value>
+        /// <value>If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex, NonCumulativeCompounding].</value>
         [DataMember(Name = "compoundingMethod", IsRequired = true, EmitDefaultValue = true)]
         public string CompoundingMethod { get; set; }
 
@@ -105,6 +107,13 @@ namespace Lusid.Sdk.Model
         public string SpreadCompoundingMethod { get; set; }
 
         /// <summary>
+        /// Defines the number of decimal places the compounded rate (expressed as a decimal) should be rounded to.  This is an optional field, leaving it blank will mean no rounding takes place in Compounding.
+        /// </summary>
+        /// <value>Defines the number of decimal places the compounded rate (expressed as a decimal) should be rounded to.  This is an optional field, leaving it blank will mean no rounding takes place in Compounding.</value>
+        [DataMember(Name = "roundingPrecision", EmitDefaultValue = true)]
+        public int? RoundingPrecision { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -118,6 +127,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ResetFrequency: ").Append(ResetFrequency).Append("\n");
             sb.Append("  Shift: ").Append(Shift).Append("\n");
             sb.Append("  SpreadCompoundingMethod: ").Append(SpreadCompoundingMethod).Append("\n");
+            sb.Append("  RoundingPrecision: ").Append(RoundingPrecision).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -181,6 +191,11 @@ namespace Lusid.Sdk.Model
                     this.SpreadCompoundingMethod == input.SpreadCompoundingMethod ||
                     (this.SpreadCompoundingMethod != null &&
                     this.SpreadCompoundingMethod.Equals(input.SpreadCompoundingMethod))
+                ) && 
+                (
+                    this.RoundingPrecision == input.RoundingPrecision ||
+                    (this.RoundingPrecision != null &&
+                    this.RoundingPrecision.Equals(input.RoundingPrecision))
                 );
         }
 
@@ -213,6 +228,10 @@ namespace Lusid.Sdk.Model
                 if (this.SpreadCompoundingMethod != null)
                 {
                     hashCode = (hashCode * 59) + this.SpreadCompoundingMethod.GetHashCode();
+                }
+                if (this.RoundingPrecision != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoundingPrecision.GetHashCode();
                 }
                 return hashCode;
             }
