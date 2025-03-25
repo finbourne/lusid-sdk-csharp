@@ -63,6 +63,21 @@ namespace Lusid.Sdk.Model
         public PropertyValue Value { get; set; }
 
         /// <summary>
+        /// The ReferenceData linked to the value of the property. The ReferenceData is taken from the DataType on the PropertyDefinition that defines the property.
+        /// </summary>
+        /// <value>The ReferenceData linked to the value of the property. The ReferenceData is taken from the DataType on the PropertyDefinition that defines the property.</value>
+        [DataMember(Name = "referenceData", EmitDefaultValue = true)]
+        public Dictionary<string, PropertyReferenceDataValue> ReferenceData { get; private set; }
+
+        /// <summary>
+        /// Returns false as ReferenceData should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeReferenceData()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +87,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class PerpetualProperty {\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  ReferenceData: ").Append(ReferenceData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,6 +132,12 @@ namespace Lusid.Sdk.Model
                     this.Value == input.Value ||
                     (this.Value != null &&
                     this.Value.Equals(input.Value))
+                ) && 
+                (
+                    this.ReferenceData == input.ReferenceData ||
+                    this.ReferenceData != null &&
+                    input.ReferenceData != null &&
+                    this.ReferenceData.SequenceEqual(input.ReferenceData)
                 );
         }
 
@@ -135,6 +157,10 @@ namespace Lusid.Sdk.Model
                 if (this.Value != null)
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                }
+                if (this.ReferenceData != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReferenceData.GetHashCode();
                 }
                 return hashCode;
             }

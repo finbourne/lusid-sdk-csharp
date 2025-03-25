@@ -39,20 +39,13 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="type">The Type of the associated Diary Entry (&#39;PeriodBoundary&#39;,&#39;ValuationPoint&#39;,&#39;Other&#39; or &#39;Adhoc&#39; when a diary entry wasn&#39;t used). (required).</param>
         /// <param name="status">The status of a Diary Entry of Type &#39;ValuationPoint&#39;. Defaults to &#39;Estimate&#39; when upserting a diary entry, moves to &#39;Candidate&#39; or &#39;Final&#39; when a ValuationPoint is accepted, and &#39;Final&#39; when it is finalised. The status of a Diary Entry becomes &#39;Unofficial&#39; when a diary entry wasn&#39;t used. (required).</param>
-        /// <param name="backout">DEPRECATED. Bucket of detail for the Valuation Point, where data points have been &#39;backed out&#39;. (required).</param>
-        /// <param name="dealing">DEPRECATED. Bucket of detail for any &#39;Dealing&#39; that has occured inside the queried period. (required).</param>
-        /// <param name="pnL">DEPRECATED. Bucket of detail for &#39;PnL&#39; that has occured inside the queried period. (required).</param>
-        /// <param name="gav">DEPRECATED. The Gross Asset Value of the Fund at the Period end. This is effectively a summation of all Trial balance entries linked to accounts of types &#39;Asset&#39; and &#39;Liabilities&#39;. (required).</param>
-        /// <param name="fees">DEPRECATED. Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period. (required).</param>
-        /// <param name="nav">DEPRECATED. The Net Asset Value of the Fund at the Period end. This represents the GAV with any fees applied in the period. (required).</param>
-        /// <param name="previousNav">DEPRECATED. The Net Asset Value of the Fund at the End of the last Period. (required).</param>
         /// <param name="fundDetails">fundDetails (required).</param>
         /// <param name="fundValuationPointData">fundValuationPointData (required).</param>
         /// <param name="shareClassData">The data for all share classes in fund. Share classes are identified by their short codes. (required).</param>
         /// <param name="valuationPointCode">The code of the valuation point..</param>
         /// <param name="previousValuationPointCode">The code of the previous valuation point..</param>
         /// <param name="links">links.</param>
-        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), Dictionary<string, decimal> backout = default(Dictionary<string, decimal>), Dictionary<string, decimal> dealing = default(Dictionary<string, decimal>), Dictionary<string, decimal> pnL = default(Dictionary<string, decimal>), decimal gav = default(decimal), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), decimal nav = default(decimal), decimal previousNav = default(decimal), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), List<ShareClassData> shareClassData = default(List<ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<Link> links = default(List<Link>))
+        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), List<ShareClassData> shareClassData = default(List<ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -66,33 +59,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("status is a required property for ValuationPointDataResponse and cannot be null");
             }
             this.Status = status;
-            // to ensure "backout" is required (not null)
-            if (backout == null)
-            {
-                throw new ArgumentNullException("backout is a required property for ValuationPointDataResponse and cannot be null");
-            }
-            this.Backout = backout;
-            // to ensure "dealing" is required (not null)
-            if (dealing == null)
-            {
-                throw new ArgumentNullException("dealing is a required property for ValuationPointDataResponse and cannot be null");
-            }
-            this.Dealing = dealing;
-            // to ensure "pnL" is required (not null)
-            if (pnL == null)
-            {
-                throw new ArgumentNullException("pnL is a required property for ValuationPointDataResponse and cannot be null");
-            }
-            this.PnL = pnL;
-            this.Gav = gav;
-            // to ensure "fees" is required (not null)
-            if (fees == null)
-            {
-                throw new ArgumentNullException("fees is a required property for ValuationPointDataResponse and cannot be null");
-            }
-            this.Fees = fees;
-            this.Nav = nav;
-            this.PreviousNav = previousNav;
             // to ensure "fundDetails" is required (not null)
             if (fundDetails == null)
             {
@@ -137,55 +103,6 @@ namespace Lusid.Sdk.Model
         /// <value>The status of a Diary Entry of Type &#39;ValuationPoint&#39;. Defaults to &#39;Estimate&#39; when upserting a diary entry, moves to &#39;Candidate&#39; or &#39;Final&#39; when a ValuationPoint is accepted, and &#39;Final&#39; when it is finalised. The status of a Diary Entry becomes &#39;Unofficial&#39; when a diary entry wasn&#39;t used.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
-
-        /// <summary>
-        /// DEPRECATED. Bucket of detail for the Valuation Point, where data points have been &#39;backed out&#39;.
-        /// </summary>
-        /// <value>DEPRECATED. Bucket of detail for the Valuation Point, where data points have been &#39;backed out&#39;.</value>
-        [DataMember(Name = "backout", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, decimal> Backout { get; set; }
-
-        /// <summary>
-        /// DEPRECATED. Bucket of detail for any &#39;Dealing&#39; that has occured inside the queried period.
-        /// </summary>
-        /// <value>DEPRECATED. Bucket of detail for any &#39;Dealing&#39; that has occured inside the queried period.</value>
-        [DataMember(Name = "dealing", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, decimal> Dealing { get; set; }
-
-        /// <summary>
-        /// DEPRECATED. Bucket of detail for &#39;PnL&#39; that has occured inside the queried period.
-        /// </summary>
-        /// <value>DEPRECATED. Bucket of detail for &#39;PnL&#39; that has occured inside the queried period.</value>
-        [DataMember(Name = "pnL", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, decimal> PnL { get; set; }
-
-        /// <summary>
-        /// DEPRECATED. The Gross Asset Value of the Fund at the Period end. This is effectively a summation of all Trial balance entries linked to accounts of types &#39;Asset&#39; and &#39;Liabilities&#39;.
-        /// </summary>
-        /// <value>DEPRECATED. The Gross Asset Value of the Fund at the Period end. This is effectively a summation of all Trial balance entries linked to accounts of types &#39;Asset&#39; and &#39;Liabilities&#39;.</value>
-        [DataMember(Name = "gav", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Gav { get; set; }
-
-        /// <summary>
-        /// DEPRECATED. Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period.
-        /// </summary>
-        /// <value>DEPRECATED. Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period.</value>
-        [DataMember(Name = "fees", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, FeeAccrual> Fees { get; set; }
-
-        /// <summary>
-        /// DEPRECATED. The Net Asset Value of the Fund at the Period end. This represents the GAV with any fees applied in the period.
-        /// </summary>
-        /// <value>DEPRECATED. The Net Asset Value of the Fund at the Period end. This represents the GAV with any fees applied in the period.</value>
-        [DataMember(Name = "nav", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Nav { get; set; }
-
-        /// <summary>
-        /// DEPRECATED. The Net Asset Value of the Fund at the End of the last Period.
-        /// </summary>
-        /// <value>DEPRECATED. The Net Asset Value of the Fund at the End of the last Period.</value>
-        [DataMember(Name = "previousNav", IsRequired = true, EmitDefaultValue = true)]
-        public decimal PreviousNav { get; set; }
 
         /// <summary>
         /// Gets or Sets FundDetails
@@ -237,13 +154,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Backout: ").Append(Backout).Append("\n");
-            sb.Append("  Dealing: ").Append(Dealing).Append("\n");
-            sb.Append("  PnL: ").Append(PnL).Append("\n");
-            sb.Append("  Gav: ").Append(Gav).Append("\n");
-            sb.Append("  Fees: ").Append(Fees).Append("\n");
-            sb.Append("  Nav: ").Append(Nav).Append("\n");
-            sb.Append("  PreviousNav: ").Append(PreviousNav).Append("\n");
             sb.Append("  FundDetails: ").Append(FundDetails).Append("\n");
             sb.Append("  FundValuationPointData: ").Append(FundValuationPointData).Append("\n");
             sb.Append("  ShareClassData: ").Append(ShareClassData).Append("\n");
@@ -301,42 +211,6 @@ namespace Lusid.Sdk.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.Backout == input.Backout ||
-                    this.Backout != null &&
-                    input.Backout != null &&
-                    this.Backout.SequenceEqual(input.Backout)
-                ) && 
-                (
-                    this.Dealing == input.Dealing ||
-                    this.Dealing != null &&
-                    input.Dealing != null &&
-                    this.Dealing.SequenceEqual(input.Dealing)
-                ) && 
-                (
-                    this.PnL == input.PnL ||
-                    this.PnL != null &&
-                    input.PnL != null &&
-                    this.PnL.SequenceEqual(input.PnL)
-                ) && 
-                (
-                    this.Gav == input.Gav ||
-                    this.Gav.Equals(input.Gav)
-                ) && 
-                (
-                    this.Fees == input.Fees ||
-                    this.Fees != null &&
-                    input.Fees != null &&
-                    this.Fees.SequenceEqual(input.Fees)
-                ) && 
-                (
-                    this.Nav == input.Nav ||
-                    this.Nav.Equals(input.Nav)
-                ) && 
-                (
-                    this.PreviousNav == input.PreviousNav ||
-                    this.PreviousNav.Equals(input.PreviousNav)
-                ) && 
-                (
                     this.FundDetails == input.FundDetails ||
                     (this.FundDetails != null &&
                     this.FundDetails.Equals(input.FundDetails))
@@ -391,25 +265,6 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
-                if (this.Backout != null)
-                {
-                    hashCode = (hashCode * 59) + this.Backout.GetHashCode();
-                }
-                if (this.Dealing != null)
-                {
-                    hashCode = (hashCode * 59) + this.Dealing.GetHashCode();
-                }
-                if (this.PnL != null)
-                {
-                    hashCode = (hashCode * 59) + this.PnL.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Gav.GetHashCode();
-                if (this.Fees != null)
-                {
-                    hashCode = (hashCode * 59) + this.Fees.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Nav.GetHashCode();
-                hashCode = (hashCode * 59) + this.PreviousNav.GetHashCode();
                 if (this.FundDetails != null)
                 {
                     hashCode = (hashCode * 59) + this.FundDetails.GetHashCode();
