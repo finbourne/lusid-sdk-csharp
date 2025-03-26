@@ -32,340 +32,189 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace.
         /// </summary>
         /// <remarks>
-        /// Create a new item in a personal workspace.
+        /// Create a new item in a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>WorkspaceItem</returns>
-        WorkspaceItem CreatePersonalItem(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        WorkspaceItem CreateItem(string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace.
         /// </summary>
         /// <remarks>
-        /// Create a new item in a personal workspace.
+        /// Create a new item in a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of WorkspaceItem</returns>
-        Lusid.Sdk.Client.ApiResponse<WorkspaceItem> CreatePersonalItemWithHttpInfo(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<WorkspaceItem> CreateItemWithHttpInfo(string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
+        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
         /// </summary>
         /// <remarks>
-        /// Create a new personal workspace.
+        /// Create a new workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspace being created. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Workspace</returns>
-        Workspace CreatePersonalWorkspace(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Workspace CreateWorkspace(string visibility, WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
+        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
         /// </summary>
         /// <remarks>
-        /// Create a new personal workspace.
+        /// Create a new workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspace being created. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Workspace</returns>
-        Lusid.Sdk.Client.ApiResponse<Workspace> CreatePersonalWorkspaceWithHttpInfo(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<Workspace> CreateWorkspaceWithHttpInfo(string visibility, WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
+        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace.
         /// </summary>
         /// <remarks>
-        /// Create a new item in a shared workspace.
+        /// Delete an item from a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>WorkspaceItem</returns>
-        WorkspaceItem CreateSharedItem(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Create a new item in a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of WorkspaceItem</returns>
-        Lusid.Sdk.Client.ApiResponse<WorkspaceItem> CreateSharedItemWithHttpInfo(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Create a new shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Workspace</returns>
-        Workspace CreateSharedWorkspace(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Create a new shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of Workspace</returns>
-        Lusid.Sdk.Client.ApiResponse<Workspace> CreateSharedWorkspaceWithHttpInfo(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
-        /// </summary>
-        /// <remarks>
-        /// Delete an item from a personal workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeletePersonalItem(string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null);
+        DeletedEntityResponse DeleteItem(string visibility, string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace.
         /// </summary>
         /// <remarks>
-        /// Delete an item from a personal workspace.
+        /// Delete an item from a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePersonalItemWithHttpInfo(string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteItemWithHttpInfo(string visibility, string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
+        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
         /// </summary>
         /// <remarks>
-        /// Delete a personal workspace.
+        /// Delete a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeletePersonalWorkspace(string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null);
+        DeletedEntityResponse DeleteWorkspace(string visibility, string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
+        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
         /// </summary>
         /// <remarks>
-        /// Delete a personal workspace.
+        /// Delete a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePersonalWorkspaceWithHttpInfo(string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteWorkspaceWithHttpInfo(string visibility, string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
+        /// [EXPERIMENTAL] GetItem: Get a single workspace item.
         /// </summary>
         /// <remarks>
-        /// Delete an item from a shared workspace.
+        /// Get a single workspace item.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteSharedItem(string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Delete an item from a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteSharedItemWithHttpInfo(string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Delete a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteSharedWorkspace(string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Delete a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteSharedWorkspaceWithHttpInfo(string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
-        /// </summary>
-        /// <remarks>
-        /// Get a single personal workspace item.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>WorkspaceItem</returns>
-        WorkspaceItem GetPersonalItem(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        WorkspaceItem GetItem(string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetItem: Get a single workspace item.
         /// </summary>
         /// <remarks>
-        /// Get a single personal workspace item.
+        /// Get a single workspace item.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of WorkspaceItem</returns>
-        Lusid.Sdk.Client.ApiResponse<WorkspaceItem> GetPersonalItemWithHttpInfo(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<WorkspaceItem> GetItemWithHttpInfo(string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
+        /// [EXPERIMENTAL] GetWorkspace: Get a workspace.
         /// </summary>
         /// <remarks>
-        /// Get a personal workspace.
+        /// Get a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Workspace</returns>
-        Workspace GetPersonalWorkspace(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Workspace GetWorkspace(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
+        /// [EXPERIMENTAL] GetWorkspace: Get a workspace.
         /// </summary>
         /// <remarks>
-        /// Get a personal workspace.
+        /// Get a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Workspace</returns>
-        Lusid.Sdk.Client.ApiResponse<Workspace> GetPersonalWorkspaceWithHttpInfo(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<Workspace> GetWorkspaceWithHttpInfo(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
+        /// [EXPERIMENTAL] ListItems: List the items in a workspace.
         /// </summary>
         /// <remarks>
-        /// Get a single shared workspace item.
+        /// List the items in a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>WorkspaceItem</returns>
-        WorkspaceItem GetSharedItem(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
-        /// </summary>
-        /// <remarks>
-        /// Get a single shared workspace item.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of WorkspaceItem</returns>
-        Lusid.Sdk.Client.ApiResponse<WorkspaceItem> GetSharedItemWithHttpInfo(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Get a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Workspace</returns>
-        Workspace GetSharedWorkspace(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Get a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of Workspace</returns>
-        Lusid.Sdk.Client.ApiResponse<Workspace> GetSharedWorkspaceWithHttpInfo(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
-        /// </summary>
-        /// <remarks>
-        /// List the items in a personal workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
@@ -375,15 +224,16 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfWorkspaceItem</returns>
-        PagedResourceListOfWorkspaceItem ListPersonalItems(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfWorkspaceItem ListItems(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListItems: List the items in a workspace.
         /// </summary>
         /// <remarks>
-        /// List the items in a personal workspace.
+        /// List the items in a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
@@ -393,14 +243,15 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfWorkspaceItem</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> ListPersonalItemsWithHttpInfo(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> ListItemsWithHttpInfo(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
+        /// [EXPERIMENTAL] ListWorkspaces: List workspaces.
         /// </summary>
         /// <remarks>
-        /// List personal workspaces.
+        /// List workspaces.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspaces. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
@@ -409,15 +260,16 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfWorkspace</returns>
-        PagedResourceListOfWorkspace ListPersonalWorkspaces(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfWorkspace ListWorkspaces(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
+        /// [EXPERIMENTAL] ListWorkspaces: List workspaces.
         /// </summary>
         /// <remarks>
-        /// List personal workspaces.
+        /// List workspaces.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspaces. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
@@ -426,191 +278,69 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfWorkspace</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> ListPersonalWorkspacesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> ListWorkspacesWithHttpInfo(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
+        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
         /// </summary>
         /// <remarks>
-        /// List the items in a shared workspace.
+        /// Update an item in a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>PagedResourceListOfWorkspaceItem</returns>
-        PagedResourceListOfWorkspaceItem ListSharedItems(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// List the items in a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of PagedResourceListOfWorkspaceItem</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> ListSharedItemsWithHttpInfo(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
-        /// </summary>
-        /// <remarks>
-        /// List shared workspaces.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>PagedResourceListOfWorkspace</returns>
-        PagedResourceListOfWorkspace ListSharedWorkspaces(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
-        /// </summary>
-        /// <remarks>
-        /// List shared workspaces.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of PagedResourceListOfWorkspace</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> ListSharedWorkspacesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
-        /// </summary>
-        /// <remarks>
-        /// Update an item in a personal workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The item name.</param>
         /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>WorkspaceItem</returns>
-        WorkspaceItem UpdatePersonalItem(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        WorkspaceItem UpdateItem(string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
         /// </summary>
         /// <remarks>
-        /// Update an item in a personal workspace.
+        /// Update an item in a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The item name.</param>
         /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of WorkspaceItem</returns>
-        Lusid.Sdk.Client.ApiResponse<WorkspaceItem> UpdatePersonalItemWithHttpInfo(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<WorkspaceItem> UpdateItemWithHttpInfo(string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
+        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
         /// </summary>
         /// <remarks>
-        /// Update a personal workspace.
+        /// Update a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Workspace</returns>
-        Workspace UpdatePersonalWorkspace(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Workspace UpdateWorkspace(string visibility, string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
+        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
         /// </summary>
         /// <remarks>
-        /// Update a personal workspace.
+        /// Update a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Workspace</returns>
-        Lusid.Sdk.Client.ApiResponse<Workspace> UpdatePersonalWorkspaceWithHttpInfo(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Update an item in a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The item name.</param>
-        /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>WorkspaceItem</returns>
-        WorkspaceItem UpdateSharedItem(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Update an item in a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The item name.</param>
-        /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of WorkspaceItem</returns>
-        Lusid.Sdk.Client.ApiResponse<WorkspaceItem> UpdateSharedItemWithHttpInfo(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Update a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Workspace</returns>
-        Workspace UpdateSharedWorkspace(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Update a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of Workspace</returns>
-        Lusid.Sdk.Client.ApiResponse<Workspace> UpdateSharedWorkspaceWithHttpInfo(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<Workspace> UpdateWorkspaceWithHttpInfo(string visibility, string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -621,241 +351,136 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace.
         /// </summary>
         /// <remarks>
-        /// Create a new item in a personal workspace.
+        /// Create a new item in a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of WorkspaceItem</returns>
-        System.Threading.Tasks.Task<WorkspaceItem> CreatePersonalItemAsync(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<WorkspaceItem> CreateItemAsync(string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace.
         /// </summary>
         /// <remarks>
-        /// Create a new item in a personal workspace.
+        /// Create a new item in a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> CreatePersonalItemWithHttpInfoAsync(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> CreateItemWithHttpInfoAsync(string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
+        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
         /// </summary>
         /// <remarks>
-        /// Create a new personal workspace.
+        /// Create a new workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspace being created. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Workspace</returns>
-        System.Threading.Tasks.Task<Workspace> CreatePersonalWorkspaceAsync(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Workspace> CreateWorkspaceAsync(string visibility, WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace.
+        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
         /// </summary>
         /// <remarks>
-        /// Create a new personal workspace.
+        /// Create a new workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspace being created. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Workspace)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> CreatePersonalWorkspaceWithHttpInfoAsync(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> CreateWorkspaceWithHttpInfoAsync(string visibility, WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
+        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace.
         /// </summary>
         /// <remarks>
-        /// Create a new item in a shared workspace.
+        /// Delete an item from a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of WorkspaceItem</returns>
-        System.Threading.Tasks.Task<WorkspaceItem> CreateSharedItemAsync(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Create a new item in a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> CreateSharedItemWithHttpInfoAsync(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Create a new shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of Workspace</returns>
-        System.Threading.Tasks.Task<Workspace> CreateSharedWorkspaceAsync(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Create a new shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (Workspace)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> CreateSharedWorkspaceWithHttpInfoAsync(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
-        /// </summary>
-        /// <remarks>
-        /// Delete an item from a personal workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeletePersonalItemAsync(string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteItemAsync(string visibility, string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace.
         /// </summary>
         /// <remarks>
-        /// Delete an item from a personal workspace.
+        /// Delete an item from a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePersonalItemWithHttpInfoAsync(string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteItemWithHttpInfoAsync(string visibility, string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
+        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
         /// </summary>
         /// <remarks>
-        /// Delete a personal workspace.
+        /// Delete a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeletePersonalWorkspaceAsync(string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteWorkspaceAsync(string visibility, string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace.
+        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
         /// </summary>
         /// <remarks>
-        /// Delete a personal workspace.
+        /// Delete a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePersonalWorkspaceWithHttpInfoAsync(string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteWorkspaceWithHttpInfoAsync(string visibility, string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
+        /// [EXPERIMENTAL] GetItem: Get a single workspace item.
         /// </summary>
         /// <remarks>
-        /// Delete an item from a shared workspace.
+        /// Get a single workspace item.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSharedItemAsync(string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Delete an item from a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteSharedItemWithHttpInfoAsync(string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Delete a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSharedWorkspaceAsync(string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Delete a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteSharedWorkspaceWithHttpInfoAsync(string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
-        /// </summary>
-        /// <remarks>
-        /// Get a single personal workspace item.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
@@ -863,16 +488,17 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of WorkspaceItem</returns>
-        System.Threading.Tasks.Task<WorkspaceItem> GetPersonalItemAsync(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<WorkspaceItem> GetItemAsync(string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetItem: Get a single workspace item.
         /// </summary>
         /// <remarks>
-        /// Get a single personal workspace item.
+        /// Get a single workspace item.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
@@ -880,105 +506,46 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> GetPersonalItemWithHttpInfoAsync(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> GetItemWithHttpInfoAsync(string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
+        /// [EXPERIMENTAL] GetWorkspace: Get a workspace.
         /// </summary>
         /// <remarks>
-        /// Get a personal workspace.
+        /// Get a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Workspace</returns>
-        System.Threading.Tasks.Task<Workspace> GetPersonalWorkspaceAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Workspace> GetWorkspaceAsync(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace.
+        /// [EXPERIMENTAL] GetWorkspace: Get a workspace.
         /// </summary>
         /// <remarks>
-        /// Get a personal workspace.
+        /// Get a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Workspace)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> GetPersonalWorkspaceWithHttpInfoAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> GetWorkspaceWithHttpInfoAsync(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
+        /// [EXPERIMENTAL] ListItems: List the items in a workspace.
         /// </summary>
         /// <remarks>
-        /// Get a single shared workspace item.
+        /// List the items in a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of WorkspaceItem</returns>
-        System.Threading.Tasks.Task<WorkspaceItem> GetSharedItemAsync(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item.
-        /// </summary>
-        /// <remarks>
-        /// Get a single shared workspace item.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> GetSharedItemWithHttpInfoAsync(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Get a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of Workspace</returns>
-        System.Threading.Tasks.Task<Workspace> GetSharedWorkspaceAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Get a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (Workspace)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> GetSharedWorkspaceWithHttpInfoAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
-        /// </summary>
-        /// <remarks>
-        /// List the items in a personal workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
@@ -989,15 +556,16 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfWorkspaceItem</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfWorkspaceItem> ListPersonalItemsAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfWorkspaceItem> ListItemsAsync(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListItems: List the items in a workspace.
         /// </summary>
         /// <remarks>
-        /// List the items in a personal workspace.
+        /// List the items in a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
@@ -1008,14 +576,15 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfWorkspaceItem)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem>> ListPersonalItemsWithHttpInfoAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem>> ListItemsWithHttpInfoAsync(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
+        /// [EXPERIMENTAL] ListWorkspaces: List workspaces.
         /// </summary>
         /// <remarks>
-        /// List personal workspaces.
+        /// List workspaces.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspaces. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
@@ -1025,15 +594,16 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfWorkspace</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfWorkspace> ListPersonalWorkspacesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfWorkspace> ListWorkspacesAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces.
+        /// [EXPERIMENTAL] ListWorkspaces: List workspaces.
         /// </summary>
         /// <remarks>
-        /// List personal workspaces.
+        /// List workspaces.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspaces. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
@@ -1043,87 +613,16 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfWorkspace)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace>> ListPersonalWorkspacesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace>> ListWorkspacesWithHttpInfoAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
+        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
         /// </summary>
         /// <remarks>
-        /// List the items in a shared workspace.
+        /// Update an item in a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of PagedResourceListOfWorkspaceItem</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfWorkspaceItem> ListSharedItemsAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// List the items in a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (PagedResourceListOfWorkspaceItem)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem>> ListSharedItemsWithHttpInfoAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
-        /// </summary>
-        /// <remarks>
-        /// List shared workspaces.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of PagedResourceListOfWorkspace</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfWorkspace> ListSharedWorkspacesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces.
-        /// </summary>
-        /// <remarks>
-        /// List shared workspaces.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (PagedResourceListOfWorkspace)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace>> ListSharedWorkspacesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
-        /// </summary>
-        /// <remarks>
-        /// Update an item in a personal workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The item name.</param>
         /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
@@ -1131,16 +630,17 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of WorkspaceItem</returns>
-        System.Threading.Tasks.Task<WorkspaceItem> UpdatePersonalItemAsync(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<WorkspaceItem> UpdateItemAsync(string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
         /// </summary>
         /// <remarks>
-        /// Update an item in a personal workspace.
+        /// Update an item in a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The item name.</param>
         /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
@@ -1148,98 +648,38 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> UpdatePersonalItemWithHttpInfoAsync(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> UpdateItemWithHttpInfoAsync(string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
+        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
         /// </summary>
         /// <remarks>
-        /// Update a personal workspace.
+        /// Update a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Workspace</returns>
-        System.Threading.Tasks.Task<Workspace> UpdatePersonalWorkspaceAsync(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Workspace> UpdateWorkspaceAsync(string visibility, string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace.
+        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
         /// </summary>
         /// <remarks>
-        /// Update a personal workspace.
+        /// Update a workspace.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Workspace)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> UpdatePersonalWorkspaceWithHttpInfoAsync(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Update an item in a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The item name.</param>
-        /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of WorkspaceItem</returns>
-        System.Threading.Tasks.Task<WorkspaceItem> UpdateSharedItemAsync(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Update an item in a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The item name.</param>
-        /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> UpdateSharedItemWithHttpInfoAsync(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Update a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of Workspace</returns>
-        System.Threading.Tasks.Task<Workspace> UpdateSharedWorkspaceAsync(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace.
-        /// </summary>
-        /// <remarks>
-        /// Update a shared workspace.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (Workspace)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> UpdateSharedWorkspaceWithHttpInfoAsync(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> UpdateWorkspaceWithHttpInfoAsync(string visibility, string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -1364,35 +804,43 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace. Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace. Create a new item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>WorkspaceItem</returns>
-        public WorkspaceItem CreatePersonalItem(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public WorkspaceItem CreateItem(string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = CreatePersonalItemWithHttpInfo(workspaceName, workspaceItemCreationRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = CreateItemWithHttpInfo(visibility, workspaceName, workspaceItemCreationRequest, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace. Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace. Create a new item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of WorkspaceItem</returns>
-        public Lusid.Sdk.Client.ApiResponse<WorkspaceItem> CreatePersonalItemWithHttpInfo(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<WorkspaceItem> CreateItemWithHttpInfo(string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->CreateItem");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->CreatePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->CreateItem");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1433,10 +881,11 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             localVarRequestOptions.Data = workspaceItemCreationRequest;
 
-            localVarRequestOptions.Operation = "WorkspaceApi.CreatePersonalItem";
+            localVarRequestOptions.Operation = "WorkspaceApi.CreateItem";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1457,10 +906,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<WorkspaceItem>("/api/workspaces/personal/{workspaceName}/items", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<WorkspaceItem>("/api/workspaces/{visibility}/{workspaceName}/items", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreatePersonalItem", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateItem", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1471,37 +920,45 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace. Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace. Create a new item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of WorkspaceItem</returns>
-        public async System.Threading.Tasks.Task<WorkspaceItem> CreatePersonalItemAsync(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<WorkspaceItem> CreateItemAsync(string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = await CreatePersonalItemWithHttpInfoAsync(workspaceName, workspaceItemCreationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = await CreateItemWithHttpInfoAsync(visibility, workspaceName, workspaceItemCreationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalItem: Create a new item in a personal workspace. Create a new item in a personal workspace.
+        /// [EXPERIMENTAL] CreateItem: Create a new item in a workspace. Create a new item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> CreatePersonalItemWithHttpInfoAsync(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> CreateItemWithHttpInfoAsync(string visibility, string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->CreateItem");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->CreatePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->CreateItem");
             }
 
 
@@ -1543,10 +1000,11 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             localVarRequestOptions.Data = workspaceItemCreationRequest;
 
-            localVarRequestOptions.Operation = "WorkspaceApi.CreatePersonalItem";
+            localVarRequestOptions.Operation = "WorkspaceApi.CreateItem";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1567,11 +1025,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<WorkspaceItem>("/api/workspaces/personal/{workspaceName}/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<WorkspaceItem>("/api/workspaces/{visibility}/{workspaceName}/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreatePersonalItem", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateItem", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1582,29 +1040,37 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace. Create a new personal workspace.
+        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace. Create a new workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspace being created. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Workspace</returns>
-        public Workspace CreatePersonalWorkspace(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Workspace CreateWorkspace(string visibility, WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = CreatePersonalWorkspaceWithHttpInfo(workspaceCreationRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = CreateWorkspaceWithHttpInfo(visibility, workspaceCreationRequest, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace. Create a new personal workspace.
+        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace. Create a new workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspace being created. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Workspace</returns>
-        public Lusid.Sdk.Client.ApiResponse<Workspace> CreatePersonalWorkspaceWithHttpInfo(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<Workspace> CreateWorkspaceWithHttpInfo(string visibility, WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->CreateWorkspace");
+            }
+
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
             if (opts is { TimeoutMs: not null })
@@ -1643,9 +1109,10 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.Data = workspaceCreationRequest;
 
-            localVarRequestOptions.Operation = "WorkspaceApi.CreatePersonalWorkspace";
+            localVarRequestOptions.Operation = "WorkspaceApi.CreateWorkspace";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1666,10 +1133,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Workspace>("/api/workspaces/personal", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<Workspace>("/api/workspaces/{visibility}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreatePersonalWorkspace", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateWorkspace", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1680,246 +1147,37 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace. Create a new personal workspace.
+        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace. Create a new workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspace being created. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Workspace</returns>
-        public async System.Threading.Tasks.Task<Workspace> CreatePersonalWorkspaceAsync(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Workspace> CreateWorkspaceAsync(string visibility, WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = await CreatePersonalWorkspaceWithHttpInfoAsync(workspaceCreationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = await CreateWorkspaceWithHttpInfoAsync(visibility, workspaceCreationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreatePersonalWorkspace: Create a new personal workspace. Create a new personal workspace.
+        /// [EXPERIMENTAL] CreateWorkspace: Create a new workspace. Create a new workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspace being created. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Workspace)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> CreatePersonalWorkspaceWithHttpInfoAsync(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> CreateWorkspaceWithHttpInfoAsync(string visibility, WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
             {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-                "application/json-patch+json", 
-                "application/json", 
-                "text/json", 
-                "application/*+json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = workspaceCreationRequest;
-
-            localVarRequestOptions.Operation = "WorkspaceApi.CreatePersonalWorkspace";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Workspace>("/api/workspaces/personal", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreatePersonalWorkspace", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace. Create a new item in a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>WorkspaceItem</returns>
-        public WorkspaceItem CreateSharedItem(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = CreateSharedItemWithHttpInfo(workspaceName, workspaceItemCreationRequest, opts: opts);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace. Create a new item in a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of WorkspaceItem</returns>
-        public Lusid.Sdk.Client.ApiResponse<WorkspaceItem> CreateSharedItemWithHttpInfo(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->CreateSharedItem");
-            }
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-                "application/json-patch+json",
-                "application/json",
-                "text/json",
-                "application/*+json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            localVarRequestOptions.Data = workspaceItemCreationRequest;
-
-            localVarRequestOptions.Operation = "WorkspaceApi.CreateSharedItem";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<WorkspaceItem>("/api/workspaces/shared/{workspaceName}/items", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateSharedItem", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace. Create a new item in a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of WorkspaceItem</returns>
-        public async System.Threading.Tasks.Task<WorkspaceItem> CreateSharedItemAsync(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = await CreateSharedItemWithHttpInfoAsync(workspaceName, workspaceItemCreationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedItem: Create a new item in a shared workspace. Create a new item in a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="workspaceItemCreationRequest">The item to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> CreateSharedItemWithHttpInfoAsync(string workspaceName, WorkspaceItemCreationRequest? workspaceItemCreationRequest = default(WorkspaceItemCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->CreateSharedItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->CreateWorkspace");
             }
 
 
@@ -1961,109 +1219,10 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            localVarRequestOptions.Data = workspaceItemCreationRequest;
-
-            localVarRequestOptions.Operation = "WorkspaceApi.CreateSharedItem";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<WorkspaceItem>("/api/workspaces/shared/{workspaceName}/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateSharedItem", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace. Create a new shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Workspace</returns>
-        public Workspace CreateSharedWorkspace(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = CreateSharedWorkspaceWithHttpInfo(workspaceCreationRequest, opts: opts);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace. Create a new shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of Workspace</returns>
-        public Lusid.Sdk.Client.ApiResponse<Workspace> CreateSharedWorkspaceWithHttpInfo(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-                "application/json-patch+json",
-                "application/json",
-                "text/json",
-                "application/*+json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.Data = workspaceCreationRequest;
 
-            localVarRequestOptions.Operation = "WorkspaceApi.CreateSharedWorkspace";
+            localVarRequestOptions.Operation = "WorkspaceApi.CreateWorkspace";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -2084,10 +1243,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Workspace>("/api/workspaces/shared", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Workspace>("/api/workspaces/{visibility}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateSharedWorkspace", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateWorkspace", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2098,151 +1258,57 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace. Create a new shared workspace.
+        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace. Delete an item from a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of Workspace</returns>
-        public async System.Threading.Tasks.Task<Workspace> CreateSharedWorkspaceAsync(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = await CreateSharedWorkspaceWithHttpInfoAsync(workspaceCreationRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] CreateSharedWorkspace: Create a new shared workspace. Create a new shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceCreationRequest">The workspace to be created. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (Workspace)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> CreateSharedWorkspaceWithHttpInfoAsync(WorkspaceCreationRequest? workspaceCreationRequest = default(WorkspaceCreationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-                "application/json-patch+json", 
-                "application/json", 
-                "text/json", 
-                "application/*+json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = workspaceCreationRequest;
-
-            localVarRequestOptions.Operation = "WorkspaceApi.CreateSharedWorkspace";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Workspace>("/api/workspaces/shared", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateSharedWorkspace", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace. Delete an item from a personal workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeletePersonalItem(string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public DeletedEntityResponse DeleteItem(string visibility, string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeletePersonalItemWithHttpInfo(workspaceName, groupName, itemName, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteItemWithHttpInfo(visibility, workspaceName, groupName, itemName, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace. Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace. Delete an item from a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePersonalItemWithHttpInfo(string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteItemWithHttpInfo(string visibility, string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->DeleteItem");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->DeletePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->DeleteItem");
             }
 
             // verify the required parameter 'groupName' is set
             if (groupName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->DeletePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->DeleteItem");
             }
 
             // verify the required parameter 'itemName' is set
             if (itemName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->DeletePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->DeleteItem");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -2279,11 +1345,12 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupName", Lusid.Sdk.Client.ClientUtils.ParameterToString(groupName)); // path parameter
             localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
 
-            localVarRequestOptions.Operation = "WorkspaceApi.DeletePersonalItem";
+            localVarRequestOptions.Operation = "WorkspaceApi.DeleteItem";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -2304,10 +1371,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/workspaces/personal/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeletePersonalItem", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteItem", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2318,51 +1385,59 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace. Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace. Delete an item from a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeletePersonalItemAsync(string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteItemAsync(string visibility, string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeletePersonalItemWithHttpInfoAsync(workspaceName, groupName, itemName, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteItemWithHttpInfoAsync(visibility, workspaceName, groupName, itemName, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalItem: Delete an item from a personal workspace. Delete an item from a personal workspace.
+        /// [EXPERIMENTAL] DeleteItem: Delete an item from a workspace. Delete an item from a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePersonalItemWithHttpInfoAsync(string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteItemWithHttpInfoAsync(string visibility, string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->DeleteItem");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->DeletePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->DeleteItem");
             }
 
             // verify the required parameter 'groupName' is set
             if (groupName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->DeletePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->DeleteItem");
             }
 
             // verify the required parameter 'itemName' is set
             if (itemName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->DeletePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->DeleteItem");
             }
 
 
@@ -2400,11 +1475,12 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupName", Lusid.Sdk.Client.ClientUtils.ParameterToString(groupName)); // path parameter
             localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
 
-            localVarRequestOptions.Operation = "WorkspaceApi.DeletePersonalItem";
+            localVarRequestOptions.Operation = "WorkspaceApi.DeleteItem";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -2425,11 +1501,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/workspaces/personal/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeletePersonalItem", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteItem", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2440,33 +1516,41 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace. Delete a personal workspace.
+        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace. Delete a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeletePersonalWorkspace(string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public DeletedEntityResponse DeleteWorkspace(string visibility, string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeletePersonalWorkspaceWithHttpInfo(workspaceName, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteWorkspaceWithHttpInfo(visibility, workspaceName, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace. Delete a personal workspace.
+        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace. Delete a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePersonalWorkspaceWithHttpInfo(string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteWorkspaceWithHttpInfo(string visibility, string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->DeleteWorkspace");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->DeletePersonalWorkspace");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->DeleteWorkspace");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -2503,9 +1587,10 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
 
-            localVarRequestOptions.Operation = "WorkspaceApi.DeletePersonalWorkspace";
+            localVarRequestOptions.Operation = "WorkspaceApi.DeleteWorkspace";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -2526,10 +1611,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/workspaces/personal/{workspaceName}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/workspaces/{visibility}/{workspaceName}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeletePersonalWorkspace", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteWorkspace", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2540,35 +1625,43 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace. Delete a personal workspace.
+        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace. Delete a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeletePersonalWorkspaceAsync(string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteWorkspaceAsync(string visibility, string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeletePersonalWorkspaceWithHttpInfoAsync(workspaceName, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteWorkspaceWithHttpInfoAsync(visibility, workspaceName, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePersonalWorkspace: Delete a personal workspace. Delete a personal workspace.
+        /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace. Delete a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePersonalWorkspaceWithHttpInfoAsync(string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteWorkspaceWithHttpInfoAsync(string visibility, string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->DeleteWorkspace");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->DeletePersonalWorkspace");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->DeleteWorkspace");
             }
 
 
@@ -2606,9 +1699,10 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
 
-            localVarRequestOptions.Operation = "WorkspaceApi.DeletePersonalWorkspace";
+            localVarRequestOptions.Operation = "WorkspaceApi.DeleteWorkspace";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -2629,11 +1723,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/workspaces/personal/{workspaceName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/workspaces/{visibility}/{workspaceName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeletePersonalWorkspace", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteWorkspace", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2644,495 +1738,59 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace. Delete an item from a shared workspace.
+        /// [EXPERIMENTAL] GetItem: Get a single workspace item. Get a single workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteSharedItem(string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteSharedItemWithHttpInfo(workspaceName, groupName, itemName, opts: opts);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace. Delete an item from a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteSharedItemWithHttpInfo(string workspaceName, string groupName, string itemName, int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->DeleteSharedItem");
-            }
-
-            // verify the required parameter 'groupName' is set
-            if (groupName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->DeleteSharedItem");
-            }
-
-            // verify the required parameter 'itemName' is set
-            if (itemName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->DeleteSharedItem");
-            }
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("groupName", Lusid.Sdk.Client.ClientUtils.ParameterToString(groupName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
-
-            localVarRequestOptions.Operation = "WorkspaceApi.DeleteSharedItem";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/workspaces/shared/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteSharedItem", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace. Delete an item from a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSharedItemAsync(string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteSharedItemWithHttpInfoAsync(workspaceName, groupName, itemName, operationIndex, cancellationToken, opts).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedItem: Delete an item from a shared workspace. Delete an item from a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteSharedItemWithHttpInfoAsync(string workspaceName, string groupName, string itemName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->DeleteSharedItem");
-            }
-
-            // verify the required parameter 'groupName' is set
-            if (groupName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->DeleteSharedItem");
-            }
-
-            // verify the required parameter 'itemName' is set
-            if (itemName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->DeleteSharedItem");
-            }
-
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("groupName", Lusid.Sdk.Client.ClientUtils.ParameterToString(groupName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
-
-            localVarRequestOptions.Operation = "WorkspaceApi.DeleteSharedItem";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/workspaces/shared/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteSharedItem", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace. Delete a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteSharedWorkspace(string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteSharedWorkspaceWithHttpInfo(workspaceName, opts: opts);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace. Delete a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteSharedWorkspaceWithHttpInfo(string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->DeleteSharedWorkspace");
-            }
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-
-            localVarRequestOptions.Operation = "WorkspaceApi.DeleteSharedWorkspace";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/workspaces/shared/{workspaceName}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteSharedWorkspace", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace. Delete a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSharedWorkspaceAsync(string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteSharedWorkspaceWithHttpInfoAsync(workspaceName, operationIndex, cancellationToken, opts).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] DeleteSharedWorkspace: Delete a shared workspace. Delete a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteSharedWorkspaceWithHttpInfoAsync(string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->DeleteSharedWorkspace");
-            }
-
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-
-            localVarRequestOptions.Operation = "WorkspaceApi.DeleteSharedWorkspace";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/workspaces/shared/{workspaceName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteSharedWorkspace", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item. Get a single personal workspace item.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>WorkspaceItem</returns>
-        public WorkspaceItem GetPersonalItem(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public WorkspaceItem GetItem(string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = GetPersonalItemWithHttpInfo(workspaceName, groupName, itemName, asAt, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = GetItemWithHttpInfo(visibility, workspaceName, groupName, itemName, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item. Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetItem: Get a single workspace item. Get a single workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of WorkspaceItem</returns>
-        public Lusid.Sdk.Client.ApiResponse<WorkspaceItem> GetPersonalItemWithHttpInfo(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<WorkspaceItem> GetItemWithHttpInfo(string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->GetItem");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->GetPersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->GetItem");
             }
 
             // verify the required parameter 'groupName' is set
             if (groupName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->GetPersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->GetItem");
             }
 
             // verify the required parameter 'itemName' is set
             if (itemName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->GetPersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->GetItem");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -3169,6 +1827,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupName", Lusid.Sdk.Client.ClientUtils.ParameterToString(groupName)); // path parameter
             localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
@@ -3177,7 +1836,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 
-            localVarRequestOptions.Operation = "WorkspaceApi.GetPersonalItem";
+            localVarRequestOptions.Operation = "WorkspaceApi.GetItem";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -3198,10 +1857,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<WorkspaceItem>("/api/workspaces/personal/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<WorkspaceItem>("/api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPersonalItem", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetItem", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3212,10 +1871,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item. Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetItem: Get a single workspace item. Get a single workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
@@ -3223,17 +1883,18 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of WorkspaceItem</returns>
-        public async System.Threading.Tasks.Task<WorkspaceItem> GetPersonalItemAsync(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<WorkspaceItem> GetItemAsync(string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = await GetPersonalItemWithHttpInfoAsync(workspaceName, groupName, itemName, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = await GetItemWithHttpInfoAsync(visibility, workspaceName, groupName, itemName, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalItem: Get a single personal workspace item. Get a single personal workspace item.
+        /// [EXPERIMENTAL] GetItem: Get a single workspace item. Get a single workspace item.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the personal workspace.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The name of the workspace.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The name of the item.</param>
         /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
@@ -3241,24 +1902,30 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> GetPersonalItemWithHttpInfoAsync(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> GetItemWithHttpInfoAsync(string visibility, string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->GetItem");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->GetPersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->GetItem");
             }
 
             // verify the required parameter 'groupName' is set
             if (groupName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->GetPersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->GetItem");
             }
 
             // verify the required parameter 'itemName' is set
             if (itemName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->GetPersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->GetItem");
             }
 
 
@@ -3296,6 +1963,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupName", Lusid.Sdk.Client.ClientUtils.ParameterToString(groupName)); // path parameter
             localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
@@ -3304,7 +1972,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 
-            localVarRequestOptions.Operation = "WorkspaceApi.GetPersonalItem";
+            localVarRequestOptions.Operation = "WorkspaceApi.GetItem";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -3325,11 +1993,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<WorkspaceItem>("/api/workspaces/personal/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<WorkspaceItem>("/api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPersonalItem", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetItem", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3340,35 +2008,43 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace. Get a personal workspace.
+        /// [EXPERIMENTAL] GetWorkspace: Get a workspace. Get a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Workspace</returns>
-        public Workspace GetPersonalWorkspace(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Workspace GetWorkspace(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = GetPersonalWorkspaceWithHttpInfo(workspaceName, asAt, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = GetWorkspaceWithHttpInfo(visibility, workspaceName, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace. Get a personal workspace.
+        /// [EXPERIMENTAL] GetWorkspace: Get a workspace. Get a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Workspace</returns>
-        public Lusid.Sdk.Client.ApiResponse<Workspace> GetPersonalWorkspaceWithHttpInfo(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<Workspace> GetWorkspaceWithHttpInfo(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->GetWorkspace");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->GetPersonalWorkspace");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->GetWorkspace");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -3405,13 +2081,14 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 
-            localVarRequestOptions.Operation = "WorkspaceApi.GetPersonalWorkspace";
+            localVarRequestOptions.Operation = "WorkspaceApi.GetWorkspace";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -3432,10 +2109,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Workspace>("/api/workspaces/personal/{workspaceName}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Workspace>("/api/workspaces/{visibility}/{workspaceName}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPersonalWorkspace", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetWorkspace", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3446,37 +2123,45 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace. Get a personal workspace.
+        /// [EXPERIMENTAL] GetWorkspace: Get a workspace. Get a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Workspace</returns>
-        public async System.Threading.Tasks.Task<Workspace> GetPersonalWorkspaceAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Workspace> GetWorkspaceAsync(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = await GetPersonalWorkspaceWithHttpInfoAsync(workspaceName, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = await GetWorkspaceWithHttpInfoAsync(visibility, workspaceName, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPersonalWorkspace: Get a personal workspace. Get a personal workspace.
+        /// [EXPERIMENTAL] GetWorkspace: Get a workspace. Get a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Workspace)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> GetPersonalWorkspaceWithHttpInfoAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> GetWorkspaceWithHttpInfoAsync(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->GetWorkspace");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->GetPersonalWorkspace");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->GetWorkspace");
             }
 
 
@@ -3514,13 +2199,14 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 
-            localVarRequestOptions.Operation = "WorkspaceApi.GetPersonalWorkspace";
+            localVarRequestOptions.Operation = "WorkspaceApi.GetWorkspace";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -3541,11 +2227,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Workspace>("/api/workspaces/personal/{workspaceName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Workspace>("/api/workspaces/{visibility}/{workspaceName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPersonalWorkspace", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetWorkspace", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3556,477 +2242,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item. Get a single shared workspace item.
+        /// [EXPERIMENTAL] ListItems: List the items in a workspace. List the items in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>WorkspaceItem</returns>
-        public WorkspaceItem GetSharedItem(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = GetSharedItemWithHttpInfo(workspaceName, groupName, itemName, asAt, opts: opts);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item. Get a single shared workspace item.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of WorkspaceItem</returns>
-        public Lusid.Sdk.Client.ApiResponse<WorkspaceItem> GetSharedItemWithHttpInfo(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->GetSharedItem");
-            }
-
-            // verify the required parameter 'groupName' is set
-            if (groupName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->GetSharedItem");
-            }
-
-            // verify the required parameter 'itemName' is set
-            if (itemName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->GetSharedItem");
-            }
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("groupName", Lusid.Sdk.Client.ClientUtils.ParameterToString(groupName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-
-            localVarRequestOptions.Operation = "WorkspaceApi.GetSharedItem";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<WorkspaceItem>("/api/workspaces/shared/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetSharedItem", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item. Get a single shared workspace item.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of WorkspaceItem</returns>
-        public async System.Threading.Tasks.Task<WorkspaceItem> GetSharedItemAsync(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = await GetSharedItemWithHttpInfoAsync(workspaceName, groupName, itemName, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedItem: Get a single shared workspace item. Get a single shared workspace item.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The name of the shared workspace.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The name of the item.</param>
-        /// <param name="asAt">The datetime at which to request the workspace item. If not provided, defaults to &#39;latest&#39;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> GetSharedItemWithHttpInfoAsync(string workspaceName, string groupName, string itemName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->GetSharedItem");
-            }
-
-            // verify the required parameter 'groupName' is set
-            if (groupName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->GetSharedItem");
-            }
-
-            // verify the required parameter 'itemName' is set
-            if (itemName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->GetSharedItem");
-            }
-
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("groupName", Lusid.Sdk.Client.ClientUtils.ParameterToString(groupName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-
-            localVarRequestOptions.Operation = "WorkspaceApi.GetSharedItem";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<WorkspaceItem>("/api/workspaces/shared/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetSharedItem", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace. Get a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Workspace</returns>
-        public Workspace GetSharedWorkspace(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = GetSharedWorkspaceWithHttpInfo(workspaceName, asAt, opts: opts);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace. Get a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of Workspace</returns>
-        public Lusid.Sdk.Client.ApiResponse<Workspace> GetSharedWorkspaceWithHttpInfo(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->GetSharedWorkspace");
-            }
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-
-            localVarRequestOptions.Operation = "WorkspaceApi.GetSharedWorkspace";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Workspace>("/api/workspaces/shared/{workspaceName}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetSharedWorkspace", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace. Get a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of Workspace</returns>
-        public async System.Threading.Tasks.Task<Workspace> GetSharedWorkspaceAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = await GetSharedWorkspaceWithHttpInfoAsync(workspaceName, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetSharedWorkspace: Get a shared workspace. Get a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (Workspace)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> GetSharedWorkspaceWithHttpInfoAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->GetSharedWorkspace");
-            }
-
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-
-            localVarRequestOptions.Operation = "WorkspaceApi.GetSharedWorkspace";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Workspace>("/api/workspaces/shared/{workspaceName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetSharedWorkspace", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace. List the items in a personal workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
@@ -4036,16 +2255,17 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfWorkspaceItem</returns>
-        public PagedResourceListOfWorkspaceItem ListPersonalItems(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfWorkspaceItem ListItems(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> localVarResponse = ListPersonalItemsWithHttpInfo(workspaceName, asAt, page, sortBy, limit, filter, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> localVarResponse = ListItemsWithHttpInfo(visibility, workspaceName, asAt, page, sortBy, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace. List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListItems: List the items in a workspace. List the items in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
@@ -4055,12 +2275,18 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfWorkspaceItem</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> ListPersonalItemsWithHttpInfo(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> ListItemsWithHttpInfo(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->ListItems");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->ListPersonalItems");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->ListItems");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -4097,6 +2323,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             if (asAt != null)
             {
@@ -4119,7 +2346,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 
-            localVarRequestOptions.Operation = "WorkspaceApi.ListPersonalItems";
+            localVarRequestOptions.Operation = "WorkspaceApi.ListItems";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -4140,10 +2367,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedResourceListOfWorkspaceItem>("/api/workspaces/personal/{workspaceName}/items", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedResourceListOfWorkspaceItem>("/api/workspaces/{visibility}/{workspaceName}/items", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListPersonalItems", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListItems", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -4154,9 +2381,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace. List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListItems: List the items in a workspace. List the items in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
@@ -4167,16 +2395,17 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfWorkspaceItem</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfWorkspaceItem> ListPersonalItemsAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfWorkspaceItem> ListItemsAsync(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> localVarResponse = await ListPersonalItemsWithHttpInfoAsync(workspaceName, asAt, page, sortBy, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> localVarResponse = await ListItemsWithHttpInfoAsync(visibility, workspaceName, asAt, page, sortBy, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalItems: List the items in a personal workspace. List the items in a personal workspace.
+        /// [EXPERIMENTAL] ListItems: List the items in a workspace. List the items in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The item&#39;s workspace name.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
@@ -4187,12 +2416,18 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfWorkspaceItem)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem>> ListPersonalItemsWithHttpInfoAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem>> ListItemsWithHttpInfoAsync(string visibility, string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->ListItems");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->ListPersonalItems");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->ListItems");
             }
 
 
@@ -4230,6 +2465,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             if (asAt != null)
             {
@@ -4252,7 +2488,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 
-            localVarRequestOptions.Operation = "WorkspaceApi.ListPersonalItems";
+            localVarRequestOptions.Operation = "WorkspaceApi.ListItems";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -4273,11 +2509,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfWorkspaceItem>("/api/workspaces/personal/{workspaceName}/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfWorkspaceItem>("/api/workspaces/{visibility}/{workspaceName}/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListPersonalItems", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListItems", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -4288,9 +2524,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces. List personal workspaces.
+        /// [EXPERIMENTAL] ListWorkspaces: List workspaces. List workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspaces. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
@@ -4299,16 +2536,17 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfWorkspace</returns>
-        public PagedResourceListOfWorkspace ListPersonalWorkspaces(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfWorkspace ListWorkspaces(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> localVarResponse = ListPersonalWorkspacesWithHttpInfo(asAt, page, sortBy, limit, filter, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> localVarResponse = ListWorkspacesWithHttpInfo(visibility, asAt, page, sortBy, limit, filter, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces. List personal workspaces.
+        /// [EXPERIMENTAL] ListWorkspaces: List workspaces. List workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspaces. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
@@ -4317,8 +2555,14 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfWorkspace</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> ListPersonalWorkspacesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> ListWorkspacesWithHttpInfo(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->ListWorkspaces");
+            }
+
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
             if (opts is { TimeoutMs: not null })
@@ -4353,6 +2597,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
@@ -4374,7 +2619,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 
-            localVarRequestOptions.Operation = "WorkspaceApi.ListPersonalWorkspaces";
+            localVarRequestOptions.Operation = "WorkspaceApi.ListWorkspaces";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -4395,10 +2640,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedResourceListOfWorkspace>("/api/workspaces/personal", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedResourceListOfWorkspace>("/api/workspaces/{visibility}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListPersonalWorkspaces", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListWorkspaces", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -4409,9 +2654,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces. List personal workspaces.
+        /// [EXPERIMENTAL] ListWorkspaces: List workspaces. List workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspaces. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
@@ -4421,16 +2667,17 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfWorkspace</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfWorkspace> ListPersonalWorkspacesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfWorkspace> ListWorkspacesAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> localVarResponse = await ListPersonalWorkspacesWithHttpInfoAsync(asAt, page, sortBy, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> localVarResponse = await ListWorkspacesWithHttpInfoAsync(visibility, asAt, page, sortBy, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListPersonalWorkspaces: List personal workspaces. List personal workspaces.
+        /// [EXPERIMENTAL] ListWorkspaces: List workspaces. List workspaces.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the workspaces. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
@@ -4440,269 +2687,12 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfWorkspace)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace>> ListPersonalWorkspacesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace>> ListWorkspacesWithHttpInfoAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
             {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (sortBy != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-
-            localVarRequestOptions.Operation = "WorkspaceApi.ListPersonalWorkspaces";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfWorkspace>("/api/workspaces/personal", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListPersonalWorkspaces", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace. List the items in a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>PagedResourceListOfWorkspaceItem</returns>
-        public PagedResourceListOfWorkspaceItem ListSharedItems(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> localVarResponse = ListSharedItemsWithHttpInfo(workspaceName, asAt, page, sortBy, limit, filter, opts: opts);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace. List the items in a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of PagedResourceListOfWorkspaceItem</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> ListSharedItemsWithHttpInfo(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->ListSharedItems");
-            }
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (sortBy != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-
-            localVarRequestOptions.Operation = "WorkspaceApi.ListSharedItems";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedResourceListOfWorkspaceItem>("/api/workspaces/shared/{workspaceName}/items", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListSharedItems", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace. List the items in a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of PagedResourceListOfWorkspaceItem</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfWorkspaceItem> ListSharedItemsAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem> localVarResponse = await ListSharedItemsWithHttpInfoAsync(workspaceName, asAt, page, sortBy, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedItems: List the items in a shared workspace. List the items in a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The item&#39;s workspace name.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (PagedResourceListOfWorkspaceItem)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspaceItem>> ListSharedItemsWithHttpInfoAsync(string workspaceName, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->ListSharedItems");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->ListWorkspaces");
             }
 
 
@@ -4740,7 +2730,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
@@ -4762,7 +2752,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 
-            localVarRequestOptions.Operation = "WorkspaceApi.ListSharedItems";
+            localVarRequestOptions.Operation = "WorkspaceApi.ListWorkspaces";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -4783,11 +2773,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfWorkspaceItem>("/api/workspaces/shared/{workspaceName}/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfWorkspace>("/api/workspaces/{visibility}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListSharedItems", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListWorkspaces", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -4798,297 +2788,59 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces. List shared workspaces.
+        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace. Update an item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>PagedResourceListOfWorkspace</returns>
-        public PagedResourceListOfWorkspace ListSharedWorkspaces(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> localVarResponse = ListSharedWorkspacesWithHttpInfo(asAt, page, sortBy, limit, filter, opts: opts);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces. List shared workspaces.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of PagedResourceListOfWorkspace</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> ListSharedWorkspacesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (sortBy != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-
-            localVarRequestOptions.Operation = "WorkspaceApi.ListSharedWorkspaces";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedResourceListOfWorkspace>("/api/workspaces/shared", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListSharedWorkspaces", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces. List shared workspaces.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of PagedResourceListOfWorkspace</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfWorkspace> ListSharedWorkspacesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> localVarResponse = await ListSharedWorkspacesWithHttpInfoAsync(asAt, page, sortBy, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListSharedWorkspaces: List shared workspaces. List shared workspaces.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
-        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (PagedResourceListOfWorkspace)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace>> ListSharedWorkspacesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (sortBy != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-
-            localVarRequestOptions.Operation = "WorkspaceApi.ListSharedWorkspaces";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfWorkspace>("/api/workspaces/shared", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListSharedWorkspaces", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace. Update an item in a personal workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The item name.</param>
         /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>WorkspaceItem</returns>
-        public WorkspaceItem UpdatePersonalItem(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public WorkspaceItem UpdateItem(string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = UpdatePersonalItemWithHttpInfo(workspaceName, groupName, itemName, workspaceItemUpdateRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = UpdateItemWithHttpInfo(visibility, workspaceName, groupName, itemName, workspaceItemUpdateRequest, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace. Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace. Update an item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The item name.</param>
         /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of WorkspaceItem</returns>
-        public Lusid.Sdk.Client.ApiResponse<WorkspaceItem> UpdatePersonalItemWithHttpInfo(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<WorkspaceItem> UpdateItemWithHttpInfo(string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->UpdateItem");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->UpdatePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->UpdateItem");
             }
 
             // verify the required parameter 'groupName' is set
             if (groupName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->UpdatePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->UpdateItem");
             }
 
             // verify the required parameter 'itemName' is set
             if (itemName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->UpdatePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->UpdateItem");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -5129,12 +2881,13 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupName", Lusid.Sdk.Client.ClientUtils.ParameterToString(groupName)); // path parameter
             localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
             localVarRequestOptions.Data = workspaceItemUpdateRequest;
 
-            localVarRequestOptions.Operation = "WorkspaceApi.UpdatePersonalItem";
+            localVarRequestOptions.Operation = "WorkspaceApi.UpdateItem";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -5155,10 +2908,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<WorkspaceItem>("/api/workspaces/personal/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<WorkspaceItem>("/api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdatePersonalItem", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateItem", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -5169,10 +2922,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace. Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace. Update an item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The item name.</param>
         /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
@@ -5180,17 +2934,18 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of WorkspaceItem</returns>
-        public async System.Threading.Tasks.Task<WorkspaceItem> UpdatePersonalItemAsync(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<WorkspaceItem> UpdateItemAsync(string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = await UpdatePersonalItemWithHttpInfoAsync(workspaceName, groupName, itemName, workspaceItemUpdateRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = await UpdateItemWithHttpInfoAsync(visibility, workspaceName, groupName, itemName, workspaceItemUpdateRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalItem: Update an item in a personal workspace. Update an item in a personal workspace.
+        /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace. Update an item in a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="groupName">The group containing the item.</param>
         /// <param name="itemName">The item name.</param>
         /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
@@ -5198,24 +2953,30 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> UpdatePersonalItemWithHttpInfoAsync(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> UpdateItemWithHttpInfoAsync(string visibility, string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->UpdateItem");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->UpdatePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->UpdateItem");
             }
 
             // verify the required parameter 'groupName' is set
             if (groupName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->UpdatePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->UpdateItem");
             }
 
             // verify the required parameter 'itemName' is set
             if (itemName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->UpdatePersonalItem");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->UpdateItem");
             }
 
 
@@ -5257,12 +3018,13 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupName", Lusid.Sdk.Client.ClientUtils.ParameterToString(groupName)); // path parameter
             localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
             localVarRequestOptions.Data = workspaceItemUpdateRequest;
 
-            localVarRequestOptions.Operation = "WorkspaceApi.UpdatePersonalItem";
+            localVarRequestOptions.Operation = "WorkspaceApi.UpdateItem";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -5283,11 +3045,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<WorkspaceItem>("/api/workspaces/personal/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<WorkspaceItem>("/api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdatePersonalItem", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateItem", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -5298,35 +3060,43 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace. Update a personal workspace.
+        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace. Update a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Workspace</returns>
-        public Workspace UpdatePersonalWorkspace(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Workspace UpdateWorkspace(string visibility, string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = UpdatePersonalWorkspaceWithHttpInfo(workspaceName, workspaceUpdateRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = UpdateWorkspaceWithHttpInfo(visibility, workspaceName, workspaceUpdateRequest, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace. Update a personal workspace.
+        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace. Update a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Workspace</returns>
-        public Lusid.Sdk.Client.ApiResponse<Workspace> UpdatePersonalWorkspaceWithHttpInfo(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<Workspace> UpdateWorkspaceWithHttpInfo(string visibility, string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->UpdateWorkspace");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->UpdatePersonalWorkspace");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->UpdateWorkspace");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -5367,10 +3137,11 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             localVarRequestOptions.Data = workspaceUpdateRequest;
 
-            localVarRequestOptions.Operation = "WorkspaceApi.UpdatePersonalWorkspace";
+            localVarRequestOptions.Operation = "WorkspaceApi.UpdateWorkspace";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -5391,10 +3162,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Workspace>("/api/workspaces/personal/{workspaceName}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<Workspace>("/api/workspaces/{visibility}/{workspaceName}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdatePersonalWorkspace", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateWorkspace", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -5405,37 +3176,45 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace. Update a personal workspace.
+        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace. Update a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Workspace</returns>
-        public async System.Threading.Tasks.Task<Workspace> UpdatePersonalWorkspaceAsync(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Workspace> UpdateWorkspaceAsync(string visibility, string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = await UpdatePersonalWorkspaceWithHttpInfoAsync(workspaceName, workspaceUpdateRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = await UpdateWorkspaceWithHttpInfoAsync(visibility, workspaceName, workspaceUpdateRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePersonalWorkspace: Update a personal workspace. Update a personal workspace.
+        /// [EXPERIMENTAL] UpdateWorkspace: Update a workspace. Update a workspace.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The personal workspace name.</param>
+        /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="workspaceName">The workspace name.</param>
         /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Workspace)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> UpdatePersonalWorkspaceWithHttpInfoAsync(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> UpdateWorkspaceWithHttpInfoAsync(string visibility, string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->UpdateWorkspace");
+            }
+
             // verify the required parameter 'workspaceName' is set
             if (workspaceName == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->UpdatePersonalWorkspace");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->UpdateWorkspace");
             }
 
 
@@ -5477,10 +3256,11 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             localVarRequestOptions.Data = workspaceUpdateRequest;
 
-            localVarRequestOptions.Operation = "WorkspaceApi.UpdatePersonalWorkspace";
+            localVarRequestOptions.Operation = "WorkspaceApi.UpdateWorkspace";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -5501,483 +3281,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Workspace>("/api/workspaces/personal/{workspaceName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Workspace>("/api/workspaces/{visibility}/{workspaceName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdatePersonalWorkspace", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace. Update an item in a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The item name.</param>
-        /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>WorkspaceItem</returns>
-        public WorkspaceItem UpdateSharedItem(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = UpdateSharedItemWithHttpInfo(workspaceName, groupName, itemName, workspaceItemUpdateRequest, opts: opts);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace. Update an item in a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The item name.</param>
-        /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of WorkspaceItem</returns>
-        public Lusid.Sdk.Client.ApiResponse<WorkspaceItem> UpdateSharedItemWithHttpInfo(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->UpdateSharedItem");
-            }
-
-            // verify the required parameter 'groupName' is set
-            if (groupName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->UpdateSharedItem");
-            }
-
-            // verify the required parameter 'itemName' is set
-            if (itemName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->UpdateSharedItem");
-            }
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-                "application/json-patch+json",
-                "application/json",
-                "text/json",
-                "application/*+json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("groupName", Lusid.Sdk.Client.ClientUtils.ParameterToString(groupName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
-            localVarRequestOptions.Data = workspaceItemUpdateRequest;
-
-            localVarRequestOptions.Operation = "WorkspaceApi.UpdateSharedItem";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<WorkspaceItem>("/api/workspaces/shared/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateSharedItem", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace. Update an item in a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The item name.</param>
-        /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of WorkspaceItem</returns>
-        public async System.Threading.Tasks.Task<WorkspaceItem> UpdateSharedItemAsync(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<WorkspaceItem> localVarResponse = await UpdateSharedItemWithHttpInfoAsync(workspaceName, groupName, itemName, workspaceItemUpdateRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedItem: Update an item in a shared workspace. Update an item in a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="groupName">The group containing the item.</param>
-        /// <param name="itemName">The item name.</param>
-        /// <param name="workspaceItemUpdateRequest">The new item details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (WorkspaceItem)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<WorkspaceItem>> UpdateSharedItemWithHttpInfoAsync(string workspaceName, string groupName, string itemName, WorkspaceItemUpdateRequest? workspaceItemUpdateRequest = default(WorkspaceItemUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->UpdateSharedItem");
-            }
-
-            // verify the required parameter 'groupName' is set
-            if (groupName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'groupName' when calling WorkspaceApi->UpdateSharedItem");
-            }
-
-            // verify the required parameter 'itemName' is set
-            if (itemName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'itemName' when calling WorkspaceApi->UpdateSharedItem");
-            }
-
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-                "application/json-patch+json", 
-                "application/json", 
-                "text/json", 
-                "application/*+json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("groupName", Lusid.Sdk.Client.ClientUtils.ParameterToString(groupName)); // path parameter
-            localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
-            localVarRequestOptions.Data = workspaceItemUpdateRequest;
-
-            localVarRequestOptions.Operation = "WorkspaceApi.UpdateSharedItem";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<WorkspaceItem>("/api/workspaces/shared/{workspaceName}/items/{groupName}/{itemName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateSharedItem", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace. Update a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Workspace</returns>
-        public Workspace UpdateSharedWorkspace(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = UpdateSharedWorkspaceWithHttpInfo(workspaceName, workspaceUpdateRequest, opts: opts);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace. Update a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of Workspace</returns>
-        public Lusid.Sdk.Client.ApiResponse<Workspace> UpdateSharedWorkspaceWithHttpInfo(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->UpdateSharedWorkspace");
-            }
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-                "application/json-patch+json",
-                "application/json",
-                "text/json",
-                "application/*+json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            localVarRequestOptions.Data = workspaceUpdateRequest;
-
-            localVarRequestOptions.Operation = "WorkspaceApi.UpdateSharedWorkspace";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<Workspace>("/api/workspaces/shared/{workspaceName}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateSharedWorkspace", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace. Update a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of Workspace</returns>
-        public async System.Threading.Tasks.Task<Workspace> UpdateSharedWorkspaceAsync(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            Lusid.Sdk.Client.ApiResponse<Workspace> localVarResponse = await UpdateSharedWorkspaceWithHttpInfoAsync(workspaceName, workspaceUpdateRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] UpdateSharedWorkspace: Update a shared workspace. Update a shared workspace.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="workspaceName">The shared workspace name.</param>
-        /// <param name="workspaceUpdateRequest">The new workspace details. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (Workspace)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Workspace>> UpdateSharedWorkspaceWithHttpInfoAsync(string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = default(WorkspaceUpdateRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
-        {
-            // verify the required parameter 'workspaceName' is set
-            if (workspaceName == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'workspaceName' when calling WorkspaceApi->UpdateSharedWorkspace");
-            }
-
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            if (opts is { TimeoutMs: not null })
-            {
-                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
-            }
-            
-            if (opts is { RateLimitRetries: not null })
-            {
-                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
-            }
-
-            string[] _contentTypes = new string[] {
-                "application/json-patch+json", 
-                "application/json", 
-                "text/json", 
-                "application/*+json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
-            localVarRequestOptions.Data = workspaceUpdateRequest;
-
-            localVarRequestOptions.Operation = "WorkspaceApi.UpdateSharedWorkspace";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Workspace>("/api/workspaces/shared/{workspaceName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateSharedWorkspace", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateWorkspace", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -375,7 +375,13 @@ namespace Lusid.Sdk.Model
         /// Enum DepositCloseEvent for value: DepositCloseEvent
         /// </summary>
         [EnumMember(Value = "DepositCloseEvent")]
-        DepositCloseEvent = 58
+        DepositCloseEvent = 58,
+
+        /// <summary>
+        /// Enum LoanFacilityContractRolloverEvent for value: LoanFacilityContractRolloverEvent
+        /// </summary>
+        [EnumMember(Value = "LoanFacilityContractRolloverEvent")]
+        LoanFacilityContractRolloverEvent = 59
     }
 
 }
