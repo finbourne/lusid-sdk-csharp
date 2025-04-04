@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Conditions** | **string** | The conditions that the bound entity must meet to be valid. | [optional] 
+**Conditions** | **List&lt;string&gt;** | The conditions that the bound entity must meet to be valid. | [optional] 
 **Properties** | [**List&lt;CustomDataModelPropertySpecificationWithDisplayName&gt;**](CustomDataModelPropertySpecificationWithDisplayName.md) | The properties that are required or allowed on the bound entity. | [optional] 
 **IdentifierTypes** | [**List&lt;CustomDataModelIdentifierTypeSpecificationWithDisplayName&gt;**](CustomDataModelIdentifierTypeSpecificationWithDisplayName.md) | The identifier types that are required or allowed on the bound entity. | [optional] 
 **AttributeAliases** | [**List&lt;Alias&gt;**](Alias.md) | The aliases for property keys, identifier types, and fields on the bound entity. | [optional] 

@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <param name="identifierTypes">The identifier types that are required or allowed on the bound entity..</param>
         /// <param name="attributeAliases">The aliases for property keys, identifier types, and fields on the bound entity..</param>
         /// <param name="recommendedSortBy">The preferred default sorting instructions..</param>
-        public CustomDataModelCriteria(string conditions = default(string), List<CustomDataModelPropertySpecificationWithDisplayName> properties = default(List<CustomDataModelPropertySpecificationWithDisplayName>), List<CustomDataModelIdentifierTypeSpecificationWithDisplayName> identifierTypes = default(List<CustomDataModelIdentifierTypeSpecificationWithDisplayName>), List<Alias> attributeAliases = default(List<Alias>), List<RecommendedSortBy> recommendedSortBy = default(List<RecommendedSortBy>))
+        public CustomDataModelCriteria(List<string> conditions = default(List<string>), List<CustomDataModelPropertySpecificationWithDisplayName> properties = default(List<CustomDataModelPropertySpecificationWithDisplayName>), List<CustomDataModelIdentifierTypeSpecificationWithDisplayName> identifierTypes = default(List<CustomDataModelIdentifierTypeSpecificationWithDisplayName>), List<Alias> attributeAliases = default(List<Alias>), List<RecommendedSortBy> recommendedSortBy = default(List<RecommendedSortBy>))
         {
             this.Conditions = conditions;
             this.Properties = properties;
@@ -50,7 +50,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The conditions that the bound entity must meet to be valid.</value>
         [DataMember(Name = "conditions", EmitDefaultValue = true)]
-        public string Conditions { get; set; }
+        public List<string> Conditions { get; set; }
 
         /// <summary>
         /// The properties that are required or allowed on the bound entity.
@@ -130,8 +130,9 @@ namespace Lusid.Sdk.Model
             return 
                 (
                     this.Conditions == input.Conditions ||
-                    (this.Conditions != null &&
-                    this.Conditions.Equals(input.Conditions))
+                    this.Conditions != null &&
+                    input.Conditions != null &&
+                    this.Conditions.SequenceEqual(input.Conditions)
                 ) && 
                 (
                     this.Properties == input.Properties ||

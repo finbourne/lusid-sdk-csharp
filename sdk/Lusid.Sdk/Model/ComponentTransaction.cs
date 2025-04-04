@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="transactionFieldMap">transactionFieldMap (required).</param>
         /// <param name="transactionPropertyMap">transactionPropertyMap (required).</param>
         /// <param name="preserveTaxLotStructure">Controls if tax lot structure should be preserved when cost base is transferred to a new holding. For example in Spin Off instrument events..</param>
-        public ComponentTransaction(string displayName = default(string), string condition = default(string), TransactionFieldMap transactionFieldMap = default(TransactionFieldMap), List<TransactionPropertyMap> transactionPropertyMap = default(List<TransactionPropertyMap>), bool? preserveTaxLotStructure = default(bool?))
+        /// <param name="marketOpenTimeAdjustments">marketOpenTimeAdjustments.</param>
+        public ComponentTransaction(string displayName = default(string), string condition = default(string), TransactionFieldMap transactionFieldMap = default(TransactionFieldMap), List<TransactionPropertyMap> transactionPropertyMap = default(List<TransactionPropertyMap>), bool? preserveTaxLotStructure = default(bool?), List<string> marketOpenTimeAdjustments = default(List<string>))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -63,6 +64,7 @@ namespace Lusid.Sdk.Model
             this.TransactionPropertyMap = transactionPropertyMap;
             this.Condition = condition;
             this.PreserveTaxLotStructure = preserveTaxLotStructure;
+            this.MarketOpenTimeAdjustments = marketOpenTimeAdjustments;
         }
 
         /// <summary>
@@ -97,6 +99,12 @@ namespace Lusid.Sdk.Model
         public bool? PreserveTaxLotStructure { get; set; }
 
         /// <summary>
+        /// Gets or Sets MarketOpenTimeAdjustments
+        /// </summary>
+        [DataMember(Name = "marketOpenTimeAdjustments", EmitDefaultValue = true)]
+        public List<string> MarketOpenTimeAdjustments { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -109,6 +117,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TransactionFieldMap: ").Append(TransactionFieldMap).Append("\n");
             sb.Append("  TransactionPropertyMap: ").Append(TransactionPropertyMap).Append("\n");
             sb.Append("  PreserveTaxLotStructure: ").Append(PreserveTaxLotStructure).Append("\n");
+            sb.Append("  MarketOpenTimeAdjustments: ").Append(MarketOpenTimeAdjustments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,6 +178,12 @@ namespace Lusid.Sdk.Model
                     this.PreserveTaxLotStructure == input.PreserveTaxLotStructure ||
                     (this.PreserveTaxLotStructure != null &&
                     this.PreserveTaxLotStructure.Equals(input.PreserveTaxLotStructure))
+                ) && 
+                (
+                    this.MarketOpenTimeAdjustments == input.MarketOpenTimeAdjustments ||
+                    this.MarketOpenTimeAdjustments != null &&
+                    input.MarketOpenTimeAdjustments != null &&
+                    this.MarketOpenTimeAdjustments.SequenceEqual(input.MarketOpenTimeAdjustments)
                 );
         }
 
@@ -200,6 +215,10 @@ namespace Lusid.Sdk.Model
                 if (this.PreserveTaxLotStructure != null)
                 {
                     hashCode = (hashCode * 59) + this.PreserveTaxLotStructure.GetHashCode();
+                }
+                if (this.MarketOpenTimeAdjustments != null)
+                {
+                    hashCode = (hashCode * 59) + this.MarketOpenTimeAdjustments.GetHashCode();
                 }
                 return hashCode;
             }
