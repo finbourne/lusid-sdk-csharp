@@ -41,29 +41,29 @@ namespace Lusid.Sdk.Model
         /// <param name="announcementDate">The date the merger is announced..</param>
         /// <param name="cashAndSecurityOfferElections">List of possible CashAndSecurityOfferElections for this merger event.</param>
         /// <param name="cashOfferElections">List of possible CashOfferElections for this merger event.</param>
-        /// <param name="exDate">The first date on which the holder of record of the original shares has entitled ownership of the new shares. (required).</param>
+        /// <param name="exDate">The first date on which the holder of record of the original shares has entitled ownership of the new shares..</param>
         /// <param name="fractionalUnitsCashCurrency">Optional. Used in calculating cash-in-lieu of fractional shares..</param>
         /// <param name="fractionalUnitsCashPrice">Optional. Used in calculating cash-in-lieu of fractional shares..</param>
         /// <param name="newInstrument">newInstrument (required).</param>
-        /// <param name="paymentDate">Date on which the merger takes place. (required).</param>
+        /// <param name="paymentDate">Date on which the merger takes place..</param>
         /// <param name="recordDate">Optional. Date you have to be the holder of record of the original shares in order to receive the new shares..</param>
         /// <param name="securityOfferElections">List of possible SecurityOfferElections for this merger event.</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;MergerEvent&quot;).</param>
         public MergerEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), DateTimeOffset exDate = default(DateTimeOffset), string fractionalUnitsCashCurrency = default(string), decimal? fractionalUnitsCashPrice = default(decimal?), NewInstrument newInstrument = default(NewInstrument), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.ExDate = exDate;
             // to ensure "newInstrument" is required (not null)
             if (newInstrument == null)
             {
                 throw new ArgumentNullException("newInstrument is a required property for MergerEvent and cannot be null");
             }
             this.NewInstrument = newInstrument;
-            this.PaymentDate = paymentDate;
             this.AnnouncementDate = announcementDate;
             this.CashAndSecurityOfferElections = cashAndSecurityOfferElections;
             this.CashOfferElections = cashOfferElections;
+            this.ExDate = exDate;
             this.FractionalUnitsCashCurrency = fractionalUnitsCashCurrency;
             this.FractionalUnitsCashPrice = fractionalUnitsCashPrice;
+            this.PaymentDate = paymentDate;
             this.RecordDate = recordDate;
             this.SecurityOfferElections = securityOfferElections;
         }
@@ -93,7 +93,7 @@ namespace Lusid.Sdk.Model
         /// The first date on which the holder of record of the original shares has entitled ownership of the new shares.
         /// </summary>
         /// <value>The first date on which the holder of record of the original shares has entitled ownership of the new shares.</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace Lusid.Sdk.Model
         /// Date on which the merger takes place.
         /// </summary>
         /// <value>Date on which the merger takes place.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>

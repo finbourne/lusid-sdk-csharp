@@ -38,19 +38,19 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FutureExpiryEvent" /> class.
         /// </summary>
-        /// <param name="expiryDate">Expiry date of the Future instrument. (required).</param>
+        /// <param name="expiryDate">Expiry date of the Future instrument..</param>
         /// <param name="settlementCurrency">Settlement currency of the Future instrument. (required).</param>
         /// <param name="notionalAmountPerUnit">The notional amount of each unit in the Future instrument..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;FutureExpiryEvent&quot;).</param>
         public FutureExpiryEvent(DateTimeOffset expiryDate = default(DateTimeOffset), string settlementCurrency = default(string), decimal? notionalAmountPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.ExpiryDate = expiryDate;
             // to ensure "settlementCurrency" is required (not null)
             if (settlementCurrency == null)
             {
                 throw new ArgumentNullException("settlementCurrency is a required property for FutureExpiryEvent and cannot be null");
             }
             this.SettlementCurrency = settlementCurrency;
+            this.ExpiryDate = expiryDate;
             this.NotionalAmountPerUnit = notionalAmountPerUnit;
         }
 
@@ -58,7 +58,7 @@ namespace Lusid.Sdk.Model
         /// Expiry date of the Future instrument.
         /// </summary>
         /// <value>Expiry date of the Future instrument.</value>
-        [DataMember(Name = "expiryDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "expiryDate", EmitDefaultValue = false)]
         public DateTimeOffset ExpiryDate { get; set; }
 
         /// <summary>

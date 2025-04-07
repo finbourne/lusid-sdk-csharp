@@ -39,9 +39,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="IntermediateSecuritiesDistributionEvent" /> class.
         /// </summary>
         /// <param name="announcementDate">Optional.  The date the spin-off is announced..</param>
-        /// <param name="exDate">The first date on which the holder of record has entitled ownership of the new shares. (required).</param>
+        /// <param name="exDate">The first date on which the holder of record has entitled ownership of the new shares..</param>
         /// <param name="recordDate">Optional.  Date you have to be the holder of record in order to receive the additional shares..</param>
-        /// <param name="paymentDate">Date on which the distribution of shares takes place. (required).</param>
+        /// <param name="paymentDate">Date on which the distribution of shares takes place..</param>
         /// <param name="newInstrument">newInstrument (required).</param>
         /// <param name="unitsRatio">unitsRatio (required).</param>
         /// <param name="costFactor">Optional. The fraction of cost that is transferred from the existing shares to the new shares..</param>
@@ -50,8 +50,6 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;IntermediateSecuritiesDistributionEvent&quot;).</param>
         public IntermediateSecuritiesDistributionEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), UnitsRatio unitsRatio = default(UnitsRatio), decimal? costFactor = default(decimal?), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.ExDate = exDate;
-            this.PaymentDate = paymentDate;
             // to ensure "newInstrument" is required (not null)
             if (newInstrument == null)
             {
@@ -65,7 +63,9 @@ namespace Lusid.Sdk.Model
             }
             this.UnitsRatio = unitsRatio;
             this.AnnouncementDate = announcementDate;
+            this.ExDate = exDate;
             this.RecordDate = recordDate;
+            this.PaymentDate = paymentDate;
             this.CostFactor = costFactor;
             this.FractionalUnitsCashPrice = fractionalUnitsCashPrice;
             this.FractionalUnitsCashCurrency = fractionalUnitsCashCurrency;
@@ -82,7 +82,7 @@ namespace Lusid.Sdk.Model
         /// The first date on which the holder of record has entitled ownership of the new shares.
         /// </summary>
         /// <value>The first date on which the holder of record has entitled ownership of the new shares.</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace Lusid.Sdk.Model
         /// Date on which the distribution of shares takes place.
         /// </summary>
         /// <value>Date on which the distribution of shares takes place.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>

@@ -39,8 +39,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="StockDividendEvent" /> class.
         /// </summary>
         /// <param name="announcementDate">Date on which the dividend was announced / declared..</param>
-        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate. (required).</param>
-        /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
+        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate..</param>
+        /// <param name="paymentDate">The date the company pays out dividends to shareholders..</param>
         /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
         /// <param name="fractionalUnitsCashPrice">The cash price paid in lieu of fractionalUnits..</param>
         /// <param name="fractionalUnitsCashCurrency">The currency of the cash paid in lieu of fractionalUnits..</param>
@@ -48,8 +48,6 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;StockDividendEvent&quot;).</param>
         public StockDividendEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), UnitsRatio unitsRatio = default(UnitsRatio), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.ExDate = exDate;
-            this.PaymentDate = paymentDate;
             // to ensure "unitsRatio" is required (not null)
             if (unitsRatio == null)
             {
@@ -57,6 +55,8 @@ namespace Lusid.Sdk.Model
             }
             this.UnitsRatio = unitsRatio;
             this.AnnouncementDate = announcementDate;
+            this.ExDate = exDate;
+            this.PaymentDate = paymentDate;
             this.RecordDate = recordDate;
             this.FractionalUnitsCashPrice = fractionalUnitsCashPrice;
             this.FractionalUnitsCashCurrency = fractionalUnitsCashCurrency;
@@ -73,14 +73,14 @@ namespace Lusid.Sdk.Model
         /// The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.
         /// </summary>
         /// <value>The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
         /// The date the company pays out dividends to shareholders.
         /// </summary>
         /// <value>The date the company pays out dividends to shareholders.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>

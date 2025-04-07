@@ -39,19 +39,19 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ContractInitialisationEvent" /> class.
         /// </summary>
         /// <param name="limit">Limit of this contract.  Must be positive. (required).</param>
-        /// <param name="date">Initialisation date of the contract. (required).</param>
+        /// <param name="date">Initialisation date of the contract..</param>
         /// <param name="contractDetails">contractDetails (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;ContractInitialisationEvent&quot;).</param>
         public ContractInitialisationEvent(decimal limit = default(decimal), DateTimeOffset date = default(DateTimeOffset), ContractDetails contractDetails = default(ContractDetails), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.Limit = limit;
-            this.Date = date;
             // to ensure "contractDetails" is required (not null)
             if (contractDetails == null)
             {
                 throw new ArgumentNullException("contractDetails is a required property for ContractInitialisationEvent and cannot be null");
             }
             this.ContractDetails = contractDetails;
+            this.Date = date;
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Lusid.Sdk.Model
         /// Initialisation date of the contract.
         /// </summary>
         /// <value>Initialisation date of the contract.</value>
-        [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "date", EmitDefaultValue = false)]
         public DateTimeOffset Date { get; set; }
 
         /// <summary>

@@ -39,9 +39,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TenderEvent" /> class.
         /// </summary>
         /// <param name="announcementDate">The date the tender is announced..</param>
-        /// <param name="exDate">The ex date (entitlement date) of the event. (required).</param>
+        /// <param name="exDate">The ex date (entitlement date) of the event..</param>
         /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
-        /// <param name="paymentDate">The payment date of the event. (required).</param>
+        /// <param name="paymentDate">The payment date of the event..</param>
         /// <param name="newInstrument">newInstrument (required).</param>
         /// <param name="fractionalUnitsCashPrice">The cash price paid in lieu of fractionalUnits..</param>
         /// <param name="fractionalUnitsCashCurrency">The currency of the cash paid in lieu of fractionalUnits..</param>
@@ -51,8 +51,6 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;TenderEvent&quot;).</param>
         public TenderEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.ExDate = exDate;
-            this.PaymentDate = paymentDate;
             // to ensure "newInstrument" is required (not null)
             if (newInstrument == null)
             {
@@ -60,7 +58,9 @@ namespace Lusid.Sdk.Model
             }
             this.NewInstrument = newInstrument;
             this.AnnouncementDate = announcementDate;
+            this.ExDate = exDate;
             this.RecordDate = recordDate;
+            this.PaymentDate = paymentDate;
             this.FractionalUnitsCashPrice = fractionalUnitsCashPrice;
             this.FractionalUnitsCashCurrency = fractionalUnitsCashCurrency;
             this.SecurityOfferElections = securityOfferElections;
@@ -79,7 +79,7 @@ namespace Lusid.Sdk.Model
         /// The ex date (entitlement date) of the event.
         /// </summary>
         /// <value>The ex date (entitlement date) of the event.</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace Lusid.Sdk.Model
         /// The payment date of the event.
         /// </summary>
         /// <value>The payment date of the event.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>

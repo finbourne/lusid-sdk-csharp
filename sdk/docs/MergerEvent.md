@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **AnnouncementDate** | **DateTimeOffset?** | The date the merger is announced. | [optional] 
 **CashAndSecurityOfferElections** | [**List&lt;CashAndSecurityOfferElection&gt;**](CashAndSecurityOfferElection.md) | List of possible CashAndSecurityOfferElections for this merger event | [optional] 
 **CashOfferElections** | [**List&lt;CashOfferElection&gt;**](CashOfferElection.md) | List of possible CashOfferElections for this merger event | [optional] 
-**ExDate** | **DateTimeOffset** | The first date on which the holder of record of the original shares has entitled ownership of the new shares. | 
+**ExDate** | **DateTimeOffset** | The first date on which the holder of record of the original shares has entitled ownership of the new shares. | [optional] 
 **FractionalUnitsCashCurrency** | **string** | Optional. Used in calculating cash-in-lieu of fractional shares. | [optional] 
 **FractionalUnitsCashPrice** | **decimal?** | Optional. Used in calculating cash-in-lieu of fractional shares. | [optional] 
 **NewInstrument** | [**NewInstrument**](NewInstrument.md) |  | 
-**PaymentDate** | **DateTimeOffset** | Date on which the merger takes place. | 
+**PaymentDate** | **DateTimeOffset** | Date on which the merger takes place. | [optional] 
 **RecordDate** | **DateTimeOffset?** | Optional. Date you have to be the holder of record of the original shares in order to receive the new shares. | [optional] 
 **SecurityOfferElections** | [**List&lt;SecurityOfferElection&gt;**](SecurityOfferElection.md) | List of possible SecurityOfferElections for this merger event | [optional] 
 

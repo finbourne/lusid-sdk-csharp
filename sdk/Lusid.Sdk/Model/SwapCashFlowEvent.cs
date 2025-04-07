@@ -38,21 +38,21 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SwapCashFlowEvent" /> class.
         /// </summary>
-        /// <param name="exDate">The ex-dividend date of the cashflow. (required).</param>
-        /// <param name="paymentDate">The payment date of the cashflow. (required).</param>
+        /// <param name="exDate">The ex-dividend date of the cashflow..</param>
+        /// <param name="paymentDate">The payment date of the cashflow..</param>
         /// <param name="currency">The currency in which the cashflow is paid. (required).</param>
         /// <param name="cashFlowPerUnit">The cashflow amount received for each unit of the instrument held on the ex date..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;SwapCashFlowEvent&quot;).</param>
         public SwapCashFlowEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal cashFlowPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.ExDate = exDate;
-            this.PaymentDate = paymentDate;
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
                 throw new ArgumentNullException("currency is a required property for SwapCashFlowEvent and cannot be null");
             }
             this.Currency = currency;
+            this.ExDate = exDate;
+            this.PaymentDate = paymentDate;
             this.CashFlowPerUnit = cashFlowPerUnit;
         }
 
@@ -60,14 +60,14 @@ namespace Lusid.Sdk.Model
         /// The ex-dividend date of the cashflow.
         /// </summary>
         /// <value>The ex-dividend date of the cashflow.</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
         /// The payment date of the cashflow.
         /// </summary>
         /// <value>The payment date of the cashflow.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>

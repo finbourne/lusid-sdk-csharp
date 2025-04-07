@@ -38,13 +38,12 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoanFacilityContractRolloverEvent" /> class.
         /// </summary>
-        /// <param name="date">Effective date of the event. (required).</param>
+        /// <param name="date">Effective date of the event..</param>
         /// <param name="rolloverConstituents">Source and target contracts of the rollover. That is, a set of contracts and their respective changes to balance  Expect at least one contract to as the source of the rollover and at least one target contract. (required).</param>
         /// <param name="withInterest">If set to true, then active contracts whose balance is reduced by the rollover will have their accrued interest  repaid pro rata to the balance reduction. (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;LoanFacilityContractRolloverEvent&quot;).</param>
         public LoanFacilityContractRolloverEvent(DateTimeOffset date = default(DateTimeOffset), List<RolloverConstituent> rolloverConstituents = default(List<RolloverConstituent>), bool withInterest = default(bool), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.Date = date;
             // to ensure "rolloverConstituents" is required (not null)
             if (rolloverConstituents == null)
             {
@@ -52,13 +51,14 @@ namespace Lusid.Sdk.Model
             }
             this.RolloverConstituents = rolloverConstituents;
             this.WithInterest = withInterest;
+            this.Date = date;
         }
 
         /// <summary>
         /// Effective date of the event.
         /// </summary>
         /// <value>Effective date of the event.</value>
-        [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "date", EmitDefaultValue = false)]
         public DateTimeOffset Date { get; set; }
 
         /// <summary>

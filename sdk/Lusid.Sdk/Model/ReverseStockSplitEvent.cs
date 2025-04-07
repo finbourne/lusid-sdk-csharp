@@ -38,8 +38,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReverseStockSplitEvent" /> class.
         /// </summary>
-        /// <param name="paymentDate">Date on which the stock split takes effect. (required).</param>
-        /// <param name="exDate">The first date on which the shares will trade at the post-split price. (required).</param>
+        /// <param name="paymentDate">Date on which the stock split takes effect..</param>
+        /// <param name="exDate">The first date on which the shares will trade at the post-split price..</param>
         /// <param name="unitsRatio">unitsRatio (required).</param>
         /// <param name="recordDate">Date you have to be the holder of record in order to have their shares merged..</param>
         /// <param name="announcementDate">Date the reverse stock split was announced..</param>
@@ -48,14 +48,14 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;ReverseStockSplitEvent&quot;).</param>
         public ReverseStockSplitEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), UnitsRatio unitsRatio = default(UnitsRatio), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), string fractionalUnitsCashCurrency = default(string), decimal? fractionalUnitsCashPrice = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.PaymentDate = paymentDate;
-            this.ExDate = exDate;
             // to ensure "unitsRatio" is required (not null)
             if (unitsRatio == null)
             {
                 throw new ArgumentNullException("unitsRatio is a required property for ReverseStockSplitEvent and cannot be null");
             }
             this.UnitsRatio = unitsRatio;
+            this.PaymentDate = paymentDate;
+            this.ExDate = exDate;
             this.RecordDate = recordDate;
             this.AnnouncementDate = announcementDate;
             this.FractionalUnitsCashCurrency = fractionalUnitsCashCurrency;
@@ -66,14 +66,14 @@ namespace Lusid.Sdk.Model
         /// Date on which the stock split takes effect.
         /// </summary>
         /// <value>Date on which the stock split takes effect.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
         /// The first date on which the shares will trade at the post-split price.
         /// </summary>
         /// <value>The first date on which the shares will trade at the post-split price.</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>

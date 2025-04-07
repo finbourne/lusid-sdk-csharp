@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FxForwardSettlementEvent" /> class.
         /// </summary>
-        /// <param name="maturityDate">Maturity date of the forward (required).</param>
+        /// <param name="maturityDate">Maturity date of the forward.</param>
         /// <param name="domAmountPerUnit">Amount per unit in the DomCcy (domestic currency) (required).</param>
         /// <param name="domCcy">The domestic currency of the forward (required).</param>
         /// <param name="fgnAmountPerUnit">Amount per unit in the FgnCcy (foreign currency) (required).</param>
@@ -52,7 +52,6 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;FxForwardSettlementEvent&quot;).</param>
         public FxForwardSettlementEvent(DateTimeOffset maturityDate = default(DateTimeOffset), decimal domAmountPerUnit = default(decimal), string domCcy = default(string), decimal fgnAmountPerUnit = default(decimal), string fgnCcy = default(string), bool isNdf = default(bool), DateTimeOffset? fixingDate = default(DateTimeOffset?), string settlementCcy = default(string), decimal? cashFlowPerUnit = default(decimal?), decimal? domesticToForeignRate = default(decimal?), decimal? domesticToSettlementRate = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.MaturityDate = maturityDate;
             this.DomAmountPerUnit = domAmountPerUnit;
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
@@ -68,6 +67,7 @@ namespace Lusid.Sdk.Model
             }
             this.FgnCcy = fgnCcy;
             this.IsNdf = isNdf;
+            this.MaturityDate = maturityDate;
             this.FixingDate = fixingDate;
             this.SettlementCcy = settlementCcy;
             this.CashFlowPerUnit = cashFlowPerUnit;
@@ -79,7 +79,7 @@ namespace Lusid.Sdk.Model
         /// Maturity date of the forward
         /// </summary>
         /// <value>Maturity date of the forward</value>
-        [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "maturityDate", EmitDefaultValue = false)]
         public DateTimeOffset MaturityDate { get; set; }
 
         /// <summary>

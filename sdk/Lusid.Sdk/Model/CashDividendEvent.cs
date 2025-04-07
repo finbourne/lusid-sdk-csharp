@@ -38,22 +38,22 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CashDividendEvent" /> class.
         /// </summary>
-        /// <param name="paymentDate">The date the company begins distributing the dividend. (required).</param>
-        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party. (required).</param>
+        /// <param name="paymentDate">The date the company begins distributing the dividend..</param>
+        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party..</param>
         /// <param name="cashElections">Possible elections for this event, each keyed with a unique identifier. (required).</param>
         /// <param name="announcementDate">Date on which the dividend is announced by the company..</param>
         /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;CashDividendEvent&quot;).</param>
         public CashDividendEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset? recordDate = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.PaymentDate = paymentDate;
-            this.ExDate = exDate;
             // to ensure "cashElections" is required (not null)
             if (cashElections == null)
             {
                 throw new ArgumentNullException("cashElections is a required property for CashDividendEvent and cannot be null");
             }
             this.CashElections = cashElections;
+            this.PaymentDate = paymentDate;
+            this.ExDate = exDate;
             this.AnnouncementDate = announcementDate;
             this.RecordDate = recordDate;
         }
@@ -62,14 +62,14 @@ namespace Lusid.Sdk.Model
         /// The date the company begins distributing the dividend.
         /// </summary>
         /// <value>The date the company begins distributing the dividend.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
         /// The first business day on which the dividend is not owed to the buying party.
         /// </summary>
         /// <value>The first business day on which the dividend is not owed to the buying party.</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>

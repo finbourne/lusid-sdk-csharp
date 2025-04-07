@@ -9,12 +9,12 @@ Name | Type | Description | Notes
 **ExerciseDate** | **DateTimeOffset?** | The exercise date of the option. | [optional] 
 **DeliveryDate** | **DateTimeOffset?** | The delivery date of the option. | [optional] 
 **ExerciseType** | **string** | The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American]. | 
-**MaturityDate** | **DateTimeOffset** | The maturity date of the option. | 
+**MaturityDate** | **DateTimeOffset** | The maturity date of the option. | [optional] 
 **Moneyness** | **string** | The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney]. | [optional] 
 **NewInstrument** | [**NewInstrument**](NewInstrument.md) |  | 
 **OptionExerciseElections** | [**List&lt;OptionExerciseElection&gt;**](OptionExerciseElection.md) | Option exercise election for this OptionExercisePhysicalEvent. | [optional] 
 **OptionType** | **string** | Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put]. | 
-**StartDate** | **DateTimeOffset** | The trade date of the option. | 
+**StartDate** | **DateTimeOffset** | The trade date of the option. | [optional] 
 **StrikeCurrency** | **string** | The strike currency of the equity option. | 
 **StrikePerUnit** | **decimal** | The strike of the equity option times the number of shares to exchange if exercised. | 
 **UnderlyingValuePerUnit** | **decimal?** | The underlying price times the number of shares to exchange if exercised. | [optional] 

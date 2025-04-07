@@ -38,20 +38,20 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateDepositAmountEvent" /> class.
         /// </summary>
-        /// <param name="date">The date of the adjustment to the deposit. (required).</param>
+        /// <param name="date">The date of the adjustment to the deposit..</param>
         /// <param name="amount">The signed amount of the adjustment to make to the deposit. Positive implies an increase, and negative implies a decrease. (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;UpdateDepositAmountEvent&quot;).</param>
         public UpdateDepositAmountEvent(DateTimeOffset date = default(DateTimeOffset), decimal amount = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.Date = date;
             this.Amount = amount;
+            this.Date = date;
         }
 
         /// <summary>
         /// The date of the adjustment to the deposit.
         /// </summary>
         /// <value>The date of the adjustment to the deposit.</value>
-        [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "date", EmitDefaultValue = false)]
         public DateTimeOffset Date { get; set; }
 
         /// <summary>

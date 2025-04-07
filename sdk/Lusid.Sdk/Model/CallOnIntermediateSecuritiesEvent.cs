@@ -38,8 +38,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CallOnIntermediateSecuritiesEvent" /> class.
         /// </summary>
-        /// <param name="expiryDate">The date on which the issue ends. (required).</param>
-        /// <param name="paymentDate">The payment date of the event. (required).</param>
+        /// <param name="expiryDate">The date on which the issue ends..</param>
+        /// <param name="paymentDate">The payment date of the event..</param>
         /// <param name="newInstrument">newInstrument (required).</param>
         /// <param name="unitsRatio">unitsRatio (required).</param>
         /// <param name="price">The price at which new units are purchased. (required).</param>
@@ -49,8 +49,6 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;CallOnIntermediateSecuritiesEvent&quot;).</param>
         public CallOnIntermediateSecuritiesEvent(DateTimeOffset expiryDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), UnitsRatio unitsRatio = default(UnitsRatio), decimal price = default(decimal), string exerciseCurrency = default(string), List<OptionExerciseElection> optionExerciseElections = default(List<OptionExerciseElection>), List<LapseElection> lapseElections = default(List<LapseElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.ExpiryDate = expiryDate;
-            this.PaymentDate = paymentDate;
             // to ensure "newInstrument" is required (not null)
             if (newInstrument == null)
             {
@@ -70,6 +68,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("exerciseCurrency is a required property for CallOnIntermediateSecuritiesEvent and cannot be null");
             }
             this.ExerciseCurrency = exerciseCurrency;
+            this.ExpiryDate = expiryDate;
+            this.PaymentDate = paymentDate;
             this.OptionExerciseElections = optionExerciseElections;
             this.LapseElections = lapseElections;
         }
@@ -78,14 +78,14 @@ namespace Lusid.Sdk.Model
         /// The date on which the issue ends.
         /// </summary>
         /// <value>The date on which the issue ends.</value>
-        [DataMember(Name = "expiryDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "expiryDate", EmitDefaultValue = false)]
         public DateTimeOffset ExpiryDate { get; set; }
 
         /// <summary>
         /// The payment date of the event.
         /// </summary>
         /// <value>The payment date of the event.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>

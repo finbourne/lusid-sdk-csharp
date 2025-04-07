@@ -38,19 +38,19 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FutureMarkToMarketEvent" /> class.
         /// </summary>
-        /// <param name="effectiveDate">The date of the mark to market event. (required).</param>
+        /// <param name="effectiveDate">The date of the mark to market event..</param>
         /// <param name="settlementCurrency">The currency in which the Future contract is paid. (required).</param>
         /// <param name="notionalAmountPerUnit">The notional value of the contract on the effective date..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;FutureMarkToMarketEvent&quot;).</param>
         public FutureMarkToMarketEvent(DateTimeOffset effectiveDate = default(DateTimeOffset), string settlementCurrency = default(string), decimal? notionalAmountPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.EffectiveDate = effectiveDate;
             // to ensure "settlementCurrency" is required (not null)
             if (settlementCurrency == null)
             {
                 throw new ArgumentNullException("settlementCurrency is a required property for FutureMarkToMarketEvent and cannot be null");
             }
             this.SettlementCurrency = settlementCurrency;
+            this.EffectiveDate = effectiveDate;
             this.NotionalAmountPerUnit = notionalAmountPerUnit;
         }
 
@@ -58,7 +58,7 @@ namespace Lusid.Sdk.Model
         /// The date of the mark to market event.
         /// </summary>
         /// <value>The date of the mark to market event.</value>
-        [DataMember(Name = "effectiveDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "effectiveDate", EmitDefaultValue = false)]
         public DateTimeOffset EffectiveDate { get; set; }
 
         /// <summary>

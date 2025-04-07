@@ -42,11 +42,11 @@ namespace Lusid.Sdk.Model
         /// <param name="exerciseDate">The exercise date of the option..</param>
         /// <param name="deliveryDate">The delivery date of the option..</param>
         /// <param name="exerciseType">The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American]. (required).</param>
-        /// <param name="maturityDate">The maturity date of the option. (required).</param>
+        /// <param name="maturityDate">The maturity date of the option..</param>
         /// <param name="moneyness">The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney]..</param>
         /// <param name="optionExerciseElections">Option exercise election for this OptionExercisePhysicalEvent..</param>
         /// <param name="optionType">Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put]. (required).</param>
-        /// <param name="startDate">The start date of the option. (required).</param>
+        /// <param name="startDate">The start date of the option..</param>
         /// <param name="strikeCurrency">The strike currency of the equity option. (required).</param>
         /// <param name="strikePerUnit">The strike of the equity option times the number of shares to exchange if exercised. (required).</param>
         /// <param name="underlyingValuePerUnit">The underlying price times the number of shares to exchange if exercised..</param>
@@ -59,14 +59,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("exerciseType is a required property for OptionExerciseCashEvent and cannot be null");
             }
             this.ExerciseType = exerciseType;
-            this.MaturityDate = maturityDate;
             // to ensure "optionType" is required (not null)
             if (optionType == null)
             {
                 throw new ArgumentNullException("optionType is a required property for OptionExerciseCashEvent and cannot be null");
             }
             this.OptionType = optionType;
-            this.StartDate = startDate;
             // to ensure "strikeCurrency" is required (not null)
             if (strikeCurrency == null)
             {
@@ -77,8 +75,10 @@ namespace Lusid.Sdk.Model
             this.CashFlowPerUnit = cashFlowPerUnit;
             this.ExerciseDate = exerciseDate;
             this.DeliveryDate = deliveryDate;
+            this.MaturityDate = maturityDate;
             this.Moneyness = moneyness;
             this.OptionExerciseElections = optionExerciseElections;
+            this.StartDate = startDate;
             this.UnderlyingValuePerUnit = underlyingValuePerUnit;
         }
 
@@ -114,7 +114,7 @@ namespace Lusid.Sdk.Model
         /// The maturity date of the option.
         /// </summary>
         /// <value>The maturity date of the option.</value>
-        [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "maturityDate", EmitDefaultValue = false)]
         public DateTimeOffset MaturityDate { get; set; }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Lusid.Sdk.Model
         /// The start date of the option.
         /// </summary>
         /// <value>The start date of the option.</value>
-        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "startDate", EmitDefaultValue = false)]
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>

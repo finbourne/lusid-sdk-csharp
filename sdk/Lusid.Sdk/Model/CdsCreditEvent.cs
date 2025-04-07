@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CdsCreditEvent" /> class.
         /// </summary>
-        /// <param name="effectiveDate">The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation. (required).</param>
+        /// <param name="effectiveDate">The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation..</param>
         /// <param name="auctionDate">The date of the credit event auction - i.e. date on which the defaulted debt is sold via auction, and a recovery rate determined..</param>
         /// <param name="recoveryRate">The fraction of the defaulted debt that can be recovered..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;CdsCreditEvent&quot;).</param>
@@ -53,7 +53,7 @@ namespace Lusid.Sdk.Model
         /// The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation.
         /// </summary>
         /// <value>The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation.</value>
-        [DataMember(Name = "effectiveDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "effectiveDate", EmitDefaultValue = false)]
         public DateTimeOffset EffectiveDate { get; set; }
 
         /// <summary>

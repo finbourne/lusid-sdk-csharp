@@ -38,20 +38,20 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoanPrincipalRepaymentEvent" /> class.
         /// </summary>
-        /// <param name="paymentDate">Date that the Principal is due to be paid. (required).</param>
+        /// <param name="paymentDate">Date that the Principal is due to be paid..</param>
         /// <param name="currency">Currency of the repayment. (required).</param>
         /// <param name="lapseElections">Election for controlling whether the Principal is paid automatically or not.  Exactly one election must be provided..</param>
         /// <param name="fraction">Fraction of the principal balance to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;LoanPrincipalRepaymentEvent&quot;).</param>
         public LoanPrincipalRepaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), List<LapseElection> lapseElections = default(List<LapseElection>), decimal fraction = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.PaymentDate = paymentDate;
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
                 throw new ArgumentNullException("currency is a required property for LoanPrincipalRepaymentEvent and cannot be null");
             }
             this.Currency = currency;
+            this.PaymentDate = paymentDate;
             this.LapseElections = lapseElections;
             this.Fraction = fraction;
         }
@@ -60,7 +60,7 @@ namespace Lusid.Sdk.Model
         /// Date that the Principal is due to be paid.
         /// </summary>
         /// <value>Date that the Principal is due to be paid.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>

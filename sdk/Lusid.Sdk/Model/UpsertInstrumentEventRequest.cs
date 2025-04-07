@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">The properties attached to this instrument event..</param>
         /// <param name="sequenceNumber">The order of the instrument event relative others on the same date (0 being processed first). Must be non negative..</param>
         /// <param name="participationType">Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary. (default to &quot;Mandatory&quot;).</param>
-        public UpsertInstrumentEventRequest(string instrumentEventId = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string description = default(string), InstrumentEvent instrumentEvent = default(InstrumentEvent), List<PerpetualProperty> properties = default(List<PerpetualProperty>), int sequenceNumber = default(int), string participationType = @"Mandatory")
+        /// <param name="eventDateStamps">The date stamps corresponding to the relevant date-time fields for the instrument event. The key for each provided date stamp must match the field name of a valid datetime field from the InstrumentEvent DTO..</param>
+        public UpsertInstrumentEventRequest(string instrumentEventId = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string description = default(string), InstrumentEvent instrumentEvent = default(InstrumentEvent), List<PerpetualProperty> properties = default(List<PerpetualProperty>), int sequenceNumber = default(int), string participationType = @"Mandatory", Dictionary<string, YearMonthDay> eventDateStamps = default(Dictionary<string, YearMonthDay>))
         {
             // to ensure "instrumentEventId" is required (not null)
             if (instrumentEventId == null)
@@ -68,6 +69,7 @@ namespace Lusid.Sdk.Model
             this.SequenceNumber = sequenceNumber;
             // use default value if no "participationType" provided
             this.ParticipationType = participationType ?? @"Mandatory";
+            this.EventDateStamps = eventDateStamps;
         }
 
         /// <summary>
@@ -119,6 +121,13 @@ namespace Lusid.Sdk.Model
         public string ParticipationType { get; set; }
 
         /// <summary>
+        /// The date stamps corresponding to the relevant date-time fields for the instrument event. The key for each provided date stamp must match the field name of a valid datetime field from the InstrumentEvent DTO.
+        /// </summary>
+        /// <value>The date stamps corresponding to the relevant date-time fields for the instrument event. The key for each provided date stamp must match the field name of a valid datetime field from the InstrumentEvent DTO.</value>
+        [DataMember(Name = "eventDateStamps", EmitDefaultValue = true)]
+        public Dictionary<string, YearMonthDay> EventDateStamps { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -133,6 +142,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  SequenceNumber: ").Append(SequenceNumber).Append("\n");
             sb.Append("  ParticipationType: ").Append(ParticipationType).Append("\n");
+            sb.Append("  EventDateStamps: ").Append(EventDateStamps).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -203,6 +213,12 @@ namespace Lusid.Sdk.Model
                     this.ParticipationType == input.ParticipationType ||
                     (this.ParticipationType != null &&
                     this.ParticipationType.Equals(input.ParticipationType))
+                ) && 
+                (
+                    this.EventDateStamps == input.EventDateStamps ||
+                    this.EventDateStamps != null &&
+                    input.EventDateStamps != null &&
+                    this.EventDateStamps.SequenceEqual(input.EventDateStamps)
                 );
         }
 
@@ -239,6 +255,10 @@ namespace Lusid.Sdk.Model
                 if (this.ParticipationType != null)
                 {
                     hashCode = (hashCode * 59) + this.ParticipationType.GetHashCode();
+                }
+                if (this.EventDateStamps != null)
+                {
+                    hashCode = (hashCode * 59) + this.EventDateStamps.GetHashCode();
                 }
                 return hashCode;
             }

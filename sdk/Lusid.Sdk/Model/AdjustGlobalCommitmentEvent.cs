@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AdjustGlobalCommitmentEvent" /> class.
         /// </summary>
         /// <param name="amount">Amount that the limit and balance are changed by.  A positive number signifies an increase, and a negative number here signifies a decrease. (required).</param>
-        /// <param name="date">Date of the adjustment.  Signifies when the facility begins to accrue interest. (required).</param>
+        /// <param name="date">Date of the adjustment.  Signifies when the facility begins to accrue interest..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;AdjustGlobalCommitmentEvent&quot;).</param>
         public AdjustGlobalCommitmentEvent(decimal amount = default(decimal), DateTimeOffset date = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
@@ -58,7 +58,7 @@ namespace Lusid.Sdk.Model
         /// Date of the adjustment.  Signifies when the facility begins to accrue interest.
         /// </summary>
         /// <value>Date of the adjustment.  Signifies when the facility begins to accrue interest.</value>
-        [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "date", EmitDefaultValue = false)]
         public DateTimeOffset Date { get; set; }
 
         /// <summary>

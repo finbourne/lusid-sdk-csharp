@@ -38,34 +38,34 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DepositInterestPaymentEvent" /> class.
         /// </summary>
-        /// <param name="paymentDate">Date that the interest is due to be paid. (required).</param>
-        /// <param name="exDate">Date that the accrued interest is calculated up until. (required).</param>
+        /// <param name="paymentDate">Date that the interest is due to be paid..</param>
+        /// <param name="exDate">Date that the accrued interest is calculated up until..</param>
         /// <param name="currency">Currency of the repayment. (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;DepositInterestPaymentEvent&quot;).</param>
         public DepositInterestPaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), string currency = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.PaymentDate = paymentDate;
-            this.ExDate = exDate;
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
                 throw new ArgumentNullException("currency is a required property for DepositInterestPaymentEvent and cannot be null");
             }
             this.Currency = currency;
+            this.PaymentDate = paymentDate;
+            this.ExDate = exDate;
         }
 
         /// <summary>
         /// Date that the interest is due to be paid.
         /// </summary>
         /// <value>Date that the interest is due to be paid.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
         /// Date that the accrued interest is calculated up until.
         /// </summary>
         /// <value>Date that the accrued interest is calculated up until.</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>

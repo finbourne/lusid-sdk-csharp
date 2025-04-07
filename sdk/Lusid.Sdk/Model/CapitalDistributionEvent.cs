@@ -40,8 +40,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="announcementDate">Date on which the dividend was announced / declared..</param>
         /// <param name="cashElections">Possible elections for this event, each keyed with a unique identifier. (required).</param>
-        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party. (required).</param>
-        /// <param name="paymentDate">The date the company begins distributing the dividend. (required).</param>
+        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party..</param>
+        /// <param name="paymentDate">The date the company begins distributing the dividend..</param>
         /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;CapitalDistributionEvent&quot;).</param>
         public CapitalDistributionEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
@@ -52,9 +52,9 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("cashElections is a required property for CapitalDistributionEvent and cannot be null");
             }
             this.CashElections = cashElections;
+            this.AnnouncementDate = announcementDate;
             this.ExDate = exDate;
             this.PaymentDate = paymentDate;
-            this.AnnouncementDate = announcementDate;
             this.RecordDate = recordDate;
         }
 
@@ -76,14 +76,14 @@ namespace Lusid.Sdk.Model
         /// The first business day on which the dividend is not owed to the buying party.
         /// </summary>
         /// <value>The first business day on which the dividend is not owed to the buying party.</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
         /// The date the company begins distributing the dividend.
         /// </summary>
         /// <value>The date the company begins distributing the dividend.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>

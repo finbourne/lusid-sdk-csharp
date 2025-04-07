@@ -38,21 +38,21 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MbsInterestDeferralEvent" /> class.
         /// </summary>
-        /// <param name="exDate">The ex date (entitlement date) of the interest payment, usually several weeks prior to the payment date (required).</param>
-        /// <param name="paymentDate">The payment date of the interest that is deferred and capitalised (required).</param>
+        /// <param name="exDate">The ex date (entitlement date) of the interest payment, usually several weeks prior to the payment date.</param>
+        /// <param name="paymentDate">The payment date of the interest that is deferred and capitalised.</param>
         /// <param name="currency">The currency in which the interest amount is notated (required).</param>
         /// <param name="interestPerUnit">The interest amount to be deferred and capitalised for each unit of the instrument held on the ex date.</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;MbsInterestDeferralEvent&quot;).</param>
         public MbsInterestDeferralEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal? interestPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.ExDate = exDate;
-            this.PaymentDate = paymentDate;
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
                 throw new ArgumentNullException("currency is a required property for MbsInterestDeferralEvent and cannot be null");
             }
             this.Currency = currency;
+            this.ExDate = exDate;
+            this.PaymentDate = paymentDate;
             this.InterestPerUnit = interestPerUnit;
         }
 
@@ -60,14 +60,14 @@ namespace Lusid.Sdk.Model
         /// The ex date (entitlement date) of the interest payment, usually several weeks prior to the payment date
         /// </summary>
         /// <value>The ex date (entitlement date) of the interest payment, usually several weeks prior to the payment date</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
         /// The payment date of the interest that is deferred and capitalised
         /// </summary>
         /// <value>The payment date of the interest that is deferred and capitalised</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>

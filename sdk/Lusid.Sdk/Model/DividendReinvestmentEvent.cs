@@ -40,8 +40,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="announcementDate">Date on which the dividend was announced / declared..</param>
         /// <param name="cashElections">CashElection for this DividendReinvestmentEvent (required).</param>
-        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate. (required).</param>
-        /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
+        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate..</param>
+        /// <param name="paymentDate">The date the company pays out dividends to shareholders..</param>
         /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
         /// <param name="securityElections">SecurityElection for this DividendReinvestmentEvent (required).</param>
         /// <param name="securitySettlementDate">The settlement date of the additional units.  Equal to the PaymentDate if not provided..</param>
@@ -54,8 +54,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("cashElections is a required property for DividendReinvestmentEvent and cannot be null");
             }
             this.CashElections = cashElections;
-            this.ExDate = exDate;
-            this.PaymentDate = paymentDate;
             // to ensure "securityElections" is required (not null)
             if (securityElections == null)
             {
@@ -63,6 +61,8 @@ namespace Lusid.Sdk.Model
             }
             this.SecurityElections = securityElections;
             this.AnnouncementDate = announcementDate;
+            this.ExDate = exDate;
+            this.PaymentDate = paymentDate;
             this.RecordDate = recordDate;
             this.SecuritySettlementDate = securitySettlementDate;
         }
@@ -85,14 +85,14 @@ namespace Lusid.Sdk.Model
         /// The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.
         /// </summary>
         /// <value>The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
         /// The date the company pays out dividends to shareholders.
         /// </summary>
         /// <value>The date the company pays out dividends to shareholders.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>

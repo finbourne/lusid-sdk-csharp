@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="currency">Currency of the interest payment. (required).</param>
         /// <param name="interestPerUnit">The interest payment made per unit of the held ..</param>
-        /// <param name="paymentDate">Payment date of the interest payment. (required).</param>
+        /// <param name="paymentDate">Payment date of the interest payment..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;TermDepositInterestEvent&quot;).</param>
         public TermDepositInterestEvent(string currency = default(string), decimal? interestPerUnit = default(decimal?), DateTimeOffset paymentDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
@@ -50,8 +50,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("currency is a required property for TermDepositInterestEvent and cannot be null");
             }
             this.Currency = currency;
-            this.PaymentDate = paymentDate;
             this.InterestPerUnit = interestPerUnit;
+            this.PaymentDate = paymentDate;
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Lusid.Sdk.Model
         /// Payment date of the interest payment.
         /// </summary>
         /// <value>Payment date of the interest payment.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>

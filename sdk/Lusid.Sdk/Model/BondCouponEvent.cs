@@ -38,21 +38,21 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BondCouponEvent" /> class.
         /// </summary>
-        /// <param name="exDate">Ex-Dividend date of the coupon payment (required).</param>
-        /// <param name="paymentDate">Payment date of the coupon payment (required).</param>
+        /// <param name="exDate">Ex-Dividend date of the coupon payment.</param>
+        /// <param name="paymentDate">Payment date of the coupon payment.</param>
         /// <param name="currency">Currency of the coupon payment (required).</param>
         /// <param name="couponPerUnit">CouponRate*Principal.</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent (required) (default to &quot;BondCouponEvent&quot;).</param>
         public BondCouponEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal? couponPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.ExDate = exDate;
-            this.PaymentDate = paymentDate;
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
                 throw new ArgumentNullException("currency is a required property for BondCouponEvent and cannot be null");
             }
             this.Currency = currency;
+            this.ExDate = exDate;
+            this.PaymentDate = paymentDate;
             this.CouponPerUnit = couponPerUnit;
         }
 
@@ -60,14 +60,14 @@ namespace Lusid.Sdk.Model
         /// Ex-Dividend date of the coupon payment
         /// </summary>
         /// <value>Ex-Dividend date of the coupon payment</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
         /// Payment date of the coupon payment
         /// </summary>
         /// <value>Payment date of the coupon payment</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
