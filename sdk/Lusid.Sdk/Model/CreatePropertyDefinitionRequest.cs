@@ -562,7 +562,7 @@ namespace Lusid.Sdk.Model
         /// <param name="constraintStyle">Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key. Defaults to \&quot;Property\&quot; if not specified. Valid values for this field are: Property, Collection or Identifier..</param>
         /// <param name="propertyDescription">Describes the property.</param>
         /// <param name="collectionType">Describes whether a collection property should behave as a set or as an array..</param>
-        public CreatePropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), bool valueRequired = default(bool), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), LifeTimeEnum? lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), string propertyDescription = default(string), string collectionType = default(string))
+        public CreatePropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), bool valueRequired = default(bool), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), LifeTimeEnum ?lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), string propertyDescription = default(string), string collectionType = default(string))
         {
             this.Domain = domain;
             // to ensure "scope" is required (not null)

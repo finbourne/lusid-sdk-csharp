@@ -84,7 +84,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="price">price.</param>
         /// <param name="type">The available values are: Price, Yield, Spread, CashFlowPerUnit, CleanPrice, DirtyPrice.</param>
-        public TransactionPrice(decimal price = default(decimal), TypeEnum? type = default(TypeEnum?))
+        public TransactionPrice(decimal price = default(decimal), TypeEnum ?type = default(TypeEnum?))
         {
             this.Price = price;
             this.Type = type;

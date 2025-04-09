@@ -177,7 +177,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">description.</param>
         /// <param name="type">The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.</param>
         /// <param name="displayOrder">displayOrder.</param>
-        public FieldSchema(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), TypeEnum? type = default(TypeEnum?), int displayOrder = default(int))
+        public FieldSchema(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), TypeEnum ?type = default(TypeEnum?), int displayOrder = default(int))
         {
             this.Id = id;
             this.DisplayName = displayName;

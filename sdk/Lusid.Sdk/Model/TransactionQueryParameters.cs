@@ -67,7 +67,7 @@ namespace Lusid.Sdk.Model
         /// <param name="endDate">The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions. (required).</param>
         /// <param name="queryMode">The date to compare against the upper and lower bounds for the effective datetime or cut label. Defaults to &#39;TradeDate&#39; if not specified. The available values are: TradeDate, SettleDate.</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions in the output. Defaults to False if not specified..</param>
-        public TransactionQueryParameters(DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), QueryModeEnum? queryMode = default(QueryModeEnum?), bool showCancelledTransactions = default(bool))
+        public TransactionQueryParameters(DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), QueryModeEnum ?queryMode = default(QueryModeEnum?), bool showCancelledTransactions = default(bool))
         {
             // to ensure "startDate" is required (not null)
             if (startDate == null)

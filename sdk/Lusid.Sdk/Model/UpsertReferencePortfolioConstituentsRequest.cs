@@ -119,7 +119,7 @@ namespace Lusid.Sdk.Model
         /// <param name="periodType">The available values are: Daily, Weekly, Monthly, Quarterly, Annually.</param>
         /// <param name="periodCount">periodCount.</param>
         /// <param name="constituents">Set of constituents (instrument/weight pairings) (required).</param>
-        public UpsertReferencePortfolioConstituentsRequest(DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel), WeightTypeEnum weightType = default(WeightTypeEnum), PeriodTypeEnum? periodType = default(PeriodTypeEnum?), int? periodCount = default(int?), List<ReferencePortfolioConstituentRequest> constituents = default(List<ReferencePortfolioConstituentRequest>))
+        public UpsertReferencePortfolioConstituentsRequest(DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel), WeightTypeEnum weightType = default(WeightTypeEnum), PeriodTypeEnum ?periodType = default(PeriodTypeEnum?), int? periodCount = default(int?), List<ReferencePortfolioConstituentRequest> constituents = default(List<ReferencePortfolioConstituentRequest>))
         {
             // to ensure "effectiveFrom" is required (not null)
             if (effectiveFrom == null)

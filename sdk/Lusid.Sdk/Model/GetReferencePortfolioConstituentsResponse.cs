@@ -121,7 +121,7 @@ namespace Lusid.Sdk.Model
         /// <param name="constituents">Set of constituents (instrument/weight pairings) (required).</param>
         /// <param name="href">The Uri that returns the same result as the original request,  but may include resolved as at time(s)..</param>
         /// <param name="links">links.</param>
-        public GetReferencePortfolioConstituentsResponse(DateTimeOffset effectiveFrom = default(DateTimeOffset), WeightTypeEnum weightType = default(WeightTypeEnum), PeriodTypeEnum? periodType = default(PeriodTypeEnum?), int? periodCount = default(int?), List<ReferencePortfolioConstituent> constituents = default(List<ReferencePortfolioConstituent>), string href = default(string), List<Link> links = default(List<Link>))
+        public GetReferencePortfolioConstituentsResponse(DateTimeOffset effectiveFrom = default(DateTimeOffset), WeightTypeEnum weightType = default(WeightTypeEnum), PeriodTypeEnum ?periodType = default(PeriodTypeEnum?), int? periodCount = default(int?), List<ReferencePortfolioConstituent> constituents = default(List<ReferencePortfolioConstituent>), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.EffectiveFrom = effectiveFrom;
             this.WeightType = weightType;

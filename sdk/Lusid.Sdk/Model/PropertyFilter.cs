@@ -119,7 +119,7 @@ namespace Lusid.Sdk.Model
         /// <param name="varOperator">The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In.</param>
         /// <param name="right">right.</param>
         /// <param name="rightOperandType">The available values are: Absolute, Property.</param>
-        public PropertyFilter(string left = default(string), OperatorEnum? varOperator = default(OperatorEnum?), Object right = default(Object), RightOperandTypeEnum? rightOperandType = default(RightOperandTypeEnum?))
+        public PropertyFilter(string left = default(string), OperatorEnum ?varOperator = default(OperatorEnum?), Object right = default(Object), RightOperandTypeEnum ?rightOperandType = default(RightOperandTypeEnum?))
         {
             this.Left = left;
             this.Operator = varOperator;

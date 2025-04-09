@@ -247,7 +247,7 @@ namespace Lusid.Sdk.Model
         /// <param name="unitSchema">The schema of the data type&#39;s units. The available values are: NoUnits, Basic, Iso4217Currency.</param>
         /// <param name="acceptableUnits">The definitions of the acceptable units..</param>
         /// <param name="referenceData">referenceData.</param>
-        public CreateDataTypeRequest(string scope = default(string), string code = default(string), TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), List<CreateUnitDefinition> acceptableUnits = default(List<CreateUnitDefinition>), ReferenceData referenceData = default(ReferenceData))
+        public CreateDataTypeRequest(string scope = default(string), string code = default(string), TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum ?unitSchema = default(UnitSchemaEnum?), List<CreateUnitDefinition> acceptableUnits = default(List<CreateUnitDefinition>), ReferenceData referenceData = default(ReferenceData))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)

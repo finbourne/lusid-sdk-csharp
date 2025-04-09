@@ -65,7 +65,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="IUnitDefinitionDto" /> class.
         /// </summary>
         /// <param name="schema">The available values are: NoUnits, Basic, Iso4217Currency.</param>
-        public IUnitDefinitionDto(SchemaEnum? schema = default(SchemaEnum?))
+        public IUnitDefinitionDto(SchemaEnum ?schema = default(SchemaEnum?))
         {
             this.Schema = schema;
         }

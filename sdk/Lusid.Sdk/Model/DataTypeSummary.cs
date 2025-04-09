@@ -246,7 +246,7 @@ namespace Lusid.Sdk.Model
         /// <param name="unitSchema">The schema of the data type&#39;s units. The available values are: NoUnits, Basic, Iso4217Currency.</param>
         /// <param name="acceptableUnits">The definitions of the acceptable units..</param>
         /// <param name="varVersion">varVersion.</param>
-        public DataTypeSummary(TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), List<IUnitDefinitionDto> acceptableUnits = default(List<IUnitDefinitionDto>), ModelVersion varVersion = default(ModelVersion))
+        public DataTypeSummary(TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum ?unitSchema = default(UnitSchemaEnum?), List<IUnitDefinitionDto> acceptableUnits = default(List<IUnitDefinitionDto>), ModelVersion varVersion = default(ModelVersion))
         {
             this.TypeValueRange = typeValueRange;
             // to ensure "id" is required (not null)

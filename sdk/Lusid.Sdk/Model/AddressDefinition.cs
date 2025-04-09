@@ -100,7 +100,7 @@ namespace Lusid.Sdk.Model
         /// <param name="lifeCycleStatus">What is the status of the address path. If it is not Production then it might be removed at some point in the future.  See the removal date for the likely timing of that if any..</param>
         /// <param name="removalDate">If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended.  After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints..</param>
         /// <param name="documentationLink">Contains a link to the documentation for this AddressDefinition in KnowledgeBase..</param>
-        public AddressDefinition(string displayName = default(string), TypeEnum? type = default(TypeEnum?), string description = default(string), string lifeCycleStatus = default(string), DateTimeOffset? removalDate = default(DateTimeOffset?), string documentationLink = default(string))
+        public AddressDefinition(string displayName = default(string), TypeEnum ?type = default(TypeEnum?), string description = default(string), string lifeCycleStatus = default(string), DateTimeOffset? removalDate = default(DateTimeOffset?), string documentationLink = default(string))
         {
             this.DisplayName = displayName;
             this.Type = type;
