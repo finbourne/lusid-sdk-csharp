@@ -38,28 +38,25 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="fromTransactionDate">fromTransactionDate (required).</param>
         /// <param name="toTransactionDate">toTransactionDate (required).</param>
-        /// <param name="portfolioId">portfolioId (required).</param>
+        /// <param name="portfolioId">portfolioId.</param>
+        /// <param name="portfolioEntityIds">The set of portfolio or portfolio group identifiers containing the relevant transactions..</param>
         /// <param name="asAt">asAt.</param>
         /// <param name="metrics">metrics (required).</param>
         /// <param name="groupBy">groupBy.</param>
         /// <param name="filters">filters.</param>
         /// <param name="sort">sort.</param>
-        public AggregatedTransactionsRequest(DateTimeOffset fromTransactionDate = default(DateTimeOffset), DateTimeOffset toTransactionDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), DateTimeOffset? asAt = default(DateTimeOffset?), List<AggregateSpec> metrics = default(List<AggregateSpec>), List<string> groupBy = default(List<string>), List<PropertyFilter> filters = default(List<PropertyFilter>), List<OrderBySpec> sort = default(List<OrderBySpec>))
+        public AggregatedTransactionsRequest(DateTimeOffset fromTransactionDate = default(DateTimeOffset), DateTimeOffset toTransactionDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset? asAt = default(DateTimeOffset?), List<AggregateSpec> metrics = default(List<AggregateSpec>), List<string> groupBy = default(List<string>), List<PropertyFilter> filters = default(List<PropertyFilter>), List<OrderBySpec> sort = default(List<OrderBySpec>))
         {
             this.FromTransactionDate = fromTransactionDate;
             this.ToTransactionDate = toTransactionDate;
-            // to ensure "portfolioId" is required (not null)
-            if (portfolioId == null)
-            {
-                throw new ArgumentNullException("portfolioId is a required property for AggregatedTransactionsRequest and cannot be null");
-            }
-            this.PortfolioId = portfolioId;
             // to ensure "metrics" is required (not null)
             if (metrics == null)
             {
                 throw new ArgumentNullException("metrics is a required property for AggregatedTransactionsRequest and cannot be null");
             }
             this.Metrics = metrics;
+            this.PortfolioId = portfolioId;
+            this.PortfolioEntityIds = portfolioEntityIds;
             this.AsAt = asAt;
             this.GroupBy = groupBy;
             this.Filters = filters;
@@ -81,8 +78,15 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets PortfolioId
         /// </summary>
-        [DataMember(Name = "portfolioId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "portfolioId", EmitDefaultValue = false)]
         public ResourceId PortfolioId { get; set; }
+
+        /// <summary>
+        /// The set of portfolio or portfolio group identifiers containing the relevant transactions.
+        /// </summary>
+        /// <value>The set of portfolio or portfolio group identifiers containing the relevant transactions.</value>
+        [DataMember(Name = "portfolioEntityIds", EmitDefaultValue = true)]
+        public List<PortfolioEntityId> PortfolioEntityIds { get; set; }
 
         /// <summary>
         /// Gets or Sets AsAt
@@ -125,6 +129,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FromTransactionDate: ").Append(FromTransactionDate).Append("\n");
             sb.Append("  ToTransactionDate: ").Append(ToTransactionDate).Append("\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
+            sb.Append("  PortfolioEntityIds: ").Append(PortfolioEntityIds).Append("\n");
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  Metrics: ").Append(Metrics).Append("\n");
             sb.Append("  GroupBy: ").Append(GroupBy).Append("\n");
@@ -181,6 +186,12 @@ namespace Lusid.Sdk.Model
                     this.PortfolioId.Equals(input.PortfolioId))
                 ) && 
                 (
+                    this.PortfolioEntityIds == input.PortfolioEntityIds ||
+                    this.PortfolioEntityIds != null &&
+                    input.PortfolioEntityIds != null &&
+                    this.PortfolioEntityIds.SequenceEqual(input.PortfolioEntityIds)
+                ) && 
+                (
                     this.AsAt == input.AsAt ||
                     (this.AsAt != null &&
                     this.AsAt.Equals(input.AsAt))
@@ -231,6 +242,10 @@ namespace Lusid.Sdk.Model
                 if (this.PortfolioId != null)
                 {
                     hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
+                }
+                if (this.PortfolioEntityIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.PortfolioEntityIds.GetHashCode();
                 }
                 if (this.AsAt != null)
                 {
