@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="id">id.</param>
         /// <param name="displayName">The name of the Group Reconciliation Definition (required).</param>
-        /// <param name="description">The description of the Group Reconciliation Definition (required).</param>
+        /// <param name="description">The description of the Group Reconciliation Definition.</param>
         /// <param name="portfolioEntityIds">portfolioEntityIds (required).</param>
         /// <param name="recipeIds">recipeIds.</param>
         /// <param name="currencies">currencies.</param>
@@ -53,12 +53,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("displayName is a required property for CreateGroupReconciliationDefinitionRequest and cannot be null");
             }
             this.DisplayName = displayName;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for CreateGroupReconciliationDefinitionRequest and cannot be null");
-            }
-            this.Description = description;
             // to ensure "portfolioEntityIds" is required (not null)
             if (portfolioEntityIds == null)
             {
@@ -72,6 +66,7 @@ namespace Lusid.Sdk.Model
             }
             this.BreakCodeSource = breakCodeSource;
             this.Id = id;
+            this.Description = description;
             this.RecipeIds = recipeIds;
             this.Currencies = currencies;
             this.TransactionDateWindows = transactionDateWindows;
@@ -95,7 +90,7 @@ namespace Lusid.Sdk.Model
         /// The description of the Group Reconciliation Definition
         /// </summary>
         /// <value>The description of the Group Reconciliation Definition</value>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
@@ -289,10 +284,22 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 256.", new [] { "DisplayName" });
+            }
+
             // DisplayName (string) minLength
             if (this.DisplayName != null && this.DisplayName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+            }
+
+            // Description (string) maxLength
+            if (this.Description != null && this.Description.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 256.", new [] { "Description" });
             }
 
             // Description (string) minLength
