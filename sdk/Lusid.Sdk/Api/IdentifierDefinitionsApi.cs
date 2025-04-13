@@ -167,7 +167,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The type of entity to which the identifier relates</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
-        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
+        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>IdentifierDefinition</returns>
@@ -183,7 +183,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The type of entity to which the identifier relates</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
-        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
+        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of IdentifierDefinition</returns>
@@ -341,7 +341,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The type of entity to which the identifier relates</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
-        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
+        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -358,7 +358,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The type of entity to which the identifier relates</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
-        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
+        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1480,7 +1480,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The type of entity to which the identifier relates</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
-        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
+        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>IdentifierDefinition</returns>
@@ -1497,7 +1497,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The type of entity to which the identifier relates</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
-        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
+        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of IdentifierDefinition</returns>
@@ -1605,7 +1605,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The type of entity to which the identifier relates</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
-        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
+        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1623,7 +1623,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The type of entity to which the identifier relates</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
-        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
+        /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
