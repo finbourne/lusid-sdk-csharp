@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <param name="requestIdModified">The unique identifier of the request that the changes were part of..</param>
         /// <param name="asAtVersionNumber">The version number for the entity (the entity was created at version 1). This may refer to the version number of a changed related entity, not a change for the entity itself..</param>
         /// <param name="stagedModificationIdModified">The id of the staged modification that was approved. Will be null if the change didn&#39;t come from a staged modification..</param>
-        /// <param name="action">The action performed on the entity..</param>
+        /// <param name="action">The action performed on the field..</param>
         /// <param name="attributeName">The name of the field or property that has been changed..</param>
         /// <param name="previousValue">previousValue.</param>
         /// <param name="newValue">newValue.</param>
@@ -109,9 +109,9 @@ namespace Lusid.Sdk.Model
         public string StagedModificationIdModified { get; set; }
 
         /// <summary>
-        /// The action performed on the entity.
+        /// The action performed on the field.
         /// </summary>
-        /// <value>The action performed on the entity.</value>
+        /// <value>The action performed on the field.</value>
         [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
 

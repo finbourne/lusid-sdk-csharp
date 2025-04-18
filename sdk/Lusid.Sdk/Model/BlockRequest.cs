@@ -47,7 +47,8 @@ namespace Lusid.Sdk.Model
         /// <param name="createdDate">The date on which the block was made (required).</param>
         /// <param name="limitPrice">limitPrice.</param>
         /// <param name="stopPrice">stopPrice.</param>
-        public BlockRequest(ResourceId id = default(ResourceId), List<ResourceId> orderIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal quantity = default(decimal), string side = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount))
+        /// <param name="isSwept">Swept blocks are considered no longer of active interest, and no longer take part in various order management processes.</param>
+        public BlockRequest(ResourceId id = default(ResourceId), List<ResourceId> orderIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal quantity = default(decimal), string side = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), bool isSwept = default(bool))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -90,6 +91,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.LimitPrice = limitPrice;
             this.StopPrice = stopPrice;
+            this.IsSwept = isSwept;
         }
 
         /// <summary>
@@ -167,6 +169,13 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount StopPrice { get; set; }
 
         /// <summary>
+        /// Swept blocks are considered no longer of active interest, and no longer take part in various order management processes
+        /// </summary>
+        /// <value>Swept blocks are considered no longer of active interest, and no longer take part in various order management processes</value>
+        [DataMember(Name = "isSwept", EmitDefaultValue = true)]
+        public bool IsSwept { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -185,6 +194,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CreatedDate: ").Append(CreatedDate).Append("\n");
             sb.Append("  LimitPrice: ").Append(LimitPrice).Append("\n");
             sb.Append("  StopPrice: ").Append(StopPrice).Append("\n");
+            sb.Append("  IsSwept: ").Append(IsSwept).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -276,6 +286,10 @@ namespace Lusid.Sdk.Model
                     this.StopPrice == input.StopPrice ||
                     (this.StopPrice != null &&
                     this.StopPrice.Equals(input.StopPrice))
+                ) && 
+                (
+                    this.IsSwept == input.IsSwept ||
+                    this.IsSwept.Equals(input.IsSwept)
                 );
         }
 
@@ -329,6 +343,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.StopPrice.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsSwept.GetHashCode();
                 return hashCode;
             }
         }

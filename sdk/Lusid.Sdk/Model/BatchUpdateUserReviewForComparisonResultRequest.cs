@@ -165,6 +165,12 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ComparisonResultId (string) maxLength
+            if (this.ComparisonResultId != null && this.ComparisonResultId.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ComparisonResultId, length must be less than 64.", new [] { "ComparisonResultId" });
+            }
+
             // ComparisonResultId (string) minLength
             if (this.ComparisonResultId != null && this.ComparisonResultId.Length < 1)
             {

@@ -48,9 +48,10 @@ namespace Lusid.Sdk.Model
         /// <param name="createdDate">The date on which the block was made (required).</param>
         /// <param name="limitPrice">limitPrice.</param>
         /// <param name="stopPrice">stopPrice.</param>
+        /// <param name="isSwept">Swept blocks are considered no longer of active interest, and no longer take part in various order management processes (required).</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public Block(ResourceId id = default(ResourceId), List<ResourceId> orderIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal quantity = default(decimal), string side = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Block(ResourceId id = default(ResourceId), List<ResourceId> orderIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal quantity = default(decimal), string side = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), bool isSwept = default(bool), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -96,6 +97,7 @@ namespace Lusid.Sdk.Model
             }
             this.TimeInForce = timeInForce;
             this.CreatedDate = createdDate;
+            this.IsSwept = isSwept;
             this.Properties = properties;
             this.LimitPrice = limitPrice;
             this.StopPrice = stopPrice;
@@ -185,6 +187,13 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount StopPrice { get; set; }
 
         /// <summary>
+        /// Swept blocks are considered no longer of active interest, and no longer take part in various order management processes
+        /// </summary>
+        /// <value>Swept blocks are considered no longer of active interest, and no longer take part in various order management processes</value>
+        [DataMember(Name = "isSwept", IsRequired = true, EmitDefaultValue = true)]
+        public bool IsSwept { get; set; }
+
+        /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
@@ -216,6 +225,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CreatedDate: ").Append(CreatedDate).Append("\n");
             sb.Append("  LimitPrice: ").Append(LimitPrice).Append("\n");
             sb.Append("  StopPrice: ").Append(StopPrice).Append("\n");
+            sb.Append("  IsSwept: ").Append(IsSwept).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -316,6 +326,10 @@ namespace Lusid.Sdk.Model
                     this.StopPrice.Equals(input.StopPrice))
                 ) && 
                 (
+                    this.IsSwept == input.IsSwept ||
+                    this.IsSwept.Equals(input.IsSwept)
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -382,6 +396,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.StopPrice.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsSwept.GetHashCode();
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();

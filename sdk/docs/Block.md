@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **CreatedDate** | **DateTimeOffset** | The date on which the block was made | 
 **LimitPrice** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **StopPrice** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**IsSwept** | **bool** | Swept blocks are considered no longer of active interest, and no longer take part in various order management processes | 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

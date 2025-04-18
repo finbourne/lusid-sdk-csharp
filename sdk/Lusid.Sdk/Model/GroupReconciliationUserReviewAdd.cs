@@ -157,6 +157,42 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // BreakCode (string) maxLength
+            if (this.BreakCode != null && this.BreakCode.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BreakCode, length must be less than 256.", new [] { "BreakCode" });
+            }
+
+            // BreakCode (string) minLength
+            if (this.BreakCode != null && this.BreakCode.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BreakCode, length must be greater than 1.", new [] { "BreakCode" });
+            }
+
+            // MatchKey (string) maxLength
+            if (this.MatchKey != null && this.MatchKey.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchKey, length must be less than 256.", new [] { "MatchKey" });
+            }
+
+            // MatchKey (string) minLength
+            if (this.MatchKey != null && this.MatchKey.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchKey, length must be greater than 1.", new [] { "MatchKey" });
+            }
+
+            // CommentText (string) maxLength
+            if (this.CommentText != null && this.CommentText.Length > 6000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommentText, length must be less than 6000.", new [] { "CommentText" });
+            }
+
+            // CommentText (string) minLength
+            if (this.CommentText != null && this.CommentText.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CommentText, length must be greater than 0.", new [] { "CommentText" });
+            }
+
             yield break;
         }
     }
