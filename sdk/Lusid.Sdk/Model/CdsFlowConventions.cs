@@ -43,8 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="rollConvention">For backward compatibility, this can either specify a business day convention or a roll convention. If the business  day convention is provided using the BusinessDayConvention property, this must be a valid roll convention.                When used as a roll convention:  The conventions specifying the rule used to generate dates in a schedule.    Supported string (enumeration) values are: [None, EndOfMonth, IMM, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30].                When in backward compatible mode:  Supported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing]. (required).</param>
         /// <param name="paymentCalendars">An array of strings denoting holiday calendars that apply to generation of payment schedules. (required).</param>
         /// <param name="resetCalendars">An array of strings denoting holiday calendars that apply to generation of reset schedules. (required).</param>
-        /// <param name="settleDays">Number of Good Business Days between the trade date and the effective or settlement date of the instrument. (required).</param>
-        /// <param name="resetDays">The number of Good Business Days between determination and payment of reset. (required).</param>
+        /// <param name="settleDays">Number of Good Business Days between the trade date and the effective or settlement date of the instrument. Defaults to 0 if not set..</param>
+        /// <param name="resetDays">The number of Good Business Days between determination and payment of reset. Defaults to 0 if not set..</param>
         /// <param name="businessDayConvention">When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.    Supported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]..</param>
         /// <param name="scope">The scope used when updating or inserting the convention..</param>
         /// <param name="code">The code of the convention..</param>
@@ -86,9 +86,9 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("resetCalendars is a required property for CdsFlowConventions and cannot be null");
             }
             this.ResetCalendars = resetCalendars;
+            this.RollFrequency = rollFrequency;
             this.SettleDays = settleDays;
             this.ResetDays = resetDays;
-            this.RollFrequency = rollFrequency;
             this.BusinessDayConvention = businessDayConvention;
             this.Scope = scope;
             this.Code = code;
@@ -144,17 +144,17 @@ namespace Lusid.Sdk.Model
         public List<string> ResetCalendars { get; set; }
 
         /// <summary>
-        /// Number of Good Business Days between the trade date and the effective or settlement date of the instrument.
+        /// Number of Good Business Days between the trade date and the effective or settlement date of the instrument. Defaults to 0 if not set.
         /// </summary>
-        /// <value>Number of Good Business Days between the trade date and the effective or settlement date of the instrument.</value>
-        [DataMember(Name = "settleDays", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>Number of Good Business Days between the trade date and the effective or settlement date of the instrument. Defaults to 0 if not set.</value>
+        [DataMember(Name = "settleDays", EmitDefaultValue = true)]
         public int SettleDays { get; set; }
 
         /// <summary>
-        /// The number of Good Business Days between determination and payment of reset.
+        /// The number of Good Business Days between determination and payment of reset. Defaults to 0 if not set.
         /// </summary>
-        /// <value>The number of Good Business Days between determination and payment of reset.</value>
-        [DataMember(Name = "resetDays", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The number of Good Business Days between determination and payment of reset. Defaults to 0 if not set.</value>
+        [DataMember(Name = "resetDays", EmitDefaultValue = true)]
         public int ResetDays { get; set; }
 
         /// <summary>

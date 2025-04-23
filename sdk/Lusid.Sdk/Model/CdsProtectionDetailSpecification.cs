@@ -31,59 +31,46 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CdsProtectionDetailSpecification" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CdsProtectionDetailSpecification() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CdsProtectionDetailSpecification" /> class.
-        /// </summary>
-        /// <param name="seniority">The seniority level of the CDS.    Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2]. (required).</param>
-        /// <param name="restructuringType">The restructuring clause.  Supported string (enumeration) values are: [CR, MR, MM, XR]. (required).</param>
-        /// <param name="protectStartDay">Does the protection leg pay out in the case of default on the start date. (required).</param>
-        /// <param name="payAccruedInterestOnDefault">Should accrued interest on the premium leg be paid if a credit event occurs. (required).</param>
-        public CdsProtectionDetailSpecification(string seniority = default(string), string restructuringType = default(string), bool protectStartDay = default(bool), bool payAccruedInterestOnDefault = default(bool))
+        /// <param name="seniority">The seniority level of the CDS.  Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2].  Defaults to \&quot;SUB\&quot; if not set. (default to &quot;SUB&quot;).</param>
+        /// <param name="restructuringType">The restructuring clause.  Supported string (enumeration) values are: [CR, MR, MM, XR]. Defaults to \&quot;MM\&quot; if not set. (default to &quot;MM&quot;).</param>
+        /// <param name="protectStartDay">Does the protection leg pay out in the case of default on the start date. Defaults to true if not set. (default to true).</param>
+        /// <param name="payAccruedInterestOnDefault">Should accrued interest on the premium leg be paid if a credit event occurs. Defaults to true if not set. (default to true).</param>
+        public CdsProtectionDetailSpecification(string seniority = @"SUB", string restructuringType = @"MM", bool protectStartDay = true, bool payAccruedInterestOnDefault = true)
         {
-            // to ensure "seniority" is required (not null)
-            if (seniority == null)
-            {
-                throw new ArgumentNullException("seniority is a required property for CdsProtectionDetailSpecification and cannot be null");
-            }
-            this.Seniority = seniority;
-            // to ensure "restructuringType" is required (not null)
-            if (restructuringType == null)
-            {
-                throw new ArgumentNullException("restructuringType is a required property for CdsProtectionDetailSpecification and cannot be null");
-            }
-            this.RestructuringType = restructuringType;
+            // use default value if no "seniority" provided
+            this.Seniority = seniority ?? @"SUB";
+            // use default value if no "restructuringType" provided
+            this.RestructuringType = restructuringType ?? @"MM";
             this.ProtectStartDay = protectStartDay;
             this.PayAccruedInterestOnDefault = payAccruedInterestOnDefault;
         }
 
         /// <summary>
-        /// The seniority level of the CDS.    Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2].
+        /// The seniority level of the CDS.  Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2].  Defaults to \&quot;SUB\&quot; if not set.
         /// </summary>
-        /// <value>The seniority level of the CDS.    Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2].</value>
-        [DataMember(Name = "seniority", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The seniority level of the CDS.  Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2].  Defaults to \&quot;SUB\&quot; if not set.</value>
+        [DataMember(Name = "seniority", EmitDefaultValue = true)]
         public string Seniority { get; set; }
 
         /// <summary>
-        /// The restructuring clause.  Supported string (enumeration) values are: [CR, MR, MM, XR].
+        /// The restructuring clause.  Supported string (enumeration) values are: [CR, MR, MM, XR]. Defaults to \&quot;MM\&quot; if not set.
         /// </summary>
-        /// <value>The restructuring clause.  Supported string (enumeration) values are: [CR, MR, MM, XR].</value>
-        [DataMember(Name = "restructuringType", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The restructuring clause.  Supported string (enumeration) values are: [CR, MR, MM, XR]. Defaults to \&quot;MM\&quot; if not set.</value>
+        [DataMember(Name = "restructuringType", EmitDefaultValue = true)]
         public string RestructuringType { get; set; }
 
         /// <summary>
-        /// Does the protection leg pay out in the case of default on the start date.
+        /// Does the protection leg pay out in the case of default on the start date. Defaults to true if not set.
         /// </summary>
-        /// <value>Does the protection leg pay out in the case of default on the start date.</value>
-        [DataMember(Name = "protectStartDay", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>Does the protection leg pay out in the case of default on the start date. Defaults to true if not set.</value>
+        [DataMember(Name = "protectStartDay", EmitDefaultValue = true)]
         public bool ProtectStartDay { get; set; }
 
         /// <summary>
-        /// Should accrued interest on the premium leg be paid if a credit event occurs.
+        /// Should accrued interest on the premium leg be paid if a credit event occurs. Defaults to true if not set.
         /// </summary>
-        /// <value>Should accrued interest on the premium leg be paid if a credit event occurs.</value>
-        [DataMember(Name = "payAccruedInterestOnDefault", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>Should accrued interest on the premium leg be paid if a credit event occurs. Defaults to true if not set.</value>
+        [DataMember(Name = "payAccruedInterestOnDefault", EmitDefaultValue = true)]
         public bool PayAccruedInterestOnDefault { get; set; }
 
         /// <summary>
@@ -183,18 +170,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Seniority (string) minLength
-            if (this.Seniority != null && this.Seniority.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Seniority, length must be greater than 1.", new [] { "Seniority" });
-            }
-
-            // RestructuringType (string) minLength
-            if (this.RestructuringType != null && this.RestructuringType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RestructuringType, length must be greater than 1.", new [] { "RestructuringType" });
-            }
-
             yield break;
         }
     }

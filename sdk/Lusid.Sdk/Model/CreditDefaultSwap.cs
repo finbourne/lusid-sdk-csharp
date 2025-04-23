@@ -38,44 +38,35 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreditDefaultSwap" /> class.
         /// </summary>
-        /// <param name="ticker">A ticker to uniquely specify the entity against which the CDS is written. (required).</param>
+        /// <param name="ticker">A ticker to uniquely specify the entity against which the CDS is written. Defaults to \&quot;DefaultCDSTicker\&quot;. (default to &quot;DefaultCDSTicker&quot;).</param>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="flowConventions">flowConventions.</param>
         /// <param name="couponRate">The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \&quot;0.05\&quot; meaning 500 basis points or 5%.  For a standard corporate CDS (North American) this must be either 100bps or 500bps. (required).</param>
         /// <param name="conventionName">conventionName.</param>
         /// <param name="notional">The notional protected by the Credit Default Swap.</param>
-        /// <param name="protectionDetailSpecification">protectionDetailSpecification (required).</param>
+        /// <param name="protectionDetailSpecification">protectionDetailSpecification.</param>
         /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;CreditDefaultSwap&quot;).</param>
-        public CreditDefaultSwap(string ticker = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), CdsFlowConventions flowConventions = default(CdsFlowConventions), decimal couponRate = default(decimal), FlowConventionName conventionName = default(FlowConventionName), decimal? notional = default(decimal?), CdsProtectionDetailSpecification protectionDetailSpecification = default(CdsProtectionDetailSpecification), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public CreditDefaultSwap(string ticker = @"DefaultCDSTicker", DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), CdsFlowConventions flowConventions = default(CdsFlowConventions), decimal couponRate = default(decimal), FlowConventionName conventionName = default(FlowConventionName), decimal? notional = default(decimal?), CdsProtectionDetailSpecification protectionDetailSpecification = default(CdsProtectionDetailSpecification), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
-            // to ensure "ticker" is required (not null)
-            if (ticker == null)
-            {
-                throw new ArgumentNullException("ticker is a required property for CreditDefaultSwap and cannot be null");
-            }
-            this.Ticker = ticker;
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
             this.CouponRate = couponRate;
-            // to ensure "protectionDetailSpecification" is required (not null)
-            if (protectionDetailSpecification == null)
-            {
-                throw new ArgumentNullException("protectionDetailSpecification is a required property for CreditDefaultSwap and cannot be null");
-            }
-            this.ProtectionDetailSpecification = protectionDetailSpecification;
+            // use default value if no "ticker" provided
+            this.Ticker = ticker ?? @"DefaultCDSTicker";
             this.FlowConventions = flowConventions;
             this.ConventionName = conventionName;
             this.Notional = notional;
+            this.ProtectionDetailSpecification = protectionDetailSpecification;
             this.AdditionalPayments = additionalPayments;
         }
 
         /// <summary>
-        /// A ticker to uniquely specify the entity against which the CDS is written.
+        /// A ticker to uniquely specify the entity against which the CDS is written. Defaults to \&quot;DefaultCDSTicker\&quot;.
         /// </summary>
-        /// <value>A ticker to uniquely specify the entity against which the CDS is written.</value>
-        [DataMember(Name = "ticker", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>A ticker to uniquely specify the entity against which the CDS is written. Defaults to \&quot;DefaultCDSTicker\&quot;.</value>
+        [DataMember(Name = "ticker", EmitDefaultValue = true)]
         public string Ticker { get; set; }
 
         /// <summary>
@@ -121,7 +112,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets ProtectionDetailSpecification
         /// </summary>
-        [DataMember(Name = "protectionDetailSpecification", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "protectionDetailSpecification", EmitDefaultValue = false)]
         public CdsProtectionDetailSpecification ProtectionDetailSpecification { get; set; }
 
         /// <summary>
@@ -298,12 +289,6 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
-            // Ticker (string) minLength
-            if (this.Ticker != null && this.Ticker.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ticker, length must be greater than 1.", new [] { "Ticker" });
-            }
-
             yield break;
         }
     }

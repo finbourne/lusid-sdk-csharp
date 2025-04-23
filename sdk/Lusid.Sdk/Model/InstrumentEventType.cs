@@ -381,7 +381,13 @@ namespace Lusid.Sdk.Model
         /// Enum LoanFacilityContractRolloverEvent for value: LoanFacilityContractRolloverEvent
         /// </summary>
         [EnumMember(Value = "LoanFacilityContractRolloverEvent")]
-        LoanFacilityContractRolloverEvent = 59
+        LoanFacilityContractRolloverEvent = 59,
+
+        /// <summary>
+        /// Enum RepurchaseOfferEvent for value: RepurchaseOfferEvent
+        /// </summary>
+        [EnumMember(Value = "RepurchaseOfferEvent")]
+        RepurchaseOfferEvent = 60
     }
 
 }
