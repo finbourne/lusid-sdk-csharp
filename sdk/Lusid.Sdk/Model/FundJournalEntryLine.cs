@@ -58,6 +58,7 @@ namespace Lusid.Sdk.Model
         /// <param name="holdingType">Defines the broad category holding within the portfolio. (required).</param>
         /// <param name="economicBucket">Raw Journal Entry Line details of the economic bucket for the Journal Entry Line. (required).</param>
         /// <param name="economicBucketComponent">Sub bucket of the economic bucket..</param>
+        /// <param name="economicBucketVariant">Categorisation of a Mark-to-market journal entry line into LongTerm or ShortTerm based on whether the ActivityDate is more than a year after the purchase trade date or not..</param>
         /// <param name="levels">Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body..</param>
         /// <param name="sourceLevels">Source data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body..</param>
         /// <param name="movementSign">Indicates if the Journal Entry Line corresponds to a Long or Short movement..</param>
@@ -66,7 +67,7 @@ namespace Lusid.Sdk.Model
         /// <param name="journalEntryLineType">Indicates the Journal Entry Line type.</param>
         /// <param name="shareClassBreakdowns">Share Class breakdown data for this Journal Entry Line..</param>
         /// <param name="links">links.</param>
-        public FundJournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount varBase = default(CurrencyAndAmount), decimal units = default(decimal), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<JournalEntryLineShareClassBreakdown> shareClassBreakdowns = default(List<JournalEntryLineShareClassBreakdown>), List<Link> links = default(List<Link>))
+        public FundJournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount varBase = default(CurrencyAndAmount), decimal units = default(decimal), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), string economicBucketVariant = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<JournalEntryLineShareClassBreakdown> shareClassBreakdowns = default(List<JournalEntryLineShareClassBreakdown>), List<Link> links = default(List<Link>))
         {
             this.AccountingDate = accountingDate;
             this.ActivityDate = activityDate;
@@ -145,6 +146,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.MovementName = movementName;
             this.EconomicBucketComponent = economicBucketComponent;
+            this.EconomicBucketVariant = economicBucketVariant;
             this.Levels = levels;
             this.SourceLevels = sourceLevels;
             this.MovementSign = movementSign;
@@ -307,6 +309,13 @@ namespace Lusid.Sdk.Model
         public string EconomicBucketComponent { get; set; }
 
         /// <summary>
+        /// Categorisation of a Mark-to-market journal entry line into LongTerm or ShortTerm based on whether the ActivityDate is more than a year after the purchase trade date or not.
+        /// </summary>
+        /// <value>Categorisation of a Mark-to-market journal entry line into LongTerm or ShortTerm based on whether the ActivityDate is more than a year after the purchase trade date or not.</value>
+        [DataMember(Name = "economicBucketVariant", EmitDefaultValue = true)]
+        public string EconomicBucketVariant { get; set; }
+
+        /// <summary>
         /// Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body.
         /// </summary>
         /// <value>Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body.</value>
@@ -391,6 +400,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  HoldingType: ").Append(HoldingType).Append("\n");
             sb.Append("  EconomicBucket: ").Append(EconomicBucket).Append("\n");
             sb.Append("  EconomicBucketComponent: ").Append(EconomicBucketComponent).Append("\n");
+            sb.Append("  EconomicBucketVariant: ").Append(EconomicBucketVariant).Append("\n");
             sb.Append("  Levels: ").Append(Levels).Append("\n");
             sb.Append("  SourceLevels: ").Append(SourceLevels).Append("\n");
             sb.Append("  MovementSign: ").Append(MovementSign).Append("\n");
@@ -546,6 +556,11 @@ namespace Lusid.Sdk.Model
                     this.EconomicBucketComponent.Equals(input.EconomicBucketComponent))
                 ) && 
                 (
+                    this.EconomicBucketVariant == input.EconomicBucketVariant ||
+                    (this.EconomicBucketVariant != null &&
+                    this.EconomicBucketVariant.Equals(input.EconomicBucketVariant))
+                ) && 
+                (
                     this.Levels == input.Levels ||
                     this.Levels != null &&
                     input.Levels != null &&
@@ -684,6 +699,10 @@ namespace Lusid.Sdk.Model
                 if (this.EconomicBucketComponent != null)
                 {
                     hashCode = (hashCode * 59) + this.EconomicBucketComponent.GetHashCode();
+                }
+                if (this.EconomicBucketVariant != null)
+                {
+                    hashCode = (hashCode * 59) + this.EconomicBucketVariant.GetHashCode();
                 }
                 if (this.Levels != null)
                 {
