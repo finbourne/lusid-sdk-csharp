@@ -165,6 +165,13 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Left, length must be greater than 0.", new [] { "Left" });
             }
 
+            // Left (string) pattern
+            Regex regexLeft = new Regex(@"^[a-zA-Z]*$", RegexOptions.CultureInvariant);
+            if (false == regexLeft.Match(this.Left).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Left, must match a pattern of " + regexLeft, new [] { "Left" });
+            }
+
             // Right (string) maxLength
             if (this.Right != null && this.Right.Length > 3)
             {
@@ -175,6 +182,13 @@ namespace Lusid.Sdk.Model
             if (this.Right != null && this.Right.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Right, length must be greater than 0.", new [] { "Right" });
+            }
+
+            // Right (string) pattern
+            Regex regexRight = new Regex(@"^[a-zA-Z]*$", RegexOptions.CultureInvariant);
+            if (false == regexRight.Match(this.Right).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Right, must match a pattern of " + regexRight, new [] { "Right" });
             }
 
             yield break;

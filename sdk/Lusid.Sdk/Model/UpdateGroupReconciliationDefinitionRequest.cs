@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="currencies">currencies.</param>
         /// <param name="transactionDateWindows">transactionDateWindows.</param>
         /// <param name="comparisonRulesetIds">comparisonRulesetIds.</param>
-        /// <param name="breakCodeSource">breakCodeSource (required).</param>
+        /// <param name="breakCodeSource">breakCodeSource.</param>
         public UpdateGroupReconciliationDefinitionRequest(string displayName = default(string), string description = default(string), GroupReconciliationDefinitionPortfolioEntityIds portfolioEntityIds = default(GroupReconciliationDefinitionPortfolioEntityIds), GroupReconciliationDefinitionRecipeIds recipeIds = default(GroupReconciliationDefinitionRecipeIds), GroupReconciliationDefinitionCurrencies currencies = default(GroupReconciliationDefinitionCurrencies), TransactionDateWindows transactionDateWindows = default(TransactionDateWindows), GroupReconciliationDefinitionComparisonRulesetIds comparisonRulesetIds = default(GroupReconciliationDefinitionComparisonRulesetIds), BreakCodeSource breakCodeSource = default(BreakCodeSource))
         {
             // to ensure "displayName" is required (not null)
@@ -58,17 +58,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("portfolioEntityIds is a required property for UpdateGroupReconciliationDefinitionRequest and cannot be null");
             }
             this.PortfolioEntityIds = portfolioEntityIds;
-            // to ensure "breakCodeSource" is required (not null)
-            if (breakCodeSource == null)
-            {
-                throw new ArgumentNullException("breakCodeSource is a required property for UpdateGroupReconciliationDefinitionRequest and cannot be null");
-            }
-            this.BreakCodeSource = breakCodeSource;
             this.Description = description;
             this.RecipeIds = recipeIds;
             this.Currencies = currencies;
             this.TransactionDateWindows = transactionDateWindows;
             this.ComparisonRulesetIds = comparisonRulesetIds;
+            this.BreakCodeSource = breakCodeSource;
         }
 
         /// <summary>
@@ -118,7 +113,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets BreakCodeSource
         /// </summary>
-        [DataMember(Name = "breakCodeSource", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "breakCodeSource", EmitDefaultValue = false)]
         public BreakCodeSource BreakCodeSource { get; set; }
 
         /// <summary>
@@ -267,9 +262,9 @@ namespace Lusid.Sdk.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // DisplayName (string) maxLength
-            if (this.DisplayName != null && this.DisplayName.Length > 256)
+            if (this.DisplayName != null && this.DisplayName.Length > 512)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 256.", new [] { "DisplayName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 512.", new [] { "DisplayName" });
             }
 
             // DisplayName (string) minLength
@@ -279,15 +274,15 @@ namespace Lusid.Sdk.Model
             }
 
             // Description (string) maxLength
-            if (this.Description != null && this.Description.Length > 256)
+            if (this.Description != null && this.Description.Length > 1024)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 256.", new [] { "Description" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 1024.", new [] { "Description" });
             }
 
             // Description (string) minLength
-            if (this.Description != null && this.Description.Length < 1)
+            if (this.Description != null && this.Description.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }
 
             yield break;
