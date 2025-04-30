@@ -998,10 +998,12 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. The current behaviour is               to return all transactions if possible, but this will change to defaulting to 1000 if not specified in the future. It is recommended               to populate this field to enable pagination. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTransaction</returns>
-        VersionedResourceListOfTransaction GetTransactions(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        VersionedResourceListOfTransaction GetTransactions(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetTransactions: Get transactions
@@ -1021,10 +1023,12 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. The current behaviour is               to return all transactions if possible, but this will change to defaulting to 1000 if not specified in the future. It is recommended               to populate this field to enable pagination. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransaction</returns>
-        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> GetTransactionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> GetTransactionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
         /// </summary>
@@ -1411,10 +1415,12 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertPortfolioTransactionsResponse</returns>
-        UpsertPortfolioTransactionsResponse UpsertTransactions(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        UpsertPortfolioTransactionsResponse UpsertTransactions(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertTransactions: Upsert transactions
@@ -1427,10 +1433,12 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertPortfolioTransactionsResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> UpsertTransactionsWithHttpInfo(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> UpsertTransactionsWithHttpInfo(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -2461,11 +2469,13 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. The current behaviour is               to return all transactions if possible, but this will change to defaulting to 1000 if not specified in the future. It is recommended               to populate this field to enable pagination. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfTransaction</returns>
-        System.Threading.Tasks.Task<VersionedResourceListOfTransaction> GetTransactionsAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<VersionedResourceListOfTransaction> GetTransactionsAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetTransactions: Get transactions
@@ -2485,11 +2495,13 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. The current behaviour is               to return all transactions if possible, but this will change to defaulting to 1000 if not specified in the future. It is recommended               to populate this field to enable pagination. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfTransaction)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
         /// </summary>
@@ -2898,11 +2910,13 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertPortfolioTransactionsResponse</returns>
-        System.Threading.Tasks.Task<UpsertPortfolioTransactionsResponse> UpsertTransactionsAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<UpsertPortfolioTransactionsResponse> UpsertTransactionsAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertTransactions: Upsert transactions
@@ -2915,11 +2929,13 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertPortfolioTransactionsResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse>> UpsertTransactionsWithHttpInfoAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse>> UpsertTransactionsWithHttpInfoAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -10636,12 +10652,14 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. The current behaviour is               to return all transactions if possible, but this will change to defaulting to 1000 if not specified in the future. It is recommended               to populate this field to enable pagination. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTransaction</returns>
-        public VersionedResourceListOfTransaction GetTransactions(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public VersionedResourceListOfTransaction GetTransactions(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> localVarResponse = GetTransactionsWithHttpInfo(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit, showCancelledTransactions, sortBy, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> localVarResponse = GetTransactionsWithHttpInfo(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit, showCancelledTransactions, sortBy, dataModelScope, dataModelCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -10660,10 +10678,12 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. The current behaviour is               to return all transactions if possible, but this will change to defaulting to 1000 if not specified in the future. It is recommended               to populate this field to enable pagination. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransaction</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> GetTransactionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> GetTransactionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -10748,6 +10768,14 @@ namespace Lusid.Sdk.Api
             if (sortBy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+            if (dataModelScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetTransactions";
@@ -10799,13 +10827,15 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. The current behaviour is               to return all transactions if possible, but this will change to defaulting to 1000 if not specified in the future. It is recommended               to populate this field to enable pagination. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfTransaction</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListOfTransaction> GetTransactionsAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<VersionedResourceListOfTransaction> GetTransactionsAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> localVarResponse = await GetTransactionsWithHttpInfoAsync(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit, showCancelledTransactions, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> localVarResponse = await GetTransactionsWithHttpInfoAsync(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit, showCancelledTransactions, sortBy, dataModelScope, dataModelCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -10824,11 +10854,13 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. The current behaviour is               to return all transactions if possible, but this will change to defaulting to 1000 if not specified in the future. It is recommended               to populate this field to enable pagination. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfTransaction)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -10914,6 +10946,14 @@ namespace Lusid.Sdk.Api
             if (sortBy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+            if (dataModelScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetTransactions";
@@ -13993,12 +14033,14 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertPortfolioTransactionsResponse</returns>
-        public UpsertPortfolioTransactionsResponse UpsertTransactions(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public UpsertPortfolioTransactionsResponse UpsertTransactions(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> localVarResponse = UpsertTransactionsWithHttpInfo(scope, code, transactionRequest, preserveProperties, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> localVarResponse = UpsertTransactionsWithHttpInfo(scope, code, transactionRequest, preserveProperties, dataModelScope, dataModelCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -14010,10 +14052,12 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertPortfolioTransactionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> UpsertTransactionsWithHttpInfo(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> UpsertTransactionsWithHttpInfo(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -14077,6 +14121,14 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
             }
+            if (dataModelScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
+            }
             localVarRequestOptions.Data = transactionRequest;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.UpsertTransactions";
@@ -14121,13 +14173,15 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertPortfolioTransactionsResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertPortfolioTransactionsResponse> UpsertTransactionsAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<UpsertPortfolioTransactionsResponse> UpsertTransactionsAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> localVarResponse = await UpsertTransactionsWithHttpInfoAsync(scope, code, transactionRequest, preserveProperties, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> localVarResponse = await UpsertTransactionsWithHttpInfoAsync(scope, code, transactionRequest, preserveProperties, dataModelScope, dataModelCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -14139,11 +14193,13 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertPortfolioTransactionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse>> UpsertTransactionsWithHttpInfoAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse>> UpsertTransactionsWithHttpInfoAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -14207,6 +14263,14 @@ namespace Lusid.Sdk.Api
             if (preserveProperties != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
+            }
+            if (dataModelScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
             }
             localVarRequestOptions.Data = transactionRequest;
 

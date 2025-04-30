@@ -3399,7 +3399,7 @@ catch (ApiException e)
 
 <a id="gettransactions"></a>
 # **GetTransactions**
-> VersionedResourceListOfTransaction GetTransactions (string scope, string code, DateTimeOrCutLabel? fromTransactionDate = null, DateTimeOrCutLabel? toTransactionDate = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, string? page = null, int? limit = null, bool? showCancelledTransactions = null, List<string>? sortBy = null)
+> VersionedResourceListOfTransaction GetTransactions (string scope, string code, DateTimeOrCutLabel? fromTransactionDate = null, DateTimeOrCutLabel? toTransactionDate = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, string? page = null, int? limit = null, bool? showCancelledTransactions = null, List<string>? sortBy = null, string? dataModelScope = null, string? dataModelCode = null)
 
 GetTransactions: Get transactions
 
@@ -3455,14 +3455,16 @@ namespace Examples
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. The current behaviour is               to return all transactions if possible, but this will change to defaulting to 1000 if not specified in the future. It is recommended               to populate this field to enable pagination. (optional) 
             var showCancelledTransactions = true;  // bool? | Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListOfTransaction result = apiInstance.GetTransactions(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit, showCancelledTransactions, sortBy, opts: opts);
+                // VersionedResourceListOfTransaction result = apiInstance.GetTransactions(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit, showCancelledTransactions, sortBy, dataModelScope, dataModelCode, opts: opts);
 
                 // GetTransactions: Get transactions
-                VersionedResourceListOfTransaction result = apiInstance.GetTransactions(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit, showCancelledTransactions, sortBy);
+                VersionedResourceListOfTransaction result = apiInstance.GetTransactions(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit, showCancelledTransactions, sortBy, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -3483,7 +3485,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetTransactions: Get transactions
-    ApiResponse<VersionedResourceListOfTransaction> response = apiInstance.GetTransactionsWithHttpInfo(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit, showCancelledTransactions, sortBy);
+    ApiResponse<VersionedResourceListOfTransaction> response = apiInstance.GetTransactionsWithHttpInfo(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit, showCancelledTransactions, sortBy, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -3511,6 +3513,8 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. The current behaviour is               to return all transactions if possible, but this will change to defaulting to 1000 if not specified in the future. It is recommended               to populate this field to enable pagination. | [optional]  |
 | **showCancelledTransactions** | **bool?** | Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 
 ### Return type
 
@@ -4887,7 +4891,7 @@ catch (ApiException e)
 
 <a id="upserttransactions"></a>
 # **UpsertTransactions**
-> UpsertPortfolioTransactionsResponse UpsertTransactions (string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = null)
+> UpsertPortfolioTransactionsResponse UpsertTransactions (string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = null, string? dataModelScope = null, string? dataModelCode = null)
 
 UpsertTransactions: Upsert transactions
 
@@ -4936,14 +4940,16 @@ namespace Examples
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
             var transactionRequest = new List<TransactionRequest>(); // List<TransactionRequest> | A list of transactions to be created or updated.
             var preserveProperties = true;  // bool? | If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional)  (default to true)
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // UpsertPortfolioTransactionsResponse result = apiInstance.UpsertTransactions(scope, code, transactionRequest, preserveProperties, opts: opts);
+                // UpsertPortfolioTransactionsResponse result = apiInstance.UpsertTransactions(scope, code, transactionRequest, preserveProperties, dataModelScope, dataModelCode, opts: opts);
 
                 // UpsertTransactions: Upsert transactions
-                UpsertPortfolioTransactionsResponse result = apiInstance.UpsertTransactions(scope, code, transactionRequest, preserveProperties);
+                UpsertPortfolioTransactionsResponse result = apiInstance.UpsertTransactions(scope, code, transactionRequest, preserveProperties, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -4964,7 +4970,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // UpsertTransactions: Upsert transactions
-    ApiResponse<UpsertPortfolioTransactionsResponse> response = apiInstance.UpsertTransactionsWithHttpInfo(scope, code, transactionRequest, preserveProperties);
+    ApiResponse<UpsertPortfolioTransactionsResponse> response = apiInstance.UpsertTransactionsWithHttpInfo(scope, code, transactionRequest, preserveProperties, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -4985,6 +4991,8 @@ catch (ApiException e)
 | **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. |  |
 | **transactionRequest** | [**List&lt;TransactionRequest&gt;**](TransactionRequest.md) | A list of transactions to be created or updated. |  |
 | **preserveProperties** | **bool?** | If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. | [optional] [default to true] |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 
 ### Return type
 

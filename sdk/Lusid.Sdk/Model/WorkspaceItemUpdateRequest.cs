@@ -211,16 +211,17 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
             }
 
-            // Type (string) maxLength
-            if (this.Type != null && this.Type.Length > 6000)
+            // Type (string) minLength
+            if (this.Type != null && this.Type.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than 6000.", new [] { "Type" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
 
-            // Type (string) minLength
-            if (this.Type != null && this.Type.Length < 0)
+            // Type (string) pattern
+            Regex regexType = new Regex(@"luminesce-saved-query|lusid-web-dashboard|lusid-web-dashboard-set|mesa-dashboard|lusid-web-favourites", RegexOptions.CultureInvariant);
+            if (false == regexType.Match(this.Type).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 0.", new [] { "Type" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, must match a pattern of " + regexType, new [] { "Type" });
             }
 
             yield break;
