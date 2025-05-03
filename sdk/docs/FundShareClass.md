@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Hedging** | **string** | A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of it&#39;s investment strategy.    Supported string (enumeration) values are: [Invalid, None, ApplyHedging]. | 
 **DomCcy** | **string** | The domestic currency of the instrument. | 
 **RoundingConventions** | [**List&lt;SimpleRoundingConvention&gt;**](SimpleRoundingConvention.md) | Rounding Convention used for the FundShareClass quotes | [optional] 
+**TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

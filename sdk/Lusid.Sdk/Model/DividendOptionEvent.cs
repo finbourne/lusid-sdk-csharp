@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="securityElections">SecurityElection for this DividendReinvestmentEvent (required).</param>
         /// <param name="securitySettlementDate">The settlement date of the additional units.  Equal to the PaymentDate if not provided..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent (required) (default to &quot;DividendOptionEvent&quot;).</param>
-        public DividendOptionEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), List<SecurityElection> securityElections = default(List<SecurityElection>), DateTimeOffset securitySettlementDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public DividendOptionEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), List<SecurityElection> securityElections = default(List<SecurityElection>), DateTimeOffset? securitySettlementDate = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "cashElections" is required (not null)
             if (cashElections == null)
@@ -113,8 +113,8 @@ namespace Lusid.Sdk.Model
         /// The settlement date of the additional units.  Equal to the PaymentDate if not provided.
         /// </summary>
         /// <value>The settlement date of the additional units.  Equal to the PaymentDate if not provided.</value>
-        [DataMember(Name = "securitySettlementDate", EmitDefaultValue = false)]
-        public DateTimeOffset SecuritySettlementDate { get; set; }
+        [DataMember(Name = "securitySettlementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? SecuritySettlementDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -44,8 +44,9 @@ namespace Lusid.Sdk.Model
         /// <param name="hedging">A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of it&#39;s investment strategy.    Supported string (enumeration) values are: [Invalid, None, ApplyHedging]. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
         /// <param name="roundingConventions">Rounding Convention used for the FundShareClass quotes.</param>
+        /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;FundShareClass&quot;).</param>
-        public FundShareClass(string shortCode = default(string), string fundShareClassType = default(string), string distributionPaymentType = default(string), string hedging = default(string), string domCcy = default(string), List<SimpleRoundingConvention> roundingConventions = default(List<SimpleRoundingConvention>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public FundShareClass(string shortCode = default(string), string fundShareClassType = default(string), string distributionPaymentType = default(string), string hedging = default(string), string domCcy = default(string), List<SimpleRoundingConvention> roundingConventions = default(List<SimpleRoundingConvention>), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             // to ensure "shortCode" is required (not null)
             if (shortCode == null)
@@ -78,6 +79,7 @@ namespace Lusid.Sdk.Model
             }
             this.DomCcy = domCcy;
             this.RoundingConventions = roundingConventions;
+            this.TradingConventions = tradingConventions;
         }
 
         /// <summary>
@@ -123,6 +125,12 @@ namespace Lusid.Sdk.Model
         public List<SimpleRoundingConvention> RoundingConventions { get; set; }
 
         /// <summary>
+        /// Gets or Sets TradingConventions
+        /// </summary>
+        [DataMember(Name = "tradingConventions", EmitDefaultValue = false)]
+        public TradingConventions TradingConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -137,6 +145,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Hedging: ").Append(Hedging).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
             sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
+            sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -202,6 +211,11 @@ namespace Lusid.Sdk.Model
                     this.RoundingConventions != null &&
                     input.RoundingConventions != null &&
                     this.RoundingConventions.SequenceEqual(input.RoundingConventions)
+                ) && base.Equals(input) && 
+                (
+                    this.TradingConventions == input.TradingConventions ||
+                    (this.TradingConventions != null &&
+                    this.TradingConventions.Equals(input.TradingConventions))
                 );
         }
 
@@ -237,6 +251,10 @@ namespace Lusid.Sdk.Model
                 if (this.RoundingConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.RoundingConventions.GetHashCode();
+                }
+                if (this.TradingConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
                 }
                 return hashCode;
             }

@@ -542,7 +542,7 @@ namespace Examples
             var domain = "NotDefined";  // string | The type of entity to which the identifier relates
             var identifierScope = "identifierScope_example";  // string | The scope that the identifier exists in
             var identifierType = "identifierType_example";  // string | What the identifier represents. Together with \"domain\" and \"identifierScope\" this uniquely identifies the Identifier Definition
-            var updateIdentifierDefinitionRequest = new UpdateIdentifierDefinitionRequest?(); // UpdateIdentifierDefinitionRequest? | The request containing the updated details of the ruleset (optional) 
+            var updateIdentifierDefinitionRequest = new UpdateIdentifierDefinitionRequest?(); // UpdateIdentifierDefinitionRequest? | The request containing the updated details of the Identifier Definition. (optional) 
 
             try
             {
@@ -591,7 +591,7 @@ catch (ApiException e)
 | **domain** | **string** | The type of entity to which the identifier relates |  |
 | **identifierScope** | **string** | The scope that the identifier exists in |  |
 | **identifierType** | **string** | What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition |  |
-| **updateIdentifierDefinitionRequest** | [**UpdateIdentifierDefinitionRequest?**](UpdateIdentifierDefinitionRequest?.md) | The request containing the updated details of the ruleset | [optional]  |
+| **updateIdentifierDefinitionRequest** | [**UpdateIdentifierDefinitionRequest?**](UpdateIdentifierDefinitionRequest?.md) | The request containing the updated details of the Identifier Definition. | [optional]  |
 
 ### Return type
 

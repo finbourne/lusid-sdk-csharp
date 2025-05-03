@@ -862,6 +862,25 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IdentifierType, must match a pattern of " + regexIdentifierType, new [] { "IdentifierType" });
             }
 
+            // HierarchyLevel (string) maxLength
+            if (this.HierarchyLevel != null && this.HierarchyLevel.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HierarchyLevel, length must be less than 1024.", new [] { "HierarchyLevel" });
+            }
+
+            // HierarchyLevel (string) minLength
+            if (this.HierarchyLevel != null && this.HierarchyLevel.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HierarchyLevel, length must be greater than 0.", new [] { "HierarchyLevel" });
+            }
+
+            // HierarchyLevel (string) pattern
+            Regex regexHierarchyLevel = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexHierarchyLevel.Match(this.HierarchyLevel).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HierarchyLevel, must match a pattern of " + regexHierarchyLevel, new [] { "HierarchyLevel" });
+            }
+
             // DisplayName (string) maxLength
             if (this.DisplayName != null && this.DisplayName.Length > 256)
             {
