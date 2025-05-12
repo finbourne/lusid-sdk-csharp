@@ -280,6 +280,41 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfWorkspace</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace> ListWorkspacesWithHttpInfo(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] SearchItems: List items across all workspaces.
+        /// </summary>
+        /// <remarks>
+        /// List items across all workspaces.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PagedResourceListOfItemAndWorkspace</returns>
+        PagedResourceListOfItemAndWorkspace SearchItems(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SearchItems: List items across all workspaces.
+        /// </summary>
+        /// <remarks>
+        /// List items across all workspaces.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PagedResourceListOfItemAndWorkspace</returns>
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfItemAndWorkspace> SearchItemsWithHttpInfo(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
         /// </summary>
         /// <remarks>
@@ -614,6 +649,43 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfWorkspace)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfWorkspace>> ListWorkspacesWithHttpInfoAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] SearchItems: List items across all workspaces.
+        /// </summary>
+        /// <remarks>
+        /// List items across all workspaces.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PagedResourceListOfItemAndWorkspace</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfItemAndWorkspace> SearchItemsAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SearchItems: List items across all workspaces.
+        /// </summary>
+        /// <remarks>
+        /// List items across all workspaces.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfItemAndWorkspace)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfItemAndWorkspace>> SearchItemsWithHttpInfoAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
         /// </summary>
@@ -2778,6 +2850,270 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListWorkspaces", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SearchItems: List items across all workspaces. List items across all workspaces.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PagedResourceListOfItemAndWorkspace</returns>
+        public PagedResourceListOfItemAndWorkspace SearchItems(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfItemAndWorkspace> localVarResponse = SearchItemsWithHttpInfo(visibility, asAt, page, sortBy, limit, filter, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SearchItems: List items across all workspaces. List items across all workspaces.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PagedResourceListOfItemAndWorkspace</returns>
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfItemAndWorkspace> SearchItemsWithHttpInfo(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->SearchItems");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+
+            localVarRequestOptions.Operation = "WorkspaceApi.SearchItems";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PagedResourceListOfItemAndWorkspace>("/api/workspaces/{visibility}/items", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchItems", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SearchItems: List items across all workspaces. List items across all workspaces.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PagedResourceListOfItemAndWorkspace</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfItemAndWorkspace> SearchItemsAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfItemAndWorkspace> localVarResponse = await SearchItemsWithHttpInfoAsync(visibility, asAt, page, sortBy, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SearchItems: List items across all workspaces. List items across all workspaces.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="visibility">The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfItemAndWorkspace)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfItemAndWorkspace>> SearchItemsWithHttpInfoAsync(string visibility, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'visibility' is set
+            if (visibility == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'visibility' when calling WorkspaceApi->SearchItems");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+
+            localVarRequestOptions.Operation = "WorkspaceApi.SearchItems";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfItemAndWorkspace>("/api/workspaces/{visibility}/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchItems", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

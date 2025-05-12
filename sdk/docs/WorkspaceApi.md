@@ -12,6 +12,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**GetWorkspace**](WorkspaceApi.md#getworkspace) | **GET** /api/workspaces/{visibility}/{workspaceName} | [EXPERIMENTAL] GetWorkspace: Get a workspace. |
 | [**ListItems**](WorkspaceApi.md#listitems) | **GET** /api/workspaces/{visibility}/{workspaceName}/items | [EXPERIMENTAL] ListItems: List the items in a workspace. |
 | [**ListWorkspaces**](WorkspaceApi.md#listworkspaces) | **GET** /api/workspaces/{visibility} | [EXPERIMENTAL] ListWorkspaces: List workspaces. |
+| [**SearchItems**](WorkspaceApi.md#searchitems) | **GET** /api/workspaces/{visibility}/items | [EXPERIMENTAL] SearchItems: List items across all workspaces. |
 | [**UpdateItem**](WorkspaceApi.md#updateitem) | **PUT** /api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] UpdateItem: Update an item in a workspace. |
 | [**UpdateWorkspace**](WorkspaceApi.md#updateworkspace) | **PUT** /api/workspaces/{visibility}/{workspaceName} | [EXPERIMENTAL] UpdateWorkspace: Update a workspace. |
 
@@ -970,6 +971,130 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The workspaces. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="searchitems"></a>
+# **SearchItems**
+> PagedResourceListOfItemAndWorkspace SearchItems (string visibility, DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
+
+[EXPERIMENTAL] SearchItems: List items across all workspaces.
+
+List items across all workspaces.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
+            var visibility = "shared";  // string | The visibility for the containing workspace. Must be `shared` or `personal`; case is important.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve workspace items. Defaults to 'latest' if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfItemAndWorkspace result = apiInstance.SearchItems(visibility, asAt, page, sortBy, limit, filter, opts: opts);
+
+                // [EXPERIMENTAL] SearchItems: List items across all workspaces.
+                PagedResourceListOfItemAndWorkspace result = apiInstance.SearchItems(visibility, asAt, page, sortBy, limit, filter);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling WorkspaceApi.SearchItems: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SearchItemsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] SearchItems: List items across all workspaces.
+    ApiResponse<PagedResourceListOfItemAndWorkspace> response = apiInstance.SearchItemsWithHttpInfo(visibility, asAt, page, sortBy, limit, filter);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling WorkspaceApi.SearchItemsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **visibility** | **string** | The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfItemAndWorkspace**](PagedResourceListOfItemAndWorkspace.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Items across all workspaces. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

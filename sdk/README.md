@@ -337,15 +337,15 @@ Class | Method | HTTP request | Description
 *OrderInstructionsApi* | [**GetOrderInstruction**](docs/OrderInstructionsApi.md#getorderinstruction) | **GET** /api/orderinstructions/{scope}/{code} | GetOrderInstruction: Get OrderInstruction
 *OrderInstructionsApi* | [**ListOrderInstructions**](docs/OrderInstructionsApi.md#listorderinstructions) | **GET** /api/orderinstructions | ListOrderInstructions: List OrderInstructions
 *OrderInstructionsApi* | [**UpsertOrderInstructions**](docs/OrderInstructionsApi.md#upsertorderinstructions) | **POST** /api/orderinstructions | UpsertOrderInstructions: Upsert OrderInstruction
-*OrderManagementApi* | [**BookTransactions**](docs/OrderManagementApi.md#booktransactions) | **POST** /api/ordermanagement/booktransactions | [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
+*OrderManagementApi* | [**BookTransactions**](docs/OrderManagementApi.md#booktransactions) | **POST** /api/ordermanagement/booktransactions | BookTransactions: Books transactions using specific allocations as a source.
 *OrderManagementApi* | [**CancelOrders**](docs/OrderManagementApi.md#cancelorders) | **POST** /api/ordermanagement/cancelorders | [EARLY ACCESS] CancelOrders: Cancel existing orders
 *OrderManagementApi* | [**CancelOrdersAndMoveRemaining**](docs/OrderManagementApi.md#cancelordersandmoveremaining) | **POST** /api/ordermanagement/cancelordersandmoveremaining | [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks
 *OrderManagementApi* | [**CancelPlacements**](docs/OrderManagementApi.md#cancelplacements) | **POST** /api/ordermanagement/$cancelplacements | [EARLY ACCESS] CancelPlacements: Cancel existing placements
-*OrderManagementApi* | [**CreateOrders**](docs/OrderManagementApi.md#createorders) | **POST** /api/ordermanagement/createorders | [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
-*OrderManagementApi* | [**GetOrderHistory**](docs/OrderManagementApi.md#getorderhistory) | **GET** /api/ordermanagement/order/{scope}/{code}/$history | [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
+*OrderManagementApi* | [**CreateOrders**](docs/OrderManagementApi.md#createorders) | **POST** /api/ordermanagement/createorders | CreateOrders: Upsert a Block and associated orders
+*OrderManagementApi* | [**GetOrderHistory**](docs/OrderManagementApi.md#getorderhistory) | **GET** /api/ordermanagement/order/{scope}/{code}/$history | GetOrderHistory: Get the history of an order and related entity changes
 *OrderManagementApi* | [**MoveOrders**](docs/OrderManagementApi.md#moveorders) | **POST** /api/ordermanagement/moveorders | [EARLY ACCESS] MoveOrders: Move orders to new or existing block
 *OrderManagementApi* | [**PlaceBlocks**](docs/OrderManagementApi.md#placeblocks) | **POST** /api/ordermanagement/placeblocks | [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
-*OrderManagementApi* | [**RunAllocationService**](docs/OrderManagementApi.md#runallocationservice) | **POST** /api/ordermanagement/allocate | [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
+*OrderManagementApi* | [**RunAllocationService**](docs/OrderManagementApi.md#runallocationservice) | **POST** /api/ordermanagement/allocate | RunAllocationService: Runs the Allocation Service
 *OrderManagementApi* | [**SweepBlocks**](docs/OrderManagementApi.md#sweepblocks) | **POST** /api/ordermanagement/SweepBlocks | [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful.
 *OrderManagementApi* | [**UpdateOrders**](docs/OrderManagementApi.md#updateorders) | **POST** /api/ordermanagement/updateorders | [EARLY ACCESS] UpdateOrders: Update existing orders
 *OrderManagementApi* | [**UpdatePlacements**](docs/OrderManagementApi.md#updateplacements) | **POST** /api/ordermanagement/$updateplacements | [EARLY ACCESS] UpdatePlacements: Update existing placements
@@ -624,6 +624,7 @@ Class | Method | HTTP request | Description
 *WorkspaceApi* | [**GetWorkspace**](docs/WorkspaceApi.md#getworkspace) | **GET** /api/workspaces/{visibility}/{workspaceName} | [EXPERIMENTAL] GetWorkspace: Get a workspace.
 *WorkspaceApi* | [**ListItems**](docs/WorkspaceApi.md#listitems) | **GET** /api/workspaces/{visibility}/{workspaceName}/items | [EXPERIMENTAL] ListItems: List the items in a workspace.
 *WorkspaceApi* | [**ListWorkspaces**](docs/WorkspaceApi.md#listworkspaces) | **GET** /api/workspaces/{visibility} | [EXPERIMENTAL] ListWorkspaces: List workspaces.
+*WorkspaceApi* | [**SearchItems**](docs/WorkspaceApi.md#searchitems) | **GET** /api/workspaces/{visibility}/items | [EXPERIMENTAL] SearchItems: List items across all workspaces.
 *WorkspaceApi* | [**UpdateItem**](docs/WorkspaceApi.md#updateitem) | **PUT** /api/workspaces/{visibility}/{workspaceName}/items/{groupName}/{itemName} | [EXPERIMENTAL] UpdateItem: Update an item in a workspace.
 *WorkspaceApi* | [**UpdateWorkspace**](docs/WorkspaceApi.md#updateworkspace) | **PUT** /api/workspaces/{visibility}/{workspaceName} | [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
 
@@ -1181,6 +1182,7 @@ Class | Method | HTTP request | Description
  - [IrVolCubeData](docs/IrVolCubeData.md)
  - [IrVolDependency](docs/IrVolDependency.md)
  - [IsBusinessDayResponse](docs/IsBusinessDayResponse.md)
+ - [ItemAndWorkspace](docs/ItemAndWorkspace.md)
  - [JournalEntryLine](docs/JournalEntryLine.md)
  - [JournalEntryLineShareClassBreakdown](docs/JournalEntryLineShareClassBreakdown.md)
  - [JournalEntryLinesQueryParameters](docs/JournalEntryLinesQueryParameters.md)
@@ -1331,6 +1333,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfInstrument](docs/PagedResourceListOfInstrument.md)
  - [PagedResourceListOfInstrumentEventHolder](docs/PagedResourceListOfInstrumentEventHolder.md)
  - [PagedResourceListOfInstrumentEventInstruction](docs/PagedResourceListOfInstrumentEventInstruction.md)
+ - [PagedResourceListOfItemAndWorkspace](docs/PagedResourceListOfItemAndWorkspace.md)
  - [PagedResourceListOfLegalEntity](docs/PagedResourceListOfLegalEntity.md)
  - [PagedResourceListOfOrder](docs/PagedResourceListOfOrder.md)
  - [PagedResourceListOfOrderGraphBlock](docs/PagedResourceListOfOrderGraphBlock.md)

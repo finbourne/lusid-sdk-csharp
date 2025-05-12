@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentId">To indicate the instrument of the transaction that the Journal Entry Line posted for, if applicable. (required).</param>
         /// <param name="instrumentScope">The scope in which the Journal Entry Line instrument is in. (required).</param>
         /// <param name="subHoldingKeys">The sub-holding properties which are part of the AccountingKey..</param>
-        /// <param name="taxLotId">The tax lot Id that the Journal Entry Line is impacting..</param>
+        /// <param name="taxLotId">If the holding type is &#39;B&#39; (settled cash balance), this is 1. Otherwise, this is the ID of a tax lot if applicable, or the source ID of the original transaction if not..</param>
         /// <param name="generalLedgerAccountCode">The code of the account in the general ledger the Journal Entry was posted to. (required).</param>
         /// <param name="local">local (required).</param>
         /// <param name="varBase">varBase (required).</param>
@@ -54,9 +54,9 @@ namespace Lusid.Sdk.Model
         /// <param name="sourceType">So far are 4 types: LusidTxn, LusidValuation, Manual and External. (required).</param>
         /// <param name="sourceId">For the Lusid Source Type this will be the txn Id. For the rest will be what the user populates. (required).</param>
         /// <param name="properties">A set of properties for the Abor..</param>
-        /// <param name="movementName">The name of the movement..</param>
-        /// <param name="holdingType">Defines the broad category holding within the portfolio. (required).</param>
-        /// <param name="economicBucket">Raw Journal Entry Line details of the economic bucket for the Journal Entry Line. (required).</param>
+        /// <param name="movementName">If the JE Line is generated from a transaction, the name of the side in the transaction type&#39;s movement. If from a valuation, this is &#39;MarkToMarket&#39;..</param>
+        /// <param name="holdingType">One of the LUSID holding types such as &#39;P&#39; for position or &#39;B&#39; for settled cash balance. (required).</param>
+        /// <param name="economicBucket">LUSID automatically categorises a JE Line into a broad economic bucket such as &#39;NA_Cost&#39; or &#39;PL_RealPriceGL&#39;. (required).</param>
         /// <param name="economicBucketComponent">Sub bucket of the economic bucket..</param>
         /// <param name="economicBucketVariant">Categorisation of a Mark-to-market journal entry line into LongTerm or ShortTerm based on whether the ActivityDate is more than a year after the purchase trade date or not..</param>
         /// <param name="levels">Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body..</param>
@@ -197,9 +197,9 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> SubHoldingKeys { get; set; }
 
         /// <summary>
-        /// The tax lot Id that the Journal Entry Line is impacting.
+        /// If the holding type is &#39;B&#39; (settled cash balance), this is 1. Otherwise, this is the ID of a tax lot if applicable, or the source ID of the original transaction if not.
         /// </summary>
-        /// <value>The tax lot Id that the Journal Entry Line is impacting.</value>
+        /// <value>If the holding type is &#39;B&#39; (settled cash balance), this is 1. Otherwise, this is the ID of a tax lot if applicable, or the source ID of the original transaction if not.</value>
         [DataMember(Name = "taxLotId", EmitDefaultValue = true)]
         public string TaxLotId { get; set; }
 
@@ -279,23 +279,23 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// The name of the movement.
+        /// If the JE Line is generated from a transaction, the name of the side in the transaction type&#39;s movement. If from a valuation, this is &#39;MarkToMarket&#39;.
         /// </summary>
-        /// <value>The name of the movement.</value>
+        /// <value>If the JE Line is generated from a transaction, the name of the side in the transaction type&#39;s movement. If from a valuation, this is &#39;MarkToMarket&#39;.</value>
         [DataMember(Name = "movementName", EmitDefaultValue = true)]
         public string MovementName { get; set; }
 
         /// <summary>
-        /// Defines the broad category holding within the portfolio.
+        /// One of the LUSID holding types such as &#39;P&#39; for position or &#39;B&#39; for settled cash balance.
         /// </summary>
-        /// <value>Defines the broad category holding within the portfolio.</value>
+        /// <value>One of the LUSID holding types such as &#39;P&#39; for position or &#39;B&#39; for settled cash balance.</value>
         [DataMember(Name = "holdingType", IsRequired = true, EmitDefaultValue = true)]
         public string HoldingType { get; set; }
 
         /// <summary>
-        /// Raw Journal Entry Line details of the economic bucket for the Journal Entry Line.
+        /// LUSID automatically categorises a JE Line into a broad economic bucket such as &#39;NA_Cost&#39; or &#39;PL_RealPriceGL&#39;.
         /// </summary>
-        /// <value>Raw Journal Entry Line details of the economic bucket for the Journal Entry Line.</value>
+        /// <value>LUSID automatically categorises a JE Line into a broad economic bucket such as &#39;NA_Cost&#39; or &#39;PL_RealPriceGL&#39;.</value>
         [DataMember(Name = "economicBucket", IsRequired = true, EmitDefaultValue = true)]
         public string EconomicBucket { get; set; }
 

@@ -4,24 +4,24 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**BookTransactions**](OrderManagementApi.md#booktransactions) | **POST** /api/ordermanagement/booktransactions | [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source. |
+| [**BookTransactions**](OrderManagementApi.md#booktransactions) | **POST** /api/ordermanagement/booktransactions | BookTransactions: Books transactions using specific allocations as a source. |
 | [**CancelOrders**](OrderManagementApi.md#cancelorders) | **POST** /api/ordermanagement/cancelorders | [EARLY ACCESS] CancelOrders: Cancel existing orders |
 | [**CancelOrdersAndMoveRemaining**](OrderManagementApi.md#cancelordersandmoveremaining) | **POST** /api/ordermanagement/cancelordersandmoveremaining | [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks |
 | [**CancelPlacements**](OrderManagementApi.md#cancelplacements) | **POST** /api/ordermanagement/$cancelplacements | [EARLY ACCESS] CancelPlacements: Cancel existing placements |
-| [**CreateOrders**](OrderManagementApi.md#createorders) | **POST** /api/ordermanagement/createorders | [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders |
-| [**GetOrderHistory**](OrderManagementApi.md#getorderhistory) | **GET** /api/ordermanagement/order/{scope}/{code}/$history | [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes |
+| [**CreateOrders**](OrderManagementApi.md#createorders) | **POST** /api/ordermanagement/createorders | CreateOrders: Upsert a Block and associated orders |
+| [**GetOrderHistory**](OrderManagementApi.md#getorderhistory) | **GET** /api/ordermanagement/order/{scope}/{code}/$history | GetOrderHistory: Get the history of an order and related entity changes |
 | [**MoveOrders**](OrderManagementApi.md#moveorders) | **POST** /api/ordermanagement/moveorders | [EARLY ACCESS] MoveOrders: Move orders to new or existing block |
 | [**PlaceBlocks**](OrderManagementApi.md#placeblocks) | **POST** /api/ordermanagement/placeblocks | [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests. |
-| [**RunAllocationService**](OrderManagementApi.md#runallocationservice) | **POST** /api/ordermanagement/allocate | [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service |
+| [**RunAllocationService**](OrderManagementApi.md#runallocationservice) | **POST** /api/ordermanagement/allocate | RunAllocationService: Runs the Allocation Service |
 | [**SweepBlocks**](OrderManagementApi.md#sweepblocks) | **POST** /api/ordermanagement/SweepBlocks | [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful. |
 | [**UpdateOrders**](OrderManagementApi.md#updateorders) | **POST** /api/ordermanagement/updateorders | [EARLY ACCESS] UpdateOrders: Update existing orders |
 | [**UpdatePlacements**](OrderManagementApi.md#updateplacements) | **POST** /api/ordermanagement/$updateplacements | [EARLY ACCESS] UpdatePlacements: Update existing placements |
 
 <a id="booktransactions"></a>
 # **BookTransactions**
-> BookTransactionsResponse BookTransactions (BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = null, bool? markOrdersAndAllocationsAsBooked = null, bool? usePreviewTransactionsForPricing = null)
+> BookTransactionsResponse BookTransactions (BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = null, bool? markOrdersAndAllocationsAsBooked = null)
 
-[EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
+BookTransactions: Books transactions using specific allocations as a source.
 
 Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
 
@@ -67,15 +67,14 @@ namespace Examples
             var bookTransactionsRequest = new BookTransactionsRequest(); // BookTransactionsRequest | The allocations to create transactions for
             var applyFeesAndCommission = true;  // bool? | Whether to apply fees and commissions to transactions (default: true) (optional)  (default to true)
             var markOrdersAndAllocationsAsBooked = false;  // bool? | Whether to mark allocations and fully-booked orders with state Booked (optional)  (default to false)
-            var usePreviewTransactionsForPricing = true;  // bool? | Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional)  (default to true)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // BookTransactionsResponse result = apiInstance.BookTransactions(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked, usePreviewTransactionsForPricing, opts: opts);
+                // BookTransactionsResponse result = apiInstance.BookTransactions(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked, opts: opts);
 
-                // [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
-                BookTransactionsResponse result = apiInstance.BookTransactions(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked, usePreviewTransactionsForPricing);
+                // BookTransactions: Books transactions using specific allocations as a source.
+                BookTransactionsResponse result = apiInstance.BookTransactions(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -95,8 +94,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
-    ApiResponse<BookTransactionsResponse> response = apiInstance.BookTransactionsWithHttpInfo(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked, usePreviewTransactionsForPricing);
+    // BookTransactions: Books transactions using specific allocations as a source.
+    ApiResponse<BookTransactionsResponse> response = apiInstance.BookTransactionsWithHttpInfo(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -116,7 +115,6 @@ catch (ApiException e)
 | **bookTransactionsRequest** | [**BookTransactionsRequest**](BookTransactionsRequest.md) | The allocations to create transactions for |  |
 | **applyFeesAndCommission** | **bool?** | Whether to apply fees and commissions to transactions (default: true) | [optional] [default to true] |
 | **markOrdersAndAllocationsAsBooked** | **bool?** | Whether to mark allocations and fully-booked orders with state Booked | [optional] [default to false] |
-| **usePreviewTransactionsForPricing** | **bool?** | Whether to use calculators for the transaction type to work out pricing fields on the booked transactions | [optional] [default to true] |
 
 ### Return type
 
@@ -483,9 +481,9 @@ catch (ApiException e)
 # **CreateOrders**
 > ResourceListOfBlockAndOrders CreateOrders (BlockAndOrdersCreateRequest blockAndOrdersCreateRequest)
 
-[EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
+CreateOrders: Upsert a Block and associated orders
 
-Upsert a Block and create associated orders.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+Create orders, and blocks if they don't already exist.  This will fail if the block exists and already references orders with differing blocking fields.
 
 ### Example
 ```csharp
@@ -533,7 +531,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfBlockAndOrders result = apiInstance.CreateOrders(blockAndOrdersCreateRequest, opts: opts);
 
-                // [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
+                // CreateOrders: Upsert a Block and associated orders
                 ResourceListOfBlockAndOrders result = apiInstance.CreateOrders(blockAndOrdersCreateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -554,7 +552,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
+    // CreateOrders: Upsert a Block and associated orders
     ApiResponse<ResourceListOfBlockAndOrders> response = apiInstance.CreateOrdersWithHttpInfo(blockAndOrdersCreateRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -597,7 +595,7 @@ catch (ApiException e)
 # **GetOrderHistory**
 > ResourceListOfChangeIntervalWithOrderManagementDetail GetOrderHistory (string scope, string code, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
+GetOrderHistory: Get the history of an order and related entity changes
 
 Get the changes that have happened to an order and related entities.
 
@@ -649,7 +647,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfChangeIntervalWithOrderManagementDetail result = apiInstance.GetOrderHistory(scope, code, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
+                // GetOrderHistory: Get the history of an order and related entity changes
                 ResourceListOfChangeIntervalWithOrderManagementDetail result = apiInstance.GetOrderHistory(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -670,7 +668,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
+    // GetOrderHistory: Get the history of an order and related entity changes
     ApiResponse<ResourceListOfChangeIntervalWithOrderManagementDetail> response = apiInstance.GetOrderHistoryWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -944,9 +942,9 @@ catch (ApiException e)
 # **RunAllocationService**
 > AllocationServiceRunResponse RunAllocationService (List<ResourceId> resourceId, string? allocationAlgorithm = null)
 
-[EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
+RunAllocationService: Runs the Allocation Service
 
-This will allocate executions for a given list of placements back to their originating orders.
+Allocates Executions for a given list of placements back to their originating orders using one of the LUSID algorithms, creating Allocations to record the results.
 
 ### Example
 ```csharp
@@ -987,7 +985,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrderManagementApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
-            var resourceId = new List<ResourceId>(); // List<ResourceId> | The List of Placement IDs for which you wish to allocate executions.
+            var resourceId = new List<ResourceId>(); // List<ResourceId> | The List of Placement IDs for which you wish to allocate Executions.
             var allocationAlgorithm = "allocationAlgorithm_example";  // string? | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \"PR-FIFO\".  This defaults to \"PR-FIFO\". (optional) 
 
             try
@@ -995,7 +993,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // AllocationServiceRunResponse result = apiInstance.RunAllocationService(resourceId, allocationAlgorithm, opts: opts);
 
-                // [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
+                // RunAllocationService: Runs the Allocation Service
                 AllocationServiceRunResponse result = apiInstance.RunAllocationService(resourceId, allocationAlgorithm);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1016,7 +1014,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
+    // RunAllocationService: Runs the Allocation Service
     ApiResponse<AllocationServiceRunResponse> response = apiInstance.RunAllocationServiceWithHttpInfo(resourceId, allocationAlgorithm);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1034,7 +1032,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **resourceId** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The List of Placement IDs for which you wish to allocate executions. |  |
+| **resourceId** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The List of Placement IDs for which you wish to allocate Executions. |  |
 | **allocationAlgorithm** | **string?** | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. | [optional]  |
 
 ### Return type
@@ -1050,7 +1048,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The results from a run of the Allocation Service |  -  |
+| **200** | A list of Allocations |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

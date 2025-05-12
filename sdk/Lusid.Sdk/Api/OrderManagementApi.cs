@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
+        /// BookTransactions: Books transactions using specific allocations as a source.
         /// </summary>
         /// <remarks>
         /// Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
@@ -41,14 +41,13 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BookTransactionsResponse</returns>
-        BookTransactionsResponse BookTransactions(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), bool? usePreviewTransactionsForPricing = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        BookTransactionsResponse BookTransactions(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
+        /// BookTransactions: Books transactions using specific allocations as a source.
         /// </summary>
         /// <remarks>
         /// Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
@@ -57,11 +56,10 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BookTransactionsResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), bool? usePreviewTransactionsForPricing = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CancelOrders: Cancel existing orders
         /// </summary>
@@ -138,10 +136,10 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of CancelPlacementsResponse</returns>
         Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse> CancelPlacementsWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
+        /// CreateOrders: Upsert a Block and associated orders
         /// </summary>
         /// <remarks>
-        /// Upsert a Block and create associated orders.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -151,10 +149,10 @@ namespace Lusid.Sdk.Api
         ResourceListOfBlockAndOrders CreateOrders(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
+        /// CreateOrders: Upsert a Block and associated orders
         /// </summary>
         /// <remarks>
-        /// Upsert a Block and create associated orders.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -163,7 +161,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfBlockAndOrders</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfBlockAndOrders> CreateOrdersWithHttpInfo(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
+        /// GetOrderHistory: Get the history of an order and related entity changes
         /// </summary>
         /// <remarks>
         /// Get the changes that have happened to an order and related entities.
@@ -178,7 +176,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfChangeIntervalWithOrderManagementDetail GetOrderHistory(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
+        /// GetOrderHistory: Get the history of an order and related entity changes
         /// </summary>
         /// <remarks>
         /// Get the changes that have happened to an order and related entities.
@@ -242,13 +240,13 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfPlacement</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement> PlaceBlocksWithHttpInfo(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
+        /// RunAllocationService: Runs the Allocation Service
         /// </summary>
         /// <remarks>
-        /// This will allocate executions for a given list of placements back to their originating orders.
+        /// Allocates Executions for a given list of placements back to their originating orders using one of the LUSID algorithms, creating Allocations to record the results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate executions.</param>
+        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -256,13 +254,13 @@ namespace Lusid.Sdk.Api
         AllocationServiceRunResponse RunAllocationService(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
+        /// RunAllocationService: Runs the Allocation Service
         /// </summary>
         /// <remarks>
-        /// This will allocate executions for a given list of placements back to their originating orders.
+        /// Allocates Executions for a given list of placements back to their originating orders using one of the LUSID algorithms, creating Allocations to record the results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate executions.</param>
+        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -353,7 +351,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
+        /// BookTransactions: Books transactions using specific allocations as a source.
         /// </summary>
         /// <remarks>
         /// Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
@@ -362,15 +360,14 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BookTransactionsResponse</returns>
-        System.Threading.Tasks.Task<BookTransactionsResponse> BookTransactionsAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), bool? usePreviewTransactionsForPricing = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<BookTransactionsResponse> BookTransactionsAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
+        /// BookTransactions: Books transactions using specific allocations as a source.
         /// </summary>
         /// <remarks>
         /// Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
@@ -379,12 +376,11 @@ namespace Lusid.Sdk.Api
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BookTransactionsResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), bool? usePreviewTransactionsForPricing = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CancelOrders: Cancel existing orders
         /// </summary>
@@ -467,10 +463,10 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (CancelPlacementsResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse>> CancelPlacementsWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
+        /// CreateOrders: Upsert a Block and associated orders
         /// </summary>
         /// <remarks>
-        /// Upsert a Block and create associated orders.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -481,10 +477,10 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfBlockAndOrders> CreateOrdersAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
+        /// CreateOrders: Upsert a Block and associated orders
         /// </summary>
         /// <remarks>
-        /// Upsert a Block and create associated orders.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -494,7 +490,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfBlockAndOrders)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfBlockAndOrders>> CreateOrdersWithHttpInfoAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
+        /// GetOrderHistory: Get the history of an order and related entity changes
         /// </summary>
         /// <remarks>
         /// Get the changes that have happened to an order and related entities.
@@ -510,7 +506,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfChangeIntervalWithOrderManagementDetail> GetOrderHistoryAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes
+        /// GetOrderHistory: Get the history of an order and related entity changes
         /// </summary>
         /// <remarks>
         /// Get the changes that have happened to an order and related entities.
@@ -579,13 +575,13 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfPlacement)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement>> PlaceBlocksWithHttpInfoAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
+        /// RunAllocationService: Runs the Allocation Service
         /// </summary>
         /// <remarks>
-        /// This will allocate executions for a given list of placements back to their originating orders.
+        /// Allocates Executions for a given list of placements back to their originating orders using one of the LUSID algorithms, creating Allocations to record the results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate executions.</param>
+        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -594,13 +590,13 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AllocationServiceRunResponse> RunAllocationServiceAsync(List<ResourceId> resourceId, string? allocationAlgorithm = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
+        /// RunAllocationService: Runs the Allocation Service
         /// </summary>
         /// <remarks>
-        /// This will allocate executions for a given list of placements back to their originating orders.
+        /// Allocates Executions for a given list of placements back to their originating orders using one of the LUSID algorithms, creating Allocations to record the results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate executions.</param>
+        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -812,34 +808,32 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source. Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
+        /// BookTransactions: Books transactions using specific allocations as a source. Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BookTransactionsResponse</returns>
-        public BookTransactionsResponse BookTransactions(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), bool? usePreviewTransactionsForPricing = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public BookTransactionsResponse BookTransactions(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> localVarResponse = BookTransactionsWithHttpInfo(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked, usePreviewTransactionsForPricing, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> localVarResponse = BookTransactionsWithHttpInfo(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source. Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
+        /// BookTransactions: Books transactions using specific allocations as a source. Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BookTransactionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), bool? usePreviewTransactionsForPricing = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'bookTransactionsRequest' is set
             if (bookTransactionsRequest == null)
@@ -893,10 +887,6 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "markOrdersAndAllocationsAsBooked", markOrdersAndAllocationsAsBooked));
             }
-            if (usePreviewTransactionsForPricing != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "usePreviewTransactionsForPricing", usePreviewTransactionsForPricing));
-            }
             localVarRequestOptions.Data = bookTransactionsRequest;
 
             localVarRequestOptions.Operation = "OrderManagementApi.BookTransactions";
@@ -934,36 +924,34 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source. Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
+        /// BookTransactions: Books transactions using specific allocations as a source. Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BookTransactionsResponse</returns>
-        public async System.Threading.Tasks.Task<BookTransactionsResponse> BookTransactionsAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), bool? usePreviewTransactionsForPricing = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<BookTransactionsResponse> BookTransactionsAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> localVarResponse = await BookTransactionsWithHttpInfoAsync(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked, usePreviewTransactionsForPricing, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> localVarResponse = await BookTransactionsWithHttpInfoAsync(bookTransactionsRequest, applyFeesAndCommission, markOrdersAndAllocationsAsBooked, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source. Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
+        /// BookTransactions: Books transactions using specific allocations as a source. Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="markOrdersAndAllocationsAsBooked">Whether to mark allocations and fully-booked orders with state Booked (optional, default to false)</param>
-        /// <param name="usePreviewTransactionsForPricing">Whether to use calculators for the transaction type to work out pricing fields on the booked transactions (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BookTransactionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), bool? usePreviewTransactionsForPricing = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), bool? markOrdersAndAllocationsAsBooked = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'bookTransactionsRequest' is set
             if (bookTransactionsRequest == null)
@@ -1017,10 +1005,6 @@ namespace Lusid.Sdk.Api
             if (markOrdersAndAllocationsAsBooked != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "markOrdersAndAllocationsAsBooked", markOrdersAndAllocationsAsBooked));
-            }
-            if (usePreviewTransactionsForPricing != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "usePreviewTransactionsForPricing", usePreviewTransactionsForPricing));
             }
             localVarRequestOptions.Data = bookTransactionsRequest;
 
@@ -1696,7 +1680,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders Upsert a Block and create associated orders.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -1710,7 +1694,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders Upsert a Block and create associated orders.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -1800,7 +1784,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders Upsert a Block and create associated orders.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -1815,7 +1799,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders Upsert a Block and create associated orders.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -1908,7 +1892,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes Get the changes that have happened to an order and related entities.
+        /// GetOrderHistory: Get the history of an order and related entity changes Get the changes that have happened to an order and related entities.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
@@ -1924,7 +1908,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes Get the changes that have happened to an order and related entities.
+        /// GetOrderHistory: Get the history of an order and related entity changes Get the changes that have happened to an order and related entities.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
@@ -2023,7 +2007,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes Get the changes that have happened to an order and related entities.
+        /// GetOrderHistory: Get the history of an order and related entity changes Get the changes that have happened to an order and related entities.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
@@ -2040,7 +2024,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetOrderHistory: Get the history of an order and related entity changes Get the changes that have happened to an order and related entities.
+        /// GetOrderHistory: Get the history of an order and related entity changes Get the changes that have happened to an order and related entities.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
@@ -2554,10 +2538,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service This will allocate executions for a given list of placements back to their originating orders.
+        /// RunAllocationService: Runs the Allocation Service Allocates Executions for a given list of placements back to their originating orders using one of the LUSID algorithms, creating Allocations to record the results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate executions.</param>
+        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2569,10 +2553,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service This will allocate executions for a given list of placements back to their originating orders.
+        /// RunAllocationService: Runs the Allocation Service Allocates Executions for a given list of placements back to their originating orders using one of the LUSID algorithms, creating Allocations to record the results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate executions.</param>
+        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2664,10 +2648,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service This will allocate executions for a given list of placements back to their originating orders.
+        /// RunAllocationService: Runs the Allocation Service Allocates Executions for a given list of placements back to their originating orders using one of the LUSID algorithms, creating Allocations to record the results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate executions.</param>
+        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2680,10 +2664,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service This will allocate executions for a given list of placements back to their originating orders.
+        /// RunAllocationService: Runs the Allocation Service Allocates Executions for a given list of placements back to their originating orders using one of the LUSID algorithms, creating Allocations to record the results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate executions.</param>
+        /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
         /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
