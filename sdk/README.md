@@ -28,6 +28,10 @@ Class | Method | HTTP request | Description
 *AddressKeyDefinitionApi* | [**CreateAddressKeyDefinition**](docs/AddressKeyDefinitionApi.md#createaddresskeydefinition) | **POST** /api/addresskeydefinitions | [EARLY ACCESS] CreateAddressKeyDefinition: Create an AddressKeyDefinition.
 *AddressKeyDefinitionApi* | [**GetAddressKeyDefinition**](docs/AddressKeyDefinitionApi.md#getaddresskeydefinition) | **GET** /api/addresskeydefinitions/{key} | [EARLY ACCESS] GetAddressKeyDefinition: Get an AddressKeyDefinition.
 *AddressKeyDefinitionApi* | [**ListAddressKeyDefinitions**](docs/AddressKeyDefinitionApi.md#listaddresskeydefinitions) | **GET** /api/addresskeydefinitions | [EARLY ACCESS] ListAddressKeyDefinitions: List AddressKeyDefinitions.
+*AggregatedReturnsApi* | [**DeleteReturnsEntity**](docs/AggregatedReturnsApi.md#deletereturnsentity) | **DELETE** /api/returns/{scope}/{code} | [EXPERIMENTAL] DeleteReturnsEntity: Delete returns entity.
+*AggregatedReturnsApi* | [**GetReturnsEntity**](docs/AggregatedReturnsApi.md#getreturnsentity) | **GET** /api/returns/{scope}/{code} | [EXPERIMENTAL] GetReturnsEntity: Get returns entity.
+*AggregatedReturnsApi* | [**ListReturnsEntities**](docs/AggregatedReturnsApi.md#listreturnsentities) | **GET** /api/returns | [EXPERIMENTAL] ListReturnsEntities: List returns entities.
+*AggregatedReturnsApi* | [**UpsertReturnsEntity**](docs/AggregatedReturnsApi.md#upsertreturnsentity) | **POST** /api/returns | [EXPERIMENTAL] UpsertReturnsEntity: Upsert returns entity.
 *AggregationApi* | [**GenerateConfigurationRecipe**](docs/AggregationApi.md#generateconfigurationrecipe) | **POST** /api/aggregation/{scope}/{code}/$generateconfigurationrecipe | [EXPERIMENTAL] GenerateConfigurationRecipe: Generates a recipe sufficient to perform valuations for the given portfolio.
 *AggregationApi* | [**GetQueryableKeys**](docs/AggregationApi.md#getqueryablekeys) | **GET** /api/results/queryable/keys | GetQueryableKeys: Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.
 *AggregationApi* | [**GetValuation**](docs/AggregationApi.md#getvaluation) | **POST** /api/aggregation/$valuation | GetValuation: Perform valuation for a list of portfolios and/or portfolio groups
@@ -342,6 +346,7 @@ Class | Method | HTTP request | Description
 *OrderManagementApi* | [**MoveOrders**](docs/OrderManagementApi.md#moveorders) | **POST** /api/ordermanagement/moveorders | [EARLY ACCESS] MoveOrders: Move orders to new or existing block
 *OrderManagementApi* | [**PlaceBlocks**](docs/OrderManagementApi.md#placeblocks) | **POST** /api/ordermanagement/placeblocks | [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
 *OrderManagementApi* | [**RunAllocationService**](docs/OrderManagementApi.md#runallocationservice) | **POST** /api/ordermanagement/allocate | [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
+*OrderManagementApi* | [**SweepBlocks**](docs/OrderManagementApi.md#sweepblocks) | **POST** /api/ordermanagement/SweepBlocks | [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful.
 *OrderManagementApi* | [**UpdateOrders**](docs/OrderManagementApi.md#updateorders) | **POST** /api/ordermanagement/updateorders | [EARLY ACCESS] UpdateOrders: Update existing orders
 *OrderManagementApi* | [**UpdatePlacements**](docs/OrderManagementApi.md#updateplacements) | **POST** /api/ordermanagement/$updateplacements | [EARLY ACCESS] UpdatePlacements: Update existing placements
 *OrdersApi* | [**DeleteOrder**](docs/OrdersApi.md#deleteorder) | **DELETE** /api/orders/{scope}/{code} | [EARLY ACCESS] DeleteOrder: Delete order
@@ -1556,6 +1561,7 @@ Class | Method | HTTP request | Description
  - [ResourceListOfReconciliationBreak](docs/ResourceListOfReconciliationBreak.md)
  - [ResourceListOfRelation](docs/ResourceListOfRelation.md)
  - [ResourceListOfRelationship](docs/ResourceListOfRelationship.md)
+ - [ResourceListOfReturnsEntity](docs/ResourceListOfReturnsEntity.md)
  - [ResourceListOfScopeDefinition](docs/ResourceListOfScopeDefinition.md)
  - [ResourceListOfSideDefinition](docs/ResourceListOfSideDefinition.md)
  - [ResourceListOfString](docs/ResourceListOfString.md)
@@ -1579,6 +1585,7 @@ Class | Method | HTTP request | Description
  - [ResultValueString](docs/ResultValueString.md)
  - [ResultValueType](docs/ResultValueType.md)
  - [ReturnZeroPvOptions](docs/ReturnZeroPvOptions.md)
+ - [ReturnsEntity](docs/ReturnsEntity.md)
  - [ReverseStockSplitEvent](docs/ReverseStockSplitEvent.md)
  - [RolloverConstituent](docs/RolloverConstituent.md)
  - [RoundingConfiguration](docs/RoundingConfiguration.md)
@@ -1647,6 +1654,8 @@ Class | Method | HTTP request | Description
  - [SubHoldingKeyValueEquals](docs/SubHoldingKeyValueEquals.md)
  - [SwapCashFlowEvent](docs/SwapCashFlowEvent.md)
  - [SwapPrincipalEvent](docs/SwapPrincipalEvent.md)
+ - [SweepBlocksRequest](docs/SweepBlocksRequest.md)
+ - [SweepBlocksResponse](docs/SweepBlocksResponse.md)
  - [TargetTaxLot](docs/TargetTaxLot.md)
  - [TargetTaxLotRequest](docs/TargetTaxLotRequest.md)
  - [TaxRule](docs/TaxRule.md)
