@@ -32,6 +32,35 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// DeleteInvestorRecord: Delete Investor Record
+        /// </summary>
+        /// <remarks>
+        /// Delete an investor record. Deletion will be valid from the investor record&#39;s creation datetime.  This means that the investor record will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="idTypeScope">The scope of the investor record identifier type.</param>
+        /// <param name="idTypeCode">The code of the investor record identifier type.</param>
+        /// <param name="code">Code of the investor record under specified identifier type&#39;s scope and code. This together with defined              identifier type uniquely identifies the investor record to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteInvestorRecord(string idTypeScope, string idTypeCode, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// DeleteInvestorRecord: Delete Investor Record
+        /// </summary>
+        /// <remarks>
+        /// Delete an investor record. Deletion will be valid from the investor record&#39;s creation datetime.  This means that the investor record will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="idTypeScope">The scope of the investor record identifier type.</param>
+        /// <param name="idTypeCode">The code of the investor record identifier type.</param>
+        /// <param name="code">Code of the investor record under specified identifier type&#39;s scope and code. This together with defined              identifier type uniquely identifies the investor record to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteInvestorRecordWithHttpInfo(string idTypeScope, string idTypeCode, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] GetInvestorRecord: Get Investor Record
         /// </summary>
         /// <remarks>
@@ -104,6 +133,37 @@ namespace Lusid.Sdk.Api
     public interface IInvestorRecordsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// DeleteInvestorRecord: Delete Investor Record
+        /// </summary>
+        /// <remarks>
+        /// Delete an investor record. Deletion will be valid from the investor record&#39;s creation datetime.  This means that the investor record will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="idTypeScope">The scope of the investor record identifier type.</param>
+        /// <param name="idTypeCode">The code of the investor record identifier type.</param>
+        /// <param name="code">Code of the investor record under specified identifier type&#39;s scope and code. This together with defined              identifier type uniquely identifies the investor record to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteInvestorRecordAsync(string idTypeScope, string idTypeCode, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// DeleteInvestorRecord: Delete Investor Record
+        /// </summary>
+        /// <remarks>
+        /// Delete an investor record. Deletion will be valid from the investor record&#39;s creation datetime.  This means that the investor record will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="idTypeScope">The scope of the investor record identifier type.</param>
+        /// <param name="idTypeCode">The code of the investor record identifier type.</param>
+        /// <param name="code">Code of the investor record under specified identifier type&#39;s scope and code. This together with defined              identifier type uniquely identifies the investor record to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteInvestorRecordWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetInvestorRecord: Get Investor Record
         /// </summary>
@@ -293,6 +353,246 @@ namespace Lusid.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// DeleteInvestorRecord: Delete Investor Record Delete an investor record. Deletion will be valid from the investor record&#39;s creation datetime.  This means that the investor record will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="idTypeScope">The scope of the investor record identifier type.</param>
+        /// <param name="idTypeCode">The code of the investor record identifier type.</param>
+        /// <param name="code">Code of the investor record under specified identifier type&#39;s scope and code. This together with defined              identifier type uniquely identifies the investor record to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteInvestorRecord(string idTypeScope, string idTypeCode, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteInvestorRecordWithHttpInfo(idTypeScope, idTypeCode, code, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// DeleteInvestorRecord: Delete Investor Record Delete an investor record. Deletion will be valid from the investor record&#39;s creation datetime.  This means that the investor record will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="idTypeScope">The scope of the investor record identifier type.</param>
+        /// <param name="idTypeCode">The code of the investor record identifier type.</param>
+        /// <param name="code">Code of the investor record under specified identifier type&#39;s scope and code. This together with defined              identifier type uniquely identifies the investor record to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteInvestorRecordWithHttpInfo(string idTypeScope, string idTypeCode, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'idTypeScope' is set
+            if (idTypeScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'idTypeScope' when calling InvestorRecordsApi->DeleteInvestorRecord");
+            }
+
+            // verify the required parameter 'idTypeCode' is set
+            if (idTypeCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'idTypeCode' when calling InvestorRecordsApi->DeleteInvestorRecord");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling InvestorRecordsApi->DeleteInvestorRecord");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("idTypeScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(idTypeScope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("idTypeCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(idTypeCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+
+            localVarRequestOptions.Operation = "InvestorRecordsApi.DeleteInvestorRecord";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/investorrecords/{idTypeScope}/{idTypeCode}/{code}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteInvestorRecord", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// DeleteInvestorRecord: Delete Investor Record Delete an investor record. Deletion will be valid from the investor record&#39;s creation datetime.  This means that the investor record will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="idTypeScope">The scope of the investor record identifier type.</param>
+        /// <param name="idTypeCode">The code of the investor record identifier type.</param>
+        /// <param name="code">Code of the investor record under specified identifier type&#39;s scope and code. This together with defined              identifier type uniquely identifies the investor record to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteInvestorRecordAsync(string idTypeScope, string idTypeCode, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteInvestorRecordWithHttpInfoAsync(idTypeScope, idTypeCode, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// DeleteInvestorRecord: Delete Investor Record Delete an investor record. Deletion will be valid from the investor record&#39;s creation datetime.  This means that the investor record will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="idTypeScope">The scope of the investor record identifier type.</param>
+        /// <param name="idTypeCode">The code of the investor record identifier type.</param>
+        /// <param name="code">Code of the investor record under specified identifier type&#39;s scope and code. This together with defined              identifier type uniquely identifies the investor record to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteInvestorRecordWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'idTypeScope' is set
+            if (idTypeScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'idTypeScope' when calling InvestorRecordsApi->DeleteInvestorRecord");
+            }
+
+            // verify the required parameter 'idTypeCode' is set
+            if (idTypeCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'idTypeCode' when calling InvestorRecordsApi->DeleteInvestorRecord");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling InvestorRecordsApi->DeleteInvestorRecord");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("idTypeScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(idTypeScope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("idTypeCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(idTypeCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+
+            localVarRequestOptions.Operation = "InvestorRecordsApi.DeleteInvestorRecord";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/investorrecords/{idTypeScope}/{idTypeCode}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteInvestorRecord", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

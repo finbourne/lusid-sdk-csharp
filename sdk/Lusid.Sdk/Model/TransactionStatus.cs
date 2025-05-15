@@ -44,7 +44,25 @@ namespace Lusid.Sdk.Model
         /// Enum Cancelled for value: Cancelled
         /// </summary>
         [EnumMember(Value = "Cancelled")]
-        Cancelled = 3
+        Cancelled = 3,
+
+        /// <summary>
+        /// Enum ActiveReversal for value: ActiveReversal
+        /// </summary>
+        [EnumMember(Value = "ActiveReversal")]
+        ActiveReversal = 4,
+
+        /// <summary>
+        /// Enum ActiveTrueUp for value: ActiveTrueUp
+        /// </summary>
+        [EnumMember(Value = "ActiveTrueUp")]
+        ActiveTrueUp = 5,
+
+        /// <summary>
+        /// Enum CancelledTrueUp for value: CancelledTrueUp
+        /// </summary>
+        [EnumMember(Value = "CancelledTrueUp")]
+        CancelledTrueUp = 6
     }
 
 }

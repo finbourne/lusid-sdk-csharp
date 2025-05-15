@@ -67,7 +67,9 @@ namespace Lusid.Sdk.Model
         /// <param name="endDate">The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions. (required).</param>
         /// <param name="queryMode">The date to compare against the upper and lower bounds for the effective datetime or cut label. Defaults to &#39;TradeDate&#39; if not specified. The available values are: TradeDate, SettleDate.</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions in the output. Defaults to False if not specified..</param>
-        public TransactionQueryParameters(DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), QueryModeEnum ?queryMode = default(QueryModeEnum?), bool showCancelledTransactions = default(bool))
+        /// <param name="timelineScope">Scope of the Timeline for the Portfolio. The Timeline to be used while building transactions.</param>
+        /// <param name="timelineCode">Code of the Timeline for the Portfolio. The Timeline to be used while building transactions.</param>
+        public TransactionQueryParameters(DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), QueryModeEnum ?queryMode = default(QueryModeEnum?), bool showCancelledTransactions = default(bool), string timelineScope = default(string), string timelineCode = default(string))
         {
             // to ensure "startDate" is required (not null)
             if (startDate == null)
@@ -83,6 +85,8 @@ namespace Lusid.Sdk.Model
             this.EndDate = endDate;
             this.QueryMode = queryMode;
             this.ShowCancelledTransactions = showCancelledTransactions;
+            this.TimelineScope = timelineScope;
+            this.TimelineCode = timelineCode;
         }
 
         /// <summary>
@@ -107,6 +111,20 @@ namespace Lusid.Sdk.Model
         public bool ShowCancelledTransactions { get; set; }
 
         /// <summary>
+        /// Scope of the Timeline for the Portfolio. The Timeline to be used while building transactions
+        /// </summary>
+        /// <value>Scope of the Timeline for the Portfolio. The Timeline to be used while building transactions</value>
+        [DataMember(Name = "timelineScope", EmitDefaultValue = true)]
+        public string TimelineScope { get; set; }
+
+        /// <summary>
+        /// Code of the Timeline for the Portfolio. The Timeline to be used while building transactions
+        /// </summary>
+        /// <value>Code of the Timeline for the Portfolio. The Timeline to be used while building transactions</value>
+        [DataMember(Name = "timelineCode", EmitDefaultValue = true)]
+        public string TimelineCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -118,6 +136,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  QueryMode: ").Append(QueryMode).Append("\n");
             sb.Append("  ShowCancelledTransactions: ").Append(ShowCancelledTransactions).Append("\n");
+            sb.Append("  TimelineScope: ").Append(TimelineScope).Append("\n");
+            sb.Append("  TimelineCode: ").Append(TimelineCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,6 +190,16 @@ namespace Lusid.Sdk.Model
                 (
                     this.ShowCancelledTransactions == input.ShowCancelledTransactions ||
                     this.ShowCancelledTransactions.Equals(input.ShowCancelledTransactions)
+                ) && 
+                (
+                    this.TimelineScope == input.TimelineScope ||
+                    (this.TimelineScope != null &&
+                    this.TimelineScope.Equals(input.TimelineScope))
+                ) && 
+                (
+                    this.TimelineCode == input.TimelineCode ||
+                    (this.TimelineCode != null &&
+                    this.TimelineCode.Equals(input.TimelineCode))
                 );
         }
 
@@ -192,6 +222,14 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.QueryMode.GetHashCode();
                 hashCode = (hashCode * 59) + this.ShowCancelledTransactions.GetHashCode();
+                if (this.TimelineScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimelineScope.GetHashCode();
+                }
+                if (this.TimelineCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimelineCode.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -213,6 +251,44 @@ namespace Lusid.Sdk.Model
             if (this.EndDate != null && this.EndDate.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EndDate, length must be greater than 1.", new [] { "EndDate" });
+            }
+
+            // TimelineScope (string) maxLength
+            if (this.TimelineScope != null && this.TimelineScope.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineScope, length must be less than 64.", new [] { "TimelineScope" });
+            }
+
+            // TimelineScope (string) minLength
+            if (this.TimelineScope != null && this.TimelineScope.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineScope, length must be greater than 1.", new [] { "TimelineScope" });
+            }
+
+            // TimelineScope (string) pattern
+            Regex regexTimelineScope = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexTimelineScope.Match(this.TimelineScope).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineScope, must match a pattern of " + regexTimelineScope, new [] { "TimelineScope" });
+            }
+
+            // TimelineCode (string) maxLength
+            if (this.TimelineCode != null && this.TimelineCode.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineCode, length must be less than 64.", new [] { "TimelineCode" });
+            }
+
+            // TimelineCode (string) minLength
+            if (this.TimelineCode != null && this.TimelineCode.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineCode, length must be greater than 1.", new [] { "TimelineCode" });
+            }
+
+            // TimelineCode (string) pattern
+            Regex regexTimelineCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexTimelineCode.Match(this.TimelineCode).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineCode, must match a pattern of " + regexTimelineCode, new [] { "TimelineCode" });
             }
 
             yield break;

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Set of unique transaction properties and associated values to stored with the transaction. Each property will be from the &#39;Transaction&#39; domain. | [optional] 
 **CounterpartyId** | **string** | The identifier for the counterparty of the transaction. | [optional] 
 **Source** | **string** | The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration. | [optional] 
-**TransactionStatus** | **string** | The status of the transaction. The available values are: Active, Amended, Cancelled | [optional] 
+**TransactionStatus** | **string** | The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp | [optional] 
 **EntryDateTime** | **DateTimeOffset** | The asAt datetime that the transaction was added to LUSID. | [optional] 
 **CancelDateTime** | **DateTimeOffset?** | If the transaction has been cancelled, the asAt datetime that the transaction was cancelled. | [optional] 
 **RealisedGainLoss** | [**List&lt;RealisedGainLoss&gt;**](RealisedGainLoss.md) | The collection of realised gains or losses resulting from relevant transactions e.g. a sale transaction. The cost used in calculating the realised gain or loss is determined by the accounting method defined when the transaction portfolio is created. | [optional] 
@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **OtcConfirmation** | [**OtcConfirmation**](OtcConfirmation.md) |  | [optional] 
 **OrderId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AllocationId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**AccountingDate** | **DateTimeOffset?** | The accounting date of the transaction. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

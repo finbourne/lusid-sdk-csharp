@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class OutputTransaction : IEquatable<OutputTransaction>, IValidatableObject
     {
         /// <summary>
-        /// The status of the transaction. The available values are: Active, Amended, Cancelled
+        /// The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp
         /// </summary>
-        /// <value>The status of the transaction. The available values are: Active, Amended, Cancelled</value>
+        /// <value>The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TransactionStatusEnum
         {
@@ -51,14 +51,32 @@ namespace Lusid.Sdk.Model
             /// Enum Cancelled for value: Cancelled
             /// </summary>
             [EnumMember(Value = "Cancelled")]
-            Cancelled = 3
+            Cancelled = 3,
+
+            /// <summary>
+            /// Enum ActiveReversal for value: ActiveReversal
+            /// </summary>
+            [EnumMember(Value = "ActiveReversal")]
+            ActiveReversal = 4,
+
+            /// <summary>
+            /// Enum ActiveTrueUp for value: ActiveTrueUp
+            /// </summary>
+            [EnumMember(Value = "ActiveTrueUp")]
+            ActiveTrueUp = 5,
+
+            /// <summary>
+            /// Enum CancelledTrueUp for value: CancelledTrueUp
+            /// </summary>
+            [EnumMember(Value = "CancelledTrueUp")]
+            CancelledTrueUp = 6
         }
 
 
         /// <summary>
-        /// The status of the transaction. The available values are: Active, Amended, Cancelled
+        /// The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp
         /// </summary>
-        /// <value>The status of the transaction. The available values are: Active, Amended, Cancelled</value>
+        /// <value>The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp</value>
         [DataMember(Name = "transactionStatus", EmitDefaultValue = false)]
         public TransactionStatusEnum? TransactionStatus { get; set; }
         /// <summary>
@@ -87,7 +105,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Set of unique transaction properties and associated values to stored with the transaction. Each property will be from the &#39;Transaction&#39; domain..</param>
         /// <param name="counterpartyId">The identifier for the counterparty of the transaction..</param>
         /// <param name="source">The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration..</param>
-        /// <param name="transactionStatus">The status of the transaction. The available values are: Active, Amended, Cancelled.</param>
+        /// <param name="transactionStatus">The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp.</param>
         /// <param name="entryDateTime">The asAt datetime that the transaction was added to LUSID..</param>
         /// <param name="cancelDateTime">If the transaction has been cancelled, the asAt datetime that the transaction was cancelled..</param>
         /// <param name="realisedGainLoss">The collection of realised gains or losses resulting from relevant transactions e.g. a sale transaction. The cost used in calculating the realised gain or loss is determined by the accounting method defined when the transaction portfolio is created..</param>
@@ -101,7 +119,8 @@ namespace Lusid.Sdk.Model
         /// <param name="otcConfirmation">otcConfirmation.</param>
         /// <param name="orderId">orderId.</param>
         /// <param name="allocationId">allocationId.</param>
-        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId))
+        /// <param name="accountingDate">The accounting date of the transaction..</param>
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), DateTimeOffset? accountingDate = default(DateTimeOffset?))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -150,6 +169,7 @@ namespace Lusid.Sdk.Model
             this.OtcConfirmation = otcConfirmation;
             this.OrderId = orderId;
             this.AllocationId = allocationId;
+            this.AccountingDate = accountingDate;
         }
 
         /// <summary>
@@ -363,6 +383,13 @@ namespace Lusid.Sdk.Model
         public ResourceId AllocationId { get; set; }
 
         /// <summary>
+        /// The accounting date of the transaction.
+        /// </summary>
+        /// <value>The accounting date of the transaction.</value>
+        [DataMember(Name = "accountingDate", EmitDefaultValue = true)]
+        public DateTimeOffset? AccountingDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -402,6 +429,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  OtcConfirmation: ").Append(OtcConfirmation).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  AllocationId: ").Append(AllocationId).Append("\n");
+            sb.Append("  AccountingDate: ").Append(AccountingDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -595,6 +623,11 @@ namespace Lusid.Sdk.Model
                     this.AllocationId == input.AllocationId ||
                     (this.AllocationId != null &&
                     this.AllocationId.Equals(input.AllocationId))
+                ) && 
+                (
+                    this.AccountingDate == input.AccountingDate ||
+                    (this.AccountingDate != null &&
+                    this.AccountingDate.Equals(input.AccountingDate))
                 );
         }
 
@@ -719,6 +752,10 @@ namespace Lusid.Sdk.Model
                 if (this.AllocationId != null)
                 {
                     hashCode = (hashCode * 59) + this.AllocationId.GetHashCode();
+                }
+                if (this.AccountingDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccountingDate.GetHashCode();
                 }
                 return hashCode;
             }

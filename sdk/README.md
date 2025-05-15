@@ -302,6 +302,7 @@ Class | Method | HTTP request | Description
 *InstrumentsApi* | [**UpdateInstrumentIdentifier**](docs/InstrumentsApi.md#updateinstrumentidentifier) | **POST** /api/instruments/{identifierType}/{identifier} | UpdateInstrumentIdentifier: Update instrument identifier
 *InstrumentsApi* | [**UpsertInstruments**](docs/InstrumentsApi.md#upsertinstruments) | **POST** /api/instruments | UpsertInstruments: Upsert instruments
 *InstrumentsApi* | [**UpsertInstrumentsProperties**](docs/InstrumentsApi.md#upsertinstrumentsproperties) | **POST** /api/instruments/$upsertproperties | UpsertInstrumentsProperties: Upsert instruments properties
+*InvestorRecordsApi* | [**DeleteInvestorRecord**](docs/InvestorRecordsApi.md#deleteinvestorrecord) | **DELETE** /api/investorrecords/{idTypeScope}/{idTypeCode}/{code} | DeleteInvestorRecord: Delete Investor Record
 *InvestorRecordsApi* | [**GetInvestorRecord**](docs/InvestorRecordsApi.md#getinvestorrecord) | **GET** /api/investorrecords/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] GetInvestorRecord: Get Investor Record
 *InvestorRecordsApi* | [**UpsertInvestorRecords**](docs/InvestorRecordsApi.md#upsertinvestorrecords) | **POST** /api/investorrecords/$batchUpsert | [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records
 *LegacyComplianceApi* | [**DeleteLegacyComplianceRule**](docs/LegacyComplianceApi.md#deletelegacycompliancerule) | **DELETE** /api/legacy/compliance/rules/{scope}/{code} | [EXPERIMENTAL] DeleteLegacyComplianceRule: Deletes a compliance rule.

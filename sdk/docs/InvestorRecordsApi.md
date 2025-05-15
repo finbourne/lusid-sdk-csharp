@@ -4,8 +4,127 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**DeleteInvestorRecord**](InvestorRecordsApi.md#deleteinvestorrecord) | **DELETE** /api/investorrecords/{idTypeScope}/{idTypeCode}/{code} | DeleteInvestorRecord: Delete Investor Record |
 | [**GetInvestorRecord**](InvestorRecordsApi.md#getinvestorrecord) | **GET** /api/investorrecords/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] GetInvestorRecord: Get Investor Record |
 | [**UpsertInvestorRecords**](InvestorRecordsApi.md#upsertinvestorrecords) | **POST** /api/investorrecords/$batchUpsert | [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records |
+
+<a id="deleteinvestorrecord"></a>
+# **DeleteInvestorRecord**
+> DeletedEntityResponse DeleteInvestorRecord (string idTypeScope, string idTypeCode, string code)
+
+DeleteInvestorRecord: Delete Investor Record
+
+Delete an investor record. Deletion will be valid from the investor record's creation datetime.  This means that the investor record will no longer exist at any effective datetime from the asAt datetime of deletion.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InvestorRecordsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InvestorRecordsApi>();
+            var idTypeScope = "idTypeScope_example";  // string | The scope of the investor record identifier type.
+            var idTypeCode = "idTypeCode_example";  // string | The code of the investor record identifier type.
+            var code = "code_example";  // string | Code of the investor record under specified identifier type's scope and code. This together with defined              identifier type uniquely identifies the investor record to delete.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteInvestorRecord(idTypeScope, idTypeCode, code, opts: opts);
+
+                // DeleteInvestorRecord: Delete Investor Record
+                DeletedEntityResponse result = apiInstance.DeleteInvestorRecord(idTypeScope, idTypeCode, code);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling InvestorRecordsApi.DeleteInvestorRecord: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteInvestorRecordWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // DeleteInvestorRecord: Delete Investor Record
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteInvestorRecordWithHttpInfo(idTypeScope, idTypeCode, code);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling InvestorRecordsApi.DeleteInvestorRecordWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **idTypeScope** | **string** | The scope of the investor record identifier type. |  |
+| **idTypeCode** | **string** | The code of the investor record identifier type. |  |
+| **code** | **string** | Code of the investor record under specified identifier type&#39;s scope and code. This together with defined              identifier type uniquely identifies the investor record to delete. |  |
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The response from deleting investor record. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getinvestorrecord"></a>
 # **GetInvestorRecord**

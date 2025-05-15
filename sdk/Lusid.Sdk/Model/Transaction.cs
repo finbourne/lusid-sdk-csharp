@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class Transaction : IEquatable<Transaction>, IValidatableObject
     {
         /// <summary>
-        /// The status of the transaction. The available values are: Active, Amended, Cancelled
+        /// The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp
         /// </summary>
-        /// <value>The status of the transaction. The available values are: Active, Amended, Cancelled</value>
+        /// <value>The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TransactionStatusEnum
         {
@@ -51,14 +51,32 @@ namespace Lusid.Sdk.Model
             /// Enum Cancelled for value: Cancelled
             /// </summary>
             [EnumMember(Value = "Cancelled")]
-            Cancelled = 3
+            Cancelled = 3,
+
+            /// <summary>
+            /// Enum ActiveReversal for value: ActiveReversal
+            /// </summary>
+            [EnumMember(Value = "ActiveReversal")]
+            ActiveReversal = 4,
+
+            /// <summary>
+            /// Enum ActiveTrueUp for value: ActiveTrueUp
+            /// </summary>
+            [EnumMember(Value = "ActiveTrueUp")]
+            ActiveTrueUp = 5,
+
+            /// <summary>
+            /// Enum CancelledTrueUp for value: CancelledTrueUp
+            /// </summary>
+            [EnumMember(Value = "CancelledTrueUp")]
+            CancelledTrueUp = 6
         }
 
 
         /// <summary>
-        /// The status of the transaction. The available values are: Active, Amended, Cancelled
+        /// The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp
         /// </summary>
-        /// <value>The status of the transaction. The available values are: Active, Amended, Cancelled</value>
+        /// <value>The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp</value>
         [DataMember(Name = "transactionStatus", EmitDefaultValue = false)]
         public TransactionStatusEnum? TransactionStatus { get; set; }
         /// <summary>
@@ -86,7 +104,7 @@ namespace Lusid.Sdk.Model
         /// <param name="source">The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration..</param>
         /// <param name="entryDateTime">The asAt datetime that the transaction was added to LUSID..</param>
         /// <param name="otcConfirmation">otcConfirmation.</param>
-        /// <param name="transactionStatus">The status of the transaction. The available values are: Active, Amended, Cancelled.</param>
+        /// <param name="transactionStatus">The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp.</param>
         /// <param name="cancelDateTime">If the transaction has been cancelled, the asAt datetime that the transaction was cancelled..</param>
         /// <param name="orderId">orderId.</param>
         /// <param name="allocationId">allocationId.</param>
