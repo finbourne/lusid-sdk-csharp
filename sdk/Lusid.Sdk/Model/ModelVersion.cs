@@ -41,22 +41,26 @@ namespace Lusid.Sdk.Model
         /// <param name="asAtCreated">The asAt datetime at which the entity was first created in LUSID..</param>
         /// <param name="userIdCreated">The unique id of the user who created the entity..</param>
         /// <param name="requestIdCreated">The unique request id of the command that created the entity..</param>
+        /// <param name="reasonCreated">The reason for an entity creation..</param>
         /// <param name="asAtModified">The asAt datetime at which the entity (including its properties) was last updated in LUSID..</param>
         /// <param name="userIdModified">The unique id of the user who last updated the entity (including its properties) in LUSID..</param>
         /// <param name="requestIdModified">The unique request id of the command that last updated the entity (including its properties) in LUSID..</param>
+        /// <param name="reasonModified">The reason for an entity modification..</param>
         /// <param name="asAtVersionNumber">The integer version number for the entity (the entity was created at version 1).</param>
         /// <param name="entityUniqueId">The unique id of the entity.</param>
         /// <param name="stagedModificationIdModified">The ID of the staged change that resulted in the most recent modification..</param>
-        public ModelVersion(DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset asAtDate = default(DateTimeOffset), DateTimeOffset? asAtCreated = default(DateTimeOffset?), string userIdCreated = default(string), string requestIdCreated = default(string), DateTimeOffset? asAtModified = default(DateTimeOffset?), string userIdModified = default(string), string requestIdModified = default(string), int? asAtVersionNumber = default(int?), string entityUniqueId = default(string), string stagedModificationIdModified = default(string))
+        public ModelVersion(DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset asAtDate = default(DateTimeOffset), DateTimeOffset? asAtCreated = default(DateTimeOffset?), string userIdCreated = default(string), string requestIdCreated = default(string), string reasonCreated = default(string), DateTimeOffset? asAtModified = default(DateTimeOffset?), string userIdModified = default(string), string requestIdModified = default(string), string reasonModified = default(string), int? asAtVersionNumber = default(int?), string entityUniqueId = default(string), string stagedModificationIdModified = default(string))
         {
             this.EffectiveFrom = effectiveFrom;
             this.AsAtDate = asAtDate;
             this.AsAtCreated = asAtCreated;
             this.UserIdCreated = userIdCreated;
             this.RequestIdCreated = requestIdCreated;
+            this.ReasonCreated = reasonCreated;
             this.AsAtModified = asAtModified;
             this.UserIdModified = userIdModified;
             this.RequestIdModified = requestIdModified;
+            this.ReasonModified = reasonModified;
             this.AsAtVersionNumber = asAtVersionNumber;
             this.EntityUniqueId = entityUniqueId;
             this.StagedModificationIdModified = stagedModificationIdModified;
@@ -98,6 +102,13 @@ namespace Lusid.Sdk.Model
         public string RequestIdCreated { get; set; }
 
         /// <summary>
+        /// The reason for an entity creation.
+        /// </summary>
+        /// <value>The reason for an entity creation.</value>
+        [DataMember(Name = "reasonCreated", EmitDefaultValue = true)]
+        public string ReasonCreated { get; set; }
+
+        /// <summary>
         /// The asAt datetime at which the entity (including its properties) was last updated in LUSID.
         /// </summary>
         /// <value>The asAt datetime at which the entity (including its properties) was last updated in LUSID.</value>
@@ -117,6 +128,13 @@ namespace Lusid.Sdk.Model
         /// <value>The unique request id of the command that last updated the entity (including its properties) in LUSID.</value>
         [DataMember(Name = "requestIdModified", EmitDefaultValue = true)]
         public string RequestIdModified { get; set; }
+
+        /// <summary>
+        /// The reason for an entity modification.
+        /// </summary>
+        /// <value>The reason for an entity modification.</value>
+        [DataMember(Name = "reasonModified", EmitDefaultValue = true)]
+        public string ReasonModified { get; set; }
 
         /// <summary>
         /// The integer version number for the entity (the entity was created at version 1)
@@ -152,9 +170,11 @@ namespace Lusid.Sdk.Model
             sb.Append("  AsAtCreated: ").Append(AsAtCreated).Append("\n");
             sb.Append("  UserIdCreated: ").Append(UserIdCreated).Append("\n");
             sb.Append("  RequestIdCreated: ").Append(RequestIdCreated).Append("\n");
+            sb.Append("  ReasonCreated: ").Append(ReasonCreated).Append("\n");
             sb.Append("  AsAtModified: ").Append(AsAtModified).Append("\n");
             sb.Append("  UserIdModified: ").Append(UserIdModified).Append("\n");
             sb.Append("  RequestIdModified: ").Append(RequestIdModified).Append("\n");
+            sb.Append("  ReasonModified: ").Append(ReasonModified).Append("\n");
             sb.Append("  AsAtVersionNumber: ").Append(AsAtVersionNumber).Append("\n");
             sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
             sb.Append("  StagedModificationIdModified: ").Append(StagedModificationIdModified).Append("\n");
@@ -219,6 +239,11 @@ namespace Lusid.Sdk.Model
                     this.RequestIdCreated.Equals(input.RequestIdCreated))
                 ) && 
                 (
+                    this.ReasonCreated == input.ReasonCreated ||
+                    (this.ReasonCreated != null &&
+                    this.ReasonCreated.Equals(input.ReasonCreated))
+                ) && 
+                (
                     this.AsAtModified == input.AsAtModified ||
                     (this.AsAtModified != null &&
                     this.AsAtModified.Equals(input.AsAtModified))
@@ -232,6 +257,11 @@ namespace Lusid.Sdk.Model
                     this.RequestIdModified == input.RequestIdModified ||
                     (this.RequestIdModified != null &&
                     this.RequestIdModified.Equals(input.RequestIdModified))
+                ) && 
+                (
+                    this.ReasonModified == input.ReasonModified ||
+                    (this.ReasonModified != null &&
+                    this.ReasonModified.Equals(input.ReasonModified))
                 ) && 
                 (
                     this.AsAtVersionNumber == input.AsAtVersionNumber ||
@@ -279,6 +309,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.RequestIdCreated.GetHashCode();
                 }
+                if (this.ReasonCreated != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReasonCreated.GetHashCode();
+                }
                 if (this.AsAtModified != null)
                 {
                     hashCode = (hashCode * 59) + this.AsAtModified.GetHashCode();
@@ -290,6 +324,10 @@ namespace Lusid.Sdk.Model
                 if (this.RequestIdModified != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestIdModified.GetHashCode();
+                }
+                if (this.ReasonModified != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReasonModified.GetHashCode();
                 }
                 if (this.AsAtVersionNumber != null)
                 {

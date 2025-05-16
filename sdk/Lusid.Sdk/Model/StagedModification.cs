@@ -35,6 +35,7 @@ namespace Lusid.Sdk.Model
         /// <param name="asAtStaged">Time at which the modification was staged..</param>
         /// <param name="userIdStaged">Id of the user who created the stage modification request..</param>
         /// <param name="requestedIdStaged">The Request Id that initiated this staged modification..</param>
+        /// <param name="requestReason">Reason staged change request made..</param>
         /// <param name="action">Type of action of the staged modification, either create, update or delete..</param>
         /// <param name="stagingRule">stagingRule.</param>
         /// <param name="decisions">Object containing information relating to the decision on the staged modification..</param>
@@ -48,12 +49,13 @@ namespace Lusid.Sdk.Model
         /// <param name="entityHrefs">entityHrefs.</param>
         /// <param name="displayName">The display name of the entity the staged modification applies to..</param>
         /// <param name="links">links.</param>
-        public StagedModification(string id = default(string), DateTimeOffset asAtStaged = default(DateTimeOffset), string userIdStaged = default(string), string requestedIdStaged = default(string), string action = default(string), StagedModificationStagingRule stagingRule = default(StagedModificationStagingRule), List<StagedModificationDecision> decisions = default(List<StagedModificationDecision>), int decisionsCount = default(int), string status = default(string), DateTimeOffset? asAtClosed = default(DateTimeOffset?), string entityType = default(string), string scope = default(string), string entityUniqueId = default(string), RequestedChanges requestedChanges = default(RequestedChanges), StagedModificationsEntityHrefs entityHrefs = default(StagedModificationsEntityHrefs), string displayName = default(string), List<Link> links = default(List<Link>))
+        public StagedModification(string id = default(string), DateTimeOffset asAtStaged = default(DateTimeOffset), string userIdStaged = default(string), string requestedIdStaged = default(string), string requestReason = default(string), string action = default(string), StagedModificationStagingRule stagingRule = default(StagedModificationStagingRule), List<StagedModificationDecision> decisions = default(List<StagedModificationDecision>), int decisionsCount = default(int), string status = default(string), DateTimeOffset? asAtClosed = default(DateTimeOffset?), string entityType = default(string), string scope = default(string), string entityUniqueId = default(string), RequestedChanges requestedChanges = default(RequestedChanges), StagedModificationsEntityHrefs entityHrefs = default(StagedModificationsEntityHrefs), string displayName = default(string), List<Link> links = default(List<Link>))
         {
             this.Id = id;
             this.AsAtStaged = asAtStaged;
             this.UserIdStaged = userIdStaged;
             this.RequestedIdStaged = requestedIdStaged;
+            this.RequestReason = requestReason;
             this.Action = action;
             this.StagingRule = stagingRule;
             this.Decisions = decisions;
@@ -96,6 +98,13 @@ namespace Lusid.Sdk.Model
         /// <value>The Request Id that initiated this staged modification.</value>
         [DataMember(Name = "requestedIdStaged", EmitDefaultValue = true)]
         public string RequestedIdStaged { get; set; }
+
+        /// <summary>
+        /// Reason staged change request made.
+        /// </summary>
+        /// <value>Reason staged change request made.</value>
+        [DataMember(Name = "requestReason", EmitDefaultValue = true)]
+        public string RequestReason { get; set; }
 
         /// <summary>
         /// Type of action of the staged modification, either create, update or delete.
@@ -196,6 +205,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AsAtStaged: ").Append(AsAtStaged).Append("\n");
             sb.Append("  UserIdStaged: ").Append(UserIdStaged).Append("\n");
             sb.Append("  RequestedIdStaged: ").Append(RequestedIdStaged).Append("\n");
+            sb.Append("  RequestReason: ").Append(RequestReason).Append("\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
             sb.Append("  StagingRule: ").Append(StagingRule).Append("\n");
             sb.Append("  Decisions: ").Append(Decisions).Append("\n");
@@ -263,6 +273,11 @@ namespace Lusid.Sdk.Model
                     this.RequestedIdStaged == input.RequestedIdStaged ||
                     (this.RequestedIdStaged != null &&
                     this.RequestedIdStaged.Equals(input.RequestedIdStaged))
+                ) && 
+                (
+                    this.RequestReason == input.RequestReason ||
+                    (this.RequestReason != null &&
+                    this.RequestReason.Equals(input.RequestReason))
                 ) && 
                 (
                     this.Action == input.Action ||
@@ -356,6 +371,10 @@ namespace Lusid.Sdk.Model
                 if (this.RequestedIdStaged != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestedIdStaged.GetHashCode();
+                }
+                if (this.RequestReason != null)
+                {
+                    hashCode = (hashCode * 59) + this.RequestReason.GetHashCode();
                 }
                 if (this.Action != null)
                 {
