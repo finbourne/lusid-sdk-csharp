@@ -42,9 +42,10 @@ namespace Lusid.Sdk.Model
         /// <param name="useChildSubHoldingKeysForPortfolioExpansion">Should fund constituents inherit subholding keys from the parent subholding keyb.</param>
         /// <param name="validateDomesticAndQuoteCurrenciesAreConsistent">Do we validate that the instrument domestic currency matches the quote currency (unless unknown/zzz) when using lookup pricing..</param>
         /// <param name="mbsValuationUsingHoldingCurrentFace">mbsValuationUsingHoldingCurrentFace.</param>
+        /// <param name="convertSrsCashFlowsToPortfolioCurrency">In the case upserted structured result store (SRS) cashflows are not   in the portfolio currency, set this parameter to True to convert said  cashflows into the portfolio currency. By default, this flag is set   to False and Lusid will not do any FX conversion.    Please note that FX conversion is dependent on the data available in  the quote store - ensure that all relevant FX quotes have been loaded  for cashflow currency conversion..</param>
         /// <param name="conservedQuantityForLookthroughExpansion">When performing lookthrough portfolio expansion with ScalingMethodology set to \&quot;Sum\&quot; or \&quot;AbsoluteSum\&quot;,  the quantity specified here will be conserved and apportioned to lookthrough constituents.  For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity.  When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity.  The number of units of each equity held is then implied.  Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.                Allowed values are: \&quot;PV\&quot; (default), \&quot;Exposure\&quot;..</param>
         /// <param name="returnZeroPv">returnZeroPv.</param>
-        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), bool produceSeparateResultForLinearOtcLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions))
+        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), bool produceSeparateResultForLinearOtcLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions))
         {
             this.ModelSelection = modelSelection;
             this.UseInstrumentTypeToDeterminePricer = useInstrumentTypeToDeterminePricer;
@@ -57,6 +58,7 @@ namespace Lusid.Sdk.Model
             this.UseChildSubHoldingKeysForPortfolioExpansion = useChildSubHoldingKeysForPortfolioExpansion;
             this.ValidateDomesticAndQuoteCurrenciesAreConsistent = validateDomesticAndQuoteCurrenciesAreConsistent;
             this.MbsValuationUsingHoldingCurrentFace = mbsValuationUsingHoldingCurrentFace;
+            this.ConvertSrsCashFlowsToPortfolioCurrency = convertSrsCashFlowsToPortfolioCurrency;
             this.ConservedQuantityForLookthroughExpansion = conservedQuantityForLookthroughExpansion;
             this.ReturnZeroPv = returnZeroPv;
         }
@@ -137,6 +139,13 @@ namespace Lusid.Sdk.Model
         public bool MbsValuationUsingHoldingCurrentFace { get; set; }
 
         /// <summary>
+        /// In the case upserted structured result store (SRS) cashflows are not   in the portfolio currency, set this parameter to True to convert said  cashflows into the portfolio currency. By default, this flag is set   to False and Lusid will not do any FX conversion.    Please note that FX conversion is dependent on the data available in  the quote store - ensure that all relevant FX quotes have been loaded  for cashflow currency conversion.
+        /// </summary>
+        /// <value>In the case upserted structured result store (SRS) cashflows are not   in the portfolio currency, set this parameter to True to convert said  cashflows into the portfolio currency. By default, this flag is set   to False and Lusid will not do any FX conversion.    Please note that FX conversion is dependent on the data available in  the quote store - ensure that all relevant FX quotes have been loaded  for cashflow currency conversion.</value>
+        [DataMember(Name = "convertSrsCashFlowsToPortfolioCurrency", EmitDefaultValue = true)]
+        public bool ConvertSrsCashFlowsToPortfolioCurrency { get; set; }
+
+        /// <summary>
         /// When performing lookthrough portfolio expansion with ScalingMethodology set to \&quot;Sum\&quot; or \&quot;AbsoluteSum\&quot;,  the quantity specified here will be conserved and apportioned to lookthrough constituents.  For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity.  When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity.  The number of units of each equity held is then implied.  Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.                Allowed values are: \&quot;PV\&quot; (default), \&quot;Exposure\&quot;.
         /// </summary>
         /// <value>When performing lookthrough portfolio expansion with ScalingMethodology set to \&quot;Sum\&quot; or \&quot;AbsoluteSum\&quot;,  the quantity specified here will be conserved and apportioned to lookthrough constituents.  For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity.  When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity.  The number of units of each equity held is then implied.  Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.                Allowed values are: \&quot;PV\&quot; (default), \&quot;Exposure\&quot;.</value>
@@ -168,6 +177,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  UseChildSubHoldingKeysForPortfolioExpansion: ").Append(UseChildSubHoldingKeysForPortfolioExpansion).Append("\n");
             sb.Append("  ValidateDomesticAndQuoteCurrenciesAreConsistent: ").Append(ValidateDomesticAndQuoteCurrenciesAreConsistent).Append("\n");
             sb.Append("  MbsValuationUsingHoldingCurrentFace: ").Append(MbsValuationUsingHoldingCurrentFace).Append("\n");
+            sb.Append("  ConvertSrsCashFlowsToPortfolioCurrency: ").Append(ConvertSrsCashFlowsToPortfolioCurrency).Append("\n");
             sb.Append("  ConservedQuantityForLookthroughExpansion: ").Append(ConservedQuantityForLookthroughExpansion).Append("\n");
             sb.Append("  ReturnZeroPv: ").Append(ReturnZeroPv).Append("\n");
             sb.Append("}\n");
@@ -251,6 +261,10 @@ namespace Lusid.Sdk.Model
                     this.MbsValuationUsingHoldingCurrentFace.Equals(input.MbsValuationUsingHoldingCurrentFace)
                 ) && 
                 (
+                    this.ConvertSrsCashFlowsToPortfolioCurrency == input.ConvertSrsCashFlowsToPortfolioCurrency ||
+                    this.ConvertSrsCashFlowsToPortfolioCurrency.Equals(input.ConvertSrsCashFlowsToPortfolioCurrency)
+                ) && 
+                (
                     this.ConservedQuantityForLookthroughExpansion == input.ConservedQuantityForLookthroughExpansion ||
                     (this.ConservedQuantityForLookthroughExpansion != null &&
                     this.ConservedQuantityForLookthroughExpansion.Equals(input.ConservedQuantityForLookthroughExpansion))
@@ -285,6 +299,7 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.UseChildSubHoldingKeysForPortfolioExpansion.GetHashCode();
                 hashCode = (hashCode * 59) + this.ValidateDomesticAndQuoteCurrenciesAreConsistent.GetHashCode();
                 hashCode = (hashCode * 59) + this.MbsValuationUsingHoldingCurrentFace.GetHashCode();
+                hashCode = (hashCode * 59) + this.ConvertSrsCashFlowsToPortfolioCurrency.GetHashCode();
                 if (this.ConservedQuantityForLookthroughExpansion != null)
                 {
                     hashCode = (hashCode * 59) + this.ConservedQuantityForLookthroughExpansion.GetHashCode();
