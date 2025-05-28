@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **OrderId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AllocationId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AccountingDate** | **DateTimeOffset?** | The accounting date of the transaction. | [optional] 
+**Economics** | [**List&lt;Economics&gt;**](Economics.md) | Set of economic data related with the transaction impacts. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

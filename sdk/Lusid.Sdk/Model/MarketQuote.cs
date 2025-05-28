@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class MarketQuote : IEquatable<MarketQuote>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall
+        /// The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor
         /// </summary>
-        /// <value>The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall</value>
+        /// <value>The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum QuoteTypeEnum
         {
@@ -135,14 +135,20 @@ namespace Lusid.Sdk.Model
             /// Enum InterestShortfall for value: InterestShortfall
             /// </summary>
             [EnumMember(Value = "InterestShortfall")]
-            InterestShortfall = 17
+            InterestShortfall = 17,
+
+            /// <summary>
+            /// Enum ConstituentWeightFactor for value: ConstituentWeightFactor
+            /// </summary>
+            [EnumMember(Value = "ConstituentWeightFactor")]
+            ConstituentWeightFactor = 18
         }
 
 
         /// <summary>
-        /// The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall
+        /// The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor
         /// </summary>
-        /// <value>The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall</value>
+        /// <value>The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor</value>
         [DataMember(Name = "quoteType", IsRequired = true, EmitDefaultValue = true)]
         public QuoteTypeEnum QuoteType { get; set; }
         /// <summary>
@@ -153,7 +159,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarketQuote" /> class.
         /// </summary>
-        /// <param name="quoteType">The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall (required).</param>
+        /// <param name="quoteType">The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor (required).</param>
         /// <param name="value">Numeric value of the quote (required).</param>
         public MarketQuote(QuoteTypeEnum quoteType = default(QuoteTypeEnum), decimal value = default(decimal))
         {

@@ -69,7 +69,8 @@ namespace Lusid.Sdk.Model
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions in the output. Defaults to False if not specified..</param>
         /// <param name="timelineScope">Scope of the Timeline for the Portfolio. The Timeline to be used while building transactions.</param>
         /// <param name="timelineCode">Code of the Timeline for the Portfolio. The Timeline to be used while building transactions.</param>
-        public TransactionQueryParameters(DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), QueryModeEnum ?queryMode = default(QueryModeEnum?), bool showCancelledTransactions = default(bool), string timelineScope = default(string), string timelineCode = default(string))
+        /// <param name="includeEconomics">By default is false. When set to true the Economics data would be populated in the response..</param>
+        public TransactionQueryParameters(DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), QueryModeEnum ?queryMode = default(QueryModeEnum?), bool showCancelledTransactions = default(bool), string timelineScope = default(string), string timelineCode = default(string), bool includeEconomics = default(bool))
         {
             // to ensure "startDate" is required (not null)
             if (startDate == null)
@@ -87,6 +88,7 @@ namespace Lusid.Sdk.Model
             this.ShowCancelledTransactions = showCancelledTransactions;
             this.TimelineScope = timelineScope;
             this.TimelineCode = timelineCode;
+            this.IncludeEconomics = includeEconomics;
         }
 
         /// <summary>
@@ -125,6 +127,13 @@ namespace Lusid.Sdk.Model
         public string TimelineCode { get; set; }
 
         /// <summary>
+        /// By default is false. When set to true the Economics data would be populated in the response.
+        /// </summary>
+        /// <value>By default is false. When set to true the Economics data would be populated in the response.</value>
+        [DataMember(Name = "includeEconomics", EmitDefaultValue = true)]
+        public bool IncludeEconomics { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -138,6 +147,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ShowCancelledTransactions: ").Append(ShowCancelledTransactions).Append("\n");
             sb.Append("  TimelineScope: ").Append(TimelineScope).Append("\n");
             sb.Append("  TimelineCode: ").Append(TimelineCode).Append("\n");
+            sb.Append("  IncludeEconomics: ").Append(IncludeEconomics).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,6 +210,10 @@ namespace Lusid.Sdk.Model
                     this.TimelineCode == input.TimelineCode ||
                     (this.TimelineCode != null &&
                     this.TimelineCode.Equals(input.TimelineCode))
+                ) && 
+                (
+                    this.IncludeEconomics == input.IncludeEconomics ||
+                    this.IncludeEconomics.Equals(input.IncludeEconomics)
                 );
         }
 
@@ -230,6 +244,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.TimelineCode.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IncludeEconomics.GetHashCode();
                 return hashCode;
             }
         }

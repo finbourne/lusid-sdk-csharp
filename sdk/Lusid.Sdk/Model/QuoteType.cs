@@ -128,7 +128,13 @@ namespace Lusid.Sdk.Model
         /// Enum InterestShortfall for value: InterestShortfall
         /// </summary>
         [EnumMember(Value = "InterestShortfall")]
-        InterestShortfall = 17
+        InterestShortfall = 17,
+
+        /// <summary>
+        /// Enum ConstituentWeightFactor for value: ConstituentWeightFactor
+        /// </summary>
+        [EnumMember(Value = "ConstituentWeightFactor")]
+        ConstituentWeightFactor = 18
     }
 
 }

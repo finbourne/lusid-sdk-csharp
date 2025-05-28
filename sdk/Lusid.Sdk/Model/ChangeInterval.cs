@@ -34,6 +34,7 @@ namespace Lusid.Sdk.Model
         /// <param name="asAtModified">The date/time of the change..</param>
         /// <param name="userIdModified">The unique identifier of the user that made the change..</param>
         /// <param name="requestIdModified">The unique identifier of the request that the changes were part of..</param>
+        /// <param name="reasonModified">The reason for an entity modification..</param>
         /// <param name="asAtVersionNumber">The version number for the entity (the entity was created at version 1). This may refer to the version number of a changed related entity, not a change for the entity itself..</param>
         /// <param name="stagedModificationIdModified">The id of the staged modification that was approved. Will be null if the change didn&#39;t come from a staged modification..</param>
         /// <param name="action">The action performed on the field..</param>
@@ -41,11 +42,12 @@ namespace Lusid.Sdk.Model
         /// <param name="previousValue">previousValue.</param>
         /// <param name="newValue">newValue.</param>
         /// <param name="effectiveRange">effectiveRange.</param>
-        public ChangeInterval(DateTimeOffset asAtModified = default(DateTimeOffset), string userIdModified = default(string), string requestIdModified = default(string), int asAtVersionNumber = default(int), string stagedModificationIdModified = default(string), string action = default(string), string attributeName = default(string), PropertyValue previousValue = default(PropertyValue), PropertyValue newValue = default(PropertyValue), EffectiveRange effectiveRange = default(EffectiveRange))
+        public ChangeInterval(DateTimeOffset asAtModified = default(DateTimeOffset), string userIdModified = default(string), string requestIdModified = default(string), string reasonModified = default(string), int asAtVersionNumber = default(int), string stagedModificationIdModified = default(string), string action = default(string), string attributeName = default(string), PropertyValue previousValue = default(PropertyValue), PropertyValue newValue = default(PropertyValue), EffectiveRange effectiveRange = default(EffectiveRange))
         {
             this.AsAtModified = asAtModified;
             this.UserIdModified = userIdModified;
             this.RequestIdModified = requestIdModified;
+            this.ReasonModified = reasonModified;
             this.AsAtVersionNumber = asAtVersionNumber;
             this.StagedModificationIdModified = stagedModificationIdModified;
             this.Action = action;
@@ -75,6 +77,13 @@ namespace Lusid.Sdk.Model
         /// <value>The unique identifier of the request that the changes were part of.</value>
         [DataMember(Name = "requestIdModified", EmitDefaultValue = true)]
         public string RequestIdModified { get; set; }
+
+        /// <summary>
+        /// The reason for an entity modification.
+        /// </summary>
+        /// <value>The reason for an entity modification.</value>
+        [DataMember(Name = "reasonModified", EmitDefaultValue = true)]
+        public string ReasonModified { get; set; }
 
         /// <summary>
         /// The version number for the entity (the entity was created at version 1). This may refer to the version number of a changed related entity, not a change for the entity itself.
@@ -133,6 +142,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AsAtModified: ").Append(AsAtModified).Append("\n");
             sb.Append("  UserIdModified: ").Append(UserIdModified).Append("\n");
             sb.Append("  RequestIdModified: ").Append(RequestIdModified).Append("\n");
+            sb.Append("  ReasonModified: ").Append(ReasonModified).Append("\n");
             sb.Append("  AsAtVersionNumber: ").Append(AsAtVersionNumber).Append("\n");
             sb.Append("  StagedModificationIdModified: ").Append(StagedModificationIdModified).Append("\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
@@ -191,6 +201,11 @@ namespace Lusid.Sdk.Model
                     this.RequestIdModified.Equals(input.RequestIdModified))
                 ) && 
                 (
+                    this.ReasonModified == input.ReasonModified ||
+                    (this.ReasonModified != null &&
+                    this.ReasonModified.Equals(input.ReasonModified))
+                ) && 
+                (
                     this.AsAtVersionNumber == input.AsAtVersionNumber ||
                     this.AsAtVersionNumber.Equals(input.AsAtVersionNumber)
                 ) && 
@@ -246,6 +261,10 @@ namespace Lusid.Sdk.Model
                 if (this.RequestIdModified != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestIdModified.GetHashCode();
+                }
+                if (this.ReasonModified != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReasonModified.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.AsAtVersionNumber.GetHashCode();
                 if (this.StagedModificationIdModified != null)

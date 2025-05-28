@@ -120,7 +120,8 @@ namespace Lusid.Sdk.Model
         /// <param name="orderId">orderId.</param>
         /// <param name="allocationId">allocationId.</param>
         /// <param name="accountingDate">The accounting date of the transaction..</param>
-        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), DateTimeOffset? accountingDate = default(DateTimeOffset?))
+        /// <param name="economics">Set of economic data related with the transaction impacts..</param>
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), DateTimeOffset? accountingDate = default(DateTimeOffset?), List<Economics> economics = default(List<Economics>))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -170,6 +171,7 @@ namespace Lusid.Sdk.Model
             this.OrderId = orderId;
             this.AllocationId = allocationId;
             this.AccountingDate = accountingDate;
+            this.Economics = economics;
         }
 
         /// <summary>
@@ -390,6 +392,13 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? AccountingDate { get; set; }
 
         /// <summary>
+        /// Set of economic data related with the transaction impacts.
+        /// </summary>
+        /// <value>Set of economic data related with the transaction impacts.</value>
+        [DataMember(Name = "economics", EmitDefaultValue = true)]
+        public List<Economics> Economics { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -430,6 +439,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  AllocationId: ").Append(AllocationId).Append("\n");
             sb.Append("  AccountingDate: ").Append(AccountingDate).Append("\n");
+            sb.Append("  Economics: ").Append(Economics).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -628,6 +638,12 @@ namespace Lusid.Sdk.Model
                     this.AccountingDate == input.AccountingDate ||
                     (this.AccountingDate != null &&
                     this.AccountingDate.Equals(input.AccountingDate))
+                ) && 
+                (
+                    this.Economics == input.Economics ||
+                    this.Economics != null &&
+                    input.Economics != null &&
+                    this.Economics.SequenceEqual(input.Economics)
                 );
         }
 
@@ -756,6 +772,10 @@ namespace Lusid.Sdk.Model
                 if (this.AccountingDate != null)
                 {
                     hashCode = (hashCode * 59) + this.AccountingDate.GetHashCode();
+                }
+                if (this.Economics != null)
+                {
+                    hashCode = (hashCode * 59) + this.Economics.GetHashCode();
                 }
                 return hashCode;
             }

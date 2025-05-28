@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class MarketDataSpecificRule : IEquatable<MarketDataSpecificRule>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall
+        /// The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor
         /// </summary>
-        /// <value>The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall</value>
+        /// <value>The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum QuoteTypeEnum
         {
@@ -135,14 +135,20 @@ namespace Lusid.Sdk.Model
             /// Enum InterestShortfall for value: InterestShortfall
             /// </summary>
             [EnumMember(Value = "InterestShortfall")]
-            InterestShortfall = 17
+            InterestShortfall = 17,
+
+            /// <summary>
+            /// Enum ConstituentWeightFactor for value: ConstituentWeightFactor
+            /// </summary>
+            [EnumMember(Value = "ConstituentWeightFactor")]
+            ConstituentWeightFactor = 18
         }
 
 
         /// <summary>
-        /// The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall
+        /// The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor
         /// </summary>
-        /// <value>The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall</value>
+        /// <value>The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor</value>
         [DataMember(Name = "quoteType", IsRequired = true, EmitDefaultValue = true)]
         public QuoteTypeEnum QuoteType { get; set; }
         /// <summary>
@@ -156,7 +162,7 @@ namespace Lusid.Sdk.Model
         /// <param name="key">The market data key pattern which this is a rule for. A dot separated string (A.B.C.D.*) (required).</param>
         /// <param name="supplier">The market data supplier (where the data comes from) (required).</param>
         /// <param name="dataScope">The scope in which the data should be found when using this rule. (required).</param>
-        /// <param name="quoteType">The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall (required).</param>
+        /// <param name="quoteType">The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor (required).</param>
         /// <param name="field">The conceptual qualification for the field, such as bid, mid, or ask.  The field must be one of a defined set for the given supplier, in the same way as it  is for the Finbourne.WebApi.Interface.Dto.Quotes.QuoteSeriesId (required).</param>
         /// <param name="quoteInterval">Shorthand for the time interval used to select market data. This must be a dot-separated string              nominating a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago). The syntax              is &lt;i&gt;int&lt;/i&gt;&lt;i&gt;char&lt;/i&gt;.&lt;i&gt;int&lt;/i&gt;&lt;i&gt;char&lt;/i&gt;, where &lt;i&gt;char&lt;/i&gt; is one of D(ay), W(eek), M(onth) or Y(ear)..</param>
         /// <param name="asAt">Deprecated field which no longer has any effect on market data resolution..</param>
