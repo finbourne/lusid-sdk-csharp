@@ -77,8 +77,8 @@ namespace Examples
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
             var identifierEffectiveAt = "identifierEffectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional) 
             var successMode = "\"Partial\"";  // string? | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional)  (default to "Partial")
-            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Hierarchical Data Model to use (optional) 
-            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Hierarchical Data Model to use (optional) 
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
 
             try
             {
@@ -128,8 +128,8 @@ catch (ApiException e)
 | **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 | **identifierEffectiveAt** | **DateTimeOrCutLabel?** | The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **successMode** | **string?** | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. | [optional] [default to &quot;Partial&quot;] |
-| **dataModelScope** | **string?** | The optional scope of a Hierarchical Data Model to use | [optional]  |
-| **dataModelCode** | **string?** | The optional code of a Hierarchical Data Model to use | [optional]  |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 
 ### Return type
 
@@ -442,8 +442,8 @@ namespace Examples
             var requestBody = new List<string>(); // List<string> | A list of property keys from the 'Instruments' domain whose properties to delete.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional) 
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
-            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Hierarchical Data Model to use (optional) 
-            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Hierarchical Data Model to use (optional) 
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
 
             try
             {
@@ -494,8 +494,8 @@ catch (ApiException e)
 | **requestBody** | [**List&lt;string&gt;**](string.md) | A list of property keys from the &#39;Instruments&#39; domain whose properties to delete. |  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. | [optional]  |
 | **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
-| **dataModelScope** | **string?** | The optional scope of a Hierarchical Data Model to use | [optional]  |
-| **dataModelCode** | **string?** | The optional code of a Hierarchical Data Model to use | [optional]  |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 
 ### Return type
 
@@ -2044,8 +2044,8 @@ namespace Examples
             var instrumentPropertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument' domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'. (optional) 
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
             var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
-            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Hierarchical Data Model to use. (optional) 
-            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Hierarchical Data Model to use. (optional) 
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use. (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use. (optional) 
 
             try
             {
@@ -2100,8 +2100,8 @@ catch (ApiException e)
 | **instrumentPropertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. | [optional]  |
 | **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 | **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
-| **dataModelScope** | **string?** | The optional scope of a Hierarchical Data Model to use. | [optional]  |
-| **dataModelCode** | **string?** | The optional code of a Hierarchical Data Model to use. | [optional]  |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use. | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use. | [optional]  |
 
 ### Return type
 
@@ -2289,8 +2289,8 @@ namespace Examples
             var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
             var updateInstrumentIdentifierRequest = new UpdateInstrumentIdentifierRequest(); // UpdateInstrumentIdentifierRequest | The identifier to update or delete. This need not be the same value as the               'identifier' parameter used to retrieve the instrument.
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
-            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Hierarchical Data Model to use (optional) 
-            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Hierarchical Data Model to use (optional) 
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
 
             try
             {
@@ -2340,8 +2340,8 @@ catch (ApiException e)
 | **identifier** | **string** | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. |  |
 | **updateInstrumentIdentifierRequest** | [**UpdateInstrumentIdentifierRequest**](UpdateInstrumentIdentifierRequest.md) | The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument. |  |
 | **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
-| **dataModelScope** | **string?** | The optional scope of a Hierarchical Data Model to use | [optional]  |
-| **dataModelCode** | **string?** | The optional code of a Hierarchical Data Model to use | [optional]  |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 
 ### Return type
 
@@ -2411,8 +2411,8 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var requestBody = new Dictionary<string, InstrumentDefinition>(); // Dictionary<string, InstrumentDefinition> | The definitions of the instruments to create or update.
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
-            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Hierarchical Data Model to use (optional) 
-            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Hierarchical Data Model to use (optional) 
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
 
             try
             {
@@ -2460,8 +2460,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **requestBody** | [**Dictionary&lt;string, InstrumentDefinition&gt;**](InstrumentDefinition.md) | The definitions of the instruments to create or update. |  |
 | **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
-| **dataModelScope** | **string?** | The optional scope of a Hierarchical Data Model to use | [optional]  |
-| **dataModelCode** | **string?** | The optional code of a Hierarchical Data Model to use | [optional]  |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 
 ### Return type
 
@@ -2531,8 +2531,8 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var upsertInstrumentPropertyRequest = new List<UpsertInstrumentPropertyRequest>(); // List<UpsertInstrumentPropertyRequest> | A list of instruments and associated instrument properties to create or update.
             var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
-            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Hierarchical Data Model to use (optional) 
-            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Hierarchical Data Model to use (optional) 
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
 
             try
             {
@@ -2580,8 +2580,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **upsertInstrumentPropertyRequest** | [**List&lt;UpsertInstrumentPropertyRequest&gt;**](UpsertInstrumentPropertyRequest.md) | A list of instruments and associated instrument properties to create or update. |  |
 | **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
-| **dataModelScope** | **string?** | The optional scope of a Hierarchical Data Model to use | [optional]  |
-| **dataModelCode** | **string?** | The optional code of a Hierarchical Data Model to use | [optional]  |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 
 ### Return type
 

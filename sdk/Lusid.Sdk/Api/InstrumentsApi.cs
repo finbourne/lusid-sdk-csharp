@@ -42,8 +42,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchUpsertInstrumentPropertiesResponse</returns>
@@ -60,8 +60,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpsertInstrumentPropertiesResponse</returns>
@@ -140,8 +140,8 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeleteInstrumentPropertiesResponse</returns>
@@ -159,8 +159,8 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeleteInstrumentPropertiesResponse</returns>
@@ -589,8 +589,8 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use. (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfInstrument</returns>
@@ -612,8 +612,8 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use. (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfInstrument</returns>
@@ -656,8 +656,8 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Instrument</returns>
@@ -674,8 +674,8 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Instrument</returns>
@@ -689,8 +689,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertInstrumentsResponse</returns>
@@ -705,8 +705,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertInstrumentsResponse</returns>
@@ -720,8 +720,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertInstrumentPropertiesResponse</returns>
@@ -736,8 +736,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertInstrumentPropertiesResponse</returns>
@@ -762,8 +762,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -781,8 +781,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -866,8 +866,8 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -886,8 +886,8 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1341,8 +1341,8 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use. (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1365,8 +1365,8 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use. (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1412,8 +1412,8 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1431,8 +1431,8 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1447,8 +1447,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1464,8 +1464,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1480,8 +1480,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1497,8 +1497,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1635,8 +1635,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchUpsertInstrumentPropertiesResponse</returns>
@@ -1654,8 +1654,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpsertInstrumentPropertiesResponse</returns>
@@ -1769,8 +1769,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1789,8 +1789,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2400,8 +2400,8 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeleteInstrumentPropertiesResponse</returns>
@@ -2420,8 +2420,8 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeleteInstrumentPropertiesResponse</returns>
@@ -2546,8 +2546,8 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2567,8 +2567,8 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5866,8 +5866,8 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use. (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfInstrument</returns>
@@ -5890,8 +5890,8 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use. (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfInstrument</returns>
@@ -6023,8 +6023,8 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use. (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6048,8 +6048,8 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use. (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6403,8 +6403,8 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Instrument</returns>
@@ -6422,8 +6422,8 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Instrument</returns>
@@ -6543,8 +6543,8 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6563,8 +6563,8 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6685,8 +6685,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertInstrumentsResponse</returns>
@@ -6702,8 +6702,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertInstrumentsResponse</returns>
@@ -6807,8 +6807,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6825,8 +6825,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6933,8 +6933,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertInstrumentPropertiesResponse</returns>
@@ -6950,8 +6950,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertInstrumentPropertiesResponse</returns>
@@ -7055,8 +7055,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7073,8 +7073,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="dataModelScope">The optional scope of a Hierarchical Data Model to use (optional)</param>
-        /// <param name="dataModelCode">The optional code of a Hierarchical Data Model to use (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
