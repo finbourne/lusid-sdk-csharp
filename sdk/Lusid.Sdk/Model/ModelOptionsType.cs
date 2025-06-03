@@ -68,7 +68,13 @@ namespace Lusid.Sdk.Model
         /// Enum EquityModelOptions for value: EquityModelOptions
         /// </summary>
         [EnumMember(Value = "EquityModelOptions")]
-        EquityModelOptions = 7
+        EquityModelOptions = 7,
+
+        /// <summary>
+        /// Enum CdsModelOptions for value: CdsModelOptions
+        /// </summary>
+        [EnumMember(Value = "CdsModelOptions")]
+        CdsModelOptions = 8
     }
 
 }

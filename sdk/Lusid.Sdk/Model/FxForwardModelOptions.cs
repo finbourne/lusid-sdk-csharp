@@ -119,7 +119,7 @@ namespace Lusid.Sdk.Model
         /// <param name="forwardRateObservableType">The available values are: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid (required).</param>
         /// <param name="discountingMethod">The available values are: Standard, ConstantTimeValueOfMoney, Invalid (required).</param>
         /// <param name="convertToReportCcy">Convert all FX flows to the report currency  By setting this all FX forwards will be priced using Forward Curves that have Report Currency as the base. (required).</param>
-        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions (required) (default to &quot;FxForwardModelOptions&quot;).</param>
+        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions (required) (default to &quot;FxForwardModelOptions&quot;).</param>
         public FxForwardModelOptions(ForwardRateObservableTypeEnum forwardRateObservableType = default(ForwardRateObservableTypeEnum), DiscountingMethodEnum discountingMethod = default(DiscountingMethodEnum), bool convertToReportCcy = default(bool), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.ForwardRateObservableType = forwardRateObservableType;

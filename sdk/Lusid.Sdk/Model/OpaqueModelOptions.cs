@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="OpaqueModelOptions" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions (required) (default to &quot;OpaqueModelOptions&quot;).</param>
+        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions (required) (default to &quot;OpaqueModelOptions&quot;).</param>
         public OpaqueModelOptions(Dictionary<string, Object> data = default(Dictionary<string, Object>), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             // to ensure "data" is required (not null)

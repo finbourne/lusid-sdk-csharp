@@ -24,38 +24,33 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Model options for equity related pricing.
+    /// Model options for credit default instrument.
     /// </summary>
-    [DataContract(Name = "EquityModelOptions")]
+    [DataContract(Name = "CdsModelOptions")]
     [JsonConverter(typeof(JsonSubtypes), "ModelOptionsType")]
-    public partial class EquityModelOptions : ModelOptions, IEquatable<EquityModelOptions>, IValidatableObject
+    public partial class CdsModelOptions : ModelOptions, IEquatable<CdsModelOptions>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EquityModelOptions" /> class.
+        /// Initializes a new instance of the <see cref="CdsModelOptions" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EquityModelOptions() { }
+        protected CdsModelOptions() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EquityModelOptions" /> class.
+        /// Initializes a new instance of the <see cref="CdsModelOptions" /> class.
         /// </summary>
-        /// <param name="equityForwardProjectionType">Determines how forward equity prices should be projected.                Supported string (enumeration) values are: [FlatForwardCurveFromSpot, EquityCurveByPrices, ForwardProjectedFromRatesCurve]. (required).</param>
-        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions (required) (default to &quot;EquityModelOptions&quot;).</param>
-        public EquityModelOptions(string equityForwardProjectionType = default(string), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
+        /// <param name="useFactorsForCurrentNotional">Determines if calculations that use current notional apply use a constituent weight factor from a quote representing a default. (required).</param>
+        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions (required) (default to &quot;CdsModelOptions&quot;).</param>
+        public CdsModelOptions(bool useFactorsForCurrentNotional = default(bool), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
-            // to ensure "equityForwardProjectionType" is required (not null)
-            if (equityForwardProjectionType == null)
-            {
-                throw new ArgumentNullException("equityForwardProjectionType is a required property for EquityModelOptions and cannot be null");
-            }
-            this.EquityForwardProjectionType = equityForwardProjectionType;
+            this.UseFactorsForCurrentNotional = useFactorsForCurrentNotional;
         }
 
         /// <summary>
-        /// Determines how forward equity prices should be projected.                Supported string (enumeration) values are: [FlatForwardCurveFromSpot, EquityCurveByPrices, ForwardProjectedFromRatesCurve].
+        /// Determines if calculations that use current notional apply use a constituent weight factor from a quote representing a default.
         /// </summary>
-        /// <value>Determines how forward equity prices should be projected.                Supported string (enumeration) values are: [FlatForwardCurveFromSpot, EquityCurveByPrices, ForwardProjectedFromRatesCurve].</value>
-        [DataMember(Name = "equityForwardProjectionType", IsRequired = true, EmitDefaultValue = true)]
-        public string EquityForwardProjectionType { get; set; }
+        /// <value>Determines if calculations that use current notional apply use a constituent weight factor from a quote representing a default.</value>
+        [DataMember(Name = "useFactorsForCurrentNotional", IsRequired = true, EmitDefaultValue = true)]
+        public bool UseFactorsForCurrentNotional { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,9 +59,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EquityModelOptions {\n");
+            sb.Append("class CdsModelOptions {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  EquityForwardProjectionType: ").Append(EquityForwardProjectionType).Append("\n");
+            sb.Append("  UseFactorsForCurrentNotional: ").Append(UseFactorsForCurrentNotional).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,15 +82,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EquityModelOptions);
+            return this.Equals(input as CdsModelOptions);
         }
 
         /// <summary>
-        /// Returns true if EquityModelOptions instances are equal
+        /// Returns true if CdsModelOptions instances are equal
         /// </summary>
-        /// <param name="input">Instance of EquityModelOptions to be compared</param>
+        /// <param name="input">Instance of CdsModelOptions to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EquityModelOptions input)
+        public bool Equals(CdsModelOptions input)
         {
             if (input == null)
             {
@@ -103,9 +98,8 @@ namespace Lusid.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.EquityForwardProjectionType == input.EquityForwardProjectionType ||
-                    (this.EquityForwardProjectionType != null &&
-                    this.EquityForwardProjectionType.Equals(input.EquityForwardProjectionType))
+                    this.UseFactorsForCurrentNotional == input.UseFactorsForCurrentNotional ||
+                    this.UseFactorsForCurrentNotional.Equals(input.UseFactorsForCurrentNotional)
                 );
         }
 
@@ -118,10 +112,7 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.EquityForwardProjectionType != null)
-                {
-                    hashCode = (hashCode * 59) + this.EquityForwardProjectionType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.UseFactorsForCurrentNotional.GetHashCode();
                 return hashCode;
             }
         }
@@ -147,12 +138,6 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
-            // EquityForwardProjectionType (string) minLength
-            if (this.EquityForwardProjectionType != null && this.EquityForwardProjectionType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EquityForwardProjectionType, length must be greater than 1.", new [] { "EquityForwardProjectionType" });
-            }
-
             yield break;
         }
     }
