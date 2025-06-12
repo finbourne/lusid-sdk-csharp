@@ -387,7 +387,19 @@ namespace Lusid.Sdk.Model
         /// Enum RepurchaseOfferEvent for value: RepurchaseOfferEvent
         /// </summary>
         [EnumMember(Value = "RepurchaseOfferEvent")]
-        RepurchaseOfferEvent = 60
+        RepurchaseOfferEvent = 60,
+
+        /// <summary>
+        /// Enum RepoPartialClosureEvent for value: RepoPartialClosureEvent
+        /// </summary>
+        [EnumMember(Value = "RepoPartialClosureEvent")]
+        RepoPartialClosureEvent = 61,
+
+        /// <summary>
+        /// Enum RepoCashFlowEvent for value: RepoCashFlowEvent
+        /// </summary>
+        [EnumMember(Value = "RepoCashFlowEvent")]
+        RepoCashFlowEvent = 62
     }
 
 }
