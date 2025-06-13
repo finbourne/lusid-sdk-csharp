@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Local** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **Base** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **Units** | **decimal** | The units. | [optional] 
+**ActivityDate** | **DateTimeOffset** | The activity date of the bucket. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

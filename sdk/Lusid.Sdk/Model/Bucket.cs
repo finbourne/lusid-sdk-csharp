@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="local">local.</param>
         /// <param name="varBase">varBase.</param>
         /// <param name="units">The units..</param>
-        public Bucket(string taxLotId = default(string), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), string economicBucketVariant = default(string), string holdingSign = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount varBase = default(CurrencyAndAmount), decimal units = default(decimal))
+        /// <param name="activityDate">The activity date of the bucket..</param>
+        public Bucket(string taxLotId = default(string), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), string economicBucketVariant = default(string), string holdingSign = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount varBase = default(CurrencyAndAmount), decimal units = default(decimal), DateTimeOffset activityDate = default(DateTimeOffset))
         {
             this.TaxLotId = taxLotId;
             this.MovementName = movementName;
@@ -53,6 +54,7 @@ namespace Lusid.Sdk.Model
             this.Local = local;
             this.Base = varBase;
             this.Units = units;
+            this.ActivityDate = activityDate;
         }
 
         /// <summary>
@@ -124,6 +126,13 @@ namespace Lusid.Sdk.Model
         public decimal Units { get; set; }
 
         /// <summary>
+        /// The activity date of the bucket.
+        /// </summary>
+        /// <value>The activity date of the bucket.</value>
+        [DataMember(Name = "activityDate", EmitDefaultValue = false)]
+        public DateTimeOffset ActivityDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -141,6 +150,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Local: ").Append(Local).Append("\n");
             sb.Append("  Base: ").Append(Base).Append("\n");
             sb.Append("  Units: ").Append(Units).Append("\n");
+            sb.Append("  ActivityDate: ").Append(ActivityDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -224,6 +234,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.Units == input.Units ||
                     this.Units.Equals(input.Units)
+                ) && 
+                (
+                    this.ActivityDate == input.ActivityDate ||
+                    (this.ActivityDate != null &&
+                    this.ActivityDate.Equals(input.ActivityDate))
                 );
         }
 
@@ -273,6 +288,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Base.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Units.GetHashCode();
+                if (this.ActivityDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ActivityDate.GetHashCode();
+                }
                 return hashCode;
             }
         }
