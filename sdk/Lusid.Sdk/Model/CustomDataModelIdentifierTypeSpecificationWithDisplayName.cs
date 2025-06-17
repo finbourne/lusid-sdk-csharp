@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The display name of the property definition..</param>
         /// <param name="identifierKey">The identifier type that is required/allowed on the bound entity. (required).</param>
         /// <param name="required">Whether identifier type is required or allowed..</param>
-        public CustomDataModelIdentifierTypeSpecificationWithDisplayName(string displayName = default(string), string identifierKey = default(string), bool required = default(bool))
+        /// <param name="identifierType">The name of the identifier type..</param>
+        public CustomDataModelIdentifierTypeSpecificationWithDisplayName(string displayName = default(string), string identifierKey = default(string), bool required = default(bool), string identifierType = default(string))
         {
             // to ensure "identifierKey" is required (not null)
             if (identifierKey == null)
@@ -49,6 +50,7 @@ namespace Lusid.Sdk.Model
             this.IdentifierKey = identifierKey;
             this.DisplayName = displayName;
             this.Required = required;
+            this.IdentifierType = identifierType;
         }
 
         /// <summary>
@@ -73,6 +75,13 @@ namespace Lusid.Sdk.Model
         public bool Required { get; set; }
 
         /// <summary>
+        /// The name of the identifier type.
+        /// </summary>
+        /// <value>The name of the identifier type.</value>
+        [DataMember(Name = "identifierType", EmitDefaultValue = true)]
+        public string IdentifierType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +92,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  IdentifierKey: ").Append(IdentifierKey).Append("\n");
             sb.Append("  Required: ").Append(Required).Append("\n");
+            sb.Append("  IdentifierType: ").Append(IdentifierType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +141,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.Required == input.Required ||
                     this.Required.Equals(input.Required)
+                ) && 
+                (
+                    this.IdentifierType == input.IdentifierType ||
+                    (this.IdentifierType != null &&
+                    this.IdentifierType.Equals(input.IdentifierType))
                 );
         }
 
@@ -152,6 +167,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.IdentifierKey.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Required.GetHashCode();
+                if (this.IdentifierType != null)
+                {
+                    hashCode = (hashCode * 59) + this.IdentifierType.GetHashCode();
+                }
                 return hashCode;
             }
         }
