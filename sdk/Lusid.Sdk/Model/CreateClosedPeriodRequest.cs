@@ -34,11 +34,13 @@ namespace Lusid.Sdk.Model
         /// <param name="closedPeriodId">The unique Id of the Closed Period. The ClosedPeriodId, together with the Timeline Scope and Code, uniquely identifies a Closed Period.</param>
         /// <param name="effectiveEnd">The effective end of the Closed Period.</param>
         /// <param name="properties">The Closed Periods properties. These will be from the &#39;ClosedPeriod&#39; domain..</param>
-        public CreateClosedPeriodRequest(string closedPeriodId = default(string), DateTimeOffset effectiveEnd = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        /// <param name="asAtClosed">The asAt closed datetime for the Closed Period.</param>
+        public CreateClosedPeriodRequest(string closedPeriodId = default(string), DateTimeOffset effectiveEnd = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), DateTimeOffset? asAtClosed = default(DateTimeOffset?))
         {
             this.ClosedPeriodId = closedPeriodId;
             this.EffectiveEnd = effectiveEnd;
             this.Properties = properties;
+            this.AsAtClosed = asAtClosed;
         }
 
         /// <summary>
@@ -63,6 +65,13 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
+        /// The asAt closed datetime for the Closed Period
+        /// </summary>
+        /// <value>The asAt closed datetime for the Closed Period</value>
+        [DataMember(Name = "asAtClosed", EmitDefaultValue = true)]
+        public DateTimeOffset? AsAtClosed { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ClosedPeriodId: ").Append(ClosedPeriodId).Append("\n");
             sb.Append("  EffectiveEnd: ").Append(EffectiveEnd).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  AsAtClosed: ").Append(AsAtClosed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +133,11 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.AsAtClosed == input.AsAtClosed ||
+                    (this.AsAtClosed != null &&
+                    this.AsAtClosed.Equals(input.AsAtClosed))
                 );
         }
 
@@ -146,6 +161,10 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this.AsAtClosed != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsAtClosed.GetHashCode();
                 }
                 return hashCode;
             }

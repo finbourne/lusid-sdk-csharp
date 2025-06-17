@@ -34,7 +34,7 @@ namespace Lusid.Sdk.Model
         /// <param name="closedPeriodId">The unique Id of the Closed Period. The ClosedPeriodId, together with the Timeline Scope and Code, uniquely identifies a Closed Period.</param>
         /// <param name="effectiveStart">The effective start of the Closed Period.</param>
         /// <param name="effectiveEnd">The effective end of the Closed Period.</param>
-        /// <param name="asAtClosed">The asAt datetime the Closed Period was created.</param>
+        /// <param name="asAtClosed">The asAt closed datetime for the Closed Period.</param>
         /// <param name="properties">The Closed Periods properties. These will be from the &#39;ClosedPeriod&#39; domain..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
@@ -73,9 +73,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset EffectiveEnd { get; set; }
 
         /// <summary>
-        /// The asAt datetime the Closed Period was created
+        /// The asAt closed datetime for the Closed Period
         /// </summary>
-        /// <value>The asAt datetime the Closed Period was created</value>
+        /// <value>The asAt closed datetime for the Closed Period</value>
         [DataMember(Name = "asAtClosed", EmitDefaultValue = false)]
         public DateTimeOffset AsAtClosed { get; set; }
 
