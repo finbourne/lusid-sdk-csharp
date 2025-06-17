@@ -3022,7 +3022,7 @@ catch (ApiException e)
 
 PatchPortfolio: Patch portfolio.
 
-Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes, Type.
+Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: Created, InstrumentScopes, Type.
 
 ### Example
 ```csharp
@@ -3064,7 +3064,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the portfolio.
-            var code = "code_example";  // string | The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.
             var operation = new List<Operation>(); // List<Operation> | The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.
 
             try
@@ -3112,7 +3112,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the portfolio. |  |
-| **code** | **string** | The code of the portfolio. Together with the               scope this uniquely identifies the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the              scope this uniquely identifies the portfolio. |  |
 | **operation** | [**List&lt;Operation&gt;**](Operation.md) | The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902. |  |
 
 ### Return type

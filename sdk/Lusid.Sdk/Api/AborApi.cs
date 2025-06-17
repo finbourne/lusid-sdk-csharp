@@ -392,11 +392,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchAbor: Patch Abor.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: PortfolioIds.
+        /// Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the               scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -407,11 +407,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchAbor: Patch Abor.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: PortfolioIds.
+        /// Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the               scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -867,11 +867,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchAbor: Patch Abor.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: PortfolioIds.
+        /// Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the               scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -883,11 +883,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchAbor: Patch Abor.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: PortfolioIds.
+        /// Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the               scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3936,11 +3936,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: PortfolioIds.
+        /// [EXPERIMENTAL] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the               scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3952,11 +3952,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: PortfolioIds.
+        /// [EXPERIMENTAL] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the               scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4058,11 +4058,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: PortfolioIds.
+        /// [EXPERIMENTAL] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the               scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4075,11 +4075,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: PortfolioIds.
+        /// [EXPERIMENTAL] PatchAbor: Patch Abor. Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the               scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

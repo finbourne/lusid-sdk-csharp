@@ -190,11 +190,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
+        /// Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the AborConfiguration.</param>
-        /// <param name="code">The code of the AborConfiguration.               Together with the scope this uniquely identifies the AborConfiguration.</param>
+        /// <param name="code">The code of the AborConfiguration.              Together with the scope this uniquely identifies the AborConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -205,11 +205,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
+        /// Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the AborConfiguration.</param>
-        /// <param name="code">The code of the AborConfiguration.               Together with the scope this uniquely identifies the AborConfiguration.</param>
+        /// <param name="code">The code of the AborConfiguration.              Together with the scope this uniquely identifies the AborConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -422,11 +422,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
+        /// Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the AborConfiguration.</param>
-        /// <param name="code">The code of the AborConfiguration.               Together with the scope this uniquely identifies the AborConfiguration.</param>
+        /// <param name="code">The code of the AborConfiguration.              Together with the scope this uniquely identifies the AborConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -438,11 +438,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
+        /// Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the AborConfiguration.</param>
-        /// <param name="code">The code of the AborConfiguration.               Together with the scope this uniquely identifies the AborConfiguration.</param>
+        /// <param name="code">The code of the AborConfiguration.              Together with the scope this uniquely identifies the AborConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1830,11 +1830,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration. Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
+        /// [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration. Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the AborConfiguration.</param>
-        /// <param name="code">The code of the AborConfiguration.               Together with the scope this uniquely identifies the AborConfiguration.</param>
+        /// <param name="code">The code of the AborConfiguration.              Together with the scope this uniquely identifies the AborConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1846,11 +1846,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration. Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
+        /// [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration. Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the AborConfiguration.</param>
-        /// <param name="code">The code of the AborConfiguration.               Together with the scope this uniquely identifies the AborConfiguration.</param>
+        /// <param name="code">The code of the AborConfiguration.              Together with the scope this uniquely identifies the AborConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1952,11 +1952,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration. Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
+        /// [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration. Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the AborConfiguration.</param>
-        /// <param name="code">The code of the AborConfiguration.               Together with the scope this uniquely identifies the AborConfiguration.</param>
+        /// <param name="code">The code of the AborConfiguration.              Together with the scope this uniquely identifies the AborConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1969,11 +1969,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration. Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
+        /// [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration. Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the AborConfiguration.</param>
-        /// <param name="code">The code of the AborConfiguration.               Together with the scope this uniquely identifies the AborConfiguration.</param>
+        /// <param name="code">The code of the AborConfiguration.              Together with the scope this uniquely identifies the AborConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

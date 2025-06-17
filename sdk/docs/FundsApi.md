@@ -2366,7 +2366,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] PatchFee: Patch Fee.
 
-Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: EndDate.
+Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
 
 ### Example
 ```csharp
@@ -2486,7 +2486,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] PatchFund: Patch a Fund.
 
-Update fields on a Fund. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, InceptionDate, DecimalPlaces, YearEndDate.
+Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, YearEndDate.
 
 ### Example
 ```csharp

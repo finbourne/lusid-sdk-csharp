@@ -879,11 +879,11 @@ namespace Lusid.Sdk.Api
         /// PatchPortfolio: Patch portfolio.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes, Type.
+        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: Created, InstrumentScopes, Type.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -894,11 +894,11 @@ namespace Lusid.Sdk.Api
         /// PatchPortfolio: Patch portfolio.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes, Type.
+        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: Created, InstrumentScopes, Type.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2003,11 +2003,11 @@ namespace Lusid.Sdk.Api
         /// PatchPortfolio: Patch portfolio.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes, Type.
+        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: Created, InstrumentScopes, Type.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2019,11 +2019,11 @@ namespace Lusid.Sdk.Api
         /// PatchPortfolio: Patch portfolio.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes, Type.
+        /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: Created, InstrumentScopes, Type.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8974,11 +8974,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes, Type.
+        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: Created, InstrumentScopes, Type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -8990,11 +8990,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes, Type.
+        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: Created, InstrumentScopes, Type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9096,11 +9096,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes, Type.
+        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: Created, InstrumentScopes, Type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -9113,11 +9113,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: Created, InstrumentScopes, Type.
+        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: Created, InstrumentScopes, Type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

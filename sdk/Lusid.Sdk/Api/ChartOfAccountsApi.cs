@@ -780,7 +780,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts.
         /// </summary>
         /// <remarks>
-        /// Update fields on a Chart of Accounts. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description.
+        /// Update fields on a Chart of Accounts.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -795,7 +795,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts.
         /// </summary>
         /// <remarks>
-        /// Update fields on a Chart of Accounts. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description.
+        /// Update fields on a Chart of Accounts.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -809,7 +809,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
         /// </summary>
         /// <remarks>
-        /// Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// Update fields on a Cleardown Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -825,7 +825,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
         /// </summary>
         /// <remarks>
-        /// Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// Update fields on a Cleardown Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -840,7 +840,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
         /// </summary>
         /// <remarks>
-        /// Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// Update fields on a Posting Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -856,7 +856,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
         /// </summary>
         /// <remarks>
-        /// Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// Update fields on a Posting Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -1915,7 +1915,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts.
         /// </summary>
         /// <remarks>
-        /// Update fields on a Chart of Accounts. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description.
+        /// Update fields on a Chart of Accounts.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -1931,7 +1931,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts.
         /// </summary>
         /// <remarks>
-        /// Update fields on a Chart of Accounts. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description.
+        /// Update fields on a Chart of Accounts.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -1946,7 +1946,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
         /// </summary>
         /// <remarks>
-        /// Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// Update fields on a Cleardown Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -1963,7 +1963,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module
         /// </summary>
         /// <remarks>
-        /// Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// Update fields on a Cleardown Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -1979,7 +1979,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
         /// </summary>
         /// <remarks>
-        /// Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// Update fields on a Posting Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -1996,7 +1996,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module
         /// </summary>
         /// <remarks>
-        /// Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// Update fields on a Posting Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -8354,7 +8354,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts. Update fields on a Chart of Accounts. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description.
+        /// [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts. Update fields on a Chart of Accounts.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -8370,7 +8370,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts. Update fields on a Chart of Accounts. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description.
+        /// [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts. Update fields on a Chart of Accounts.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -8476,7 +8476,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts. Update fields on a Chart of Accounts. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description.
+        /// [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts. Update fields on a Chart of Accounts.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -8493,7 +8493,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts. Update fields on a Chart of Accounts. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description.
+        /// [EXPERIMENTAL] PatchChartOfAccounts: Patch a Chart of Accounts. Update fields on a Chart of Accounts.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -8602,7 +8602,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module Update fields on a Cleardown Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -8619,7 +8619,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module Update fields on a Cleardown Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -8733,7 +8733,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module Update fields on a Cleardown Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -8751,7 +8751,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module Update fields on a Cleardown Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// [EXPERIMENTAL] PatchCleardownModule: Patch a Cleardown Module Update fields on a Cleardown Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -8868,7 +8868,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module Update fields on a Posting Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -8885,7 +8885,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module Update fields on a Posting Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -8999,7 +8999,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module Update fields on a Posting Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
@@ -9017,7 +9017,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module Update fields on a Posting Module. The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, Rules.
+        /// [EXPERIMENTAL] PatchPostingModule: Patch a Posting Module Update fields on a Posting Module.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, Rules.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>

@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **InstrumentIdentifierType** | **string** |  | 
 **InstrumentIdentifier** | **string** |  | 
 **InstrumentScope** | **string** |  | [optional] 
-**ReceivedDate** | **DateTimeOffset** |  | [optional] 
-**PriceDate** | **DateTimeOffset** |  | [optional] 
+**ReceivedDate** | **DateTimeOffset?** |  | [optional] 
+**PriceDate** | **DateTimeOffset?** |  | [optional] 
 **TransactionCategory** | **string** |  | [optional] 
 **LiquidatingShareClassIdentifier** | **string** |  | [optional] 
 **LiquidatingShareClassIdentifierType** | **string** |  | [optional] 

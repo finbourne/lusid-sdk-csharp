@@ -618,7 +618,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] PatchAborConfiguration: Patch Abor Configuration.
 
-Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
+Create or update certain fields for a particular AborConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, PostingModuleCodes, CleardownModuleCodes.
 
 ### Example
 ```csharp
@@ -660,7 +660,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborConfigurationApi>();
             var scope = "scope_example";  // string | The scope of the AborConfiguration.
-            var code = "code_example";  // string | The code of the AborConfiguration.               Together with the scope this uniquely identifies the AborConfiguration.
+            var code = "code_example";  // string | The code of the AborConfiguration.              Together with the scope this uniquely identifies the AborConfiguration.
             var operation = new List<Operation>(); // List<Operation> | The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.
 
             try
@@ -708,7 +708,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the AborConfiguration. |  |
-| **code** | **string** | The code of the AborConfiguration.               Together with the scope this uniquely identifies the AborConfiguration. |  |
+| **code** | **string** | The code of the AborConfiguration.              Together with the scope this uniquely identifies the AborConfiguration. |  |
 | **operation** | [**List&lt;Operation&gt;**](Operation.md) | The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902. |  |
 
 ### Return type

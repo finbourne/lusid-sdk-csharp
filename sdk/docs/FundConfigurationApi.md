@@ -497,7 +497,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration.
 
-Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: displayName, description, dealingFilters, pnlFilters, backOutFilters.
+Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
 
 ### Example
 ```csharp
@@ -539,7 +539,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundConfigurationApi>();
             var scope = "scope_example";  // string | The scope of the FundConfiguration.
-            var code = "code_example";  // string | The code of the FundConfiguration. Together with the               scope this uniquely identifies the FundConfiguration.
+            var code = "code_example";  // string | The code of the FundConfiguration. Together with the              scope this uniquely identifies the FundConfiguration.
             var operation = new List<Operation>(); // List<Operation> | The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.
 
             try
@@ -587,7 +587,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the FundConfiguration. |  |
-| **code** | **string** | The code of the FundConfiguration. Together with the               scope this uniquely identifies the FundConfiguration. |  |
+| **code** | **string** | The code of the FundConfiguration. Together with the              scope this uniquely identifies the FundConfiguration. |  |
 | **operation** | [**List&lt;Operation&gt;**](Operation.md) | The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902. |  |
 
 ### Return type

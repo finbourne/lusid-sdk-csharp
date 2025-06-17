@@ -1361,7 +1361,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] PatchAbor: Patch Abor.
 
-Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: PortfolioIds.
+Create or update certain fields for a particular Abor.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: PortfolioIds.
 
 ### Example
 ```csharp
@@ -1403,7 +1403,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
-            var code = "code_example";  // string | The code of the Abor. Together with the               scope this uniquely identifies the Abor.
+            var code = "code_example";  // string | The code of the Abor. Together with the              scope this uniquely identifies the Abor.
             var operation = new List<Operation>(); // List<Operation> | The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.
 
             try
@@ -1451,7 +1451,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Abor. |  |
-| **code** | **string** | The code of the Abor. Together with the               scope this uniquely identifies the Abor. |  |
+| **code** | **string** | The code of the Abor. Together with the              scope this uniquely identifies the Abor. |  |
 | **operation** | [**List&lt;Operation&gt;**](Operation.md) | The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902. |  |
 
 ### Return type

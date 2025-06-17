@@ -674,7 +674,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFee: Patch Fee.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: EndDate.
+        /// Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -690,7 +690,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFee: Patch Fee.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: EndDate.
+        /// Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -705,7 +705,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFund: Patch a Fund.
         /// </summary>
         /// <remarks>
-        /// Update fields on a Fund. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, InceptionDate, DecimalPlaces, YearEndDate.
+        /// Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, YearEndDate.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -720,7 +720,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFund: Patch a Fund.
         /// </summary>
         /// <remarks>
-        /// Update fields on a Fund. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, InceptionDate, DecimalPlaces, YearEndDate.
+        /// Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, YearEndDate.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1538,7 +1538,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFee: Patch Fee.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: EndDate.
+        /// Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1555,7 +1555,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFee: Patch Fee.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: EndDate.
+        /// Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1571,7 +1571,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFund: Patch a Fund.
         /// </summary>
         /// <remarks>
-        /// Update fields on a Fund. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, InceptionDate, DecimalPlaces, YearEndDate.
+        /// Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, YearEndDate.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1587,7 +1587,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFund: Patch a Fund.
         /// </summary>
         /// <remarks>
-        /// Update fields on a Fund. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, InceptionDate, DecimalPlaces, YearEndDate.
+        /// Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, YearEndDate.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6954,7 +6954,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: EndDate.
+        /// [EXPERIMENTAL] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -6971,7 +6971,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: EndDate.
+        /// [EXPERIMENTAL] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7085,7 +7085,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: EndDate.
+        /// [EXPERIMENTAL] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7103,7 +7103,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: EndDate.
+        /// [EXPERIMENTAL] PatchFee: Patch Fee. Create or update certain fields for a particular Fee.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: EndDate, ShareClasses.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7220,7 +7220,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFund: Patch a Fund. Update fields on a Fund. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, InceptionDate, DecimalPlaces, YearEndDate.
+        /// [EXPERIMENTAL] PatchFund: Patch a Fund. Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, YearEndDate.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7236,7 +7236,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFund: Patch a Fund. Update fields on a Fund. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, InceptionDate, DecimalPlaces, YearEndDate.
+        /// [EXPERIMENTAL] PatchFund: Patch a Fund. Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, YearEndDate.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7342,7 +7342,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFund: Patch a Fund. Update fields on a Fund. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, InceptionDate, DecimalPlaces, YearEndDate.
+        /// [EXPERIMENTAL] PatchFund: Patch a Fund. Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, YearEndDate.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -7359,7 +7359,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFund: Patch a Fund. Update fields on a Fund. The behaviour is defined by the JSON Patch specification.  Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, InceptionDate, DecimalPlaces, YearEndDate.
+        /// [EXPERIMENTAL] PatchFund: Patch a Fund. Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, FundConfigurationId, AborId, ShareClassInstrumentScopes, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, YearEndDate.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>

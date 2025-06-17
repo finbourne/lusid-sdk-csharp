@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="liquidatingShareClassIdentifier">liquidatingShareClassIdentifier.</param>
         /// <param name="liquidatingShareClassIdentifierType">liquidatingShareClassIdentifierType.</param>
         /// <param name="liquidatingShareClassInstrumentScope">liquidatingShareClassInstrumentScope.</param>
-        public CalculateOrderDatesRequest(string instrumentIdentifierType = default(string), string instrumentIdentifier = default(string), string instrumentScope = default(string), DateTimeOffset receivedDate = default(DateTimeOffset), DateTimeOffset priceDate = default(DateTimeOffset), string transactionCategory = default(string), string liquidatingShareClassIdentifier = default(string), string liquidatingShareClassIdentifierType = default(string), string liquidatingShareClassInstrumentScope = default(string))
+        public CalculateOrderDatesRequest(string instrumentIdentifierType = default(string), string instrumentIdentifier = default(string), string instrumentScope = default(string), DateTimeOffset? receivedDate = default(DateTimeOffset?), DateTimeOffset? priceDate = default(DateTimeOffset?), string transactionCategory = default(string), string liquidatingShareClassIdentifier = default(string), string liquidatingShareClassIdentifierType = default(string), string liquidatingShareClassInstrumentScope = default(string))
         {
             // to ensure "instrumentIdentifierType" is required (not null)
             if (instrumentIdentifierType == null)
@@ -89,14 +89,14 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets ReceivedDate
         /// </summary>
-        [DataMember(Name = "receivedDate", EmitDefaultValue = false)]
-        public DateTimeOffset ReceivedDate { get; set; }
+        [DataMember(Name = "receivedDate", EmitDefaultValue = true)]
+        public DateTimeOffset? ReceivedDate { get; set; }
 
         /// <summary>
         /// Gets or Sets PriceDate
         /// </summary>
-        [DataMember(Name = "priceDate", EmitDefaultValue = false)]
-        public DateTimeOffset PriceDate { get; set; }
+        [DataMember(Name = "priceDate", EmitDefaultValue = true)]
+        public DateTimeOffset? PriceDate { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionCategory

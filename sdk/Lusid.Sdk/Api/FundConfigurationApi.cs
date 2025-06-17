@@ -159,11 +159,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: displayName, description, dealingFilters, pnlFilters, backOutFilters.
+        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
-        /// <param name="code">The code of the FundConfiguration. Together with the               scope this uniquely identifies the FundConfiguration.</param>
+        /// <param name="code">The code of the FundConfiguration. Together with the              scope this uniquely identifies the FundConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -174,11 +174,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: displayName, description, dealingFilters, pnlFilters, backOutFilters.
+        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
-        /// <param name="code">The code of the FundConfiguration. Together with the               scope this uniquely identifies the FundConfiguration.</param>
+        /// <param name="code">The code of the FundConfiguration. Together with the              scope this uniquely identifies the FundConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -358,11 +358,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: displayName, description, dealingFilters, pnlFilters, backOutFilters.
+        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
-        /// <param name="code">The code of the FundConfiguration. Together with the               scope this uniquely identifies the FundConfiguration.</param>
+        /// <param name="code">The code of the FundConfiguration. Together with the              scope this uniquely identifies the FundConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -374,11 +374,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: displayName, description, dealingFilters, pnlFilters, backOutFilters.
+        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
-        /// <param name="code">The code of the FundConfiguration. Together with the               scope this uniquely identifies the FundConfiguration.</param>
+        /// <param name="code">The code of the FundConfiguration. Together with the              scope this uniquely identifies the FundConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1520,11 +1520,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: displayName, description, dealingFilters, pnlFilters, backOutFilters.
+        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
-        /// <param name="code">The code of the FundConfiguration. Together with the               scope this uniquely identifies the FundConfiguration.</param>
+        /// <param name="code">The code of the FundConfiguration. Together with the              scope this uniquely identifies the FundConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1536,11 +1536,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: displayName, description, dealingFilters, pnlFilters, backOutFilters.
+        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
-        /// <param name="code">The code of the FundConfiguration. Together with the               scope this uniquely identifies the FundConfiguration.</param>
+        /// <param name="code">The code of the FundConfiguration. Together with the              scope this uniquely identifies the FundConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1642,11 +1642,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: displayName, description, dealingFilters, pnlFilters, backOutFilters.
+        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
-        /// <param name="code">The code of the FundConfiguration. Together with the               scope this uniquely identifies the FundConfiguration.</param>
+        /// <param name="code">The code of the FundConfiguration. Together with the              scope this uniquely identifies the FundConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1659,11 +1659,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.                Currently supported fields are: displayName, description, dealingFilters, pnlFilters, backOutFilters.
+        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
-        /// <param name="code">The code of the FundConfiguration. Together with the               scope this uniquely identifies the FundConfiguration.</param>
+        /// <param name="code">The code of the FundConfiguration. Together with the              scope this uniquely identifies the FundConfiguration.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

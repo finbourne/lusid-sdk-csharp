@@ -3923,7 +3923,7 @@ catch (ApiException e)
 
 PatchPortfolioDetails: Patch portfolio details
 
-Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
+Create or update certain details for a particular transaction portfolio.  Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: BaseCurrency, SubHoldingKeys, AmortisationMethod, TransactionTypeScope, CashGainLossCalculationDate, InstrumentEventConfiguration, AmortisationRuleSetId.
 
 ### Example
 ```csharp
@@ -3965,9 +3965,9 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
-            var code = "code_example";  // string | The code of the transaction portfolio. Together with the               scope this uniquely identifies the transaction portfolio.
+            var code = "code_example";  // string | The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio.
             var operation = new List<Operation>(); // List<Operation> | The patch document.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which the updated or inserted details should become valid.               Defaults to the current LUSID system datetime if not specified.               Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. (optional) 
 
             try
             {
@@ -4014,9 +4014,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the transaction portfolio. |  |
-| **code** | **string** | The code of the transaction portfolio. Together with the               scope this uniquely identifies the transaction portfolio. |  |
+| **code** | **string** | The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio. |  |
 | **operation** | [**List&lt;Operation&gt;**](Operation.md) | The patch document. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which the updated or inserted details should become valid.               Defaults to the current LUSID system datetime if not specified.               Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. | [optional]  |
 
 ### Return type
 
