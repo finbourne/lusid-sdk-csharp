@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **PaymentDate** | **DateTimeOffset** | Date that the Principal is due to be paid. | [optional] 
 **Currency** | **string** | Currency of the repayment. | 
 **LapseElections** | [**List&lt;LapseElection&gt;**](LapseElection.md) | Election for controlling whether the Principal is paid automatically or not.  Exactly one election must be provided. | [optional] 
-**Fraction** | **decimal** | Fraction of the principal balance to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set. | [optional] 
+**Fraction** | **decimal?** | Fraction of the outstanding settled principal balance to be repaid. Must be between 0 and 1, inclusive.  Defaults to 1 if not set. Ignored if the field Amount is set to a value different than zero.  Note that if there is a repayment on an unsettled trade and the repayment is specified as a fraction,  this repayment will not be applied to the unsettled position, as the fraction is always applied to  the settled balance only. | [optional] 
+**Amount** | **decimal?** | Amount to be repaid (independent of the fraction).  This field is not used at all if not set or set to 0, in this case the fraction field will be used instead.  Otherwise, the fraction field is ignored. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

@@ -41,9 +41,10 @@ namespace Lusid.Sdk.Model
         /// <param name="paymentDate">Date that the Principal is due to be paid..</param>
         /// <param name="currency">Currency of the repayment. (required).</param>
         /// <param name="lapseElections">Election for controlling whether the Principal is paid automatically or not.  Exactly one election must be provided..</param>
-        /// <param name="fraction">Fraction of the principal balance to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set..</param>
+        /// <param name="fraction">Fraction of the outstanding settled principal balance to be repaid. Must be between 0 and 1, inclusive.  Defaults to 1 if not set. Ignored if the field Amount is set to a value different than zero.  Note that if there is a repayment on an unsettled trade and the repayment is specified as a fraction,  this repayment will not be applied to the unsettled position, as the fraction is always applied to  the settled balance only..</param>
+        /// <param name="amount">Amount to be repaid (independent of the fraction).  This field is not used at all if not set or set to 0, in this case the fraction field will be used instead.  Otherwise, the fraction field is ignored..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent (required) (default to &quot;LoanPrincipalRepaymentEvent&quot;).</param>
-        public LoanPrincipalRepaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), List<LapseElection> lapseElections = default(List<LapseElection>), decimal fraction = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public LoanPrincipalRepaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), List<LapseElection> lapseElections = default(List<LapseElection>), decimal? fraction = default(decimal?), decimal? amount = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "currency" is required (not null)
             if (currency == null)
@@ -54,6 +55,7 @@ namespace Lusid.Sdk.Model
             this.PaymentDate = paymentDate;
             this.LapseElections = lapseElections;
             this.Fraction = fraction;
+            this.Amount = amount;
         }
 
         /// <summary>
@@ -78,11 +80,18 @@ namespace Lusid.Sdk.Model
         public List<LapseElection> LapseElections { get; set; }
 
         /// <summary>
-        /// Fraction of the principal balance to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set.
+        /// Fraction of the outstanding settled principal balance to be repaid. Must be between 0 and 1, inclusive.  Defaults to 1 if not set. Ignored if the field Amount is set to a value different than zero.  Note that if there is a repayment on an unsettled trade and the repayment is specified as a fraction,  this repayment will not be applied to the unsettled position, as the fraction is always applied to  the settled balance only.
         /// </summary>
-        /// <value>Fraction of the principal balance to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set.</value>
+        /// <value>Fraction of the outstanding settled principal balance to be repaid. Must be between 0 and 1, inclusive.  Defaults to 1 if not set. Ignored if the field Amount is set to a value different than zero.  Note that if there is a repayment on an unsettled trade and the repayment is specified as a fraction,  this repayment will not be applied to the unsettled position, as the fraction is always applied to  the settled balance only.</value>
         [DataMember(Name = "fraction", EmitDefaultValue = true)]
-        public decimal Fraction { get; set; }
+        public decimal? Fraction { get; set; }
+
+        /// <summary>
+        /// Amount to be repaid (independent of the fraction).  This field is not used at all if not set or set to 0, in this case the fraction field will be used instead.  Otherwise, the fraction field is ignored.
+        /// </summary>
+        /// <value>Amount to be repaid (independent of the fraction).  This field is not used at all if not set or set to 0, in this case the fraction field will be used instead.  Otherwise, the fraction field is ignored.</value>
+        [DataMember(Name = "amount", EmitDefaultValue = true)]
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,6 +106,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  LapseElections: ").Append(LapseElections).Append("\n");
             sb.Append("  Fraction: ").Append(Fraction).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,7 +160,13 @@ namespace Lusid.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.Fraction == input.Fraction ||
-                    this.Fraction.Equals(input.Fraction)
+                    (this.Fraction != null &&
+                    this.Fraction.Equals(input.Fraction))
+                ) && base.Equals(input) && 
+                (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 );
         }
 
@@ -175,7 +191,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.LapseElections.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Fraction.GetHashCode();
+                if (this.Fraction != null)
+                {
+                    hashCode = (hashCode * 59) + this.Fraction.GetHashCode();
+                }
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
                 return hashCode;
             }
         }

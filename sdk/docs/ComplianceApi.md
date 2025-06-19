@@ -14,6 +14,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**ListComplianceRules**](ComplianceApi.md#listcompliancerules) | **GET** /api/compliance/rules | [EARLY ACCESS] ListComplianceRules: List compliance rules. |
 | [**ListComplianceRuns**](ComplianceApi.md#listcomplianceruns) | **GET** /api/compliance/runs | [EARLY ACCESS] ListComplianceRuns: List historical compliance run identifiers. |
 | [**ListComplianceTemplates**](ComplianceApi.md#listcompliancetemplates) | **GET** /api/compliance/templates | [EARLY ACCESS] ListComplianceTemplates: List compliance templates. |
+| [**ListOrderBreachHistory**](ComplianceApi.md#listorderbreachhistory) | **GET** /api/compliance/runs/breaches | [EXPERIMENTAL] ListOrderBreachHistory: List Historical Order Breaches. |
 | [**RunCompliance**](ComplianceApi.md#runcompliance) | **POST** /api/compliance/runs | [EARLY ACCESS] RunCompliance: Run a compliance check. |
 | [**RunCompliancePreview**](ComplianceApi.md#runcompliancepreview) | **POST** /api/compliance/preview/runs | [EARLY ACCESS] RunCompliancePreview: Run a compliance check. |
 | [**UpdateComplianceTemplate**](ComplianceApi.md#updatecompliancetemplate) | **PUT** /api/compliance/templates/{scope}/{code} | [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate |
@@ -1201,6 +1202,128 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The list of compliance templates available. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listorderbreachhistory"></a>
+# **ListOrderBreachHistory**
+> PagedResourceListOfOrderBreachHistory ListOrderBreachHistory (DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
+
+[EXPERIMENTAL] ListOrderBreachHistory: List Historical Order Breaches.
+
+Lists Order Ids and Run Ids of prior compliance runs, with the breached Rules Ids specified, or a subset with a filter.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ComplianceApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The time at which to get results from. Default : latest (optional) 
+            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
+            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
+            var filter = "filter_example";  // string? | Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | Optional. A list of field names to sort by, each suffixed by \"ASC\" or \"DESC\" (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfOrderBreachHistory result = apiInstance.ListOrderBreachHistory(asAt, page, limit, filter, sortBy, opts: opts);
+
+                // [EXPERIMENTAL] ListOrderBreachHistory: List Historical Order Breaches.
+                PagedResourceListOfOrderBreachHistory result = apiInstance.ListOrderBreachHistory(asAt, page, limit, filter, sortBy);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ComplianceApi.ListOrderBreachHistory: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListOrderBreachHistoryWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListOrderBreachHistory: List Historical Order Breaches.
+    ApiResponse<PagedResourceListOfOrderBreachHistory> response = apiInstance.ListOrderBreachHistoryWithHttpInfo(asAt, page, limit, filter, sortBy);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ComplianceApi.ListOrderBreachHistoryWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | Optional. The time at which to get results from. Default : latest | [optional]  |
+| **page** | **string?** | Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. | [optional]  |
+| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. | [optional]  |
+| **filter** | **string?** | Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfOrderBreachHistory**](PagedResourceListOfOrderBreachHistory.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of previous order breaches |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

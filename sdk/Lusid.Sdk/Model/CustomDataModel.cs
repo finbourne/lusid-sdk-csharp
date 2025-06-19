@@ -35,12 +35,14 @@ namespace Lusid.Sdk.Model
         /// <param name="inherited">inherited.</param>
         /// <param name="incremental">incremental.</param>
         /// <param name="applied">applied.</param>
-        public CustomDataModel(DataModelSummary dataModelSummary = default(DataModelSummary), CustomDataModelCriteria inherited = default(CustomDataModelCriteria), CustomDataModelCriteria incremental = default(CustomDataModelCriteria), CustomDataModelCriteria applied = default(CustomDataModelCriteria))
+        /// <param name="varVersion">varVersion.</param>
+        public CustomDataModel(DataModelSummary dataModelSummary = default(DataModelSummary), CustomDataModelCriteria inherited = default(CustomDataModelCriteria), CustomDataModelCriteria incremental = default(CustomDataModelCriteria), CustomDataModelCriteria applied = default(CustomDataModelCriteria), ModelVersion varVersion = default(ModelVersion))
         {
             this.DataModelSummary = dataModelSummary;
             this.Inherited = inherited;
             this.Incremental = incremental;
             this.Applied = applied;
+            this.VarVersion = varVersion;
         }
 
         /// <summary>
@@ -68,6 +70,12 @@ namespace Lusid.Sdk.Model
         public CustomDataModelCriteria Applied { get; set; }
 
         /// <summary>
+        /// Gets or Sets VarVersion
+        /// </summary>
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public ModelVersion VarVersion { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -79,6 +87,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Inherited: ").Append(Inherited).Append("\n");
             sb.Append("  Incremental: ").Append(Incremental).Append("\n");
             sb.Append("  Applied: ").Append(Applied).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -133,6 +142,11 @@ namespace Lusid.Sdk.Model
                     this.Applied == input.Applied ||
                     (this.Applied != null &&
                     this.Applied.Equals(input.Applied))
+                ) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 );
         }
 
@@ -160,6 +174,10 @@ namespace Lusid.Sdk.Model
                 if (this.Applied != null)
                 {
                     hashCode = (hashCode * 59) + this.Applied.GetHashCode();
+                }
+                if (this.VarVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 return hashCode;
             }
