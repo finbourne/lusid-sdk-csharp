@@ -130,9 +130,9 @@ namespace Lusid.Sdk.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Entity (string) maxLength
-            if (this.Entity != null && this.Entity.Length > 50000)
+            if (this.Entity != null && this.Entity.Length > 500000)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Entity, length must be less than 50000.", new [] { "Entity" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Entity, length must be less than 500000.", new [] { "Entity" });
             }
 
             // Entity (string) minLength
