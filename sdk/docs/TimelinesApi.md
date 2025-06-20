@@ -11,6 +11,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**GetTimeline**](TimelinesApi.md#gettimeline) | **GET** /api/timelines/{scope}/{code} | [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code. |
 | [**ListClosedPeriods**](TimelinesApi.md#listclosedperiods) | **GET** /api/timelines/{scope}/{code}/closedperiods | [EXPERIMENTAL] ListClosedPeriods: List ClosedPeriods for a specified Timeline. |
 | [**ListTimelines**](TimelinesApi.md#listtimelines) | **GET** /api/timelines | [EXPERIMENTAL] ListTimelines: List Timelines |
+| [**SetPostCloseActivity**](TimelinesApi.md#setpostcloseactivity) | **POST** /api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}/postcloseactivity | [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period. |
 | [**UpdateTimeline**](TimelinesApi.md#updatetimeline) | **PUT** /api/timelines/{scope}/{code} | [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code |
 
 <a id="createclosedperiod"></a>
@@ -854,6 +855,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested Timelines. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="setpostcloseactivity"></a>
+# **SetPostCloseActivity**
+> ClosedPeriod SetPostCloseActivity (string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = null)
+
+[EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+
+Sets empty or more post close activities to the specific closed period.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TimelinesApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TimelinesApi>();
+            var scope = "scope_example";  // string | The scope of the Timeline.
+            var code = "code_example";  // string | The code of the Timeline.
+            var closedPeriodId = "closedPeriodId_example";  // string | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod
+            var postCloseActivitiesRequest = new PostCloseActivitiesRequest?(); // PostCloseActivitiesRequest? | Specifies collection of post close activities (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ClosedPeriod result = apiInstance.SetPostCloseActivity(scope, code, closedPeriodId, postCloseActivitiesRequest, opts: opts);
+
+                // [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+                ClosedPeriod result = apiInstance.SetPostCloseActivity(scope, code, closedPeriodId, postCloseActivitiesRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TimelinesApi.SetPostCloseActivity: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SetPostCloseActivityWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+    ApiResponse<ClosedPeriod> response = apiInstance.SetPostCloseActivityWithHttpInfo(scope, code, closedPeriodId, postCloseActivitiesRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TimelinesApi.SetPostCloseActivityWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Timeline. |  |
+| **code** | **string** | The code of the Timeline. |  |
+| **closedPeriodId** | **string** | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod |  |
+| **postCloseActivitiesRequest** | [**PostCloseActivitiesRequest?**](PostCloseActivitiesRequest?.md) | Specifies collection of post close activities | [optional]  |
+
+### Return type
+
+[**ClosedPeriod**](ClosedPeriod.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The updated closed period |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

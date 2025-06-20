@@ -37,9 +37,10 @@ namespace Lusid.Sdk.Model
         /// <param name="asAtClosed">The asAt closed datetime for the Closed Period.</param>
         /// <param name="properties">The Closed Periods properties. These will be from the &#39;ClosedPeriod&#39; domain..</param>
         /// <param name="varVersion">varVersion.</param>
+        /// <param name="postCloseActivities">All the post close activities for the closed period..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
         /// <param name="links">links.</param>
-        public ClosedPeriod(string closedPeriodId = default(string), DateTimeOffset effectiveStart = default(DateTimeOffset), DateTimeOffset effectiveEnd = default(DateTimeOffset), DateTimeOffset asAtClosed = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), List<Link> links = default(List<Link>))
+        public ClosedPeriod(string closedPeriodId = default(string), DateTimeOffset effectiveStart = default(DateTimeOffset), DateTimeOffset effectiveEnd = default(DateTimeOffset), DateTimeOffset asAtClosed = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<PostCloseActivity> postCloseActivities = default(List<PostCloseActivity>), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.ClosedPeriodId = closedPeriodId;
             this.EffectiveStart = effectiveStart;
@@ -47,6 +48,7 @@ namespace Lusid.Sdk.Model
             this.AsAtClosed = asAtClosed;
             this.Properties = properties;
             this.VarVersion = varVersion;
+            this.PostCloseActivities = postCloseActivities;
             this.Href = href;
             this.Links = links;
         }
@@ -93,6 +95,13 @@ namespace Lusid.Sdk.Model
         public ModelVersion VarVersion { get; set; }
 
         /// <summary>
+        /// All the post close activities for the closed period.
+        /// </summary>
+        /// <value>All the post close activities for the closed period.</value>
+        [DataMember(Name = "postCloseActivities", EmitDefaultValue = true)]
+        public List<PostCloseActivity> PostCloseActivities { get; set; }
+
+        /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime.
         /// </summary>
         /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime.</value>
@@ -119,6 +128,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AsAtClosed: ").Append(AsAtClosed).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  PostCloseActivities: ").Append(PostCloseActivities).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -188,6 +198,12 @@ namespace Lusid.Sdk.Model
                     this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
+                    this.PostCloseActivities == input.PostCloseActivities ||
+                    this.PostCloseActivities != null &&
+                    input.PostCloseActivities != null &&
+                    this.PostCloseActivities.SequenceEqual(input.PostCloseActivities)
+                ) && 
+                (
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
@@ -232,6 +248,10 @@ namespace Lusid.Sdk.Model
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.PostCloseActivities != null)
+                {
+                    hashCode = (hashCode * 59) + this.PostCloseActivities.GetHashCode();
                 }
                 if (this.Href != null)
                 {

@@ -255,6 +255,37 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfTimeline</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTimeline> ListTimelinesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+        /// </summary>
+        /// <remarks>
+        /// Sets empty or more post close activities to the specific closed period.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ClosedPeriod</returns>
+        ClosedPeriod SetPostCloseActivity(string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = default(PostCloseActivitiesRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+        /// </summary>
+        /// <remarks>
+        /// Sets empty or more post close activities to the specific closed period.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ClosedPeriod</returns>
+        Lusid.Sdk.Client.ApiResponse<ClosedPeriod> SetPostCloseActivityWithHttpInfo(string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = default(PostCloseActivitiesRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code
         /// </summary>
         /// <remarks>
@@ -529,6 +560,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTimeline)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTimeline>> ListTimelinesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+        /// </summary>
+        /// <remarks>
+        /// Sets empty or more post close activities to the specific closed period.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ClosedPeriod</returns>
+        System.Threading.Tasks.Task<ClosedPeriod> SetPostCloseActivityAsync(string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = default(PostCloseActivitiesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+        /// </summary>
+        /// <remarks>
+        /// Sets empty or more post close activities to the specific closed period.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ClosedPeriod)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ClosedPeriod>> SetPostCloseActivityWithHttpInfoAsync(string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = default(PostCloseActivitiesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code
         /// </summary>
@@ -2418,6 +2482,260 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListTimelines", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period. Sets empty or more post close activities to the specific closed period.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ClosedPeriod</returns>
+        public ClosedPeriod SetPostCloseActivity(string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = default(PostCloseActivitiesRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ClosedPeriod> localVarResponse = SetPostCloseActivityWithHttpInfo(scope, code, closedPeriodId, postCloseActivitiesRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period. Sets empty or more post close activities to the specific closed period.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ClosedPeriod</returns>
+        public Lusid.Sdk.Client.ApiResponse<ClosedPeriod> SetPostCloseActivityWithHttpInfo(string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = default(PostCloseActivitiesRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TimelinesApi->SetPostCloseActivity");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TimelinesApi->SetPostCloseActivity");
+            }
+
+            // verify the required parameter 'closedPeriodId' is set
+            if (closedPeriodId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'closedPeriodId' when calling TimelinesApi->SetPostCloseActivity");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("closedPeriodId", Lusid.Sdk.Client.ClientUtils.ParameterToString(closedPeriodId)); // path parameter
+            localVarRequestOptions.Data = postCloseActivitiesRequest;
+
+            localVarRequestOptions.Operation = "TimelinesApi.SetPostCloseActivity";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ClosedPeriod>("/api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}/postcloseactivity", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetPostCloseActivity", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period. Sets empty or more post close activities to the specific closed period.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ClosedPeriod</returns>
+        public async System.Threading.Tasks.Task<ClosedPeriod> SetPostCloseActivityAsync(string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = default(PostCloseActivitiesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ClosedPeriod> localVarResponse = await SetPostCloseActivityWithHttpInfoAsync(scope, code, closedPeriodId, postCloseActivitiesRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period. Sets empty or more post close activities to the specific closed period.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Timeline.</param>
+        /// <param name="code">The code of the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ClosedPeriod)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ClosedPeriod>> SetPostCloseActivityWithHttpInfoAsync(string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = default(PostCloseActivitiesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TimelinesApi->SetPostCloseActivity");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TimelinesApi->SetPostCloseActivity");
+            }
+
+            // verify the required parameter 'closedPeriodId' is set
+            if (closedPeriodId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'closedPeriodId' when calling TimelinesApi->SetPostCloseActivity");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("closedPeriodId", Lusid.Sdk.Client.ClientUtils.ParameterToString(closedPeriodId)); // path parameter
+            localVarRequestOptions.Data = postCloseActivitiesRequest;
+
+            localVarRequestOptions.Operation = "TimelinesApi.SetPostCloseActivity";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ClosedPeriod>("/api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}/postcloseactivity", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetPostCloseActivity", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
