@@ -253,7 +253,7 @@ namespace Lusid.Sdk.Model
             }
 
             // Name (string) pattern
-            Regex regexName = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            Regex regexName = new Regex(@"^[^/]+$", RegexOptions.CultureInvariant);
             if (false == regexName.Match(this.Name).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });
