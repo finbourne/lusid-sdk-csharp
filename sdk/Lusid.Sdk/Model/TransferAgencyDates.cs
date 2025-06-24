@@ -31,7 +31,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransferAgencyDates" /> class.
         /// </summary>
-        /// <param name="priceDate">The date at which the fund is priced, for the order received on ReceivedDate. Can be passed into the request instead of the ReceivedDate to calculate the TransactionDate and ExpectedPaymentDate. If both the received date and price date are given, the price date is used..</param>
+        /// <param name="priceDate">The date at which the fund is priced, for the order received on ReceivedDate. Can be passed into the request instead of the ReceivedDate to calculate the TransactionDate and ExpectedPaymentDate. If both the received date and price date are given, a failure is returned..</param>
         /// <param name="transactionDate">The date at which the transaction into or out of the fund is made..</param>
         /// <param name="expectedPaymentDate">The date by which the cash is expected to be paid to or from the fund..</param>
         /// <param name="links">links.</param>
@@ -44,9 +44,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The date at which the fund is priced, for the order received on ReceivedDate. Can be passed into the request instead of the ReceivedDate to calculate the TransactionDate and ExpectedPaymentDate. If both the received date and price date are given, the price date is used.
+        /// The date at which the fund is priced, for the order received on ReceivedDate. Can be passed into the request instead of the ReceivedDate to calculate the TransactionDate and ExpectedPaymentDate. If both the received date and price date are given, a failure is returned.
         /// </summary>
-        /// <value>The date at which the fund is priced, for the order received on ReceivedDate. Can be passed into the request instead of the ReceivedDate to calculate the TransactionDate and ExpectedPaymentDate. If both the received date and price date are given, the price date is used.</value>
+        /// <value>The date at which the fund is priced, for the order received on ReceivedDate. Can be passed into the request instead of the ReceivedDate to calculate the TransactionDate and ExpectedPaymentDate. If both the received date and price date are given, a failure is returned.</value>
         [DataMember(Name = "priceDate", EmitDefaultValue = false)]
         public DateTimeOffset PriceDate { get; set; }
 

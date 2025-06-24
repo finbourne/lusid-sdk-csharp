@@ -36,37 +36,37 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupReconciliationInstanceId" /> class.
         /// </summary>
-        /// <param name="runIdType">Type of the reconciliation run, manual or automatic (via the workflow). \&quot;Manual\&quot; | \&quot;WorkflowServiceTaskId\&quot; (required).</param>
-        /// <param name="runIdValue">Reconciliation run identifier: a manually-provided key or taskId. (required).</param>
-        public GroupReconciliationInstanceId(string runIdType = default(string), string runIdValue = default(string))
+        /// <param name="instanceIdType">Type of the reconciliation run, manual or automatic (via the workflow). \&quot;Manual\&quot; | \&quot;WorkflowServiceTaskId\&quot; (required).</param>
+        /// <param name="instanceIdValue">Reconciliation run identifier: a manually-provided key or taskId. (required).</param>
+        public GroupReconciliationInstanceId(string instanceIdType = default(string), string instanceIdValue = default(string))
         {
-            // to ensure "runIdType" is required (not null)
-            if (runIdType == null)
+            // to ensure "instanceIdType" is required (not null)
+            if (instanceIdType == null)
             {
-                throw new ArgumentNullException("runIdType is a required property for GroupReconciliationInstanceId and cannot be null");
+                throw new ArgumentNullException("instanceIdType is a required property for GroupReconciliationInstanceId and cannot be null");
             }
-            this.RunIdType = runIdType;
-            // to ensure "runIdValue" is required (not null)
-            if (runIdValue == null)
+            this.InstanceIdType = instanceIdType;
+            // to ensure "instanceIdValue" is required (not null)
+            if (instanceIdValue == null)
             {
-                throw new ArgumentNullException("runIdValue is a required property for GroupReconciliationInstanceId and cannot be null");
+                throw new ArgumentNullException("instanceIdValue is a required property for GroupReconciliationInstanceId and cannot be null");
             }
-            this.RunIdValue = runIdValue;
+            this.InstanceIdValue = instanceIdValue;
         }
 
         /// <summary>
         /// Type of the reconciliation run, manual or automatic (via the workflow). \&quot;Manual\&quot; | \&quot;WorkflowServiceTaskId\&quot;
         /// </summary>
         /// <value>Type of the reconciliation run, manual or automatic (via the workflow). \&quot;Manual\&quot; | \&quot;WorkflowServiceTaskId\&quot;</value>
-        [DataMember(Name = "runIdType", IsRequired = true, EmitDefaultValue = true)]
-        public string RunIdType { get; set; }
+        [DataMember(Name = "instanceIdType", IsRequired = true, EmitDefaultValue = true)]
+        public string InstanceIdType { get; set; }
 
         /// <summary>
         /// Reconciliation run identifier: a manually-provided key or taskId.
         /// </summary>
         /// <value>Reconciliation run identifier: a manually-provided key or taskId.</value>
-        [DataMember(Name = "runIdValue", IsRequired = true, EmitDefaultValue = true)]
-        public string RunIdValue { get; set; }
+        [DataMember(Name = "instanceIdValue", IsRequired = true, EmitDefaultValue = true)]
+        public string InstanceIdValue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,8 +76,8 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class GroupReconciliationInstanceId {\n");
-            sb.Append("  RunIdType: ").Append(RunIdType).Append("\n");
-            sb.Append("  RunIdValue: ").Append(RunIdValue).Append("\n");
+            sb.Append("  InstanceIdType: ").Append(InstanceIdType).Append("\n");
+            sb.Append("  InstanceIdValue: ").Append(InstanceIdValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,14 +114,14 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.RunIdType == input.RunIdType ||
-                    (this.RunIdType != null &&
-                    this.RunIdType.Equals(input.RunIdType))
+                    this.InstanceIdType == input.InstanceIdType ||
+                    (this.InstanceIdType != null &&
+                    this.InstanceIdType.Equals(input.InstanceIdType))
                 ) && 
                 (
-                    this.RunIdValue == input.RunIdValue ||
-                    (this.RunIdValue != null &&
-                    this.RunIdValue.Equals(input.RunIdValue))
+                    this.InstanceIdValue == input.InstanceIdValue ||
+                    (this.InstanceIdValue != null &&
+                    this.InstanceIdValue.Equals(input.InstanceIdValue))
                 );
         }
 
@@ -134,13 +134,13 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.RunIdType != null)
+                if (this.InstanceIdType != null)
                 {
-                    hashCode = (hashCode * 59) + this.RunIdType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.InstanceIdType.GetHashCode();
                 }
-                if (this.RunIdValue != null)
+                if (this.InstanceIdValue != null)
                 {
-                    hashCode = (hashCode * 59) + this.RunIdValue.GetHashCode();
+                    hashCode = (hashCode * 59) + this.InstanceIdValue.GetHashCode();
                 }
                 return hashCode;
             }
@@ -153,16 +153,16 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // RunIdType (string) minLength
-            if (this.RunIdType != null && this.RunIdType.Length < 1)
+            // InstanceIdType (string) minLength
+            if (this.InstanceIdType != null && this.InstanceIdType.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RunIdType, length must be greater than 1.", new [] { "RunIdType" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstanceIdType, length must be greater than 1.", new [] { "InstanceIdType" });
             }
 
-            // RunIdValue (string) minLength
-            if (this.RunIdValue != null && this.RunIdValue.Length < 1)
+            // InstanceIdValue (string) minLength
+            if (this.InstanceIdValue != null && this.InstanceIdValue.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RunIdValue, length must be greater than 1.", new [] { "RunIdValue" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstanceIdValue, length must be greater than 1.", new [] { "InstanceIdValue" });
             }
 
             yield break;
