@@ -7,7 +7,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**DeleteInvestorRecord**](InvestorRecordsApi.md#deleteinvestorrecord) | **DELETE** /api/investorrecords/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] DeleteInvestorRecord: Delete Investor Record |
 | [**GetInvestorRecord**](InvestorRecordsApi.md#getinvestorrecord) | **GET** /api/investorrecords/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] GetInvestorRecord: Get Investor Record |
 | [**ListAllInvestorRecords**](InvestorRecordsApi.md#listallinvestorrecords) | **GET** /api/investorrecords | [EARLY ACCESS] ListAllInvestorRecords: List Investor Records |
-| [**UpsertInvestorRecords**](InvestorRecordsApi.md#upsertinvestorrecords) | **POST** /api/investorrecords/$batchUpsert | [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records |
+| [**UpsertInvestorRecords**](InvestorRecordsApi.md#upsertinvestorrecords) | **POST** /api/investorrecords/$batchUpsert | [EARLY ACCESS] UpsertInvestorRecords: Upsert investor records |
 
 <a id="deleteinvestorrecord"></a>
 # **DeleteInvestorRecord**
@@ -385,7 +385,7 @@ catch (ApiException e)
 # **UpsertInvestorRecords**
 > UpsertInvestorRecordsResponse UpsertInvestorRecords (string successMode, Dictionary<string, UpsertInvestorRecordRequest> requestBody)
 
-[EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records
+[EARLY ACCESS] UpsertInvestorRecords: Upsert investor records
 
 Creates or updates a collection of Investor Records
 
@@ -436,7 +436,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // UpsertInvestorRecordsResponse result = apiInstance.UpsertInvestorRecords(successMode, requestBody, opts: opts);
 
-                // [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records
+                // [EARLY ACCESS] UpsertInvestorRecords: Upsert investor records
                 UpsertInvestorRecordsResponse result = apiInstance.UpsertInvestorRecords(successMode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -457,7 +457,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records
+    // [EARLY ACCESS] UpsertInvestorRecords: Upsert investor records
     ApiResponse<UpsertInvestorRecordsResponse> response = apiInstance.UpsertInvestorRecordsWithHttpInfo(successMode, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

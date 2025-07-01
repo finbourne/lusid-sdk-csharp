@@ -23,33 +23,33 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Inner dto of an Investor Record on the LUSID API
+    /// Identification of an Investor on the LUSID API.
     /// </summary>
-    [DataContract(Name = "UpsertInvestor")]
-    public partial class UpsertInvestor : IEquatable<UpsertInvestor>, IValidatableObject
+    [DataContract(Name = "InvestorIdentifier")]
+    public partial class InvestorIdentifier : IEquatable<InvestorIdentifier>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertInvestor" /> class.
+        /// Initializes a new instance of the <see cref="InvestorIdentifier" /> class.
         /// </summary>
-        /// <param name="investorType">The type of the Investor.</param>
-        /// <param name="investorIdentifiers">The identifiers of the Investor.</param>
-        public UpsertInvestor(string investorType = default(string), Dictionary<string, Property> investorIdentifiers = default(Dictionary<string, Property>))
+        /// <param name="investorType">The type of the investor of the Investor Record. Can be either a Person or a LegalEntity.</param>
+        /// <param name="investorIdentifiers">Single identifier that should target the desired person or legal entity.</param>
+        public InvestorIdentifier(string investorType = default(string), Dictionary<string, Property> investorIdentifiers = default(Dictionary<string, Property>))
         {
             this.InvestorType = investorType;
             this.InvestorIdentifiers = investorIdentifiers;
         }
 
         /// <summary>
-        /// The type of the Investor
+        /// The type of the investor of the Investor Record. Can be either a Person or a LegalEntity
         /// </summary>
-        /// <value>The type of the Investor</value>
+        /// <value>The type of the investor of the Investor Record. Can be either a Person or a LegalEntity</value>
         [DataMember(Name = "investorType", EmitDefaultValue = true)]
         public string InvestorType { get; set; }
 
         /// <summary>
-        /// The identifiers of the Investor
+        /// Single identifier that should target the desired person or legal entity
         /// </summary>
-        /// <value>The identifiers of the Investor</value>
+        /// <value>Single identifier that should target the desired person or legal entity</value>
         [DataMember(Name = "investorIdentifiers", EmitDefaultValue = true)]
         public Dictionary<string, Property> InvestorIdentifiers { get; set; }
 
@@ -60,7 +60,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UpsertInvestor {\n");
+            sb.Append("class InvestorIdentifier {\n");
             sb.Append("  InvestorType: ").Append(InvestorType).Append("\n");
             sb.Append("  InvestorIdentifiers: ").Append(InvestorIdentifiers).Append("\n");
             sb.Append("}\n");
@@ -83,15 +83,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpsertInvestor);
+            return this.Equals(input as InvestorIdentifier);
         }
 
         /// <summary>
-        /// Returns true if UpsertInvestor instances are equal
+        /// Returns true if InvestorIdentifier instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpsertInvestor to be compared</param>
+        /// <param name="input">Instance of InvestorIdentifier to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpsertInvestor input)
+        public bool Equals(InvestorIdentifier input)
         {
             if (input == null)
             {

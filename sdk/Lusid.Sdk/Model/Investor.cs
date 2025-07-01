@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Inner dto of an Investor Record on the LUSID API
+    /// Representation of an Investor on the LUSID API
     /// </summary>
     [DataContract(Name = "Investor")]
     public partial class Investor : IEquatable<Investor>, IValidatableObject

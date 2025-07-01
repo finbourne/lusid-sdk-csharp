@@ -617,7 +617,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfAccessMetadataValueOf</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfAccessMetadataValueOf> UpsertPersonAccessMetadataWithHttpInfo(string idTypeScope, string idTypeCode, string code, string metadataKey, UpsertPersonAccessMetadataRequest upsertPersonAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+        /// [EARLY ACCESS] UpsertPersons: Batch upsert Persons
         /// </summary>
         /// <remarks>
         /// Create or updates a collection of person(s).
@@ -631,7 +631,7 @@ namespace Lusid.Sdk.Api
         UpsertPersonsResponse UpsertPersons(string successMode, Dictionary<string, UpsertPersonRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+        /// [EARLY ACCESS] UpsertPersons: Batch upsert Persons
         /// </summary>
         /// <remarks>
         /// Create or updates a collection of person(s).
@@ -1272,7 +1272,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfAccessMetadataValueOf)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfAccessMetadataValueOf>> UpsertPersonAccessMetadataWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, string metadataKey, UpsertPersonAccessMetadataRequest upsertPersonAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+        /// [EARLY ACCESS] UpsertPersons: Batch upsert Persons
         /// </summary>
         /// <remarks>
         /// Create or updates a collection of person(s).
@@ -1287,7 +1287,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<UpsertPersonsResponse> UpsertPersonsAsync(string successMode, Dictionary<string, UpsertPersonRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+        /// [EARLY ACCESS] UpsertPersons: Batch upsert Persons
         /// </summary>
         /// <remarks>
         /// Create or updates a collection of person(s).
@@ -6120,7 +6120,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons Create or updates a collection of person(s).
+        /// [EARLY ACCESS] UpsertPersons: Batch upsert Persons Create or updates a collection of person(s).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
@@ -6135,7 +6135,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons Create or updates a collection of person(s).
+        /// [EARLY ACCESS] UpsertPersons: Batch upsert Persons Create or updates a collection of person(s).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
@@ -6233,7 +6233,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons Create or updates a collection of person(s).
+        /// [EARLY ACCESS] UpsertPersons: Batch upsert Persons Create or updates a collection of person(s).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
@@ -6249,7 +6249,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons Create or updates a collection of person(s).
+        /// [EARLY ACCESS] UpsertPersons: Batch upsert Persons Create or updates a collection of person(s).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>

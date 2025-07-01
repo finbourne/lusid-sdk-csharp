@@ -19,7 +19,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**PatchLegalEntityAccessMetadata**](LegalEntitiesApi.md#patchlegalentityaccessmetadata) | **PATCH** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata | [EARLY ACCESS] PatchLegalEntityAccessMetadata: Patch Access Metadata rules for a Legal Entity. |
 | [**SetLegalEntityIdentifiers**](LegalEntitiesApi.md#setlegalentityidentifiers) | **POST** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EARLY ACCESS] SetLegalEntityIdentifiers: Set Legal Entity Identifiers |
 | [**SetLegalEntityProperties**](LegalEntitiesApi.md#setlegalentityproperties) | **POST** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties | SetLegalEntityProperties: Set Legal Entity Properties |
-| [**UpsertLegalEntities**](LegalEntitiesApi.md#upsertlegalentities) | **POST** /api/legalentities/$batchUpsert | [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities |
+| [**UpsertLegalEntities**](LegalEntitiesApi.md#upsertlegalentities) | **POST** /api/legalentities/$batchUpsert | [EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities |
 | [**UpsertLegalEntity**](LegalEntitiesApi.md#upsertlegalentity) | **POST** /api/legalentities | UpsertLegalEntity: Upsert Legal Entity |
 | [**UpsertLegalEntityAccessMetadata**](LegalEntitiesApi.md#upsertlegalentityaccessmetadata) | **PUT** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | UpsertLegalEntityAccessMetadata: Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. |
 
@@ -1889,7 +1889,7 @@ catch (ApiException e)
 # **UpsertLegalEntities**
 > UpsertLegalEntitiesResponse UpsertLegalEntities (string successMode, Dictionary<string, UpsertLegalEntityRequest> requestBody)
 
-[EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities
+[EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities
 
 Creates or updates a collection of Legal Entities
 
@@ -1940,7 +1940,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // UpsertLegalEntitiesResponse result = apiInstance.UpsertLegalEntities(successMode, requestBody, opts: opts);
 
-                // [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities
+                // [EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities
                 UpsertLegalEntitiesResponse result = apiInstance.UpsertLegalEntities(successMode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1961,7 +1961,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities
+    // [EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities
     ApiResponse<UpsertLegalEntitiesResponse> response = apiInstance.UpsertLegalEntitiesWithHttpInfo(successMode, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

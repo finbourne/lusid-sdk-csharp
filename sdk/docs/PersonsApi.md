@@ -21,7 +21,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**SetPersonProperties**](PersonsApi.md#setpersonproperties) | **POST** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EARLY ACCESS] SetPersonProperties: Set Person Properties |
 | [**UpsertPerson**](PersonsApi.md#upsertperson) | **POST** /api/persons | UpsertPerson: Upsert Person |
 | [**UpsertPersonAccessMetadata**](PersonsApi.md#upsertpersonaccessmetadata) | **PUT** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. |
-| [**UpsertPersons**](PersonsApi.md#upsertpersons) | **POST** /api/persons/$batchUpsert | [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons |
+| [**UpsertPersons**](PersonsApi.md#upsertpersons) | **POST** /api/persons/$batchUpsert | [EARLY ACCESS] UpsertPersons: Batch upsert Persons |
 
 <a id="deleteperson"></a>
 # **DeletePerson**
@@ -2125,7 +2125,7 @@ catch (ApiException e)
 # **UpsertPersons**
 > UpsertPersonsResponse UpsertPersons (string successMode, Dictionary<string, UpsertPersonRequest> requestBody)
 
-[EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+[EARLY ACCESS] UpsertPersons: Batch upsert Persons
 
 Create or updates a collection of person(s).
 
@@ -2176,7 +2176,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // UpsertPersonsResponse result = apiInstance.UpsertPersons(successMode, requestBody, opts: opts);
 
-                // [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+                // [EARLY ACCESS] UpsertPersons: Batch upsert Persons
                 UpsertPersonsResponse result = apiInstance.UpsertPersons(successMode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2197,7 +2197,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpsertPersons: Pluralised Upsert of Persons
+    // [EARLY ACCESS] UpsertPersons: Batch upsert Persons
     ApiResponse<UpsertPersonsResponse> response = apiInstance.UpsertPersonsWithHttpInfo(successMode, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

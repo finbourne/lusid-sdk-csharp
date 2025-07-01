@@ -137,7 +137,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfInvestorRecord</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfInvestorRecord> ListAllInvestorRecordsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records
+        /// [EARLY ACCESS] UpsertInvestorRecords: Upsert investor records
         /// </summary>
         /// <remarks>
         /// Creates or updates a collection of Investor Records
@@ -151,7 +151,7 @@ namespace Lusid.Sdk.Api
         UpsertInvestorRecordsResponse UpsertInvestorRecords(string successMode, Dictionary<string, UpsertInvestorRecordRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records
+        /// [EARLY ACCESS] UpsertInvestorRecords: Upsert investor records
         /// </summary>
         /// <remarks>
         /// Creates or updates a collection of Investor Records
@@ -284,7 +284,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfInvestorRecord)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInvestorRecord>> ListAllInvestorRecordsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records
+        /// [EARLY ACCESS] UpsertInvestorRecords: Upsert investor records
         /// </summary>
         /// <remarks>
         /// Creates or updates a collection of Investor Records
@@ -299,7 +299,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<UpsertInvestorRecordsResponse> UpsertInvestorRecordsAsync(string successMode, Dictionary<string, UpsertInvestorRecordRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records
+        /// [EARLY ACCESS] UpsertInvestorRecords: Upsert investor records
         /// </summary>
         /// <remarks>
         /// Creates or updates a collection of Investor Records
@@ -1246,7 +1246,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records Creates or updates a collection of Investor Records
+        /// [EARLY ACCESS] UpsertInvestorRecords: Upsert investor records Creates or updates a collection of Investor Records
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
@@ -1261,7 +1261,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records Creates or updates a collection of Investor Records
+        /// [EARLY ACCESS] UpsertInvestorRecords: Upsert investor records Creates or updates a collection of Investor Records
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
@@ -1359,7 +1359,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records Creates or updates a collection of Investor Records
+        /// [EARLY ACCESS] UpsertInvestorRecords: Upsert investor records Creates or updates a collection of Investor Records
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
@@ -1375,7 +1375,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestorRecords: Pluralised upsert of Investor Records Creates or updates a collection of Investor Records
+        /// [EARLY ACCESS] UpsertInvestorRecords: Upsert investor records Creates or updates a collection of Investor Records
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>

@@ -559,7 +559,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of LegalEntity</returns>
         Lusid.Sdk.Client.ApiResponse<LegalEntity> SetLegalEntityPropertiesWithHttpInfo(string idTypeScope, string idTypeCode, string code, SetLegalEntityPropertiesRequest setLegalEntityPropertiesRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities
+        /// [EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities
         /// </summary>
         /// <remarks>
         /// Creates or updates a collection of Legal Entities
@@ -573,7 +573,7 @@ namespace Lusid.Sdk.Api
         UpsertLegalEntitiesResponse UpsertLegalEntities(string successMode, Dictionary<string, UpsertLegalEntityRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities
+        /// [EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities
         /// </summary>
         /// <remarks>
         /// Creates or updates a collection of Legal Entities
@@ -1214,7 +1214,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (LegalEntity)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<LegalEntity>> SetLegalEntityPropertiesWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, SetLegalEntityPropertiesRequest setLegalEntityPropertiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities
+        /// [EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities
         /// </summary>
         /// <remarks>
         /// Creates or updates a collection of Legal Entities
@@ -1229,7 +1229,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<UpsertLegalEntitiesResponse> UpsertLegalEntitiesAsync(string successMode, Dictionary<string, UpsertLegalEntityRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities
+        /// [EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities
         /// </summary>
         /// <remarks>
         /// Creates or updates a collection of Legal Entities
@@ -5632,7 +5632,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities Creates or updates a collection of Legal Entities
+        /// [EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities Creates or updates a collection of Legal Entities
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
@@ -5647,7 +5647,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities Creates or updates a collection of Legal Entities
+        /// [EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities Creates or updates a collection of Legal Entities
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
@@ -5745,7 +5745,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities Creates or updates a collection of Legal Entities
+        /// [EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities Creates or updates a collection of Legal Entities
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
@@ -5761,7 +5761,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntities: Pluralised upsert of Legal Entities Creates or updates a collection of Legal Entities
+        /// [EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities Creates or updates a collection of Legal Entities
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
