@@ -228,292 +228,298 @@ namespace Lusid.Sdk.Model
         CustodianAccount = 33,
 
         /// <summary>
+        /// Enum CheckDefinition for value: CheckDefinition
+        /// </summary>
+        [EnumMember(Value = "CheckDefinition")]
+        CheckDefinition = 34,
+
+        /// <summary>
         /// Enum Abor for value: Abor
         /// </summary>
         [EnumMember(Value = "Abor")]
-        Abor = 34,
+        Abor = 35,
 
         /// <summary>
         /// Enum AborConfiguration for value: AborConfiguration
         /// </summary>
         [EnumMember(Value = "AborConfiguration")]
-        AborConfiguration = 35,
+        AborConfiguration = 36,
 
         /// <summary>
         /// Enum Fund for value: Fund
         /// </summary>
         [EnumMember(Value = "Fund")]
-        Fund = 36,
+        Fund = 37,
 
         /// <summary>
         /// Enum FundConfiguration for value: FundConfiguration
         /// </summary>
         [EnumMember(Value = "FundConfiguration")]
-        FundConfiguration = 37,
+        FundConfiguration = 38,
 
         /// <summary>
         /// Enum Fee for value: Fee
         /// </summary>
         [EnumMember(Value = "Fee")]
-        Fee = 38,
+        Fee = 39,
 
         /// <summary>
         /// Enum Reconciliation for value: Reconciliation
         /// </summary>
         [EnumMember(Value = "Reconciliation")]
-        Reconciliation = 39,
+        Reconciliation = 40,
 
         /// <summary>
         /// Enum PropertyDefinition for value: PropertyDefinition
         /// </summary>
         [EnumMember(Value = "PropertyDefinition")]
-        PropertyDefinition = 40,
+        PropertyDefinition = 41,
 
         /// <summary>
         /// Enum Compliance for value: Compliance
         /// </summary>
         [EnumMember(Value = "Compliance")]
-        Compliance = 41,
+        Compliance = 42,
 
         /// <summary>
         /// Enum DiaryEntry for value: DiaryEntry
         /// </summary>
         [EnumMember(Value = "DiaryEntry")]
-        DiaryEntry = 42,
+        DiaryEntry = 43,
 
         /// <summary>
         /// Enum Leg for value: Leg
         /// </summary>
         [EnumMember(Value = "Leg")]
-        Leg = 43,
+        Leg = 44,
 
         /// <summary>
         /// Enum DerivedValuation for value: DerivedValuation
         /// </summary>
         [EnumMember(Value = "DerivedValuation")]
-        DerivedValuation = 44,
+        DerivedValuation = 45,
 
         /// <summary>
         /// Enum Timeline for value: Timeline
         /// </summary>
         [EnumMember(Value = "Timeline")]
-        Timeline = 45,
+        Timeline = 46,
 
         /// <summary>
         /// Enum ClosedPeriod for value: ClosedPeriod
         /// </summary>
         [EnumMember(Value = "ClosedPeriod")]
-        ClosedPeriod = 46,
+        ClosedPeriod = 47,
 
         /// <summary>
         /// Enum AddressKeyDefinition for value: AddressKeyDefinition
         /// </summary>
         [EnumMember(Value = "AddressKeyDefinition")]
-        AddressKeyDefinition = 47,
+        AddressKeyDefinition = 48,
 
         /// <summary>
         /// Enum AmortisationRuleSet for value: AmortisationRuleSet
         /// </summary>
         [EnumMember(Value = "AmortisationRuleSet")]
-        AmortisationRuleSet = 48,
+        AmortisationRuleSet = 49,
 
         /// <summary>
         /// Enum AnalyticsSetInventory for value: AnalyticsSetInventory
         /// </summary>
         [EnumMember(Value = "AnalyticsSetInventory")]
-        AnalyticsSetInventory = 49,
+        AnalyticsSetInventory = 50,
 
         /// <summary>
         /// Enum AtomUnitResult for value: AtomUnitResult
         /// </summary>
         [EnumMember(Value = "AtomUnitResult")]
-        AtomUnitResult = 50,
+        AtomUnitResult = 51,
 
         /// <summary>
         /// Enum CleardownModule for value: CleardownModule
         /// </summary>
         [EnumMember(Value = "CleardownModule")]
-        CleardownModule = 51,
+        CleardownModule = 52,
 
         /// <summary>
         /// Enum ComplexMarketData for value: ComplexMarketData
         /// </summary>
         [EnumMember(Value = "ComplexMarketData")]
-        ComplexMarketData = 52,
+        ComplexMarketData = 53,
 
         /// <summary>
         /// Enum ComplianceRunSummary for value: ComplianceRunSummary
         /// </summary>
         [EnumMember(Value = "ComplianceRunSummary")]
-        ComplianceRunSummary = 53,
+        ComplianceRunSummary = 54,
 
         /// <summary>
         /// Enum ComplianceRule for value: ComplianceRule
         /// </summary>
         [EnumMember(Value = "ComplianceRule")]
-        ComplianceRule = 54,
+        ComplianceRule = 55,
 
         /// <summary>
         /// Enum ComplianceRunInfo for value: ComplianceRunInfo
         /// </summary>
         [EnumMember(Value = "ComplianceRunInfo")]
-        ComplianceRunInfo = 55,
+        ComplianceRunInfo = 56,
 
         /// <summary>
         /// Enum CorporateActionSource for value: CorporateActionSource
         /// </summary>
         [EnumMember(Value = "CorporateActionSource")]
-        CorporateActionSource = 56,
+        CorporateActionSource = 57,
 
         /// <summary>
         /// Enum CounterpartyAgreement for value: CounterpartyAgreement
         /// </summary>
         [EnumMember(Value = "CounterpartyAgreement")]
-        CounterpartyAgreement = 57,
+        CounterpartyAgreement = 58,
 
         /// <summary>
         /// Enum CustomEntityDefinition for value: CustomEntityDefinition
         /// </summary>
         [EnumMember(Value = "CustomEntityDefinition")]
-        CustomEntityDefinition = 58,
+        CustomEntityDefinition = 59,
 
         /// <summary>
         /// Enum DataType for value: DataType
         /// </summary>
         [EnumMember(Value = "DataType")]
-        DataType = 59,
+        DataType = 60,
 
         /// <summary>
         /// Enum Dialect for value: Dialect
         /// </summary>
         [EnumMember(Value = "Dialect")]
-        Dialect = 60,
+        Dialect = 61,
 
         /// <summary>
         /// Enum EventHandler for value: EventHandler
         /// </summary>
         [EnumMember(Value = "EventHandler")]
-        EventHandler = 61,
+        EventHandler = 62,
 
         /// <summary>
         /// Enum GeneralLedgerProfile for value: GeneralLedgerProfile
         /// </summary>
         [EnumMember(Value = "GeneralLedgerProfile")]
-        GeneralLedgerProfile = 62,
+        GeneralLedgerProfile = 63,
 
         /// <summary>
         /// Enum PostingModule for value: PostingModule
         /// </summary>
         [EnumMember(Value = "PostingModule")]
-        PostingModule = 63,
+        PostingModule = 64,
 
         /// <summary>
         /// Enum Quote for value: Quote
         /// </summary>
         [EnumMember(Value = "Quote")]
-        Quote = 64,
+        Quote = 65,
 
         /// <summary>
         /// Enum RecipeComposer for value: RecipeComposer
         /// </summary>
         [EnumMember(Value = "RecipeComposer")]
-        RecipeComposer = 65,
+        RecipeComposer = 66,
 
         /// <summary>
         /// Enum ReconciliationRunBreak for value: ReconciliationRunBreak
         /// </summary>
         [EnumMember(Value = "ReconciliationRunBreak")]
-        ReconciliationRunBreak = 66,
+        ReconciliationRunBreak = 67,
 
         /// <summary>
         /// Enum ReferenceList for value: ReferenceList
         /// </summary>
         [EnumMember(Value = "ReferenceList")]
-        ReferenceList = 67,
+        ReferenceList = 68,
 
         /// <summary>
         /// Enum RelationDefinition for value: RelationDefinition
         /// </summary>
         [EnumMember(Value = "RelationDefinition")]
-        RelationDefinition = 68,
+        RelationDefinition = 69,
 
         /// <summary>
         /// Enum ReturnBlockIndex for value: ReturnBlockIndex
         /// </summary>
         [EnumMember(Value = "ReturnBlockIndex")]
-        ReturnBlockIndex = 69,
+        ReturnBlockIndex = 70,
 
         /// <summary>
         /// Enum SRSDocument for value: SRSDocument
         /// </summary>
         [EnumMember(Value = "SRSDocument")]
-        SRSDocument = 70,
+        SRSDocument = 71,
 
         /// <summary>
         /// Enum SRSIndex for value: SRSIndex
         /// </summary>
         [EnumMember(Value = "SRSIndex")]
-        SRSIndex = 71,
+        SRSIndex = 72,
 
         /// <summary>
         /// Enum TransactionTemplate for value: TransactionTemplate
         /// </summary>
         [EnumMember(Value = "TransactionTemplate")]
-        TransactionTemplate = 72,
+        TransactionTemplate = 73,
 
         /// <summary>
         /// Enum TransactionTemplateScope for value: TransactionTemplateScope
         /// </summary>
         [EnumMember(Value = "TransactionTemplateScope")]
-        TransactionTemplateScope = 73,
+        TransactionTemplateScope = 74,
 
         /// <summary>
         /// Enum TransactionType for value: TransactionType
         /// </summary>
         [EnumMember(Value = "TransactionType")]
-        TransactionType = 74,
+        TransactionType = 75,
 
         /// <summary>
         /// Enum TransactionTypeConfig for value: TransactionTypeConfig
         /// </summary>
         [EnumMember(Value = "TransactionTypeConfig")]
-        TransactionTypeConfig = 75,
+        TransactionTypeConfig = 76,
 
         /// <summary>
         /// Enum TranslationScript for value: TranslationScript
         /// </summary>
         [EnumMember(Value = "TranslationScript")]
-        TranslationScript = 76,
+        TranslationScript = 77,
 
         /// <summary>
         /// Enum TaskDefinition for value: TaskDefinition
         /// </summary>
         [EnumMember(Value = "TaskDefinition")]
-        TaskDefinition = 77,
+        TaskDefinition = 78,
 
         /// <summary>
         /// Enum TaskInstance for value: TaskInstance
         /// </summary>
         [EnumMember(Value = "TaskInstance")]
-        TaskInstance = 78,
+        TaskInstance = 79,
 
         /// <summary>
         /// Enum Worker for value: Worker
         /// </summary>
         [EnumMember(Value = "Worker")]
-        Worker = 79,
+        Worker = 80,
 
         /// <summary>
         /// Enum StagingRuleSet for value: StagingRuleSet
         /// </summary>
         [EnumMember(Value = "StagingRuleSet")]
-        StagingRuleSet = 80,
+        StagingRuleSet = 81,
 
         /// <summary>
         /// Enum IdentifierDefinition for value: IdentifierDefinition
         /// </summary>
         [EnumMember(Value = "IdentifierDefinition")]
-        IdentifierDefinition = 81
+        IdentifierDefinition = 82
     }
 
 }

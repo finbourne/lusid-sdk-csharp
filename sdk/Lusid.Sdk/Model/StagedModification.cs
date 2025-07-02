@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Model
         /// <param name="asAtStaged">Time at which the modification was staged..</param>
         /// <param name="userIdStaged">Id of the user who created the stage modification request..</param>
         /// <param name="requestedIdStaged">The Request Id that initiated this staged modification..</param>
-        /// <param name="requestReason">Reason staged change request made..</param>
+        /// <param name="requestReason">The Request Reason from the context that initiated this staged modification..</param>
         /// <param name="action">Type of action of the staged modification, either create, update or delete..</param>
         /// <param name="stagingRule">stagingRule.</param>
         /// <param name="decisions">Object containing information relating to the decision on the staged modification..</param>
@@ -100,9 +100,9 @@ namespace Lusid.Sdk.Model
         public string RequestedIdStaged { get; set; }
 
         /// <summary>
-        /// Reason staged change request made.
+        /// The Request Reason from the context that initiated this staged modification.
         /// </summary>
-        /// <value>Reason staged change request made.</value>
+        /// <value>The Request Reason from the context that initiated this staged modification.</value>
         [DataMember(Name = "requestReason", EmitDefaultValue = true)]
         public string RequestReason { get; set; }
 
