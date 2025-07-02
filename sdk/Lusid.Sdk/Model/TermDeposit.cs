@@ -45,8 +45,9 @@ namespace Lusid.Sdk.Model
         /// <param name="rate">The fixed rate for the term deposit. Specified as a decimal, e.g 0.03 is meant to be 3% interest (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. This should be the same as the Currency set on the FlowConventions.  You do not need to populate this field for Term Deposits in LUSID as all functionality is driven by the Currency set on the FlowConventions.  LUSID will not store values saved on this field..</param>
         /// <param name="tradingConventions">tradingConventions.</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;TermDeposit&quot;).</param>
-        public TermDeposit(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), decimal contractSize = default(decimal), FlowConventions flowConvention = default(FlowConventions), decimal rate = default(decimal), string domCcy = default(string), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public TermDeposit(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), decimal contractSize = default(decimal), FlowConventions flowConvention = default(FlowConventions), decimal rate = default(decimal), string domCcy = default(string), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -60,6 +61,7 @@ namespace Lusid.Sdk.Model
             this.Rate = rate;
             this.DomCcy = domCcy;
             this.TradingConventions = tradingConventions;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -110,6 +112,12 @@ namespace Lusid.Sdk.Model
         public TradingConventions TradingConventions { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +133,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Rate: ").Append(Rate).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
             sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,6 +201,11 @@ namespace Lusid.Sdk.Model
                     this.TradingConventions == input.TradingConventions ||
                     (this.TradingConventions != null &&
                     this.TradingConventions.Equals(input.TradingConventions))
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -225,6 +239,10 @@ namespace Lusid.Sdk.Model
                 if (this.TradingConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

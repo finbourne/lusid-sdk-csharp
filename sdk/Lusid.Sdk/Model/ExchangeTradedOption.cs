@@ -43,8 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="contracts">The number of contracts held. (required).</param>
         /// <param name="refSpotPrice">The reference spot price for the option at which the contract was entered into. (required).</param>
         /// <param name="tradingConventions">tradingConventions.</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;ExchangeTradedOption&quot;).</param>
-        public ExchangeTradedOption(DateTimeOffset startDate = default(DateTimeOffset), ExchangeTradedOptionContractDetails contractDetails = default(ExchangeTradedOptionContractDetails), decimal contracts = default(decimal), decimal refSpotPrice = default(decimal), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public ExchangeTradedOption(DateTimeOffset startDate = default(DateTimeOffset), ExchangeTradedOptionContractDetails contractDetails = default(ExchangeTradedOptionContractDetails), decimal contracts = default(decimal), decimal refSpotPrice = default(decimal), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             // to ensure "contractDetails" is required (not null)
@@ -56,6 +57,7 @@ namespace Lusid.Sdk.Model
             this.Contracts = contracts;
             this.RefSpotPrice = refSpotPrice;
             this.TradingConventions = tradingConventions;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -92,6 +94,12 @@ namespace Lusid.Sdk.Model
         public TradingConventions TradingConventions { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +113,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Contracts: ").Append(Contracts).Append("\n");
             sb.Append("  RefSpotPrice: ").Append(RefSpotPrice).Append("\n");
             sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -162,6 +171,11 @@ namespace Lusid.Sdk.Model
                     this.TradingConventions == input.TradingConventions ||
                     (this.TradingConventions != null &&
                     this.TradingConventions.Equals(input.TradingConventions))
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -187,6 +201,10 @@ namespace Lusid.Sdk.Model
                 if (this.TradingConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

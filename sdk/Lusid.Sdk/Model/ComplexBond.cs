@@ -46,8 +46,9 @@ namespace Lusid.Sdk.Model
         /// <param name="assetBacked">If this flag is set to true, then the outstanding notional and principal repayments will be calculated based  on pool factors in the quote store. Usually AssetBacked bonds also require a RollConvention setting of   within the FlowConventions any given rates schedule (to ensure payment dates always happen on the same day  of the month) and US Agency MBSs with Pay Delay features also require their rates schedules to include an  ExDividendConfiguration to drive the lag between interest accrual and payment..</param>
         /// <param name="assetPoolIdentifier">Identifier used to retrieve pool factor information about this bond from the quote store. This is typically  the bond&#39;s ISIN, but can also be ClientInternal. Please ensure you align the MarketDataKeyRule with the  correct Quote (Quote.ClientInternal.* or Quote.Isin.*).</param>
         /// <param name="tradingConventions">tradingConventions.</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;ComplexBond&quot;).</param>
-        public ComplexBond(Dictionary<string, string> identifiers = default(Dictionary<string, string>), string calculationType = default(string), List<Schedule> schedules = default(List<Schedule>), decimal? originalIssuePrice = default(decimal?), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), bool? assetBacked = default(bool?), string assetPoolIdentifier = default(string), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public ComplexBond(Dictionary<string, string> identifiers = default(Dictionary<string, string>), string calculationType = default(string), List<Schedule> schedules = default(List<Schedule>), decimal? originalIssuePrice = default(decimal?), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), bool? assetBacked = default(bool?), string assetPoolIdentifier = default(string), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.Identifiers = identifiers;
             this.CalculationType = calculationType;
@@ -57,6 +58,7 @@ namespace Lusid.Sdk.Model
             this.AssetBacked = assetBacked;
             this.AssetPoolIdentifier = assetPoolIdentifier;
             this.TradingConventions = tradingConventions;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -115,6 +117,12 @@ namespace Lusid.Sdk.Model
         public TradingConventions TradingConventions { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -131,6 +139,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AssetBacked: ").Append(AssetBacked).Append("\n");
             sb.Append("  AssetPoolIdentifier: ").Append(AssetPoolIdentifier).Append("\n");
             sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -208,6 +217,11 @@ namespace Lusid.Sdk.Model
                     this.TradingConventions == input.TradingConventions ||
                     (this.TradingConventions != null &&
                     this.TradingConventions.Equals(input.TradingConventions))
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -251,6 +265,10 @@ namespace Lusid.Sdk.Model
                 if (this.TradingConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

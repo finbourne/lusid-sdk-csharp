@@ -49,8 +49,9 @@ namespace Lusid.Sdk.Model
         /// <param name="purchasePrice">The price the collateral is initially purchased for, this property can be used to explicitly set the purchase price and not require  collateral value and a margin or haircut.  While this property is optional, one, and only one, of PurchasePrice, Margin and Haircut must be specified..</param>
         /// <param name="repoRate">The rate at which interest is to be accrue and be paid upon redemption of the collateral at maturity.  This field is used to calculate the Repurchase price.  While this property is optional, one, and only one, of the RepoRate and RepurchasePrice must be specified..</param>
         /// <param name="repurchasePrice">The price at which the collateral is repurchased, this field is optional and can be explicitly set here or will be calculated  from the PurchasePrice and RepoRate.  One, and only one, of the RepoRate and RepurchasePrice must be specified..</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;Repo&quot;).</param>
-        public Repo(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), string accrualBasis = default(string), List<LusidInstrument> collateral = default(List<LusidInstrument>), decimal? collateralValue = default(decimal?), decimal? haircut = default(decimal?), decimal? margin = default(decimal?), decimal? purchasePrice = default(decimal?), decimal? repoRate = default(decimal?), decimal? repurchasePrice = default(decimal?), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public Repo(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), string accrualBasis = default(string), List<LusidInstrument> collateral = default(List<LusidInstrument>), decimal? collateralValue = default(decimal?), decimal? haircut = default(decimal?), decimal? margin = default(decimal?), decimal? purchasePrice = default(decimal?), decimal? repoRate = default(decimal?), decimal? repurchasePrice = default(decimal?), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -73,6 +74,7 @@ namespace Lusid.Sdk.Model
             this.PurchasePrice = purchasePrice;
             this.RepoRate = repoRate;
             this.RepurchasePrice = repurchasePrice;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -153,6 +155,12 @@ namespace Lusid.Sdk.Model
         public decimal? RepurchasePrice { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -172,6 +180,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PurchasePrice: ").Append(PurchasePrice).Append("\n");
             sb.Append("  RepoRate: ").Append(RepoRate).Append("\n");
             sb.Append("  RepurchasePrice: ").Append(RepurchasePrice).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -262,6 +271,11 @@ namespace Lusid.Sdk.Model
                     this.RepurchasePrice == input.RepurchasePrice ||
                     (this.RepurchasePrice != null &&
                     this.RepurchasePrice.Equals(input.RepurchasePrice))
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -317,6 +331,10 @@ namespace Lusid.Sdk.Model
                 if (this.RepurchasePrice != null)
                 {
                     hashCode = (hashCode * 59) + this.RepurchasePrice.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

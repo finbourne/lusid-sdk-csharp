@@ -45,8 +45,9 @@ namespace Lusid.Sdk.Model
         /// <param name="overrides">overrides.</param>
         /// <param name="capRate">The maximum floating rate which a cashflow can accrue..</param>
         /// <param name="floorRate">The minimum floating rate which a cashflow can accrue..</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;FloatingLeg&quot;).</param>
-        public FloatingLeg(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), LegDefinition legDefinition = default(LegDefinition), decimal notional = default(decimal), FixedLegAllOfOverrides overrides = default(FixedLegAllOfOverrides), decimal? capRate = default(decimal?), decimal? floorRate = default(decimal?), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public FloatingLeg(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), LegDefinition legDefinition = default(LegDefinition), decimal notional = default(decimal), FixedLegAllOfOverrides overrides = default(FixedLegAllOfOverrides), decimal? capRate = default(decimal?), decimal? floorRate = default(decimal?), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -60,6 +61,7 @@ namespace Lusid.Sdk.Model
             this.Overrides = overrides;
             this.CapRate = capRate;
             this.FloorRate = floorRate;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -110,6 +112,12 @@ namespace Lusid.Sdk.Model
         public decimal? FloorRate { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +133,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Overrides: ").Append(Overrides).Append("\n");
             sb.Append("  CapRate: ").Append(CapRate).Append("\n");
             sb.Append("  FloorRate: ").Append(FloorRate).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -193,6 +202,11 @@ namespace Lusid.Sdk.Model
                     this.FloorRate == input.FloorRate ||
                     (this.FloorRate != null &&
                     this.FloorRate.Equals(input.FloorRate))
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -229,6 +243,10 @@ namespace Lusid.Sdk.Model
                 if (this.FloorRate != null)
                 {
                     hashCode = (hashCode * 59) + this.FloorRate.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

@@ -42,8 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
         /// <param name="schedules">Repayment schedules for the loan. (required).</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;FlexibleLoan&quot;).</param>
-        public FlexibleLoan(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), List<Schedule> schedules = default(List<Schedule>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public FlexibleLoan(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), List<Schedule> schedules = default(List<Schedule>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -59,6 +60,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("schedules is a required property for FlexibleLoan and cannot be null");
             }
             this.Schedules = schedules;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -90,6 +92,12 @@ namespace Lusid.Sdk.Model
         public List<Schedule> Schedules { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -102,6 +110,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
             sb.Append("  Schedules: ").Append(Schedules).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -157,6 +166,11 @@ namespace Lusid.Sdk.Model
                     this.Schedules != null &&
                     input.Schedules != null &&
                     this.Schedules.SequenceEqual(input.Schedules)
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -184,6 +198,10 @@ namespace Lusid.Sdk.Model
                 if (this.Schedules != null)
                 {
                     hashCode = (hashCode * 59) + this.Schedules.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

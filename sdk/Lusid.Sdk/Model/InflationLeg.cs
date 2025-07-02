@@ -48,8 +48,9 @@ namespace Lusid.Sdk.Model
         /// <param name="inflationIndexConventions">inflationIndexConventions (required).</param>
         /// <param name="notional">The notional (required).</param>
         /// <param name="payReceive">PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.    Supported string (enumeration) values are: [Pay, Receive]..</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;InflationLeg&quot;).</param>
-        public InflationLeg(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal? baseCPI = default(decimal?), string calculationType = default(string), decimal? capRate = default(decimal?), decimal? floorRate = default(decimal?), InflationIndexConventions inflationIndexConventions = default(InflationIndexConventions), decimal notional = default(decimal), string payReceive = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public InflationLeg(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal? baseCPI = default(decimal?), string calculationType = default(string), decimal? capRate = default(decimal?), decimal? floorRate = default(decimal?), InflationIndexConventions inflationIndexConventions = default(InflationIndexConventions), decimal notional = default(decimal), string payReceive = default(string), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -76,6 +77,7 @@ namespace Lusid.Sdk.Model
             this.CapRate = capRate;
             this.FloorRate = floorRate;
             this.PayReceive = payReceive;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -147,6 +149,12 @@ namespace Lusid.Sdk.Model
         public string PayReceive { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -165,6 +173,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InflationIndexConventions: ").Append(InflationIndexConventions).Append("\n");
             sb.Append("  Notional: ").Append(Notional).Append("\n");
             sb.Append("  PayReceive: ").Append(PayReceive).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -248,6 +257,11 @@ namespace Lusid.Sdk.Model
                     this.PayReceive == input.PayReceive ||
                     (this.PayReceive != null &&
                     this.PayReceive.Equals(input.PayReceive))
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -296,6 +310,10 @@ namespace Lusid.Sdk.Model
                 if (this.PayReceive != null)
                 {
                     hashCode = (hashCode * 59) + this.PayReceive.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

@@ -54,8 +54,9 @@ namespace Lusid.Sdk.Model
         /// <param name="payoutStyle">PayoutStyle for touch options.                For options without touch optionality, payoutStyle should not be set.  For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.    Supported string (enumeration) values are: [Deferred, Immediate]..</param>
         /// <param name="premium">premium.</param>
         /// <param name="touches">For a touch option the list should not be empty. Up to two touches are supported.  An option cannot be at the same time barrier- and touch-option.  One (or both) of the lists must be empty..</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;FxOption&quot;).</param>
-        public FxOption(DateTimeOffset startDate = default(DateTimeOffset), string domCcy = default(string), decimal? domAmount = default(decimal?), string fgnCcy = default(string), decimal? fgnAmount = default(decimal?), decimal? strike = default(decimal?), List<Barrier> barriers = default(List<Barrier>), string exerciseType = default(string), bool isCallNotPut = default(bool), bool isDeliveryNotCash = default(bool), bool isPayoffDigital = default(bool), DateTimeOffset optionMaturityDate = default(DateTimeOffset), DateTimeOffset optionSettlementDate = default(DateTimeOffset), string payoutStyle = default(string), Premium premium = default(Premium), List<Touch> touches = default(List<Touch>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public FxOption(DateTimeOffset startDate = default(DateTimeOffset), string domCcy = default(string), decimal? domAmount = default(decimal?), string fgnCcy = default(string), decimal? fgnAmount = default(decimal?), decimal? strike = default(decimal?), List<Barrier> barriers = default(List<Barrier>), string exerciseType = default(string), bool isCallNotPut = default(bool), bool isDeliveryNotCash = default(bool), bool isPayoffDigital = default(bool), DateTimeOffset optionMaturityDate = default(DateTimeOffset), DateTimeOffset optionSettlementDate = default(DateTimeOffset), string payoutStyle = default(string), Premium premium = default(Premium), List<Touch> touches = default(List<Touch>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             // to ensure "domCcy" is required (not null)
@@ -83,6 +84,7 @@ namespace Lusid.Sdk.Model
             this.PayoutStyle = payoutStyle;
             this.Premium = premium;
             this.Touches = touches;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -197,6 +199,12 @@ namespace Lusid.Sdk.Model
         public List<Touch> Touches { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -221,6 +229,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PayoutStyle: ").Append(PayoutStyle).Append("\n");
             sb.Append("  Premium: ").Append(Premium).Append("\n");
             sb.Append("  Touches: ").Append(Touches).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -334,6 +343,11 @@ namespace Lusid.Sdk.Model
                     this.Touches != null &&
                     input.Touches != null &&
                     this.Touches.SequenceEqual(input.Touches)
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -400,6 +414,10 @@ namespace Lusid.Sdk.Model
                 if (this.Touches != null)
                 {
                     hashCode = (hashCode * 59) + this.Touches.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

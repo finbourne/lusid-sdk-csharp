@@ -42,8 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates beyond their last payment date. (required).</param>
         /// <param name="legDefinition">legDefinition (required).</param>
         /// <param name="notional">The initial notional of the Funding Leg instrument.  When \&quot;RequiresFundingLegHistory\&quot; property key is present in transaction key, during a GetValuation endpoint call (for instance),  this field would overriden by the Funding Leg history&#39;s notional and this notional field would not be used in the pricing and accrual calculations.  As such, we recommend setting this to 0 or not setting it at all.  Please see the following Notebook example and Knowledge Base article:  Notebook: https://github.com/finbourne/sample-notebooks/blob/master/examples/use-cases/instruments/Funding%20Leg%20Swap.ipynb  Knowledge Base article: https://support.lusid.com/knowledgebase/article/KA-01764/.</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;FundingLeg&quot;).</param>
-        public FundingLeg(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), LegDefinition legDefinition = default(LegDefinition), decimal? notional = default(decimal?), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public FundingLeg(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), LegDefinition legDefinition = default(LegDefinition), decimal? notional = default(decimal?), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -54,6 +55,7 @@ namespace Lusid.Sdk.Model
             }
             this.LegDefinition = legDefinition;
             this.Notional = notional;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -84,6 +86,12 @@ namespace Lusid.Sdk.Model
         public decimal? Notional { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -96,6 +104,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
             sb.Append("  LegDefinition: ").Append(LegDefinition).Append("\n");
             sb.Append("  Notional: ").Append(Notional).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,6 +159,11 @@ namespace Lusid.Sdk.Model
                     this.Notional == input.Notional ||
                     (this.Notional != null &&
                     this.Notional.Equals(input.Notional))
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -177,6 +191,10 @@ namespace Lusid.Sdk.Model
                 if (this.Notional != null)
                 {
                     hashCode = (hashCode * 59) + this.Notional.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

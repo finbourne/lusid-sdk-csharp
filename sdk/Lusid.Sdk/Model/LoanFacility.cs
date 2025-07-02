@@ -44,8 +44,9 @@ namespace Lusid.Sdk.Model
         /// <param name="initialCommitment">The initial commitment for the loan facility. (required).</param>
         /// <param name="loanType">LoanType for this facility. The facility can either be a revolving or a  term loan.    Supported string (enumeration) values are: [Revolver, TermLoan]. (required).</param>
         /// <param name="schedules">Repayment schedules for the loan. (required).</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;LoanFacility&quot;).</param>
-        public LoanFacility(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), decimal initialCommitment = default(decimal), string loanType = default(string), List<Schedule> schedules = default(List<Schedule>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public LoanFacility(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), decimal initialCommitment = default(decimal), string loanType = default(string), List<Schedule> schedules = default(List<Schedule>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -68,6 +69,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("schedules is a required property for LoanFacility and cannot be null");
             }
             this.Schedules = schedules;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -113,6 +115,12 @@ namespace Lusid.Sdk.Model
         public List<Schedule> Schedules { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -127,6 +135,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InitialCommitment: ").Append(InitialCommitment).Append("\n");
             sb.Append("  LoanType: ").Append(LoanType).Append("\n");
             sb.Append("  Schedules: ").Append(Schedules).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -191,6 +200,11 @@ namespace Lusid.Sdk.Model
                     this.Schedules != null &&
                     input.Schedules != null &&
                     this.Schedules.SequenceEqual(input.Schedules)
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -223,6 +237,10 @@ namespace Lusid.Sdk.Model
                 if (this.Schedules != null)
                 {
                     hashCode = (hashCode * 59) + this.Schedules.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

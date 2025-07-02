@@ -49,8 +49,9 @@ namespace Lusid.Sdk.Model
         /// <param name="fixingDate">The fixing date..</param>
         /// <param name="settlementCcy">The settlement currency.  If provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards..</param>
         /// <param name="bookedAsSpot">Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors..</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;FxForward&quot;).</param>
-        public FxForward(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), decimal domAmount = default(decimal), string domCcy = default(string), decimal fgnAmount = default(decimal), string fgnCcy = default(string), decimal refSpotRate = default(decimal), bool isNdf = default(bool), DateTimeOffset fixingDate = default(DateTimeOffset), string settlementCcy = default(string), bool bookedAsSpot = default(bool), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public FxForward(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), decimal domAmount = default(decimal), string domCcy = default(string), decimal fgnAmount = default(decimal), string fgnCcy = default(string), decimal refSpotRate = default(decimal), bool isNdf = default(bool), DateTimeOffset fixingDate = default(DateTimeOffset), string settlementCcy = default(string), bool bookedAsSpot = default(bool), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -73,6 +74,7 @@ namespace Lusid.Sdk.Model
             this.FixingDate = fixingDate;
             this.SettlementCcy = settlementCcy;
             this.BookedAsSpot = bookedAsSpot;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -153,6 +155,12 @@ namespace Lusid.Sdk.Model
         public bool BookedAsSpot { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -172,6 +180,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  FixingDate: ").Append(FixingDate).Append("\n");
             sb.Append("  SettlementCcy: ").Append(SettlementCcy).Append("\n");
             sb.Append("  BookedAsSpot: ").Append(BookedAsSpot).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -256,6 +265,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.BookedAsSpot == input.BookedAsSpot ||
                     this.BookedAsSpot.Equals(input.BookedAsSpot)
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -297,6 +311,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.SettlementCcy.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.BookedAsSpot.GetHashCode();
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
+                }
                 return hashCode;
             }
         }

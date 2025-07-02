@@ -47,8 +47,9 @@ namespace Lusid.Sdk.Model
         /// <param name="conventionName">conventionName.</param>
         /// <param name="notional">The notional quantity that applies to both the premium and protection legs. (required).</param>
         /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;CdsIndex&quot;).</param>
-        public CdsIndex(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), CdsFlowConventions flowConventions = default(CdsFlowConventions), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), Basket basket = default(Basket), FlowConventionName conventionName = default(FlowConventionName), decimal notional = default(decimal), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public CdsIndex(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), CdsFlowConventions flowConventions = default(CdsFlowConventions), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), Basket basket = default(Basket), FlowConventionName conventionName = default(FlowConventionName), decimal notional = default(decimal), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -64,6 +65,7 @@ namespace Lusid.Sdk.Model
             this.Basket = basket;
             this.ConventionName = conventionName;
             this.AdditionalPayments = additionalPayments;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -127,6 +129,12 @@ namespace Lusid.Sdk.Model
         public List<AdditionalPayment> AdditionalPayments { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -144,6 +152,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ConventionName: ").Append(ConventionName).Append("\n");
             sb.Append("  Notional: ").Append(Notional).Append("\n");
             sb.Append("  AdditionalPayments: ").Append(AdditionalPayments).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -223,6 +232,11 @@ namespace Lusid.Sdk.Model
                     this.AdditionalPayments != null &&
                     input.AdditionalPayments != null &&
                     this.AdditionalPayments.SequenceEqual(input.AdditionalPayments)
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -264,6 +278,10 @@ namespace Lusid.Sdk.Model
                 if (this.AdditionalPayments != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalPayments.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

@@ -49,8 +49,9 @@ namespace Lusid.Sdk.Model
         /// <param name="underlyingIdentifier">External market codes and identifiers for the CFD, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]..</param>
         /// <param name="lotSize">CFD LotSize, the minimum number of shares that can be bought or sold at once.  Optional, if set must be non-negative, if not set defaults to 1..</param>
         /// <param name="underlying">underlying.</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;ContractForDifference&quot;).</param>
-        public ContractForDifference(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string code = default(string), decimal contractSize = default(decimal), string payCcy = default(string), decimal referenceRate = default(decimal), string type = default(string), string underlyingCcy = default(string), string underlyingIdentifier = default(string), int lotSize = default(int), LusidInstrument underlying = default(LusidInstrument), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public ContractForDifference(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string code = default(string), decimal contractSize = default(decimal), string payCcy = default(string), decimal referenceRate = default(decimal), string type = default(string), string underlyingCcy = default(string), string underlyingIdentifier = default(string), int lotSize = default(int), LusidInstrument underlying = default(LusidInstrument), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             // to ensure "payCcy" is required (not null)
@@ -73,6 +74,7 @@ namespace Lusid.Sdk.Model
             this.UnderlyingIdentifier = underlyingIdentifier;
             this.LotSize = lotSize;
             this.Underlying = underlying;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -152,6 +154,12 @@ namespace Lusid.Sdk.Model
         public LusidInstrument Underlying { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -171,6 +179,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  UnderlyingIdentifier: ").Append(UnderlyingIdentifier).Append("\n");
             sb.Append("  LotSize: ").Append(LotSize).Append("\n");
             sb.Append("  Underlying: ").Append(Underlying).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -257,6 +266,11 @@ namespace Lusid.Sdk.Model
                     this.Underlying == input.Underlying ||
                     (this.Underlying != null &&
                     this.Underlying.Equals(input.Underlying))
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -303,6 +317,10 @@ namespace Lusid.Sdk.Model
                 if (this.Underlying != null)
                 {
                     hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

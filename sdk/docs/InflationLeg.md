@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **InflationIndexConventions** | [**InflationIndexConventions**](InflationIndexConventions.md) |  | 
 **Notional** | **decimal** | The notional | 
 **PayReceive** | **string** | PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.    Supported string (enumeration) values are: [Pay, Receive]. | [optional] 
+**TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

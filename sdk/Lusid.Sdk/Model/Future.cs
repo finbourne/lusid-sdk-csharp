@@ -48,8 +48,9 @@ namespace Lusid.Sdk.Model
         /// <param name="underlying">underlying.</param>
         /// <param name="calculationType">Calculation type for some Future instruments which have non-standard methodology.  Optional, if not set defaults as follows:  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;IR\&quot; or \&quot;BB\&quot; set to ASX_BankBills  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;YT\&quot; set to ASX_3Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;VT\&quot; set to ASX_5Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;XT\&quot; set to ASX_10Year  - If ExchangeCode is \&quot;ASX\&quot; and ContractCode is \&quot;LT\&quot; set to ASX_20Year  - otherwise set to Standard                Specific calculation types for bond and interest rate futures are:  - [Standard] The default calculation type, which does not fit into any of the categories below.  - [ASX_BankBills] Used for AUD and NZD futures “IR” and “BB” on ASX. 90D Bank Bills.  - [ASX_3Year] Used for “YT” on ASX. 3YR semi-annual bond (6 coupons) @ 6%.  - [ASX_5Year] Used for “VT” on ASX. 5yr semi-annual bond (10 coupons) @ 2%.  - [ASX_10Year] Used for “XT” on ASX. 10yr semi-annual bond (20 coupons) @ 6%.  - [ASX_20Year] Used for “LT” on ASX. 20yr semi-annual bond (40 coupons) @ 4%.  - [B3_DI1] Used for “DI1” on B3. Average of 1D interbank deposit rates.    - For futures with this calculation type, quote values are expected to be specified as a percentage.      For example, a quoted rate of 13.205% should be specified as a quote of 13.205 with a face value of 100.                Supported string (enumeration) values are: [Standard, ASX_BankBills, ASX_3Year, ASX_5Year, ASX_10Year, ASX_20Year, B3_DI1]..</param>
         /// <param name="tradingConventions">tradingConventions.</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;Future&quot;).</param>
-        public Future(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), Dictionary<string, string> identifiers = default(Dictionary<string, string>), FuturesContractDetails contractDetails = default(FuturesContractDetails), decimal contracts = (decimal)1D, MarkToMarketConventions markToMarketConventions = default(MarkToMarketConventions), decimal refSpotPrice = default(decimal), LusidInstrument underlying = default(LusidInstrument), string calculationType = default(string), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public Future(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), Dictionary<string, string> identifiers = default(Dictionary<string, string>), FuturesContractDetails contractDetails = default(FuturesContractDetails), decimal contracts = (decimal)1D, MarkToMarketConventions markToMarketConventions = default(MarkToMarketConventions), decimal refSpotPrice = default(decimal), LusidInstrument underlying = default(LusidInstrument), string calculationType = default(string), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -71,6 +72,7 @@ namespace Lusid.Sdk.Model
             this.Underlying = underlying;
             this.CalculationType = calculationType;
             this.TradingConventions = tradingConventions;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -140,6 +142,12 @@ namespace Lusid.Sdk.Model
         public TradingConventions TradingConventions { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -158,6 +166,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Underlying: ").Append(Underlying).Append("\n");
             sb.Append("  CalculationType: ").Append(CalculationType).Append("\n");
             sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -241,6 +250,11 @@ namespace Lusid.Sdk.Model
                     this.TradingConventions == input.TradingConventions ||
                     (this.TradingConventions != null &&
                     this.TradingConventions.Equals(input.TradingConventions))
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -286,6 +300,10 @@ namespace Lusid.Sdk.Model
                 if (this.TradingConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

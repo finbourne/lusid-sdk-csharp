@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Premium** | [**Premium**](Premium.md) |  | [optional] 
 **DeliveryMethod** | **string** | How does the option settle    Supported string (enumeration) values are: [Cash, Physical]. | 
 **Swap** | [**InterestRateSwap**](InterestRateSwap.md) |  | 
+**TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

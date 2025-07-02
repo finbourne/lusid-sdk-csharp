@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Overrides** | [**FixedLegAllOfOverrides**](FixedLegAllOfOverrides.md) |  | [optional] 
 **CapRate** | **decimal?** | The maximum floating rate which a cashflow can accrue. | [optional] 
 **FloorRate** | **decimal?** | The minimum floating rate which a cashflow can accrue. | [optional] 
+**TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

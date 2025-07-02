@@ -43,8 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="legDefinition">legDefinition (required).</param>
         /// <param name="notional">notional (required).</param>
         /// <param name="overrides">overrides.</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;FixedLeg&quot;).</param>
-        public FixedLeg(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), LegDefinition legDefinition = default(LegDefinition), decimal notional = default(decimal), FixedLegAllOfOverrides overrides = default(FixedLegAllOfOverrides), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public FixedLeg(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), LegDefinition legDefinition = default(LegDefinition), decimal notional = default(decimal), FixedLegAllOfOverrides overrides = default(FixedLegAllOfOverrides), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -56,6 +57,7 @@ namespace Lusid.Sdk.Model
             this.LegDefinition = legDefinition;
             this.Notional = notional;
             this.Overrides = overrides;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -91,6 +93,12 @@ namespace Lusid.Sdk.Model
         public FixedLegAllOfOverrides Overrides { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +112,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  LegDefinition: ").Append(LegDefinition).Append("\n");
             sb.Append("  Notional: ").Append(Notional).Append("\n");
             sb.Append("  Overrides: ").Append(Overrides).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -162,6 +171,11 @@ namespace Lusid.Sdk.Model
                     this.Overrides == input.Overrides ||
                     (this.Overrides != null &&
                     this.Overrides.Equals(input.Overrides))
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -190,6 +204,10 @@ namespace Lusid.Sdk.Model
                 if (this.Overrides != null)
                 {
                     hashCode = (hashCode * 59) + this.Overrides.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

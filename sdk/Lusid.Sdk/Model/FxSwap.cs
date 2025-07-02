@@ -41,8 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="nearFxForward">nearFxForward (required).</param>
         /// <param name="farFxForward">farFxForward (required).</param>
         /// <param name="notionalSymmetry">The NotionalSymmetry allows for even and uneven FxSwaps to be supported.  An even FxSwap is one where the near and far fx forwards have the same notional value on at least one of the  legs. An uneven FxSwap is one where near and far fx forwards don&#39;t have the same notional on both the  domestic and foreign legs.  By default NotionalSymmetry will be set as even.    Supported string (enumeration) values are: [Even, Uneven]..</param>
+        /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit (required) (default to &quot;FxSwap&quot;).</param>
-        public FxSwap(FxForward nearFxForward = default(FxForward), FxForward farFxForward = default(FxForward), string notionalSymmetry = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public FxSwap(FxForward nearFxForward = default(FxForward), FxForward farFxForward = default(FxForward), string notionalSymmetry = default(string), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             // to ensure "nearFxForward" is required (not null)
             if (nearFxForward == null)
@@ -57,6 +58,7 @@ namespace Lusid.Sdk.Model
             }
             this.FarFxForward = farFxForward;
             this.NotionalSymmetry = notionalSymmetry;
+            this.TimeZoneConventions = timeZoneConventions;
         }
 
         /// <summary>
@@ -79,6 +81,12 @@ namespace Lusid.Sdk.Model
         public string NotionalSymmetry { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeZoneConventions
+        /// </summary>
+        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
+        public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +98,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  NearFxForward: ").Append(NearFxForward).Append("\n");
             sb.Append("  FarFxForward: ").Append(FarFxForward).Append("\n");
             sb.Append("  NotionalSymmetry: ").Append(NotionalSymmetry).Append("\n");
+            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +148,11 @@ namespace Lusid.Sdk.Model
                     this.NotionalSymmetry == input.NotionalSymmetry ||
                     (this.NotionalSymmetry != null &&
                     this.NotionalSymmetry.Equals(input.NotionalSymmetry))
+                ) && base.Equals(input) && 
+                (
+                    this.TimeZoneConventions == input.TimeZoneConventions ||
+                    (this.TimeZoneConventions != null &&
+                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
                 );
         }
 
@@ -162,6 +176,10 @@ namespace Lusid.Sdk.Model
                 if (this.NotionalSymmetry != null)
                 {
                     hashCode = (hashCode * 59) + this.NotionalSymmetry.GetHashCode();
+                }
+                if (this.TimeZoneConventions != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
                 }
                 return hashCode;
             }

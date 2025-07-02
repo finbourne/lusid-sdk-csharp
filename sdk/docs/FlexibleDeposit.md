@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **DomCcy** | **string** | The domestic currency of the instrument. | 
 **Schedules** | [**List&lt;Schedule&gt;**](Schedule.md) | Repayment schedules for the deposit instrument. | 
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
+**TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
