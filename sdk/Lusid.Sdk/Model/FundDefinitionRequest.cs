@@ -23,81 +23,87 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A Fund entity.
+    /// The request used to create a Fund.
     /// </summary>
-    [DataContract(Name = "Fund")]
-    public partial class Fund : IEquatable<Fund>, IValidatableObject
+    [DataContract(Name = "FundDefinitionRequest")]
+    public partial class FundDefinitionRequest : IEquatable<FundDefinitionRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Fund" /> class.
+        /// Initializes a new instance of the <see cref="FundDefinitionRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Fund() { }
+        protected FundDefinitionRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Fund" /> class.
+        /// Initializes a new instance of the <see cref="FundDefinitionRequest" /> class.
         /// </summary>
-        /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
-        /// <param name="id">id (required).</param>
+        /// <param name="code">The code given for the Fund. (required).</param>
         /// <param name="displayName">The name of the Fund..</param>
         /// <param name="description">A description for the Fund..</param>
-        /// <param name="baseCurrency">The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency..</param>
-        /// <param name="portfolioIds">A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency..</param>
-        /// <param name="fundConfigurationId">fundConfigurationId.</param>
-        /// <param name="aborId">aborId.</param>
+        /// <param name="baseCurrency">The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency. (required).</param>
+        /// <param name="portfolioIds">A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency. (required).</param>
+        /// <param name="fundConfigurationId">fundConfigurationId (required).</param>
+        /// <param name="shareClassInstrumentScopes">The scopes in which the instruments lie, currently limited to one..</param>
         /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them..</param>
         /// <param name="type">The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39; (required).</param>
         /// <param name="inceptionDate">Inception date of the Fund (required).</param>
         /// <param name="decimalPlaces">Number of decimal places for reporting.</param>
-        /// <param name="yearEndDate">yearEndDate.</param>
-        /// <param name="primaryNavType">primaryNavType.</param>
+        /// <param name="primaryNavType">primaryNavType (required).</param>
         /// <param name="additionalNavTypes">The definitions for any additional NAVs on the Fund..</param>
         /// <param name="properties">A set of properties for the Fund..</param>
-        /// <param name="varVersion">varVersion.</param>
-        /// <param name="links">links.</param>
-        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public FundDefinitionRequest(string code = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
+            // to ensure "code" is required (not null)
+            if (code == null)
             {
-                throw new ArgumentNullException("id is a required property for Fund and cannot be null");
+                throw new ArgumentNullException("code is a required property for FundDefinitionRequest and cannot be null");
             }
-            this.Id = id;
+            this.Code = code;
+            // to ensure "baseCurrency" is required (not null)
+            if (baseCurrency == null)
+            {
+                throw new ArgumentNullException("baseCurrency is a required property for FundDefinitionRequest and cannot be null");
+            }
+            this.BaseCurrency = baseCurrency;
+            // to ensure "portfolioIds" is required (not null)
+            if (portfolioIds == null)
+            {
+                throw new ArgumentNullException("portfolioIds is a required property for FundDefinitionRequest and cannot be null");
+            }
+            this.PortfolioIds = portfolioIds;
+            // to ensure "fundConfigurationId" is required (not null)
+            if (fundConfigurationId == null)
+            {
+                throw new ArgumentNullException("fundConfigurationId is a required property for FundDefinitionRequest and cannot be null");
+            }
+            this.FundConfigurationId = fundConfigurationId;
             // to ensure "type" is required (not null)
             if (type == null)
             {
-                throw new ArgumentNullException("type is a required property for Fund and cannot be null");
+                throw new ArgumentNullException("type is a required property for FundDefinitionRequest and cannot be null");
             }
             this.Type = type;
             this.InceptionDate = inceptionDate;
-            this.Href = href;
+            // to ensure "primaryNavType" is required (not null)
+            if (primaryNavType == null)
+            {
+                throw new ArgumentNullException("primaryNavType is a required property for FundDefinitionRequest and cannot be null");
+            }
+            this.PrimaryNavType = primaryNavType;
             this.DisplayName = displayName;
             this.Description = description;
-            this.BaseCurrency = baseCurrency;
-            this.PortfolioIds = portfolioIds;
-            this.FundConfigurationId = fundConfigurationId;
-            this.AborId = aborId;
+            this.ShareClassInstrumentScopes = shareClassInstrumentScopes;
             this.ShareClassInstruments = shareClassInstruments;
             this.DecimalPlaces = decimalPlaces;
-            this.YearEndDate = yearEndDate;
-            this.PrimaryNavType = primaryNavType;
             this.AdditionalNavTypes = additionalNavTypes;
             this.Properties = properties;
-            this.VarVersion = varVersion;
-            this.Links = links;
         }
 
         /// <summary>
-        /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+        /// The code given for the Fund.
         /// </summary>
-        /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
-        [DataMember(Name = "href", EmitDefaultValue = true)]
-        public string Href { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public ResourceId Id { get; set; }
+        /// <value>The code given for the Fund.</value>
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        public string Code { get; set; }
 
         /// <summary>
         /// The name of the Fund.
@@ -117,27 +123,28 @@ namespace Lusid.Sdk.Model
         /// The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency.
         /// </summary>
         /// <value>The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency.</value>
-        [DataMember(Name = "baseCurrency", EmitDefaultValue = true)]
+        [DataMember(Name = "baseCurrency", IsRequired = true, EmitDefaultValue = true)]
         public string BaseCurrency { get; set; }
 
         /// <summary>
-        /// A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency.
+        /// A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency.
         /// </summary>
-        /// <value>A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency.</value>
-        [DataMember(Name = "portfolioIds", EmitDefaultValue = true)]
-        public List<PortfolioEntityIdWithDetails> PortfolioIds { get; set; }
+        /// <value>A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency.</value>
+        [DataMember(Name = "portfolioIds", IsRequired = true, EmitDefaultValue = true)]
+        public List<PortfolioEntityId> PortfolioIds { get; set; }
 
         /// <summary>
         /// Gets or Sets FundConfigurationId
         /// </summary>
-        [DataMember(Name = "fundConfigurationId", EmitDefaultValue = false)]
+        [DataMember(Name = "fundConfigurationId", IsRequired = true, EmitDefaultValue = true)]
         public ResourceId FundConfigurationId { get; set; }
 
         /// <summary>
-        /// Gets or Sets AborId
+        /// The scopes in which the instruments lie, currently limited to one.
         /// </summary>
-        [DataMember(Name = "aborId", EmitDefaultValue = false)]
-        public ResourceId AborId { get; set; }
+        /// <value>The scopes in which the instruments lie, currently limited to one.</value>
+        [DataMember(Name = "shareClassInstrumentScopes", EmitDefaultValue = true)]
+        public List<string> ShareClassInstrumentScopes { get; set; }
 
         /// <summary>
         /// Details the user-provided instrument identifiers and the instrument resolved from them.
@@ -168,15 +175,9 @@ namespace Lusid.Sdk.Model
         public int? DecimalPlaces { get; set; }
 
         /// <summary>
-        /// Gets or Sets YearEndDate
-        /// </summary>
-        [DataMember(Name = "yearEndDate", EmitDefaultValue = false)]
-        public DayMonth YearEndDate { get; set; }
-
-        /// <summary>
         /// Gets or Sets PrimaryNavType
         /// </summary>
-        [DataMember(Name = "primaryNavType", EmitDefaultValue = false)]
+        [DataMember(Name = "primaryNavType", IsRequired = true, EmitDefaultValue = true)]
         public NavTypeDefinition PrimaryNavType { get; set; }
 
         /// <summary>
@@ -194,43 +195,27 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Gets or Sets VarVersion
-        /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion VarVersion { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Links
-        /// </summary>
-        [DataMember(Name = "links", EmitDefaultValue = true)]
-        public List<Link> Links { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class Fund {\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("class FundDefinitionRequest {\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
             sb.Append("  PortfolioIds: ").Append(PortfolioIds).Append("\n");
             sb.Append("  FundConfigurationId: ").Append(FundConfigurationId).Append("\n");
-            sb.Append("  AborId: ").Append(AborId).Append("\n");
+            sb.Append("  ShareClassInstrumentScopes: ").Append(ShareClassInstrumentScopes).Append("\n");
             sb.Append("  ShareClassInstruments: ").Append(ShareClassInstruments).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  InceptionDate: ").Append(InceptionDate).Append("\n");
             sb.Append("  DecimalPlaces: ").Append(DecimalPlaces).Append("\n");
-            sb.Append("  YearEndDate: ").Append(YearEndDate).Append("\n");
             sb.Append("  PrimaryNavType: ").Append(PrimaryNavType).Append("\n");
             sb.Append("  AdditionalNavTypes: ").Append(AdditionalNavTypes).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
-            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -251,15 +236,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Fund);
+            return this.Equals(input as FundDefinitionRequest);
         }
 
         /// <summary>
-        /// Returns true if Fund instances are equal
+        /// Returns true if FundDefinitionRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of Fund to be compared</param>
+        /// <param name="input">Instance of FundDefinitionRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Fund input)
+        public bool Equals(FundDefinitionRequest input)
         {
             if (input == null)
             {
@@ -267,14 +252,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 ) && 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -303,9 +283,10 @@ namespace Lusid.Sdk.Model
                     this.FundConfigurationId.Equals(input.FundConfigurationId))
                 ) && 
                 (
-                    this.AborId == input.AborId ||
-                    (this.AborId != null &&
-                    this.AborId.Equals(input.AborId))
+                    this.ShareClassInstrumentScopes == input.ShareClassInstrumentScopes ||
+                    this.ShareClassInstrumentScopes != null &&
+                    input.ShareClassInstrumentScopes != null &&
+                    this.ShareClassInstrumentScopes.SequenceEqual(input.ShareClassInstrumentScopes)
                 ) && 
                 (
                     this.ShareClassInstruments == input.ShareClassInstruments ||
@@ -329,11 +310,6 @@ namespace Lusid.Sdk.Model
                     this.DecimalPlaces.Equals(input.DecimalPlaces))
                 ) && 
                 (
-                    this.YearEndDate == input.YearEndDate ||
-                    (this.YearEndDate != null &&
-                    this.YearEndDate.Equals(input.YearEndDate))
-                ) && 
-                (
                     this.PrimaryNavType == input.PrimaryNavType ||
                     (this.PrimaryNavType != null &&
                     this.PrimaryNavType.Equals(input.PrimaryNavType))
@@ -349,17 +325,6 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
-                ) && 
-                (
-                    this.VarVersion == input.VarVersion ||
-                    (this.VarVersion != null &&
-                    this.VarVersion.Equals(input.VarVersion))
-                ) && 
-                (
-                    this.Links == input.Links ||
-                    this.Links != null &&
-                    input.Links != null &&
-                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -372,13 +337,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Href != null)
+                if (this.Code != null)
                 {
-                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
                 if (this.DisplayName != null)
                 {
@@ -400,9 +361,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.FundConfigurationId.GetHashCode();
                 }
-                if (this.AborId != null)
+                if (this.ShareClassInstrumentScopes != null)
                 {
-                    hashCode = (hashCode * 59) + this.AborId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ShareClassInstrumentScopes.GetHashCode();
                 }
                 if (this.ShareClassInstruments != null)
                 {
@@ -420,10 +381,6 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DecimalPlaces.GetHashCode();
                 }
-                if (this.YearEndDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.YearEndDate.GetHashCode();
-                }
                 if (this.PrimaryNavType != null)
                 {
                     hashCode = (hashCode * 59) + this.PrimaryNavType.GetHashCode();
@@ -436,14 +393,6 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                if (this.VarVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
-                }
-                if (this.Links != null)
-                {
-                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
-                }
                 return hashCode;
             }
         }
@@ -455,6 +404,25 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Code (string) maxLength
+            if (this.Code != null && this.Code.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than 64.", new [] { "Code" });
+            }
+
+            // Code (string) minLength
+            if (this.Code != null && this.Code.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
+            }
+
+            // Code (string) pattern
+            Regex regexCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexCode.Match(this.Code).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
+            }
+
             // DisplayName (string) maxLength
             if (this.DisplayName != null && this.DisplayName.Length > 256)
             {

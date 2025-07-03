@@ -36,8 +36,9 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ValuationPointDataQueryParameters" /> class.
         /// </summary>
+        /// <param name="start">start.</param>
         /// <param name="end">end (required).</param>
-        public ValuationPointDataQueryParameters(DateOrDiaryEntry end = default(DateOrDiaryEntry))
+        public ValuationPointDataQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry))
         {
             // to ensure "end" is required (not null)
             if (end == null)
@@ -45,7 +46,14 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("end is a required property for ValuationPointDataQueryParameters and cannot be null");
             }
             this.End = end;
+            this.Start = start;
         }
+
+        /// <summary>
+        /// Gets or Sets Start
+        /// </summary>
+        [DataMember(Name = "start", EmitDefaultValue = false)]
+        public DateOrDiaryEntry Start { get; set; }
 
         /// <summary>
         /// Gets or Sets End
@@ -61,6 +69,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ValuationPointDataQueryParameters {\n");
+            sb.Append("  Start: ").Append(Start).Append("\n");
             sb.Append("  End: ").Append(End).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -98,6 +107,11 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.Start == input.Start ||
+                    (this.Start != null &&
+                    this.Start.Equals(input.Start))
+                ) && 
+                (
                     this.End == input.End ||
                     (this.End != null &&
                     this.End.Equals(input.End))
@@ -113,6 +127,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Start != null)
+                {
+                    hashCode = (hashCode * 59) + this.Start.GetHashCode();
+                }
                 if (this.End != null)
                 {
                     hashCode = (hashCode * 59) + this.End.GetHashCode();

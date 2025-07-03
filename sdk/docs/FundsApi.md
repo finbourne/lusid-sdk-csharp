@@ -7,6 +7,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**AcceptEstimateValuationPoint**](FundsApi.md#acceptestimatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$acceptestimate | [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point. |
 | [**CreateFee**](FundsApi.md#createfee) | **POST** /api/funds/{scope}/{code}/fees | [EXPERIMENTAL] CreateFee: Create a Fee. |
 | [**CreateFund**](FundsApi.md#createfund) | **POST** /api/funds/{scope} | [EXPERIMENTAL] CreateFund: Create a Fund. |
+| [**CreateFundV2**](FundsApi.md#createfundv2) | **POST** /api/funds/v2/{scope} | [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview). |
 | [**DeleteFee**](FundsApi.md#deletefee) | **DELETE** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] DeleteFee: Delete a Fee. |
 | [**DeleteFund**](FundsApi.md#deletefund) | **DELETE** /api/funds/{scope}/{code} | [EXPERIMENTAL] DeleteFund: Delete a Fund. |
 | [**DeleteValuationPoint**](FundsApi.md#deletevaluationpoint) | **DELETE** /api/funds/{scope}/{code}/valuationpoints/{diaryEntryCode} | [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. |
@@ -32,7 +33,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 <a id="acceptestimatevaluationpoint"></a>
 # **AcceptEstimateValuationPoint**
-> AcceptEstimateValuationPointResponse AcceptEstimateValuationPoint (string scope, string code, ValuationPointDataRequest valuationPointDataRequest)
+> AcceptEstimateValuationPointResponse AcceptEstimateValuationPoint (string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = null)
 
 [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
 
@@ -80,14 +81,15 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var valuationPointDataRequest = new ValuationPointDataRequest(); // ValuationPointDataRequest | The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided Accepts the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Accepted. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // AcceptEstimateValuationPointResponse result = apiInstance.AcceptEstimateValuationPoint(scope, code, valuationPointDataRequest, opts: opts);
+                // AcceptEstimateValuationPointResponse result = apiInstance.AcceptEstimateValuationPoint(scope, code, valuationPointDataRequest, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
-                AcceptEstimateValuationPointResponse result = apiInstance.AcceptEstimateValuationPoint(scope, code, valuationPointDataRequest);
+                AcceptEstimateValuationPointResponse result = apiInstance.AcceptEstimateValuationPoint(scope, code, valuationPointDataRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -108,7 +110,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] AcceptEstimateValuationPoint: Accepts an Estimate Valuation Point.
-    ApiResponse<AcceptEstimateValuationPointResponse> response = apiInstance.AcceptEstimateValuationPointWithHttpInfo(scope, code, valuationPointDataRequest);
+    ApiResponse<AcceptEstimateValuationPointResponse> response = apiInstance.AcceptEstimateValuationPointWithHttpInfo(scope, code, valuationPointDataRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -128,6 +130,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **valuationPointDataRequest** | [**ValuationPointDataRequest**](ValuationPointDataRequest.md) | The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state. |  |
+| **navTypeCode** | **string?** | When provided Accepts the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Accepted. | [optional]  |
 
 ### Return type
 
@@ -362,6 +365,122 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
 | **fundRequest** | [**FundRequest**](FundRequest.md) | The definition of the Fund. |  |
+
+### Return type
+
+[**Fund**](Fund.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The newly created Fund. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="createfundv2"></a>
+# **CreateFundV2**
+> Fund CreateFundV2 (string scope, FundDefinitionRequest fundDefinitionRequest)
+
+[EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview).
+
+Create the given V2 Fund.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var fundDefinitionRequest = new FundDefinitionRequest(); // FundDefinitionRequest | The definition of the Fund.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // Fund result = apiInstance.CreateFundV2(scope, fundDefinitionRequest, opts: opts);
+
+                // [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview).
+                Fund result = apiInstance.CreateFundV2(scope, fundDefinitionRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.CreateFundV2: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CreateFundV2WithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview).
+    ApiResponse<Fund> response = apiInstance.CreateFundV2WithHttpInfo(scope, fundDefinitionRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.CreateFundV2WithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **fundDefinitionRequest** | [**FundDefinitionRequest**](FundDefinitionRequest.md) | The definition of the Fund. |  |
 
 ### Return type
 
@@ -618,7 +737,7 @@ catch (ApiException e)
 
 <a id="deletevaluationpoint"></a>
 # **DeleteValuationPoint**
-> DeletedEntityResponse DeleteValuationPoint (string scope, string code, string diaryEntryCode)
+> DeletedEntityResponse DeleteValuationPoint (string scope, string code, string diaryEntryCode, string? navTypeCode = null)
 
 [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
 
@@ -666,14 +785,15 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund for the valuation point to be deleted.
             var code = "code_example";  // string | The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund.
             var diaryEntryCode = "diaryEntryCode_example";  // string | The diary entry code for the valuation Point to be deleted.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, Deletes the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DeletedEntityResponse result = apiInstance.DeleteValuationPoint(scope, code, diaryEntryCode, opts: opts);
+                // DeletedEntityResponse result = apiInstance.DeleteValuationPoint(scope, code, diaryEntryCode, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
-                DeletedEntityResponse result = apiInstance.DeleteValuationPoint(scope, code, diaryEntryCode);
+                DeletedEntityResponse result = apiInstance.DeleteValuationPoint(scope, code, diaryEntryCode, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -694,7 +814,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
-    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteValuationPointWithHttpInfo(scope, code, diaryEntryCode);
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteValuationPointWithHttpInfo(scope, code, diaryEntryCode, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -714,6 +834,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund for the valuation point to be deleted. |  |
 | **code** | **string** | The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund. |  |
 | **diaryEntryCode** | **string** | The diary entry code for the valuation Point to be deleted. |  |
+| **navTypeCode** | **string?** | When provided, Deletes the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. | [optional]  |
 
 ### Return type
 
@@ -736,7 +857,7 @@ catch (ApiException e)
 
 <a id="finalisecandidatevaluationpoint"></a>
 # **FinaliseCandidateValuationPoint**
-> ValuationPointDataResponse FinaliseCandidateValuationPoint (string scope, string code, ValuationPointDataRequest valuationPointDataRequest)
+> ValuationPointDataResponse FinaliseCandidateValuationPoint (string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = null)
 
 [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate.
 
@@ -784,14 +905,15 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var valuationPointDataRequest = new ValuationPointDataRequest(); // ValuationPointDataRequest | The valuationPointDataRequest which contains the diary entry code to mark as final.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided Finalises the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Finalised. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointDataResponse result = apiInstance.FinaliseCandidateValuationPoint(scope, code, valuationPointDataRequest, opts: opts);
+                // ValuationPointDataResponse result = apiInstance.FinaliseCandidateValuationPoint(scope, code, valuationPointDataRequest, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate.
-                ValuationPointDataResponse result = apiInstance.FinaliseCandidateValuationPoint(scope, code, valuationPointDataRequest);
+                ValuationPointDataResponse result = apiInstance.FinaliseCandidateValuationPoint(scope, code, valuationPointDataRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -812,7 +934,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate.
-    ApiResponse<ValuationPointDataResponse> response = apiInstance.FinaliseCandidateValuationPointWithHttpInfo(scope, code, valuationPointDataRequest);
+    ApiResponse<ValuationPointDataResponse> response = apiInstance.FinaliseCandidateValuationPointWithHttpInfo(scope, code, valuationPointDataRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -832,6 +954,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **valuationPointDataRequest** | [**ValuationPointDataRequest**](ValuationPointDataRequest.md) | The valuationPointDataRequest which contains the diary entry code to mark as final. |  |
+| **navTypeCode** | **string?** | When provided Finalises the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Finalised. | [optional]  |
 
 ### Return type
 
@@ -1342,7 +1465,7 @@ catch (ApiException e)
 
 <a id="getvaluationpointdata"></a>
 # **GetValuationPointData**
-> ValuationPointDataResponse GetValuationPointData (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null)
+> ValuationPointDataResponse GetValuationPointData (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null, string? navTypeCode = null)
 
 [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
 
@@ -1391,14 +1514,15 @@ namespace Examples
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var valuationPointDataQueryParameters = new ValuationPointDataQueryParameters(); // ValuationPointDataQueryParameters | The arguments to use for querying the Valuation Point data
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointDataResponse result = apiInstance.GetValuationPointData(scope, code, valuationPointDataQueryParameters, asAt, opts: opts);
+                // ValuationPointDataResponse result = apiInstance.GetValuationPointData(scope, code, valuationPointDataQueryParameters, asAt, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
-                ValuationPointDataResponse result = apiInstance.GetValuationPointData(scope, code, valuationPointDataQueryParameters, asAt);
+                ValuationPointDataResponse result = apiInstance.GetValuationPointData(scope, code, valuationPointDataQueryParameters, asAt, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1419,7 +1543,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
-    ApiResponse<ValuationPointDataResponse> response = apiInstance.GetValuationPointDataWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt);
+    ApiResponse<ValuationPointDataResponse> response = apiInstance.GetValuationPointDataWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1440,6 +1564,7 @@ catch (ApiException e)
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **valuationPointDataQueryParameters** | [**ValuationPointDataQueryParameters**](ValuationPointDataQueryParameters.md) | The arguments to use for querying the Valuation Point data |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified. | [optional]  |
+| **navTypeCode** | **string?** | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -1462,7 +1587,7 @@ catch (ApiException e)
 
 <a id="getvaluationpointjournalentrylines"></a>
 # **GetValuationPointJournalEntryLines**
-> ValuationPointResourceListOfFundJournalEntryLine GetValuationPointJournalEntryLines (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null)
+> ValuationPointResourceListOfFundJournalEntryLine GetValuationPointJournalEntryLines (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
 
 [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund.
 
@@ -1516,14 +1641,15 @@ namespace Examples
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing Journal Entry lines from a previous call to GetValuationPointJournalEntryLines. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'               domain to decorate onto the journal entry lines. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointResourceListOfFundJournalEntryLine result = apiInstance.GetValuationPointJournalEntryLines(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, opts: opts);
+                // ValuationPointResourceListOfFundJournalEntryLine result = apiInstance.GetValuationPointJournalEntryLines(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund.
-                ValuationPointResourceListOfFundJournalEntryLine result = apiInstance.GetValuationPointJournalEntryLines(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys);
+                ValuationPointResourceListOfFundJournalEntryLine result = apiInstance.GetValuationPointJournalEntryLines(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1544,7 +1670,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund.
-    ApiResponse<ValuationPointResourceListOfFundJournalEntryLine> response = apiInstance.GetValuationPointJournalEntryLinesWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys);
+    ApiResponse<ValuationPointResourceListOfFundJournalEntryLine> response = apiInstance.GetValuationPointJournalEntryLinesWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1570,6 +1696,7 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing Journal Entry lines from a previous call to GetValuationPointJournalEntryLines. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. | [optional]  |
+| **navTypeCode** | **string?** | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. | [optional]  |
 
 ### Return type
 
@@ -1592,7 +1719,7 @@ catch (ApiException e)
 
 <a id="getvaluationpointpnlsummary"></a>
 # **GetValuationPointPnlSummary**
-> ValuationPointResourceListOfPnlJournalEntryLine GetValuationPointPnlSummary (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null)
+> ValuationPointResourceListOfPnlJournalEntryLine GetValuationPointPnlSummary (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, string? navTypeCode = null)
 
 [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
 
@@ -1645,14 +1772,15 @@ namespace Examples
             var filter = "filter_example";  // string? | \"Expression to filter the result set.\" (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointResourceListOfPnlJournalEntryLine result = apiInstance.GetValuationPointPnlSummary(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, opts: opts);
+                // ValuationPointResourceListOfPnlJournalEntryLine result = apiInstance.GetValuationPointPnlSummary(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
-                ValuationPointResourceListOfPnlJournalEntryLine result = apiInstance.GetValuationPointPnlSummary(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page);
+                ValuationPointResourceListOfPnlJournalEntryLine result = apiInstance.GetValuationPointPnlSummary(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1673,7 +1801,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
-    ApiResponse<ValuationPointResourceListOfPnlJournalEntryLine> response = apiInstance.GetValuationPointPnlSummaryWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page);
+    ApiResponse<ValuationPointResourceListOfPnlJournalEntryLine> response = apiInstance.GetValuationPointPnlSummaryWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1698,6 +1826,7 @@ catch (ApiException e)
 | **filter** | **string?** | \&quot;Expression to filter the result set.\&quot; | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing Trial balance from a previous call to Trial balance. | [optional]  |
+| **navTypeCode** | **string?** | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. | [optional]  |
 
 ### Return type
 
@@ -1720,7 +1849,7 @@ catch (ApiException e)
 
 <a id="getvaluationpointtransactions"></a>
 # **GetValuationPointTransactions**
-> ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null)
+> ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
 
 [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
 
@@ -1773,14 +1902,15 @@ namespace Examples
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing transactions from a previous call to GetValuationPointTransactions. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'              domain to decorate onto the journal entry lines. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, opts: opts);
+                // ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
-                ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys);
+                ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1801,7 +1931,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
-    ApiResponse<ValuationPointResourceListOfAccountedTransaction> response = apiInstance.GetValuationPointTransactionsWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys);
+    ApiResponse<ValuationPointResourceListOfAccountedTransaction> response = apiInstance.GetValuationPointTransactionsWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1826,6 +1956,7 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing transactions from a previous call to GetValuationPointTransactions. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the journal entry lines. | [optional]  |
+| **navTypeCode** | **string?** | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. | [optional]  |
 
 ### Return type
 
@@ -1848,7 +1979,7 @@ catch (ApiException e)
 
 <a id="getvaluationpointtrialbalance"></a>
 # **GetValuationPointTrialBalance**
-> ValuationPointResourceListOfTrialBalance GetValuationPointTrialBalance (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null)
+> ValuationPointResourceListOfTrialBalance GetValuationPointTrialBalance (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
 
 [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
 
@@ -1902,14 +2033,15 @@ namespace Examples
             var limit = 56;  // int? | When paginating, limit the number of returned results to this number.               Defaults to 100 if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'               domain to decorate onto the journal entry lines. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointResourceListOfTrialBalance result = apiInstance.GetValuationPointTrialBalance(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, opts: opts);
+                // ValuationPointResourceListOfTrialBalance result = apiInstance.GetValuationPointTrialBalance(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
-                ValuationPointResourceListOfTrialBalance result = apiInstance.GetValuationPointTrialBalance(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys);
+                ValuationPointResourceListOfTrialBalance result = apiInstance.GetValuationPointTrialBalance(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1930,7 +2062,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
-    ApiResponse<ValuationPointResourceListOfTrialBalance> response = apiInstance.GetValuationPointTrialBalanceWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys);
+    ApiResponse<ValuationPointResourceListOfTrialBalance> response = apiInstance.GetValuationPointTrialBalanceWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1956,6 +2088,7 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, limit the number of returned results to this number.               Defaults to 100 if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. | [optional]  |
+| **navTypeCode** | **string?** | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. | [optional]  |
 
 ### Return type
 
@@ -2234,7 +2367,7 @@ catch (ApiException e)
 
 <a id="listvaluationpointoverview"></a>
 # **ListValuationPointOverview**
-> PagedResourceListOfValuationPointOverview ListValuationPointOverview (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null)
+> PagedResourceListOfValuationPointOverview ListValuationPointOverview (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null, string? navTypeCode = null)
 
 [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
 
@@ -2287,14 +2420,15 @@ namespace Examples
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results by.              For example, to filter on the NAV, specify \"NAV gt 300\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'DiaryEntry' domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example 'DiaryEntry/ValuationPoint/Id'. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfValuationPointOverview result = apiInstance.ListValuationPointOverview(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, opts: opts);
+                // PagedResourceListOfValuationPointOverview result = apiInstance.ListValuationPointOverview(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
-                PagedResourceListOfValuationPointOverview result = apiInstance.ListValuationPointOverview(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
+                PagedResourceListOfValuationPointOverview result = apiInstance.ListValuationPointOverview(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2315,7 +2449,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
-    ApiResponse<PagedResourceListOfValuationPointOverview> response = apiInstance.ListValuationPointOverviewWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
+    ApiResponse<PagedResourceListOfValuationPointOverview> response = apiInstance.ListValuationPointOverviewWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2340,6 +2474,7 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. | [optional]  |
+| **navTypeCode** | **string?** | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. | [optional]  |
 
 ### Return type
 
@@ -2718,7 +2853,7 @@ catch (ApiException e)
 
 <a id="upsertdiaryentrytypevaluationpoint"></a>
 # **UpsertDiaryEntryTypeValuationPoint**
-> DiaryEntry UpsertDiaryEntryTypeValuationPoint (string scope, string code, UpsertValuationPointRequest upsertValuationPointRequest)
+> DiaryEntry UpsertDiaryEntryTypeValuationPoint (string scope, string code, UpsertValuationPointRequest upsertValuationPointRequest, string? navTypeCode = null)
 
 [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
 
@@ -2766,14 +2901,15 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var upsertValuationPointRequest = new UpsertValuationPointRequest(); // UpsertValuationPointRequest | The Valuation Point Estimate definition to Upsert
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, Upserts the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DiaryEntry result = apiInstance.UpsertDiaryEntryTypeValuationPoint(scope, code, upsertValuationPointRequest, opts: opts);
+                // DiaryEntry result = apiInstance.UpsertDiaryEntryTypeValuationPoint(scope, code, upsertValuationPointRequest, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
-                DiaryEntry result = apiInstance.UpsertDiaryEntryTypeValuationPoint(scope, code, upsertValuationPointRequest);
+                DiaryEntry result = apiInstance.UpsertDiaryEntryTypeValuationPoint(scope, code, upsertValuationPointRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2794,7 +2930,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
-    ApiResponse<DiaryEntry> response = apiInstance.UpsertDiaryEntryTypeValuationPointWithHttpInfo(scope, code, upsertValuationPointRequest);
+    ApiResponse<DiaryEntry> response = apiInstance.UpsertDiaryEntryTypeValuationPointWithHttpInfo(scope, code, upsertValuationPointRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2814,6 +2950,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **upsertValuationPointRequest** | [**UpsertValuationPointRequest**](UpsertValuationPointRequest.md) | The Valuation Point Estimate definition to Upsert |  |
+| **navTypeCode** | **string?** | When provided, Upserts the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
