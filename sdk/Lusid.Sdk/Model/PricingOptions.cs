@@ -45,7 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="convertSrsCashFlowsToPortfolioCurrency">In the case upserted structured result store (SRS) cashflows are not   in the portfolio currency, set this parameter to True to convert said  cashflows into the portfolio currency. By default, this flag is set   to False and Lusid will not do any FX conversion.    Please note that FX conversion is dependent on the data available in  the quote store - ensure that all relevant FX quotes have been loaded  for cashflow currency conversion..</param>
         /// <param name="conservedQuantityForLookthroughExpansion">When performing lookthrough portfolio expansion with ScalingMethodology set to \&quot;Sum\&quot; or \&quot;AbsoluteSum\&quot;,  the quantity specified here will be conserved and apportioned to lookthrough constituents.  For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity.  When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity.  The number of units of each equity held is then implied.  Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.                Allowed values are: \&quot;PV\&quot; (default), \&quot;Exposure\&quot;..</param>
         /// <param name="returnZeroPv">returnZeroPv.</param>
-        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), bool produceSeparateResultForLinearOtcLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions))
+        /// <param name="enableLegLevelInferenceForCustomSrsColumns">When enabled, allows inference between leg-level and  instrument-level data during portfolio valuation. If  data is missing at one level, it may be inferred from  the other level. For example, missing leg-level data   may be inferred from existing leg-level and instrument-  level data when ProduceSeparateResultForLinearOtcLegs  is enabled, and vice versa. Explicitly provided data  always takes precedence..</param>
+        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), bool produceSeparateResultForLinearOtcLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool))
         {
             this.ModelSelection = modelSelection;
             this.UseInstrumentTypeToDeterminePricer = useInstrumentTypeToDeterminePricer;
@@ -61,6 +62,7 @@ namespace Lusid.Sdk.Model
             this.ConvertSrsCashFlowsToPortfolioCurrency = convertSrsCashFlowsToPortfolioCurrency;
             this.ConservedQuantityForLookthroughExpansion = conservedQuantityForLookthroughExpansion;
             this.ReturnZeroPv = returnZeroPv;
+            this.EnableLegLevelInferenceForCustomSrsColumns = enableLegLevelInferenceForCustomSrsColumns;
         }
 
         /// <summary>
@@ -159,6 +161,13 @@ namespace Lusid.Sdk.Model
         public ReturnZeroPvOptions ReturnZeroPv { get; set; }
 
         /// <summary>
+        /// When enabled, allows inference between leg-level and  instrument-level data during portfolio valuation. If  data is missing at one level, it may be inferred from  the other level. For example, missing leg-level data   may be inferred from existing leg-level and instrument-  level data when ProduceSeparateResultForLinearOtcLegs  is enabled, and vice versa. Explicitly provided data  always takes precedence.
+        /// </summary>
+        /// <value>When enabled, allows inference between leg-level and  instrument-level data during portfolio valuation. If  data is missing at one level, it may be inferred from  the other level. For example, missing leg-level data   may be inferred from existing leg-level and instrument-  level data when ProduceSeparateResultForLinearOtcLegs  is enabled, and vice versa. Explicitly provided data  always takes precedence.</value>
+        [DataMember(Name = "enableLegLevelInferenceForCustomSrsColumns", EmitDefaultValue = true)]
+        public bool EnableLegLevelInferenceForCustomSrsColumns { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,6 +189,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ConvertSrsCashFlowsToPortfolioCurrency: ").Append(ConvertSrsCashFlowsToPortfolioCurrency).Append("\n");
             sb.Append("  ConservedQuantityForLookthroughExpansion: ").Append(ConservedQuantityForLookthroughExpansion).Append("\n");
             sb.Append("  ReturnZeroPv: ").Append(ReturnZeroPv).Append("\n");
+            sb.Append("  EnableLegLevelInferenceForCustomSrsColumns: ").Append(EnableLegLevelInferenceForCustomSrsColumns).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -273,6 +283,10 @@ namespace Lusid.Sdk.Model
                     this.ReturnZeroPv == input.ReturnZeroPv ||
                     (this.ReturnZeroPv != null &&
                     this.ReturnZeroPv.Equals(input.ReturnZeroPv))
+                ) && 
+                (
+                    this.EnableLegLevelInferenceForCustomSrsColumns == input.EnableLegLevelInferenceForCustomSrsColumns ||
+                    this.EnableLegLevelInferenceForCustomSrsColumns.Equals(input.EnableLegLevelInferenceForCustomSrsColumns)
                 );
         }
 
@@ -308,6 +322,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ReturnZeroPv.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.EnableLegLevelInferenceForCustomSrsColumns.GetHashCode();
                 return hashCode;
             }
         }

@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Model
         /// <param name="end">end.</param>
         /// <param name="dateMode">The mode of calculation of the trial balance. The available values are: ActivityDate, AccountingDate..</param>
         /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate trial balance with levels..</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the trial balance..</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the trial balance..</param>
         /// <param name="excludeCleardownModule">By deafult this flag is set to false, if this is set to true, no cleardown module will be applied to the trial balance..</param>
         public TrialBalanceQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry), string dateMode = default(string), string generalLedgerProfileCode = default(string), List<string> propertyKeys = default(List<string>), bool excludeCleardownModule = default(bool))
         {
@@ -74,9 +74,9 @@ namespace Lusid.Sdk.Model
         public string GeneralLedgerProfileCode { get; set; }
 
         /// <summary>
-        /// A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the trial balance.
+        /// A list of property keys from the &#39;Account&#39; domain to decorate onto the trial balance.
         /// </summary>
-        /// <value>A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the trial balance.</value>
+        /// <value>A list of property keys from the &#39;Account&#39; domain to decorate onto the trial balance.</value>
         [DataMember(Name = "propertyKeys", EmitDefaultValue = true)]
         public List<string> PropertyKeys { get; set; }
 

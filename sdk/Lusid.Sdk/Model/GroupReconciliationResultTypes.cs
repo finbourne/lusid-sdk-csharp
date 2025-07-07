@@ -42,10 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="linkPartialMatches">linkPartialMatches (required).</param>
         /// <param name="countBreak">The number of comparison results of resultType \&quot;Break\&quot; with this instanceId and reconciliationType (required).</param>
         /// <param name="linkBreaks">linkBreaks (required).</param>
-        /// <param name="linkNotFound">linkNotFound.</param>
-        /// <param name="countResolved">The number of comparison results of resultType \&quot;Resolved\&quot; with this instanceId and reconciliationType.</param>
-        /// <param name="linkResolved">linkResolved.</param>
-        public GroupReconciliationResultTypes(int countMatch = default(int), Link linkMatches = default(Link), int countPartialMatch = default(int), Link linkPartialMatches = default(Link), int countBreak = default(int), Link linkBreaks = default(Link), Link linkNotFound = default(Link), int countResolved = default(int), Link linkResolved = default(Link))
+        /// <param name="countResolved">The number of comparison results of resultType \&quot;Resolved\&quot; with this instanceId and reconciliationType (required).</param>
+        /// <param name="linkResolved">linkResolved (required).</param>
+        public GroupReconciliationResultTypes(int countMatch = default(int), Link linkMatches = default(Link), int countPartialMatch = default(int), Link linkPartialMatches = default(Link), int countBreak = default(int), Link linkBreaks = default(Link), int countResolved = default(int), Link linkResolved = default(Link))
         {
             this.CountMatch = countMatch;
             // to ensure "linkMatches" is required (not null)
@@ -68,8 +67,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("linkBreaks is a required property for GroupReconciliationResultTypes and cannot be null");
             }
             this.LinkBreaks = linkBreaks;
-            this.LinkNotFound = linkNotFound;
             this.CountResolved = countResolved;
+            // to ensure "linkResolved" is required (not null)
+            if (linkResolved == null)
+            {
+                throw new ArgumentNullException("linkResolved is a required property for GroupReconciliationResultTypes and cannot be null");
+            }
             this.LinkResolved = linkResolved;
         }
 
@@ -116,34 +119,13 @@ namespace Lusid.Sdk.Model
         /// The number of comparison results of resultType \&quot;Resolved\&quot; with this instanceId and reconciliationType
         /// </summary>
         /// <value>The number of comparison results of resultType \&quot;Resolved\&quot; with this instanceId and reconciliationType</value>
-        [DataMember(Name = "countNotFound", EmitDefaultValue = true)]
-        public int CountNotFound { get; private set; }
-
-        /// <summary>
-        /// Returns false as CountNotFound should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeCountNotFound()
-        {
-            return false;
-        }
-        /// <summary>
-        /// Gets or Sets LinkNotFound
-        /// </summary>
-        [DataMember(Name = "linkNotFound", EmitDefaultValue = false)]
-        public Link LinkNotFound { get; set; }
-
-        /// <summary>
-        /// The number of comparison results of resultType \&quot;Resolved\&quot; with this instanceId and reconciliationType
-        /// </summary>
-        /// <value>The number of comparison results of resultType \&quot;Resolved\&quot; with this instanceId and reconciliationType</value>
-        [DataMember(Name = "countResolved", EmitDefaultValue = true)]
+        [DataMember(Name = "countResolved", IsRequired = true, EmitDefaultValue = true)]
         public int CountResolved { get; set; }
 
         /// <summary>
         /// Gets or Sets LinkResolved
         /// </summary>
-        [DataMember(Name = "linkResolved", EmitDefaultValue = false)]
+        [DataMember(Name = "linkResolved", IsRequired = true, EmitDefaultValue = true)]
         public Link LinkResolved { get; set; }
 
         /// <summary>
@@ -160,8 +142,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  LinkPartialMatches: ").Append(LinkPartialMatches).Append("\n");
             sb.Append("  CountBreak: ").Append(CountBreak).Append("\n");
             sb.Append("  LinkBreaks: ").Append(LinkBreaks).Append("\n");
-            sb.Append("  CountNotFound: ").Append(CountNotFound).Append("\n");
-            sb.Append("  LinkNotFound: ").Append(LinkNotFound).Append("\n");
             sb.Append("  CountResolved: ").Append(CountResolved).Append("\n");
             sb.Append("  LinkResolved: ").Append(LinkResolved).Append("\n");
             sb.Append("}\n");
@@ -227,15 +207,6 @@ namespace Lusid.Sdk.Model
                     this.LinkBreaks.Equals(input.LinkBreaks))
                 ) && 
                 (
-                    this.CountNotFound == input.CountNotFound ||
-                    this.CountNotFound.Equals(input.CountNotFound)
-                ) && 
-                (
-                    this.LinkNotFound == input.LinkNotFound ||
-                    (this.LinkNotFound != null &&
-                    this.LinkNotFound.Equals(input.LinkNotFound))
-                ) && 
-                (
                     this.CountResolved == input.CountResolved ||
                     this.CountResolved.Equals(input.CountResolved)
                 ) && 
@@ -269,11 +240,6 @@ namespace Lusid.Sdk.Model
                 if (this.LinkBreaks != null)
                 {
                     hashCode = (hashCode * 59) + this.LinkBreaks.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.CountNotFound.GetHashCode();
-                if (this.LinkNotFound != null)
-                {
-                    hashCode = (hashCode * 59) + this.LinkNotFound.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.CountResolved.GetHashCode();
                 if (this.LinkResolved != null)

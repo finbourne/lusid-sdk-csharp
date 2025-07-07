@@ -399,7 +399,13 @@ namespace Lusid.Sdk.Model
         /// Enum RepoCashFlowEvent for value: RepoCashFlowEvent
         /// </summary>
         [EnumMember(Value = "RepoCashFlowEvent")]
-        RepoCashFlowEvent = 62
+        RepoCashFlowEvent = 62,
+
+        /// <summary>
+        /// Enum FlexibleRepoInterestPaymentEvent for value: FlexibleRepoInterestPaymentEvent
+        /// </summary>
+        [EnumMember(Value = "FlexibleRepoInterestPaymentEvent")]
+        FlexibleRepoInterestPaymentEvent = 63
     }
 
 }

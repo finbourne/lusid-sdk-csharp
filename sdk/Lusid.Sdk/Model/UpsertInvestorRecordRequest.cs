@@ -40,8 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">A set of properties associated to the Investor Record..</param>
         /// <param name="displayName">The display name of the Investor Record (required).</param>
         /// <param name="description">The description of the Investor Record.</param>
-        /// <param name="investorIdentifier">investorIdentifier.</param>
-        public UpsertInvestorRecordRequest(Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string displayName = default(string), string description = default(string), InvestorIdentifier investorIdentifier = default(InvestorIdentifier))
+        /// <param name="investor">investor.</param>
+        public UpsertInvestorRecordRequest(Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string displayName = default(string), string description = default(string), InvestorIdentifier investor = default(InvestorIdentifier))
         {
             // to ensure "identifiers" is required (not null)
             if (identifiers == null)
@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Model
             this.DisplayName = displayName;
             this.Properties = properties;
             this.Description = description;
-            this.InvestorIdentifier = investorIdentifier;
+            this.Investor = investor;
         }
 
         /// <summary>
@@ -89,10 +89,10 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets InvestorIdentifier
+        /// Gets or Sets Investor
         /// </summary>
-        [DataMember(Name = "investorIdentifier", EmitDefaultValue = false)]
-        public InvestorIdentifier InvestorIdentifier { get; set; }
+        [DataMember(Name = "investor", EmitDefaultValue = false)]
+        public InvestorIdentifier Investor { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -106,7 +106,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  InvestorIdentifier: ").Append(InvestorIdentifier).Append("\n");
+            sb.Append("  Investor: ").Append(Investor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,9 +165,9 @@ namespace Lusid.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.InvestorIdentifier == input.InvestorIdentifier ||
-                    (this.InvestorIdentifier != null &&
-                    this.InvestorIdentifier.Equals(input.InvestorIdentifier))
+                    this.Investor == input.Investor ||
+                    (this.Investor != null &&
+                    this.Investor.Equals(input.Investor))
                 );
         }
 
@@ -196,9 +196,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this.InvestorIdentifier != null)
+                if (this.Investor != null)
                 {
-                    hashCode = (hashCode * 59) + this.InvestorIdentifier.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Investor.GetHashCode();
                 }
                 return hashCode;
             }
