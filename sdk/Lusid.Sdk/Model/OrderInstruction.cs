@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="instrumentIdentifiers">The instrument ordered. (required).</param>
         /// <param name="quantity">The quantity of given instrument ordered..</param>
-        /// <param name="weight">The weight of given instrument ordered..</param>
+        /// <param name="weight">The proportion of the total portfolio value ordered for the given instrument ordered..</param>
         /// <param name="price">price.</param>
         /// <param name="instrumentScope">The scope in which the instrument lies.</param>
         /// <param name="lusidInstrumentId">The LUSID instrument id for the instrument ordered..</param>
@@ -115,9 +115,9 @@ namespace Lusid.Sdk.Model
         public decimal? Quantity { get; set; }
 
         /// <summary>
-        /// The weight of given instrument ordered.
+        /// The proportion of the total portfolio value ordered for the given instrument ordered.
         /// </summary>
-        /// <value>The weight of given instrument ordered.</value>
+        /// <value>The proportion of the total portfolio value ordered for the given instrument ordered.</value>
         [DataMember(Name = "weight", EmitDefaultValue = true)]
         public decimal? Weight { get; set; }
 

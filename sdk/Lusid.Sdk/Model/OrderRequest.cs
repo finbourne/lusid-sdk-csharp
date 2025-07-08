@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="properties">Client-defined properties associated with this order..</param>
         /// <param name="instrumentIdentifiers">The instrument ordered. (required).</param>
-        /// <param name="quantity">The quantity of given instrument ordered. (required).</param>
+        /// <param name="quantity">The quantity of the given instrument ordered..</param>
         /// <param name="side">The client&#39;s representation of the order&#39;s side (buy, sell, short, etc) (required).</param>
         /// <param name="orderBookId">orderBookId.</param>
         /// <param name="portfolioId">portfolioId.</param>
@@ -52,7 +52,9 @@ namespace Lusid.Sdk.Model
         /// <param name="stopPrice">stopPrice.</param>
         /// <param name="orderInstruction">orderInstruction.</param>
         /// <param name="package">package.</param>
-        public OrderRequest(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal quantity = default(decimal), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstruction = default(ResourceId), ResourceId package = default(ResourceId))
+        /// <param name="weight">The proportion of the total portfolio value ordered for the given instrument ordered..</param>
+        /// <param name="amount">amount.</param>
+        public OrderRequest(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstruction = default(ResourceId), ResourceId package = default(ResourceId), decimal? weight = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
@@ -60,7 +62,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instrumentIdentifiers is a required property for OrderRequest and cannot be null");
             }
             this.InstrumentIdentifiers = instrumentIdentifiers;
-            this.Quantity = quantity;
             // to ensure "side" is required (not null)
             if (side == null)
             {
@@ -74,6 +75,7 @@ namespace Lusid.Sdk.Model
             }
             this.Id = id;
             this.Properties = properties;
+            this.Quantity = quantity;
             this.OrderBookId = orderBookId;
             this.PortfolioId = portfolioId;
             this.State = state;
@@ -85,6 +87,8 @@ namespace Lusid.Sdk.Model
             this.StopPrice = stopPrice;
             this.OrderInstruction = orderInstruction;
             this.Package = package;
+            this.Weight = weight;
+            this.Amount = amount;
         }
 
         /// <summary>
@@ -102,11 +106,11 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
-        /// The quantity of given instrument ordered.
+        /// The quantity of the given instrument ordered.
         /// </summary>
-        /// <value>The quantity of given instrument ordered.</value>
-        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Quantity { get; set; }
+        /// <value>The quantity of the given instrument ordered.</value>
+        [DataMember(Name = "quantity", EmitDefaultValue = true)]
+        public decimal? Quantity { get; set; }
 
         /// <summary>
         /// The client&#39;s representation of the order&#39;s side (buy, sell, short, etc)
@@ -192,6 +196,19 @@ namespace Lusid.Sdk.Model
         public ResourceId Package { get; set; }
 
         /// <summary>
+        /// The proportion of the total portfolio value ordered for the given instrument ordered.
+        /// </summary>
+        /// <value>The proportion of the total portfolio value ordered for the given instrument ordered.</value>
+        [DataMember(Name = "weight", EmitDefaultValue = true)]
+        public decimal? Weight { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Amount
+        /// </summary>
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
+        public CurrencyAndAmount Amount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -215,6 +232,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  StopPrice: ").Append(StopPrice).Append("\n");
             sb.Append("  OrderInstruction: ").Append(OrderInstruction).Append("\n");
             sb.Append("  Package: ").Append(Package).Append("\n");
+            sb.Append("  Weight: ").Append(Weight).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -264,7 +283,8 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.Quantity == input.Quantity ||
-                    this.Quantity.Equals(input.Quantity)
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
                 ) && 
                 (
                     this.Side == input.Side ||
@@ -330,6 +350,16 @@ namespace Lusid.Sdk.Model
                     this.Package == input.Package ||
                     (this.Package != null &&
                     this.Package.Equals(input.Package))
+                ) && 
+                (
+                    this.Weight == input.Weight ||
+                    (this.Weight != null &&
+                    this.Weight.Equals(input.Weight))
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 );
         }
 
@@ -350,7 +380,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.InstrumentIdentifiers.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                if (this.Quantity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                }
                 if (this.Side != null)
                 {
                     hashCode = (hashCode * 59) + this.Side.GetHashCode();
@@ -402,6 +435,14 @@ namespace Lusid.Sdk.Model
                 if (this.Package != null)
                 {
                     hashCode = (hashCode * 59) + this.Package.GetHashCode();
+                }
+                if (this.Weight != null)
+                {
+                    hashCode = (hashCode * 59) + this.Weight.GetHashCode();
+                }
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 }
                 return hashCode;
             }

@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="instrumentIdentifiers">The instrument ordered..</param>
         /// <param name="quantity">The quantity of given instrument ordered..</param>
-        /// <param name="weight">The weight of given instrument ordered..</param>
+        /// <param name="weight">The proportion of the total portfolio value ordered for the given instrument ordered..</param>
         /// <param name="price">price.</param>
         /// <param name="properties">Client-defined properties associated with this execution..</param>
         public OrderInstructionRequest(ResourceId id = default(ResourceId), DateTimeOffset createdDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), decimal? weight = default(decimal?), CurrencyAndAmount price = default(CurrencyAndAmount), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
@@ -95,9 +95,9 @@ namespace Lusid.Sdk.Model
         public decimal? Quantity { get; set; }
 
         /// <summary>
-        /// The weight of given instrument ordered.
+        /// The proportion of the total portfolio value ordered for the given instrument ordered.
         /// </summary>
-        /// <value>The weight of given instrument ordered.</value>
+        /// <value>The proportion of the total portfolio value ordered for the given instrument ordered.</value>
         [DataMember(Name = "weight", EmitDefaultValue = true)]
         public decimal? Weight { get; set; }
 

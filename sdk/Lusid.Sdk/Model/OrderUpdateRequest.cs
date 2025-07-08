@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="OrderUpdateRequest" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        /// <param name="quantity">The quantity of given instrument ordered..</param>
+        /// <param name="quantity">The quantity of the given instrument ordered..</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="properties">Client-defined properties associated with this order..</param>
         /// <param name="price">price.</param>
@@ -66,9 +66,9 @@ namespace Lusid.Sdk.Model
         public ResourceId Id { get; set; }
 
         /// <summary>
-        /// The quantity of given instrument ordered.
+        /// The quantity of the given instrument ordered.
         /// </summary>
-        /// <value>The quantity of given instrument ordered.</value>
+        /// <value>The quantity of the given instrument ordered.</value>
         [DataMember(Name = "quantity", EmitDefaultValue = true)]
         public decimal? Quantity { get; set; }
 

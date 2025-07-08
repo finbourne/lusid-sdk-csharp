@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | The instrument ordered. | 
 **Quantity** | **decimal?** | The quantity of given instrument ordered. | [optional] 
-**Weight** | **decimal?** | The weight of given instrument ordered. | [optional] 
+**Weight** | **decimal?** | The proportion of the total portfolio value ordered for the given instrument ordered. | [optional] 
 **Price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **InstrumentScope** | **string** | The scope in which the instrument lies | [optional] 
 **LusidInstrumentId** | **string** | The LUSID instrument id for the instrument ordered. | [optional] 

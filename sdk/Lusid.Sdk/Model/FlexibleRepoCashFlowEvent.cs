@@ -24,65 +24,65 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of FlexibleRepoInterestPaymentEvent, which represents the regular interest payments associated with an  open repo contract modelled as a FlexibleRepo.
+    /// Definition of FlexibleRepoCashFlowEvent which represents a cash transfer as part of a repo contract modelled  as a FlexibleRepo, either as part of the purchase leg or repurchase leg, or any early closure.
     /// </summary>
-    [DataContract(Name = "FlexibleRepoInterestPaymentEvent")]
+    [DataContract(Name = "FlexibleRepoCashFlowEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class FlexibleRepoInterestPaymentEvent : InstrumentEvent, IEquatable<FlexibleRepoInterestPaymentEvent>, IValidatableObject
+    public partial class FlexibleRepoCashFlowEvent : InstrumentEvent, IEquatable<FlexibleRepoCashFlowEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FlexibleRepoInterestPaymentEvent" /> class.
+        /// Initializes a new instance of the <see cref="FlexibleRepoCashFlowEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FlexibleRepoInterestPaymentEvent() { }
+        protected FlexibleRepoCashFlowEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FlexibleRepoInterestPaymentEvent" /> class.
+        /// Initializes a new instance of the <see cref="FlexibleRepoCashFlowEvent" /> class.
         /// </summary>
-        /// <param name="settlementDate">Settlement date of the interest payment. This is a required field..</param>
-        /// <param name="entitlementDate">EntitlementDate of the interest payment. This is a required field..</param>
-        /// <param name="currency">Currency of the interest payment. This is a required field. (required).</param>
-        /// <param name="interestPerUnit">Interest payment per unit held of the FlexibleRepo. This field is optional. If not specified, the system  will not generate a virtual transaction for this event.</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent (required) (default to &quot;FlexibleRepoInterestPaymentEvent&quot;).</param>
-        public FlexibleRepoInterestPaymentEvent(DateTimeOffset settlementDate = default(DateTimeOffset), DateTimeOffset entitlementDate = default(DateTimeOffset), string currency = default(string), decimal? interestPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="settlementDate">Date that the cash payment settles. This is a required field..</param>
+        /// <param name="entitlementDate">Date the recipient of the cash payment is entitled to receive the cash. This is a required field..</param>
+        /// <param name="currency">Currency of the payment. This is a required field. (required).</param>
+        /// <param name="cashFlowPerUnit">Amount of cash to be paid per unit of the instrument.  This amount is signed to indicate direction of the payment, i.e. as part of the purchase leg vs the repurchase leg.  This field is optional. If not specified, the system will not generate a virtual transaction for this event..</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent (required) (default to &quot;FlexibleRepoCashFlowEvent&quot;).</param>
+        public FlexibleRepoCashFlowEvent(DateTimeOffset settlementDate = default(DateTimeOffset), DateTimeOffset entitlementDate = default(DateTimeOffset), string currency = default(string), decimal? cashFlowPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
-                throw new ArgumentNullException("currency is a required property for FlexibleRepoInterestPaymentEvent and cannot be null");
+                throw new ArgumentNullException("currency is a required property for FlexibleRepoCashFlowEvent and cannot be null");
             }
             this.Currency = currency;
             this.SettlementDate = settlementDate;
             this.EntitlementDate = entitlementDate;
-            this.InterestPerUnit = interestPerUnit;
+            this.CashFlowPerUnit = cashFlowPerUnit;
         }
 
         /// <summary>
-        /// Settlement date of the interest payment. This is a required field.
+        /// Date that the cash payment settles. This is a required field.
         /// </summary>
-        /// <value>Settlement date of the interest payment. This is a required field.</value>
+        /// <value>Date that the cash payment settles. This is a required field.</value>
         [DataMember(Name = "settlementDate", EmitDefaultValue = false)]
         public DateTimeOffset SettlementDate { get; set; }
 
         /// <summary>
-        /// EntitlementDate of the interest payment. This is a required field.
+        /// Date the recipient of the cash payment is entitled to receive the cash. This is a required field.
         /// </summary>
-        /// <value>EntitlementDate of the interest payment. This is a required field.</value>
+        /// <value>Date the recipient of the cash payment is entitled to receive the cash. This is a required field.</value>
         [DataMember(Name = "entitlementDate", EmitDefaultValue = false)]
         public DateTimeOffset EntitlementDate { get; set; }
 
         /// <summary>
-        /// Currency of the interest payment. This is a required field.
+        /// Currency of the payment. This is a required field.
         /// </summary>
-        /// <value>Currency of the interest payment. This is a required field.</value>
+        /// <value>Currency of the payment. This is a required field.</value>
         [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Interest payment per unit held of the FlexibleRepo. This field is optional. If not specified, the system  will not generate a virtual transaction for this event
+        /// Amount of cash to be paid per unit of the instrument.  This amount is signed to indicate direction of the payment, i.e. as part of the purchase leg vs the repurchase leg.  This field is optional. If not specified, the system will not generate a virtual transaction for this event.
         /// </summary>
-        /// <value>Interest payment per unit held of the FlexibleRepo. This field is optional. If not specified, the system  will not generate a virtual transaction for this event</value>
-        [DataMember(Name = "interestPerUnit", EmitDefaultValue = true)]
-        public decimal? InterestPerUnit { get; set; }
+        /// <value>Amount of cash to be paid per unit of the instrument.  This amount is signed to indicate direction of the payment, i.e. as part of the purchase leg vs the repurchase leg.  This field is optional. If not specified, the system will not generate a virtual transaction for this event.</value>
+        [DataMember(Name = "cashFlowPerUnit", EmitDefaultValue = true)]
+        public decimal? CashFlowPerUnit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,12 +91,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class FlexibleRepoInterestPaymentEvent {\n");
+            sb.Append("class FlexibleRepoCashFlowEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
             sb.Append("  EntitlementDate: ").Append(EntitlementDate).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  InterestPerUnit: ").Append(InterestPerUnit).Append("\n");
+            sb.Append("  CashFlowPerUnit: ").Append(CashFlowPerUnit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,15 +117,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FlexibleRepoInterestPaymentEvent);
+            return this.Equals(input as FlexibleRepoCashFlowEvent);
         }
 
         /// <summary>
-        /// Returns true if FlexibleRepoInterestPaymentEvent instances are equal
+        /// Returns true if FlexibleRepoCashFlowEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of FlexibleRepoInterestPaymentEvent to be compared</param>
+        /// <param name="input">Instance of FlexibleRepoCashFlowEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FlexibleRepoInterestPaymentEvent input)
+        public bool Equals(FlexibleRepoCashFlowEvent input)
         {
             if (input == null)
             {
@@ -148,9 +148,9 @@ namespace Lusid.Sdk.Model
                     this.Currency.Equals(input.Currency))
                 ) && base.Equals(input) && 
                 (
-                    this.InterestPerUnit == input.InterestPerUnit ||
-                    (this.InterestPerUnit != null &&
-                    this.InterestPerUnit.Equals(input.InterestPerUnit))
+                    this.CashFlowPerUnit == input.CashFlowPerUnit ||
+                    (this.CashFlowPerUnit != null &&
+                    this.CashFlowPerUnit.Equals(input.CashFlowPerUnit))
                 );
         }
 
@@ -175,9 +175,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                if (this.InterestPerUnit != null)
+                if (this.CashFlowPerUnit != null)
                 {
-                    hashCode = (hashCode * 59) + this.InterestPerUnit.GetHashCode();
+                    hashCode = (hashCode * 59) + this.CashFlowPerUnit.GetHashCode();
                 }
                 return hashCode;
             }

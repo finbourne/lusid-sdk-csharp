@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Client-defined properties associated with this order..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="instrumentIdentifiers">The instrument ordered. (required).</param>
-        /// <param name="quantity">The quantity of given instrument ordered. (required).</param>
+        /// <param name="quantity">The quantity of the given instrument ordered..</param>
         /// <param name="side">The client&#39;s representation of the order&#39;s side (buy, sell, short, etc) (required).</param>
         /// <param name="orderBookId">orderBookId.</param>
         /// <param name="portfolioId">portfolioId.</param>
@@ -55,8 +55,10 @@ namespace Lusid.Sdk.Model
         /// <param name="stopPrice">stopPrice.</param>
         /// <param name="orderInstructionId">orderInstructionId.</param>
         /// <param name="packageId">packageId.</param>
+        /// <param name="weight">The proportion of the total portfolio value ordered for the given instrument ordered..</param>
+        /// <param name="amount">amount.</param>
         /// <param name="links">links.</param>
-        public Order(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal quantity = default(decimal), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string instrumentScope = default(string), string lusidInstrumentId = default(string), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstructionId = default(ResourceId), ResourceId packageId = default(ResourceId), List<Link> links = default(List<Link>))
+        public Order(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string instrumentScope = default(string), string lusidInstrumentId = default(string), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstructionId = default(ResourceId), ResourceId packageId = default(ResourceId), decimal? weight = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), List<Link> links = default(List<Link>))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
@@ -64,7 +66,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instrumentIdentifiers is a required property for Order and cannot be null");
             }
             this.InstrumentIdentifiers = instrumentIdentifiers;
-            this.Quantity = quantity;
             // to ensure "side" is required (not null)
             if (side == null)
             {
@@ -85,6 +86,7 @@ namespace Lusid.Sdk.Model
             this.LusidInstrumentId = lusidInstrumentId;
             this.Properties = properties;
             this.VarVersion = varVersion;
+            this.Quantity = quantity;
             this.OrderBookId = orderBookId;
             this.PortfolioId = portfolioId;
             this.InstrumentScope = instrumentScope;
@@ -97,6 +99,8 @@ namespace Lusid.Sdk.Model
             this.StopPrice = stopPrice;
             this.OrderInstructionId = orderInstructionId;
             this.PackageId = packageId;
+            this.Weight = weight;
+            this.Amount = amount;
             this.Links = links;
         }
 
@@ -121,11 +125,11 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
-        /// The quantity of given instrument ordered.
+        /// The quantity of the given instrument ordered.
         /// </summary>
-        /// <value>The quantity of given instrument ordered.</value>
-        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Quantity { get; set; }
+        /// <value>The quantity of the given instrument ordered.</value>
+        [DataMember(Name = "quantity", EmitDefaultValue = true)]
+        public decimal? Quantity { get; set; }
 
         /// <summary>
         /// The client&#39;s representation of the order&#39;s side (buy, sell, short, etc)
@@ -225,6 +229,19 @@ namespace Lusid.Sdk.Model
         public ResourceId PackageId { get; set; }
 
         /// <summary>
+        /// The proportion of the total portfolio value ordered for the given instrument ordered.
+        /// </summary>
+        /// <value>The proportion of the total portfolio value ordered for the given instrument ordered.</value>
+        [DataMember(Name = "weight", EmitDefaultValue = true)]
+        public decimal? Weight { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Amount
+        /// </summary>
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
+        public CurrencyAndAmount Amount { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -257,6 +274,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  StopPrice: ").Append(StopPrice).Append("\n");
             sb.Append("  OrderInstructionId: ").Append(OrderInstructionId).Append("\n");
             sb.Append("  PackageId: ").Append(PackageId).Append("\n");
+            sb.Append("  Weight: ").Append(Weight).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -312,7 +331,8 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.Quantity == input.Quantity ||
-                    this.Quantity.Equals(input.Quantity)
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
                 ) && 
                 (
                     this.Side == input.Side ||
@@ -390,6 +410,16 @@ namespace Lusid.Sdk.Model
                     this.PackageId.Equals(input.PackageId))
                 ) && 
                 (
+                    this.Weight == input.Weight ||
+                    (this.Weight != null &&
+                    this.Weight.Equals(input.Weight))
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -418,7 +448,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.InstrumentIdentifiers.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                if (this.Quantity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                }
                 if (this.Side != null)
                 {
                     hashCode = (hashCode * 59) + this.Side.GetHashCode();
@@ -478,6 +511,14 @@ namespace Lusid.Sdk.Model
                 if (this.PackageId != null)
                 {
                     hashCode = (hashCode * 59) + this.PackageId.GetHashCode();
+                }
+                if (this.Weight != null)
+                {
+                    hashCode = (hashCode * 59) + this.Weight.GetHashCode();
+                }
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 }
                 if (this.Links != null)
                 {

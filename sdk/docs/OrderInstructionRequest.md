@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | The instrument ordered. | [optional] 
 **Quantity** | **decimal?** | The quantity of given instrument ordered. | [optional] 
-**Weight** | **decimal?** | The weight of given instrument ordered. | [optional] 
+**Weight** | **decimal?** | The proportion of the total portfolio value ordered for the given instrument ordered. | [optional] 
 **Price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this execution. | [optional] 
 

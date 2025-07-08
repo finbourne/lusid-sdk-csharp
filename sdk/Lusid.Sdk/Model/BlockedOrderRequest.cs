@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="BlockedOrderRequest" /> class.
         /// </summary>
         /// <param name="properties">Client-defined properties associated with this order..</param>
-        /// <param name="quantity">The quantity of given instrument ordered. (required).</param>
+        /// <param name="quantity">The quantity of the given instrument ordered. (required).</param>
         /// <param name="orderBookId">orderBookId.</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="id">id (required).</param>
@@ -75,9 +75,9 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> Properties { get; set; }
 
         /// <summary>
-        /// The quantity of given instrument ordered.
+        /// The quantity of the given instrument ordered.
         /// </summary>
-        /// <value>The quantity of given instrument ordered.</value>
+        /// <value>The quantity of the given instrument ordered.</value>
         [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
         public decimal Quantity { get; set; }
 

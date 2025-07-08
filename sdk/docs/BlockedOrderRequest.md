@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this order. | [optional] 
-**Quantity** | **decimal** | The quantity of given instrument ordered. | 
+**Quantity** | **decimal** | The quantity of the given instrument ordered. | 
 **OrderBookId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Id** | [**ResourceId**](ResourceId.md) |  | 
