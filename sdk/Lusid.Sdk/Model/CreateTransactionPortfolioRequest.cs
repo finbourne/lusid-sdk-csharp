@@ -162,7 +162,8 @@ namespace Lusid.Sdk.Model
         /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate..</param>
         /// <param name="instrumentEventConfiguration">instrumentEventConfiguration.</param>
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
-        public CreateTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId))
+        /// <param name="taxRuleSetScope">The scope of the tax rule sets for this portfolio..</param>
+        public CreateTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -194,6 +195,7 @@ namespace Lusid.Sdk.Model
             this.CashGainLossCalculationDate = cashGainLossCalculationDate;
             this.InstrumentEventConfiguration = instrumentEventConfiguration;
             this.AmortisationRuleSetId = amortisationRuleSetId;
+            this.TaxRuleSetScope = taxRuleSetScope;
         }
 
         /// <summary>
@@ -292,6 +294,13 @@ namespace Lusid.Sdk.Model
         public ResourceId AmortisationRuleSetId { get; set; }
 
         /// <summary>
+        /// The scope of the tax rule sets for this portfolio.
+        /// </summary>
+        /// <value>The scope of the tax rule sets for this portfolio.</value>
+        [DataMember(Name = "taxRuleSetScope", EmitDefaultValue = true)]
+        public string TaxRuleSetScope { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -314,6 +323,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CashGainLossCalculationDate: ").Append(CashGainLossCalculationDate).Append("\n");
             sb.Append("  InstrumentEventConfiguration: ").Append(InstrumentEventConfiguration).Append("\n");
             sb.Append("  AmortisationRuleSetId: ").Append(AmortisationRuleSetId).Append("\n");
+            sb.Append("  TaxRuleSetScope: ").Append(TaxRuleSetScope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -425,6 +435,11 @@ namespace Lusid.Sdk.Model
                     this.AmortisationRuleSetId == input.AmortisationRuleSetId ||
                     (this.AmortisationRuleSetId != null &&
                     this.AmortisationRuleSetId.Equals(input.AmortisationRuleSetId))
+                ) && 
+                (
+                    this.TaxRuleSetScope == input.TaxRuleSetScope ||
+                    (this.TaxRuleSetScope != null &&
+                    this.TaxRuleSetScope.Equals(input.TaxRuleSetScope))
                 );
         }
 
@@ -494,6 +509,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.AmortisationRuleSetId.GetHashCode();
                 }
+                if (this.TaxRuleSetScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.TaxRuleSetScope.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -528,6 +547,25 @@ namespace Lusid.Sdk.Model
             if (false == regexTransactionTypeScope.Match(this.TransactionTypeScope).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionTypeScope, must match a pattern of " + regexTransactionTypeScope, new [] { "TransactionTypeScope" });
+            }
+
+            // TaxRuleSetScope (string) maxLength
+            if (this.TaxRuleSetScope != null && this.TaxRuleSetScope.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxRuleSetScope, length must be less than 64.", new [] { "TaxRuleSetScope" });
+            }
+
+            // TaxRuleSetScope (string) minLength
+            if (this.TaxRuleSetScope != null && this.TaxRuleSetScope.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxRuleSetScope, length must be greater than 1.", new [] { "TaxRuleSetScope" });
+            }
+
+            // TaxRuleSetScope (string) pattern
+            Regex regexTaxRuleSetScope = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexTaxRuleSetScope.Match(this.TaxRuleSetScope).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxRuleSetScope, must match a pattern of " + regexTaxRuleSetScope, new [] { "TaxRuleSetScope" });
             }
 
             yield break;

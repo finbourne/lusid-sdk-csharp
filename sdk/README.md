@@ -1032,6 +1032,7 @@ Class | Method | HTTP request | Description
  - [FlexibleDeposit](docs/FlexibleDeposit.md)
  - [FlexibleLoan](docs/FlexibleLoan.md)
  - [FlexibleRepoCashFlowEvent](docs/FlexibleRepoCashFlowEvent.md)
+ - [FlexibleRepoCollateralEvent](docs/FlexibleRepoCollateralEvent.md)
  - [FlexibleRepoInterestPaymentEvent](docs/FlexibleRepoInterestPaymentEvent.md)
  - [FloatSchedule](docs/FloatSchedule.md)
  - [FloatingLeg](docs/FloatingLeg.md)

@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **CashGainLossCalculationDate** | **string** | The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate. | [optional] 
 **InstrumentEventConfiguration** | [**InstrumentEventConfiguration**](InstrumentEventConfiguration.md) |  | [optional] 
 **AmortisationRuleSetId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**TaxRuleSetScope** | **string** | The scope of the tax rule sets for this portfolio. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

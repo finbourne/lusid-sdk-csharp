@@ -160,9 +160,10 @@ namespace Lusid.Sdk.Model
         /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate..</param>
         /// <param name="instrumentEventConfiguration">instrumentEventConfiguration.</param>
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
+        /// <param name="taxRuleSetScope">The scope of the tax rule sets for this portfolio..</param>
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="links">links.</param>
-        public PortfolioDetails(string href = default(string), ResourceId originPortfolioId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
+        public PortfolioDetails(string href = default(string), ResourceId originPortfolioId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
         {
             // to ensure "originPortfolioId" is required (not null)
             if (originPortfolioId == null)
@@ -192,6 +193,7 @@ namespace Lusid.Sdk.Model
             this.CashGainLossCalculationDate = cashGainLossCalculationDate;
             this.InstrumentEventConfiguration = instrumentEventConfiguration;
             this.AmortisationRuleSetId = amortisationRuleSetId;
+            this.TaxRuleSetScope = taxRuleSetScope;
             this.StagedModifications = stagedModifications;
             this.Links = links;
         }
@@ -275,6 +277,13 @@ namespace Lusid.Sdk.Model
         public ResourceId AmortisationRuleSetId { get; set; }
 
         /// <summary>
+        /// The scope of the tax rule sets for this portfolio.
+        /// </summary>
+        /// <value>The scope of the tax rule sets for this portfolio.</value>
+        [DataMember(Name = "taxRuleSetScope", EmitDefaultValue = true)]
+        public string TaxRuleSetScope { get; set; }
+
+        /// <summary>
         /// Gets or Sets StagedModifications
         /// </summary>
         [DataMember(Name = "stagedModifications", EmitDefaultValue = false)]
@@ -307,6 +316,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CashGainLossCalculationDate: ").Append(CashGainLossCalculationDate).Append("\n");
             sb.Append("  InstrumentEventConfiguration: ").Append(InstrumentEventConfiguration).Append("\n");
             sb.Append("  AmortisationRuleSetId: ").Append(AmortisationRuleSetId).Append("\n");
+            sb.Append("  TaxRuleSetScope: ").Append(TaxRuleSetScope).Append("\n");
             sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -411,6 +421,11 @@ namespace Lusid.Sdk.Model
                     this.AmortisationRuleSetId.Equals(input.AmortisationRuleSetId))
                 ) && 
                 (
+                    this.TaxRuleSetScope == input.TaxRuleSetScope ||
+                    (this.TaxRuleSetScope != null &&
+                    this.TaxRuleSetScope.Equals(input.TaxRuleSetScope))
+                ) && 
+                (
                     this.StagedModifications == input.StagedModifications ||
                     (this.StagedModifications != null &&
                     this.StagedModifications.Equals(input.StagedModifications))
@@ -480,6 +495,10 @@ namespace Lusid.Sdk.Model
                 if (this.AmortisationRuleSetId != null)
                 {
                     hashCode = (hashCode * 59) + this.AmortisationRuleSetId.GetHashCode();
+                }
+                if (this.TaxRuleSetScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.TaxRuleSetScope.GetHashCode();
                 }
                 if (this.StagedModifications != null)
                 {

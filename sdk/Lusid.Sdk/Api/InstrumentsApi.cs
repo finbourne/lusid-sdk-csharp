@@ -591,10 +591,11 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfInstrument</returns>
-        PagedResourceListOfInstrument ListInstruments(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfInstrument ListInstruments(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListInstruments: List instruments
@@ -614,10 +615,11 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfInstrument</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> ListInstrumentsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> ListInstrumentsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
         /// </summary>
@@ -1343,11 +1345,12 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfInstrument</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfInstrument> ListInstrumentsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfInstrument> ListInstrumentsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListInstruments: List instruments
@@ -1367,11 +1370,12 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfInstrument)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument>> ListInstrumentsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument>> ListInstrumentsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
         /// </summary>
@@ -5868,12 +5872,13 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfInstrument</returns>
-        public PagedResourceListOfInstrument ListInstruments(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfInstrument ListInstruments(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> localVarResponse = ListInstrumentsWithHttpInfo(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> localVarResponse = ListInstrumentsWithHttpInfo(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, membershipType, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -5892,10 +5897,11 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfInstrument</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> ListInstrumentsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> ListInstrumentsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -5974,6 +5980,10 @@ namespace Lusid.Sdk.Api
             if (dataModelCode != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
+            }
+            if (membershipType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "membershipType", membershipType));
             }
 
             localVarRequestOptions.Operation = "InstrumentsApi.ListInstruments";
@@ -6025,13 +6035,14 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfInstrument</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfInstrument> ListInstrumentsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfInstrument> ListInstrumentsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> localVarResponse = await ListInstrumentsWithHttpInfoAsync(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> localVarResponse = await ListInstrumentsWithHttpInfoAsync(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, membershipType, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6050,11 +6061,12 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfInstrument)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument>> ListInstrumentsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument>> ListInstrumentsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -6134,6 +6146,10 @@ namespace Lusid.Sdk.Api
             if (dataModelCode != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
+            }
+            if (membershipType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "membershipType", membershipType));
             }
 
             localVarRequestOptions.Operation = "InstrumentsApi.ListInstruments";

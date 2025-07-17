@@ -1990,7 +1990,7 @@ catch (ApiException e)
 
 <a id="listinstruments"></a>
 # **ListInstruments**
-> PagedResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null, List<string>? instrumentPropertyKeys = null, string? scope = null, List<string>? relationshipDefinitionIds = null, string? dataModelScope = null, string? dataModelCode = null)
+> PagedResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null, List<string>? instrumentPropertyKeys = null, string? scope = null, List<string>? relationshipDefinitionIds = null, string? dataModelScope = null, string? dataModelCode = null, string? membershipType = null)
 
 ListInstruments: List instruments
 
@@ -2046,14 +2046,15 @@ namespace Examples
             var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use. (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use. (optional) 
+            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, opts: opts);
+                // PagedResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, membershipType, opts: opts);
 
                 // ListInstruments: List instruments
-                PagedResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode);
+                PagedResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, membershipType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2074,7 +2075,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListInstruments: List instruments
-    ApiResponse<PagedResourceListOfInstrument> response = apiInstance.ListInstrumentsWithHttpInfo(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode);
+    ApiResponse<PagedResourceListOfInstrument> response = apiInstance.ListInstrumentsWithHttpInfo(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, membershipType);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2102,6 +2103,7 @@ catch (ApiException e)
 | **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use. | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use. | [optional]  |
+| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. | [optional]  |
 
 ### Return type
 
