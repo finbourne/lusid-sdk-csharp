@@ -6,7 +6,7 @@ The request used to create a Fund.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | **string** | The code given for the Fund. | 
-**DisplayName** | **string** | The name of the Fund. | [optional] 
+**DisplayName** | **string** | The name of the Fund. | 
 **Description** | **string** | A description for the Fund. | [optional] 
 **BaseCurrency** | **string** | The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency. | 
 **PortfolioIds** | [**List&lt;PortfolioEntityId&gt;**](PortfolioEntityId.md) | A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency. | 

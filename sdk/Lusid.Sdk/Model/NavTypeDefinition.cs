@@ -39,6 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="code">code.</param>
         /// <param name="displayName">displayName.</param>
         /// <param name="description">description.</param>
+        /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
+        /// <param name="postingModuleCodes">postingModuleCodes.</param>
+        /// <param name="cleardownModuleCodes">cleardownModuleCodes.</param>
         /// <param name="valuationRecipeId">valuationRecipeId (required).</param>
         /// <param name="holdingRecipeId">holdingRecipeId (required).</param>
         /// <param name="accountingMethod">accountingMethod (required).</param>
@@ -47,11 +50,14 @@ namespace Lusid.Sdk.Model
         /// <param name="amortisationMethod">amortisationMethod (required).</param>
         /// <param name="transactionTypeScope">transactionTypeScope.</param>
         /// <param name="cashGainLossCalculationDate">cashGainLossCalculationDate.</param>
-        /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
-        /// <param name="postingModuleCodes">postingModuleCodes.</param>
-        /// <param name="cleardownModuleCodes">cleardownModuleCodes.</param>
-        public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>))
+        public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string))
         {
+            // to ensure "chartOfAccountsId" is required (not null)
+            if (chartOfAccountsId == null)
+            {
+                throw new ArgumentNullException("chartOfAccountsId is a required property for NavTypeDefinition and cannot be null");
+            }
+            this.ChartOfAccountsId = chartOfAccountsId;
             // to ensure "valuationRecipeId" is required (not null)
             if (valuationRecipeId == null)
             {
@@ -76,21 +82,15 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("amortisationMethod is a required property for NavTypeDefinition and cannot be null");
             }
             this.AmortisationMethod = amortisationMethod;
-            // to ensure "chartOfAccountsId" is required (not null)
-            if (chartOfAccountsId == null)
-            {
-                throw new ArgumentNullException("chartOfAccountsId is a required property for NavTypeDefinition and cannot be null");
-            }
-            this.ChartOfAccountsId = chartOfAccountsId;
             this.Code = code;
             this.DisplayName = displayName;
             this.Description = description;
+            this.PostingModuleCodes = postingModuleCodes;
+            this.CleardownModuleCodes = cleardownModuleCodes;
             this.SubHoldingKeys = subHoldingKeys;
             this.InstrumentScopes = instrumentScopes;
             this.TransactionTypeScope = transactionTypeScope;
             this.CashGainLossCalculationDate = cashGainLossCalculationDate;
-            this.PostingModuleCodes = postingModuleCodes;
-            this.CleardownModuleCodes = cleardownModuleCodes;
         }
 
         /// <summary>
@@ -110,6 +110,24 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ChartOfAccountsId
+        /// </summary>
+        [DataMember(Name = "chartOfAccountsId", IsRequired = true, EmitDefaultValue = true)]
+        public ResourceId ChartOfAccountsId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PostingModuleCodes
+        /// </summary>
+        [DataMember(Name = "postingModuleCodes", EmitDefaultValue = true)]
+        public List<string> PostingModuleCodes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CleardownModuleCodes
+        /// </summary>
+        [DataMember(Name = "cleardownModuleCodes", EmitDefaultValue = true)]
+        public List<string> CleardownModuleCodes { get; set; }
 
         /// <summary>
         /// Gets or Sets ValuationRecipeId
@@ -162,24 +180,6 @@ namespace Lusid.Sdk.Model
         public string CashGainLossCalculationDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets ChartOfAccountsId
-        /// </summary>
-        [DataMember(Name = "chartOfAccountsId", IsRequired = true, EmitDefaultValue = true)]
-        public ResourceId ChartOfAccountsId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PostingModuleCodes
-        /// </summary>
-        [DataMember(Name = "postingModuleCodes", EmitDefaultValue = true)]
-        public List<string> PostingModuleCodes { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CleardownModuleCodes
-        /// </summary>
-        [DataMember(Name = "cleardownModuleCodes", EmitDefaultValue = true)]
-        public List<string> CleardownModuleCodes { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -190,6 +190,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  ChartOfAccountsId: ").Append(ChartOfAccountsId).Append("\n");
+            sb.Append("  PostingModuleCodes: ").Append(PostingModuleCodes).Append("\n");
+            sb.Append("  CleardownModuleCodes: ").Append(CleardownModuleCodes).Append("\n");
             sb.Append("  ValuationRecipeId: ").Append(ValuationRecipeId).Append("\n");
             sb.Append("  HoldingRecipeId: ").Append(HoldingRecipeId).Append("\n");
             sb.Append("  AccountingMethod: ").Append(AccountingMethod).Append("\n");
@@ -198,9 +201,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  AmortisationMethod: ").Append(AmortisationMethod).Append("\n");
             sb.Append("  TransactionTypeScope: ").Append(TransactionTypeScope).Append("\n");
             sb.Append("  CashGainLossCalculationDate: ").Append(CashGainLossCalculationDate).Append("\n");
-            sb.Append("  ChartOfAccountsId: ").Append(ChartOfAccountsId).Append("\n");
-            sb.Append("  PostingModuleCodes: ").Append(PostingModuleCodes).Append("\n");
-            sb.Append("  CleardownModuleCodes: ").Append(CleardownModuleCodes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -252,6 +252,23 @@ namespace Lusid.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
+                    this.ChartOfAccountsId == input.ChartOfAccountsId ||
+                    (this.ChartOfAccountsId != null &&
+                    this.ChartOfAccountsId.Equals(input.ChartOfAccountsId))
+                ) && 
+                (
+                    this.PostingModuleCodes == input.PostingModuleCodes ||
+                    this.PostingModuleCodes != null &&
+                    input.PostingModuleCodes != null &&
+                    this.PostingModuleCodes.SequenceEqual(input.PostingModuleCodes)
+                ) && 
+                (
+                    this.CleardownModuleCodes == input.CleardownModuleCodes ||
+                    this.CleardownModuleCodes != null &&
+                    input.CleardownModuleCodes != null &&
+                    this.CleardownModuleCodes.SequenceEqual(input.CleardownModuleCodes)
+                ) && 
+                (
                     this.ValuationRecipeId == input.ValuationRecipeId ||
                     (this.ValuationRecipeId != null &&
                     this.ValuationRecipeId.Equals(input.ValuationRecipeId))
@@ -292,23 +309,6 @@ namespace Lusid.Sdk.Model
                     this.CashGainLossCalculationDate == input.CashGainLossCalculationDate ||
                     (this.CashGainLossCalculationDate != null &&
                     this.CashGainLossCalculationDate.Equals(input.CashGainLossCalculationDate))
-                ) && 
-                (
-                    this.ChartOfAccountsId == input.ChartOfAccountsId ||
-                    (this.ChartOfAccountsId != null &&
-                    this.ChartOfAccountsId.Equals(input.ChartOfAccountsId))
-                ) && 
-                (
-                    this.PostingModuleCodes == input.PostingModuleCodes ||
-                    this.PostingModuleCodes != null &&
-                    input.PostingModuleCodes != null &&
-                    this.PostingModuleCodes.SequenceEqual(input.PostingModuleCodes)
-                ) && 
-                (
-                    this.CleardownModuleCodes == input.CleardownModuleCodes ||
-                    this.CleardownModuleCodes != null &&
-                    input.CleardownModuleCodes != null &&
-                    this.CleardownModuleCodes.SequenceEqual(input.CleardownModuleCodes)
                 );
         }
 
@@ -332,6 +332,18 @@ namespace Lusid.Sdk.Model
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.ChartOfAccountsId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ChartOfAccountsId.GetHashCode();
+                }
+                if (this.PostingModuleCodes != null)
+                {
+                    hashCode = (hashCode * 59) + this.PostingModuleCodes.GetHashCode();
+                }
+                if (this.CleardownModuleCodes != null)
+                {
+                    hashCode = (hashCode * 59) + this.CleardownModuleCodes.GetHashCode();
                 }
                 if (this.ValuationRecipeId != null)
                 {
@@ -364,18 +376,6 @@ namespace Lusid.Sdk.Model
                 if (this.CashGainLossCalculationDate != null)
                 {
                     hashCode = (hashCode * 59) + this.CashGainLossCalculationDate.GetHashCode();
-                }
-                if (this.ChartOfAccountsId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ChartOfAccountsId.GetHashCode();
-                }
-                if (this.PostingModuleCodes != null)
-                {
-                    hashCode = (hashCode * 59) + this.PostingModuleCodes.GetHashCode();
-                }
-                if (this.CleardownModuleCodes != null)
-                {
-                    hashCode = (hashCode * 59) + this.CleardownModuleCodes.GetHashCode();
                 }
                 return hashCode;
             }

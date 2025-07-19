@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FundDefinitionRequest" /> class.
         /// </summary>
         /// <param name="code">The code given for the Fund. (required).</param>
-        /// <param name="displayName">The name of the Fund..</param>
+        /// <param name="displayName">The name of the Fund. (required).</param>
         /// <param name="description">A description for the Fund..</param>
         /// <param name="baseCurrency">The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency. (required).</param>
         /// <param name="portfolioIds">A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency. (required).</param>
@@ -58,6 +58,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("code is a required property for FundDefinitionRequest and cannot be null");
             }
             this.Code = code;
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
+            {
+                throw new ArgumentNullException("displayName is a required property for FundDefinitionRequest and cannot be null");
+            }
+            this.DisplayName = displayName;
             // to ensure "baseCurrency" is required (not null)
             if (baseCurrency == null)
             {
@@ -89,7 +95,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("primaryNavType is a required property for FundDefinitionRequest and cannot be null");
             }
             this.PrimaryNavType = primaryNavType;
-            this.DisplayName = displayName;
             this.Description = description;
             this.ShareClassInstrumentScopes = shareClassInstrumentScopes;
             this.ShareClassInstruments = shareClassInstruments;
@@ -109,7 +114,7 @@ namespace Lusid.Sdk.Model
         /// The name of the Fund.
         /// </summary>
         /// <value>The name of the Fund.</value>
-        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>

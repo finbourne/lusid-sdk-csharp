@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Scope** | **string** | The scope of the Investment Portfolio | [optional] 
 **Code** | **string** | The code of the Investment Portfolio | [optional] 
 **EntityUniqueId** | **string** | The unique Portfolio entity identifier | [optional] 
-**Portfolio** | [**PortfolioWithoutHref**](PortfolioWithoutHref.md) |  | [optional] 
+**Portfolio** | [**Portfolio**](Portfolio.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

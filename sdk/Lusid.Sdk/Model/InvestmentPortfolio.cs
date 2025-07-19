@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <param name="code">The code of the Investment Portfolio.</param>
         /// <param name="entityUniqueId">The unique Portfolio entity identifier.</param>
         /// <param name="portfolio">portfolio.</param>
-        public InvestmentPortfolio(string key = default(string), string scope = default(string), string code = default(string), string entityUniqueId = default(string), PortfolioWithoutHref portfolio = default(PortfolioWithoutHref))
+        public InvestmentPortfolio(string key = default(string), string scope = default(string), string code = default(string), string entityUniqueId = default(string), Portfolio portfolio = default(Portfolio))
         {
             this.Key = key;
             this.Scope = scope;
@@ -77,7 +77,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Portfolio
         /// </summary>
         [DataMember(Name = "portfolio", EmitDefaultValue = false)]
-        public PortfolioWithoutHref Portfolio { get; set; }
+        public Portfolio Portfolio { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

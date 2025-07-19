@@ -164,13 +164,7 @@ namespace Lusid.Sdk.Model
         /// Enum CashDeferred for value: CashDeferred
         /// </summary>
         [EnumMember(Value = "CashDeferred")]
-        CashDeferred = 23,
-
-        /// <summary>
-        /// Enum UnsettledCashTypes for value: UnsettledCashTypes
-        /// </summary>
-        [EnumMember(Value = "UnsettledCashTypes")]
-        UnsettledCashTypes = 24
+        CashDeferred = 23
     }
 
 }

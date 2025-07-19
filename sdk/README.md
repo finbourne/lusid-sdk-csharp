@@ -245,6 +245,7 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**GetValuationPointTransactions**](docs/FundsApi.md#getvaluationpointtransactions) | **POST** /api/funds/{scope}/{code}/valuationpoints/transactions/$query | [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
 *FundsApi* | [**GetValuationPointTrialBalance**](docs/FundsApi.md#getvaluationpointtrialbalance) | **POST** /api/funds/{scope}/{code}/valuationpoints/trialbalance/$query | [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
 *FundsApi* | [**ListFees**](docs/FundsApi.md#listfees) | **GET** /api/funds/{scope}/{code}/fees | [EXPERIMENTAL] ListFees: List Fees for a specified Fund.
+*FundsApi* | [**ListFundCalendar**](docs/FundsApi.md#listfundcalendar) | **GET** /api/funds/{scope}/{code}/calendar | [EXPERIMENTAL] ListFundCalendar: List Fund Calendar.
 *FundsApi* | [**ListFunds**](docs/FundsApi.md#listfunds) | **GET** /api/funds | [EXPERIMENTAL] ListFunds: List Funds.
 *FundsApi* | [**ListValuationPointOverview**](docs/FundsApi.md#listvaluationpointoverview) | **GET** /api/funds/{scope}/{code}/valuationPointOverview | [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
 *FundsApi* | [**PatchFee**](docs/FundsApi.md#patchfee) | **PATCH** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] PatchFee: Patch Fee.
@@ -305,6 +306,7 @@ Class | Method | HTTP request | Description
 *InstrumentsApi* | [**UpdateInstrumentIdentifier**](docs/InstrumentsApi.md#updateinstrumentidentifier) | **POST** /api/instruments/{identifierType}/{identifier} | UpdateInstrumentIdentifier: Update instrument identifier
 *InstrumentsApi* | [**UpsertInstruments**](docs/InstrumentsApi.md#upsertinstruments) | **POST** /api/instruments | UpsertInstruments: Upsert instruments
 *InstrumentsApi* | [**UpsertInstrumentsProperties**](docs/InstrumentsApi.md#upsertinstrumentsproperties) | **POST** /api/instruments/$upsertproperties | UpsertInstrumentsProperties: Upsert instruments properties
+*InvestmentAccountsApi* | [**GetInvestmentAccount**](docs/InvestmentAccountsApi.md#getinvestmentaccount) | **GET** /api/investmentaccounts/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] GetInvestmentAccount: Get Investment Account
 *InvestmentAccountsApi* | [**UpsertInvestmentAccounts**](docs/InvestmentAccountsApi.md#upsertinvestmentaccounts) | **POST** /api/investmentaccounts/$batchUpsert | [EARLY ACCESS] UpsertInvestmentAccounts: Upsert Investment Accounts
 *InvestorRecordsApi* | [**DeleteInvestorRecord**](docs/InvestorRecordsApi.md#deleteinvestorrecord) | **DELETE** /api/investorrecords/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] DeleteInvestorRecord: Delete Investor Record
 *InvestorRecordsApi* | [**GetInvestorRecord**](docs/InvestorRecordsApi.md#getinvestorrecord) | **GET** /api/investorrecords/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] GetInvestorRecord: Get Investor Record
@@ -806,6 +808,8 @@ Class | Method | HTTP request | Description
  - [CloseEvent](docs/CloseEvent.md)
  - [ClosePeriodDiaryEntryRequest](docs/ClosePeriodDiaryEntryRequest.md)
  - [ClosedPeriod](docs/ClosedPeriod.md)
+ - [Collateral](docs/Collateral.md)
+ - [CollateralInstrument](docs/CollateralInstrument.md)
  - [ComparisonAttributeValuePair](docs/ComparisonAttributeValuePair.md)
  - [CompletePortfolio](docs/CompletePortfolio.md)
  - [CompleteRelation](docs/CompleteRelation.md)
@@ -1031,6 +1035,7 @@ Class | Method | HTTP request | Description
  - [FixedSchedule](docs/FixedSchedule.md)
  - [FlexibleDeposit](docs/FlexibleDeposit.md)
  - [FlexibleLoan](docs/FlexibleLoan.md)
+ - [FlexibleRepo](docs/FlexibleRepo.md)
  - [FlexibleRepoCashFlowEvent](docs/FlexibleRepoCashFlowEvent.md)
  - [FlexibleRepoCollateralEvent](docs/FlexibleRepoCollateralEvent.md)
  - [FlexibleRepoInterestPaymentEvent](docs/FlexibleRepoInterestPaymentEvent.md)
@@ -1042,6 +1047,8 @@ Class | Method | HTTP request | Description
  - [FromRecipe](docs/FromRecipe.md)
  - [Fund](docs/Fund.md)
  - [FundAmount](docs/FundAmount.md)
+ - [FundCalendarEntry](docs/FundCalendarEntry.md)
+ - [FundCalendarEntryType](docs/FundCalendarEntryType.md)
  - [FundConfiguration](docs/FundConfiguration.md)
  - [FundConfigurationProperties](docs/FundConfigurationProperties.md)
  - [FundConfigurationRequest](docs/FundConfigurationRequest.md)
@@ -1350,6 +1357,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfFee](docs/PagedResourceListOfFee.md)
  - [PagedResourceListOfFeeType](docs/PagedResourceListOfFeeType.md)
  - [PagedResourceListOfFund](docs/PagedResourceListOfFund.md)
+ - [PagedResourceListOfFundCalendarEntry](docs/PagedResourceListOfFundCalendarEntry.md)
  - [PagedResourceListOfFundConfiguration](docs/PagedResourceListOfFundConfiguration.md)
  - [PagedResourceListOfGeneralLedgerProfileResponse](docs/PagedResourceListOfGeneralLedgerProfileResponse.md)
  - [PagedResourceListOfGroupReconciliationComparisonResult](docs/PagedResourceListOfGroupReconciliationComparisonResult.md)

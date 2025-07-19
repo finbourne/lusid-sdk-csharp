@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class TransactionConfigurationMovementDataRequest : IEquatable<TransactionConfigurationMovementDataRequest>, IValidatableObject
     {
         /// <summary>
-        /// . The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, LimitAdjustment, BalanceAdjustment, Deferred, CashDeferred, UnsettledCashTypes
+        /// . The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, LimitAdjustment, BalanceAdjustment, Deferred, CashDeferred
         /// </summary>
-        /// <value>. The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, LimitAdjustment, BalanceAdjustment, Deferred, CashDeferred, UnsettledCashTypes</value>
+        /// <value>. The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, LimitAdjustment, BalanceAdjustment, Deferred, CashDeferred</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MovementTypesEnum
         {
@@ -171,20 +171,14 @@ namespace Lusid.Sdk.Model
             /// Enum CashDeferred for value: CashDeferred
             /// </summary>
             [EnumMember(Value = "CashDeferred")]
-            CashDeferred = 23,
-
-            /// <summary>
-            /// Enum UnsettledCashTypes for value: UnsettledCashTypes
-            /// </summary>
-            [EnumMember(Value = "UnsettledCashTypes")]
-            UnsettledCashTypes = 24
+            CashDeferred = 23
         }
 
 
         /// <summary>
-        /// . The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, LimitAdjustment, BalanceAdjustment, Deferred, CashDeferred, UnsettledCashTypes
+        /// . The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, LimitAdjustment, BalanceAdjustment, Deferred, CashDeferred
         /// </summary>
-        /// <value>. The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, LimitAdjustment, BalanceAdjustment, Deferred, CashDeferred, UnsettledCashTypes</value>
+        /// <value>. The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, LimitAdjustment, BalanceAdjustment, Deferred, CashDeferred</value>
         [DataMember(Name = "movementTypes", IsRequired = true, EmitDefaultValue = true)]
         public MovementTypesEnum MovementTypes { get; set; }
         /// <summary>
@@ -195,7 +189,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionConfigurationMovementDataRequest" /> class.
         /// </summary>
-        /// <param name="movementTypes">. The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, LimitAdjustment, BalanceAdjustment, Deferred, CashDeferred, UnsettledCashTypes (required).</param>
+        /// <param name="movementTypes">. The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, LimitAdjustment, BalanceAdjustment, Deferred, CashDeferred (required).</param>
         /// <param name="side">The movement side (required).</param>
         /// <param name="direction">The movement direction (required).</param>
         /// <param name="properties">The properties associated with the underlying Movement..</param>
