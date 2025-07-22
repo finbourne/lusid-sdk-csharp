@@ -32,6 +32,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ClosedPeriod" /> class.
         /// </summary>
         /// <param name="closedPeriodId">The unique Id of the Closed Period. The ClosedPeriodId, together with the Timeline Scope and Code, uniquely identifies a Closed Period.</param>
+        /// <param name="displayName">The name of the Closed Period..</param>
+        /// <param name="description">A description for the Closed Period..</param>
         /// <param name="effectiveStart">The effective start of the Closed Period.</param>
         /// <param name="effectiveEnd">The effective end of the Closed Period.</param>
         /// <param name="asAtClosed">The asAt closed datetime for the Closed Period.</param>
@@ -40,9 +42,11 @@ namespace Lusid.Sdk.Model
         /// <param name="postCloseActivities">All the post close activities for the closed period..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
         /// <param name="links">links.</param>
-        public ClosedPeriod(string closedPeriodId = default(string), DateTimeOffset effectiveStart = default(DateTimeOffset), DateTimeOffset effectiveEnd = default(DateTimeOffset), DateTimeOffset asAtClosed = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<PostCloseActivity> postCloseActivities = default(List<PostCloseActivity>), string href = default(string), List<Link> links = default(List<Link>))
+        public ClosedPeriod(string closedPeriodId = default(string), string displayName = default(string), string description = default(string), DateTimeOffset effectiveStart = default(DateTimeOffset), DateTimeOffset effectiveEnd = default(DateTimeOffset), DateTimeOffset asAtClosed = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<PostCloseActivity> postCloseActivities = default(List<PostCloseActivity>), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.ClosedPeriodId = closedPeriodId;
+            this.DisplayName = displayName;
+            this.Description = description;
             this.EffectiveStart = effectiveStart;
             this.EffectiveEnd = effectiveEnd;
             this.AsAtClosed = asAtClosed;
@@ -59,6 +63,20 @@ namespace Lusid.Sdk.Model
         /// <value>The unique Id of the Closed Period. The ClosedPeriodId, together with the Timeline Scope and Code, uniquely identifies a Closed Period</value>
         [DataMember(Name = "closedPeriodId", EmitDefaultValue = true)]
         public string ClosedPeriodId { get; set; }
+
+        /// <summary>
+        /// The name of the Closed Period.
+        /// </summary>
+        /// <value>The name of the Closed Period.</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// A description for the Closed Period.
+        /// </summary>
+        /// <value>A description for the Closed Period.</value>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
 
         /// <summary>
         /// The effective start of the Closed Period
@@ -123,6 +141,8 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ClosedPeriod {\n");
             sb.Append("  ClosedPeriodId: ").Append(ClosedPeriodId).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  EffectiveStart: ").Append(EffectiveStart).Append("\n");
             sb.Append("  EffectiveEnd: ").Append(EffectiveEnd).Append("\n");
             sb.Append("  AsAtClosed: ").Append(AsAtClosed).Append("\n");
@@ -170,6 +190,16 @@ namespace Lusid.Sdk.Model
                     this.ClosedPeriodId == input.ClosedPeriodId ||
                     (this.ClosedPeriodId != null &&
                     this.ClosedPeriodId.Equals(input.ClosedPeriodId))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
                     this.EffectiveStart == input.EffectiveStart ||
@@ -228,6 +258,14 @@ namespace Lusid.Sdk.Model
                 if (this.ClosedPeriodId != null)
                 {
                     hashCode = (hashCode * 59) + this.ClosedPeriodId.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
                 if (this.EffectiveStart != null)
                 {

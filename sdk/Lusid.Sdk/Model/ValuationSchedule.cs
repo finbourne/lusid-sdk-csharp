@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="holidayCalendars">The holiday calendar(s) that should be used in determining the date schedule.  Holiday calendar(s) are supplied by their names, for example, \&quot;CoppClark\&quot;.   Note that when the calendars are not available (e.g. when the user has insufficient permissions),   a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored..</param>
         /// <param name="valuationDateTimes">If given, this is the exact set of dates on which to perform a valuation. This will replace/override all other specified values if given..</param>
         /// <param name="businessDayConvention">When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end.  In that case, the BusinessDayConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD..</param>
-        public ValuationSchedule(DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string tenor = default(string), string rollConvention = default(string), List<string> holidayCalendars = default(List<string>), List<string> valuationDateTimes = default(List<string>), string businessDayConvention = default(string))
+        /// <param name="timelineId">timelineId.</param>
+        public ValuationSchedule(DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string tenor = default(string), string rollConvention = default(string), List<string> holidayCalendars = default(List<string>), List<string> valuationDateTimes = default(List<string>), string businessDayConvention = default(string), ResourceId timelineId = default(ResourceId))
         {
             // to ensure "effectiveAt" is required (not null)
             if (effectiveAt == null)
@@ -57,6 +58,7 @@ namespace Lusid.Sdk.Model
             this.HolidayCalendars = holidayCalendars;
             this.ValuationDateTimes = valuationDateTimes;
             this.BusinessDayConvention = businessDayConvention;
+            this.TimelineId = timelineId;
         }
 
         /// <summary>
@@ -109,6 +111,12 @@ namespace Lusid.Sdk.Model
         public string BusinessDayConvention { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimelineId
+        /// </summary>
+        [DataMember(Name = "timelineId", EmitDefaultValue = false)]
+        public ResourceId TimelineId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -123,6 +131,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  HolidayCalendars: ").Append(HolidayCalendars).Append("\n");
             sb.Append("  ValuationDateTimes: ").Append(ValuationDateTimes).Append("\n");
             sb.Append("  BusinessDayConvention: ").Append(BusinessDayConvention).Append("\n");
+            sb.Append("  TimelineId: ").Append(TimelineId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -194,6 +203,11 @@ namespace Lusid.Sdk.Model
                     this.BusinessDayConvention == input.BusinessDayConvention ||
                     (this.BusinessDayConvention != null &&
                     this.BusinessDayConvention.Equals(input.BusinessDayConvention))
+                ) && 
+                (
+                    this.TimelineId == input.TimelineId ||
+                    (this.TimelineId != null &&
+                    this.TimelineId.Equals(input.TimelineId))
                 );
         }
 
@@ -233,6 +247,10 @@ namespace Lusid.Sdk.Model
                 if (this.BusinessDayConvention != null)
                 {
                     hashCode = (hashCode * 59) + this.BusinessDayConvention.GetHashCode();
+                }
+                if (this.TimelineId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimelineId.GetHashCode();
                 }
                 return hashCode;
             }

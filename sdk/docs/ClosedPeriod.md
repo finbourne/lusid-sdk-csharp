@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClosedPeriodId** | **string** | The unique Id of the Closed Period. The ClosedPeriodId, together with the Timeline Scope and Code, uniquely identifies a Closed Period | [optional] 
+**DisplayName** | **string** | The name of the Closed Period. | [optional] 
+**Description** | **string** | A description for the Closed Period. | [optional] 
 **EffectiveStart** | **DateTimeOffset** | The effective start of the Closed Period | [optional] 
 **EffectiveEnd** | **DateTimeOffset** | The effective end of the Closed Period | [optional] 
 **AsAtClosed** | **DateTimeOffset** | The asAt closed datetime for the Closed Period | [optional] 

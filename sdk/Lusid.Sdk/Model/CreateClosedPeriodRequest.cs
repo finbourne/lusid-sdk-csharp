@@ -31,23 +31,37 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateClosedPeriodRequest" /> class.
         /// </summary>
-        /// <param name="closedPeriodId">The unique Id of the Closed Period. The ClosedPeriodId, together with the Timeline Scope and Code, uniquely identifies a Closed Period.</param>
+        [JsonConstructorAttribute]
+        protected CreateClosedPeriodRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateClosedPeriodRequest" /> class.
+        /// </summary>
+        /// <param name="closedPeriodId">The unique Id of the Closed Period. The ClosedPeriodId, together with the Timeline Scope and Code, uniquely identifies a Closed Period (required).</param>
         /// <param name="effectiveEnd">The effective end of the Closed Period.</param>
         /// <param name="properties">The Closed Periods properties. These will be from the &#39;ClosedPeriod&#39; domain..</param>
         /// <param name="asAtClosed">The asAt closed datetime for the Closed Period.</param>
-        public CreateClosedPeriodRequest(string closedPeriodId = default(string), DateTimeOffset effectiveEnd = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), DateTimeOffset? asAtClosed = default(DateTimeOffset?))
+        /// <param name="displayName">The name of the Closed Period..</param>
+        /// <param name="description">A description for the Closed Period..</param>
+        public CreateClosedPeriodRequest(string closedPeriodId = default(string), DateTimeOffset effectiveEnd = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), DateTimeOffset? asAtClosed = default(DateTimeOffset?), string displayName = default(string), string description = default(string))
         {
+            // to ensure "closedPeriodId" is required (not null)
+            if (closedPeriodId == null)
+            {
+                throw new ArgumentNullException("closedPeriodId is a required property for CreateClosedPeriodRequest and cannot be null");
+            }
             this.ClosedPeriodId = closedPeriodId;
             this.EffectiveEnd = effectiveEnd;
             this.Properties = properties;
             this.AsAtClosed = asAtClosed;
+            this.DisplayName = displayName;
+            this.Description = description;
         }
 
         /// <summary>
         /// The unique Id of the Closed Period. The ClosedPeriodId, together with the Timeline Scope and Code, uniquely identifies a Closed Period
         /// </summary>
         /// <value>The unique Id of the Closed Period. The ClosedPeriodId, together with the Timeline Scope and Code, uniquely identifies a Closed Period</value>
-        [DataMember(Name = "closedPeriodId", EmitDefaultValue = true)]
+        [DataMember(Name = "closedPeriodId", IsRequired = true, EmitDefaultValue = true)]
         public string ClosedPeriodId { get; set; }
 
         /// <summary>
@@ -72,6 +86,20 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? AsAtClosed { get; set; }
 
         /// <summary>
+        /// The name of the Closed Period.
+        /// </summary>
+        /// <value>The name of the Closed Period.</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// A description for the Closed Period.
+        /// </summary>
+        /// <value>A description for the Closed Period.</value>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +111,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveEnd: ").Append(EffectiveEnd).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  AsAtClosed: ").Append(AsAtClosed).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +168,16 @@ namespace Lusid.Sdk.Model
                     this.AsAtClosed == input.AsAtClosed ||
                     (this.AsAtClosed != null &&
                     this.AsAtClosed.Equals(input.AsAtClosed))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 );
         }
 
@@ -166,6 +206,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.AsAtClosed.GetHashCode();
                 }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -187,6 +235,30 @@ namespace Lusid.Sdk.Model
             if (this.ClosedPeriodId != null && this.ClosedPeriodId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClosedPeriodId, length must be greater than 1.", new [] { "ClosedPeriodId" });
+            }
+
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 512.", new [] { "DisplayName" });
+            }
+
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+            }
+
+            // Description (string) maxLength
+            if (this.Description != null && this.Description.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 512.", new [] { "Description" });
+            }
+
+            // Description (string) minLength
+            if (this.Description != null && this.Description.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
             yield break;
