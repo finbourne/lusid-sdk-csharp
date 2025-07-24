@@ -371,7 +371,7 @@ catch (ApiException e)
 
 <a id="upsertorders"></a>
 # **UpsertOrders**
-> ResourceListOfOrder UpsertOrders (OrderSetRequest? orderSetRequest = null)
+> ResourceListOfOrder UpsertOrders (OrderSetRequest orderSetRequest, string? dataModelScope = null, string? dataModelCode = null)
 
 UpsertOrders: Upsert Order
 
@@ -416,15 +416,17 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<OrdersApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrdersApi>();
-            var orderSetRequest = new OrderSetRequest?(); // OrderSetRequest? | The collection of order requests. (optional) 
+            var orderSetRequest = new OrderSetRequest(); // OrderSetRequest | The collection of order requests.
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfOrder result = apiInstance.UpsertOrders(orderSetRequest, opts: opts);
+                // ResourceListOfOrder result = apiInstance.UpsertOrders(orderSetRequest, dataModelScope, dataModelCode, opts: opts);
 
                 // UpsertOrders: Upsert Order
-                ResourceListOfOrder result = apiInstance.UpsertOrders(orderSetRequest);
+                ResourceListOfOrder result = apiInstance.UpsertOrders(orderSetRequest, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -445,7 +447,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // UpsertOrders: Upsert Order
-    ApiResponse<ResourceListOfOrder> response = apiInstance.UpsertOrdersWithHttpInfo(orderSetRequest);
+    ApiResponse<ResourceListOfOrder> response = apiInstance.UpsertOrdersWithHttpInfo(orderSetRequest, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -462,7 +464,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **orderSetRequest** | [**OrderSetRequest?**](OrderSetRequest?.md) | The collection of order requests. | [optional]  |
+| **orderSetRequest** | [**OrderSetRequest**](OrderSetRequest.md) | The collection of order requests. |  |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 
 ### Return type
 

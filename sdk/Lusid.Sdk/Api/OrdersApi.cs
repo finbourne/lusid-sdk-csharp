@@ -131,11 +131,13 @@ namespace Lusid.Sdk.Api
         /// Upsert; update existing orders with given ids, or create new orders otherwise.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderSetRequest">The collection of order requests. (optional)</param>
+        /// <param name="orderSetRequest">The collection of order requests.</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfOrder</returns>
-        ResourceListOfOrder UpsertOrders(OrderSetRequest? orderSetRequest = default(OrderSetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfOrder UpsertOrders(OrderSetRequest orderSetRequest, string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertOrders: Upsert Order
@@ -144,11 +146,13 @@ namespace Lusid.Sdk.Api
         /// Upsert; update existing orders with given ids, or create new orders otherwise.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderSetRequest">The collection of order requests. (optional)</param>
+        /// <param name="orderSetRequest">The collection of order requests.</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfOrder</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfOrder> UpsertOrdersWithHttpInfo(OrderSetRequest? orderSetRequest = default(OrderSetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfOrder> UpsertOrdersWithHttpInfo(OrderSetRequest orderSetRequest, string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -264,12 +268,14 @@ namespace Lusid.Sdk.Api
         /// Upsert; update existing orders with given ids, or create new orders otherwise.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderSetRequest">The collection of order requests. (optional)</param>
+        /// <param name="orderSetRequest">The collection of order requests.</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfOrder</returns>
-        System.Threading.Tasks.Task<ResourceListOfOrder> UpsertOrdersAsync(OrderSetRequest? orderSetRequest = default(OrderSetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfOrder> UpsertOrdersAsync(OrderSetRequest orderSetRequest, string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// UpsertOrders: Upsert Order
@@ -278,12 +284,14 @@ namespace Lusid.Sdk.Api
         /// Upsert; update existing orders with given ids, or create new orders otherwise.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderSetRequest">The collection of order requests. (optional)</param>
+        /// <param name="orderSetRequest">The collection of order requests.</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfOrder)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfOrder>> UpsertOrdersWithHttpInfoAsync(OrderSetRequest? orderSetRequest = default(OrderSetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfOrder>> UpsertOrdersWithHttpInfoAsync(OrderSetRequest orderSetRequest, string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -1137,13 +1145,15 @@ namespace Lusid.Sdk.Api
         /// UpsertOrders: Upsert Order Upsert; update existing orders with given ids, or create new orders otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderSetRequest">The collection of order requests. (optional)</param>
+        /// <param name="orderSetRequest">The collection of order requests.</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfOrder</returns>
-        public ResourceListOfOrder UpsertOrders(OrderSetRequest? orderSetRequest = default(OrderSetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfOrder UpsertOrders(OrderSetRequest orderSetRequest, string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfOrder> localVarResponse = UpsertOrdersWithHttpInfo(orderSetRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfOrder> localVarResponse = UpsertOrdersWithHttpInfo(orderSetRequest, dataModelScope, dataModelCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1151,12 +1161,20 @@ namespace Lusid.Sdk.Api
         /// UpsertOrders: Upsert Order Upsert; update existing orders with given ids, or create new orders otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderSetRequest">The collection of order requests. (optional)</param>
+        /// <param name="orderSetRequest">The collection of order requests.</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfOrder</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfOrder> UpsertOrdersWithHttpInfo(OrderSetRequest? orderSetRequest = default(OrderSetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfOrder> UpsertOrdersWithHttpInfo(OrderSetRequest orderSetRequest, string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'orderSetRequest' is set
+            if (orderSetRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'orderSetRequest' when calling OrdersApi->UpsertOrders");
+            }
+
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
             if (opts is { TimeoutMs: not null })
@@ -1195,6 +1213,14 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (dataModelScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
+            }
             localVarRequestOptions.Data = orderSetRequest;
 
             localVarRequestOptions.Operation = "OrdersApi.UpsertOrders";
@@ -1235,14 +1261,16 @@ namespace Lusid.Sdk.Api
         /// UpsertOrders: Upsert Order Upsert; update existing orders with given ids, or create new orders otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderSetRequest">The collection of order requests. (optional)</param>
+        /// <param name="orderSetRequest">The collection of order requests.</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfOrder</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfOrder> UpsertOrdersAsync(OrderSetRequest? orderSetRequest = default(OrderSetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfOrder> UpsertOrdersAsync(OrderSetRequest orderSetRequest, string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfOrder> localVarResponse = await UpsertOrdersWithHttpInfoAsync(orderSetRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfOrder> localVarResponse = await UpsertOrdersWithHttpInfoAsync(orderSetRequest, dataModelScope, dataModelCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1250,13 +1278,21 @@ namespace Lusid.Sdk.Api
         /// UpsertOrders: Upsert Order Upsert; update existing orders with given ids, or create new orders otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderSetRequest">The collection of order requests. (optional)</param>
+        /// <param name="orderSetRequest">The collection of order requests.</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfOrder)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfOrder>> UpsertOrdersWithHttpInfoAsync(OrderSetRequest? orderSetRequest = default(OrderSetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfOrder>> UpsertOrdersWithHttpInfoAsync(OrderSetRequest orderSetRequest, string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'orderSetRequest' is set
+            if (orderSetRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'orderSetRequest' when calling OrdersApi->UpsertOrders");
+            }
+
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -1296,6 +1332,14 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (dataModelScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
+            }
             localVarRequestOptions.Data = orderSetRequest;
 
             localVarRequestOptions.Operation = "OrdersApi.UpsertOrders";
