@@ -34,11 +34,13 @@ namespace Lusid.Sdk.Model
         /// <param name="tradeId">tradeId.</param>
         /// <param name="settlementDate">settlementDate.</param>
         /// <param name="units">units.</param>
-        public SettlementSchedule(string tradeId = default(string), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal))
+        /// <param name="bondInterest">bondInterest.</param>
+        public SettlementSchedule(string tradeId = default(string), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal bondInterest = default(decimal))
         {
             this.TradeId = tradeId;
             this.SettlementDate = settlementDate;
             this.Units = units;
+            this.BondInterest = bondInterest;
         }
 
         /// <summary>
@@ -60,6 +62,12 @@ namespace Lusid.Sdk.Model
         public decimal Units { get; set; }
 
         /// <summary>
+        /// Gets or Sets BondInterest
+        /// </summary>
+        [DataMember(Name = "bondInterest", EmitDefaultValue = true)]
+        public decimal BondInterest { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -70,6 +78,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TradeId: ").Append(TradeId).Append("\n");
             sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
             sb.Append("  Units: ").Append(Units).Append("\n");
+            sb.Append("  BondInterest: ").Append(BondInterest).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,6 +127,10 @@ namespace Lusid.Sdk.Model
                 (
                     this.Units == input.Units ||
                     this.Units.Equals(input.Units)
+                ) && 
+                (
+                    this.BondInterest == input.BondInterest ||
+                    this.BondInterest.Equals(input.BondInterest)
                 );
         }
 
@@ -139,6 +152,7 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.SettlementDate.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Units.GetHashCode();
+                hashCode = (hashCode * 59) + this.BondInterest.GetHashCode();
                 return hashCode;
             }
         }
