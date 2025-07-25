@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **LocalDate** | **string** |  | 
 **Timezone** | **string** |  | 
 **Description** | **string** |  | 
-**Type** | **string** |  | 
+**Type** | **string** |  | [optional] 
 **Attributes** | [**DateAttributes**](DateAttributes.md) |  | [optional] 
 **SourceData** | **Dictionary&lt;string, string&gt;** |  | [optional] 
 

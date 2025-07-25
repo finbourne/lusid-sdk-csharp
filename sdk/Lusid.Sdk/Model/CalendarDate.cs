@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="localDate">localDate (required).</param>
         /// <param name="timezone">timezone (required).</param>
         /// <param name="description">description (required).</param>
-        /// <param name="type">type (required).</param>
+        /// <param name="type">type.</param>
         /// <param name="attributes">attributes.</param>
         /// <param name="sourceData">sourceData.</param>
         public CalendarDate(string href = default(string), string dateIdentifier = default(string), DateTimeOffset fromUtc = default(DateTimeOffset), DateTimeOffset toUtc = default(DateTimeOffset), string localDate = default(string), string timezone = default(string), string description = default(string), string type = default(string), DateAttributes attributes = default(DateAttributes), Dictionary<string, string> sourceData = default(Dictionary<string, string>))
@@ -74,13 +74,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("description is a required property for CalendarDate and cannot be null");
             }
             this.Description = description;
-            // to ensure "type" is required (not null)
-            if (type == null)
-            {
-                throw new ArgumentNullException("type is a required property for CalendarDate and cannot be null");
-            }
-            this.Type = type;
             this.Href = href;
+            this.Type = type;
             this.Attributes = attributes;
             this.SourceData = sourceData;
         }
@@ -130,7 +125,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
@@ -333,12 +328,6 @@ namespace Lusid.Sdk.Model
             if (this.Description != null && this.Description.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
-            }
-
-            // Type (string) minLength
-            if (this.Type != null && this.Type.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
 
             yield break;
