@@ -48,7 +48,8 @@ namespace Lusid.Sdk.Model
         /// <param name="deletedDataType">deletedDataType.</param>
         /// <param name="previewedStatus">The status of the previewed entity..</param>
         /// <param name="previewedDataType">previewedDataType.</param>
-        public DataTypeEntity(string href = default(string), string entityUniqueId = default(string), int? asAtVersionNumber = default(int?), string status = default(string), DateTimeOffset? asAtDeleted = default(DateTimeOffset?), string userIdDeleted = default(string), string requestIdDeleted = default(string), DateTimeOffset? effectiveAtCreated = default(DateTimeOffset?), DataType prevailingDataType = default(DataType), DataType deletedDataType = default(DataType), string previewedStatus = default(string), DataType previewedDataType = default(DataType))
+        /// <param name="links">links.</param>
+        public DataTypeEntity(string href = default(string), string entityUniqueId = default(string), int? asAtVersionNumber = default(int?), string status = default(string), DateTimeOffset? asAtDeleted = default(DateTimeOffset?), string userIdDeleted = default(string), string requestIdDeleted = default(string), DateTimeOffset? effectiveAtCreated = default(DateTimeOffset?), DataType prevailingDataType = default(DataType), DataType deletedDataType = default(DataType), string previewedStatus = default(string), DataType previewedDataType = default(DataType), List<Link> links = default(List<Link>))
         {
             // to ensure "href" is required (not null)
             if (href == null)
@@ -77,6 +78,7 @@ namespace Lusid.Sdk.Model
             this.DeletedDataType = deletedDataType;
             this.PreviewedStatus = previewedStatus;
             this.PreviewedDataType = previewedDataType;
+            this.Links = links;
         }
 
         /// <summary>
@@ -161,6 +163,12 @@ namespace Lusid.Sdk.Model
         public DataType PreviewedDataType { get; set; }
 
         /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,6 +188,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DeletedDataType: ").Append(DeletedDataType).Append("\n");
             sb.Append("  PreviewedStatus: ").Append(PreviewedStatus).Append("\n");
             sb.Append("  PreviewedDataType: ").Append(PreviewedDataType).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -274,6 +283,12 @@ namespace Lusid.Sdk.Model
                     this.PreviewedDataType == input.PreviewedDataType ||
                     (this.PreviewedDataType != null &&
                     this.PreviewedDataType.Equals(input.PreviewedDataType))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -333,6 +348,10 @@ namespace Lusid.Sdk.Model
                 if (this.PreviewedDataType != null)
                 {
                     hashCode = (hashCode * 59) + this.PreviewedDataType.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

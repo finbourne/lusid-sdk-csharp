@@ -38,7 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="displayName">The display name of the property. (required).</param>
         /// <param name="propertyDescription">Describes the property.</param>
-        public UpdatePropertyDefinitionRequest(string displayName = default(string), string propertyDescription = default(string))
+        /// <param name="customEntityTypes">The custom entity types that properties relating to this property definition can be applied to..</param>
+        public UpdatePropertyDefinitionRequest(string displayName = default(string), string propertyDescription = default(string), List<string> customEntityTypes = default(List<string>))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -47,6 +48,7 @@ namespace Lusid.Sdk.Model
             }
             this.DisplayName = displayName;
             this.PropertyDescription = propertyDescription;
+            this.CustomEntityTypes = customEntityTypes;
         }
 
         /// <summary>
@@ -64,6 +66,13 @@ namespace Lusid.Sdk.Model
         public string PropertyDescription { get; set; }
 
         /// <summary>
+        /// The custom entity types that properties relating to this property definition can be applied to.
+        /// </summary>
+        /// <value>The custom entity types that properties relating to this property definition can be applied to.</value>
+        [DataMember(Name = "customEntityTypes", EmitDefaultValue = true)]
+        public List<string> CustomEntityTypes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class UpdatePropertyDefinitionRequest {\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  PropertyDescription: ").Append(PropertyDescription).Append("\n");
+            sb.Append("  CustomEntityTypes: ").Append(CustomEntityTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,6 +127,12 @@ namespace Lusid.Sdk.Model
                     this.PropertyDescription == input.PropertyDescription ||
                     (this.PropertyDescription != null &&
                     this.PropertyDescription.Equals(input.PropertyDescription))
+                ) && 
+                (
+                    this.CustomEntityTypes == input.CustomEntityTypes ||
+                    this.CustomEntityTypes != null &&
+                    input.CustomEntityTypes != null &&
+                    this.CustomEntityTypes.SequenceEqual(input.CustomEntityTypes)
                 );
         }
 
@@ -136,6 +152,10 @@ namespace Lusid.Sdk.Model
                 if (this.PropertyDescription != null)
                 {
                     hashCode = (hashCode * 59) + this.PropertyDescription.GetHashCode();
+                }
+                if (this.CustomEntityTypes != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustomEntityTypes.GetHashCode();
                 }
                 return hashCode;
             }

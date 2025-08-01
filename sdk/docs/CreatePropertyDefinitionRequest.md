@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **ConstraintStyle** | **string** | Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key. Defaults to \&quot;Property\&quot; if not specified. Valid values for this field are: Property, Collection or Identifier. | [optional] 
 **PropertyDescription** | **string** | Describes the property | [optional] 
 **CollectionType** | **string** | Describes whether a collection property should behave as a set or as an array. | [optional] 
+**CustomEntityTypes** | **List&lt;string&gt;** | The custom entity types that properties relating to this property definition can be applied to. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

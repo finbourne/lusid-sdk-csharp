@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **DeletedDataType** | [**DataType**](DataType.md) |  | [optional] 
 **PreviewedStatus** | **string** | The status of the previewed entity. | [optional] 
 **PreviewedDataType** | [**DataType**](DataType.md) |  | [optional] 
+**Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

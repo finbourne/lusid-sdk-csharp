@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A list of portfolios.
+    /// A portfolio of a particular type.
     /// </summary>
     [DataContract(Name = "Portfolio")]
     public partial class Portfolio : IEquatable<Portfolio>, IValidatableObject

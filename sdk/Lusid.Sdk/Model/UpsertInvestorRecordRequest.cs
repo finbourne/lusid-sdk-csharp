@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">A set of properties associated to the Investor Record..</param>
         /// <param name="displayName">The display name of the Investor Record (required).</param>
         /// <param name="description">The description of the Investor Record.</param>
-        /// <param name="investor">investor.</param>
+        /// <param name="investor">investor (required).</param>
         public UpsertInvestorRecordRequest(Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string displayName = default(string), string description = default(string), InvestorIdentifier investor = default(InvestorIdentifier))
         {
             // to ensure "identifiers" is required (not null)
@@ -55,9 +55,14 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("displayName is a required property for UpsertInvestorRecordRequest and cannot be null");
             }
             this.DisplayName = displayName;
+            // to ensure "investor" is required (not null)
+            if (investor == null)
+            {
+                throw new ArgumentNullException("investor is a required property for UpsertInvestorRecordRequest and cannot be null");
+            }
+            this.Investor = investor;
             this.Properties = properties;
             this.Description = description;
-            this.Investor = investor;
         }
 
         /// <summary>
@@ -91,7 +96,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Investor
         /// </summary>
-        [DataMember(Name = "investor", EmitDefaultValue = false)]
+        [DataMember(Name = "investor", IsRequired = true, EmitDefaultValue = true)]
         public InvestorIdentifier Investor { get; set; }
 
         /// <summary>

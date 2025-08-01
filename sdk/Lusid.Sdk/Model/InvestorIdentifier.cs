@@ -31,27 +31,37 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvestorIdentifier" /> class.
         /// </summary>
-        /// <param name="investorType">The type of the investor of the Investor Record. Can be either a Person or a LegalEntity.</param>
-        /// <param name="investorIdentifiers">Single identifier that should target the desired person or legal entity.</param>
-        public InvestorIdentifier(string investorType = default(string), Dictionary<string, Property> investorIdentifiers = default(Dictionary<string, Property>))
+        [JsonConstructorAttribute]
+        protected InvestorIdentifier() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InvestorIdentifier" /> class.
+        /// </summary>
+        /// <param name="investorType">The type of the investor of the Investor Record. Can be either a Person or a LegalEntity (required).</param>
+        /// <param name="identifiers">Single identifier that should target the desired person or legal entity.</param>
+        public InvestorIdentifier(string investorType = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>))
         {
+            // to ensure "investorType" is required (not null)
+            if (investorType == null)
+            {
+                throw new ArgumentNullException("investorType is a required property for InvestorIdentifier and cannot be null");
+            }
             this.InvestorType = investorType;
-            this.InvestorIdentifiers = investorIdentifiers;
+            this.Identifiers = identifiers;
         }
 
         /// <summary>
         /// The type of the investor of the Investor Record. Can be either a Person or a LegalEntity
         /// </summary>
         /// <value>The type of the investor of the Investor Record. Can be either a Person or a LegalEntity</value>
-        [DataMember(Name = "investorType", EmitDefaultValue = true)]
+        [DataMember(Name = "investorType", IsRequired = true, EmitDefaultValue = true)]
         public string InvestorType { get; set; }
 
         /// <summary>
         /// Single identifier that should target the desired person or legal entity
         /// </summary>
         /// <value>Single identifier that should target the desired person or legal entity</value>
-        [DataMember(Name = "investorIdentifiers", EmitDefaultValue = true)]
-        public Dictionary<string, Property> InvestorIdentifiers { get; set; }
+        [DataMember(Name = "identifiers", EmitDefaultValue = true)]
+        public Dictionary<string, Property> Identifiers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,7 +72,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InvestorIdentifier {\n");
             sb.Append("  InvestorType: ").Append(InvestorType).Append("\n");
-            sb.Append("  InvestorIdentifiers: ").Append(InvestorIdentifiers).Append("\n");
+            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,10 +114,10 @@ namespace Lusid.Sdk.Model
                     this.InvestorType.Equals(input.InvestorType))
                 ) && 
                 (
-                    this.InvestorIdentifiers == input.InvestorIdentifiers ||
-                    this.InvestorIdentifiers != null &&
-                    input.InvestorIdentifiers != null &&
-                    this.InvestorIdentifiers.SequenceEqual(input.InvestorIdentifiers)
+                    this.Identifiers == input.Identifiers ||
+                    this.Identifiers != null &&
+                    input.Identifiers != null &&
+                    this.Identifiers.SequenceEqual(input.Identifiers)
                 );
         }
 
@@ -124,9 +134,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.InvestorType.GetHashCode();
                 }
-                if (this.InvestorIdentifiers != null)
+                if (this.Identifiers != null)
                 {
-                    hashCode = (hashCode * 59) + this.InvestorIdentifiers.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Identifiers.GetHashCode();
                 }
                 return hashCode;
             }
@@ -139,6 +149,12 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // InvestorType (string) minLength
+            if (this.InvestorType != null && this.InvestorType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InvestorType, length must be greater than 1.", new [] { "InvestorType" });
+            }
+
             yield break;
         }
     }

@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentScopes">The resolution strategy used to resolve instruments of transactions/holdings upserted to the portfolios..</param>
         /// <param name="amortisationMethod">amortisationMethod (required).</param>
         /// <param name="transactionTypeScope">transactionTypeScope.</param>
-        /// <param name="cashGainLossCalculationDate">cashGainLossCalculationDate.</param>
+        /// <param name="cashGainLossCalculationDate">cashGainLossCalculationDate (required).</param>
         public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string))
         {
             // to ensure "chartOfAccountsId" is required (not null)
@@ -82,6 +82,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("amortisationMethod is a required property for NavTypeDefinition and cannot be null");
             }
             this.AmortisationMethod = amortisationMethod;
+            // to ensure "cashGainLossCalculationDate" is required (not null)
+            if (cashGainLossCalculationDate == null)
+            {
+                throw new ArgumentNullException("cashGainLossCalculationDate is a required property for NavTypeDefinition and cannot be null");
+            }
+            this.CashGainLossCalculationDate = cashGainLossCalculationDate;
             this.Code = code;
             this.DisplayName = displayName;
             this.Description = description;
@@ -90,7 +96,6 @@ namespace Lusid.Sdk.Model
             this.SubHoldingKeys = subHoldingKeys;
             this.InstrumentScopes = instrumentScopes;
             this.TransactionTypeScope = transactionTypeScope;
-            this.CashGainLossCalculationDate = cashGainLossCalculationDate;
         }
 
         /// <summary>
@@ -176,7 +181,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets CashGainLossCalculationDate
         /// </summary>
-        [DataMember(Name = "cashGainLossCalculationDate", EmitDefaultValue = true)]
+        [DataMember(Name = "cashGainLossCalculationDate", IsRequired = true, EmitDefaultValue = true)]
         public string CashGainLossCalculationDate { get; set; }
 
         /// <summary>
@@ -467,6 +472,12 @@ namespace Lusid.Sdk.Model
             if (false == regexTransactionTypeScope.Match(this.TransactionTypeScope).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionTypeScope, must match a pattern of " + regexTransactionTypeScope, new [] { "TransactionTypeScope" });
+            }
+
+            // CashGainLossCalculationDate (string) minLength
+            if (this.CashGainLossCalculationDate != null && this.CashGainLossCalculationDate.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CashGainLossCalculationDate, length must be greater than 1.", new [] { "CashGainLossCalculationDate" });
             }
 
             yield break;

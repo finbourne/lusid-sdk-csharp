@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] GetInvestmentAccount: Get Investment Account
+        /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of an investment account.
@@ -51,7 +51,7 @@ namespace Lusid.Sdk.Api
         InvestmentAccount GetInvestmentAccount(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetInvestmentAccount: Get Investment Account
+        /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of an investment account.
@@ -69,7 +69,46 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of InvestmentAccount</returns>
         Lusid.Sdk.Client.ApiResponse<InvestmentAccount> GetInvestmentAccountWithHttpInfo(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestmentAccounts: Upsert Investment Accounts
+        /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts
+        /// </summary>
+        /// <remarks>
+        /// List all investment accounts which the user is entitled to see.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfInvestmentAccount</returns>
+        ResourceListOfInvestmentAccount ListAllInvestmentAccounts(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts
+        /// </summary>
+        /// <remarks>
+        /// List all investment accounts which the user is entitled to see.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfInvestmentAccount</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfInvestmentAccount> ListAllInvestmentAccountsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertInvestmentAccounts: Upsert Investment Accounts
         /// </summary>
         /// <remarks>
         /// Creates or updates a collection of Investment Accounts
@@ -83,7 +122,7 @@ namespace Lusid.Sdk.Api
         UpsertInvestmentAccountsResponse UpsertInvestmentAccounts(string successMode, Dictionary<string, UpsertInvestmentAccountRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestmentAccounts: Upsert Investment Accounts
+        /// [EXPERIMENTAL] UpsertInvestmentAccounts: Upsert Investment Accounts
         /// </summary>
         /// <remarks>
         /// Creates or updates a collection of Investment Accounts
@@ -105,7 +144,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] GetInvestmentAccount: Get Investment Account
+        /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of an investment account.
@@ -125,7 +164,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<InvestmentAccount> GetInvestmentAccountAsync(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetInvestmentAccount: Get Investment Account
+        /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of an investment account.
@@ -144,7 +183,48 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (InvestmentAccount)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InvestmentAccount>> GetInvestmentAccountWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestmentAccounts: Upsert Investment Accounts
+        /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts
+        /// </summary>
+        /// <remarks>
+        /// List all investment accounts which the user is entitled to see.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfInvestmentAccount</returns>
+        System.Threading.Tasks.Task<ResourceListOfInvestmentAccount> ListAllInvestmentAccountsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts
+        /// </summary>
+        /// <remarks>
+        /// List all investment accounts which the user is entitled to see.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfInvestmentAccount)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInvestmentAccount>> ListAllInvestmentAccountsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertInvestmentAccounts: Upsert Investment Accounts
         /// </summary>
         /// <remarks>
         /// Creates or updates a collection of Investment Accounts
@@ -159,7 +239,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<UpsertInvestmentAccountsResponse> UpsertInvestmentAccountsAsync(string successMode, Dictionary<string, UpsertInvestmentAccountRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestmentAccounts: Upsert Investment Accounts
+        /// [EXPERIMENTAL] UpsertInvestmentAccounts: Upsert Investment Accounts
         /// </summary>
         /// <remarks>
         /// Creates or updates a collection of Investment Accounts
@@ -296,7 +376,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInvestmentAccount: Get Investment Account Retrieve the definition of an investment account.
+        /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account Retrieve the definition of an investment account.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the investment account identifier type.</param>
@@ -316,7 +396,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInvestmentAccount: Get Investment Account Retrieve the definition of an investment account.
+        /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account Retrieve the definition of an investment account.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the investment account identifier type.</param>
@@ -438,7 +518,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInvestmentAccount: Get Investment Account Retrieve the definition of an investment account.
+        /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account Retrieve the definition of an investment account.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the investment account identifier type.</param>
@@ -459,7 +539,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetInvestmentAccount: Get Investment Account Retrieve the definition of an investment account.
+        /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account Retrieve the definition of an investment account.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the investment account identifier type.</param>
@@ -584,7 +664,289 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestmentAccounts: Upsert Investment Accounts Creates or updates a collection of Investment Accounts
+        /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts List all investment accounts which the user is entitled to see.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfInvestmentAccount</returns>
+        public ResourceListOfInvestmentAccount ListAllInvestmentAccounts(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfInvestmentAccount> localVarResponse = ListAllInvestmentAccountsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, relationshipDefinitionIds, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts List all investment accounts which the user is entitled to see.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfInvestmentAccount</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfInvestmentAccount> ListAllInvestmentAccountsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
+            if (relationshipDefinitionIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
+            }
+
+            localVarRequestOptions.Operation = "InvestmentAccountsApi.ListAllInvestmentAccounts";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ResourceListOfInvestmentAccount>("/api/investmentaccounts", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListAllInvestmentAccounts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts List all investment accounts which the user is entitled to see.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfInvestmentAccount</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfInvestmentAccount> ListAllInvestmentAccountsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfInvestmentAccount> localVarResponse = await ListAllInvestmentAccountsWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, relationshipDefinitionIds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts List all investment accounts which the user is entitled to see.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfInvestmentAccount)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInvestmentAccount>> ListAllInvestmentAccountsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
+            if (relationshipDefinitionIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
+            }
+
+            localVarRequestOptions.Operation = "InvestmentAccountsApi.ListAllInvestmentAccounts";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfInvestmentAccount>("/api/investmentaccounts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListAllInvestmentAccounts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertInvestmentAccounts: Upsert Investment Accounts Creates or updates a collection of Investment Accounts
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
@@ -599,7 +961,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestmentAccounts: Upsert Investment Accounts Creates or updates a collection of Investment Accounts
+        /// [EXPERIMENTAL] UpsertInvestmentAccounts: Upsert Investment Accounts Creates or updates a collection of Investment Accounts
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
@@ -697,7 +1059,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestmentAccounts: Upsert Investment Accounts Creates or updates a collection of Investment Accounts
+        /// [EXPERIMENTAL] UpsertInvestmentAccounts: Upsert Investment Accounts Creates or updates a collection of Investment Accounts
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
@@ -713,7 +1075,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInvestmentAccounts: Upsert Investment Accounts Creates or updates a collection of Investment Accounts
+        /// [EXPERIMENTAL] UpsertInvestmentAccounts: Upsert Investment Accounts Creates or updates a collection of Investment Accounts
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>

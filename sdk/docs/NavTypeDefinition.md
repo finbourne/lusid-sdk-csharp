@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **InstrumentScopes** | **List&lt;string&gt;** | The resolution strategy used to resolve instruments of transactions/holdings upserted to the portfolios. | [optional] 
 **AmortisationMethod** | **string** |  | 
 **TransactionTypeScope** | **string** |  | [optional] 
-**CashGainLossCalculationDate** | **string** |  | [optional] 
+**CashGainLossCalculationDate** | **string** |  | 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

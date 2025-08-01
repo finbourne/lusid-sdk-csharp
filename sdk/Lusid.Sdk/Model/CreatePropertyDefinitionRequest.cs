@@ -580,7 +580,8 @@ namespace Lusid.Sdk.Model
         /// <param name="constraintStyle">Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key. Defaults to \&quot;Property\&quot; if not specified. Valid values for this field are: Property, Collection or Identifier..</param>
         /// <param name="propertyDescription">Describes the property.</param>
         /// <param name="collectionType">Describes whether a collection property should behave as a set or as an array..</param>
-        public CreatePropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), bool valueRequired = default(bool), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), LifeTimeEnum ?lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), string propertyDescription = default(string), string collectionType = default(string))
+        /// <param name="customEntityTypes">The custom entity types that properties relating to this property definition can be applied to..</param>
+        public CreatePropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), bool valueRequired = default(bool), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), LifeTimeEnum ?lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), string propertyDescription = default(string), string collectionType = default(string), List<string> customEntityTypes = default(List<string>))
         {
             this.Domain = domain;
             // to ensure "scope" is required (not null)
@@ -612,6 +613,7 @@ namespace Lusid.Sdk.Model
             this.ConstraintStyle = constraintStyle;
             this.PropertyDescription = propertyDescription;
             this.CollectionType = collectionType;
+            this.CustomEntityTypes = customEntityTypes;
         }
 
         /// <summary>
@@ -670,6 +672,13 @@ namespace Lusid.Sdk.Model
         public string CollectionType { get; set; }
 
         /// <summary>
+        /// The custom entity types that properties relating to this property definition can be applied to.
+        /// </summary>
+        /// <value>The custom entity types that properties relating to this property definition can be applied to.</value>
+        [DataMember(Name = "customEntityTypes", EmitDefaultValue = true)]
+        public List<string> CustomEntityTypes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -687,6 +696,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ConstraintStyle: ").Append(ConstraintStyle).Append("\n");
             sb.Append("  PropertyDescription: ").Append(PropertyDescription).Append("\n");
             sb.Append("  CollectionType: ").Append(CollectionType).Append("\n");
+            sb.Append("  CustomEntityTypes: ").Append(CustomEntityTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -768,6 +778,12 @@ namespace Lusid.Sdk.Model
                     this.CollectionType == input.CollectionType ||
                     (this.CollectionType != null &&
                     this.CollectionType.Equals(input.CollectionType))
+                ) && 
+                (
+                    this.CustomEntityTypes == input.CustomEntityTypes ||
+                    this.CustomEntityTypes != null &&
+                    input.CustomEntityTypes != null &&
+                    this.CustomEntityTypes.SequenceEqual(input.CustomEntityTypes)
                 );
         }
 
@@ -810,6 +826,10 @@ namespace Lusid.Sdk.Model
                 if (this.CollectionType != null)
                 {
                     hashCode = (hashCode * 59) + this.CollectionType.GetHashCode();
+                }
+                if (this.CustomEntityTypes != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustomEntityTypes.GetHashCode();
                 }
                 return hashCode;
             }

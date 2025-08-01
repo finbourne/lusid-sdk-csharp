@@ -32,14 +32,14 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="Investor" /> class.
         /// </summary>
         /// <param name="investorType">The type of the Investor.</param>
-        /// <param name="investorIdentifiers">The identifiers of the Investor.</param>
+        /// <param name="identifiers">The identifiers of the Investor.</param>
         /// <param name="entityUniqueId">The unique Investor entity identifier.</param>
         /// <param name="person">person.</param>
         /// <param name="legalEntity">legalEntity.</param>
-        public Investor(string investorType = default(string), Dictionary<string, Property> investorIdentifiers = default(Dictionary<string, Property>), string entityUniqueId = default(string), Person person = default(Person), LegalEntity legalEntity = default(LegalEntity))
+        public Investor(string investorType = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), string entityUniqueId = default(string), Person person = default(Person), LegalEntity legalEntity = default(LegalEntity))
         {
             this.InvestorType = investorType;
-            this.InvestorIdentifiers = investorIdentifiers;
+            this.Identifiers = identifiers;
             this.EntityUniqueId = entityUniqueId;
             this.Person = person;
             this.LegalEntity = legalEntity;
@@ -56,8 +56,8 @@ namespace Lusid.Sdk.Model
         /// The identifiers of the Investor
         /// </summary>
         /// <value>The identifiers of the Investor</value>
-        [DataMember(Name = "investorIdentifiers", EmitDefaultValue = true)]
-        public Dictionary<string, Property> InvestorIdentifiers { get; set; }
+        [DataMember(Name = "identifiers", EmitDefaultValue = true)]
+        public Dictionary<string, Property> Identifiers { get; set; }
 
         /// <summary>
         /// The unique Investor entity identifier
@@ -87,7 +87,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class Investor {\n");
             sb.Append("  InvestorType: ").Append(InvestorType).Append("\n");
-            sb.Append("  InvestorIdentifiers: ").Append(InvestorIdentifiers).Append("\n");
+            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
             sb.Append("  Person: ").Append(Person).Append("\n");
             sb.Append("  LegalEntity: ").Append(LegalEntity).Append("\n");
@@ -132,10 +132,10 @@ namespace Lusid.Sdk.Model
                     this.InvestorType.Equals(input.InvestorType))
                 ) && 
                 (
-                    this.InvestorIdentifiers == input.InvestorIdentifiers ||
-                    this.InvestorIdentifiers != null &&
-                    input.InvestorIdentifiers != null &&
-                    this.InvestorIdentifiers.SequenceEqual(input.InvestorIdentifiers)
+                    this.Identifiers == input.Identifiers ||
+                    this.Identifiers != null &&
+                    input.Identifiers != null &&
+                    this.Identifiers.SequenceEqual(input.Identifiers)
                 ) && 
                 (
                     this.EntityUniqueId == input.EntityUniqueId ||
@@ -167,9 +167,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.InvestorType.GetHashCode();
                 }
-                if (this.InvestorIdentifiers != null)
+                if (this.Identifiers != null)
                 {
-                    hashCode = (hashCode * 59) + this.InvestorIdentifiers.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Identifiers.GetHashCode();
                 }
                 if (this.EntityUniqueId != null)
                 {
