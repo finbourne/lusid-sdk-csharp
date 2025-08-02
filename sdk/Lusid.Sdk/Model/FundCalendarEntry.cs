@@ -61,10 +61,12 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Fund Calendar entry. (required).</param>
         /// <param name="description">A description for the Fund Calendar entry..</param>
         /// <param name="navTypeCode">The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with. (required).</param>
+        /// <param name="effectiveAt">The effective at of the Calendar Entry..</param>
+        /// <param name="asAt">The asAt datetime for the Calendar Entry..</param>
         /// <param name="entryType">The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry (required).</param>
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
-        public FundCalendarEntry(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), EntryTypeEnum entryType = default(EntryTypeEnum), ModelVersion varVersion = default(ModelVersion), string href = default(string))
+        public FundCalendarEntry(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), ModelVersion varVersion = default(ModelVersion), string href = default(string))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -92,6 +94,8 @@ namespace Lusid.Sdk.Model
             }
             this.VarVersion = varVersion;
             this.Description = description;
+            this.EffectiveAt = effectiveAt;
+            this.AsAt = asAt;
             this.Href = href;
         }
 
@@ -124,6 +128,20 @@ namespace Lusid.Sdk.Model
         public string NavTypeCode { get; set; }
 
         /// <summary>
+        /// The effective at of the Calendar Entry.
+        /// </summary>
+        /// <value>The effective at of the Calendar Entry.</value>
+        [DataMember(Name = "effectiveAt", EmitDefaultValue = false)]
+        public DateTimeOffset EffectiveAt { get; set; }
+
+        /// <summary>
+        /// The asAt datetime for the Calendar Entry.
+        /// </summary>
+        /// <value>The asAt datetime for the Calendar Entry.</value>
+        [DataMember(Name = "asAt", EmitDefaultValue = false)]
+        public DateTimeOffset AsAt { get; set; }
+
+        /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
@@ -148,6 +166,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  NavTypeCode: ").Append(NavTypeCode).Append("\n");
+            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
+            sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  EntryType: ").Append(EntryType).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
@@ -207,6 +227,16 @@ namespace Lusid.Sdk.Model
                     this.NavTypeCode.Equals(input.NavTypeCode))
                 ) && 
                 (
+                    this.EffectiveAt == input.EffectiveAt ||
+                    (this.EffectiveAt != null &&
+                    this.EffectiveAt.Equals(input.EffectiveAt))
+                ) && 
+                (
+                    this.AsAt == input.AsAt ||
+                    (this.AsAt != null &&
+                    this.AsAt.Equals(input.AsAt))
+                ) && 
+                (
                     this.EntryType == input.EntryType ||
                     this.EntryType.Equals(input.EntryType)
                 ) && 
@@ -246,6 +276,14 @@ namespace Lusid.Sdk.Model
                 if (this.NavTypeCode != null)
                 {
                     hashCode = (hashCode * 59) + this.NavTypeCode.GetHashCode();
+                }
+                if (this.EffectiveAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
+                }
+                if (this.AsAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsAt.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.EntryType.GetHashCode();
                 if (this.VarVersion != null)
