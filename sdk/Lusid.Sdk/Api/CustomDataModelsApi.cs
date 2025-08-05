@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [INTERNAL] BatchAmend: Batch amend Custom Data Models
+        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
         /// </summary>
         /// <remarks>
         /// Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Api
         BatchAmendCustomDataModelMembershipResponse BatchAmend(string successMode, Dictionary<string, MembershipAmendmentRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [INTERNAL] BatchAmend: Batch amend Custom Data Models
+        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
         /// </summary>
         /// <remarks>
         /// Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
@@ -236,7 +236,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [INTERNAL] BatchAmend: Batch amend Custom Data Models
+        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
         /// </summary>
         /// <remarks>
         /// Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
@@ -251,7 +251,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<BatchAmendCustomDataModelMembershipResponse> BatchAmendAsync(string successMode, Dictionary<string, MembershipAmendmentRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [INTERNAL] BatchAmend: Batch amend Custom Data Models
+        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
         /// </summary>
         /// <remarks>
         /// Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
@@ -568,7 +568,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [INTERNAL] BatchAmend: Batch amend Custom Data Models Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
+        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
@@ -583,7 +583,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [INTERNAL] BatchAmend: Batch amend Custom Data Models Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
+        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
@@ -681,7 +681,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [INTERNAL] BatchAmend: Batch amend Custom Data Models Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
+        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
@@ -697,7 +697,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [INTERNAL] BatchAmend: Batch amend Custom Data Models Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
+        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>

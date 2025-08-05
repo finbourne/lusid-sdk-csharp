@@ -102,6 +102,11 @@ Class | Method | HTTP request | Description
 *ChartOfAccountsApi* | [**UpsertAccountProperties**](docs/ChartOfAccountsApi.md#upsertaccountproperties) | **POST** /api/chartofaccounts/{scope}/{code}/accounts/{accountCode}/properties/$upsert | [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
 *ChartOfAccountsApi* | [**UpsertAccounts**](docs/ChartOfAccountsApi.md#upsertaccounts) | **POST** /api/chartofaccounts/{scope}/{code}/accounts | [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
 *ChartOfAccountsApi* | [**UpsertChartOfAccountsProperties**](docs/ChartOfAccountsApi.md#upsertchartofaccountsproperties) | **POST** /api/chartofaccounts/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
+*CheckDefinitionsApi* | [**CreateCheckDefinition**](docs/CheckDefinitionsApi.md#createcheckdefinition) | **POST** /api/dataquality/checkdefinitions | [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition
+*CheckDefinitionsApi* | [**DeleteCheckDefinition**](docs/CheckDefinitionsApi.md#deletecheckdefinition) | **DELETE** /api/dataquality/checkdefinitions/{scope}/{code} | [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition
+*CheckDefinitionsApi* | [**GetCheckDefinition**](docs/CheckDefinitionsApi.md#getcheckdefinition) | **GET** /api/dataquality/checkdefinitions/{scope}/{code} | [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code.
+*CheckDefinitionsApi* | [**ListCheckDefinitions**](docs/CheckDefinitionsApi.md#listcheckdefinitions) | **GET** /api/dataquality/checkdefinitions | [EXPERIMENTAL] ListCheckDefinitions: List Check Definitions
+*CheckDefinitionsApi* | [**UpdateCheckDefinition**](docs/CheckDefinitionsApi.md#updatecheckdefinition) | **PUT** /api/dataquality/checkdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code
 *ComplexMarketDataApi* | [**DeleteComplexMarketData**](docs/ComplexMarketDataApi.md#deletecomplexmarketdata) | **POST** /api/complexmarketdata/{scope}/$delete | DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
 *ComplexMarketDataApi* | [**GetComplexMarketData**](docs/ComplexMarketDataApi.md#getcomplexmarketdata) | **POST** /api/complexmarketdata/{scope}/$get | GetComplexMarketData: Get complex market data
 *ComplexMarketDataApi* | [**ListComplexMarketData**](docs/ComplexMarketDataApi.md#listcomplexmarketdata) | **GET** /api/complexmarketdata | ListComplexMarketData: List the set of ComplexMarketData
@@ -163,7 +168,7 @@ Class | Method | HTTP request | Description
 *CounterpartiesApi* | [**ListCreditSupportAnnexes**](docs/CounterpartiesApi.md#listcreditsupportannexes) | **GET** /api/counterparties/creditsupportannexes | [EARLY ACCESS] ListCreditSupportAnnexes: List the set of Credit Support Annexes
 *CounterpartiesApi* | [**UpsertCounterpartyAgreement**](docs/CounterpartiesApi.md#upsertcounterpartyagreement) | **POST** /api/counterparties/counterpartyagreements | [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
 *CounterpartiesApi* | [**UpsertCreditSupportAnnex**](docs/CounterpartiesApi.md#upsertcreditsupportannex) | **POST** /api/counterparties/creditsupportannexes | [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
-*CustomDataModelsApi* | [**BatchAmend**](docs/CustomDataModelsApi.md#batchamend) | **POST** /api/datamodel/$batchamend | [INTERNAL] BatchAmend: Batch amend Custom Data Models
+*CustomDataModelsApi* | [**BatchAmend**](docs/CustomDataModelsApi.md#batchamend) | **POST** /api/datamodel/$batchamend | [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
 *CustomDataModelsApi* | [**CreateCustomDataModel**](docs/CustomDataModelsApi.md#createcustomdatamodel) | **POST** /api/datamodel/{entityType} | [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model
 *CustomDataModelsApi* | [**DeleteCustomDataModel**](docs/CustomDataModelsApi.md#deletecustomdatamodel) | **DELETE** /api/datamodel/{entityType}/{scope}/{code} | [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
 *CustomDataModelsApi* | [**GetCustomDataModel**](docs/CustomDataModelsApi.md#getcustomdatamodel) | **GET** /api/datamodel/{entityType}/{scope}/{code} | [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model
@@ -806,6 +811,10 @@ Class | Method | HTTP request | Description
  - [ChartOfAccounts](docs/ChartOfAccounts.md)
  - [ChartOfAccountsProperties](docs/ChartOfAccountsProperties.md)
  - [ChartOfAccountsRequest](docs/ChartOfAccountsRequest.md)
+ - [CheckDefinition](docs/CheckDefinition.md)
+ - [CheckDefinitionDatasetSchema](docs/CheckDefinitionDatasetSchema.md)
+ - [CheckDefinitionRule](docs/CheckDefinitionRule.md)
+ - [CheckDefinitionRuleSet](docs/CheckDefinitionRuleSet.md)
  - [CheckStep](docs/CheckStep.md)
  - [CheckStepRequest](docs/CheckStepRequest.md)
  - [CleardownModuleDetails](docs/CleardownModuleDetails.md)
@@ -881,6 +890,7 @@ Class | Method | HTTP request | Description
  - [CreateAddressKeyDefinitionRequest](docs/CreateAddressKeyDefinitionRequest.md)
  - [CreateAmortisationRuleSetRequest](docs/CreateAmortisationRuleSetRequest.md)
  - [CreateCalendarRequest](docs/CreateCalendarRequest.md)
+ - [CreateCheckDefinitionRequest](docs/CreateCheckDefinitionRequest.md)
  - [CreateClosedPeriodRequest](docs/CreateClosedPeriodRequest.md)
  - [CreateComplianceTemplateRequest](docs/CreateComplianceTemplateRequest.md)
  - [CreateCorporateActionSourceRequest](docs/CreateCorporateActionSourceRequest.md)
@@ -1351,6 +1361,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfBlock](docs/PagedResourceListOfBlock.md)
  - [PagedResourceListOfCalendar](docs/PagedResourceListOfCalendar.md)
  - [PagedResourceListOfChartOfAccounts](docs/PagedResourceListOfChartOfAccounts.md)
+ - [PagedResourceListOfCheckDefinition](docs/PagedResourceListOfCheckDefinition.md)
  - [PagedResourceListOfCleardownModuleResponse](docs/PagedResourceListOfCleardownModuleResponse.md)
  - [PagedResourceListOfCleardownModuleRule](docs/PagedResourceListOfCleardownModuleRule.md)
  - [PagedResourceListOfClosedPeriod](docs/PagedResourceListOfClosedPeriod.md)
@@ -1795,6 +1806,7 @@ Class | Method | HTTP request | Description
  - [UnmatchedHoldingMethod](docs/UnmatchedHoldingMethod.md)
  - [UpdateAmortisationRuleSetDetailsRequest](docs/UpdateAmortisationRuleSetDetailsRequest.md)
  - [UpdateCalendarRequest](docs/UpdateCalendarRequest.md)
+ - [UpdateCheckDefinitionRequest](docs/UpdateCheckDefinitionRequest.md)
  - [UpdateComplianceTemplateRequest](docs/UpdateComplianceTemplateRequest.md)
  - [UpdateCustomDataModelRequest](docs/UpdateCustomDataModelRequest.md)
  - [UpdateCustomEntityDefinitionRequest](docs/UpdateCustomEntityDefinitionRequest.md)

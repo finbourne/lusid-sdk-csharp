@@ -46,11 +46,10 @@ namespace Lusid.Sdk.Model
         /// <param name="holdingRecipeId">holdingRecipeId (required).</param>
         /// <param name="accountingMethod">accountingMethod (required).</param>
         /// <param name="subHoldingKeys">Set of unique holding identifiers, e.g. trader, desk, strategy..</param>
-        /// <param name="instrumentScopes">The resolution strategy used to resolve instruments of transactions/holdings upserted to the portfolios..</param>
         /// <param name="amortisationMethod">amortisationMethod (required).</param>
         /// <param name="transactionTypeScope">transactionTypeScope.</param>
         /// <param name="cashGainLossCalculationDate">cashGainLossCalculationDate (required).</param>
-        public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string))
+        public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string))
         {
             // to ensure "chartOfAccountsId" is required (not null)
             if (chartOfAccountsId == null)
@@ -94,7 +93,6 @@ namespace Lusid.Sdk.Model
             this.PostingModuleCodes = postingModuleCodes;
             this.CleardownModuleCodes = cleardownModuleCodes;
             this.SubHoldingKeys = subHoldingKeys;
-            this.InstrumentScopes = instrumentScopes;
             this.TransactionTypeScope = transactionTypeScope;
         }
 
@@ -160,13 +158,6 @@ namespace Lusid.Sdk.Model
         public List<string> SubHoldingKeys { get; set; }
 
         /// <summary>
-        /// The resolution strategy used to resolve instruments of transactions/holdings upserted to the portfolios.
-        /// </summary>
-        /// <value>The resolution strategy used to resolve instruments of transactions/holdings upserted to the portfolios.</value>
-        [DataMember(Name = "instrumentScopes", EmitDefaultValue = true)]
-        public List<string> InstrumentScopes { get; set; }
-
-        /// <summary>
         /// Gets or Sets AmortisationMethod
         /// </summary>
         [DataMember(Name = "amortisationMethod", IsRequired = true, EmitDefaultValue = true)]
@@ -202,7 +193,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  HoldingRecipeId: ").Append(HoldingRecipeId).Append("\n");
             sb.Append("  AccountingMethod: ").Append(AccountingMethod).Append("\n");
             sb.Append("  SubHoldingKeys: ").Append(SubHoldingKeys).Append("\n");
-            sb.Append("  InstrumentScopes: ").Append(InstrumentScopes).Append("\n");
             sb.Append("  AmortisationMethod: ").Append(AmortisationMethod).Append("\n");
             sb.Append("  TransactionTypeScope: ").Append(TransactionTypeScope).Append("\n");
             sb.Append("  CashGainLossCalculationDate: ").Append(CashGainLossCalculationDate).Append("\n");
@@ -295,12 +285,6 @@ namespace Lusid.Sdk.Model
                     this.SubHoldingKeys.SequenceEqual(input.SubHoldingKeys)
                 ) && 
                 (
-                    this.InstrumentScopes == input.InstrumentScopes ||
-                    this.InstrumentScopes != null &&
-                    input.InstrumentScopes != null &&
-                    this.InstrumentScopes.SequenceEqual(input.InstrumentScopes)
-                ) && 
-                (
                     this.AmortisationMethod == input.AmortisationMethod ||
                     (this.AmortisationMethod != null &&
                     this.AmortisationMethod.Equals(input.AmortisationMethod))
@@ -365,10 +349,6 @@ namespace Lusid.Sdk.Model
                 if (this.SubHoldingKeys != null)
                 {
                     hashCode = (hashCode * 59) + this.SubHoldingKeys.GetHashCode();
-                }
-                if (this.InstrumentScopes != null)
-                {
-                    hashCode = (hashCode * 59) + this.InstrumentScopes.GetHashCode();
                 }
                 if (this.AmortisationMethod != null)
                 {

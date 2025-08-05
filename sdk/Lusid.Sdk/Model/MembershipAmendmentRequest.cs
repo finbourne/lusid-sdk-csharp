@@ -220,15 +220,22 @@ namespace Lusid.Sdk.Model
             }
 
             // EntityUniqueId (string) maxLength
-            if (this.EntityUniqueId != null && this.EntityUniqueId.Length > 256)
+            if (this.EntityUniqueId != null && this.EntityUniqueId.Length > 36)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityUniqueId, length must be less than 256.", new [] { "EntityUniqueId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityUniqueId, length must be less than 36.", new [] { "EntityUniqueId" });
             }
 
             // EntityUniqueId (string) minLength
-            if (this.EntityUniqueId != null && this.EntityUniqueId.Length < 0)
+            if (this.EntityUniqueId != null && this.EntityUniqueId.Length < 36)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityUniqueId, length must be greater than 0.", new [] { "EntityUniqueId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityUniqueId, length must be greater than 36.", new [] { "EntityUniqueId" });
+            }
+
+            // EntityUniqueId (string) pattern
+            Regex regexEntityUniqueId = new Regex(@"^[a-zA-Z0-9\-]+$", RegexOptions.CultureInvariant);
+            if (false == regexEntityUniqueId.Match(this.EntityUniqueId).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityUniqueId, must match a pattern of " + regexEntityUniqueId, new [] { "EntityUniqueId" });
             }
 
             // Operation (string) minLength

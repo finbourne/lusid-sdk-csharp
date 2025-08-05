@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **HoldingRecipeId** | [**ResourceId**](ResourceId.md) |  | 
 **AccountingMethod** | **string** |  | 
 **SubHoldingKeys** | **List&lt;string&gt;** | Set of unique holding identifiers, e.g. trader, desk, strategy. | [optional] 
-**InstrumentScopes** | **List&lt;string&gt;** | The resolution strategy used to resolve instruments of transactions/holdings upserted to the portfolios. | [optional] 
 **AmortisationMethod** | **string** |  | 
 **TransactionTypeScope** | **string** |  | [optional] 
 **CashGainLossCalculationDate** | **string** |  | 

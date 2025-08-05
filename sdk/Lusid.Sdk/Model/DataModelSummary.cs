@@ -42,8 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="entityType">The entity type that the Custom Data Model binds to. (required).</param>
         /// <param name="type">Either Root or Leaf or Intermediate. (required).</param>
         /// <param name="precedence">Where in the hierarchy this model sits. (required).</param>
+        /// <param name="parent">parent.</param>
         /// <param name="children">Child Custom Data Models that will inherit from this data model. (required).</param>
-        public DataModelSummary(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string entityType = default(string), string type = default(string), int precedence = default(int), List<DataModelSummary> children = default(List<DataModelSummary>))
+        public DataModelSummary(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string entityType = default(string), string type = default(string), int precedence = default(int), ResourceId parent = default(ResourceId), List<DataModelSummary> children = default(List<DataModelSummary>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -82,6 +83,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("children is a required property for DataModelSummary and cannot be null");
             }
             this.Children = children;
+            this.Parent = parent;
         }
 
         /// <summary>
@@ -126,6 +128,12 @@ namespace Lusid.Sdk.Model
         public int Precedence { get; set; }
 
         /// <summary>
+        /// Gets or Sets Parent
+        /// </summary>
+        [DataMember(Name = "parent", EmitDefaultValue = false)]
+        public ResourceId Parent { get; set; }
+
+        /// <summary>
         /// Child Custom Data Models that will inherit from this data model.
         /// </summary>
         /// <value>Child Custom Data Models that will inherit from this data model.</value>
@@ -146,6 +154,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Precedence: ").Append(Precedence).Append("\n");
+            sb.Append("  Parent: ").Append(Parent).Append("\n");
             sb.Append("  Children: ").Append(Children).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -212,6 +221,11 @@ namespace Lusid.Sdk.Model
                     this.Precedence.Equals(input.Precedence)
                 ) && 
                 (
+                    this.Parent == input.Parent ||
+                    (this.Parent != null &&
+                    this.Parent.Equals(input.Parent))
+                ) && 
+                (
                     this.Children == input.Children ||
                     this.Children != null &&
                     input.Children != null &&
@@ -249,6 +263,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Precedence.GetHashCode();
+                if (this.Parent != null)
+                {
+                    hashCode = (hashCode * 59) + this.Parent.GetHashCode();
+                }
                 if (this.Children != null)
                 {
                     hashCode = (hashCode * 59) + this.Children.GetHashCode();

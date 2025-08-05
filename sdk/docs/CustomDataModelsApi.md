@@ -4,7 +4,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**BatchAmend**](CustomDataModelsApi.md#batchamend) | **POST** /api/datamodel/$batchamend | [INTERNAL] BatchAmend: Batch amend Custom Data Models |
+| [**BatchAmend**](CustomDataModelsApi.md#batchamend) | **POST** /api/datamodel/$batchamend | [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. |
 | [**CreateCustomDataModel**](CustomDataModelsApi.md#createcustomdatamodel) | **POST** /api/datamodel/{entityType} | [EXPERIMENTAL] CreateCustomDataModel: Create a Custom Data Model |
 | [**DeleteCustomDataModel**](CustomDataModelsApi.md#deletecustomdatamodel) | **DELETE** /api/datamodel/{entityType}/{scope}/{code} | [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model |
 | [**GetCustomDataModel**](CustomDataModelsApi.md#getcustomdatamodel) | **GET** /api/datamodel/{entityType}/{scope}/{code} | [EXPERIMENTAL] GetCustomDataModel: Get a Custom Data Model |
@@ -16,7 +16,7 @@ All URIs are relative to *https://www.lusid.com/api*
 # **BatchAmend**
 > BatchAmendCustomDataModelMembershipResponse BatchAmend (string successMode, Dictionary<string, MembershipAmendmentRequest> requestBody)
 
-[INTERNAL] BatchAmend: Batch amend Custom Data Models
+[EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
 
 Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
 
@@ -67,7 +67,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BatchAmendCustomDataModelMembershipResponse result = apiInstance.BatchAmend(successMode, requestBody, opts: opts);
 
-                // [INTERNAL] BatchAmend: Batch amend Custom Data Models
+                // [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
                 BatchAmendCustomDataModelMembershipResponse result = apiInstance.BatchAmend(successMode, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -88,7 +88,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [INTERNAL] BatchAmend: Batch amend Custom Data Models
+    // [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
     ApiResponse<BatchAmendCustomDataModelMembershipResponse> response = apiInstance.BatchAmendWithHttpInfo(successMode, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
