@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A detailed description of the field and its purpose..</param>
         /// <param name="dataTypeId">dataTypeId (required).</param>
         /// <param name="required">Whether this field is mandatory in the dataset..</param>
-        /// <param name="usage">The intended usage of the field (SeriesIdentifier, Value, or Metadata)..</param>
+        /// <param name="usage">The intended usage of the field (SeriesIdentifier, Value, or Metadata). (required).</param>
         public RelationalDatasetFieldDefinition(string fieldName = default(string), string displayName = default(string), string description = default(string), ResourceId dataTypeId = default(ResourceId), bool required = default(bool), string usage = default(string))
         {
             // to ensure "fieldName" is required (not null)
@@ -56,10 +56,15 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("dataTypeId is a required property for RelationalDatasetFieldDefinition and cannot be null");
             }
             this.DataTypeId = dataTypeId;
+            // to ensure "usage" is required (not null)
+            if (usage == null)
+            {
+                throw new ArgumentNullException("usage is a required property for RelationalDatasetFieldDefinition and cannot be null");
+            }
+            this.Usage = usage;
             this.DisplayName = displayName;
             this.Description = description;
             this.Required = required;
-            this.Usage = usage;
         }
 
         /// <summary>
@@ -100,7 +105,7 @@ namespace Lusid.Sdk.Model
         /// The intended usage of the field (SeriesIdentifier, Value, or Metadata).
         /// </summary>
         /// <value>The intended usage of the field (SeriesIdentifier, Value, or Metadata).</value>
-        [DataMember(Name = "usage", EmitDefaultValue = true)]
+        [DataMember(Name = "usage", IsRequired = true, EmitDefaultValue = true)]
         public string Usage { get; set; }
 
         /// <summary>
@@ -258,6 +263,12 @@ namespace Lusid.Sdk.Model
             if (this.Description != null && this.Description.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
+            }
+
+            // Usage (string) minLength
+            if (this.Usage != null && this.Usage.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Usage, length must be greater than 1.", new [] { "Usage" });
             }
 
             yield break;
