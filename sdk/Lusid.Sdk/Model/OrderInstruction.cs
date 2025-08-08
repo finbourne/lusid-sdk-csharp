@@ -47,8 +47,9 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentScope">The scope in which the instrument lies.</param>
         /// <param name="lusidInstrumentId">The LUSID instrument id for the instrument ordered..</param>
         /// <param name="varVersion">varVersion.</param>
+        /// <param name="dataModelMembership">dataModelMembership.</param>
         /// <param name="links">links.</param>
-        public OrderInstruction(ResourceId id = default(ResourceId), DateTimeOffset createdDate = default(DateTimeOffset), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ResourceId portfolioId = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), decimal? weight = default(decimal?), CurrencyAndAmount price = default(CurrencyAndAmount), string instrumentScope = default(string), string lusidInstrumentId = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public OrderInstruction(ResourceId id = default(ResourceId), DateTimeOffset createdDate = default(DateTimeOffset), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ResourceId portfolioId = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), decimal? weight = default(decimal?), CurrencyAndAmount price = default(CurrencyAndAmount), string instrumentScope = default(string), string lusidInstrumentId = default(string), ModelVersion varVersion = default(ModelVersion), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -71,6 +72,7 @@ namespace Lusid.Sdk.Model
             this.InstrumentScope = instrumentScope;
             this.LusidInstrumentId = lusidInstrumentId;
             this.VarVersion = varVersion;
+            this.DataModelMembership = dataModelMembership;
             this.Links = links;
         }
 
@@ -148,6 +150,12 @@ namespace Lusid.Sdk.Model
         public ModelVersion VarVersion { get; set; }
 
         /// <summary>
+        /// Gets or Sets DataModelMembership
+        /// </summary>
+        [DataMember(Name = "dataModelMembership", EmitDefaultValue = false)]
+        public DataModelMembership DataModelMembership { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -172,6 +180,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -266,6 +275,11 @@ namespace Lusid.Sdk.Model
                     this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
+                    this.DataModelMembership == input.DataModelMembership ||
+                    (this.DataModelMembership != null &&
+                    this.DataModelMembership.Equals(input.DataModelMembership))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -325,6 +339,10 @@ namespace Lusid.Sdk.Model
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.DataModelMembership != null)
+                {
+                    hashCode = (hashCode * 59) + this.DataModelMembership.GetHashCode();
                 }
                 if (this.Links != null)
                 {

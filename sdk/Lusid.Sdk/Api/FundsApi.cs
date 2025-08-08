@@ -72,10 +72,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
+        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Fee</returns>
-        Fee CreateFee(string scope, string code, FeeRequest feeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Fee CreateFee(string scope, string code, FeeRequest feeRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateFee: Create a Fee.
@@ -87,10 +88,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
+        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Fee</returns>
-        Lusid.Sdk.Client.ApiResponse<Fee> CreateFeeWithHttpInfo(string scope, string code, FeeRequest feeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<Fee> CreateFeeWithHttpInfo(string scope, string code, FeeRequest feeRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateFund: Create a Fund.
         /// </summary>
@@ -984,11 +986,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
+        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Fee</returns>
-        System.Threading.Tasks.Task<Fee> CreateFeeAsync(string scope, string code, FeeRequest feeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Fee> CreateFeeAsync(string scope, string code, FeeRequest feeRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateFee: Create a Fee.
@@ -1000,11 +1003,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
+        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Fee)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fee>> CreateFeeWithHttpInfoAsync(string scope, string code, FeeRequest feeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fee>> CreateFeeWithHttpInfoAsync(string scope, string code, FeeRequest feeRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] CreateFund: Create a Fund.
         /// </summary>
@@ -2286,12 +2290,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
+        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Fee</returns>
-        public Fee CreateFee(string scope, string code, FeeRequest feeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Fee CreateFee(string scope, string code, FeeRequest feeRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Fee> localVarResponse = CreateFeeWithHttpInfo(scope, code, feeRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<Fee> localVarResponse = CreateFeeWithHttpInfo(scope, code, feeRequest, navTypeCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2302,10 +2307,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
+        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Fee</returns>
-        public Lusid.Sdk.Client.ApiResponse<Fee> CreateFeeWithHttpInfo(string scope, string code, FeeRequest feeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<Fee> CreateFeeWithHttpInfo(string scope, string code, FeeRequest feeRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2365,6 +2371,10 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (navTypeCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
             localVarRequestOptions.Data = feeRequest;
 
             localVarRequestOptions.Operation = "FundsApi.CreateFee";
@@ -2408,13 +2418,14 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
+        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Fee</returns>
-        public async System.Threading.Tasks.Task<Fee> CreateFeeAsync(string scope, string code, FeeRequest feeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Fee> CreateFeeAsync(string scope, string code, FeeRequest feeRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<Fee> localVarResponse = await CreateFeeWithHttpInfoAsync(scope, code, feeRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Fee> localVarResponse = await CreateFeeWithHttpInfoAsync(scope, code, feeRequest, navTypeCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2425,11 +2436,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
+        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Fee)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fee>> CreateFeeWithHttpInfoAsync(string scope, string code, FeeRequest feeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fee>> CreateFeeWithHttpInfoAsync(string scope, string code, FeeRequest feeRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2490,6 +2502,10 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (navTypeCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
             localVarRequestOptions.Data = feeRequest;
 
             localVarRequestOptions.Operation = "FundsApi.CreateFee";

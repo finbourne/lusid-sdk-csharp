@@ -53,8 +53,9 @@ namespace Lusid.Sdk.Model
         /// <param name="counterparty">The market entity this placement is placed with. (required).</param>
         /// <param name="averagePrice">The average price of all executions for a given placement at the time of upsert.</param>
         /// <param name="varVersion">varVersion.</param>
+        /// <param name="dataModelMembership">dataModelMembership.</param>
         /// <param name="links">links.</param>
-        public Execution(ResourceId id = default(ResourceId), ResourceId placementId = default(ResourceId), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal quantity = default(decimal), string state = default(string), string side = default(string), string type = default(string), DateTimeOffset createdDate = default(DateTimeOffset), DateTimeOffset? settlementDate = default(DateTimeOffset?), CurrencyAndAmount price = default(CurrencyAndAmount), string settlementCurrency = default(string), decimal settlementCurrencyFxRate = default(decimal), string counterparty = default(string), decimal? averagePrice = default(decimal?), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Execution(ResourceId id = default(ResourceId), ResourceId placementId = default(ResourceId), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal quantity = default(decimal), string state = default(string), string side = default(string), string type = default(string), DateTimeOffset createdDate = default(DateTimeOffset), DateTimeOffset? settlementDate = default(DateTimeOffset?), CurrencyAndAmount price = default(CurrencyAndAmount), string settlementCurrency = default(string), decimal settlementCurrencyFxRate = default(decimal), string counterparty = default(string), decimal? averagePrice = default(decimal?), ModelVersion varVersion = default(ModelVersion), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -123,6 +124,7 @@ namespace Lusid.Sdk.Model
             this.SettlementDate = settlementDate;
             this.AveragePrice = averagePrice;
             this.VarVersion = varVersion;
+            this.DataModelMembership = dataModelMembership;
             this.Links = links;
         }
 
@@ -242,6 +244,12 @@ namespace Lusid.Sdk.Model
         public ModelVersion VarVersion { get; set; }
 
         /// <summary>
+        /// Gets or Sets DataModelMembership
+        /// </summary>
+        [DataMember(Name = "dataModelMembership", EmitDefaultValue = false)]
+        public DataModelMembership DataModelMembership { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -272,6 +280,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Counterparty: ").Append(Counterparty).Append("\n");
             sb.Append("  AveragePrice: ").Append(AveragePrice).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -394,6 +403,11 @@ namespace Lusid.Sdk.Model
                     this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
+                    this.DataModelMembership == input.DataModelMembership ||
+                    (this.DataModelMembership != null &&
+                    this.DataModelMembership.Equals(input.DataModelMembership))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -471,6 +485,10 @@ namespace Lusid.Sdk.Model
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.DataModelMembership != null)
+                {
+                    hashCode = (hashCode * 59) + this.DataModelMembership.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -57,8 +57,9 @@ namespace Lusid.Sdk.Model
         /// <param name="packageId">packageId.</param>
         /// <param name="weight">The proportion of the total portfolio value ordered for the given instrument ordered..</param>
         /// <param name="amount">amount.</param>
+        /// <param name="dataModelMembership">dataModelMembership.</param>
         /// <param name="links">links.</param>
-        public Order(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string instrumentScope = default(string), string lusidInstrumentId = default(string), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstructionId = default(ResourceId), ResourceId packageId = default(ResourceId), decimal? weight = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), List<Link> links = default(List<Link>))
+        public Order(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string instrumentScope = default(string), string lusidInstrumentId = default(string), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstructionId = default(ResourceId), ResourceId packageId = default(ResourceId), decimal? weight = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
@@ -101,6 +102,7 @@ namespace Lusid.Sdk.Model
             this.PackageId = packageId;
             this.Weight = weight;
             this.Amount = amount;
+            this.DataModelMembership = dataModelMembership;
             this.Links = links;
         }
 
@@ -242,6 +244,12 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount Amount { get; set; }
 
         /// <summary>
+        /// Gets or Sets DataModelMembership
+        /// </summary>
+        [DataMember(Name = "dataModelMembership", EmitDefaultValue = false)]
+        public DataModelMembership DataModelMembership { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -276,6 +284,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PackageId: ").Append(PackageId).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -420,6 +429,11 @@ namespace Lusid.Sdk.Model
                     this.Amount.Equals(input.Amount))
                 ) && 
                 (
+                    this.DataModelMembership == input.DataModelMembership ||
+                    (this.DataModelMembership != null &&
+                    this.DataModelMembership.Equals(input.DataModelMembership))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -519,6 +533,10 @@ namespace Lusid.Sdk.Model
                 if (this.Amount != null)
                 {
                     hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
+                if (this.DataModelMembership != null)
+                {
+                    hashCode = (hashCode * 59) + this.DataModelMembership.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **PackageId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Weight** | **decimal?** | The proportion of the total portfolio value ordered for the given instrument ordered. | [optional] 
 **Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

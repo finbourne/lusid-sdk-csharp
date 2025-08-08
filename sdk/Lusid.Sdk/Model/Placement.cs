@@ -54,8 +54,9 @@ namespace Lusid.Sdk.Model
         /// <param name="executionSystem">Optionally specifies the execution system in use..</param>
         /// <param name="entryType">Optionally specifies the entry type of this placement..</param>
         /// <param name="varVersion">varVersion.</param>
+        /// <param name="dataModelMembership">dataModelMembership.</param>
         /// <param name="links">links.</param>
-        public Placement(ResourceId id = default(ResourceId), ResourceId parentPlacementId = default(ResourceId), List<ResourceId> blockIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal quantity = default(decimal), string state = default(string), string side = default(string), string timeInForce = default(string), string type = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Placement(ResourceId id = default(ResourceId), ResourceId parentPlacementId = default(ResourceId), List<ResourceId> blockIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal quantity = default(decimal), string state = default(string), string side = default(string), string timeInForce = default(string), string type = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string), ModelVersion varVersion = default(ModelVersion), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -115,6 +116,7 @@ namespace Lusid.Sdk.Model
             this.ExecutionSystem = executionSystem;
             this.EntryType = entryType;
             this.VarVersion = varVersion;
+            this.DataModelMembership = dataModelMembership;
             this.Links = links;
         }
 
@@ -240,6 +242,12 @@ namespace Lusid.Sdk.Model
         public ModelVersion VarVersion { get; set; }
 
         /// <summary>
+        /// Gets or Sets DataModelMembership
+        /// </summary>
+        [DataMember(Name = "dataModelMembership", EmitDefaultValue = false)]
+        public DataModelMembership DataModelMembership { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -271,6 +279,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ExecutionSystem: ").Append(ExecutionSystem).Append("\n");
             sb.Append("  EntryType: ").Append(EntryType).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -400,6 +409,11 @@ namespace Lusid.Sdk.Model
                     this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
+                    this.DataModelMembership == input.DataModelMembership ||
+                    (this.DataModelMembership != null &&
+                    this.DataModelMembership.Equals(input.DataModelMembership))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -484,6 +498,10 @@ namespace Lusid.Sdk.Model
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.DataModelMembership != null)
+                {
+                    hashCode = (hashCode * 59) + this.DataModelMembership.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -154,7 +154,7 @@ catch (ApiException e)
 
 <a id="createfee"></a>
 # **CreateFee**
-> Fee CreateFee (string scope, string code, FeeRequest feeRequest)
+> Fee CreateFee (string scope, string code, FeeRequest feeRequest, string? navTypeCode = null)
 
 [EXPERIMENTAL] CreateFee: Create a Fee.
 
@@ -202,14 +202,15 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var feeRequest = new FeeRequest(); // FeeRequest | The Fee to create.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Fee result = apiInstance.CreateFee(scope, code, feeRequest, opts: opts);
+                // Fee result = apiInstance.CreateFee(scope, code, feeRequest, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] CreateFee: Create a Fee.
-                Fee result = apiInstance.CreateFee(scope, code, feeRequest);
+                Fee result = apiInstance.CreateFee(scope, code, feeRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -230,7 +231,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] CreateFee: Create a Fee.
-    ApiResponse<Fee> response = apiInstance.CreateFeeWithHttpInfo(scope, code, feeRequest);
+    ApiResponse<Fee> response = apiInstance.CreateFeeWithHttpInfo(scope, code, feeRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -250,6 +251,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **feeRequest** | [**FeeRequest**](FeeRequest.md) | The Fee to create. |  |
+| **navTypeCode** | **string?** | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
