@@ -37,8 +37,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AccountHolderIdentifier" /> class.
         /// </summary>
         /// <param name="key">A client-defined key used to identify the Account Holder, unique within the Investment Account (required).</param>
+        /// <param name="scope">The scope in which the Investor Record lies. (required).</param>
         /// <param name="identifiers">Single Account Holder identifier that should target the desired Investor Record. (required).</param>
-        public AccountHolderIdentifier(string key = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>))
+        public AccountHolderIdentifier(string key = default(string), string scope = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>))
         {
             // to ensure "key" is required (not null)
             if (key == null)
@@ -46,6 +47,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("key is a required property for AccountHolderIdentifier and cannot be null");
             }
             this.Key = key;
+            // to ensure "scope" is required (not null)
+            if (scope == null)
+            {
+                throw new ArgumentNullException("scope is a required property for AccountHolderIdentifier and cannot be null");
+            }
+            this.Scope = scope;
             // to ensure "identifiers" is required (not null)
             if (identifiers == null)
             {
@@ -60,6 +67,13 @@ namespace Lusid.Sdk.Model
         /// <value>A client-defined key used to identify the Account Holder, unique within the Investment Account</value>
         [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
+
+        /// <summary>
+        /// The scope in which the Investor Record lies.
+        /// </summary>
+        /// <value>The scope in which the Investor Record lies.</value>
+        [DataMember(Name = "scope", IsRequired = true, EmitDefaultValue = true)]
+        public string Scope { get; set; }
 
         /// <summary>
         /// Single Account Holder identifier that should target the desired Investor Record.
@@ -77,6 +91,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class AccountHolderIdentifier {\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -119,6 +134,11 @@ namespace Lusid.Sdk.Model
                     this.Key.Equals(input.Key))
                 ) && 
                 (
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
+                ) && 
+                (
                     this.Identifiers == input.Identifiers ||
                     this.Identifiers != null &&
                     input.Identifiers != null &&
@@ -138,6 +158,10 @@ namespace Lusid.Sdk.Model
                 if (this.Key != null)
                 {
                     hashCode = (hashCode * 59) + this.Key.GetHashCode();
+                }
+                if (this.Scope != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
                 }
                 if (this.Identifiers != null)
                 {
@@ -171,6 +195,25 @@ namespace Lusid.Sdk.Model
             if (false == regexKey.Match(this.Key).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Key, must match a pattern of " + regexKey, new [] { "Key" });
+            }
+
+            // Scope (string) maxLength
+            if (this.Scope != null && this.Scope.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, length must be less than 64.", new [] { "Scope" });
+            }
+
+            // Scope (string) minLength
+            if (this.Scope != null && this.Scope.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, length must be greater than 1.", new [] { "Scope" });
+            }
+
+            // Scope (string) pattern
+            Regex regexScope = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexScope.Match(this.Scope).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, must match a pattern of " + regexScope, new [] { "Scope" });
             }
 
             yield break;

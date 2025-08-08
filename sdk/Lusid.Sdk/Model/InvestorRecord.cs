@@ -31,23 +31,25 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvestorRecord" /> class.
         /// </summary>
-        /// <param name="lusidInvestorRecordId">The unique LUSID Investor Record Identifier of the Investor Record..</param>
+        /// <param name="scope">The scope in which the Investor Record lies..</param>
+        /// <param name="identifiers">Unique client-defined identifiers of the Investor Record..</param>
         /// <param name="displayName">The display name of the Investor Record.</param>
         /// <param name="description">The description of the Investor Record.</param>
         /// <param name="investor">investor.</param>
-        /// <param name="identifiers">Unique client-defined identifiers of the Investor Record..</param>
+        /// <param name="lusidInvestorRecordId">The unique LUSID Investor Record Identifier of the Investor Record..</param>
         /// <param name="properties">A set of properties associated to the Investor Record..</param>
         /// <param name="relationships">A set of relationships associated to the Investor Record..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public InvestorRecord(string lusidInvestorRecordId = default(string), string displayName = default(string), string description = default(string), Investor investor = default(Investor), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public InvestorRecord(string scope = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), string displayName = default(string), string description = default(string), Investor investor = default(Investor), string lusidInvestorRecordId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
-            this.LusidInvestorRecordId = lusidInvestorRecordId;
+            this.Scope = scope;
+            this.Identifiers = identifiers;
             this.DisplayName = displayName;
             this.Description = description;
             this.Investor = investor;
-            this.Identifiers = identifiers;
+            this.LusidInvestorRecordId = lusidInvestorRecordId;
             this.Properties = properties;
             this.Relationships = relationships;
             this.Href = href;
@@ -56,11 +58,18 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The unique LUSID Investor Record Identifier of the Investor Record.
+        /// The scope in which the Investor Record lies.
         /// </summary>
-        /// <value>The unique LUSID Investor Record Identifier of the Investor Record.</value>
-        [DataMember(Name = "lusidInvestorRecordId", EmitDefaultValue = true)]
-        public string LusidInvestorRecordId { get; set; }
+        /// <value>The scope in which the Investor Record lies.</value>
+        [DataMember(Name = "scope", EmitDefaultValue = true)]
+        public string Scope { get; set; }
+
+        /// <summary>
+        /// Unique client-defined identifiers of the Investor Record.
+        /// </summary>
+        /// <value>Unique client-defined identifiers of the Investor Record.</value>
+        [DataMember(Name = "identifiers", EmitDefaultValue = true)]
+        public Dictionary<string, Property> Identifiers { get; set; }
 
         /// <summary>
         /// The display name of the Investor Record
@@ -83,11 +92,11 @@ namespace Lusid.Sdk.Model
         public Investor Investor { get; set; }
 
         /// <summary>
-        /// Unique client-defined identifiers of the Investor Record.
+        /// The unique LUSID Investor Record Identifier of the Investor Record.
         /// </summary>
-        /// <value>Unique client-defined identifiers of the Investor Record.</value>
-        [DataMember(Name = "identifiers", EmitDefaultValue = true)]
-        public Dictionary<string, Property> Identifiers { get; set; }
+        /// <value>The unique LUSID Investor Record Identifier of the Investor Record.</value>
+        [DataMember(Name = "lusidInvestorRecordId", EmitDefaultValue = true)]
+        public string LusidInvestorRecordId { get; set; }
 
         /// <summary>
         /// A set of properties associated to the Investor Record.
@@ -130,11 +139,12 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InvestorRecord {\n");
-            sb.Append("  LusidInvestorRecordId: ").Append(LusidInvestorRecordId).Append("\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
+            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Investor: ").Append(Investor).Append("\n");
-            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
+            sb.Append("  LusidInvestorRecordId: ").Append(LusidInvestorRecordId).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Relationships: ").Append(Relationships).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
@@ -176,9 +186,15 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.LusidInvestorRecordId == input.LusidInvestorRecordId ||
-                    (this.LusidInvestorRecordId != null &&
-                    this.LusidInvestorRecordId.Equals(input.LusidInvestorRecordId))
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
+                ) && 
+                (
+                    this.Identifiers == input.Identifiers ||
+                    this.Identifiers != null &&
+                    input.Identifiers != null &&
+                    this.Identifiers.SequenceEqual(input.Identifiers)
                 ) && 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -196,10 +212,9 @@ namespace Lusid.Sdk.Model
                     this.Investor.Equals(input.Investor))
                 ) && 
                 (
-                    this.Identifiers == input.Identifiers ||
-                    this.Identifiers != null &&
-                    input.Identifiers != null &&
-                    this.Identifiers.SequenceEqual(input.Identifiers)
+                    this.LusidInvestorRecordId == input.LusidInvestorRecordId ||
+                    (this.LusidInvestorRecordId != null &&
+                    this.LusidInvestorRecordId.Equals(input.LusidInvestorRecordId))
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -240,9 +255,13 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.LusidInvestorRecordId != null)
+                if (this.Scope != null)
                 {
-                    hashCode = (hashCode * 59) + this.LusidInvestorRecordId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                }
+                if (this.Identifiers != null)
+                {
+                    hashCode = (hashCode * 59) + this.Identifiers.GetHashCode();
                 }
                 if (this.DisplayName != null)
                 {
@@ -256,9 +275,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Investor.GetHashCode();
                 }
-                if (this.Identifiers != null)
+                if (this.LusidInvestorRecordId != null)
                 {
-                    hashCode = (hashCode * 59) + this.Identifiers.GetHashCode();
+                    hashCode = (hashCode * 59) + this.LusidInvestorRecordId.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

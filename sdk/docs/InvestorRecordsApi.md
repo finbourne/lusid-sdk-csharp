@@ -4,14 +4,14 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DeleteInvestorRecord**](InvestorRecordsApi.md#deleteinvestorrecord) | **DELETE** /api/investorrecords/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] DeleteInvestorRecord: Delete Investor Record |
-| [**GetInvestorRecord**](InvestorRecordsApi.md#getinvestorrecord) | **GET** /api/investorrecords/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] GetInvestorRecord: Get Investor Record |
+| [**DeleteInvestorRecord**](InvestorRecordsApi.md#deleteinvestorrecord) | **DELETE** /api/investorrecords/{identifierType}/{identifierValue} | [EARLY ACCESS] DeleteInvestorRecord: Delete Investor Record |
+| [**GetInvestorRecord**](InvestorRecordsApi.md#getinvestorrecord) | **GET** /api/investorrecords/{identifierType}/{identifierValue} | [EARLY ACCESS] GetInvestorRecord: Get Investor Record |
 | [**ListAllInvestorRecords**](InvestorRecordsApi.md#listallinvestorrecords) | **GET** /api/investorrecords | [EARLY ACCESS] ListAllInvestorRecords: List Investor Records |
 | [**UpsertInvestorRecords**](InvestorRecordsApi.md#upsertinvestorrecords) | **POST** /api/investorrecords/$batchUpsert | [EARLY ACCESS] UpsertInvestorRecords: Upsert investor records |
 
 <a id="deleteinvestorrecord"></a>
 # **DeleteInvestorRecord**
-> DeletedEntityResponse DeleteInvestorRecord (string idTypeScope, string idTypeCode, string code)
+> DeletedEntityResponse DeleteInvestorRecord (string identifierType, string identifierValue, string scope, string identifierScope)
 
 [EARLY ACCESS] DeleteInvestorRecord: Delete Investor Record
 
@@ -56,17 +56,18 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InvestorRecordsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InvestorRecordsApi>();
-            var idTypeScope = "idTypeScope_example";  // string | The scope of the investor record identifier type.
-            var idTypeCode = "idTypeCode_example";  // string | The code of the investor record identifier type.
-            var code = "code_example";  // string | Code of the investor record under specified identifier type's scope and code. This together with defined              identifier type uniquely identifies the investor record to delete.
+            var identifierType = "identifierType_example";  // string | Code of the investor record identifier type.
+            var identifierValue = "identifierValue_example";  // string | Code of the investor record under specified identifier type's scope and code.
+            var scope = "scope_example";  // string | The scope of the investor record entity.
+            var identifierScope = "identifierScope_example";  // string | Scope of the investor record identifier type.
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DeletedEntityResponse result = apiInstance.DeleteInvestorRecord(idTypeScope, idTypeCode, code, opts: opts);
+                // DeletedEntityResponse result = apiInstance.DeleteInvestorRecord(identifierType, identifierValue, scope, identifierScope, opts: opts);
 
                 // [EARLY ACCESS] DeleteInvestorRecord: Delete Investor Record
-                DeletedEntityResponse result = apiInstance.DeleteInvestorRecord(idTypeScope, idTypeCode, code);
+                DeletedEntityResponse result = apiInstance.DeleteInvestorRecord(identifierType, identifierValue, scope, identifierScope);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -87,7 +88,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] DeleteInvestorRecord: Delete Investor Record
-    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteInvestorRecordWithHttpInfo(idTypeScope, idTypeCode, code);
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteInvestorRecordWithHttpInfo(identifierType, identifierValue, scope, identifierScope);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -104,9 +105,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **idTypeScope** | **string** | The scope of the investor record identifier type. |  |
-| **idTypeCode** | **string** | The code of the investor record identifier type. |  |
-| **code** | **string** | Code of the investor record under specified identifier type&#39;s scope and code. This together with defined              identifier type uniquely identifies the investor record to delete. |  |
+| **identifierType** | **string** | Code of the investor record identifier type. |  |
+| **identifierValue** | **string** | Code of the investor record under specified identifier type&#39;s scope and code. |  |
+| **scope** | **string** | The scope of the investor record entity. |  |
+| **identifierScope** | **string** | Scope of the investor record identifier type. |  |
 
 ### Return type
 
@@ -129,7 +131,7 @@ catch (ApiException e)
 
 <a id="getinvestorrecord"></a>
 # **GetInvestorRecord**
-> InvestorRecord GetInvestorRecord (string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = null, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? relationshipDefinitionIds = null)
+> InvestorRecord GetInvestorRecord (string identifierType, string identifierValue, string scope, string identifierScope, List<string>? propertyKeys = null, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? relationshipDefinitionIds = null)
 
 [EARLY ACCESS] GetInvestorRecord: Get Investor Record
 
@@ -174,9 +176,10 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InvestorRecordsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InvestorRecordsApi>();
-            var idTypeScope = "idTypeScope_example";  // string | Scope of the investor record identifier type.
-            var idTypeCode = "idTypeCode_example";  // string | Code of the investor record identifier type.
-            var code = "code_example";  // string | Code of the investor record under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the investor record.
+            var identifierType = "identifierType_example";  // string | Code of the investor record identifier type.
+            var identifierValue = "identifierValue_example";  // string | Code of the investor record under specified identifier type's scope and code.
+            var scope = "scope_example";  // string | The scope of the investor record entity.
+            var identifierScope = "identifierScope_example";  // string | Scope of the investor record identifier type.
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys or identifier types (as property keys) from the \"InvestorRecord\" domain              to include for found investor record, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \"InvestorRecord/ContactDetails/Address\". (optional) 
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the investor record. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the investor record. Defaults to return the latest version of the investor record if not specified. (optional) 
@@ -185,10 +188,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // InvestorRecord result = apiInstance.GetInvestorRecord(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds, opts: opts);
+                // InvestorRecord result = apiInstance.GetInvestorRecord(identifierType, identifierValue, scope, identifierScope, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds, opts: opts);
 
                 // [EARLY ACCESS] GetInvestorRecord: Get Investor Record
-                InvestorRecord result = apiInstance.GetInvestorRecord(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds);
+                InvestorRecord result = apiInstance.GetInvestorRecord(identifierType, identifierValue, scope, identifierScope, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -209,7 +212,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetInvestorRecord: Get Investor Record
-    ApiResponse<InvestorRecord> response = apiInstance.GetInvestorRecordWithHttpInfo(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds);
+    ApiResponse<InvestorRecord> response = apiInstance.GetInvestorRecordWithHttpInfo(identifierType, identifierValue, scope, identifierScope, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -226,9 +229,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **idTypeScope** | **string** | Scope of the investor record identifier type. |  |
-| **idTypeCode** | **string** | Code of the investor record identifier type. |  |
-| **code** | **string** | Code of the investor record under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the investor record. |  |
+| **identifierType** | **string** | Code of the investor record identifier type. |  |
+| **identifierValue** | **string** | Code of the investor record under specified identifier type&#39;s scope and code. |  |
+| **scope** | **string** | The scope of the investor record entity. |  |
+| **identifierScope** | **string** | Scope of the investor record identifier type. |  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys or identifier types (as property keys) from the \&quot;InvestorRecord\&quot; domain              to include for found investor record, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestorRecord/ContactDetails/Address\&quot;. | [optional]  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the investor record. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the investor record. Defaults to return the latest version of the investor record if not specified. | [optional]  |

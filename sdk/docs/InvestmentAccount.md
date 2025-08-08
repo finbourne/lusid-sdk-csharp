@@ -5,13 +5,14 @@ Representation of an Investment Account on the LUSID API
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LusidInvestmentAccountId** | **string** | The unique LUSID Investment Account Identifier of the Investment Account. | [optional] 
+**Scope** | **string** | The scope in which the Investment Account lies. | [optional] 
+**Identifiers** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Unique client-defined identifiers of the Investment Account. | [optional] 
 **DisplayName** | **string** | The display name of the Investment Account | [optional] 
 **Description** | **string** | The description of the Investment Account | [optional] 
-**Identifiers** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Unique client-defined identifiers of the Investment Account. | [optional] 
 **AccountType** | **string** | The type of the of the Investment Account. | [optional] 
 **AccountHolders** | [**List&lt;AccountHolder&gt;**](AccountHolder.md) | The Account Holders of the Investment Account. | [optional] 
 **InvestmentPortfolios** | [**List&lt;InvestmentPortfolio&gt;**](InvestmentPortfolio.md) | The Investment Portfolios of the Investment Account. | [optional] 
+**LusidInvestmentAccountId** | **string** | The unique LUSID Investment Account Identifier of the Investment Account. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties associated to the Investment Account. | [optional] 
 **Relationships** | [**List&lt;Relationship&gt;**](Relationship.md) | A set of relationships associated to the Investment Account. | [optional] 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 

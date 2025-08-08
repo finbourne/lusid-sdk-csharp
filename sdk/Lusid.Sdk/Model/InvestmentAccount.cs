@@ -31,27 +31,29 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvestmentAccount" /> class.
         /// </summary>
-        /// <param name="lusidInvestmentAccountId">The unique LUSID Investment Account Identifier of the Investment Account..</param>
+        /// <param name="scope">The scope in which the Investment Account lies..</param>
+        /// <param name="identifiers">Unique client-defined identifiers of the Investment Account..</param>
         /// <param name="displayName">The display name of the Investment Account.</param>
         /// <param name="description">The description of the Investment Account.</param>
-        /// <param name="identifiers">Unique client-defined identifiers of the Investment Account..</param>
         /// <param name="accountType">The type of the of the Investment Account..</param>
         /// <param name="accountHolders">The Account Holders of the Investment Account..</param>
         /// <param name="investmentPortfolios">The Investment Portfolios of the Investment Account..</param>
+        /// <param name="lusidInvestmentAccountId">The unique LUSID Investment Account Identifier of the Investment Account..</param>
         /// <param name="properties">A set of properties associated to the Investment Account..</param>
         /// <param name="relationships">A set of relationships associated to the Investment Account..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public InvestmentAccount(string lusidInvestmentAccountId = default(string), string displayName = default(string), string description = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), string accountType = default(string), List<AccountHolder> accountHolders = default(List<AccountHolder>), List<InvestmentPortfolio> investmentPortfolios = default(List<InvestmentPortfolio>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public InvestmentAccount(string scope = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), string displayName = default(string), string description = default(string), string accountType = default(string), List<AccountHolder> accountHolders = default(List<AccountHolder>), List<InvestmentPortfolio> investmentPortfolios = default(List<InvestmentPortfolio>), string lusidInvestmentAccountId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
-            this.LusidInvestmentAccountId = lusidInvestmentAccountId;
+            this.Scope = scope;
+            this.Identifiers = identifiers;
             this.DisplayName = displayName;
             this.Description = description;
-            this.Identifiers = identifiers;
             this.AccountType = accountType;
             this.AccountHolders = accountHolders;
             this.InvestmentPortfolios = investmentPortfolios;
+            this.LusidInvestmentAccountId = lusidInvestmentAccountId;
             this.Properties = properties;
             this.Relationships = relationships;
             this.Href = href;
@@ -60,11 +62,18 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The unique LUSID Investment Account Identifier of the Investment Account.
+        /// The scope in which the Investment Account lies.
         /// </summary>
-        /// <value>The unique LUSID Investment Account Identifier of the Investment Account.</value>
-        [DataMember(Name = "lusidInvestmentAccountId", EmitDefaultValue = true)]
-        public string LusidInvestmentAccountId { get; set; }
+        /// <value>The scope in which the Investment Account lies.</value>
+        [DataMember(Name = "scope", EmitDefaultValue = true)]
+        public string Scope { get; set; }
+
+        /// <summary>
+        /// Unique client-defined identifiers of the Investment Account.
+        /// </summary>
+        /// <value>Unique client-defined identifiers of the Investment Account.</value>
+        [DataMember(Name = "identifiers", EmitDefaultValue = true)]
+        public Dictionary<string, Property> Identifiers { get; set; }
 
         /// <summary>
         /// The display name of the Investment Account
@@ -79,13 +88,6 @@ namespace Lusid.Sdk.Model
         /// <value>The description of the Investment Account</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Unique client-defined identifiers of the Investment Account.
-        /// </summary>
-        /// <value>Unique client-defined identifiers of the Investment Account.</value>
-        [DataMember(Name = "identifiers", EmitDefaultValue = true)]
-        public Dictionary<string, Property> Identifiers { get; set; }
 
         /// <summary>
         /// The type of the of the Investment Account.
@@ -107,6 +109,13 @@ namespace Lusid.Sdk.Model
         /// <value>The Investment Portfolios of the Investment Account.</value>
         [DataMember(Name = "investmentPortfolios", EmitDefaultValue = true)]
         public List<InvestmentPortfolio> InvestmentPortfolios { get; set; }
+
+        /// <summary>
+        /// The unique LUSID Investment Account Identifier of the Investment Account.
+        /// </summary>
+        /// <value>The unique LUSID Investment Account Identifier of the Investment Account.</value>
+        [DataMember(Name = "lusidInvestmentAccountId", EmitDefaultValue = true)]
+        public string LusidInvestmentAccountId { get; set; }
 
         /// <summary>
         /// A set of properties associated to the Investment Account.
@@ -149,13 +158,14 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InvestmentAccount {\n");
-            sb.Append("  LusidInvestmentAccountId: ").Append(LusidInvestmentAccountId).Append("\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
+            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  AccountType: ").Append(AccountType).Append("\n");
             sb.Append("  AccountHolders: ").Append(AccountHolders).Append("\n");
             sb.Append("  InvestmentPortfolios: ").Append(InvestmentPortfolios).Append("\n");
+            sb.Append("  LusidInvestmentAccountId: ").Append(LusidInvestmentAccountId).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Relationships: ").Append(Relationships).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
@@ -197,9 +207,15 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.LusidInvestmentAccountId == input.LusidInvestmentAccountId ||
-                    (this.LusidInvestmentAccountId != null &&
-                    this.LusidInvestmentAccountId.Equals(input.LusidInvestmentAccountId))
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
+                ) && 
+                (
+                    this.Identifiers == input.Identifiers ||
+                    this.Identifiers != null &&
+                    input.Identifiers != null &&
+                    this.Identifiers.SequenceEqual(input.Identifiers)
                 ) && 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -210,12 +226,6 @@ namespace Lusid.Sdk.Model
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Identifiers == input.Identifiers ||
-                    this.Identifiers != null &&
-                    input.Identifiers != null &&
-                    this.Identifiers.SequenceEqual(input.Identifiers)
                 ) && 
                 (
                     this.AccountType == input.AccountType ||
@@ -233,6 +243,11 @@ namespace Lusid.Sdk.Model
                     this.InvestmentPortfolios != null &&
                     input.InvestmentPortfolios != null &&
                     this.InvestmentPortfolios.SequenceEqual(input.InvestmentPortfolios)
+                ) && 
+                (
+                    this.LusidInvestmentAccountId == input.LusidInvestmentAccountId ||
+                    (this.LusidInvestmentAccountId != null &&
+                    this.LusidInvestmentAccountId.Equals(input.LusidInvestmentAccountId))
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -273,9 +288,13 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.LusidInvestmentAccountId != null)
+                if (this.Scope != null)
                 {
-                    hashCode = (hashCode * 59) + this.LusidInvestmentAccountId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                }
+                if (this.Identifiers != null)
+                {
+                    hashCode = (hashCode * 59) + this.Identifiers.GetHashCode();
                 }
                 if (this.DisplayName != null)
                 {
@@ -284,10 +303,6 @@ namespace Lusid.Sdk.Model
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Identifiers != null)
-                {
-                    hashCode = (hashCode * 59) + this.Identifiers.GetHashCode();
                 }
                 if (this.AccountType != null)
                 {
@@ -300,6 +315,10 @@ namespace Lusid.Sdk.Model
                 if (this.InvestmentPortfolios != null)
                 {
                     hashCode = (hashCode * 59) + this.InvestmentPortfolios.GetHashCode();
+                }
+                if (this.LusidInvestmentAccountId != null)
+                {
+                    hashCode = (hashCode * 59) + this.LusidInvestmentAccountId.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

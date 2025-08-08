@@ -36,13 +36,20 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpsertInvestorRecordRequest" /> class.
         /// </summary>
+        /// <param name="scope">The scope in which the Investor Record lies. (required).</param>
         /// <param name="identifiers">Unique client-defined identifiers of the Investor Record. (required).</param>
         /// <param name="properties">A set of properties associated to the Investor Record..</param>
         /// <param name="displayName">The display name of the Investor Record (required).</param>
         /// <param name="description">The description of the Investor Record.</param>
         /// <param name="investor">investor (required).</param>
-        public UpsertInvestorRecordRequest(Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string displayName = default(string), string description = default(string), InvestorIdentifier investor = default(InvestorIdentifier))
+        public UpsertInvestorRecordRequest(string scope = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string displayName = default(string), string description = default(string), InvestorIdentifier investor = default(InvestorIdentifier))
         {
+            // to ensure "scope" is required (not null)
+            if (scope == null)
+            {
+                throw new ArgumentNullException("scope is a required property for UpsertInvestorRecordRequest and cannot be null");
+            }
+            this.Scope = scope;
             // to ensure "identifiers" is required (not null)
             if (identifiers == null)
             {
@@ -64,6 +71,13 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.Description = description;
         }
+
+        /// <summary>
+        /// The scope in which the Investor Record lies.
+        /// </summary>
+        /// <value>The scope in which the Investor Record lies.</value>
+        [DataMember(Name = "scope", IsRequired = true, EmitDefaultValue = true)]
+        public string Scope { get; set; }
 
         /// <summary>
         /// Unique client-defined identifiers of the Investor Record.
@@ -107,6 +121,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpsertInvestorRecordRequest {\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
@@ -148,6 +163,11 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
+                ) && 
+                (
                     this.Identifiers == input.Identifiers ||
                     this.Identifiers != null &&
                     input.Identifiers != null &&
@@ -185,6 +205,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Scope != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                }
                 if (this.Identifiers != null)
                 {
                     hashCode = (hashCode * 59) + this.Identifiers.GetHashCode();
@@ -216,6 +240,25 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Scope (string) maxLength
+            if (this.Scope != null && this.Scope.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, length must be less than 64.", new [] { "Scope" });
+            }
+
+            // Scope (string) minLength
+            if (this.Scope != null && this.Scope.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, length must be greater than 1.", new [] { "Scope" });
+            }
+
+            // Scope (string) pattern
+            Regex regexScope = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexScope.Match(this.Scope).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, must match a pattern of " + regexScope, new [] { "Scope" });
+            }
+
             // DisplayName (string) maxLength
             if (this.DisplayName != null && this.DisplayName.Length > 512)
             {

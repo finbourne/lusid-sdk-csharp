@@ -5,6 +5,7 @@ Request to create or update an investor record
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Scope** | **string** | The scope in which the Investor Record lies. | 
 **Identifiers** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Unique client-defined identifiers of the Investor Record. | 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties associated to the Investor Record. | [optional] 
 **DisplayName** | **string** | The display name of the Investor Record | 

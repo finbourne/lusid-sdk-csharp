@@ -38,9 +38,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve the definition of an investment account.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="idTypeScope">Scope of the investment account identifier type.</param>
-        /// <param name="idTypeCode">Code of the investment account identifier type.</param>
-        /// <param name="code">Code of the investment account under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the investment account.</param>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
         /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
@@ -48,7 +49,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>InvestmentAccount</returns>
-        InvestmentAccount GetInvestmentAccount(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        InvestmentAccount GetInvestmentAccount(string identifierType, string identifierValue, string scope, string identifierScope, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account
@@ -57,9 +58,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve the definition of an investment account.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="idTypeScope">Scope of the investment account identifier type.</param>
-        /// <param name="idTypeCode">Code of the investment account identifier type.</param>
-        /// <param name="code">Code of the investment account under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the investment account.</param>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
         /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
@@ -67,7 +69,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of InvestmentAccount</returns>
-        Lusid.Sdk.Client.ApiResponse<InvestmentAccount> GetInvestmentAccountWithHttpInfo(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<InvestmentAccount> GetInvestmentAccountWithHttpInfo(string identifierType, string identifierValue, string scope, string identifierScope, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts
         /// </summary>
@@ -150,9 +152,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve the definition of an investment account.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="idTypeScope">Scope of the investment account identifier type.</param>
-        /// <param name="idTypeCode">Code of the investment account identifier type.</param>
-        /// <param name="code">Code of the investment account under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the investment account.</param>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
         /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
@@ -161,7 +164,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of InvestmentAccount</returns>
-        System.Threading.Tasks.Task<InvestmentAccount> GetInvestmentAccountAsync(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<InvestmentAccount> GetInvestmentAccountAsync(string identifierType, string identifierValue, string scope, string identifierScope, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account
@@ -170,9 +173,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve the definition of an investment account.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="idTypeScope">Scope of the investment account identifier type.</param>
-        /// <param name="idTypeCode">Code of the investment account identifier type.</param>
-        /// <param name="code">Code of the investment account under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the investment account.</param>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
         /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
@@ -181,7 +185,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (InvestmentAccount)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InvestmentAccount>> GetInvestmentAccountWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InvestmentAccount>> GetInvestmentAccountWithHttpInfoAsync(string identifierType, string identifierValue, string scope, string identifierScope, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts
         /// </summary>
@@ -379,9 +383,10 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account Retrieve the definition of an investment account.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="idTypeScope">Scope of the investment account identifier type.</param>
-        /// <param name="idTypeCode">Code of the investment account identifier type.</param>
-        /// <param name="code">Code of the investment account under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the investment account.</param>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
         /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
@@ -389,9 +394,9 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>InvestmentAccount</returns>
-        public InvestmentAccount GetInvestmentAccount(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public InvestmentAccount GetInvestmentAccount(string identifierType, string identifierValue, string scope, string identifierScope, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<InvestmentAccount> localVarResponse = GetInvestmentAccountWithHttpInfo(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<InvestmentAccount> localVarResponse = GetInvestmentAccountWithHttpInfo(identifierType, identifierValue, scope, identifierScope, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -399,9 +404,10 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account Retrieve the definition of an investment account.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="idTypeScope">Scope of the investment account identifier type.</param>
-        /// <param name="idTypeCode">Code of the investment account identifier type.</param>
-        /// <param name="code">Code of the investment account under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the investment account.</param>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
         /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
@@ -409,24 +415,30 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of InvestmentAccount</returns>
-        public Lusid.Sdk.Client.ApiResponse<InvestmentAccount> GetInvestmentAccountWithHttpInfo(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<InvestmentAccount> GetInvestmentAccountWithHttpInfo(string identifierType, string identifierValue, string scope, string identifierScope, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            // verify the required parameter 'idTypeScope' is set
-            if (idTypeScope == null)
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'idTypeScope' when calling InvestmentAccountsApi->GetInvestmentAccount");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InvestmentAccountsApi->GetInvestmentAccount");
             }
 
-            // verify the required parameter 'idTypeCode' is set
-            if (idTypeCode == null)
+            // verify the required parameter 'identifierValue' is set
+            if (identifierValue == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'idTypeCode' when calling InvestmentAccountsApi->GetInvestmentAccount");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierValue' when calling InvestmentAccountsApi->GetInvestmentAccount");
             }
 
-            // verify the required parameter 'code' is set
-            if (code == null)
+            // verify the required parameter 'scope' is set
+            if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling InvestmentAccountsApi->GetInvestmentAccount");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling InvestmentAccountsApi->GetInvestmentAccount");
+            }
+
+            // verify the required parameter 'identifierScope' is set
+            if (identifierScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierScope' when calling InvestmentAccountsApi->GetInvestmentAccount");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -463,9 +475,10 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("idTypeScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(idTypeScope)); // path parameter
-            localVarRequestOptions.PathParameters.Add("idTypeCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(idTypeCode)); // path parameter
-            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifierValue", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierValue)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "identifierScope", identifierScope));
             if (propertyKeys != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
@@ -504,7 +517,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<InvestmentAccount>("/api/investmentaccounts/{idTypeScope}/{idTypeCode}/{code}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<InvestmentAccount>("/api/investmentaccounts/{identifierType}/{identifierValue}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInvestmentAccount", localVarResponse);
@@ -521,9 +534,10 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account Retrieve the definition of an investment account.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="idTypeScope">Scope of the investment account identifier type.</param>
-        /// <param name="idTypeCode">Code of the investment account identifier type.</param>
-        /// <param name="code">Code of the investment account under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the investment account.</param>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
         /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
@@ -532,9 +546,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of InvestmentAccount</returns>
-        public async System.Threading.Tasks.Task<InvestmentAccount> GetInvestmentAccountAsync(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<InvestmentAccount> GetInvestmentAccountAsync(string identifierType, string identifierValue, string scope, string identifierScope, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<InvestmentAccount> localVarResponse = await GetInvestmentAccountWithHttpInfoAsync(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<InvestmentAccount> localVarResponse = await GetInvestmentAccountWithHttpInfoAsync(identifierType, identifierValue, scope, identifierScope, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -542,9 +556,10 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account Retrieve the definition of an investment account.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="idTypeScope">Scope of the investment account identifier type.</param>
-        /// <param name="idTypeCode">Code of the investment account identifier type.</param>
-        /// <param name="code">Code of the investment account under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the investment account.</param>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
         /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
@@ -553,24 +568,30 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (InvestmentAccount)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InvestmentAccount>> GetInvestmentAccountWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InvestmentAccount>> GetInvestmentAccountWithHttpInfoAsync(string identifierType, string identifierValue, string scope, string identifierScope, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            // verify the required parameter 'idTypeScope' is set
-            if (idTypeScope == null)
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'idTypeScope' when calling InvestmentAccountsApi->GetInvestmentAccount");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InvestmentAccountsApi->GetInvestmentAccount");
             }
 
-            // verify the required parameter 'idTypeCode' is set
-            if (idTypeCode == null)
+            // verify the required parameter 'identifierValue' is set
+            if (identifierValue == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'idTypeCode' when calling InvestmentAccountsApi->GetInvestmentAccount");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierValue' when calling InvestmentAccountsApi->GetInvestmentAccount");
             }
 
-            // verify the required parameter 'code' is set
-            if (code == null)
+            // verify the required parameter 'scope' is set
+            if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling InvestmentAccountsApi->GetInvestmentAccount");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling InvestmentAccountsApi->GetInvestmentAccount");
+            }
+
+            // verify the required parameter 'identifierScope' is set
+            if (identifierScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierScope' when calling InvestmentAccountsApi->GetInvestmentAccount");
             }
 
 
@@ -608,9 +629,10 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("idTypeScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(idTypeScope)); // path parameter
-            localVarRequestOptions.PathParameters.Add("idTypeCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(idTypeCode)); // path parameter
-            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifierValue", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierValue)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "identifierScope", identifierScope));
             if (propertyKeys != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
@@ -649,7 +671,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InvestmentAccount>("/api/investmentaccounts/{idTypeScope}/{idTypeCode}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InvestmentAccount>("/api/investmentaccounts/{identifierType}/{identifierValue}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

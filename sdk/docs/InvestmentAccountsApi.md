@@ -4,13 +4,13 @@ All URIs are relative to *https://www.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetInvestmentAccount**](InvestmentAccountsApi.md#getinvestmentaccount) | **GET** /api/investmentaccounts/{idTypeScope}/{idTypeCode}/{code} | [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account |
+| [**GetInvestmentAccount**](InvestmentAccountsApi.md#getinvestmentaccount) | **GET** /api/investmentaccounts/{identifierType}/{identifierValue} | [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account |
 | [**ListAllInvestmentAccounts**](InvestmentAccountsApi.md#listallinvestmentaccounts) | **GET** /api/investmentaccounts | [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts |
 | [**UpsertInvestmentAccounts**](InvestmentAccountsApi.md#upsertinvestmentaccounts) | **POST** /api/investmentaccounts/$batchUpsert | [EXPERIMENTAL] UpsertInvestmentAccounts: Upsert Investment Accounts |
 
 <a id="getinvestmentaccount"></a>
 # **GetInvestmentAccount**
-> InvestmentAccount GetInvestmentAccount (string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = null, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? relationshipDefinitionIds = null)
+> InvestmentAccount GetInvestmentAccount (string identifierType, string identifierValue, string scope, string identifierScope, List<string>? propertyKeys = null, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? relationshipDefinitionIds = null)
 
 [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account
 
@@ -55,9 +55,10 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InvestmentAccountsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InvestmentAccountsApi>();
-            var idTypeScope = "idTypeScope_example";  // string | Scope of the investment account identifier type.
-            var idTypeCode = "idTypeCode_example";  // string | Code of the investment account identifier type.
-            var code = "code_example";  // string | Code of the investment account under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the investment account.
+            var identifierType = "identifierType_example";  // string | Code of the investment account identifier type.
+            var identifierValue = "identifierValue_example";  // string | Code of the investment account under specified identifier type's scope and code.
+            var scope = "scope_example";  // string | The scope of the investment account entity.
+            var identifierScope = "identifierScope_example";  // string | Scope of the investment account identifier type.
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys or identifier types (as property keys) from the \"InvestmentAccount\" domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \"InvestmentAccount/ContactDetails/Address\". (optional) 
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional) 
@@ -66,10 +67,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // InvestmentAccount result = apiInstance.GetInvestmentAccount(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds, opts: opts);
+                // InvestmentAccount result = apiInstance.GetInvestmentAccount(identifierType, identifierValue, scope, identifierScope, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds, opts: opts);
 
                 // [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account
-                InvestmentAccount result = apiInstance.GetInvestmentAccount(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds);
+                InvestmentAccount result = apiInstance.GetInvestmentAccount(identifierType, identifierValue, scope, identifierScope, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -90,7 +91,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account
-    ApiResponse<InvestmentAccount> response = apiInstance.GetInvestmentAccountWithHttpInfo(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds);
+    ApiResponse<InvestmentAccount> response = apiInstance.GetInvestmentAccountWithHttpInfo(identifierType, identifierValue, scope, identifierScope, propertyKeys, effectiveAt, asAt, relationshipDefinitionIds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -107,9 +108,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **idTypeScope** | **string** | Scope of the investment account identifier type. |  |
-| **idTypeCode** | **string** | Code of the investment account identifier type. |  |
-| **code** | **string** | Code of the investment account under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the investment account. |  |
+| **identifierType** | **string** | Code of the investment account identifier type. |  |
+| **identifierValue** | **string** | Code of the investment account under specified identifier type&#39;s scope and code. |  |
+| **scope** | **string** | The scope of the investment account entity. |  |
+| **identifierScope** | **string** | Scope of the investment account identifier type. |  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. | [optional]  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. | [optional]  |
