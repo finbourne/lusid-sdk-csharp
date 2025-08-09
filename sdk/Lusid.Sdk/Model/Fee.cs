@@ -56,8 +56,9 @@ namespace Lusid.Sdk.Model
         /// <param name="varVersion">varVersion.</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="shareClasses">The short codes of the ShareClasses that the Fee should be applied to. Optional: if this is null or empty, then the Fee will be divided between all the ShareClasses of the Fund according to the capital ratio..</param>
+        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used..</param>
         /// <param name="links">links.</param>
-        public Fee(string href = default(string), string feeCode = default(string), ResourceId feeTypeId = default(ResourceId), string displayName = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), ResourceId portfolioId = default(ResourceId), List<string> shareClasses = default(List<string>), List<Link> links = default(List<Link>))
+        public Fee(string href = default(string), string feeCode = default(string), ResourceId feeTypeId = default(ResourceId), string displayName = default(string), string description = default(string), string origin = default(string), string calculationBase = default(string), string accrualCurrency = default(string), string treatment = default(string), decimal? totalAnnualAccrualAmount = default(decimal?), decimal? feeRatePercentage = default(decimal?), string payableFrequency = default(string), string businessDayConvention = default(string), DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), DayMonth anchorDate = default(DayMonth), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), ResourceId portfolioId = default(ResourceId), List<string> shareClasses = default(List<string>), string navTypeCode = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "feeTypeId" is required (not null)
             if (feeTypeId == null)
@@ -109,6 +110,7 @@ namespace Lusid.Sdk.Model
             this.VarVersion = varVersion;
             this.PortfolioId = portfolioId;
             this.ShareClasses = shareClasses;
+            this.NavTypeCode = navTypeCode;
             this.Links = links;
         }
 
@@ -249,6 +251,13 @@ namespace Lusid.Sdk.Model
         public List<string> ShareClasses { get; set; }
 
         /// <summary>
+        /// When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used.
+        /// </summary>
+        /// <value>When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used.</value>
+        [DataMember(Name = "navTypeCode", EmitDefaultValue = true)]
+        public string NavTypeCode { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -282,6 +291,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  ShareClasses: ").Append(ShareClasses).Append("\n");
+            sb.Append("  NavTypeCode: ").Append(NavTypeCode).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -421,6 +431,11 @@ namespace Lusid.Sdk.Model
                     this.ShareClasses.SequenceEqual(input.ShareClasses)
                 ) && 
                 (
+                    this.NavTypeCode == input.NavTypeCode ||
+                    (this.NavTypeCode != null &&
+                    this.NavTypeCode.Equals(input.NavTypeCode))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -516,6 +531,10 @@ namespace Lusid.Sdk.Model
                 if (this.ShareClasses != null)
                 {
                     hashCode = (hashCode * 59) + this.ShareClasses.GetHashCode();
+                }
+                if (this.NavTypeCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.NavTypeCode.GetHashCode();
                 }
                 if (this.Links != null)
                 {
