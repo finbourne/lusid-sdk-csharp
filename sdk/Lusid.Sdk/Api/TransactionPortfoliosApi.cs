@@ -439,6 +439,35 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePropertiesFromTransactionWithHttpInfo(string scope, string code, string transactionId, List<string> propertyKeys, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] DeleteSettlementInstructions: Delete Settlement Instructions.
+        /// </summary>
+        /// <remarks>
+        /// Delete the specified settlement instructions
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies              the portfolio.</param>
+        /// <param name="settlementInstructionIds">A list of Ids of settlement instructions to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteSettlementInstructions(string scope, string code, List<string> settlementInstructionIds, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteSettlementInstructions: Delete Settlement Instructions.
+        /// </summary>
+        /// <remarks>
+        /// Delete the specified settlement instructions
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies              the portfolio.</param>
+        /// <param name="settlementInstructionIds">A list of Ids of settlement instructions to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteSettlementInstructionsWithHttpInfo(string scope, string code, List<string> settlementInstructionIds, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// GetA2BData: Get A2B data
         /// </summary>
         /// <remarks>
@@ -1151,6 +1180,45 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfHoldingsAdjustmentHeader</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfHoldingsAdjustmentHeader> ListHoldingsAdjustmentsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions.
+        /// </summary>
+        /// <remarks>
+        /// Display all the Settlement Instructions for a given Portfolio. The transaction Id filter can be ued to return instructions for an individual transaction.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="code">The code of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="fromDate">The lower bound effective datetime or cut label (inclusive) from which to retrieve instructions.              There is no lower bound if this is not specified. (optional)</param>
+        /// <param name="toDate">The upper bound effective datetime or cut label (inclusive) from which to retrieve instructions. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfTransactionSettlementInstruction</returns>
+        ResourceListOfTransactionSettlementInstruction ListSettlementInstructions(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions.
+        /// </summary>
+        /// <remarks>
+        /// Display all the Settlement Instructions for a given Portfolio. The transaction Id filter can be ued to return instructions for an individual transaction.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="code">The code of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="fromDate">The lower bound effective datetime or cut label (inclusive) from which to retrieve instructions.              There is no lower bound if this is not specified. (optional)</param>
+        /// <param name="toDate">The upper bound effective datetime or cut label (inclusive) from which to retrieve instructions. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfTransactionSettlementInstruction</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// PatchPortfolioDetails: Patch portfolio details
         /// </summary>
         /// <remarks>
@@ -1379,6 +1447,35 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PortfolioDetails</returns>
         Lusid.Sdk.Client.ApiResponse<PortfolioDetails> UpsertPortfolioDetailsWithHttpInfo(string scope, string code, CreatePortfolioDetails createPortfolioDetails, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] UpsertSettlementInstructions: Upsert Settlement Instructions.
+        /// </summary>
+        /// <remarks>
+        /// Create or update instructions to settle specific transactions.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio.</param>
+        /// <param name="settlementInstructionRequest">The definition of the settlement instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfTransactionSettlementInstruction</returns>
+        ResourceListOfTransactionSettlementInstruction UpsertSettlementInstructions(string scope, string code, List<SettlementInstructionRequest> settlementInstructionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertSettlementInstructions: Upsert Settlement Instructions.
+        /// </summary>
+        /// <remarks>
+        /// Create or update instructions to settle specific transactions.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio.</param>
+        /// <param name="settlementInstructionRequest">The definition of the settlement instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfTransactionSettlementInstruction</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionSettlementInstruction> UpsertSettlementInstructionsWithHttpInfo(string scope, string code, List<SettlementInstructionRequest> settlementInstructionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertTransactionProperties: Upsert transaction properties
         /// </summary>
@@ -1887,6 +1984,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePropertiesFromTransactionWithHttpInfoAsync(string scope, string code, string transactionId, List<string> propertyKeys, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] DeleteSettlementInstructions: Delete Settlement Instructions.
+        /// </summary>
+        /// <remarks>
+        /// Delete the specified settlement instructions
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies              the portfolio.</param>
+        /// <param name="settlementInstructionIds">A list of Ids of settlement instructions to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSettlementInstructionsAsync(string scope, string code, List<string> settlementInstructionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteSettlementInstructions: Delete Settlement Instructions.
+        /// </summary>
+        /// <remarks>
+        /// Delete the specified settlement instructions
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies              the portfolio.</param>
+        /// <param name="settlementInstructionIds">A list of Ids of settlement instructions to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteSettlementInstructionsWithHttpInfoAsync(string scope, string code, List<string> settlementInstructionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetA2BData: Get A2B data
         /// </summary>
@@ -2636,6 +2764,47 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfHoldingsAdjustmentHeader)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfHoldingsAdjustmentHeader>> ListHoldingsAdjustmentsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions.
+        /// </summary>
+        /// <remarks>
+        /// Display all the Settlement Instructions for a given Portfolio. The transaction Id filter can be ued to return instructions for an individual transaction.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="code">The code of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="fromDate">The lower bound effective datetime or cut label (inclusive) from which to retrieve instructions.              There is no lower bound if this is not specified. (optional)</param>
+        /// <param name="toDate">The upper bound effective datetime or cut label (inclusive) from which to retrieve instructions. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfTransactionSettlementInstruction</returns>
+        System.Threading.Tasks.Task<ResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions.
+        /// </summary>
+        /// <remarks>
+        /// Display all the Settlement Instructions for a given Portfolio. The transaction Id filter can be ued to return instructions for an individual transaction.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="code">The code of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="fromDate">The lower bound effective datetime or cut label (inclusive) from which to retrieve instructions.              There is no lower bound if this is not specified. (optional)</param>
+        /// <param name="toDate">The upper bound effective datetime or cut label (inclusive) from which to retrieve instructions. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfTransactionSettlementInstruction)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionSettlementInstruction>> ListSettlementInstructionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// PatchPortfolioDetails: Patch portfolio details
         /// </summary>
         /// <remarks>
@@ -2878,6 +3047,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PortfolioDetails)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioDetails>> UpsertPortfolioDetailsWithHttpInfoAsync(string scope, string code, CreatePortfolioDetails createPortfolioDetails, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] UpsertSettlementInstructions: Upsert Settlement Instructions.
+        /// </summary>
+        /// <remarks>
+        /// Create or update instructions to settle specific transactions.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio.</param>
+        /// <param name="settlementInstructionRequest">The definition of the settlement instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfTransactionSettlementInstruction</returns>
+        System.Threading.Tasks.Task<ResourceListOfTransactionSettlementInstruction> UpsertSettlementInstructionsAsync(string scope, string code, List<SettlementInstructionRequest> settlementInstructionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertSettlementInstructions: Upsert Settlement Instructions.
+        /// </summary>
+        /// <remarks>
+        /// Create or update instructions to settle specific transactions.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio.</param>
+        /// <param name="settlementInstructionRequest">The definition of the settlement instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfTransactionSettlementInstruction)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionSettlementInstruction>> UpsertSettlementInstructionsWithHttpInfoAsync(string scope, string code, List<SettlementInstructionRequest> settlementInstructionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertTransactionProperties: Upsert transaction properties
         /// </summary>
@@ -6460,6 +6660,246 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeletePropertiesFromTransaction", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteSettlementInstructions: Delete Settlement Instructions. Delete the specified settlement instructions
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies              the portfolio.</param>
+        /// <param name="settlementInstructionIds">A list of Ids of settlement instructions to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteSettlementInstructions(string scope, string code, List<string> settlementInstructionIds, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteSettlementInstructionsWithHttpInfo(scope, code, settlementInstructionIds, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteSettlementInstructions: Delete Settlement Instructions. Delete the specified settlement instructions
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies              the portfolio.</param>
+        /// <param name="settlementInstructionIds">A list of Ids of settlement instructions to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteSettlementInstructionsWithHttpInfo(string scope, string code, List<string> settlementInstructionIds, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->DeleteSettlementInstructions");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->DeleteSettlementInstructions");
+            }
+
+            // verify the required parameter 'settlementInstructionIds' is set
+            if (settlementInstructionIds == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'settlementInstructionIds' when calling TransactionPortfoliosApi->DeleteSettlementInstructions");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "settlementInstructionIds", settlementInstructionIds));
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.DeleteSettlementInstructions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/transactionportfolios/{scope}/{code}/settlementinstructions", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteSettlementInstructions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteSettlementInstructions: Delete Settlement Instructions. Delete the specified settlement instructions
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies              the portfolio.</param>
+        /// <param name="settlementInstructionIds">A list of Ids of settlement instructions to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSettlementInstructionsAsync(string scope, string code, List<string> settlementInstructionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteSettlementInstructionsWithHttpInfoAsync(scope, code, settlementInstructionIds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteSettlementInstructions: Delete Settlement Instructions. Delete the specified settlement instructions
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies              the portfolio.</param>
+        /// <param name="settlementInstructionIds">A list of Ids of settlement instructions to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteSettlementInstructionsWithHttpInfoAsync(string scope, string code, List<string> settlementInstructionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->DeleteSettlementInstructions");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->DeleteSettlementInstructions");
+            }
+
+            // verify the required parameter 'settlementInstructionIds' is set
+            if (settlementInstructionIds == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'settlementInstructionIds' when calling TransactionPortfoliosApi->DeleteSettlementInstructions");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "settlementInstructionIds", settlementInstructionIds));
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.DeleteSettlementInstructions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/transactionportfolios/{scope}/{code}/settlementinstructions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteSettlementInstructions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -11910,6 +12350,300 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions. Display all the Settlement Instructions for a given Portfolio. The transaction Id filter can be ued to return instructions for an individual transaction.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="code">The code of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="fromDate">The lower bound effective datetime or cut label (inclusive) from which to retrieve instructions.              There is no lower bound if this is not specified. (optional)</param>
+        /// <param name="toDate">The upper bound effective datetime or cut label (inclusive) from which to retrieve instructions. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfTransactionSettlementInstruction</returns>
+        public ResourceListOfTransactionSettlementInstruction ListSettlementInstructions(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionSettlementInstruction> localVarResponse = ListSettlementInstructionsWithHttpInfo(scope, code, fromDate, toDate, page, limit, filter, asAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions. Display all the Settlement Instructions for a given Portfolio. The transaction Id filter can be ued to return instructions for an individual transaction.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="code">The code of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="fromDate">The lower bound effective datetime or cut label (inclusive) from which to retrieve instructions.              There is no lower bound if this is not specified. (optional)</param>
+        /// <param name="toDate">The upper bound effective datetime or cut label (inclusive) from which to retrieve instructions. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfTransactionSettlementInstruction</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->ListSettlementInstructions");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->ListSettlementInstructions");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (fromDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
+            }
+            if (toDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.ListSettlementInstructions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ResourceListOfTransactionSettlementInstruction>("/api/transactionportfolios/{scope}/{code}/settlementinstructions", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSettlementInstructions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions. Display all the Settlement Instructions for a given Portfolio. The transaction Id filter can be ued to return instructions for an individual transaction.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="code">The code of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="fromDate">The lower bound effective datetime or cut label (inclusive) from which to retrieve instructions.              There is no lower bound if this is not specified. (optional)</param>
+        /// <param name="toDate">The upper bound effective datetime or cut label (inclusive) from which to retrieve instructions. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfTransactionSettlementInstruction</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionSettlementInstruction> localVarResponse = await ListSettlementInstructionsWithHttpInfoAsync(scope, code, fromDate, toDate, page, limit, filter, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions. Display all the Settlement Instructions for a given Portfolio. The transaction Id filter can be ued to return instructions for an individual transaction.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="code">The code of the portfolio to retrieve settlement instructions for.</param>
+        /// <param name="fromDate">The lower bound effective datetime or cut label (inclusive) from which to retrieve instructions.              There is no lower bound if this is not specified. (optional)</param>
+        /// <param name="toDate">The upper bound effective datetime or cut label (inclusive) from which to retrieve instructions. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfTransactionSettlementInstruction)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionSettlementInstruction>> ListSettlementInstructionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->ListSettlementInstructions");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->ListSettlementInstructions");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (fromDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
+            }
+            if (toDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.ListSettlementInstructions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfTransactionSettlementInstruction>("/api/transactionportfolios/{scope}/{code}/settlementinstructions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSettlementInstructions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// PatchPortfolioDetails: Patch portfolio details Create or update certain details for a particular transaction portfolio.  Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: BaseCurrency, SubHoldingKeys, AmortisationMethod, TransactionTypeScope, CashGainLossCalculationDate, InstrumentEventConfiguration, AmortisationRuleSetId, TaxRuleSetScope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -13798,6 +14532,254 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpsertPortfolioDetails", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertSettlementInstructions: Upsert Settlement Instructions. Create or update instructions to settle specific transactions.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio.</param>
+        /// <param name="settlementInstructionRequest">The definition of the settlement instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfTransactionSettlementInstruction</returns>
+        public ResourceListOfTransactionSettlementInstruction UpsertSettlementInstructions(string scope, string code, List<SettlementInstructionRequest> settlementInstructionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionSettlementInstruction> localVarResponse = UpsertSettlementInstructionsWithHttpInfo(scope, code, settlementInstructionRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertSettlementInstructions: Upsert Settlement Instructions. Create or update instructions to settle specific transactions.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio.</param>
+        /// <param name="settlementInstructionRequest">The definition of the settlement instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfTransactionSettlementInstruction</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionSettlementInstruction> UpsertSettlementInstructionsWithHttpInfo(string scope, string code, List<SettlementInstructionRequest> settlementInstructionRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->UpsertSettlementInstructions");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->UpsertSettlementInstructions");
+            }
+
+            // verify the required parameter 'settlementInstructionRequest' is set
+            if (settlementInstructionRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'settlementInstructionRequest' when calling TransactionPortfoliosApi->UpsertSettlementInstructions");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = settlementInstructionRequest;
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.UpsertSettlementInstructions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ResourceListOfTransactionSettlementInstruction>("/api/transactionportfolios/{scope}/{code}/settlementinstructions", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertSettlementInstructions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertSettlementInstructions: Upsert Settlement Instructions. Create or update instructions to settle specific transactions.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio.</param>
+        /// <param name="settlementInstructionRequest">The definition of the settlement instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfTransactionSettlementInstruction</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfTransactionSettlementInstruction> UpsertSettlementInstructionsAsync(string scope, string code, List<SettlementInstructionRequest> settlementInstructionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionSettlementInstruction> localVarResponse = await UpsertSettlementInstructionsWithHttpInfoAsync(scope, code, settlementInstructionRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertSettlementInstructions: Upsert Settlement Instructions. Create or update instructions to settle specific transactions.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio.</param>
+        /// <param name="settlementInstructionRequest">The definition of the settlement instruction.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfTransactionSettlementInstruction)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionSettlementInstruction>> UpsertSettlementInstructionsWithHttpInfoAsync(string scope, string code, List<SettlementInstructionRequest> settlementInstructionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->UpsertSettlementInstructions");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->UpsertSettlementInstructions");
+            }
+
+            // verify the required parameter 'settlementInstructionRequest' is set
+            if (settlementInstructionRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'settlementInstructionRequest' when calling TransactionPortfoliosApi->UpsertSettlementInstructions");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = settlementInstructionRequest;
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.UpsertSettlementInstructions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ResourceListOfTransactionSettlementInstruction>("/api/transactionportfolios/{scope}/{code}/settlementinstructions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertSettlementInstructions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
