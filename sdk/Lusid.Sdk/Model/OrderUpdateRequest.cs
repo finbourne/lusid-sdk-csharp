@@ -43,7 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="price">price.</param>
         /// <param name="limitPrice">limitPrice.</param>
         /// <param name="stopPrice">stopPrice.</param>
-        public OrderUpdateRequest(ResourceId id = default(ResourceId), decimal? quantity = default(decimal?), ResourceId portfolioId = default(ResourceId), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount))
+        /// <param name="date">The date on which the order was made.</param>
+        /// <param name="side">The client&#39;s representation of the order&#39;s side (buy, sell, short, etc).</param>
+        public OrderUpdateRequest(ResourceId id = default(ResourceId), decimal? quantity = default(decimal?), ResourceId portfolioId = default(ResourceId), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), DateTimeOffset? date = default(DateTimeOffset?), string side = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -57,6 +59,8 @@ namespace Lusid.Sdk.Model
             this.Price = price;
             this.LimitPrice = limitPrice;
             this.StopPrice = stopPrice;
+            this.Date = date;
+            this.Side = side;
         }
 
         /// <summary>
@@ -104,6 +108,20 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount StopPrice { get; set; }
 
         /// <summary>
+        /// The date on which the order was made
+        /// </summary>
+        /// <value>The date on which the order was made</value>
+        [DataMember(Name = "date", EmitDefaultValue = true)]
+        public DateTimeOffset? Date { get; set; }
+
+        /// <summary>
+        /// The client&#39;s representation of the order&#39;s side (buy, sell, short, etc)
+        /// </summary>
+        /// <value>The client&#39;s representation of the order&#39;s side (buy, sell, short, etc)</value>
+        [DataMember(Name = "side", EmitDefaultValue = true)]
+        public string Side { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -118,6 +136,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  LimitPrice: ").Append(LimitPrice).Append("\n");
             sb.Append("  StopPrice: ").Append(StopPrice).Append("\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  Side: ").Append(Side).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -188,6 +208,16 @@ namespace Lusid.Sdk.Model
                     this.StopPrice == input.StopPrice ||
                     (this.StopPrice != null &&
                     this.StopPrice.Equals(input.StopPrice))
+                ) && 
+                (
+                    this.Date == input.Date ||
+                    (this.Date != null &&
+                    this.Date.Equals(input.Date))
+                ) && 
+                (
+                    this.Side == input.Side ||
+                    (this.Side != null &&
+                    this.Side.Equals(input.Side))
                 );
         }
 
@@ -228,6 +258,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.StopPrice.GetHashCode();
                 }
+                if (this.Date != null)
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
+                if (this.Side != null)
+                {
+                    hashCode = (hashCode * 59) + this.Side.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -239,6 +277,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Side (string) maxLength
+            if (this.Side != null && this.Side.Length > 6000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Side, length must be less than 6000.", new [] { "Side" });
+            }
+
+            // Side (string) minLength
+            if (this.Side != null && this.Side.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Side, length must be greater than 0.", new [] { "Side" });
+            }
+
             yield break;
         }
     }

@@ -429,7 +429,13 @@ namespace Lusid.Sdk.Model
         /// Enum FlexibleRepoPartialClosureEvent for value: FlexibleRepoPartialClosureEvent
         /// </summary>
         [EnumMember(Value = "FlexibleRepoPartialClosureEvent")]
-        FlexibleRepoPartialClosureEvent = 67
+        FlexibleRepoPartialClosureEvent = 67,
+
+        /// <summary>
+        /// Enum FlexibleRepoFullClosureEvent for value: FlexibleRepoFullClosureEvent
+        /// </summary>
+        [EnumMember(Value = "FlexibleRepoFullClosureEvent")]
+        FlexibleRepoFullClosureEvent = 68
     }
 
 }

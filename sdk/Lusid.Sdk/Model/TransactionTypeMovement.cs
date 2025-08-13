@@ -45,7 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="movementOptions">Allows extra specifications for the movement. The options currently available are &#39;DirectAdjustment&#39;, &#39;IncludesTradedInterest&#39;, &#39;Virtual&#39; and &#39;Income&#39; (works only with the movement type &#39;StockMovement&#39;). A movement type of &#39;StockMovement&#39; with an option of &#39;DirectAdjusment&#39; will allow you to adjust the units of a holding without affecting its cost base. You will, therefore, be able to reflect the impact of a stock split by loading a Transaction..</param>
         /// <param name="settlementDateOverride">Optional property key that must be in the Transaction domain when specified. When the movement is processed and the transaction has this property set to a valid date, then the property value will override the SettlementDate of the transaction..</param>
         /// <param name="condition">The condition that the transaction must satisfy to generate the movement, such as: Portfolio.BaseCurrency eq &#39;GBP&#39;. The condition can contain fields and properties from transactions and portfolios. If no condition is provided, the movement will apply for all transactions of this type..</param>
-        public TransactionTypeMovement(string movementTypes = default(string), string side = default(string), int direction = default(int), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TransactionTypePropertyMapping> mappings = default(List<TransactionTypePropertyMapping>), string name = default(string), List<string> movementOptions = default(List<string>), string settlementDateOverride = default(string), string condition = default(string))
+        /// <param name="settlementMode">Configures how movements should settle. Allowed values: &#39;Internal&#39; and &#39;External&#39;. A movement with &#39;Internal&#39; settlement mode will settle automatically on the contractual settlement date regardlesss of portfolio configuration or settlement instruction. An &#39;External&#39; movement can be settled automatically or by a settlement instruction..</param>
+        public TransactionTypeMovement(string movementTypes = default(string), string side = default(string), int direction = default(int), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TransactionTypePropertyMapping> mappings = default(List<TransactionTypePropertyMapping>), string name = default(string), List<string> movementOptions = default(List<string>), string settlementDateOverride = default(string), string condition = default(string), string settlementMode = default(string))
         {
             // to ensure "movementTypes" is required (not null)
             if (movementTypes == null)
@@ -66,6 +67,7 @@ namespace Lusid.Sdk.Model
             this.MovementOptions = movementOptions;
             this.SettlementDateOverride = settlementDateOverride;
             this.Condition = condition;
+            this.SettlementMode = settlementMode;
         }
 
         /// <summary>
@@ -132,6 +134,13 @@ namespace Lusid.Sdk.Model
         public string Condition { get; set; }
 
         /// <summary>
+        /// Configures how movements should settle. Allowed values: &#39;Internal&#39; and &#39;External&#39;. A movement with &#39;Internal&#39; settlement mode will settle automatically on the contractual settlement date regardlesss of portfolio configuration or settlement instruction. An &#39;External&#39; movement can be settled automatically or by a settlement instruction.
+        /// </summary>
+        /// <value>Configures how movements should settle. Allowed values: &#39;Internal&#39; and &#39;External&#39;. A movement with &#39;Internal&#39; settlement mode will settle automatically on the contractual settlement date regardlesss of portfolio configuration or settlement instruction. An &#39;External&#39; movement can be settled automatically or by a settlement instruction.</value>
+        [DataMember(Name = "settlementMode", EmitDefaultValue = true)]
+        public string SettlementMode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,6 +157,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  MovementOptions: ").Append(MovementOptions).Append("\n");
             sb.Append("  SettlementDateOverride: ").Append(SettlementDateOverride).Append("\n");
             sb.Append("  Condition: ").Append(Condition).Append("\n");
+            sb.Append("  SettlementMode: ").Append(SettlementMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -229,6 +239,11 @@ namespace Lusid.Sdk.Model
                     this.Condition == input.Condition ||
                     (this.Condition != null &&
                     this.Condition.Equals(input.Condition))
+                ) && 
+                (
+                    this.SettlementMode == input.SettlementMode ||
+                    (this.SettlementMode != null &&
+                    this.SettlementMode.Equals(input.SettlementMode))
                 );
         }
 
@@ -273,6 +288,10 @@ namespace Lusid.Sdk.Model
                 if (this.Condition != null)
                 {
                     hashCode = (hashCode * 59) + this.Condition.GetHashCode();
+                }
+                if (this.SettlementMode != null)
+                {
+                    hashCode = (hashCode * 59) + this.SettlementMode.GetHashCode();
                 }
                 return hashCode;
             }

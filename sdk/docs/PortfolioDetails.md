@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **InstrumentEventConfiguration** | [**InstrumentEventConfiguration**](InstrumentEventConfiguration.md) |  | [optional] 
 **AmortisationRuleSetId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **TaxRuleSetScope** | **string** | The scope of the tax rule sets for this portfolio. | [optional] 
+**SettlementConfiguration** | [**PortfolioSettlementConfiguration**](PortfolioSettlementConfiguration.md) |  | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

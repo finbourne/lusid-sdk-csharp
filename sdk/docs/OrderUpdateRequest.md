@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **Price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **LimitPrice** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **StopPrice** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**Date** | **DateTimeOffset?** | The date on which the order was made | [optional] 
+**Side** | **string** | The client&#39;s representation of the order&#39;s side (buy, sell, short, etc) | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
