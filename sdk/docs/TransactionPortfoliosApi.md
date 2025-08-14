@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.TransactionPortfoliosApi
 
-All URIs are relative to *https://www.lusid.com/api*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -50,7 +50,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 <a id="adjustholdings"></a>
 # **AdjustHoldings**
-> AdjustHolding AdjustHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = null)
+> AdjustHolding AdjustHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = null, string? overrideMovementName = null, string? overrideOffsetMovementName = null)
 
 AdjustHoldings: Adjust holdings
 
@@ -100,14 +100,16 @@ namespace Examples
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel | The effective datetime or cut label at which the holdings should be set to the provided targets.
             var adjustHoldingRequest = new List<AdjustHoldingRequest>(); // List<AdjustHoldingRequest> | The selected set of holdings to adjust to the provided targets for the              transaction portfolio.
             var reconciliationMethods = new List<string>?(); // List<string>? | Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional) 
+            var overrideMovementName = "overrideMovementName_example";  // string? | Optional parameter to override movement name for the set holdings. (optional) 
+            var overrideOffsetMovementName = "overrideOffsetMovementName_example";  // string? | Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // AdjustHolding result = apiInstance.AdjustHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, opts: opts);
+                // AdjustHolding result = apiInstance.AdjustHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, overrideMovementName, overrideOffsetMovementName, opts: opts);
 
                 // AdjustHoldings: Adjust holdings
-                AdjustHolding result = apiInstance.AdjustHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods);
+                AdjustHolding result = apiInstance.AdjustHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, overrideMovementName, overrideOffsetMovementName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -128,7 +130,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // AdjustHoldings: Adjust holdings
-    ApiResponse<AdjustHolding> response = apiInstance.AdjustHoldingsWithHttpInfo(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods);
+    ApiResponse<AdjustHolding> response = apiInstance.AdjustHoldingsWithHttpInfo(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, overrideMovementName, overrideOffsetMovementName);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -150,6 +152,8 @@ catch (ApiException e)
 | **effectiveAt** | **DateTimeOrCutLabel** | The effective datetime or cut label at which the holdings should be set to the provided targets. |  |
 | **adjustHoldingRequest** | [**List&lt;AdjustHoldingRequest&gt;**](AdjustHoldingRequest.md) | The selected set of holdings to adjust to the provided targets for the              transaction portfolio. |  |
 | **reconciliationMethods** | [**List&lt;string&gt;?**](string.md) | Optional parameter for specifying a reconciliation method: e.g. FxForward. | [optional]  |
+| **overrideMovementName** | **string?** | Optional parameter to override movement name for the set holdings. | [optional]  |
+| **overrideOffsetMovementName** | **string?** | Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl | [optional]  |
 
 ### Return type
 
@@ -4544,7 +4548,7 @@ catch (ApiException e)
 
 <a id="setholdings"></a>
 # **SetHoldings**
-> AdjustHolding SetHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = null)
+> AdjustHolding SetHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = null, string? overrideMovementName = null, string? overrideOffsetMovementName = null)
 
 SetHoldings: Set holdings
 
@@ -4594,14 +4598,16 @@ namespace Examples
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel | The effective datetime or cut label at which the holdings should be set to the provided targets.
             var adjustHoldingRequest = new List<AdjustHoldingRequest>(); // List<AdjustHoldingRequest> | The complete set of target holdings for the transaction portfolio.
             var reconciliationMethods = new List<string>?(); // List<string>? | Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional) 
+            var overrideMovementName = "overrideMovementName_example";  // string? | Optional parameter to override movement name for the set holdings. (optional) 
+            var overrideOffsetMovementName = "overrideOffsetMovementName_example";  // string? | Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // AdjustHolding result = apiInstance.SetHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, opts: opts);
+                // AdjustHolding result = apiInstance.SetHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, overrideMovementName, overrideOffsetMovementName, opts: opts);
 
                 // SetHoldings: Set holdings
-                AdjustHolding result = apiInstance.SetHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods);
+                AdjustHolding result = apiInstance.SetHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, overrideMovementName, overrideOffsetMovementName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -4622,7 +4628,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // SetHoldings: Set holdings
-    ApiResponse<AdjustHolding> response = apiInstance.SetHoldingsWithHttpInfo(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods);
+    ApiResponse<AdjustHolding> response = apiInstance.SetHoldingsWithHttpInfo(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, overrideMovementName, overrideOffsetMovementName);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -4644,6 +4650,8 @@ catch (ApiException e)
 | **effectiveAt** | **DateTimeOrCutLabel** | The effective datetime or cut label at which the holdings should be set to the provided targets. |  |
 | **adjustHoldingRequest** | [**List&lt;AdjustHoldingRequest&gt;**](AdjustHoldingRequest.md) | The complete set of target holdings for the transaction portfolio. |  |
 | **reconciliationMethods** | [**List&lt;string&gt;?**](string.md) | Optional parameter for specifying a reconciliation method: e.g. FxForward. | [optional]  |
+| **overrideMovementName** | **string?** | Optional parameter to override movement name for the set holdings. | [optional]  |
+| **overrideOffsetMovementName** | **string?** | Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl | [optional]  |
 
 ### Return type
 

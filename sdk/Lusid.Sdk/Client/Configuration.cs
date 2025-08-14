@@ -129,7 +129,7 @@ namespace Lusid.Sdk.Client
         {
             Proxy = null;
             UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/2.0.0/csharp");
-            BasePath = "https://www.lusid.com/api";
+            BasePath = "https://fbn-prd.lusid.com/api";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -137,7 +137,7 @@ namespace Lusid.Sdk.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "https://www.lusid.com/api"},
+                        {"url", "https://fbn-prd.lusid.com/api"},
                         {"description", "No description provided"},
                     }
                 }
@@ -158,7 +158,7 @@ namespace Lusid.Sdk.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://www.lusid.com/api") : this()
+            string basePath = "https://fbn-prd.lusid.com/api") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -599,7 +599,7 @@ namespace Lusid.Sdk.Client
             string report = "C# SDK (Lusid.Sdk) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
-            report += "    Version of the API: 0.11.8131\n";
+            report += "    Version of the API: 0.11.8138\n";
             report += "    SDK Package Version: 2.0.0\n";
 
             return report;

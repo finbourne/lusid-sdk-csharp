@@ -43,10 +43,12 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The selected set of holdings to adjust to the provided targets for the              transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AdjustHolding</returns>
-        AdjustHolding AdjustHoldings(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        AdjustHolding AdjustHoldings(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// AdjustHoldings: Adjust holdings
@@ -60,10 +62,12 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The selected set of holdings to adjust to the provided targets for the              transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AdjustHolding</returns>
-        Lusid.Sdk.Client.ApiResponse<AdjustHolding> AdjustHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<AdjustHolding> AdjustHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// BatchAdjustHoldings: Batch adjust holdings
         /// </summary>
@@ -1333,10 +1337,12 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The complete set of target holdings for the transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AdjustHolding</returns>
-        AdjustHolding SetHoldings(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        AdjustHolding SetHoldings(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SetHoldings: Set holdings
@@ -1350,10 +1356,12 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The complete set of target holdings for the transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AdjustHolding</returns>
-        Lusid.Sdk.Client.ApiResponse<AdjustHolding> SetHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<AdjustHolding> SetHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertCustodianAccounts: Upsert Custodian Accounts
         /// </summary>
@@ -1563,11 +1571,13 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The selected set of holdings to adjust to the provided targets for the              transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AdjustHolding</returns>
-        System.Threading.Tasks.Task<AdjustHolding> AdjustHoldingsAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<AdjustHolding> AdjustHoldingsAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// AdjustHoldings: Adjust holdings
@@ -1581,11 +1591,13 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The selected set of holdings to adjust to the provided targets for the              transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AdjustHolding)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AdjustHolding>> AdjustHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AdjustHolding>> AdjustHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// BatchAdjustHoldings: Batch adjust holdings
         /// </summary>
@@ -2925,11 +2937,13 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The complete set of target holdings for the transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AdjustHolding</returns>
-        System.Threading.Tasks.Task<AdjustHolding> SetHoldingsAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<AdjustHolding> SetHoldingsAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// SetHoldings: Set holdings
@@ -2943,11 +2957,13 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The complete set of target holdings for the transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AdjustHolding)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AdjustHolding>> SetHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AdjustHolding>> SetHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertCustodianAccounts: Upsert Custodian Accounts
         /// </summary>
@@ -3280,12 +3296,14 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The selected set of holdings to adjust to the provided targets for the              transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AdjustHolding</returns>
-        public AdjustHolding AdjustHoldings(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public AdjustHolding AdjustHoldings(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AdjustHolding> localVarResponse = AdjustHoldingsWithHttpInfo(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<AdjustHolding> localVarResponse = AdjustHoldingsWithHttpInfo(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, overrideMovementName, overrideOffsetMovementName, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3298,10 +3316,12 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The selected set of holdings to adjust to the provided targets for the              transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AdjustHolding</returns>
-        public Lusid.Sdk.Client.ApiResponse<AdjustHolding> AdjustHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<AdjustHolding> AdjustHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3372,6 +3392,14 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "reconciliationMethods", reconciliationMethods));
             }
+            if (overrideMovementName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "overrideMovementName", overrideMovementName));
+            }
+            if (overrideOffsetMovementName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "overrideOffsetMovementName", overrideOffsetMovementName));
+            }
             localVarRequestOptions.Data = adjustHoldingRequest;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.AdjustHoldings";
@@ -3417,13 +3445,15 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The selected set of holdings to adjust to the provided targets for the              transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AdjustHolding</returns>
-        public async System.Threading.Tasks.Task<AdjustHolding> AdjustHoldingsAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<AdjustHolding> AdjustHoldingsAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AdjustHolding> localVarResponse = await AdjustHoldingsWithHttpInfoAsync(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AdjustHolding> localVarResponse = await AdjustHoldingsWithHttpInfoAsync(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, overrideMovementName, overrideOffsetMovementName, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3436,11 +3466,13 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The selected set of holdings to adjust to the provided targets for the              transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AdjustHolding)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AdjustHolding>> AdjustHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AdjustHolding>> AdjustHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3511,6 +3543,14 @@ namespace Lusid.Sdk.Api
             if (reconciliationMethods != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "reconciliationMethods", reconciliationMethods));
+            }
+            if (overrideMovementName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "overrideMovementName", overrideMovementName));
+            }
+            if (overrideOffsetMovementName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "overrideOffsetMovementName", overrideOffsetMovementName));
             }
             localVarRequestOptions.Data = adjustHoldingRequest;
 
@@ -13492,12 +13532,14 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The complete set of target holdings for the transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AdjustHolding</returns>
-        public AdjustHolding SetHoldings(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public AdjustHolding SetHoldings(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AdjustHolding> localVarResponse = SetHoldingsWithHttpInfo(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<AdjustHolding> localVarResponse = SetHoldingsWithHttpInfo(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, overrideMovementName, overrideOffsetMovementName, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -13510,10 +13552,12 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The complete set of target holdings for the transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AdjustHolding</returns>
-        public Lusid.Sdk.Client.ApiResponse<AdjustHolding> SetHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<AdjustHolding> SetHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -13584,6 +13628,14 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "reconciliationMethods", reconciliationMethods));
             }
+            if (overrideMovementName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "overrideMovementName", overrideMovementName));
+            }
+            if (overrideOffsetMovementName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "overrideOffsetMovementName", overrideOffsetMovementName));
+            }
             localVarRequestOptions.Data = adjustHoldingRequest;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.SetHoldings";
@@ -13629,13 +13681,15 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The complete set of target holdings for the transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AdjustHolding</returns>
-        public async System.Threading.Tasks.Task<AdjustHolding> SetHoldingsAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<AdjustHolding> SetHoldingsAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AdjustHolding> localVarResponse = await SetHoldingsWithHttpInfoAsync(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<AdjustHolding> localVarResponse = await SetHoldingsWithHttpInfoAsync(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods, overrideMovementName, overrideOffsetMovementName, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -13648,11 +13702,13 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="adjustHoldingRequest">The complete set of target holdings for the transaction portfolio.</param>
         /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="overrideMovementName">Optional parameter to override movement name for the set holdings. (optional)</param>
+        /// <param name="overrideOffsetMovementName">Optional parameter will create an additional offset movement for the set holdings with this new name and transaction type: CarryAsPnl (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AdjustHolding)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AdjustHolding>> SetHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AdjustHolding>> SetHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string>? reconciliationMethods = default(List<string>?), string? overrideMovementName = default(string?), string? overrideOffsetMovementName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -13723,6 +13779,14 @@ namespace Lusid.Sdk.Api
             if (reconciliationMethods != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "reconciliationMethods", reconciliationMethods));
+            }
+            if (overrideMovementName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "overrideMovementName", overrideMovementName));
+            }
+            if (overrideOffsetMovementName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "overrideOffsetMovementName", overrideOffsetMovementName));
             }
             localVarRequestOptions.Data = adjustHoldingRequest;
 
