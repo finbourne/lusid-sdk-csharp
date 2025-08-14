@@ -17,7 +17,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 
@@ -27,8 +26,6 @@ namespace Lusid.Sdk.Model
     /// FundCalendarEntry
     /// </summary>
     [DataContract(Name = "FundCalendarEntry")]
-    [JsonConverter(typeof(JsonSubtypes), "EntryType")]
-    [JsonSubtypes.KnownSubType(typeof(ValuationPointFundCalendarEntry), "ValuationPointFundCalendarEntry")]
     public partial class FundCalendarEntry : IEquatable<FundCalendarEntry>, IValidatableObject
     {
         /// <summary>
@@ -60,11 +57,111 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FundCalendarEntry" /> class.
         /// </summary>
+        /// <param name="code">The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry (required).</param>
+        /// <param name="displayName">The name of the Fund Calendar entry. (required).</param>
+        /// <param name="description">A description for the Fund Calendar entry..</param>
+        /// <param name="navTypeCode">The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with. (required).</param>
+        /// <param name="effectiveAt">The effective at of the Calendar Entry. (required).</param>
+        /// <param name="asAt">The asAt datetime for the Calendar Entry. (required).</param>
         /// <param name="entryType">The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry (required).</param>
-        public FundCalendarEntry(EntryTypeEnum entryType = default(EntryTypeEnum))
+        /// <param name="status">The status of the Fund Calendar Entry. Can be &#39;Estimate&#39;, &#39;Candidate&#39; or &#39;Final&#39;..</param>
+        /// <param name="varVersion">varVersion (required).</param>
+        /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
+        public FundCalendarEntry(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), ModelVersion varVersion = default(ModelVersion), string href = default(string))
         {
+            // to ensure "code" is required (not null)
+            if (code == null)
+            {
+                throw new ArgumentNullException("code is a required property for FundCalendarEntry and cannot be null");
+            }
+            this.Code = code;
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
+            {
+                throw new ArgumentNullException("displayName is a required property for FundCalendarEntry and cannot be null");
+            }
+            this.DisplayName = displayName;
+            // to ensure "navTypeCode" is required (not null)
+            if (navTypeCode == null)
+            {
+                throw new ArgumentNullException("navTypeCode is a required property for FundCalendarEntry and cannot be null");
+            }
+            this.NavTypeCode = navTypeCode;
+            this.EffectiveAt = effectiveAt;
+            this.AsAt = asAt;
             this.EntryType = entryType;
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
+            {
+                throw new ArgumentNullException("varVersion is a required property for FundCalendarEntry and cannot be null");
+            }
+            this.VarVersion = varVersion;
+            this.Description = description;
+            this.Status = status;
+            this.Href = href;
         }
+
+        /// <summary>
+        /// The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry
+        /// </summary>
+        /// <value>The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry</value>
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        public string Code { get; set; }
+
+        /// <summary>
+        /// The name of the Fund Calendar entry.
+        /// </summary>
+        /// <value>The name of the Fund Calendar entry.</value>
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// A description for the Fund Calendar entry.
+        /// </summary>
+        /// <value>A description for the Fund Calendar entry.</value>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with.
+        /// </summary>
+        /// <value>The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with.</value>
+        [DataMember(Name = "navTypeCode", IsRequired = true, EmitDefaultValue = true)]
+        public string NavTypeCode { get; set; }
+
+        /// <summary>
+        /// The effective at of the Calendar Entry.
+        /// </summary>
+        /// <value>The effective at of the Calendar Entry.</value>
+        [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset EffectiveAt { get; set; }
+
+        /// <summary>
+        /// The asAt datetime for the Calendar Entry.
+        /// </summary>
+        /// <value>The asAt datetime for the Calendar Entry.</value>
+        [DataMember(Name = "asAt", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset AsAt { get; set; }
+
+        /// <summary>
+        /// The status of the Fund Calendar Entry. Can be &#39;Estimate&#39;, &#39;Candidate&#39; or &#39;Final&#39;.
+        /// </summary>
+        /// <value>The status of the Fund Calendar Entry. Can be &#39;Estimate&#39;, &#39;Candidate&#39; or &#39;Final&#39;.</value>
+        [DataMember(Name = "status", EmitDefaultValue = true)]
+        public string Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VarVersion
+        /// </summary>
+        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
+        public ModelVersion VarVersion { get; set; }
+
+        /// <summary>
+        /// The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime.
+        /// </summary>
+        /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime.</value>
+        [DataMember(Name = "href", EmitDefaultValue = true)]
+        public string Href { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,7 +171,16 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class FundCalendarEntry {\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  NavTypeCode: ").Append(NavTypeCode).Append("\n");
+            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
+            sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  EntryType: ").Append(EntryType).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,8 +217,53 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.NavTypeCode == input.NavTypeCode ||
+                    (this.NavTypeCode != null &&
+                    this.NavTypeCode.Equals(input.NavTypeCode))
+                ) && 
+                (
+                    this.EffectiveAt == input.EffectiveAt ||
+                    (this.EffectiveAt != null &&
+                    this.EffectiveAt.Equals(input.EffectiveAt))
+                ) && 
+                (
+                    this.AsAt == input.AsAt ||
+                    (this.AsAt != null &&
+                    this.AsAt.Equals(input.AsAt))
+                ) && 
+                (
                     this.EntryType == input.EntryType ||
                     this.EntryType.Equals(input.EntryType)
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
+                ) && 
+                (
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
                 );
         }
 
@@ -125,7 +276,43 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Code != null)
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.NavTypeCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.NavTypeCode.GetHashCode();
+                }
+                if (this.EffectiveAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
+                }
+                if (this.AsAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsAt.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.EntryType.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.VarVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.Href != null)
+                {
+                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -137,16 +324,24 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.BaseValidate(validationContext);
-        }
+            // Code (string) minLength
+            if (this.Code != null && this.Code.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
+            }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+            }
+
+            // NavTypeCode (string) minLength
+            if (this.NavTypeCode != null && this.NavTypeCode.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NavTypeCode, length must be greater than 1.", new [] { "NavTypeCode" });
+            }
+
             yield break;
         }
     }
