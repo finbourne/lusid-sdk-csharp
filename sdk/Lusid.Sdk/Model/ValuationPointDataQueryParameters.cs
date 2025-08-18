@@ -38,7 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="start">start.</param>
         /// <param name="end">end (required).</param>
-        public ValuationPointDataQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry))
+        /// <param name="excludeCleardownModule">By deafult this flag is set to false, if this is set to true, no cleardown module will be applied to the trial balance..</param>
+        public ValuationPointDataQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry), bool excludeCleardownModule = default(bool))
         {
             // to ensure "end" is required (not null)
             if (end == null)
@@ -47,6 +48,7 @@ namespace Lusid.Sdk.Model
             }
             this.End = end;
             this.Start = start;
+            this.ExcludeCleardownModule = excludeCleardownModule;
         }
 
         /// <summary>
@@ -62,6 +64,13 @@ namespace Lusid.Sdk.Model
         public DateOrDiaryEntry End { get; set; }
 
         /// <summary>
+        /// By deafult this flag is set to false, if this is set to true, no cleardown module will be applied to the trial balance.
+        /// </summary>
+        /// <value>By deafult this flag is set to false, if this is set to true, no cleardown module will be applied to the trial balance.</value>
+        [DataMember(Name = "excludeCleardownModule", EmitDefaultValue = true)]
+        public bool ExcludeCleardownModule { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -71,6 +80,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class ValuationPointDataQueryParameters {\n");
             sb.Append("  Start: ").Append(Start).Append("\n");
             sb.Append("  End: ").Append(End).Append("\n");
+            sb.Append("  ExcludeCleardownModule: ").Append(ExcludeCleardownModule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,6 +125,10 @@ namespace Lusid.Sdk.Model
                     this.End == input.End ||
                     (this.End != null &&
                     this.End.Equals(input.End))
+                ) && 
+                (
+                    this.ExcludeCleardownModule == input.ExcludeCleardownModule ||
+                    this.ExcludeCleardownModule.Equals(input.ExcludeCleardownModule)
                 );
         }
 
@@ -135,6 +149,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.End.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ExcludeCleardownModule.GetHashCode();
                 return hashCode;
             }
         }

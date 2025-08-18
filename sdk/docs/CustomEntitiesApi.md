@@ -388,7 +388,7 @@ catch (ApiException e)
 
 <a id="getcustomentity"></a>
 # **GetCustomEntity**
-> CustomEntityResponse GetCustomEntity (string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null, List<string>? relatedEntityPropertyKeys = null, List<string>? relationshipDefinitionIds = null)
+> CustomEntityResponse GetCustomEntity (string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null, List<string>? relatedEntityPropertyKeys = null, List<string>? relationshipDefinitionIds = null, List<string>? propertyKeys = null)
 
 GetCustomEntity: Get a Custom Entity instance.
 
@@ -441,14 +441,15 @@ namespace Examples
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. (optional) 
             var relatedEntityPropertyKeys = new List<string>?(); // List<string>? | A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. (optional) 
             var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'CustomEntity' domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example 'CustomEntity/someScope/id'. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // CustomEntityResponse result = apiInstance.GetCustomEntity(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, relatedEntityPropertyKeys, relationshipDefinitionIds, opts: opts);
+                // CustomEntityResponse result = apiInstance.GetCustomEntity(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys, opts: opts);
 
                 // GetCustomEntity: Get a Custom Entity instance.
-                CustomEntityResponse result = apiInstance.GetCustomEntity(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, relatedEntityPropertyKeys, relationshipDefinitionIds);
+                CustomEntityResponse result = apiInstance.GetCustomEntity(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -469,7 +470,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetCustomEntity: Get a Custom Entity instance.
-    ApiResponse<CustomEntityResponse> response = apiInstance.GetCustomEntityWithHttpInfo(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, relatedEntityPropertyKeys, relationshipDefinitionIds);
+    ApiResponse<CustomEntityResponse> response = apiInstance.GetCustomEntityWithHttpInfo(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -494,6 +495,7 @@ catch (ApiException e)
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **relatedEntityPropertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. | [optional]  |
 | **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. | [optional]  |
 
 ### Return type
 
@@ -770,7 +772,7 @@ catch (ApiException e)
 
 <a id="listcustomentities"></a>
 # **ListCustomEntities**
-> PagedResourceListOfCustomEntityResponse ListCustomEntities (string entityType, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, int? limit = null, string? filter = null, List<string>? sortBy = null, string? page = null, List<string>? relatedEntityPropertyKeys = null, List<string>? relationshipDefinitionIds = null)
+> PagedResourceListOfCustomEntityResponse ListCustomEntities (string entityType, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, int? limit = null, string? filter = null, List<string>? sortBy = null, string? page = null, List<string>? relatedEntityPropertyKeys = null, List<string>? relationshipDefinitionIds = null, List<string>? propertyKeys = null)
 
 ListCustomEntities: List Custom Entities of the specified entityType.
 
@@ -824,14 +826,15 @@ namespace Examples
             var page = "page_example";  // string? | The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var relatedEntityPropertyKeys = new List<string>?(); // List<string>? | A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. (optional) 
             var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'CustomEntity' domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example 'CustomEntity/someScope/id'. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfCustomEntityResponse result = apiInstance.ListCustomEntities(entityType, effectiveAt, asAt, limit, filter, sortBy, page, relatedEntityPropertyKeys, relationshipDefinitionIds, opts: opts);
+                // PagedResourceListOfCustomEntityResponse result = apiInstance.ListCustomEntities(entityType, effectiveAt, asAt, limit, filter, sortBy, page, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys, opts: opts);
 
                 // ListCustomEntities: List Custom Entities of the specified entityType.
-                PagedResourceListOfCustomEntityResponse result = apiInstance.ListCustomEntities(entityType, effectiveAt, asAt, limit, filter, sortBy, page, relatedEntityPropertyKeys, relationshipDefinitionIds);
+                PagedResourceListOfCustomEntityResponse result = apiInstance.ListCustomEntities(entityType, effectiveAt, asAt, limit, filter, sortBy, page, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -852,7 +855,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListCustomEntities: List Custom Entities of the specified entityType.
-    ApiResponse<PagedResourceListOfCustomEntityResponse> response = apiInstance.ListCustomEntitiesWithHttpInfo(entityType, effectiveAt, asAt, limit, filter, sortBy, page, relatedEntityPropertyKeys, relationshipDefinitionIds);
+    ApiResponse<PagedResourceListOfCustomEntityResponse> response = apiInstance.ListCustomEntitiesWithHttpInfo(entityType, effectiveAt, asAt, limit, filter, sortBy, page, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -878,6 +881,7 @@ catch (ApiException e)
 | **page** | **string?** | The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **relatedEntityPropertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. | [optional]  |
 | **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. | [optional]  |
 
 ### Return type
 

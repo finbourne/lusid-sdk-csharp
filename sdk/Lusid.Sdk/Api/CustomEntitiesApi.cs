@@ -149,10 +149,11 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>CustomEntityResponse</returns>
-        CustomEntityResponse GetCustomEntity(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        CustomEntityResponse GetCustomEntity(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetCustomEntity: Get a Custom Entity instance.
@@ -169,10 +170,11 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomEntityResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<CustomEntityResponse> GetCustomEntityWithHttpInfo(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<CustomEntityResponse> GetCustomEntityWithHttpInfo(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetCustomEntityAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Custom Entity
         /// </summary>
@@ -265,10 +267,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCustomEntityResponse</returns>
-        PagedResourceListOfCustomEntityResponse ListCustomEntities(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfCustomEntityResponse ListCustomEntities(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListCustomEntities: List Custom Entities of the specified entityType.
@@ -286,10 +289,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCustomEntityResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityResponse> ListCustomEntitiesWithHttpInfo(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityResponse> ListCustomEntitiesWithHttpInfo(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] PatchCustomEntityAccessMetadata: Patch Access Metadata rules for a Custom Entity.
         /// </summary>
@@ -555,11 +559,12 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomEntityResponse</returns>
-        System.Threading.Tasks.Task<CustomEntityResponse> GetCustomEntityAsync(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<CustomEntityResponse> GetCustomEntityAsync(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetCustomEntity: Get a Custom Entity instance.
@@ -576,11 +581,12 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomEntityResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomEntityResponse>> GetCustomEntityWithHttpInfoAsync(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomEntityResponse>> GetCustomEntityWithHttpInfoAsync(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetCustomEntityAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Custom Entity
         /// </summary>
@@ -677,11 +683,12 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfCustomEntityResponse</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfCustomEntityResponse> ListCustomEntitiesAsync(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfCustomEntityResponse> ListCustomEntitiesAsync(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListCustomEntities: List Custom Entities of the specified entityType.
@@ -699,11 +706,12 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCustomEntityResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityResponse>> ListCustomEntitiesWithHttpInfoAsync(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityResponse>> ListCustomEntitiesWithHttpInfoAsync(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] PatchCustomEntityAccessMetadata: Patch Access Metadata rules for a Custom Entity.
         /// </summary>
@@ -1819,12 +1827,13 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>CustomEntityResponse</returns>
-        public CustomEntityResponse GetCustomEntity(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public CustomEntityResponse GetCustomEntity(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomEntityResponse> localVarResponse = GetCustomEntityWithHttpInfo(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, relatedEntityPropertyKeys, relationshipDefinitionIds, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<CustomEntityResponse> localVarResponse = GetCustomEntityWithHttpInfo(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1840,10 +1849,11 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<CustomEntityResponse> GetCustomEntityWithHttpInfo(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<CustomEntityResponse> GetCustomEntityWithHttpInfo(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -1922,6 +1932,10 @@ namespace Lusid.Sdk.Api
             if (relationshipDefinitionIds != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "CustomEntitiesApi.GetCustomEntity";
@@ -1970,13 +1984,14 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CustomEntityResponse</returns>
-        public async System.Threading.Tasks.Task<CustomEntityResponse> GetCustomEntityAsync(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<CustomEntityResponse> GetCustomEntityAsync(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<CustomEntityResponse> localVarResponse = await GetCustomEntityWithHttpInfoAsync(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, relatedEntityPropertyKeys, relationshipDefinitionIds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CustomEntityResponse> localVarResponse = await GetCustomEntityWithHttpInfoAsync(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1992,11 +2007,12 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get the Custom Entity instance. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entity in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CustomEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomEntityResponse>> GetCustomEntityWithHttpInfoAsync(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CustomEntityResponse>> GetCustomEntityWithHttpInfoAsync(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -2076,6 +2092,10 @@ namespace Lusid.Sdk.Api
             if (relationshipDefinitionIds != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "CustomEntitiesApi.GetCustomEntity";
@@ -2732,12 +2752,13 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCustomEntityResponse</returns>
-        public PagedResourceListOfCustomEntityResponse ListCustomEntities(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfCustomEntityResponse ListCustomEntities(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityResponse> localVarResponse = ListCustomEntitiesWithHttpInfo(entityType, effectiveAt, asAt, limit, filter, sortBy, page, relatedEntityPropertyKeys, relationshipDefinitionIds, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityResponse> localVarResponse = ListCustomEntitiesWithHttpInfo(entityType, effectiveAt, asAt, limit, filter, sortBy, page, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2754,10 +2775,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCustomEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityResponse> ListCustomEntitiesWithHttpInfo(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityResponse> ListCustomEntitiesWithHttpInfo(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -2831,6 +2853,10 @@ namespace Lusid.Sdk.Api
             if (relationshipDefinitionIds != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "CustomEntitiesApi.ListCustomEntities";
@@ -2880,13 +2906,14 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfCustomEntityResponse</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfCustomEntityResponse> ListCustomEntitiesAsync(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfCustomEntityResponse> ListCustomEntitiesAsync(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityResponse> localVarResponse = await ListCustomEntitiesWithHttpInfoAsync(entityType, effectiveAt, asAt, limit, filter, sortBy, page, relatedEntityPropertyKeys, relationshipDefinitionIds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityResponse> localVarResponse = await ListCustomEntitiesWithHttpInfoAsync(entityType, effectiveAt, asAt, limit, filter, sortBy, page, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2903,11 +2930,12 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the entities in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CustomEntity&#39; domain to decorate onto              the custom entities of any type supported by that property (defined within the property definition CustomEntityTypes).              These must have the format {domain}/{scope}/{code}, for example &#39;CustomEntity/someScope/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCustomEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityResponse>> ListCustomEntitiesWithHttpInfoAsync(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCustomEntityResponse>> ListCustomEntitiesWithHttpInfoAsync(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'entityType' is set
             if (entityType == null)
@@ -2982,6 +3010,10 @@ namespace Lusid.Sdk.Api
             if (relationshipDefinitionIds != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "CustomEntitiesApi.ListCustomEntities";

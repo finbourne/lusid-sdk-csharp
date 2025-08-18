@@ -2360,7 +2360,7 @@ catch (ApiException e)
 
 <a id="getholdingcontributors"></a>
 # **GetHoldingContributors**
-> VersionedResourceListOfHoldingContributor GetHoldingContributors (string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = null, DateTimeOrCutLabel? fromTradeDate = null, DateTimeOrCutLabel? toTradeDate = null, bool? includeHistoric = null, string? taxLotId = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null)
+> VersionedResourceListOfHoldingContributor GetHoldingContributors (string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = null, DateTimeOrCutLabel? fromTradeDate = null, DateTimeOrCutLabel? toTradeDate = null, bool? includeHistoric = null, string? taxLotId = null, bool? includeUnsettledMovements = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null)
 
 GetHoldingContributors: Get Holdings Contributors
 
@@ -2413,6 +2413,7 @@ namespace Examples
             var toTradeDate = "toTradeDate_example";  // DateTimeOrCutLabel? | The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional) 
             var includeHistoric = false;  // bool? | If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional)  (default to false)
             var taxLotId = "taxLotId_example";  // string? | Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional) 
+            var includeUnsettledMovements = false;  // bool? | If true, contributing transaction which have not settled yet will also be returned. False by default (optional)  (default to false)
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional) 
@@ -2420,10 +2421,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributors(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, limit, asAt, page, opts: opts);
+                // VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributors(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, opts: opts);
 
                 // GetHoldingContributors: Get Holdings Contributors
-                VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributors(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, limit, asAt, page);
+                VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributors(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2444,7 +2445,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetHoldingContributors: Get Holdings Contributors
-    ApiResponse<VersionedResourceListOfHoldingContributor> response = apiInstance.GetHoldingContributorsWithHttpInfo(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, limit, asAt, page);
+    ApiResponse<VersionedResourceListOfHoldingContributor> response = apiInstance.GetHoldingContributorsWithHttpInfo(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2469,6 +2470,7 @@ catch (ApiException e)
 | **toTradeDate** | **DateTimeOrCutLabel?** | The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions | [optional]  |
 | **includeHistoric** | **bool?** | If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. | [optional] [default to false] |
 | **taxLotId** | **string?** | Constrains the Holding Contributors to those which contributed to the specified tax lot. | [optional]  |
+| **includeUnsettledMovements** | **bool?** | If true, contributing transaction which have not settled yet will also be returned. False by default | [optional] [default to false] |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. | [optional]  |
@@ -2882,7 +2884,7 @@ catch (ApiException e)
 
 <a id="getmultipleholdingcontributors"></a>
 # **GetMultipleHoldingContributors**
-> VersionedResourceListOfHoldingContributor GetMultipleHoldingContributors (string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = null, DateTimeOrCutLabel? fromTransactionDate = null, DateTimeOrCutLabel? toTransactionDate = null, bool? includeHistoric = null, string? taxLotId = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null)
+> VersionedResourceListOfHoldingContributor GetMultipleHoldingContributors (string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = null, DateTimeOrCutLabel? fromTransactionDate = null, DateTimeOrCutLabel? toTransactionDate = null, bool? includeHistoric = null, string? taxLotId = null, bool? includeUnsettledMovements = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null)
 
 GetMultipleHoldingContributors: Get Multiple Holding Contributors
 
@@ -2935,6 +2937,7 @@ namespace Examples
             var toTransactionDate = "toTransactionDate_example";  // DateTimeOrCutLabel? | The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional) 
             var includeHistoric = false;  // bool? | If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional)  (default to false)
             var taxLotId = "taxLotId_example";  // string? | Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional) 
+            var includeUnsettledMovements = false;  // bool? | If true, contributing transaction which have not settled yet will also be returned. False by default (optional)  (default to false)
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional) 
@@ -2942,10 +2945,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListOfHoldingContributor result = apiInstance.GetMultipleHoldingContributors(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, limit, asAt, page, opts: opts);
+                // VersionedResourceListOfHoldingContributor result = apiInstance.GetMultipleHoldingContributors(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, opts: opts);
 
                 // GetMultipleHoldingContributors: Get Multiple Holding Contributors
-                VersionedResourceListOfHoldingContributor result = apiInstance.GetMultipleHoldingContributors(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, limit, asAt, page);
+                VersionedResourceListOfHoldingContributor result = apiInstance.GetMultipleHoldingContributors(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2966,7 +2969,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetMultipleHoldingContributors: Get Multiple Holding Contributors
-    ApiResponse<VersionedResourceListOfHoldingContributor> response = apiInstance.GetMultipleHoldingContributorsWithHttpInfo(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, limit, asAt, page);
+    ApiResponse<VersionedResourceListOfHoldingContributor> response = apiInstance.GetMultipleHoldingContributorsWithHttpInfo(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2991,6 +2994,7 @@ catch (ApiException e)
 | **toTransactionDate** | **DateTimeOrCutLabel?** | The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions | [optional]  |
 | **includeHistoric** | **bool?** | If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. | [optional] [default to false] |
 | **taxLotId** | **string?** | Constrains the Holding Contributors to those which contributed to the specified tax lot. | [optional]  |
+| **includeUnsettledMovements** | **bool?** | If true, contributing transaction which have not settled yet will also be returned. False by default | [optional] [default to false] |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. | [optional]  |

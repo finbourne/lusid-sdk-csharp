@@ -40,7 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A description of the custom entity. (required).</param>
         /// <param name="identifiers">The identifiers the custom entity will be upserted with. (required).</param>
         /// <param name="fields">The fields that decorate the custom entity..</param>
-        public CustomEntityRequest(string displayName = default(string), string description = default(string), List<CustomEntityId> identifiers = default(List<CustomEntityId>), List<CustomEntityField> fields = default(List<CustomEntityField>))
+        /// <param name="properties">The properties that decorate the custom entity..</param>
+        public CustomEntityRequest(string displayName = default(string), string description = default(string), List<CustomEntityId> identifiers = default(List<CustomEntityId>), List<CustomEntityField> fields = default(List<CustomEntityField>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -61,6 +62,7 @@ namespace Lusid.Sdk.Model
             }
             this.Identifiers = identifiers;
             this.Fields = fields;
+            this.Properties = properties;
         }
 
         /// <summary>
@@ -92,6 +94,13 @@ namespace Lusid.Sdk.Model
         public List<CustomEntityField> Fields { get; set; }
 
         /// <summary>
+        /// The properties that decorate the custom entity.
+        /// </summary>
+        /// <value>The properties that decorate the custom entity.</value>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public Dictionary<string, Property> Properties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,6 +112,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  Fields: ").Append(Fields).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -159,6 +169,12 @@ namespace Lusid.Sdk.Model
                     this.Fields != null &&
                     input.Fields != null &&
                     this.Fields.SequenceEqual(input.Fields)
+                ) && 
+                (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
                 );
         }
 
@@ -186,6 +202,10 @@ namespace Lusid.Sdk.Model
                 if (this.Fields != null)
                 {
                     hashCode = (hashCode * 59) + this.Fields.GetHashCode();
+                }
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 return hashCode;
             }

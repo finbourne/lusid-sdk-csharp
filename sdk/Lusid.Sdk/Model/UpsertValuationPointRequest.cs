@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveAt">The effective time of the diary entry. (required).</param>
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
-        public UpsertValuationPointRequest(string diaryEntryCode = default(string), string name = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        /// <param name="applyClearDown">Defaults to false. Set to true if you want that the closed period to have the clear down applied..</param>
+        public UpsertValuationPointRequest(string diaryEntryCode = default(string), string name = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool applyClearDown = default(bool))
         {
             // to ensure "diaryEntryCode" is required (not null)
             if (diaryEntryCode == null)
@@ -53,6 +54,7 @@ namespace Lusid.Sdk.Model
             this.Name = name;
             this.QueryAsAt = queryAsAt;
             this.Properties = properties;
+            this.ApplyClearDown = applyClearDown;
         }
 
         /// <summary>
@@ -91,6 +93,13 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
+        /// Defaults to false. Set to true if you want that the closed period to have the clear down applied.
+        /// </summary>
+        /// <value>Defaults to false. Set to true if you want that the closed period to have the clear down applied.</value>
+        [DataMember(Name = "applyClearDown", EmitDefaultValue = true)]
+        public bool ApplyClearDown { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,6 +112,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  QueryAsAt: ").Append(QueryAsAt).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  ApplyClearDown: ").Append(ApplyClearDown).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -163,6 +173,10 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.ApplyClearDown == input.ApplyClearDown ||
+                    this.ApplyClearDown.Equals(input.ApplyClearDown)
                 );
         }
 
@@ -195,6 +209,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ApplyClearDown.GetHashCode();
                 return hashCode;
             }
         }

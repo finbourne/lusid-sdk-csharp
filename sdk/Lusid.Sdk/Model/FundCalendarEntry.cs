@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class FundCalendarEntry : IEquatable<FundCalendarEntry>, IValidatableObject
     {
         /// <summary>
-        /// The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry
+        /// The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry
         /// </summary>
-        /// <value>The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry</value>
+        /// <value>The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EntryTypeEnum
         {
@@ -39,14 +39,20 @@ namespace Lusid.Sdk.Model
             /// Enum ValuationPointFundCalendarEntry for value: ValuationPointFundCalendarEntry
             /// </summary>
             [EnumMember(Value = "ValuationPointFundCalendarEntry")]
-            ValuationPointFundCalendarEntry = 1
+            ValuationPointFundCalendarEntry = 1,
+
+            /// <summary>
+            /// Enum BookmarkFundCalendarEntry for value: BookmarkFundCalendarEntry
+            /// </summary>
+            [EnumMember(Value = "BookmarkFundCalendarEntry")]
+            BookmarkFundCalendarEntry = 2
         }
 
 
         /// <summary>
-        /// The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry
+        /// The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry
         /// </summary>
-        /// <value>The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry</value>
+        /// <value>The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry</value>
         [DataMember(Name = "entryType", IsRequired = true, EmitDefaultValue = true)]
         public EntryTypeEnum EntryType { get; set; }
         /// <summary>
@@ -61,13 +67,14 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Fund Calendar entry. (required).</param>
         /// <param name="description">A description for the Fund Calendar entry..</param>
         /// <param name="navTypeCode">The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with. (required).</param>
-        /// <param name="effectiveAt">The effective at of the Calendar Entry. (required).</param>
+        /// <param name="effectiveAt">The effective at of the Calendar Entry..</param>
         /// <param name="asAt">The asAt datetime for the Calendar Entry. (required).</param>
-        /// <param name="entryType">The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry (required).</param>
+        /// <param name="entryType">The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry (required).</param>
         /// <param name="status">The status of the Fund Calendar Entry. Can be &#39;Estimate&#39;, &#39;Candidate&#39; or &#39;Final&#39;..</param>
+        /// <param name="applyClearDown">Set to true if that closed period shoould have the clear down applied. (required).</param>
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
-        public FundCalendarEntry(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), ModelVersion varVersion = default(ModelVersion), string href = default(string))
+        public FundCalendarEntry(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), ModelVersion varVersion = default(ModelVersion), string href = default(string))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -87,9 +94,9 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("navTypeCode is a required property for FundCalendarEntry and cannot be null");
             }
             this.NavTypeCode = navTypeCode;
-            this.EffectiveAt = effectiveAt;
             this.AsAt = asAt;
             this.EntryType = entryType;
+            this.ApplyClearDown = applyClearDown;
             // to ensure "varVersion" is required (not null)
             if (varVersion == null)
             {
@@ -97,6 +104,7 @@ namespace Lusid.Sdk.Model
             }
             this.VarVersion = varVersion;
             this.Description = description;
+            this.EffectiveAt = effectiveAt;
             this.Status = status;
             this.Href = href;
         }
@@ -133,7 +141,7 @@ namespace Lusid.Sdk.Model
         /// The effective at of the Calendar Entry.
         /// </summary>
         /// <value>The effective at of the Calendar Entry.</value>
-        [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "effectiveAt", EmitDefaultValue = false)]
         public DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
@@ -149,6 +157,13 @@ namespace Lusid.Sdk.Model
         /// <value>The status of the Fund Calendar Entry. Can be &#39;Estimate&#39;, &#39;Candidate&#39; or &#39;Final&#39;.</value>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; set; }
+
+        /// <summary>
+        /// Set to true if that closed period shoould have the clear down applied.
+        /// </summary>
+        /// <value>Set to true if that closed period shoould have the clear down applied.</value>
+        [DataMember(Name = "applyClearDown", IsRequired = true, EmitDefaultValue = true)]
+        public bool ApplyClearDown { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion
@@ -179,6 +194,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  EntryType: ").Append(EntryType).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  ApplyClearDown: ").Append(ApplyClearDown).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("}\n");
@@ -256,6 +272,10 @@ namespace Lusid.Sdk.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
+                    this.ApplyClearDown == input.ApplyClearDown ||
+                    this.ApplyClearDown.Equals(input.ApplyClearDown)
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -305,6 +325,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ApplyClearDown.GetHashCode();
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();

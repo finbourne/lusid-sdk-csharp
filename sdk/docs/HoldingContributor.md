@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Transaction** | [**Transaction**](Transaction.md) |  | 
 **HoldingId** | **long?** | The unique holding identifier | [optional] 
+**Movements** | [**List&lt;MovementSettlementSummary&gt;**](MovementSettlementSummary.md) | Movements contributed to holding | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

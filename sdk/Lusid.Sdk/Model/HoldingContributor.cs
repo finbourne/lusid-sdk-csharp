@@ -38,7 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="transaction">transaction (required).</param>
         /// <param name="holdingId">The unique holding identifier.</param>
-        public HoldingContributor(Transaction transaction = default(Transaction), long? holdingId = default(long?))
+        /// <param name="movements">Movements contributed to holding.</param>
+        public HoldingContributor(Transaction transaction = default(Transaction), long? holdingId = default(long?), List<MovementSettlementSummary> movements = default(List<MovementSettlementSummary>))
         {
             // to ensure "transaction" is required (not null)
             if (transaction == null)
@@ -47,6 +48,7 @@ namespace Lusid.Sdk.Model
             }
             this.Transaction = transaction;
             this.HoldingId = holdingId;
+            this.Movements = movements;
         }
 
         /// <summary>
@@ -63,6 +65,13 @@ namespace Lusid.Sdk.Model
         public long? HoldingId { get; set; }
 
         /// <summary>
+        /// Movements contributed to holding
+        /// </summary>
+        /// <value>Movements contributed to holding</value>
+        [DataMember(Name = "movements", EmitDefaultValue = true)]
+        public List<MovementSettlementSummary> Movements { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +81,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class HoldingContributor {\n");
             sb.Append("  Transaction: ").Append(Transaction).Append("\n");
             sb.Append("  HoldingId: ").Append(HoldingId).Append("\n");
+            sb.Append("  Movements: ").Append(Movements).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,6 +126,12 @@ namespace Lusid.Sdk.Model
                     this.HoldingId == input.HoldingId ||
                     (this.HoldingId != null &&
                     this.HoldingId.Equals(input.HoldingId))
+                ) && 
+                (
+                    this.Movements == input.Movements ||
+                    this.Movements != null &&
+                    input.Movements != null &&
+                    this.Movements.SequenceEqual(input.Movements)
                 );
         }
 
@@ -135,6 +151,10 @@ namespace Lusid.Sdk.Model
                 if (this.HoldingId != null)
                 {
                     hashCode = (hashCode * 59) + this.HoldingId.GetHashCode();
+                }
+                if (this.Movements != null)
+                {
+                    hashCode = (hashCode * 59) + this.Movements.GetHashCode();
                 }
                 return hashCode;
             }

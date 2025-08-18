@@ -32,7 +32,13 @@ namespace Lusid.Sdk.Model
         /// Enum ValuationPointFundCalendarEntry for value: ValuationPointFundCalendarEntry
         /// </summary>
         [EnumMember(Value = "ValuationPointFundCalendarEntry")]
-        ValuationPointFundCalendarEntry = 1
+        ValuationPointFundCalendarEntry = 1,
+
+        /// <summary>
+        /// Enum BookmarkFundCalendarEntry for value: BookmarkFundCalendarEntry
+        /// </summary>
+        [EnumMember(Value = "BookmarkFundCalendarEntry")]
+        BookmarkFundCalendarEntry = 2
     }
 
 }

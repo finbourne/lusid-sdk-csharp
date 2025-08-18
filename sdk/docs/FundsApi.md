@@ -8,6 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**CreateFee**](FundsApi.md#createfee) | **POST** /api/funds/{scope}/{code}/fees | [EXPERIMENTAL] CreateFee: Create a Fee. |
 | [**CreateFund**](FundsApi.md#createfund) | **POST** /api/funds/{scope} | [EXPERIMENTAL] CreateFund: Create a Fund. |
 | [**CreateFundV2**](FundsApi.md#createfundv2) | **POST** /api/funds/v2/{scope} | [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview). |
+| [**DeleteBookmark**](FundsApi.md#deletebookmark) | **DELETE** /api/funds/{scope}/{code}/bookmarks/{bookmarkCode} | [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. |
 | [**DeleteFee**](FundsApi.md#deletefee) | **DELETE** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] DeleteFee: Delete a Fee. |
 | [**DeleteFund**](FundsApi.md#deletefund) | **DELETE** /api/funds/{scope}/{code} | [EXPERIMENTAL] DeleteFund: Delete a Fund. |
 | [**DeleteValuationPoint**](FundsApi.md#deletevaluationpoint) | **DELETE** /api/funds/{scope}/{code}/valuationpoints/{diaryEntryCode} | [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. |
@@ -30,6 +31,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**PatchFee**](FundsApi.md#patchfee) | **PATCH** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] PatchFee: Patch Fee. |
 | [**PatchFund**](FundsApi.md#patchfund) | **PATCH** /api/funds/{scope}/{code} | [EXPERIMENTAL] PatchFund: Patch a Fund. |
 | [**SetShareClassInstruments**](FundsApi.md#setshareclassinstruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund. |
+| [**UpsertBookmark**](FundsApi.md#upsertbookmark) | **POST** /api/funds/{scope}/{code}/bookmarks | [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark. |
 | [**UpsertDiaryEntryTypeValuationPoint**](FundsApi.md#upsertdiaryentrytypevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints | [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point. |
 | [**UpsertFeeProperties**](FundsApi.md#upsertfeeproperties) | **POST** /api/funds/{scope}/{code}/fees/{feeCode}/properties/$upsert | [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. |
 | [**UpsertFundProperties**](FundsApi.md#upsertfundproperties) | **POST** /api/funds/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties. |
@@ -501,6 +503,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | The newly created Fund. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="deletebookmark"></a>
+# **DeleteBookmark**
+> DeletedEntityResponse DeleteBookmark (string scope, string code, string bookmarkCode, string? navTypeCode = null)
+
+[EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+
+Deletes the given Bookmark.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund for the Bookmark to be deleted.
+            var code = "code_example";  // string | The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.
+            var bookmarkCode = "bookmarkCode_example";  // string | The bookmark code for the bookmark to be deleted
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteBookmark(scope, code, bookmarkCode, navTypeCode, opts: opts);
+
+                // [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+                DeletedEntityResponse result = apiInstance.DeleteBookmark(scope, code, bookmarkCode, navTypeCode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.DeleteBookmark: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteBookmarkWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteBookmarkWithHttpInfo(scope, code, bookmarkCode, navTypeCode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.DeleteBookmarkWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund for the Bookmark to be deleted. |  |
+| **code** | **string** | The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund. |  |
+| **bookmarkCode** | **string** | The bookmark code for the bookmark to be deleted |  |
+| **navTypeCode** | **string?** | When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. | [optional]  |
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The datetime that the Bookmark was deleted |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -3227,6 +3349,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The updated fund. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="upsertbookmark"></a>
+# **UpsertBookmark**
+> FundCalendarEntry UpsertBookmark (string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = null)
+
+[EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+
+This method will update or upsert a Bookmark for the Fund.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var upsertFundBookmarkRequest = new UpsertFundBookmarkRequest(); // UpsertFundBookmarkRequest | The bookmark definition to Upsert
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // FundCalendarEntry result = apiInstance.UpsertBookmark(scope, code, upsertFundBookmarkRequest, navTypeCode, opts: opts);
+
+                // [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+                FundCalendarEntry result = apiInstance.UpsertBookmark(scope, code, upsertFundBookmarkRequest, navTypeCode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.UpsertBookmark: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpsertBookmarkWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+    ApiResponse<FundCalendarEntry> response = apiInstance.UpsertBookmarkWithHttpInfo(scope, code, upsertFundBookmarkRequest, navTypeCode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.UpsertBookmarkWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **upsertFundBookmarkRequest** | [**UpsertFundBookmarkRequest**](UpsertFundBookmarkRequest.md) | The bookmark definition to Upsert |  |
+| **navTypeCode** | **string?** | When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. | [optional]  |
+
+### Return type
+
+[**FundCalendarEntry**](FundCalendarEntry.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The updated or inserted Bookmark |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

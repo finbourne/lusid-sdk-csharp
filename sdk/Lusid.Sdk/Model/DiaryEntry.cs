@@ -42,13 +42,14 @@ namespace Lusid.Sdk.Model
         /// <param name="type">The type of the diary entry. (required).</param>
         /// <param name="name">The name of the diary entry..</param>
         /// <param name="status">The status of the diary entry. Statuses are constrained and defaulted by &#39;Type&#39; specified.   Type &#39;Other&#39; defaults to &#39;Undefined&#39; and supports &#39;Undefined&#39;, &#39;Estimate&#39;, &#39;Candidate&#39;, and &#39;Final&#39;.  Type &#39;PeriodBoundary&#39; defaults to &#39;Estimate&#39; when closing a period, and supports &#39;Estimate&#39; and &#39;Final&#39; for closing periods and &#39;Final&#39; for locking periods.  Type &#39;ValuationPoint&#39; defaults to &#39;Estimate&#39; when upserting a diary entry, moves to &#39;Candidate&#39; or &#39;Final&#39; when a ValuationPoint is accepted, and &#39;Final&#39; when it is finalised. (required).</param>
+        /// <param name="applyClearDown">Defaults to false. Set to true if you want that the closed period to have the clear down applied..</param>
         /// <param name="effectiveAt">The effective time of the diary entry. (required).</param>
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
         /// <param name="previousEntryTime">The entry time of the previous diary entry..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public DiaryEntry(string href = default(string), ResourceId aborId = default(ResourceId), string diaryEntryCode = default(string), string type = default(string), string name = default(string), string status = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset queryAsAt = default(DateTimeOffset), DateTimeOffset previousEntryTime = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public DiaryEntry(string href = default(string), ResourceId aborId = default(ResourceId), string diaryEntryCode = default(string), string type = default(string), string name = default(string), string status = default(string), bool applyClearDown = default(bool), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset queryAsAt = default(DateTimeOffset), DateTimeOffset previousEntryTime = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -67,6 +68,7 @@ namespace Lusid.Sdk.Model
             this.AborId = aborId;
             this.DiaryEntryCode = diaryEntryCode;
             this.Name = name;
+            this.ApplyClearDown = applyClearDown;
             this.QueryAsAt = queryAsAt;
             this.PreviousEntryTime = previousEntryTime;
             this.Properties = properties;
@@ -114,6 +116,13 @@ namespace Lusid.Sdk.Model
         /// <value>The status of the diary entry. Statuses are constrained and defaulted by &#39;Type&#39; specified.   Type &#39;Other&#39; defaults to &#39;Undefined&#39; and supports &#39;Undefined&#39;, &#39;Estimate&#39;, &#39;Candidate&#39;, and &#39;Final&#39;.  Type &#39;PeriodBoundary&#39; defaults to &#39;Estimate&#39; when closing a period, and supports &#39;Estimate&#39; and &#39;Final&#39; for closing periods and &#39;Final&#39; for locking periods.  Type &#39;ValuationPoint&#39; defaults to &#39;Estimate&#39; when upserting a diary entry, moves to &#39;Candidate&#39; or &#39;Final&#39; when a ValuationPoint is accepted, and &#39;Final&#39; when it is finalised.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
+
+        /// <summary>
+        /// Defaults to false. Set to true if you want that the closed period to have the clear down applied.
+        /// </summary>
+        /// <value>Defaults to false. Set to true if you want that the closed period to have the clear down applied.</value>
+        [DataMember(Name = "applyClearDown", EmitDefaultValue = true)]
+        public bool ApplyClearDown { get; set; }
 
         /// <summary>
         /// The effective time of the diary entry.
@@ -169,6 +178,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  ApplyClearDown: ").Append(ApplyClearDown).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  QueryAsAt: ").Append(QueryAsAt).Append("\n");
             sb.Append("  PreviousEntryTime: ").Append(PreviousEntryTime).Append("\n");
@@ -241,6 +251,10 @@ namespace Lusid.Sdk.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
+                    this.ApplyClearDown == input.ApplyClearDown ||
+                    this.ApplyClearDown.Equals(input.ApplyClearDown)
+                ) && 
+                (
                     this.EffectiveAt == input.EffectiveAt ||
                     (this.EffectiveAt != null &&
                     this.EffectiveAt.Equals(input.EffectiveAt))
@@ -307,6 +321,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ApplyClearDown.GetHashCode();
                 if (this.EffectiveAt != null)
                 {
                     hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();

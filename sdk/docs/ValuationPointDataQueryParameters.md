@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Start** | [**DateOrDiaryEntry**](DateOrDiaryEntry.md) |  | [optional] 
 **End** | [**DateOrDiaryEntry**](DateOrDiaryEntry.md) |  | 
+**ExcludeCleardownModule** | **bool** | By deafult this flag is set to false, if this is set to true, no cleardown module will be applied to the trial balance. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

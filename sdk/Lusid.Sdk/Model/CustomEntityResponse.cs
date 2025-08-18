@@ -45,8 +45,9 @@ namespace Lusid.Sdk.Model
         /// <param name="identifiers">The identifiers the custom entity will be upserted with. (required).</param>
         /// <param name="fields">The fields that decorate the custom entity. (required).</param>
         /// <param name="relationships">A set of relationships associated to the custom entity. (required).</param>
+        /// <param name="properties">The properties that decorate the custom entity..</param>
         /// <param name="links">links.</param>
-        public CustomEntityResponse(string href = default(string), string entityType = default(string), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), string displayName = default(string), string description = default(string), List<CustomEntityId> identifiers = default(List<CustomEntityId>), List<CustomEntityField> fields = default(List<CustomEntityField>), List<Relationship> relationships = default(List<Relationship>), List<Link> links = default(List<Link>))
+        public CustomEntityResponse(string href = default(string), string entityType = default(string), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), string displayName = default(string), string description = default(string), List<CustomEntityId> identifiers = default(List<CustomEntityId>), List<CustomEntityField> fields = default(List<CustomEntityField>), List<Relationship> relationships = default(List<Relationship>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
         {
             // to ensure "entityType" is required (not null)
             if (entityType == null)
@@ -87,6 +88,7 @@ namespace Lusid.Sdk.Model
             this.Href = href;
             this.StagedModifications = stagedModifications;
             this.Description = description;
+            this.Properties = properties;
             this.Links = links;
         }
 
@@ -152,6 +154,13 @@ namespace Lusid.Sdk.Model
         public List<Relationship> Relationships { get; set; }
 
         /// <summary>
+        /// The properties that decorate the custom entity.
+        /// </summary>
+        /// <value>The properties that decorate the custom entity.</value>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public Dictionary<string, Property> Properties { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -174,6 +183,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  Fields: ").Append(Fields).Append("\n");
             sb.Append("  Relationships: ").Append(Relationships).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -259,6 +269,12 @@ namespace Lusid.Sdk.Model
                     this.Relationships.SequenceEqual(input.Relationships)
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -310,6 +326,10 @@ namespace Lusid.Sdk.Model
                 if (this.Relationships != null)
                 {
                     hashCode = (hashCode * 59) + this.Relationships.GetHashCode();
+                }
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 if (this.Links != null)
                 {

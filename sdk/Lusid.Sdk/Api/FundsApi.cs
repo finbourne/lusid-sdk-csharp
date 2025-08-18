@@ -148,6 +148,37 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> CreateFundV2WithHttpInfo(string scope, FundDefinitionRequest fundDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+        /// </summary>
+        /// <remarks>
+        /// Deletes the given Bookmark.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
+        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
+        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteBookmark(string scope, string code, string bookmarkCode, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+        /// </summary>
+        /// <remarks>
+        /// Deletes the given Bookmark.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
+        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
+        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteBookmarkWithHttpInfo(string scope, string code, string bookmarkCode, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] DeleteFee: Delete a Fee.
         /// </summary>
         /// <remarks>
@@ -916,6 +947,37 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> SetShareClassInstrumentsWithHttpInfo(string scope, string code, SetShareClassInstrumentsRequest setShareClassInstrumentsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+        /// </summary>
+        /// <remarks>
+        /// This method will update or upsert a Bookmark for the Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
+        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>FundCalendarEntry</returns>
+        FundCalendarEntry UpsertBookmark(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+        /// </summary>
+        /// <remarks>
+        /// This method will update or upsert a Bookmark for the Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
+        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of FundCalendarEntry</returns>
+        Lusid.Sdk.Client.ApiResponse<FundCalendarEntry> UpsertBookmarkWithHttpInfo(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
         /// </summary>
         /// <remarks>
@@ -1139,6 +1201,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> CreateFundV2WithHttpInfoAsync(string scope, FundDefinitionRequest fundDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+        /// </summary>
+        /// <remarks>
+        /// Deletes the given Bookmark.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
+        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
+        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteBookmarkAsync(string scope, string code, string bookmarkCode, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark.
+        /// </summary>
+        /// <remarks>
+        /// Deletes the given Bookmark.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
+        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
+        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteBookmarkWithHttpInfoAsync(string scope, string code, string bookmarkCode, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteFee: Delete a Fee.
         /// </summary>
@@ -1951,6 +2046,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> SetShareClassInstrumentsWithHttpInfoAsync(string scope, string code, SetShareClassInstrumentsRequest setShareClassInstrumentsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+        /// </summary>
+        /// <remarks>
+        /// This method will update or upsert a Bookmark for the Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
+        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of FundCalendarEntry</returns>
+        System.Threading.Tasks.Task<FundCalendarEntry> UpsertBookmarkAsync(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark.
+        /// </summary>
+        /// <remarks>
+        /// This method will update or upsert a Bookmark for the Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
+        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (FundCalendarEntry)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FundCalendarEntry>> UpsertBookmarkWithHttpInfoAsync(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
         /// </summary>
@@ -3142,6 +3270,258 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateFundV2", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
+        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
+        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteBookmark(string scope, string code, string bookmarkCode, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteBookmarkWithHttpInfo(scope, code, bookmarkCode, navTypeCode, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
+        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
+        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteBookmarkWithHttpInfo(string scope, string code, string bookmarkCode, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->DeleteBookmark");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->DeleteBookmark");
+            }
+
+            // verify the required parameter 'bookmarkCode' is set
+            if (bookmarkCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'bookmarkCode' when calling FundsApi->DeleteBookmark");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("bookmarkCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(bookmarkCode)); // path parameter
+            if (navTypeCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+
+            localVarRequestOptions.Operation = "FundsApi.DeleteBookmark";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/funds/{scope}/{code}/bookmarks/{bookmarkCode}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteBookmark", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
+        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
+        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteBookmarkAsync(string scope, string code, string bookmarkCode, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteBookmarkWithHttpInfoAsync(scope, code, bookmarkCode, navTypeCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
+        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
+        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteBookmarkWithHttpInfoAsync(string scope, string code, string bookmarkCode, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->DeleteBookmark");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->DeleteBookmark");
+            }
+
+            // verify the required parameter 'bookmarkCode' is set
+            if (bookmarkCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'bookmarkCode' when calling FundsApi->DeleteBookmark");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("bookmarkCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(bookmarkCode)); // path parameter
+            if (navTypeCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+
+            localVarRequestOptions.Operation = "FundsApi.DeleteBookmark";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/funds/{scope}/{code}/bookmarks/{bookmarkCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteBookmark", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -9230,6 +9610,266 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SetShareClassInstruments", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark. This method will update or upsert a Bookmark for the Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
+        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>FundCalendarEntry</returns>
+        public FundCalendarEntry UpsertBookmark(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<FundCalendarEntry> localVarResponse = UpsertBookmarkWithHttpInfo(scope, code, upsertFundBookmarkRequest, navTypeCode, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark. This method will update or upsert a Bookmark for the Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
+        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of FundCalendarEntry</returns>
+        public Lusid.Sdk.Client.ApiResponse<FundCalendarEntry> UpsertBookmarkWithHttpInfo(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->UpsertBookmark");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->UpsertBookmark");
+            }
+
+            // verify the required parameter 'upsertFundBookmarkRequest' is set
+            if (upsertFundBookmarkRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'upsertFundBookmarkRequest' when calling FundsApi->UpsertBookmark");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (navTypeCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            localVarRequestOptions.Data = upsertFundBookmarkRequest;
+
+            localVarRequestOptions.Operation = "FundsApi.UpsertBookmark";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<FundCalendarEntry>("/api/funds/{scope}/{code}/bookmarks", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertBookmark", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark. This method will update or upsert a Bookmark for the Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
+        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of FundCalendarEntry</returns>
+        public async System.Threading.Tasks.Task<FundCalendarEntry> UpsertBookmarkAsync(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<FundCalendarEntry> localVarResponse = await UpsertBookmarkWithHttpInfoAsync(scope, code, upsertFundBookmarkRequest, navTypeCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark. This method will update or upsert a Bookmark for the Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
+        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (FundCalendarEntry)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FundCalendarEntry>> UpsertBookmarkWithHttpInfoAsync(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->UpsertBookmark");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->UpsertBookmark");
+            }
+
+            // verify the required parameter 'upsertFundBookmarkRequest' is set
+            if (upsertFundBookmarkRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'upsertFundBookmarkRequest' when calling FundsApi->UpsertBookmark");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (navTypeCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            localVarRequestOptions.Data = upsertFundBookmarkRequest;
+
+            localVarRequestOptions.Operation = "FundsApi.UpsertBookmark";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<FundCalendarEntry>("/api/funds/{scope}/{code}/bookmarks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertBookmark", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

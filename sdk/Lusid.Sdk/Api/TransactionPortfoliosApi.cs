@@ -665,13 +665,14 @@ namespace Lusid.Sdk.Api
         /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfHoldingContributor</returns>
-        VersionedResourceListOfHoldingContributor GetHoldingContributors(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        VersionedResourceListOfHoldingContributor GetHoldingContributors(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetHoldingContributors: Get Holdings Contributors
@@ -688,13 +689,14 @@ namespace Lusid.Sdk.Api
         /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
-        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetHoldingContributorsWithHttpInfo(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetHoldingContributorsWithHttpInfo(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetHoldings: Get holdings
         /// </summary>
@@ -831,13 +833,14 @@ namespace Lusid.Sdk.Api
         /// <param name="toTransactionDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfHoldingContributor</returns>
-        VersionedResourceListOfHoldingContributor GetMultipleHoldingContributors(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        VersionedResourceListOfHoldingContributor GetMultipleHoldingContributors(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetMultipleHoldingContributors: Get Multiple Holding Contributors
@@ -854,13 +857,14 @@ namespace Lusid.Sdk.Api
         /// <param name="toTransactionDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
-        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetMultipleHoldingContributorsWithHttpInfo(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetMultipleHoldingContributorsWithHttpInfo(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetPortfolioCashFlows: Get portfolio cash flows
         /// </summary>
@@ -2231,6 +2235,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
@@ -2238,7 +2243,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfHoldingContributor</returns>
-        System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetHoldingContributorsAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetHoldingContributorsAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetHoldingContributors: Get Holdings Contributors
@@ -2255,6 +2260,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
@@ -2262,7 +2268,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfHoldingContributor)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetHoldingContributorsWithHttpInfoAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetHoldingContributorsWithHttpInfoAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetHoldings: Get holdings
         /// </summary>
@@ -2405,6 +2411,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toTransactionDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
@@ -2412,7 +2419,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfHoldingContributor</returns>
-        System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetMultipleHoldingContributorsAsync(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetMultipleHoldingContributorsAsync(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetMultipleHoldingContributors: Get Multiple Holding Contributors
@@ -2429,6 +2436,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toTransactionDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
@@ -2436,7 +2444,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfHoldingContributor)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetMultipleHoldingContributorsWithHttpInfoAsync(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetMultipleHoldingContributorsWithHttpInfoAsync(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetPortfolioCashFlows: Get portfolio cash flows
         /// </summary>
@@ -8373,15 +8381,16 @@ namespace Lusid.Sdk.Api
         /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfHoldingContributor</returns>
-        public VersionedResourceListOfHoldingContributor GetHoldingContributors(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public VersionedResourceListOfHoldingContributor GetHoldingContributors(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> localVarResponse = GetHoldingContributorsWithHttpInfo(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, limit, asAt, page, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> localVarResponse = GetHoldingContributorsWithHttpInfo(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -8397,13 +8406,14 @@ namespace Lusid.Sdk.Api
         /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetHoldingContributorsWithHttpInfo(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetHoldingContributorsWithHttpInfo(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8473,6 +8483,10 @@ namespace Lusid.Sdk.Api
             if (taxLotId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "taxLotId", taxLotId));
+            }
+            if (includeUnsettledMovements != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeUnsettledMovements", includeUnsettledMovements));
             }
             if (limit != null)
             {
@@ -8533,6 +8547,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
@@ -8540,9 +8555,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfHoldingContributor</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetHoldingContributorsAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetHoldingContributorsAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> localVarResponse = await GetHoldingContributorsWithHttpInfoAsync(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, limit, asAt, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> localVarResponse = await GetHoldingContributorsWithHttpInfoAsync(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8558,6 +8573,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
@@ -8565,7 +8581,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfHoldingContributor)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetHoldingContributorsWithHttpInfoAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetHoldingContributorsWithHttpInfoAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8636,6 +8652,10 @@ namespace Lusid.Sdk.Api
             if (taxLotId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "taxLotId", taxLotId));
+            }
+            if (includeUnsettledMovements != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeUnsettledMovements", includeUnsettledMovements));
             }
             if (limit != null)
             {
@@ -9609,15 +9629,16 @@ namespace Lusid.Sdk.Api
         /// <param name="toTransactionDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfHoldingContributor</returns>
-        public VersionedResourceListOfHoldingContributor GetMultipleHoldingContributors(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public VersionedResourceListOfHoldingContributor GetMultipleHoldingContributors(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> localVarResponse = GetMultipleHoldingContributorsWithHttpInfo(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, limit, asAt, page, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> localVarResponse = GetMultipleHoldingContributorsWithHttpInfo(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -9633,13 +9654,14 @@ namespace Lusid.Sdk.Api
         /// <param name="toTransactionDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetMultipleHoldingContributorsWithHttpInfo(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetMultipleHoldingContributorsWithHttpInfo(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -9719,6 +9741,10 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "taxLotId", taxLotId));
             }
+            if (includeUnsettledMovements != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeUnsettledMovements", includeUnsettledMovements));
+            }
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
@@ -9779,6 +9805,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toTransactionDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
@@ -9786,9 +9813,9 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfHoldingContributor</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetMultipleHoldingContributorsAsync(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetMultipleHoldingContributorsAsync(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> localVarResponse = await GetMultipleHoldingContributorsWithHttpInfoAsync(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, limit, asAt, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> localVarResponse = await GetMultipleHoldingContributorsWithHttpInfoAsync(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9804,6 +9831,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toTransactionDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
         /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
         /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
@@ -9811,7 +9839,7 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfHoldingContributor)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetMultipleHoldingContributorsWithHttpInfoAsync(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetMultipleHoldingContributorsWithHttpInfoAsync(string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -9891,6 +9919,10 @@ namespace Lusid.Sdk.Api
             if (taxLotId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "taxLotId", taxLotId));
+            }
+            if (includeUnsettledMovements != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeUnsettledMovements", includeUnsettledMovements));
             }
             if (limit != null)
             {
