@@ -56,7 +56,8 @@ namespace Lusid.Sdk.Model
         /// <param name="variationMarginPortfolioCcy">variationMarginPortfolioCcy.</param>
         /// <param name="settlementSchedule">Where no. of days ahead has been specified, future dated settlements will be captured here..</param>
         /// <param name="currentFace">Current face value of the holding..</param>
-        public PortfolioHolding(string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string holdingType = default(string), decimal units = default(decimal), decimal settledUnits = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), Transaction transaction = default(Transaction), string currency = default(string), string holdingTypeName = default(string), long? holdingId = default(long?), CurrencyAndAmount notionalCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCostPortfolioCcy = default(CurrencyAndAmount), CurrencyAndAmount variationMargin = default(CurrencyAndAmount), CurrencyAndAmount variationMarginPortfolioCcy = default(CurrencyAndAmount), List<SettlementSchedule> settlementSchedule = default(List<SettlementSchedule>), decimal? currentFace = default(decimal?))
+        /// <param name="custodianAccountId">custodianAccountId.</param>
+        public PortfolioHolding(string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string holdingType = default(string), decimal units = default(decimal), decimal settledUnits = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), Transaction transaction = default(Transaction), string currency = default(string), string holdingTypeName = default(string), long? holdingId = default(long?), CurrencyAndAmount notionalCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCostPortfolioCcy = default(CurrencyAndAmount), CurrencyAndAmount variationMargin = default(CurrencyAndAmount), CurrencyAndAmount variationMarginPortfolioCcy = default(CurrencyAndAmount), List<SettlementSchedule> settlementSchedule = default(List<SettlementSchedule>), decimal? currentFace = default(decimal?), ResourceId custodianAccountId = default(ResourceId))
         {
             // to ensure "instrumentUid" is required (not null)
             if (instrumentUid == null)
@@ -98,6 +99,7 @@ namespace Lusid.Sdk.Model
             this.VariationMarginPortfolioCcy = variationMarginPortfolioCcy;
             this.SettlementSchedule = settlementSchedule;
             this.CurrentFace = currentFace;
+            this.CustodianAccountId = custodianAccountId;
         }
 
         /// <summary>
@@ -233,6 +235,12 @@ namespace Lusid.Sdk.Model
         public decimal? CurrentFace { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustodianAccountId
+        /// </summary>
+        [DataMember(Name = "custodianAccountId", EmitDefaultValue = false)]
+        public ResourceId CustodianAccountId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -260,6 +268,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  VariationMarginPortfolioCcy: ").Append(VariationMarginPortfolioCcy).Append("\n");
             sb.Append("  SettlementSchedule: ").Append(SettlementSchedule).Append("\n");
             sb.Append("  CurrentFace: ").Append(CurrentFace).Append("\n");
+            sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -395,6 +404,11 @@ namespace Lusid.Sdk.Model
                     this.CurrentFace == input.CurrentFace ||
                     (this.CurrentFace != null &&
                     this.CurrentFace.Equals(input.CurrentFace))
+                ) && 
+                (
+                    this.CustodianAccountId == input.CustodianAccountId ||
+                    (this.CustodianAccountId != null &&
+                    this.CustodianAccountId.Equals(input.CustodianAccountId))
                 );
         }
 
@@ -480,6 +494,10 @@ namespace Lusid.Sdk.Model
                 if (this.CurrentFace != null)
                 {
                     hashCode = (hashCode * 59) + this.CurrentFace.GetHashCode();
+                }
+                if (this.CustodianAccountId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianAccountId.GetHashCode();
                 }
                 return hashCode;
             }

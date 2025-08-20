@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentIdentifiers">A set of instrument identifiers that can resolve the holding adjustment to a unique instrument. (required).</param>
         /// <param name="subHoldingKeys">The sub-holding properties which identify the holding. Each property must be from the &#39;Transaction&#39; domain..</param>
         /// <param name="currency">The Holding currency..</param>
-        public CancelSingleHoldingAdjustmentRequest(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string currency = default(string))
+        /// <param name="custodianAccountId">custodianAccountId.</param>
+        public CancelSingleHoldingAdjustmentRequest(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string currency = default(string), ResourceId custodianAccountId = default(ResourceId))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
@@ -49,6 +50,7 @@ namespace Lusid.Sdk.Model
             this.InstrumentIdentifiers = instrumentIdentifiers;
             this.SubHoldingKeys = subHoldingKeys;
             this.Currency = currency;
+            this.CustodianAccountId = custodianAccountId;
         }
 
         /// <summary>
@@ -73,6 +75,12 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustodianAccountId
+        /// </summary>
+        [DataMember(Name = "custodianAccountId", EmitDefaultValue = false)]
+        public ResourceId CustodianAccountId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +91,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentIdentifiers: ").Append(InstrumentIdentifiers).Append("\n");
             sb.Append("  SubHoldingKeys: ").Append(SubHoldingKeys).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,6 +143,11 @@ namespace Lusid.Sdk.Model
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.CustodianAccountId == input.CustodianAccountId ||
+                    (this.CustodianAccountId != null &&
+                    this.CustodianAccountId.Equals(input.CustodianAccountId))
                 );
         }
 
@@ -157,6 +171,10 @@ namespace Lusid.Sdk.Model
                 if (this.Currency != null)
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                if (this.CustodianAccountId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianAccountId.GetHashCode();
                 }
                 return hashCode;
             }

@@ -45,7 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="actualSettlementDate">actualSettlementDate (required).</param>
         /// <param name="units">units (required).</param>
         /// <param name="subHoldingKeyOverrides">subHoldingKeyOverrides.</param>
-        public SettlementInstructionRequest(string settlementInstructionId = default(string), string transactionId = default(string), string settlementCategory = default(string), string instructionType = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), DateTimeOffset actualSettlementDate = default(DateTimeOffset), decimal units = default(decimal), Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = default(Dictionary<string, PerpetualProperty>))
+        /// <param name="custodianAccountOverride">custodianAccountOverride.</param>
+        public SettlementInstructionRequest(string settlementInstructionId = default(string), string transactionId = default(string), string settlementCategory = default(string), string instructionType = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), DateTimeOffset actualSettlementDate = default(DateTimeOffset), decimal units = default(decimal), Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = default(Dictionary<string, PerpetualProperty>), ResourceId custodianAccountOverride = default(ResourceId))
         {
             // to ensure "settlementInstructionId" is required (not null)
             if (settlementInstructionId == null)
@@ -76,6 +77,7 @@ namespace Lusid.Sdk.Model
             this.InstructionType = instructionType;
             this.ContractualSettlementDate = contractualSettlementDate;
             this.SubHoldingKeyOverrides = subHoldingKeyOverrides;
+            this.CustodianAccountOverride = custodianAccountOverride;
         }
 
         /// <summary>
@@ -133,6 +135,12 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> SubHoldingKeyOverrides { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustodianAccountOverride
+        /// </summary>
+        [DataMember(Name = "custodianAccountOverride", EmitDefaultValue = false)]
+        public ResourceId CustodianAccountOverride { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -149,6 +157,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ActualSettlementDate: ").Append(ActualSettlementDate).Append("\n");
             sb.Append("  Units: ").Append(Units).Append("\n");
             sb.Append("  SubHoldingKeyOverrides: ").Append(SubHoldingKeyOverrides).Append("\n");
+            sb.Append("  CustodianAccountOverride: ").Append(CustodianAccountOverride).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -229,6 +238,11 @@ namespace Lusid.Sdk.Model
                     this.SubHoldingKeyOverrides != null &&
                     input.SubHoldingKeyOverrides != null &&
                     this.SubHoldingKeyOverrides.SequenceEqual(input.SubHoldingKeyOverrides)
+                ) && 
+                (
+                    this.CustodianAccountOverride == input.CustodianAccountOverride ||
+                    (this.CustodianAccountOverride != null &&
+                    this.CustodianAccountOverride.Equals(input.CustodianAccountOverride))
                 );
         }
 
@@ -273,6 +287,10 @@ namespace Lusid.Sdk.Model
                 if (this.SubHoldingKeyOverrides != null)
                 {
                     hashCode = (hashCode * 59) + this.SubHoldingKeyOverrides.GetHashCode();
+                }
+                if (this.CustodianAccountOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianAccountOverride.GetHashCode();
                 }
                 return hashCode;
             }

@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Set of unique holding properties and associated values to store with the target holding. Each property must be from the &#39;Holding&#39; domain..</param>
         /// <param name="taxLots">The tax-lots that together make up the target holding. (required).</param>
         /// <param name="currency">The Holding currency. This needs to be equal with the one on the TaxLot -&gt; cost if one is specified.</param>
-        public AdjustHoldingForDateRequest(DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TargetTaxLotRequest> taxLots = default(List<TargetTaxLotRequest>), string currency = default(string))
+        /// <param name="custodianAccountId">custodianAccountId.</param>
+        public AdjustHoldingForDateRequest(DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TargetTaxLotRequest> taxLots = default(List<TargetTaxLotRequest>), string currency = default(string), ResourceId custodianAccountId = default(ResourceId))
         {
             // to ensure "effectiveAt" is required (not null)
             if (effectiveAt == null)
@@ -65,6 +66,7 @@ namespace Lusid.Sdk.Model
             this.SubHoldingKeys = subHoldingKeys;
             this.Properties = properties;
             this.Currency = currency;
+            this.CustodianAccountId = custodianAccountId;
         }
 
         /// <summary>
@@ -110,6 +112,12 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustodianAccountId
+        /// </summary>
+        [DataMember(Name = "custodianAccountId", EmitDefaultValue = false)]
+        public ResourceId CustodianAccountId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -123,6 +131,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  TaxLots: ").Append(TaxLots).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -191,6 +200,11 @@ namespace Lusid.Sdk.Model
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.CustodianAccountId == input.CustodianAccountId ||
+                    (this.CustodianAccountId != null &&
+                    this.CustodianAccountId.Equals(input.CustodianAccountId))
                 );
         }
 
@@ -226,6 +240,10 @@ namespace Lusid.Sdk.Model
                 if (this.Currency != null)
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                if (this.CustodianAccountId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianAccountId.GetHashCode();
                 }
                 return hashCode;
             }

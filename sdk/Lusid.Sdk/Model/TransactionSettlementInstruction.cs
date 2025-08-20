@@ -45,7 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="lusidInstrumentId">The LusidInstrumentId of the instrument being settled. (required).</param>
         /// <param name="contractualSettlementDate">The contractual settlement date. Used to match the instruction to the correct settlement bucket..</param>
         /// <param name="subHoldingKeyOverrides">Allows one or more sub-holding keys to be overridden for any movement being settled by an instruction. Providing a key and value will set the sub-holding key to the specified value; Providing a key only will nullify the sub-holding key. Not referenced sub-holding keys will not be impacted. .</param>
-        public TransactionSettlementInstruction(string settlementInstructionId = default(string), string instructionType = default(string), DateTimeOffset actualSettlementDate = default(DateTimeOffset), decimal units = default(decimal), string transactionId = default(string), string settlementCategory = default(string), string lusidInstrumentId = default(string), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = default(Dictionary<string, PerpetualProperty>))
+        /// <param name="custodianAccountOverride">custodianAccountOverride.</param>
+        public TransactionSettlementInstruction(string settlementInstructionId = default(string), string instructionType = default(string), DateTimeOffset actualSettlementDate = default(DateTimeOffset), decimal units = default(decimal), string transactionId = default(string), string settlementCategory = default(string), string lusidInstrumentId = default(string), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = default(Dictionary<string, PerpetualProperty>), ResourceId custodianAccountOverride = default(ResourceId))
         {
             // to ensure "settlementInstructionId" is required (not null)
             if (settlementInstructionId == null)
@@ -81,6 +82,7 @@ namespace Lusid.Sdk.Model
             this.LusidInstrumentId = lusidInstrumentId;
             this.ContractualSettlementDate = contractualSettlementDate;
             this.SubHoldingKeyOverrides = subHoldingKeyOverrides;
+            this.CustodianAccountOverride = custodianAccountOverride;
         }
 
         /// <summary>
@@ -147,6 +149,12 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> SubHoldingKeyOverrides { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustodianAccountOverride
+        /// </summary>
+        [DataMember(Name = "custodianAccountOverride", EmitDefaultValue = false)]
+        public ResourceId CustodianAccountOverride { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -163,6 +171,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
             sb.Append("  ContractualSettlementDate: ").Append(ContractualSettlementDate).Append("\n");
             sb.Append("  SubHoldingKeyOverrides: ").Append(SubHoldingKeyOverrides).Append("\n");
+            sb.Append("  CustodianAccountOverride: ").Append(CustodianAccountOverride).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -242,6 +251,11 @@ namespace Lusid.Sdk.Model
                     this.SubHoldingKeyOverrides != null &&
                     input.SubHoldingKeyOverrides != null &&
                     this.SubHoldingKeyOverrides.SequenceEqual(input.SubHoldingKeyOverrides)
+                ) && 
+                (
+                    this.CustodianAccountOverride == input.CustodianAccountOverride ||
+                    (this.CustodianAccountOverride != null &&
+                    this.CustodianAccountOverride.Equals(input.CustodianAccountOverride))
                 );
         }
 
@@ -286,6 +300,10 @@ namespace Lusid.Sdk.Model
                 if (this.SubHoldingKeyOverrides != null)
                 {
                     hashCode = (hashCode * 59) + this.SubHoldingKeyOverrides.GetHashCode();
+                }
+                if (this.CustodianAccountOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianAccountOverride.GetHashCode();
                 }
                 return hashCode;
             }

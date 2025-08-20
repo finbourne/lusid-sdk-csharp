@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **VariationMarginPortfolioCcy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **SettlementSchedule** | [**List&lt;SettlementSchedule&gt;**](SettlementSchedule.md) | Where no. of days ahead has been specified, future dated settlements will be captured here. | [optional] 
 **CurrentFace** | **decimal?** | Current face value of the holding. | [optional] 
+**CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
